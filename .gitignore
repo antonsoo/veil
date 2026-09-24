@@ -14,3 +14,9 @@ node_modules/
 docs/site/
 *.log
 .DS_Store
+
+# Generated, not committed: it's reproducible from a fixed seed (see
+# README "Measured results"), and its secret-detector fixtures are
+# synthetic strings shaped enough like real API keys that public secret
+# scanners flag committed copies as leaked credentials.
+benchmarks/*.jsonl
