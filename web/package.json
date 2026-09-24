@@ -1,0 +1,23 @@
+{
+  "name": "veil-demo",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Browser demo of veil (reversible PII masking), running the real Python package via Pyodide.",
+  "author": "Anton Soloviev",
+  "license": "MIT",
+  "repository": "github:antonsoo/veil",
+  "homepage": "https://antonsoo.github.io/veil/",
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/copy-veil-src.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/copy-veil-src.mjs",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5"
+  }
+}
