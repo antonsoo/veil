@@ -41,11 +41,7 @@ def _cmd_mask(args: argparse.Namespace) -> int:
 
 def _cmd_restore(args: argparse.Namespace) -> int:
     text = _read_input(args.input)
-    try:
-        vault = Vault.load(args.vault)
-    except (FileNotFoundError, VaultError) as exc:
-        print(f"veil restore: {exc}", file=sys.stderr)
-        return 1
+    vault = Vault.load(args.vault)
     restored = restore_exact(text, vault) if args.exact else restore_tolerant(text, vault)
     sys.stdout.write(restored)
     if not restored.endswith("\n"):
@@ -55,11 +51,7 @@ def _cmd_restore(args: argparse.Namespace) -> int:
 
 def _cmd_audit(args: argparse.Namespace) -> int:
     text = _read_input(args.input)
-    try:
-        vault = Vault.load(args.vault)
-    except (FileNotFoundError, VaultError) as exc:
-        print(f"veil audit: {exc}", file=sys.stderr)
-        return 1
+    vault = Vault.load(args.vault)
     findings = audit(text, vault)
     if args.json:
         payload = [
@@ -119,7 +111,17 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: Sequence[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
-    return int(args.func(args))
+    try:
+        return int(args.func(args))
+    except FileNotFoundError as exc:
+        print(f"veil {args.command}: file not found: {exc.filename}", file=sys.stderr)
+        return 2
+    except UnicodeDecodeError as exc:
+        print(f"veil {args.command}: could not decode input as UTF-8: {exc}", file=sys.stderr)
+        return 2
+    except VaultError as exc:
+        print(f"veil {args.command}: {exc}", file=sys.stderr)
+        return 2
 
 
 if __name__ == "__main__":  # pragma: no cover
