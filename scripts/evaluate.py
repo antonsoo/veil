@@ -89,7 +89,9 @@ def measure_throughput(rows: list[dict[str, Any]], repeats: int = 5) -> dict[str
     return {"mb_per_s": mb_per_s, "elapsed_s": elapsed, "total_mb": total_bytes / (1024 * 1024)}
 
 
-def measure_streaming_overhead(rows: list[dict[str, Any]], chunk_size: int = 24) -> dict[str, float]:
+def measure_streaming_overhead(
+    rows: list[dict[str, Any]], chunk_size: int = 24
+) -> dict[str, float]:
     """Compare restoring a masked reply in one shot vs. streamed in fixed
     chunks. The two should already be correct-equivalent (see the
     Hypothesis property tests) - this only measures the speed delta.
@@ -110,7 +112,9 @@ def measure_streaming_overhead(rows: list[dict[str, Any]], chunk_size: int = 24)
         "".join(parts)
     streamed_s = time.perf_counter() - start
 
-    overhead_pct = (streamed_s - non_streamed_s) / non_streamed_s * 100 if non_streamed_s else float("nan")
+    overhead_pct = (
+        (streamed_s - non_streamed_s) / non_streamed_s * 100 if non_streamed_s else float("nan")
+    )
     return {
         "non_streamed_s": non_streamed_s,
         "streamed_s": streamed_s,
@@ -134,12 +138,16 @@ def main() -> None:
         for k in totals:
             totals[k] += c[k]
     p, r, f1 = precision_recall_f1(totals["tp"], totals["fp"], totals["fn"])
-    print(f"{'TOTAL':<16}{totals['tp']:>6}{totals['fp']:>6}{totals['fn']:>6}{p:>12.3f}{r:>10.3f}{f1:>8.3f}")
+    print(
+        f"{'TOTAL':<16}{totals['tp']:>6}{totals['fp']:>6}{totals['fn']:>6}{p:>12.3f}{r:>10.3f}{f1:>8.3f}"
+    )
 
     print(f"\nMachine: {platform.platform()}, Python {platform.python_version()}")
 
     tp = measure_throughput(rows)
-    print(f"\nMasking throughput: {tp['mb_per_s']:.2f} MB/s ({tp['total_mb']:.2f} MB in {tp['elapsed_s']:.3f}s)")
+    print(
+        f"\nMasking throughput: {tp['mb_per_s']:.2f} MB/s ({tp['total_mb']:.2f} MB in {tp['elapsed_s']:.3f}s)"
+    )
 
     ov = measure_streaming_overhead(rows)
     print(

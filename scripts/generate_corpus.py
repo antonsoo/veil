@@ -94,7 +94,9 @@ class TextBuilder:
 
 
 def make_email(rng: random.Random) -> str:
-    return f"{rng.choice(FIRST_NAMES).lower()}.{rng.choice(LAST_NAMES).lower()}@{rng.choice(DOMAINS)}"
+    return (
+        f"{rng.choice(FIRST_NAMES).lower()}.{rng.choice(LAST_NAMES).lower()}@{rng.choice(DOMAINS)}"
+    )
 
 
 def make_phone(rng: random.Random) -> str:
@@ -187,7 +189,7 @@ def clinical_note(rng: random.Random, i: int) -> TextBuilder:
     b.entity(make_dob(rng), "DOB")
     b.text("\nContact email on file: ")
     b.entity(make_email(rng), "EMAIL")
-    b.text(f"\n\nNotes: patient was born on the date above and presents for a routine follow-up. ")
+    b.text("\n\nNotes: patient was born on the date above and presents for a routine follow-up. ")
     b.text(rng.choice(FILLER_SENTENCES))
     b.text(" Emergency contact phone: ")
     b.entity(make_phone(rng), "PHONE")
@@ -237,7 +239,7 @@ def generate(n_per_template: int, seed: int = SEED) -> list[dict[str, Any]]:
     rows = []
     doc_id = 0
     for template, category in zip(TEMPLATES, CATEGORY_NAMES, strict=True):
-        for i in range(n_per_template):
+        for _ in range(n_per_template):
             builder = template(rng, doc_id)
             rows.append(
                 {
