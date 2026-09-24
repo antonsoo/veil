@@ -12,7 +12,12 @@ import re
 
 from veil.types import Entity, EntityType, Span
 
-_IPV4_RE = re.compile(r"(?<![\w.])(?:\d{1,3}\.){3}\d{1,3}(?![\w.])")
+# Trailing lookahead: block a following word char (glued alphanumeric) and
+# specifically "another dotted digit" (a 5th octet - not a valid IPv4, so
+# this candidate is really a prefix of some other dotted-number sequence).
+# A bare trailing "." that *isn't* followed by a digit (ordinary sentence
+# punctuation, e.g. "...at 10.0.0.1.") is deliberately allowed through.
+_IPV4_RE = re.compile(r"(?<![\w.])(?:\d{1,3}\.){3}\d{1,3}(?!\w)(?!\.\d)")
 _IPV6_RE = re.compile(r"(?<![\w:])(?:[0-9A-Fa-f]{0,4}:){2,7}[0-9A-Fa-f]{0,4}(?![\w:])")
 
 

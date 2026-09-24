@@ -32,6 +32,13 @@ def test_known_issuer_ranges() -> None:
     assert known_issuer("6011111111111117") is True  # Discover
 
 
+def test_does_not_flag_digits_inside_a_valid_iban() -> None:
+    # The digits after NL's 2-letter country code can coincidentally pass
+    # Luhn (this exact IBAN did, when found via the synthetic eval corpus);
+    # defer to the dedicated, more authoritative IBAN detector instead.
+    assert d.find("Wire refund to IBAN NL2743171390053293 today") == []
+
+
 def test_unknown_issuer_but_luhn_valid_is_lower_confidence() -> None:
     # A Luhn-valid number outside our documented issuer ranges is still
     # reported, just at reduced confidence.

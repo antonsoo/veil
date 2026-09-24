@@ -5,12 +5,18 @@ digits (IIN / issuer identification number) and total length against the
 publicly documented ranges for the major networks. A number that passes
 Luhn but matches no known issuer range is still reported, at lower
 confidence, since new/private ranges exist that we don't enumerate.
+
+A run of 13-19 digits embedded in a longer digit string (e.g. the BBAN
+portion of an IBAN, right after the 2-letter country code) can coincidentally
+pass Luhn about 1 time in 10. To cut that down, a candidate overlapping a
+span :class:`~veil.detectors.iban.IbanDetector` recognizes is dropped.
 """
 
 from __future__ import annotations
 
 import re
 
+from veil.detectors.iban import IbanDetector
 from veil.types import Entity, EntityType, Span
 
 _CANDIDATE_RE = re.compile(r"(?<!\d)(?:\d[ -]?){13,19}(?!\d)")
@@ -46,18 +52,25 @@ def known_issuer(digits: str) -> bool:
 class CardDetector:
     name = "card"
 
+    def __init__(self) -> None:
+        self._iban_detector = IbanDetector()
+
     def find(self, text: str) -> list[Entity]:
+        iban_spans = [e.span for e in self._iban_detector.find(text)]
         out: list[Entity] = []
         for m in _CANDIDATE_RE.finditer(text):
             raw = m.group(0)
             digits = re.sub(r"[ -]", "", raw)
             if not (13 <= len(digits) <= 19) or not luhn_ok(digits):
                 continue
+            span = Span(m.start(), m.end())
+            if any(span.overlaps(c) for c in iban_spans):
+                continue
             out.append(
                 Entity(
                     type=EntityType.CARD,
                     value=raw,
-                    span=Span(m.start(), m.end()),
+                    span=span,
                     detector=self.name,
                     confidence=0.98 if known_issuer(digits) else 0.7,
                 )

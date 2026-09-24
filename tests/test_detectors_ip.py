@@ -28,6 +28,15 @@ def test_finds_compressed_ipv6() -> None:
     assert len(entities) == 1
 
 
+def test_finds_ipv4_immediately_before_sentence_period() -> None:
+    entities = d.find("The affected host is 228.181.198.80. Please check it.")
+    assert [e.value for e in entities] == ["228.181.198.80"]
+
+
+def test_does_not_match_prefix_of_longer_dotted_sequence() -> None:
+    assert d.find("version 1.2.3.4.5 released") == []
+
+
 def test_ignores_plain_version_number() -> None:
     # "1.2.3" alone has only 3 octets: not a valid IPv4.
     assert d.find("release 1.2.3") == []

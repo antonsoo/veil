@@ -35,3 +35,11 @@ def test_rejects_leading_trailing_dot_local() -> None:
 def test_does_not_match_inside_longer_token() -> None:
     # A URL query value shouldn't be swallowed past its real boundary.
     assert values("see notanemail@examplecomx") == []
+
+
+def test_finds_email_with_apostrophe_in_local_part() -> None:
+    assert values("Contact morgan.o'brien@example.org today.") == ["morgan.o'brien@example.org"]
+
+
+def test_finds_email_with_underscore_in_local_part() -> None:
+    assert values("first_last@example.com") == ["first_last@example.com"]

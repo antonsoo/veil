@@ -19,8 +19,11 @@ _SUFFIXES = (
     "Highway|Hwy"
 )
 
+# No trailing `\.?` after the suffix: a period there is ambiguous between
+# an abbreviation ("St.") and a sentence-ending full stop ("... Court."),
+# and swallowing the latter into the match is the worse failure mode.
 _ADDRESS_RE = re.compile(
-    rf"\b\d{{1,6}}\s+(?:[A-Z][a-zA-Z'.-]*\s){{1,4}}(?:{_SUFFIXES})\b\.?"
+    rf"\b\d{{1,6}}\s+(?:[A-Z][a-zA-Z'.-]*\s){{1,4}}(?:{_SUFFIXES})\b"
     rf"(?:\s*,?\s*(?:Apt|Suite|Ste|Unit|#)\s*\.?\s*[A-Za-z0-9-]+)?",
 )
 

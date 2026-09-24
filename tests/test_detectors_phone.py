@@ -38,3 +38,13 @@ def test_rejects_short_number() -> None:
 
 def test_prose_with_no_phone_number_matches_nothing() -> None:
     assert values("Invoice #4471 was paid on time.") == []
+
+
+def test_does_not_flag_ipv4_address_as_phone() -> None:
+    # A dot-separated IPv4 address is structurally identical to a
+    # dot-separated phone number; defer to the dedicated IP detector.
+    assert values("The affected host is 190.229.140.23 today.") == []
+
+
+def test_still_finds_genuine_dot_separated_phone() -> None:
+    assert values("Call 202.555.0143 for support.") == ["202.555.0143"]

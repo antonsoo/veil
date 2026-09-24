@@ -13,8 +13,8 @@ import re
 from veil.types import Entity, EntityType, Span
 
 _EMAIL_RE = re.compile(
-    r"(?<![\w.+-])"
-    r"(?P<local>[A-Za-z0-9][A-Za-z0-9._%+-]{0,63})"
+    r"(?<![\w.+'-])"
+    r"(?P<local>[A-Za-z0-9_][A-Za-z0-9._%+'-]{0,63})"
     r"@"
     r"(?P<domain>[A-Za-z0-9](?:[A-Za-z0-9-]{0,62}[A-Za-z0-9])?"
     r"(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,62}[A-Za-z0-9])?)*"
