@@ -6,8 +6,13 @@ surrogates, and restore the originals in the answer — streaming included.
 
 [![CI](https://github.com/antonsoo/veil/actions/workflows/ci.yml/badge.svg)](https://github.com/antonsoo/veil/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Live demo](https://img.shields.io/badge/live%20demo-antonsoo.github.io%2Fveil-3f6d69)](https://antonsoo.github.io/veil/)
 
 ![veil mask, then the vault it produces](docs/assets/hero.png)
+
+**[Try the live demo →](https://antonsoo.github.io/veil/)** — runs the
+real Python package in your browser via [Pyodide](https://pyodide.org),
+nothing leaves the page. (`web/`; see [Web demo](#web-demo) below.)
 
 ## Why this exists
 
@@ -160,6 +165,24 @@ update the card on file (⟨CARD_1⟩) but the charge failed.
 $ veil restore masked_reply.txt --vault vault.json
 $ veil audit outgoing_reply.txt --vault vault.json   # exit 1 if anything leaked
 ```
+
+## Web demo
+
+[antonsoo.github.io/veil](https://antonsoo.github.io/veil/) runs the
+*actual* `veil` Python package in the browser via
+[Pyodide](https://pyodide.org) (loaded from cdn.jsdelivr.net) — the
+`web/scripts/copy-veil-src.mjs` build step bundles `src/veil`'s real
+source (zero runtime dependencies makes this possible with no wheel
+build) so the demo is never a JS reimplementation drifting from the
+library. Paste a prompt, mask it, and watch a simulated reply stream back
+through the real `Restorer`, one random-sized chunk at a time:
+
+![The web demo: masked prompt, vault, and a streamed-and-restored simulated reply](docs/assets/demo.png)
+
+Everything — Pyodide, the package source, the whole interaction — stays
+in that browser tab; nothing is sent anywhere, which the page itself
+says. Built with Vite + TypeScript in `web/`; `npm run dev` there for
+local development.
 
 ## Measured results
 
