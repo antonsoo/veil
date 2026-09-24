@@ -259,7 +259,7 @@ positives found via synthetic corpus evaluation`.
 git clone https://github.com/antonsoo/veil
 cd veil
 uv sync --group dev
-uv run pytest          # 147 tests, including Hypothesis property tests
+uv run pytest          # 148 tests, including Hypothesis property tests
 uv run ruff check .    # lint
 uv run mypy            # typecheck (strict)
 ```
