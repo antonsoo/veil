@@ -35,3 +35,25 @@ def test_finds_bare_digits_with_ssn_context() -> None:
 
 def test_rejects_invalid_area_even_with_dashes() -> None:
     assert d.find("Ref 000-45-6789") == []
+
+
+def test_ignores_zip_plus_four() -> None:
+    # 5 digits + dash + 4 digits parses as area(3)+group(2)+serial(4) if
+    # separators aren't required to be consistent at both gaps.
+    assert d.find("Ship to ZIP 22156-7224.") == []
+
+
+def test_ignores_space_separated_zip_plus_four_shape() -> None:
+    assert d.find("Ship to ZIP 22156 7224.") == []
+
+
+def test_finds_ssn_with_space_separators() -> None:
+    entities = d.find("SSN on file: 123 45 6789.")
+    assert len(entities) == 1
+    assert entities[0].value == "123 45 6789"
+
+
+def test_rejects_mixed_separators() -> None:
+    # A dash before the group but a space before the serial (or vice
+    # versa) isn't how a real SSN is written.
+    assert d.find("Ref 123-45 6789") == []

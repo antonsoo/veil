@@ -75,6 +75,30 @@ def precision_recall_f1(tp: int, fp: int, fn: int) -> tuple[float, float, float]
     return precision, recall, f1
 
 
+def measure_benign_false_positive_rate(rows: list[dict[str, Any]]) -> dict[str, float]:
+    """False positives per 1,000 words on documents with **zero**
+    ground-truth entities (the ``clean_negative`` and ``benign_numbers``
+    categories - ordinary text saturated with non-PII numbers: dates,
+    order/invoice/ticket IDs, ZIP+4, tracking numbers, prices, room and
+    build numbers). Every detector hit on one of these documents is, by
+    construction, a false positive.
+    """
+    detectors = all_detectors()
+    benign_rows = [r for r in rows if not r["entities"]]
+    total_words = sum(len(r["text"].split()) for r in benign_rows)
+    total_fp = 0
+    for row in benign_rows:
+        for detector in detectors:
+            total_fp += len(detector.find(row["text"]))
+    per_1000 = (total_fp / total_words) * 1000 if total_words else float("nan")
+    return {
+        "documents": len(benign_rows),
+        "words": total_words,
+        "false_positives": total_fp,
+        "per_1000_words": per_1000,
+    }
+
+
 def measure_throughput(rows: list[dict[str, Any]], repeats: int = 5) -> dict[str, float]:
     texts = [r["text"] for r in rows]
     total_bytes = sum(len(t.encode("utf-8")) for t in texts) * repeats
@@ -143,6 +167,13 @@ def main() -> None:
     )
 
     print(f"\nMachine: {platform.platform()}, Python {platform.python_version()}")
+
+    fpr = measure_benign_false_positive_rate(rows)
+    print(
+        f"\nBenign false positives: {fpr['per_1000_words']:.2f} per 1,000 words "
+        f"({int(fpr['false_positives'])} FPs over {int(fpr['words'])} words, "
+        f"{int(fpr['documents'])} zero-PII documents)"
+    )
 
     tp = measure_throughput(rows)
     print(

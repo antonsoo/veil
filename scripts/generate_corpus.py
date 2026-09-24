@@ -141,6 +141,62 @@ def make_name(rng: random.Random) -> str:
     return f"{rng.choice(FIRST_NAMES)} {rng.choice(LAST_NAMES)}"
 
 
+# --- Benign, non-PII numeric shapes: exercises the false-positive side of
+# the evaluation (see benign_numbers() below). These are the same digit
+# shapes that historically over-triggered the phone detector: ISO dates,
+# order/invoice/ticket numbers, ZIP+4, carrier tracking numbers, prices,
+# room numbers, and version/build strings.
+
+
+def make_iso_date(rng: random.Random) -> str:
+    return f"{rng.randint(2020, 2027)}-{rng.randint(1, 12):02d}-{rng.randint(1, 28):02d}"
+
+
+def make_dmy_date(rng: random.Random) -> str:
+    return f"{rng.randint(1, 28):02d}-{rng.randint(1, 12):02d}-{rng.randint(2020, 2027)}"
+
+
+def make_time(rng: random.Random) -> str:
+    return f"{rng.randint(0, 23):02d}:{rng.randint(0, 59):02d}:{rng.randint(0, 59):02d}"
+
+
+def make_order_number(rng: random.Random) -> str:
+    return f"#{rng.randint(1000, 9999)}-{rng.randint(1000, 9999)}"
+
+
+def make_invoice_id(rng: random.Random) -> str:
+    return f"INV-{rng.randint(100, 999)}-{rng.randint(100, 999)}-{rng.randint(1000, 9999)}"
+
+
+def make_ticket_id(rng: random.Random) -> str:
+    return f"#{rng.randint(100, 999)}-{rng.randint(100, 999)}-{rng.randint(1000, 9999)}"
+
+
+def make_zip_plus_four(rng: random.Random) -> str:
+    return f"{rng.randint(10000, 99999)}-{rng.randint(1000, 9999)}"
+
+
+def make_tracking_number(rng: random.Random) -> str:
+    body = "".join(rng.choices(string.digits, k=10))
+    return f"1Z{''.join(rng.choices(string.ascii_uppercase, k=3))}{rng.randint(10, 99)}{body}"
+
+
+def make_price(rng: random.Random) -> str:
+    return f"${rng.randint(1, 9999):,}.{rng.randint(0, 99):02d}"
+
+
+def make_room_number(rng: random.Random) -> str:
+    return f"Room {rng.randint(100, 499)}"
+
+
+def make_build_number(rng: random.Random) -> str:
+    return f"{rng.randint(2020, 2027)}.{rng.randint(1, 12):02d}.{rng.randint(1, 28):02d}.{rng.randint(1000, 9999)}"
+
+
+def make_version(rng: random.Random) -> str:
+    return f"{rng.randint(1, 9)}.{rng.randint(0, 30)}.{rng.randint(0, 30)}"
+
+
 def support_ticket(rng: random.Random, i: int) -> TextBuilder:
     b = TextBuilder()
     name = make_name(rng)
@@ -224,13 +280,45 @@ def clean_negative(rng: random.Random, i: int) -> TextBuilder:
     return b
 
 
-TEMPLATES = [support_ticket, billing_dispute, clinical_note, devops_incident_email, clean_negative]
+def benign_numbers(rng: random.Random, i: int) -> TextBuilder:
+    """Ordinary business text saturated with non-PII numbers that are
+    structurally close to something a detector might over-trigger on:
+    dates, order/invoice/ticket IDs, ZIP+4, carrier tracking numbers,
+    prices, room numbers, and version/build strings. Zero ground-truth
+    entities — every number here should be left alone. This is what
+    scripts/evaluate.py's false-positives-per-1,000-words figure is
+    measured against.
+    """
+    b = TextBuilder()
+    b.text(f"Order {make_order_number(rng)} shipped on {make_iso_date(rng)} ")
+    b.text(f"for {make_price(rng)}. ")
+    b.text(f"Tracking number {make_tracking_number(rng)} shows delivery expected ")
+    b.text(f"by {make_dmy_date(rng)} around {make_time(rng)}. ")
+    b.text(f"See invoice {make_invoice_id(rng)} for the full breakdown, or reference ")
+    b.text(f"ticket {make_ticket_id(rng)} if anything looks wrong. ")
+    b.text(f"Ship to ZIP {make_zip_plus_four(rng)}. ")
+    b.text(f"{rng.choice(FILLER_SENTENCES)} ")
+    b.text(f"We meet in {make_room_number(rng)} to review the {make_build_number(rng)} ")
+    b.text(f"release (client library {make_version(rng)}). ")
+    b.text(rng.choice(FILLER_SENTENCES))
+    return b
+
+
+TEMPLATES = [
+    support_ticket,
+    billing_dispute,
+    clinical_note,
+    devops_incident_email,
+    clean_negative,
+    benign_numbers,
+]
 CATEGORY_NAMES = [
     "support_ticket",
     "billing_dispute",
     "clinical_note",
     "devops_incident_email",
     "clean_negative",
+    "benign_numbers",
 ]
 
 

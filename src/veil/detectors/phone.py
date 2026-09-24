@@ -1,33 +1,38 @@
 """Phone number detector.
 
-Covers three shapes:
+Covers exactly two shapes, both structurally strict on purpose:
 
-- E.164: ``+`` followed by 8-15 digits, first digit 1-9.
-- NANP (US/Canada): ``(area) exchange-line``, ``area-exchange-line``, or
-  ``area.exchange.line``, optionally prefixed with a ``1``.
-- Generic international: groups of digits separated by spaces, dots, or
-  dashes, 7-15 digits total, optionally in parens for the first group.
+- NANP (US/Canada): 10 digits as ``area-exchange-line``, ``(area)
+  exchange-line``, or ``area.exchange.line``, optionally prefixed with a
+  ``1``. Area and exchange codes cannot start with 0 or 1 (real NANP
+  numbers never do).
+- E.164 / international: an explicit leading ``+`` followed by 8-15
+  digits, first digit 1-9.
 
-Structural validation only (digit counts, NANP area/exchange codes cannot
-start with 0 or 1) — there is no offline way to confirm a number is
-*assigned*, only that it is *well-formed*.
+There is no third "generic, separator-only, no country code" bucket.
+Earlier versions had one (any 7-15 digit run split by spaces/dots/dashes),
+and it over-masked: an ISO date (``2026-09-21``), an order number
+(``#4417-2291``), or any other dash/dot-separated digit group that isn't
+actually NANP- or E.164-shaped would get flagged. Losing that bucket is a
+real recall trade-off — some real phone numbers are written without a
+country code in a non-NANP format (e.g. a UK number as ``020 7946
+0958``) and this detector will miss them — but per-1,000-word false
+positives on ordinary business text (``benchmarks/``) matter more here
+than that recall gap.
 
-**Deliberate recall/precision trade-off:** an unformatted, unprefixed
-digit run (no ``+``, no spaces/dashes/dots/parens — e.g. a bare
-``"4111111111111111"``) is *not* treated as a phone candidate at all,
-even though some real phone numbers are written that way. Without a
-separator or a leading ``+``, there is no way to tell a phone number
-apart from a card number, account number, or IBAN digit group, and in
-practice those are far more common in running text than an unformatted
-phone number. Evaluated on this project's synthetic corpus
-(``benchmarks/``), lifting this restriction measurably drops phone
-precision by flagging card-number substrings as phone numbers.
+**Context guard.** Even a structurally NANP-shaped 10-digit run can be
+something else — an order number, invoice ID, or ticket number that
+happens to land on a valid-looking area/exchange code. A candidate
+immediately preceded by ``#``, "order", "invoice", "inv-", "ticket", or
+"zip" (case-insensitive, within a short window) is dropped.
 
-A dash-separated ``XXX-XX-XXXX`` group is structurally identical to both
-a generic international phone number and a US SSN, and a dot-separated
-group is structurally identical to an IPv4 address (including a *partial*
-IPv4 octet run). Rather than guess, this detector defers to
-:class:`~veil.detectors.ssn.SsnDetector` and
+Structural validation only — there is no offline way to confirm a number
+is *assigned*, only that it is *well-formed*.
+
+A dash-separated ``XXX-XX-XXXX`` group is structurally identical to a US
+SSN, and a dot-separated group is structurally identical to an IPv4
+address (including a *partial* IPv4 octet run). Rather than guess, this
+detector defers to :class:`~veil.detectors.ssn.SsnDetector` and
 :class:`~veil.detectors.ip.IpDetector`: any phone candidate that overlaps
 a span either of them recognizes is dropped.
 """
@@ -72,9 +77,17 @@ def _is_e164(candidate: str) -> bool:
     return 8 <= len(digits) <= 15 and digits[0] != "0"
 
 
-def _is_plausible_international(candidate: str) -> bool:
-    digits = _digits(candidate)
-    return 7 <= len(digits) <= 15
+# Order/invoice/ticket/ZIP context that should suppress an otherwise
+# NANP-shaped match. "#" alone (a leading number sign right before the
+# candidate) is included since it's the single most common order/ticket
+# marker ("Order #4417-2291", "Ticket #202-555-0199").
+_BLOCKING_CONTEXT_RE = re.compile(r"(#\s*$|\b(order|invoice|inv-|ticket|zip)\b)", re.IGNORECASE)
+_CONTEXT_WINDOW = 15
+
+
+def _has_blocking_context(text: str, start: int) -> bool:
+    window = text[max(0, start - _CONTEXT_WINDOW) : start]
+    return bool(_BLOCKING_CONTEXT_RE.search(window))
 
 
 class PhoneDetector:
@@ -97,9 +110,11 @@ class PhoneDetector:
             span = Span(m.start(), m.end())
             if any(span.overlaps(c) for c in conflicting_spans):
                 continue
-            if not (
-                _is_e164(candidate) or _is_nanp(candidate) or _is_plausible_international(candidate)
-            ):
+            is_e164 = _is_e164(candidate)
+            is_nanp = _is_nanp(candidate)
+            if not (is_e164 or is_nanp):
+                continue
+            if _has_blocking_context(text, m.start()):
                 continue
             out.append(
                 Entity(
@@ -107,7 +122,7 @@ class PhoneDetector:
                     value=candidate,
                     span=span,
                     detector=self.name,
-                    confidence=0.95 if _is_e164(candidate) or _is_nanp(candidate) else 0.6,
+                    confidence=0.95,
                 )
             )
         return out

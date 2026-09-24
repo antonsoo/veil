@@ -8,9 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- Core detectors: email, phone (E.164/NANP/international), payment card
-  (Luhn + issuer ranges), IBAN (mod-97), US SSN, IPv4/IPv6, URLs with
-  embedded credentials, API keys/secrets (known prefixes + entropy
+- Core detectors: email, phone (NANP or `+`-prefixed international only,
+  with a context guard against order/invoice/ticket/ZIP numbers), payment
+  card (Luhn + issuer ranges), IBAN (mod-97), US SSN (consistent
+  separators required, to avoid matching a ZIP+4 code), IPv4/IPv6, URLs
+  with embedded credentials, API keys/secrets (known prefixes + entropy
   heuristic), date-of-birth (context-gated), and an opt-in US street
   address heuristic.
 - Pluggable name/org/location backends: a first-class "known entities"
@@ -27,6 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `veil` CLI: `mask`, `restore`, `audit`.
 - Thin Anthropic and OpenAI SDK wrapper integrations, including streaming.
 - Synthetic, labelled evaluation corpus and per-detector precision/recall
-  report.
+  report, plus a benign-text category measuring false positives per 1,000
+  words on ordinary numeric text (dates, order/invoice/ticket IDs, ZIP+4,
+  tracking numbers, prices, room/build numbers).
 - Browser demo (`web/`, Vite + TypeScript) running the real package via
   Pyodide, deployed to GitHub Pages.
