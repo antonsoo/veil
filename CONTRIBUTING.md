@@ -39,6 +39,19 @@ Implement the `NameBackend` protocol in `src/veil/backends/base.py`. State
 any accuracy numbers you report, and how you measured them — see the
 `SpacyBackend` docstring for the level of honesty expected.
 
+## Web demo
+
+```bash
+cd web
+npm install
+npm run dev      # copies src/veil into public/veil-src.json, then serves the demo
+npm run build    # typecheck + production build to web/dist
+```
+
+The demo (`web/`) runs the real package via Pyodide — if you change
+detector/masker/restore behavior, the demo picks it up automatically on
+the next build; there's no separate JS logic to keep in sync.
+
 ## Commit style
 
 Conventional Commits (`feat:`, `fix:`, `docs:`, `test:`, `ci:`, `chore:`).

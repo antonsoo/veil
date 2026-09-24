@@ -28,3 +28,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Thin Anthropic and OpenAI SDK wrapper integrations, including streaming.
 - Synthetic, labelled evaluation corpus and per-detector precision/recall
   report.
+- Browser demo (`web/`, Vite + TypeScript) running the real package via
+  Pyodide, deployed to GitHub Pages.
