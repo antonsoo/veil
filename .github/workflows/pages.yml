@@ -2,10 +2,8 @@ name: Pages
 
 # Builds the demo and publishes it to the gh-pages branch; GitHub Pages
 # serves that branch directly (Settings -> Pages -> "Deploy from a
-# branch": gh-pages, /). Actions-based deploy (configure-pages /
-# upload-pages-artifact / deploy-pages) needs Actions billing enabled on
-# the account, which isn't available right now, so this uses the
-# branch-deploy path instead, following
+# branch": gh-pages, /) rather than the configure-pages / upload-pages-
+# artifact / deploy-pages flow.
 on:
   push:
     branches: [main]

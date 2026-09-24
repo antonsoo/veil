@@ -55,6 +55,15 @@ app.innerHTML = `
   <section class="stage" data-stage="input">
     <label for="prompt">Your prompt</label>
     <textarea id="prompt" spellcheck="false"></textarea>
+
+    <label for="known-persons">Known entities <span class="hint">(names your app already knows — from your CRM or user record)</span></label>
+    <input id="known-persons" type="text" spellcheck="false" />
+    <p class="note">
+      veil detects emails, phones, cards, and the like by pattern — an
+      arbitrary <em>name</em> needs a backend like this one, or an NER
+      model. <a href="https://github.com/antonsoo/veil#names-orgs-and-locations" target="_blank" rel="noreferrer">More in the README →</a>
+    </p>
+
     <button id="mask-btn" type="button">Mask it</button>
     <div class="status" id="load-status">Loading Pyodide…</div>
   </section>
@@ -95,6 +104,7 @@ const el = <T extends HTMLElement>(id: string): T => {
 };
 
 const promptEl = el<HTMLTextAreaElement>("prompt");
+const knownPersonsEl = el<HTMLInputElement>("known-persons");
 const maskBtn = el<HTMLButtonElement>("mask-btn");
 const loadStatus = el<HTMLDivElement>("load-status");
 const maskedStage = el<HTMLElement>("masked-output").closest(".stage") as HTMLElement;
@@ -112,6 +122,14 @@ promptEl.value =
   "Hi, this is Jordan Alvarez. My email is jordan.alvarez@example.com and " +
   "my phone is 415-555-0132. Please charge card 4111 1111 1111 1111 for " +
   "the renewal.";
+knownPersonsEl.value = "Jordan Alvarez";
+
+function knownPersons(): string[] {
+  return knownPersonsEl.value
+    .split(",")
+    .map((name) => name.trim())
+    .filter((name) => name.length > 0);
+}
 
 // ---- Theme -----------------------------------------------------------
 
@@ -168,11 +186,18 @@ async function bootstrap(): Promise<PyodideInterface> {
 import sys, json
 sys.path.insert(0, "/veil_src")
 from veil import Masker
+from veil.backends.known_entities import KnownEntitiesBackend
 from veil.restore import Restorer
 
-masker = Masker()
+# The known-entities backend is the first-class way veil finds names: the
+# application (here, the demo page) supplies identities it already knows,
+# rather than guessing from free text. See do_mask() below for how the
+# "Known entities" field feeds this on every call.
+known = KnownEntitiesBackend()
+masker = Masker(name_backends=[known])
 
-def do_mask(text):
+def do_mask(text, persons_json):
+    known.persons = json.loads(persons_json)
     masked = masker.mask(text)
     mappings = [
         {"type": m.type.value, "surrogate": m.surrogate, "original": m.original}
@@ -249,7 +274,7 @@ maskBtn.addEventListener("click", () => {
   void (async () => {
     const pyodide = await getPyodide();
     const doMask = pyodide.globals.get("do_mask");
-    const resultJson = doMask(promptEl.value) as string;
+    const resultJson = doMask(promptEl.value, JSON.stringify(knownPersons())) as string;
     const result = JSON.parse(resultJson) as MaskResult;
     const surrogates = result.mappings.map((m) => m.surrogate);
 
@@ -271,15 +296,26 @@ revealBtn.addEventListener("click", () => {
 
 // ---- Simulated streaming reply ------------------------------------------
 
-function cannedReply(surrogates: string[]): string {
-  if (surrogates.length === 0) {
-    return "Thanks — I've noted the details and will follow up shortly.";
+// This is the point the README makes concretely: a redaction tool would
+// force something like "Dear [REDACTED]", but veil's surrogates are
+// specific enough that the reply can address the person and refer back to
+// their details by name — it just can't say the *real* name or email
+// until restore happens. A real support bot also wouldn't echo a whole
+// card number back, so the card is acknowledged without naming it.
+function cannedReply(mappings: VaultMapping[]): string {
+  const surrogateFor = (type: string) => mappings.find((m) => m.type === type)?.surrogate;
+  const person = surrogateFor("PERSON");
+  const email = surrogateFor("EMAIL");
+  const hasCard = mappings.some((m) => m.type === "CARD");
+
+  const greeting = person ? `Hi ${person}, thanks` : "Thanks";
+  if (hasCard && email) {
+    return `${greeting} — I've updated the card on file and will send a receipt to ${email}.`;
   }
-  const list = surrogates.slice(0, 3).join(", ");
-  return (
-    `Thanks — I've noted ${list}. ` +
-    "I'll follow up on this shortly and confirm once everything is updated on our end."
-  );
+  if (email) {
+    return `${greeting} — I've noted your details and will follow up at ${email} shortly.`;
+  }
+  return `${greeting} — I've noted the details and will follow up shortly.`;
 }
 
 simulateBtn.addEventListener("click", () => {
@@ -288,10 +324,9 @@ simulateBtn.addEventListener("click", () => {
     const doMask = pyodide.globals.get("do_mask");
     // Re-run mask on the current prompt to be sure the vault reflects it
     // (a no-op if nothing changed — masking is idempotent per value).
-    const resultJson = doMask(promptEl.value) as string;
+    const resultJson = doMask(promptEl.value, JSON.stringify(knownPersons())) as string;
     const result = JSON.parse(resultJson) as MaskResult;
-    const surrogates = result.mappings.map((m) => m.surrogate);
-    const reply = cannedReply(surrogates);
+    const reply = cannedReply(result.mappings);
 
     replyStage.hidden = false;
     replyOutput.textContent = "";
