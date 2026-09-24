@@ -4,7 +4,6 @@
 prompt leaves your network, let the model reason over consistent
 surrogates, and restore the originals in the answer — streaming included.
 
-[![CI](https://github.com/antonsoo/veil/actions/workflows/ci.yml/badge.svg)](https://github.com/antonsoo/veil/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Live demo](https://img.shields.io/badge/live%20demo-antonsoo.github.io%2Fveil-3f6d69)](https://antonsoo.github.io/veil/)
 

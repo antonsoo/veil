@@ -20,7 +20,8 @@ uv run ruff format .        # format
 uv run mypy                 # typecheck (strict)
 ```
 
-All four must pass before a PR is merged; CI runs the same checks.
+All four must pass before a PR is merged; `.github/workflows/ci.yml` runs
+the same checks.
 
 ## Adding a detector
 
