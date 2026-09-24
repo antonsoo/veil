@@ -47,8 +47,8 @@ app.innerHTML = `
     <h1>Watch a prompt get <span class="accent">veiled</span>.</h1>
     <p class="lede">
       Paste text with personal data below. Everything runs locally, in this
-      tab, using the real <code>veil</code> Python package compiled to
-      WebAssembly via Pyodide — nothing is sent anywhere.
+      tab: the real <code>veil</code> Python package runs on Pyodide
+      (CPython compiled to WebAssembly), and nothing is sent anywhere.
     </p>
   </section>
 
