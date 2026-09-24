@@ -7,7 +7,7 @@ surrogates, and restore the originals in the answer — streaming included.
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Live demo](https://img.shields.io/badge/live%20demo-antonsoo.github.io%2Fveil-3f6d69)](https://antonsoo.github.io/veil/)
 
-![veil mask, then the vault it produces](docs/assets/hero.png)
+![The web demo: a name, email, phone, and card number masked to surrogates, and a simulated reply restored back to "Hi Jordan Alvarez, thanks — ..."](docs/assets/hero.png)
 
 **[Try the live demo →](https://antonsoo.github.io/veil/)** — runs the
 real Python package in your browser via [Pyodide](https://pyodide.org),
@@ -44,8 +44,8 @@ flowchart LR
 1. **Detect.** Regex-and-validation detectors (Luhn, mod-97, structural
    checks) find emails, phone numbers, cards, IBANs, SSNs, IPs,
    credential-bearing URLs, API keys, and dates of birth. A pluggable
-   backend finds names/orgs/locations — see [Names, orgs, and
-   locations](#names-orgs-and-locations) below.
+   backend finds names/orgs/locations — see "Names, orgs, and locations"
+   under [Features](#features) below.
 2. **Mask.** Each detected value gets a surrogate — either a placeholder
    token (`⟨EMAIL_1⟩`) or a realistic fake (`user1@example.com`) — and the
    `(original, surrogate)` pair is recorded in a `Vault`. The same
@@ -165,6 +165,8 @@ $ veil restore masked_reply.txt --vault vault.json
 $ veil audit outgoing_reply.txt --vault vault.json   # exit 1 if anything leaked
 ```
 
+![Real terminal output: veil mask against examples/support_ticket.txt, then the vault.json it produced](docs/assets/cli.png)
+
 ## Web demo
 
 [antonsoo.github.io/veil](https://antonsoo.github.io/veil/) runs the
@@ -173,10 +175,12 @@ $ veil audit outgoing_reply.txt --vault vault.json   # exit 1 if anything leaked
 `web/scripts/copy-veil-src.mjs` build step bundles `src/veil`'s real
 source (zero runtime dependencies makes this possible with no wheel
 build) so the demo is never a JS reimplementation drifting from the
-library. Paste a prompt, mask it, and watch a simulated reply stream back
-through the real `Restorer`, one random-sized chunk at a time:
+library. Paste a prompt, optionally list names your app already knows
+(wired to `KnownEntitiesBackend`), mask it, and watch a simulated reply
+stream back through the real `Restorer`, one random-sized chunk at a
+time — dark mode:
 
-![The web demo: masked prompt, vault, and a streamed-and-restored simulated reply](docs/assets/demo.png)
+![The web demo in dark mode: a Known entities field, masked prompt, and vault](docs/assets/demo.png)
 
 Everything — Pyodide, the package source, the whole interaction — stays
 in that browser tab; nothing is sent anywhere, which the page itself

@@ -61,7 +61,7 @@ app.innerHTML = `
     <p class="note">
       veil detects emails, phones, cards, and the like by pattern — an
       arbitrary <em>name</em> needs a backend like this one, or an NER
-      model. <a href="https://github.com/antonsoo/veil#names-orgs-and-locations" target="_blank" rel="noreferrer">More in the README →</a>
+      model. <a href="https://github.com/antonsoo/veil#features" target="_blank" rel="noreferrer">More in the README →</a>
     </p>
 
     <button id="mask-btn" type="button">Mask it</button>
