@@ -59,11 +59,15 @@ class CardDetector:
         iban_spans = [e.span for e in self._iban_detector.find(text)]
         out: list[Entity] = []
         for m in _CANDIDATE_RE.finditer(text):
-            raw = m.group(0)
+            # The candidate group is "digit + optional separator", so a
+            # trailing space/dash before non-digit text (e.g. "...1111 for
+            # the renewal") gets greedily absorbed into the last repetition.
+            # Trim it back off before it's treated as part of the number.
+            raw = m.group(0).rstrip(" -")
             digits = re.sub(r"[ -]", "", raw)
             if not (13 <= len(digits) <= 19) or not luhn_ok(digits):
                 continue
-            span = Span(m.start(), m.end())
+            span = Span(m.start(), m.start() + len(raw))
             if any(span.overlaps(c) for c in iban_spans):
                 continue
             out.append(

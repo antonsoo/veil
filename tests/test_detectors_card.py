@@ -32,6 +32,16 @@ def test_known_issuer_ranges() -> None:
     assert known_issuer("6011111111111117") is True  # Discover
 
 
+def test_no_trailing_space_absorbed_before_following_word() -> None:
+    # The candidate pattern is "digit + optional separator" repeated, so a
+    # space right after the last digit (before ordinary following prose)
+    # must not be pulled into the match.
+    entities = d.find("Please charge card 4111 1111 1111 1111 for the renewal.")
+    assert len(entities) == 1
+    assert entities[0].value == "4111 1111 1111 1111"
+    assert not entities[0].value.endswith(" ")
+
+
 def test_does_not_flag_digits_inside_a_valid_iban() -> None:
     # The digits after NL's 2-letter country code can coincidentally pass
     # Luhn (this exact IBAN did, when found via the synthetic eval corpus);
