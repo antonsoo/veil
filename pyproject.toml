@@ -33,7 +33,7 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/antonsoo/veil"
+Homepage = "https://antonsoo.github.io/veil/"
 Repository = "https://github.com/antonsoo/veil"
 Issues = "https://github.com/antonsoo/veil/issues"
 Changelog = "https://github.com/antonsoo/veil/blob/main/CHANGELOG.md"
