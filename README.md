@@ -6,6 +6,7 @@ surrogates, and restore the originals in the answer — streaming included.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Live demo](https://img.shields.io/badge/live%20demo-antonsoo.github.io%2Fveil-3f6d69)](https://antonsoo.github.io/veil/)
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-workbench-ffd21e)](https://huggingface.co/spaces/antonsoloviev/veil)
 
 ![The web demo: a name, email, phone, and card number masked to surrogates, and a simulated reply restored back to "Hi Jordan Alvarez, thanks — ..."](docs/assets/hero.png)
 
