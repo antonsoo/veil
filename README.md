@@ -99,27 +99,58 @@ print(masker.restore(reply))  # "Sure, I've noted it for alice@example.com."
 
 ### With the Anthropic SDK
 
+```bash
+pip install "veil-pii[anthropic] @ git+https://github.com/antonsoo/veil"
+```
+
 ```python
 from anthropic import Anthropic
 from veil.integrations.anthropic import AnthropicVeil
 
-client = AnthropicVeil(Anthropic())  # requires: pip install "veil-pii[anthropic]"
+client = AnthropicVeil(Anthropic())
 
 response = client.create(
-    model="claude-opus-5",
+    model="claude-opus-5-5",
     max_tokens=1024,
     messages=[{"role": "user", "content": "Email alice@example.com about invoice #4471."}],
 )
 print(response.content[0].text)  # the real address, restored — Claude only ever saw a surrogate
 
 # Streaming:
-with client.stream(model="claude-opus-5", max_tokens=1024, messages=[...]) as stream:
+with client.stream(model="claude-opus-5-5", max_tokens=1024, messages=[...]) as stream:
     for text in stream.text_stream:  # already restored, split-token-safe
         print(text, end="", flush=True)
 ```
 
-`veil.integrations.openai.OpenAIVeil` is the same shape for the OpenAI SDK,
-including restoring tool-call arguments as they stream in fragments.
+`veil.integrations.openai.OpenAIVeil` is the same shape for the OpenAI SDK
+(the `openai` extra), including restoring tool-call arguments as they
+stream in fragments.
+
+### Multi-turn conversations and tool calls
+
+Keep your history the normal way: append the assistant turn veil handed
+you (real values restored, including in the `tool_use` input your code is
+about to execute) and send the whole list on the next call. The wrapper
+remembers the exact blocks the model produced for everything it restored,
+and swaps them back in before the request leaves, so:
+
+- **No real value goes back to the provider.** Restored tool-call
+  arguments are the easy thing to leak: they are real by design, because
+  your code has to act on them.
+- **The history the API sees never changes.** Re-masking a restored turn
+  only approximates the original (a support address the model wrote
+  itself looks like PII and would get a fresh surrogate). Any difference
+  is an edit to an earlier turn: the prompt cache restarts from there, and
+  on current Claude models every later thinking block's signature stops
+  matching its conversation, which accounts that enforce the check reject
+  with a 400. Thinking blocks are never masked or restored for the same
+  reason.
+
+A turn veil didn't produce (or one you edited) is masked like any other
+message. OpenAI tool-call arguments arrive as a JSON string; veil parses
+them before restoring, so a surrogate the model wrote with `\u27e8`-style
+escapes is still found, and restored values are escaped so the arguments
+stay valid JSON.
 
 ## Features
 
@@ -150,7 +181,10 @@ including restoring tool-call arguments as they stream in fragments.
   encryption at rest (`veil-pii[vault-crypto]`) — see the threat model in
   `veil/vault.py`.
 - **CLI**: `veil mask`, `veil restore`, `veil audit`.
-- **SDK integrations**: thin Anthropic and OpenAI wrappers.
+- **SDK integrations**: thin Anthropic and OpenAI wrappers that mask
+  every outgoing message (tool calls included), restore responses and
+  streams, and replay earlier assistant turns exactly as the model
+  produced them.
 - **Zero runtime dependencies in the core.** Everything above the
   detectors/surrogates/restore/vault/CLI layer is an optional extra.
 
@@ -257,7 +291,7 @@ over-masking fix that followed it.
   customer's identity) or an optional, *unbenchmarked* spaCy backend. See
   `veil/backends/spacy_backend.py` for why we don't claim an NER accuracy
   number we haven't measured.
-  - **US-centric.** Phone (NANP), SSN, and the address heuristic assume
+- **US-centric.** Phone (NANP), SSN, and the address heuristic assume
   US formats primarily; IBAN and E.164 phone cover international cases,
   but there's no general international address, national-ID, or
   VAT-number detector yet.
@@ -279,7 +313,7 @@ over-masking fix that followed it.
 git clone https://github.com/antonsoo/veil
 cd veil
 uv sync --group dev
-uv run pytest          # 165 tests, including Hypothesis property tests
+uv run pytest          # 175 tests, including Hypothesis property tests
 uv run ruff check .    # lint
 uv run mypy            # typecheck (strict)
 ```

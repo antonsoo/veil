@@ -4,6 +4,36 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.2.0] - 2026-09-30
+
+### Security
+
+- `AnthropicVeil` sent real values back to the API: the `tool_use` input it
+  restored for the application to execute was not re-masked when the
+  assistant turn was resent as history. `tool_use` input is now masked, and
+  both wrappers replay each assistant turn they restored exactly as the model
+  produced it (`ReplayCache`), so restored values never leave in a later
+  request.
+
+### Fixed
+
+- Resent assistant turns no longer differ from what the model produced
+  (re-masking a restored turn gave model-written, PII-looking text a fresh
+  surrogate). A changed earlier turn restarts the prompt cache and, on
+  current Claude models, invalidates the signatures of later thinking blocks.
+- OpenAI tool-call arguments whose surrogate the model wrote with `\uXXXX`
+  escapes were not restored. Complete arguments are parsed and restored value
+  by value; streamed fragments go through a JSON-string-mode `Restorer` that
+  recognizes the escaped form and escapes restored originals, so the
+  arguments stay valid JSON.
+- Install hints pointed at `veil-pii` on PyPI, where the package isn't
+  published; they now use the Git URL or name the actual dependency.
+
+### Added
+
+- `veil.restore.restore_json_text` and `Restorer(vault, json_string=True)`.
+- `veil.integrations._common.ReplayCache` (bounded, 10,000 entries by default).
+
 ## [0.1.0] - 2026-09-24
 
 ### Added
