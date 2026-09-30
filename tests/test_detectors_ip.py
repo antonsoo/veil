@@ -44,3 +44,11 @@ def test_ignores_plain_version_number() -> None:
 
 def test_finds_both_versions_in_one_text() -> None:
     assert types("v4 192.168.0.1 and v6 fe80::1") == ["IPV4", "IPV6"]
+
+
+def test_a_version_labelled_dotted_quad_is_not_an_address() -> None:
+    assert types("upgraded to version 10.2.14.3, v2.4.1.0 and build 1.0.0.7") == []
+    assert types("firmware: 3.1.0.2 installed") == []
+    # Unlabelled, or labelled as a host, it is still an address.
+    assert types("server 10.2.14.3 is down") == ["IPV4"]
+    assert types("ssh to 192.168.1.20 (version check failed)") == ["IPV4"]

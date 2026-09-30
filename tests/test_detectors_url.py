@@ -26,3 +26,18 @@ def test_plain_url_without_credentials_is_ignored() -> None:
 def test_strips_trailing_punctuation() -> None:
     entities = d.find("(see https://user:pass@example.com/path).")
     assert entities[0].value.endswith("/path")
+
+
+def test_finds_credentials_in_connection_strings_of_any_scheme() -> None:
+    for url in (
+        "postgres://admin:hunter2@db.internal:5432/app",
+        "mongodb+srv://svc:p4ss@cluster0.example.net/db",
+        "redis://:s3cr3t@cache:6379/0",  # password only, the usual Redis form
+        "amqp://guest:guest@broker/vhost",
+    ):
+        entities = d.find(f"DATABASE_URL={url} (staging)")
+        assert [e.value for e in entities] == [url]
+
+
+def test_ignores_urls_without_credentials_whatever_the_scheme() -> None:
+    assert d.find("see ftp://files.example.org/pub and postgres://admin@db/app") == []

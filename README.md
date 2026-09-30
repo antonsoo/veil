@@ -158,8 +158,10 @@ stay valid JSON.
   with an explicit `+` country code — no unprefixed generic fallback; see
   the module docstring for why),
   payment card (Luhn + issuer ranges), IBAN (mod-97 + per-country length),
-  US SSN (excluding never-issued ranges), IPv4/IPv6, credential-bearing
-  URLs, API keys/secrets (`AKIA…`, `ghp_…`, `github_pat_…`, `xox…`,
+  US SSN (excluding never-issued ranges), IPv4/IPv6 (a dotted quad labelled
+  as a version is left alone), credential-bearing URLs of any scheme
+  (including `postgres://`/`redis://`-style connection strings), PEM private
+  key blocks, API keys/secrets (`AKIA…`, `ghp_…`, `github_pat_…`, `xox…`,
   `sk_live_…`, `sk-ant-…`, `sk-…`, plus a Shannon-entropy heuristic),
   context-gated date-of-birth, and an opt-in US street-address heuristic.
 - **Names, orgs, and locations** via a pluggable `NameBackend`: a
@@ -313,7 +315,7 @@ over-masking fix that followed it.
 git clone https://github.com/antonsoo/veil
 cd veil
 uv sync --group dev
-uv run pytest          # 175 tests, including Hypothesis property tests
+uv run pytest          # 181 tests, including Hypothesis property tests
 uv run ruff check .    # lint
 uv run mypy            # typecheck (strict)
 ```

@@ -15,8 +15,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   produced it (`ReplayCache`), so restored values never leave in a later
   request.
 
+- A PEM private key (`-----BEGIN ... PRIVATE KEY-----` through its END line,
+  or through its body when truncated) was not masked at all; it is now one
+  `SECRET` entity.
+- Credentials in non-HTTP URLs were missed: in
+  `postgres://admin:hunter2@db.internal/app` only `hunter2@db.internal` was
+  caught, as an email address. Userinfo credentials are now detected in URLs
+  of any scheme (`postgres`, `redis`, including the password-only
+  `redis://:secret@host`, `mongodb+srv`, `amqp`, ...).
+
 ### Fixed
 
+- A dotted quad labelled as a version (`version 10.2.14.3`, `v2.4.1.0`,
+  `build 1.0.0.7`) was masked as an IPv4 address.
 - Resent assistant turns no longer differ from what the model produced
   (re-masking a restored turn gave model-written, PII-looking text a fresh
   surrogate). A changed earlier turn restarts the prompt cache and, on

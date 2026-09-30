@@ -70,3 +70,31 @@ def test_hex_hash_not_flagged_by_entropy_heuristic() -> None:
     # not a secret by itself; the heuristic deliberately skips it.
     sha = "d41d8cd98f00b204e9800998ecf8427e12345678"
     assert values(f"commit {sha}") == []
+
+
+def _pem(label: str, body: str, *, end: bool = True) -> str:
+    # Built at runtime so no literal key header sits in the repo for secret
+    # scanners to flag.
+    dashes = "-" * 5
+    text = f"{dashes}BEGIN {label}{dashes}\n{body}"
+    return f"{text}\n{dashes}END {label}{dashes}" if end else text
+
+
+def test_masks_a_pem_private_key_as_one_block() -> None:
+    key = _pem("RSA " + "PRIVATE KEY", "MIIEpAIBAAKCAQEA7bq98F2kTL\nkdjf83hf==")
+    assert values(f"here it is:\n{key}\nthanks") == [key]
+    pgp = _pem("PGP " + "PRIVATE KEY BLOCK", "lQOYBF")
+    assert values(pgp) == [pgp]
+
+
+def test_masks_a_truncated_private_key_through_its_body() -> None:
+    key = _pem(
+        "OPENSSH " + "PRIVATE KEY",
+        "b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQ\nAAAAAAAB",
+        end=False,
+    )
+    assert values(f"pasted: {key}") == [key]
+
+
+def test_leaves_public_keys_and_certificates_alone() -> None:
+    assert values(_pem("PUBLIC KEY", "MFkwEwYH")) == []

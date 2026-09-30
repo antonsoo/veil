@@ -21,6 +21,13 @@ _IPV4_RE = re.compile(r"(?<![\w.])(?:\d{1,3}\.){3}\d{1,3}(?!\w)(?!\.\d)")
 _IPV6_RE = re.compile(r"(?<![\w:])(?:[0-9A-Fa-f]{0,4}:){2,7}[0-9A-Fa-f]{0,4}(?![\w:])")
 
 
+# A dotted quad labelled as a version ("v2.4.1.0", "version 10.2.14.3",
+# "build 1.0.0.7") is not an address, however valid it would be as one.
+_VERSION_LABEL_RE = re.compile(
+    r"(?:\bv|\b(?:version|ver\.?|build|release|firmware)\s*[:=]?\s*)$", re.IGNORECASE
+)
+
+
 class IpDetector:
     name = "ip"
 
@@ -30,6 +37,8 @@ class IpDetector:
             try:
                 ipaddress.IPv4Address(m.group(0))
             except ValueError:
+                continue
+            if _VERSION_LABEL_RE.search(text[max(0, m.start() - 16) : m.start()]):
                 continue
             out.append(
                 Entity(

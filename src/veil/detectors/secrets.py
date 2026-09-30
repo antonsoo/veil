@@ -25,6 +25,16 @@ from veil.types import Entity, EntityType, Span
 # generic, prefix-free `aws_secret_key` pattern (any 40-char alnum run)
 # never shadows a more specific match nested inside a longer token.
 _KNOWN_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
+    # A PEM private key, masked as one block from its BEGIN line to its END
+    # line; a block cut off before its END line (a truncated paste) runs to
+    # the end of its base64 body.
+    (
+        "private_key",
+        re.compile(
+            r"-----BEGIN ((?:[A-Z0-9]+ )*PRIVATE KEY(?: BLOCK)?)-----"
+            r"(?:[\s\S]*?-----END \1-----|[A-Za-z0-9+/=:,\s-]*)"
+        ),
+    ),
     ("aws_access_key", re.compile(r"\bAKIA[0-9A-Z]{16}\b")),
     ("github_pat_classic", re.compile(r"\bghp_[A-Za-z0-9]{36}\b")),
     ("github_pat_fine", re.compile(r"\bgithub_pat_[A-Za-z0-9_]{22,255}\b")),

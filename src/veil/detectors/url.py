@@ -1,6 +1,8 @@
 """URLs carrying embedded credentials or tokens.
 
-Two shapes:
+Two shapes, in a URL of any scheme (``https``, but also connection strings
+like ``postgres://``, ``redis://`` or ``mongodb+srv://``, where credentials
+are most often embedded):
 
 - Userinfo in the authority: ``scheme://user:password@host/...``.
 - A sensitive token in the query string, e.g. ``?api_key=...`` or
@@ -14,8 +16,8 @@ import re
 
 from veil.types import Entity, EntityType, Span
 
-_URL_RE = re.compile(r"\bhttps?://[^\s\"'<>]+", re.IGNORECASE)
-_USERINFO_RE = re.compile(r"^https?://[^/\s@]+:[^/\s@]+@")
+_URL_RE = re.compile(r"\b[a-z][a-z0-9+.-]*://[^\s\"'<>]+", re.IGNORECASE)
+_USERINFO_RE = re.compile(r"^[a-z][a-z0-9+.-]*://[^/\s@]*:[^/\s@]+@", re.IGNORECASE)
 _SENSITIVE_PARAM_RE = re.compile(
     r"[?&](?:api[_-]?key|access[_-]?token|auth[_-]?token|token|secret|password|session[_-]?id)="
     r"[^&\s]+",
