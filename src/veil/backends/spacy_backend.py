@@ -1,6 +1,6 @@
 """Optional spaCy NER backend for PERSON / ORG / LOCATION detection.
 
-Requires the ``spacy`` extra (``pip install "veil-pii[spacy]"``) and a
+Requires the ``spacy`` extra (``pip install "veil-pii[spacy] @ git+https://github.com/antonsoo/veil"``) and a
 downloaded model, e.g.::
 
     python -m spacy download en_core_web_sm
@@ -45,7 +45,7 @@ class SpacyBackend:
             import spacy  # noqa: PLC0415
         except ImportError as exc:  # pragma: no cover - exercised only without extra
             raise ImportError(
-                "SpacyBackend requires the 'spacy' extra: pip install \"veil-pii[spacy]\""
+                "SpacyBackend requires the 'spacy' package (veil's 'spacy' extra): pip install 'spacy>=3.7'"
             ) from exc
         try:
             self._nlp = spacy.load(self.model)

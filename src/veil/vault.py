@@ -10,7 +10,7 @@ veil treats it accordingly:
 - JSON serialization is plaintext by design (so you can inspect, diff, or
   hand-audit it) — **do not** commit it, log it, or send it anywhere the
   masked prompt itself isn't already allowed to go.
-- The optional Fernet encryption (``pip install "veil-pii[vault-crypto]"``)
+- The optional Fernet encryption (the ``vault-crypto`` extra, i.e. ``cryptography``)
   protects a vault *at rest* (on disk, in object storage) against someone
   who obtains the file but not the key. It does **not** protect against a
   compromised process that holds both the vault and the key in memory, and
@@ -159,8 +159,8 @@ class Vault:
             from cryptography.fernet import Fernet  # noqa: PLC0415
         except ImportError as exc:
             raise VaultError(
-                "encrypt() requires the 'vault-crypto' extra: "
-                'pip install "veil-pii[vault-crypto]"'
+                "encrypt() requires the 'cryptography' package (veil's 'vault-crypto' extra): "
+                "pip install 'cryptography>=42'"
             ) from exc
         return Fernet(key).encrypt(self.to_json(indent=None).encode("utf-8"))
 
@@ -170,8 +170,8 @@ class Vault:
             from cryptography.fernet import Fernet, InvalidToken  # noqa: PLC0415
         except ImportError as exc:
             raise VaultError(
-                "decrypt() requires the 'vault-crypto' extra: "
-                'pip install "veil-pii[vault-crypto]"'
+                "decrypt() requires the 'cryptography' package (veil's 'vault-crypto' extra): "
+                "pip install 'cryptography>=42'"
             ) from exc
         try:
             plaintext = Fernet(key).decrypt(token)
@@ -185,7 +185,7 @@ class Vault:
             from cryptography.fernet import Fernet  # noqa: PLC0415
         except ImportError as exc:
             raise VaultError(
-                "generate_key() requires the 'vault-crypto' extra: "
-                'pip install "veil-pii[vault-crypto]"'
+                "generate_key() requires the 'cryptography' package (veil's 'vault-crypto' extra): "
+                "pip install 'cryptography>=42'"
             ) from exc
         return Fernet.generate_key()
