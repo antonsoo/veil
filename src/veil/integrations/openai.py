@@ -1,7 +1,7 @@
 """A thin wrapper around the OpenAI Python SDK that masks outgoing messages
 and restores PII in the response, streaming included.
 
-Requires the ``openai`` extra (``pip install "veil-pii[openai]"``). Built
+Requires the ``openai`` extra (``pip install "veil-pii[openai] @ git+https://github.com/antonsoo/veil"``). Built
 against the documented shape of ``client.chat.completions.create(...,
 stream=True)`` — a message list of role/content dicts, and a stream of
 ``ChatCompletionChunk``-shaped objects with ``choices[].delta.content`` and
@@ -10,23 +10,31 @@ stream=True)`` — a message list of role/content dicts, and a stream of
 module makes no live API calls; see ``tests/test_integration_openai.py``
 for the fakes it's tested against.
 
-**Tool-call arguments are restored as raw text**, not parsed JSON: a
-surrogate can straddle a `{`/`"`/`,` boundary mid-stream, so the argument
-string is fed through :class:`veil.restore.Restorer` exactly like message
-text, one :class:`~veil.restore.Restorer` per tool-call index (parallel
-tool calls interleave their argument fragments by index, and each needs
-its own held-back-prefix state).
+**Tool-call arguments are a JSON string.** In a complete response they are
+parsed, restored value by value, and re-serialized, so the restore doesn't
+depend on how the model escaped the surrogate (a model may write ``⟨`` as
+``\\u27e8``). Mid-stream a surrogate can straddle a ``{``/``"``/``,``
+boundary, so the fragments go through a :class:`veil.restore.Restorer` in
+JSON-string mode instead - one per tool-call index, since parallel tool
+calls interleave their fragments by index - which also recognizes the
+escaped form and writes originals JSON-escaped.
+
+**History replay:** an assistant message veil restored is swapped back for
+the exact message the model produced when the application resends it, so
+real values never return to the API and the resent history stays
+byte-identical (see :class:`veil.integrations._common.ReplayCache`).
 """
 
 from __future__ import annotations
 
+import json
 from collections.abc import Iterator
 from dataclasses import dataclass, field
 from typing import Any
 
-from veil.integrations._common import get_field, model_copy_with
+from veil.integrations._common import ReplayCache, get_field, model_copy_with, restore_value
 from veil.masker import Masker
-from veil.restore import Restorer
+from veil.restore import Restorer, restore_json_text
 
 
 def mask_content(content: Any, masker: Masker) -> Any:
@@ -60,15 +68,23 @@ def _mask_tool_calls(tool_calls: Any, masker: Masker) -> Any:
     return out
 
 
-def mask_messages(messages: list[Any], masker: Masker) -> list[Any]:
+def mask_messages(
+    messages: list[Any], masker: Masker, replay: ReplayCache | None = None
+) -> list[Any]:
     """Mask ``content`` on every message (system/user/assistant/tool), and
     ``tool_calls[].function.arguments`` on any prior assistant turns being
     resent as history — those may contain real values a previous
     :meth:`veil.masker.Masker.restore` call put back; re-masking maps them
     to the *same* surrogate already in the vault rather than a new one.
+    With ``replay``, a message veil restored is replaced by the original.
     """
     out = []
     for message in messages:
+        if replay is not None and get_field(message, "role") == "assistant":
+            original = replay.original_for(message)
+            if original is not None:
+                out.append(original)
+                continue
         content = get_field(message, "content")
         updates: dict[str, Any] = {}
         if content is not None:
@@ -80,13 +96,23 @@ def mask_messages(messages: list[Any], masker: Masker) -> list[Any]:
     return out
 
 
-def restore_response(response: Any, masker: Masker) -> Any:
+def restore_arguments(arguments: str, masker: Masker) -> str:
+    """Restore a complete tool-call ``arguments`` JSON string."""
+    try:
+        parsed = json.loads(arguments)
+    except ValueError:
+        return restore_json_text(arguments, masker.vault)  # truncated or not JSON: best effort
+    restored = restore_value(parsed, masker)
+    return arguments if restored == parsed else json.dumps(restored, ensure_ascii=False)
+
+
+def restore_response(response: Any, masker: Masker, replay: ReplayCache | None = None) -> Any:
     """Restore a full (non-streamed) ``ChatCompletion`` response."""
     choices = get_field(response, "choices") or []
-    return model_copy_with(response, choices=[_restore_choice(c, masker) for c in choices])
+    return model_copy_with(response, choices=[_restore_choice(c, masker, replay) for c in choices])
 
 
-def _restore_choice(choice: Any, masker: Masker) -> Any:
+def _restore_choice(choice: Any, masker: Masker, replay: ReplayCache | None = None) -> Any:
     message = get_field(choice, "message")
     if message is None:
         return choice
@@ -102,13 +128,16 @@ def _restore_choice(choice: Any, masker: Masker) -> Any:
             if fn is not None:
                 args = get_field(fn, "arguments")
                 if isinstance(args, str):
-                    fn = model_copy_with(fn, arguments=masker.restore(args))
+                    fn = model_copy_with(fn, arguments=restore_arguments(args, masker))
                 call = model_copy_with(call, function=fn)
             new_calls.append(call)
         updates["tool_calls"] = new_calls
     if not updates:
         return choice
-    return model_copy_with(choice, message=model_copy_with(message, **updates))
+    restored = model_copy_with(message, **updates)
+    if replay is not None:
+        replay.remember(restored, message)
+    return model_copy_with(choice, message=restored)
 
 
 @dataclass
@@ -158,7 +187,9 @@ class OpenAIVeilStream:
         if not isinstance(args, str):
             return call
         index = get_field(call, "index", 0)
-        restorer = self._tool_restorers.setdefault(index, Restorer(self.masker.vault))
+        restorer = self._tool_restorers.setdefault(
+            index, Restorer(self.masker.vault, json_string=True)
+        )
         return model_copy_with(call, function=model_copy_with(fn, arguments=restorer.feed(args)))
 
     def _flush_trailing(self) -> Iterator[Any]:
@@ -203,13 +234,14 @@ class OpenAIVeil:
 
     client: Any
     masker: Masker = field(default_factory=Masker)
+    replay: ReplayCache = field(default_factory=ReplayCache)
 
     def create(self, *, messages: list[Any], **kwargs: Any) -> Any:
-        masked = mask_messages(messages, self.masker)
+        masked = mask_messages(messages, self.masker, self.replay)
         response = self.client.chat.completions.create(messages=masked, **kwargs)
-        return restore_response(response, self.masker)
+        return restore_response(response, self.masker, self.replay)
 
     def stream(self, *, messages: list[Any], **kwargs: Any) -> OpenAIVeilStream:
-        masked = mask_messages(messages, self.masker)
+        masked = mask_messages(messages, self.masker, self.replay)
         raw = self.client.chat.completions.create(messages=masked, stream=True, **kwargs)
         return OpenAIVeilStream(raw, self.masker)

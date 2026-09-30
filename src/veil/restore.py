@@ -33,6 +33,7 @@ completes or definitively rules out the match.
 
 from __future__ import annotations
 
+import json
 import re
 from dataclasses import dataclass, field
 
@@ -44,6 +45,12 @@ _POSSESSIVE_RE = re.compile(r"^(?:'s|’s|')")
 def restore_exact(text: str, vault: Vault) -> str:
     """Replace every exact surrogate occurrence with its original value."""
     r = Restorer(vault)
+    return r.feed(text) + r.flush()
+
+
+def restore_json_text(text: str, vault: Vault) -> str:
+    """:func:`restore_exact` for serialized JSON: see ``Restorer(json_string=True)``."""
+    r = Restorer(vault, json_string=True)
     return r.feed(text) + r.flush()
 
 
@@ -86,13 +93,29 @@ class _TrieNode:
     terminal: str | None = None  # original value, if a surrogate ends here
 
 
-def _build_trie(vault: Vault) -> _TrieNode:
+def _json_escaped(value: str, *, ascii_only: bool) -> str:
+    """``value`` as it appears between the quotes of a JSON string literal."""
+    return json.dumps(value, ensure_ascii=ascii_only)[1:-1]
+
+
+def _build_trie(vault: Vault, *, json_string: bool = False) -> _TrieNode:
     root = _TrieNode()
-    for mapping in vault.mappings():
+
+    def add(surrogate: str, original: str) -> None:
         node = root
-        for ch in mapping.surrogate:
+        for ch in surrogate:
             node = node.children.setdefault(ch, _TrieNode())
-        node.terminal = mapping.original
+        node.terminal = original
+
+    for mapping in vault.mappings():
+        if not json_string:
+            add(mapping.surrogate, mapping.original)
+            continue
+        # Inside a JSON string the original must be escaped to keep the JSON valid, and the model
+        # may have written the surrogate with its non-ASCII characters as \uXXXX escapes.
+        original = _json_escaped(mapping.original, ascii_only=False)
+        add(mapping.surrogate, original)
+        add(_json_escaped(mapping.surrogate, ascii_only=True), original)
     return root
 
 
@@ -106,10 +129,15 @@ class Restorer:
     ``restore_exact("".join(chunks), vault)`` regardless of how the text
     was split into chunks — this is what the Hypothesis property tests in
     ``tests/test_restore_streaming.py`` check.
+
+    With ``json_string=True`` the text is (a fragment of) serialized JSON,
+    such as a tool call's streamed arguments: a surrogate is also recognized
+    in its ``\\uXXXX``-escaped form, and originals are written JSON-escaped
+    so the arguments stay valid JSON.
     """
 
-    def __init__(self, vault: Vault) -> None:
-        self._trie = _build_trie(vault)
+    def __init__(self, vault: Vault, *, json_string: bool = False) -> None:
+        self._trie = _build_trie(vault, json_string=json_string)
         self._buffer = ""
 
     def feed(self, chunk: str) -> str:
