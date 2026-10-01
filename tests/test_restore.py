@@ -1,3 +1,4 @@
+from veil.backends.known_entities import KnownEntitiesBackend
 from veil.masker import Masker
 from veil.restore import restore_exact, restore_tolerant
 from veil.surrogates import PlaceholderSurrogates, RealisticSurrogates
@@ -60,3 +61,33 @@ def test_restore_tolerant_is_superset_of_exact() -> None:
     text = "Contact alice@example.com or +1 202-555-0143."
     masked = m.mask(text)
     assert restore_tolerant(masked, m.vault) == restore_exact(masked, m.vault) == text
+
+
+def test_restore_tolerant_never_rescans_a_restored_value() -> None:
+    # "Blair Alder" is a real person here and also the fake name handed to
+    # Jordan Reyes. Restoring the fake must not then rewrite the real one.
+    backend = KnownEntitiesBackend(persons=["Jordan Reyes", "Blair Alder"])
+    m = Masker(surrogate_generator=RealisticSurrogates(), name_backends=[backend])
+    text = "Jordan Reyes met Blair Alder."
+    masked = m.mask(text)
+    assert masked == "Blair Alder met Casey Alder."
+    assert restore_tolerant(masked, m.vault) == text
+
+
+def test_restore_tolerant_restores_a_recased_placeholder_touching_other_text() -> None:
+    vault = Vault()
+    vault.get_or_create(EntityType.IPV4, "10.0.0.1", PlaceholderSurrogates(), "ip")
+    assert restore_tolerant("host=⟨ipv4_1⟩:8080 and x⟨ipv4_1⟩y", vault) == (
+        "host=10.0.0.1:8080 and x10.0.0.1y"
+    )
+
+
+def test_restore_sees_values_added_to_the_vault_after_an_earlier_restore() -> None:
+    m = Masker()
+    first = m.mask("alice@example.com")
+    assert m.restore(first) == "alice@example.com"
+    second = m.mask("bob@example.com")
+    assert m.restore(f"{first} and {second}") == "alice@example.com and bob@example.com"
+    assert m.restore(f"{first} and {second}", tolerant=False) == (
+        "alice@example.com and bob@example.com"
+    )

@@ -9,8 +9,8 @@ Three entry points:
 - :func:`restore_tolerant` — additionally catches the rewrites models
   actually make in practice: case changes, a trailing possessive
   (``Avery Alder's`` -> ``<original>'s``), and a surrogate split across a
-  line wrap. It is intentionally conservative (see the module-level
-  ``_POSSESSIVE_RE`` and whitespace-collapse logic below) because a
+  line wrap. It is intentionally conservative (a rewritten surrogate
+  must stand as a word of its own) because a
   looser tolerant match risks restoring text that was never a surrogate
   in the first place — the exact opposite of what a privacy tool should
   do. It is **not** applied inside a streaming session; streaming uses
@@ -34,12 +34,9 @@ completes or definitively rules out the match.
 from __future__ import annotations
 
 import json
-import re
 from dataclasses import dataclass, field
 
 from veil.vault import Vault
-
-_POSSESSIVE_RE = re.compile(r"^(?:'s|’s|')")
 
 
 def restore_exact(text: str, vault: Vault) -> str:
@@ -55,36 +52,44 @@ def restore_json_text(text: str, vault: Vault) -> str:
 
 
 def restore_tolerant(text: str, vault: Vault) -> str:
-    """:func:`restore_exact`, then a conservative second pass that also
-    catches case changes, a trailing possessive, and a surrogate split
-    across whitespace/line-break (e.g. a name wrapped mid-token by the
-    model's own line width). Runs surrogates longest-first so a shorter
-    surrogate that is a prefix of a longer one never shadows it.
+    """:func:`restore_exact`, plus the rewrites models make to a surrogate:
+    case changes, a trailing possessive, and a surrogate split across
+    whitespace or a line break (e.g. a name wrapped mid-token by the model's
+    own line width). A rewritten surrogate has to stand as a word of its own
+    to count (``avery alderman`` is left alone); an exact one is restored
+    wherever it appears.
+
+    One pass over ``text``: a restored value is never scanned again, so an
+    original that happens to read like another value's surrogate stays as it
+    is.
     """
-    out = restore_exact(text, vault)
+    exact = _trie(vault, json_string=False)
+    loose = _loose_trie(vault)
+    out: list[str] = []
+    pos = 0
+    n = len(text)
+    while pos < n:
+        ch = text[pos]
+        hit = _longest_exact(exact, text, pos) if ch in exact.children else None
+        if hit is None and ch.casefold() in loose.children and not _mid_word(text, pos):
+            hit = _longest_loose(loose, text, pos)
+        if hit is None:
+            out.append(ch)
+            pos += 1
+        else:
+            pos, original = hit
+            out.append(original)
+    return "".join(out)
 
-    for surrogate in vault.surrogates():
-        mapping = vault.lookup_surrogate(surrogate)
-        if mapping is None:
-            continue  # pragma: no cover - defensive
-        words = surrogate.split(" ")
-        # Allow arbitrary whitespace (including newlines) between the
-        # surrogate's own words, and require word boundaries so we don't
-        # match inside an unrelated longer word.
-        body = r"\s+".join(re.escape(w) for w in words if w)
-        if not body:
-            continue
-        pattern = re.compile(
-            r"(?<!\w)" + body + r"(?!\w)(?P<poss>'s|’s|')?",
-            re.IGNORECASE,
-        )
 
-        def _sub(m: re.Match[str], _original: str = mapping.original) -> str:
-            suffix = m.group("poss") or ""
-            return _original + suffix
+def _is_word(ch: str) -> bool:
+    return ch.isalnum() or ch == "_"
 
-        out = pattern.sub(_sub, out)
-    return out
+
+def _mid_word(text: str, pos: int) -> bool:
+    """Would a match starting or ending at ``pos`` cut a word in two? ``avery alderman``
+    is not ``Avery Alder``; a bracketed placeholder is delimited whatever it touches."""
+    return 0 < pos < len(text) and _is_word(text[pos - 1]) and _is_word(text[pos])
 
 
 @dataclass
@@ -119,6 +124,73 @@ def _build_trie(vault: Vault, *, json_string: bool = False) -> _TrieNode:
     return root
 
 
+def _trie(vault: Vault, *, json_string: bool) -> _TrieNode:
+    """The vault's surrogate trie, built once per vault state rather than per string restored."""
+    key = "json_trie" if json_string else "trie"
+    trie = vault._derived.get(key)
+    if trie is None:
+        trie = vault._derived[key] = _build_trie(vault, json_string=json_string)
+    return trie
+
+
+def _loose_trie(vault: Vault) -> _TrieNode:
+    """Surrogates as :func:`restore_tolerant` matches them: case-folded, with the
+    spaces between a surrogate's words standing for any run of whitespace."""
+    trie = vault._derived.get("loose_trie")
+    if trie is None:
+        trie = _TrieNode()
+        for surrogate in vault.surrogates():  # longest first: it wins a tie on the folded form
+            mapping = vault.lookup_surrogate(surrogate)
+            words = [w for w in surrogate.split(" ") if w]
+            if mapping is None or not words:
+                continue
+            node = trie
+            for ch in " ".join(words):
+                node = node.children.setdefault(ch if ch == " " else ch.casefold(), _TrieNode())
+            if node.terminal is None:
+                node.terminal = mapping.original
+        vault._derived["loose_trie"] = trie
+    return trie
+
+
+def _longest_exact(trie: _TrieNode, text: str, pos: int) -> tuple[int, str] | None:
+    """The longest surrogate starting at ``pos``, as (end, original)."""
+    node = trie
+    best: tuple[int, str] | None = None
+    for i in range(pos, len(text)):
+        nxt = node.children.get(text[i])
+        if nxt is None:
+            break
+        node = nxt
+        if node.terminal is not None:
+            best = (i + 1, node.terminal)
+    return best
+
+
+def _longest_loose(trie: _TrieNode, text: str, pos: int) -> tuple[int, str] | None:
+    """The longest rewritten surrogate starting at ``pos`` and ending at a word boundary."""
+    node = trie
+    best: tuple[int, str] | None = None
+    i = pos
+    n = len(text)
+    while i < n:
+        ch = text[i]
+        gap = node.children.get(" ") if ch.isspace() else None
+        if gap is not None:
+            while i < n and text[i].isspace():
+                i += 1
+            node = gap
+            continue
+        nxt = node.children.get(ch.casefold())
+        if nxt is None:
+            break
+        node = nxt
+        i += 1
+        if node.terminal is not None and not _mid_word(text, i):
+            best = (i, node.terminal)
+    return best
+
+
 class Restorer:
     """Streaming, exact-match surrogate restorer.
 
@@ -137,7 +209,7 @@ class Restorer:
     """
 
     def __init__(self, vault: Vault, *, json_string: bool = False) -> None:
-        self._trie = _build_trie(vault, json_string=json_string)
+        self._trie = _trie(vault, json_string=json_string)
         self._buffer = ""
 
     def feed(self, chunk: str) -> str:

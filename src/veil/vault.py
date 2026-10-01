@@ -45,6 +45,9 @@ class Vault:
     _by_original: dict[tuple[EntityType, str], Mapping] = field(default_factory=dict)
     _by_surrogate: dict[str, Mapping] = field(default_factory=dict)
     _counters: dict[EntityType, int] = field(default_factory=dict)
+    # Lookup structures derived from the mappings (the restore tries). Emptied
+    # whenever a mapping is added, so a restore never works from a stale one.
+    _derived: dict[str, Any] = field(default_factory=dict, repr=False, compare=False)
 
     def get_or_create(
         self,
@@ -74,6 +77,7 @@ class Vault:
         )
         self._by_original[key] = mapping
         self._by_surrogate[surrogate] = mapping
+        self._derived.clear()
         return surrogate
 
     def lookup_surrogate(self, surrogate: str) -> Mapping | None:
@@ -115,17 +119,28 @@ class Vault:
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> Vault:
+        entries = data.get("mappings", []) if isinstance(data, dict) else None
+        if not isinstance(entries, list):
+            raise VaultError("vault data must be an object with a 'mappings' list")
         vault = cls()
-        for entry in data.get("mappings", []):
+        for n, entry in enumerate(entries, start=1):
+            if not isinstance(entry, dict):
+                raise VaultError(f"vault mapping {n} is not an object")
+            for key in ("type", "original", "surrogate"):
+                if not isinstance(entry.get(key), str):
+                    raise VaultError(f"vault mapping {n}: {key!r} must be a string")
+            if not entry["surrogate"]:
+                raise VaultError(f"vault mapping {n}: the surrogate is empty")
             try:
                 etype = EntityType(entry["type"])
             except ValueError as exc:
                 raise VaultError(f"unknown entity type in vault data: {entry['type']!r}") from exc
+            detector = entry.get("detector", "")
             mapping = Mapping(
                 type=etype,
                 original=entry["original"],
                 surrogate=entry["surrogate"],
-                first_seen=entry.get("detector", ""),
+                first_seen=detector if isinstance(detector, str) else "",
             )
             vault._by_original[(etype, mapping.original)] = mapping
             vault._by_surrogate[mapping.surrogate] = mapping

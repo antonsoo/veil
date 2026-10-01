@@ -17,24 +17,49 @@ from __future__ import annotations
 
 import math
 import re
+from bisect import bisect_left
+from collections.abc import Iterator
 
+from veil._spans import DisjointSpans
 from veil.types import Entity, EntityType, Span
+
+# A PEM private key, masked as one block from its BEGIN line to its END line;
+# a block cut off before its END line (a truncated paste) runs to the end of
+# its base64 body.
+_PEM_LABEL = r"((?:[A-Z0-9]+ )*PRIVATE KEY(?: BLOCK)?)"
+_PEM_BEGIN_RE = re.compile(rf"-----BEGIN {_PEM_LABEL}-----")
+_PEM_END_RE = re.compile(rf"-----END {_PEM_LABEL}-----")
+_PEM_BODY_RE = re.compile(r"[A-Za-z0-9+/=:,\s-]*")
+
+
+def _private_key_blocks(text: str) -> Iterator[tuple[int, int]]:
+    """(start, end) of each PEM private key block, in order.
+
+    The END lines are indexed once. Searching forward for one from every
+    BEGIN line rescans the rest of the text for each header that has none.
+    """
+    closers: dict[str, list[tuple[int, int]]] | None = None
+    pos = 0
+    while (begin := _PEM_BEGIN_RE.search(text, pos)) is not None:
+        if closers is None:
+            closers = {}
+            for closer in _PEM_END_RE.finditer(text):
+                closers.setdefault(closer.group(1), []).append((closer.start(), closer.end()))
+        ends = closers.get(begin.group(1), [])
+        nxt = bisect_left(ends, (begin.end(),))  # the first END line starting after the header
+        if nxt < len(ends):
+            pos = ends[nxt][1]
+        else:
+            body = _PEM_BODY_RE.match(text, begin.end())
+            pos = body.end() if body is not None else begin.end()
+        yield begin.start(), pos
+
 
 # (name, regex). Prefixes are real, publicly documented formats. Order
 # matters: more specific/prefixed formats are matched first so the
 # generic, prefix-free `aws_secret_key` pattern (any 40-char alnum run)
 # never shadows a more specific match nested inside a longer token.
 _KNOWN_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
-    # A PEM private key, masked as one block from its BEGIN line to its END
-    # line; a block cut off before its END line (a truncated paste) runs to
-    # the end of its base64 body.
-    (
-        "private_key",
-        re.compile(
-            r"-----BEGIN ((?:[A-Z0-9]+ )*PRIVATE KEY(?: BLOCK)?)-----"
-            r"(?:[\s\S]*?-----END \1-----|[A-Za-z0-9+/=:,\s-]*)"
-        ),
-    ),
     ("aws_access_key", re.compile(r"\bAKIA[0-9A-Z]{16}\b")),
     ("github_pat_classic", re.compile(r"\bghp_[A-Za-z0-9]{36}\b")),
     ("github_pat_fine", re.compile(r"\bgithub_pat_[A-Za-z0-9_]{22,255}\b")),
@@ -73,31 +98,37 @@ class SecretDetector:
 
     def find(self, text: str) -> list[Entity]:
         out: list[Entity] = []
-        claimed: list[Span] = []
+        claimed = DisjointSpans()
+
+        def known(pattern_name: str, start: int, end: int) -> None:
+            span = Span(start, end)
+            if claimed.overlaps(span):
+                return
+            claimed.add(span)
+            out.append(
+                Entity(
+                    type=EntityType.SECRET,
+                    value=text[start:end],
+                    span=span,
+                    detector=f"{self.name}:{pattern_name}",
+                    confidence=0.97,
+                )
+            )
+
+        for start, end in _private_key_blocks(text):
+            known("private_key", start, end)
         for pattern_name, rx in _KNOWN_PATTERNS:
             for m in rx.finditer(text):
-                span = Span(m.start(), m.end())
-                if any(span.overlaps(c) for c in claimed):
-                    continue
                 # aws_secret_key is the one pattern with no distinguishing
                 # prefix (just "40 alnum characters"), so a plain SHA-1 hex
                 # hash (also 40 characters) would otherwise false-positive.
                 if pattern_name == "aws_secret_key" and _looks_like_id_or_hash(m.group(0)):
                     continue
-                claimed.append(span)
-                out.append(
-                    Entity(
-                        type=EntityType.SECRET,
-                        value=m.group(0),
-                        span=span,
-                        detector=f"{self.name}:{pattern_name}",
-                        confidence=0.97,
-                    )
-                )
+                known(pattern_name, m.start(), m.end())
 
         for m in _HIGH_ENTROPY_RE.finditer(text):
             span = Span(m.start(), m.end())
-            if any(span.overlaps(c) for c in claimed):
+            if claimed.overlaps(span):
                 continue
             candidate = m.group(0)
             if _looks_like_id_or_hash(candidate):
@@ -105,7 +136,7 @@ class SecretDetector:
             entropy = shannon_entropy(candidate)
             if entropy < _ENTROPY_THRESHOLD:
                 continue
-            claimed.append(span)
+            claimed.add(span)
             out.append(
                 Entity(
                     type=EntityType.SECRET,

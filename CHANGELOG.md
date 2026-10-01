@@ -4,6 +4,37 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.3.2] - 2026-10-01
+
+### Fixed
+
+- Large inputs. Masking, restoring and auditing compared every value with
+  every other one, so the time grew with the square of the input: a 270 KB
+  export holding 16,000 values took 12 s to mask and 35 s to restore. The same
+  export now masks in 0.65 s and restores in 0.22 s, and the time grows in
+  step with the size.
+- Three detectors could stall on long repetitive text. A 40 KB run of `a.a.a.`
+  held the URL detector for about 3 s, and four times as long for every doubling;
+  a text full of unterminated key headers, or of dates near "born", did the
+  same to the secret and date-of-birth detectors. All three are linear now and
+  find exactly what they found before.
+- `restore_tolerant` scanned text it had already restored. With realistic
+  surrogates, a real value that reads like another value's fake (a customer
+  really called "Blair Alder" while "Blair Alder" stands in for someone else)
+  was restored a second time, into the wrong person. Restoring is one pass
+  now.
+- Loading a vault file of the wrong shape (a list, a mapping without its
+  `original`, a non-string value) raised `AttributeError`, `KeyError` or
+  `TypeError`. It raises `VaultError` and says which entry is wrong.
+
+### Changed
+
+- Values are numbered in reading order: the first email address in a text is
+  `⟨EMAIL_1⟩`. Until now the last one was. Vaults already saved are unaffected.
+- A placeholder the model re-cased is restored even when it touches other
+  text (`host=⟨ipv4_1⟩:8080`, `x⟨ipv4_1⟩y`). Fake names still have to stand as
+  words of their own, so `Avery Alderman` is never read as `Avery Alder`.
+
 ## [0.3.1] - 2026-10-01
 
 ### Added

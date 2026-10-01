@@ -61,6 +61,28 @@ def test_from_json_rejects_malformed_json() -> None:
         Vault.from_json("{not valid json")
 
 
+@pytest.mark.parametrize(
+    "data",
+    [
+        "[]",
+        "null",
+        '"vault"',
+        '{"mappings": {}}',
+        '{"mappings": [null]}',
+        '{"mappings": ["x"]}',
+        '{"mappings": [{"original": "x", "surrogate": "y"}]}',
+        '{"mappings": [{"type": "EMAIL", "surrogate": "y"}]}',
+        '{"mappings": [{"type": "EMAIL", "original": "x"}]}',
+        '{"mappings": [{"type": "EMAIL", "original": 5, "surrogate": "y"}]}',
+        '{"mappings": [{"type": ["EMAIL"], "original": "x", "surrogate": "y"}]}',
+        '{"mappings": [{"type": "EMAIL", "original": "x", "surrogate": ""}]}',
+    ],
+)
+def test_from_json_rejects_a_vault_of_the_wrong_shape(data: str) -> None:
+    with pytest.raises(VaultError):
+        Vault.from_json(data)
+
+
 def test_from_json_rejects_unknown_entity_type() -> None:
     with pytest.raises(VaultError):
         Vault.from_json(

@@ -9,6 +9,7 @@ which is the same heuristic a human skimming the text would use.
 from __future__ import annotations
 
 import re
+from bisect import bisect_left
 
 from veil.types import Entity, EntityType, Span
 
@@ -27,21 +28,30 @@ _DATE_RE = re.compile(
 _CONTEXT_WINDOW = 30
 
 
+def _any_within(positions: list[int], centre: int, distance: int) -> bool:
+    """Is any of the sorted ``positions`` at most ``distance`` from ``centre``?"""
+    i = bisect_left(positions, centre - distance)
+    return i < len(positions) and positions[i] <= centre + distance
+
+
 class DobDetector:
     name = "dob"
 
     def find(self, text: str) -> list[Entity]:
         out: list[Entity] = []
-        context_spans = [Span(m.start(), m.end()) for m in _CONTEXT_RE.finditer(text)]
-        if not context_spans:
+        # Keyword matches come in text order and don't overlap, so both lists are sorted.
+        starts: list[int] = []
+        ends: list[int] = []
+        for c in _CONTEXT_RE.finditer(text):
+            starts.append(c.start())
+            ends.append(c.end())
+        if not starts:
             return out
         for m in _DATE_RE.finditer(text):
-            near = any(
-                abs(m.start() - c.end) <= _CONTEXT_WINDOW
-                or abs(c.start - m.end()) <= _CONTEXT_WINDOW
-                for c in context_spans
-            )
-            if not near:
+            if not (
+                _any_within(ends, m.start(), _CONTEXT_WINDOW)
+                or _any_within(starts, m.end(), _CONTEXT_WINDOW)
+            ):
                 continue
             out.append(
                 Entity(

@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import re
 
+from veil._spans import SpanIndex
 from veil.detectors.iban import IbanDetector
 from veil.types import Entity, EntityType, Span
 
@@ -56,7 +57,7 @@ class CardDetector:
         self._iban_detector = IbanDetector()
 
     def find(self, text: str) -> list[Entity]:
-        iban_spans = [e.span for e in self._iban_detector.find(text)]
+        ibans = SpanIndex(e.span for e in self._iban_detector.find(text))
         out: list[Entity] = []
         for m in _CANDIDATE_RE.finditer(text):
             # The candidate group is "digit + optional separator", so a
@@ -68,7 +69,7 @@ class CardDetector:
             if not (13 <= len(digits) <= 19) or not luhn_ok(digits):
                 continue
             span = Span(m.start(), m.start() + len(raw))
-            if any(span.overlaps(c) for c in iban_spans):
+            if ibans.overlaps(span):
                 continue
             out.append(
                 Entity(

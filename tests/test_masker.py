@@ -73,3 +73,8 @@ def test_no_pii_present_is_unchanged() -> None:
     m = Masker()
     text = "The weather today is mild with a light breeze."
     assert m.mask(text) == text
+
+
+def test_values_are_numbered_in_reading_order() -> None:
+    masked = Masker().mask("a@x.com then b@y.com, call 415-555-2671 or 212-555-0143")
+    assert masked == "⟨EMAIL_1⟩ then ⟨EMAIL_2⟩, call ⟨PHONE_1⟩ or ⟨PHONE_2⟩"

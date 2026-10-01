@@ -41,6 +41,7 @@ from __future__ import annotations
 
 import re
 
+from veil._spans import SpanIndex
 from veil.detectors.ip import IpDetector
 from veil.detectors.ssn import SsnDetector
 from veil.types import Entity, EntityType, Span
@@ -98,9 +99,10 @@ class PhoneDetector:
         self._ssn_detector = SsnDetector()
 
     def find(self, text: str) -> list[Entity]:
-        conflicting_spans = [e.span for e in self._ip_detector.find(text)] + [
-            e.span for e in self._ssn_detector.find(text)
-        ]
+        conflicting = SpanIndex(
+            [e.span for e in self._ip_detector.find(text)]
+            + [e.span for e in self._ssn_detector.find(text)]
+        )
         out: list[Entity] = []
         for m in _CANDIDATE_RE.finditer(text):
             candidate = m.group(0)
@@ -108,7 +110,7 @@ class PhoneDetector:
             if len(digits) < 7:
                 continue
             span = Span(m.start(), m.end())
-            if any(span.overlaps(c) for c in conflicting_spans):
+            if conflicting.overlaps(span):
                 continue
             is_e164 = _is_e164(candidate)
             is_nanp = _is_nanp(candidate)

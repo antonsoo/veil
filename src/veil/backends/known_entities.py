@@ -12,6 +12,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
+from veil._spans import DisjointSpans
 from veil.types import Entity, EntityType, Span
 
 
@@ -46,14 +47,14 @@ class KnownEntitiesBackend:
 
     def find(self, text: str) -> list[Entity]:
         out: list[Entity] = []
-        claimed: list[Span] = []
+        claimed = DisjointSpans()
         for value, etype in self._entries():
             pattern = re.compile(r"(?<!\w)" + re.escape(value) + r"(?!\w)", re.IGNORECASE)
             for m in pattern.finditer(text):
                 span = Span(m.start(), m.end())
-                if any(span.overlaps(c) for c in claimed):
+                if claimed.overlaps(span):
                     continue
-                claimed.append(span)
+                claimed.add(span)
                 out.append(
                     Entity(
                         type=etype,

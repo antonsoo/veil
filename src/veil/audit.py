@@ -25,7 +25,7 @@ from dataclasses import dataclass
 
 from veil.detectors import default_detectors
 from veil.detectors.base import Detector
-from veil.types import Entity, Span
+from veil.types import Entity, Mapping, Span
 from veil.vault import Vault
 
 
@@ -35,31 +35,54 @@ class LeakFinding:
     entity: Entity
 
 
+def _originals_index(
+    vault: Vault,
+) -> tuple[dict[str, list[tuple[int, Mapping]]], dict[str, list[int]]]:
+    """The vault's originals by value, and the lengths of those starting with each character."""
+    index = vault._derived.get("originals")
+    if index is None:
+        by_value: dict[str, list[tuple[int, Mapping]]] = {}
+        for order, mapping in enumerate(vault.mappings()):
+            if mapping.original:
+                by_value.setdefault(mapping.original, []).append((order, mapping))
+        lengths: dict[str, set[int]] = {}
+        for value in by_value:
+            lengths.setdefault(value[0], set()).add(len(value))
+        index = vault._derived["originals"] = (
+            by_value,
+            {first: sorted(found) for first, found in lengths.items()},
+        )
+    return index
+
+
 def find_leaked_originals(text: str, vault: Vault) -> list[LeakFinding]:
-    findings: list[LeakFinding] = []
-    for mapping in vault.mappings():
-        if not mapping.original:
-            continue
-        start = 0
-        while True:
-            idx = text.find(mapping.original, start)
-            if idx == -1:
-                break
-            findings.append(
-                LeakFinding(
-                    kind="leaked_original",
-                    entity=Entity(
-                        type=mapping.type,
-                        value=mapping.original,
-                        span=Span(idx, idx + len(mapping.original)),
-                        detector="vault",
-                        confidence=1.0,
-                    ),
-                )
-            )
-            start = idx + len(mapping.original)
-    findings.sort(key=lambda f: f.entity.span.start)
-    return findings
+    # One pass over the text, looking substrings up by value. Searching the whole
+    # text once per vault entry is quadratic for a large vault.
+    by_value, lengths_by_first = _originals_index(vault)
+    found: list[tuple[int, int, Mapping]] = []
+    free_from: dict[str, int] = {}  # occurrences of one value are counted without overlap
+    for start, ch in enumerate(text):
+        for length in lengths_by_first.get(ch, ()):
+            value = text[start : start + length]
+            entries = by_value.get(value)
+            if entries is None or start < free_from.get(value, 0):
+                continue
+            free_from[value] = start + length
+            found.extend((start, order, mapping) for order, mapping in entries)
+    found.sort(key=lambda item: item[:2])
+    return [
+        LeakFinding(
+            kind="leaked_original",
+            entity=Entity(
+                type=mapping.type,
+                value=mapping.original,
+                span=Span(start, start + len(mapping.original)),
+                detector="vault",
+                confidence=1.0,
+            ),
+        )
+        for start, _, mapping in found
+    ]
 
 
 def find_new_pii(

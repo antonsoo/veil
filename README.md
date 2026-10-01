@@ -291,7 +291,9 @@ shapes", not "no false positives on arbitrary text" — see below.
 
 **Masking throughput:** ~1.6-2.1 MB/s (single-threaded, all nine
 detectors run on every document; varies run to run — see `elapsed_s` in
-the script's output).
+the script's output). Time grows in step with the input: a 270 KB export
+holding 16,000 values masks in 0.65 s and restores in 0.22 s, and
+`tests/test_scale.py` keeps it that way.
 
 **Streaming-restore overhead:** within roughly ±20% of non-streamed
 restore at a 24-character chunk size, on the same corpus — noise-level on
@@ -347,7 +349,7 @@ over-masking fix that followed it.
 git clone https://github.com/antonsoo/veil
 cd veil
 uv sync --group dev
-uv run pytest          # 194 tests, including Hypothesis property tests
+uv run pytest          # 237 tests, including Hypothesis property tests
 uv run ruff check .    # lint
 uv run mypy            # typecheck (strict)
 ```

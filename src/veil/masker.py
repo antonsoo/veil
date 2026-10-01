@@ -2,15 +2,15 @@
 
 Ties together detectors, name backends, a surrogate generator, and a vault.
 Detector results are pooled, overlaps resolved (higher confidence wins,
-ties broken by longer span, then earliest detector), and replaced
-right-to-left so earlier spans keep their original offsets while later
-ones are rewritten.
+ties broken by longer span, then earliest detector), and replaced in
+reading order, so the first value of a type in a text is numbered 1.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass, field
 
+from veil._spans import DisjointSpans
 from veil.backends.base import NameBackend
 from veil.detectors import default_detectors
 from veil.detectors.base import Detector
@@ -30,9 +30,11 @@ def _resolve_overlaps(entities: list[Entity]) -> list[Entity]:
         key=lambda e: (-e.confidence, -len(e.span), e.span.start),
     )
     kept: list[Entity] = []
+    taken = DisjointSpans()
     for entity in ranked:
-        if any(entity.span.overlaps(k.span) for k in kept):
+        if taken.overlaps(entity.span):
             continue
+        taken.add(entity.span)
         kept.append(entity)
     kept.sort(key=lambda e: e.span.start)
     return kept
@@ -59,14 +61,17 @@ class Masker:
         return _resolve_overlaps(found)
 
     def mask(self, text: str) -> str:
-        entities = self.find_entities(text)
-        out = text
-        for entity in sorted(entities, key=lambda e: e.span.start, reverse=True):
+        parts: list[str] = []
+        pos = 0
+        for entity in self.find_entities(text):
             surrogate = self.vault.get_or_create(
                 entity.type, entity.value, self.surrogate_generator, entity.detector
             )
-            out = out[: entity.span.start] + surrogate + out[entity.span.end :]
-        return out
+            parts.append(text[pos : entity.span.start])
+            parts.append(surrogate)
+            pos = entity.span.end
+        parts.append(text[pos:])
+        return "".join(parts)
 
     def restore(self, text: str, *, tolerant: bool = True) -> str:
         """Restore surrogates in ``text`` using this masker's vault.
