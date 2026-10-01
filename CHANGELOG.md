@@ -4,6 +4,26 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.3.0] - 2026-09-30
+
+### Added
+
+- OpenAI Responses API support: `OpenAIVeil.create_response` and
+  `stream_response` mask `instructions` and every message, `function_call`,
+  `function_call_output` and custom tool item in `input`, and restore message
+  text, refusals, tool-call arguments and reasoning summaries in `output`
+  (`response.output_text` included). Stream deltas are restored as they
+  arrive; output items fed back as `input` are replayed exactly as the model
+  produced them. Tested against the `openai` SDK's own response and event
+  types.
+
+### Fixed
+
+- At the end of a Chat Completions stream, text held back because it might
+  begin a surrogate came out as a plain dict, so code reading
+  `chunk.choices[0].delta.content` failed on it. It is now a copy of the last
+  real chunk, with only the held-back text in its delta.
+
 ## [0.2.0] - 2026-09-30
 
 ### Security

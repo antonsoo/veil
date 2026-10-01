@@ -11,6 +11,7 @@ from collections import OrderedDict
 from typing import Any
 
 from veil.masker import Masker
+from veil.restore import restore_json_text
 
 
 def mask_value(value: Any, masker: Masker) -> Any:
@@ -33,6 +34,20 @@ def restore_value(value: Any, masker: Masker, *, tolerant: bool = True) -> Any:
     if isinstance(value, dict):
         return {k: restore_value(v, masker, tolerant=tolerant) for k, v in value.items()}
     return value
+
+
+def restore_arguments(arguments: str, masker: Masker) -> str:
+    """Restore a complete tool-call ``arguments`` JSON string.
+
+    Parsed, restored value by value and re-serialized, so the restore doesn't
+    depend on how the model escaped the surrogate (``\\u27e8`` for ``⟨``).
+    """
+    try:
+        parsed = json.loads(arguments)
+    except ValueError:
+        return restore_json_text(arguments, masker.vault)  # truncated or not JSON: best effort
+    restored = restore_value(parsed, masker)
+    return arguments if restored == parsed else json.dumps(restored, ensure_ascii=False)
 
 
 def model_copy_with(obj: Any, **updates: Any) -> Any:

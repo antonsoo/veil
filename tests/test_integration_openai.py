@@ -188,3 +188,28 @@ def test_stream_flushes_held_back_tail_at_end() -> None:
         if c.get("choices") and c["choices"][0].get("delta", {}).get("content")
     ]
     assert "".join(text_parts) == f"Hi {surrogate[:3]}"
+
+
+def test_stream_trailing_release_is_a_real_chunk() -> None:
+    # Held-back text at the end of the stream comes out as a copy of the last real chunk,
+    # so code reading chunk.choices[0].delta.content keeps working on it.
+    from openai.types.chat import ChatCompletionChunk
+
+    masker = Masker()
+    masker.mask("alice@example.com")
+
+    def chunk(content: str) -> ChatCompletionChunk:
+        return ChatCompletionChunk.model_validate(
+            {
+                "id": "c1",
+                "object": "chat.completion.chunk",
+                "created": 1,
+                "model": "gpt-6-sol",
+                "choices": [{"index": 0, "delta": {"content": content}, "finish_reason": None}],
+            }
+        )
+
+    veil = OpenAIVeil(FakeClient(chunks=[chunk("Total "), chunk("3 ⟨EM")]), masker=masker)  # type: ignore[arg-type]
+    out = list(veil.stream(model="gpt-6-sol", messages=[{"role": "user", "content": "hi"}]))
+    assert all(isinstance(c, ChatCompletionChunk) for c in out)
+    assert "".join(c.choices[0].delta.content or "" for c in out) == "Total 3 ⟨EM"

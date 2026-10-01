@@ -122,9 +122,40 @@ with client.stream(model="claude-opus-5-5", max_tokens=1024, messages=[...]) as 
         print(text, end="", flush=True)
 ```
 
-`veil.integrations.openai.OpenAIVeil` is the same shape for the OpenAI SDK
-(the `openai` extra), including restoring tool-call arguments as they
-stream in fragments.
+### With the OpenAI SDK
+
+`veil.integrations.openai.OpenAIVeil` (the `openai` extra) wraps both of
+OpenAI's APIs: `create` / `stream` for Chat Completions, and
+`create_response` / `stream_response` for the Responses API.
+
+```python
+from openai import OpenAI
+from veil.integrations.openai import OpenAIVeil
+
+client = OpenAIVeil(OpenAI())
+
+response = client.create_response(
+    model="gpt-6-sol",
+    instructions="You draft customer emails.",
+    input="Email alice@example.com about invoice #4471.",
+)
+print(response.output_text)  # restored; the model only saw ⟨EMAIL_1⟩
+
+for event in client.stream_response(model="gpt-6-sol", input=[...]):
+    if event.type == "response.output_text.delta":
+        print(event.delta, end="", flush=True)  # restored, split-token-safe
+```
+
+For the Responses API, veil masks `instructions` and every message,
+`function_call`, `function_call_output` and custom tool item in `input`. It
+restores message text, refusals, tool-call arguments and reasoning summaries
+in `output`, and `response.output_text` with them, since the SDK computes it
+from `output`. Reasoning items pass through untouched. In a stream, text and
+argument deltas are restored as they arrive, and any text held back because
+it might begin a surrogate is released, as one more delta event, before the
+matching `.done` event. With `previous_response_id` the server keeps the
+masked history, so keep the same `OpenAIVeil` (and its vault) for the whole
+conversation. Tested against the `openai` SDK's own response and event types.
 
 ### Multi-turn conversations and tool calls
 
@@ -183,10 +214,10 @@ stay valid JSON.
   encryption at rest (`veil-pii[vault-crypto]`) — see the threat model in
   `veil/vault.py`.
 - **CLI**: `veil mask`, `veil restore`, `veil audit`.
-- **SDK integrations**: thin Anthropic and OpenAI wrappers that mask
-  every outgoing message (tool calls included), restore responses and
-  streams, and replay earlier assistant turns exactly as the model
-  produced them.
+- **SDK integrations**: thin wrappers for the Anthropic Messages API and
+  OpenAI's Chat Completions and Responses APIs that mask every outgoing
+  message (tool calls included), restore responses and streams, and replay
+  earlier assistant turns exactly as the model produced them.
 - **Zero runtime dependencies in the core.** Everything above the
   detectors/surrogates/restore/vault/CLI layer is an optional extra.
 
@@ -315,7 +346,7 @@ over-masking fix that followed it.
 git clone https://github.com/antonsoo/veil
 cd veil
 uv sync --group dev
-uv run pytest          # 181 tests, including Hypothesis property tests
+uv run pytest          # 193 tests, including Hypothesis property tests
 uv run ruff check .    # lint
 uv run mypy            # typecheck (strict)
 ```
