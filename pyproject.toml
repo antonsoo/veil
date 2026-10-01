@@ -1,11 +1,11 @@
 [project]
 name = "veil-pii"
-version = "0.3.0"
+version = "0.3.1"
 description = "Reversible PII masking for LLM calls: mask before the prompt leaves your network, restore in the answer, streaming included."
-readme = "README.md"
+dynamic = ["readme"]
 requires-python = ">=3.10"
 license = "MIT"
-authors = [{ name = "Anton Soloviev" }]
+authors = [{ name = "Anton Soloviev", email = "anton@praviel.com" }]
 keywords = [
     "pii",
     "privacy",
@@ -61,8 +61,36 @@ dev = [
 ]
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-fancy-pypi-readme"]
 build-backend = "hatchling.build"
+
+# PyPI doesn't resolve relative links, so the README's images and links are
+# rewritten to absolute GitHub URLs when the package is built: images first,
+# then every link that is still relative.
+[tool.hatch.metadata.hooks.fancy-pypi-readme]
+content-type = "text/markdown"
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.fragments]]
+path = "README.md"
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+pattern = '!\[([^\]]*)\]\((?!https?://)([^)\s]+)\)'
+replacement = '![\1](https://raw.githubusercontent.com/antonsoo/veil/main/\2)'
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+pattern = 'src="(?!https?://)([^"]+)"'
+replacement = 'src="https://raw.githubusercontent.com/antonsoo/veil/main/\1"'
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+pattern = '\]\((?!https?://|#|mailto:)([^)\s]+)\)'
+replacement = '](https://github.com/antonsoo/veil/blob/main/\1)'
+
+[[tool.hatch.metadata.hooks.fancy-pypi-readme.substitutions]]
+pattern = 'href="(?!https?://|#|mailto:)([^"]+)"'
+replacement = 'href="https://github.com/antonsoo/veil/blob/main/\1"'
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/docs/*.md", "/README.md", "/CHANGELOG.md", "/LICENSE*", "/pyproject.toml"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/veil"]

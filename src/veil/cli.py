@@ -13,6 +13,7 @@ import os
 import sys
 from collections.abc import Sequence
 
+from veil import __version__
 from veil.audit import audit
 from veil.masker import Masker
 from veil.restore import restore_exact, restore_tolerant
@@ -82,6 +83,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="veil", description="Reversible PII masking for LLM calls."
     )
+    parser.add_argument("--version", action="version", version=f"veil {__version__}")
     sub = parser.add_subparsers(dest="command", required=True)
 
     p_mask = sub.add_parser("mask", help="Mask PII in a file or stdin.")

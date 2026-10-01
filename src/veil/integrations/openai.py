@@ -1,7 +1,7 @@
 """A thin wrapper around the OpenAI Python SDK that masks outgoing messages
 and restores PII in the response, streaming included.
 
-Requires the ``openai`` extra (``pip install "veil-pii[openai] @ git+https://github.com/antonsoo/veil"``). Built
+Requires the ``openai`` extra (``pip install "veil-pii[openai]"``). Built
 against the documented shape of ``client.chat.completions.create(...,
 stream=True)`` — a message list of role/content dicts, and a stream of
 ``ChatCompletionChunk``-shaped objects with ``choices[].delta.content`` and

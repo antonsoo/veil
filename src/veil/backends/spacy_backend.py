@@ -1,6 +1,6 @@
 """Optional spaCy NER backend for PERSON / ORG / LOCATION detection.
 
-Requires the ``spacy`` extra (``pip install "veil-pii[spacy] @ git+https://github.com/antonsoo/veil"``) and a
+Requires the ``spacy`` extra (``pip install "veil-pii[spacy]"``) and a
 downloaded model, e.g.::
 
     python -m spacy download en_core_web_sm

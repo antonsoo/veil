@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.3.1] - 2026-10-01
+
+### Added
+
+- Published to PyPI as `veil-pii`: `pip install veil-pii`, with the extras
+  `veil-pii[anthropic]`, `[openai]`, `[spacy]` and `[vault-crypto]`. The README's
+  images and links are rewritten to absolute URLs at build time so they work
+  on the project page.
+- `veil --version`.
+
 ## [0.3.0] - 2026-09-30
 
 ### Added

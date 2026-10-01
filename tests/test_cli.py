@@ -1,5 +1,7 @@
 import json
 
+import pytest
+
 from veil.cli import main
 
 
@@ -79,3 +81,12 @@ def test_restore_exact_flag(tmp_path, capsys) -> None:  # type: ignore[no-untype
     rc = main(["restore", str(masked_path), "--vault", str(vault_path), "--exact"])
     assert rc == 0
     assert "alice@example.com" in capsys.readouterr().out
+
+
+def test_version_flag(capsys: pytest.CaptureFixture[str]) -> None:
+    import veil
+
+    with pytest.raises(SystemExit) as exit_info:
+        main(["--version"])
+    assert exit_info.value.code == 0
+    assert capsys.readouterr().out.strip() == f"veil {veil.__version__}"

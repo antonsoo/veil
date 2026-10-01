@@ -1,7 +1,7 @@
 """A thin wrapper around the Anthropic Python SDK that masks outgoing
 messages and restores PII in the response, streaming included.
 
-Requires the ``anthropic`` extra (``pip install "veil-pii[anthropic] @ git+https://github.com/antonsoo/veil"``).
+Requires the ``anthropic`` extra (``pip install "veil-pii[anthropic]"``).
 This module only touches the SDK's public, documented surface
 (``client.messages.create`` / ``client.messages.stream``, the
 ``MessageStream`` helper's ``text_stream`` / ``get_final_message()``) so it

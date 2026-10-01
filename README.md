@@ -82,7 +82,7 @@ into chunks produces output identical to restoring it unsplit
 ## Quickstart
 
 ```bash
-pip install "git+https://github.com/antonsoo/veil"
+pip install veil-pii
 ```
 
 ```python
@@ -100,7 +100,7 @@ print(masker.restore(reply))  # "Sure, I've noted it for alice@example.com."
 ### With the Anthropic SDK
 
 ```bash
-pip install "veil-pii[anthropic] @ git+https://github.com/antonsoo/veil"
+pip install "veil-pii[anthropic]"
 ```
 
 ```python
@@ -346,7 +346,7 @@ over-masking fix that followed it.
 git clone https://github.com/antonsoo/veil
 cd veil
 uv sync --group dev
-uv run pytest          # 193 tests, including Hypothesis property tests
+uv run pytest          # 194 tests, including Hypothesis property tests
 uv run ruff check .    # lint
 uv run mypy            # typecheck (strict)
 ```
