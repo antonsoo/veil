@@ -20,3 +20,4 @@ docs/site/
 # synthetic strings shaped enough like real API keys that public secret
 # scanners flag committed copies as leaked credentials.
 benchmarks/*.jsonl
+.venv-minimums/

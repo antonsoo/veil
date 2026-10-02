@@ -43,6 +43,26 @@ jobs:
           uv run python scripts/generate_corpus.py 10 > /tmp/corpus.jsonl
           uv run python scripts/evaluate.py /tmp/corpus.jsonl
 
+  minimums:
+    name: Oldest supported Python and dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10
+        with:
+          python-version: "3.10"
+
+      # `requires-python` and every ">=" in pyproject.toml are promises. The lockfile tests
+      # the newest versions; this installs the oldest ones the package says it accepts.
+      - name: Install the oldest allowed version of each direct dependency
+        run: |
+          uv venv .venv-minimums
+          uv pip install --python .venv-minimums --resolution lowest-direct -e ".[vault-crypto,anthropic,openai]" --group dev
+
+      - name: Test
+        run: .venv-minimums/bin/pytest -q
+
   web:
     runs-on: ubuntu-latest
     steps:
