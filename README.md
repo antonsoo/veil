@@ -273,6 +273,18 @@ $ veil restore masked_reply.txt --vault vault.json
 $ veil audit outgoing_reply.txt --vault vault.json   # exit 1 if anything leaked
 ```
 
+Each command reads stdin when no file is named and writes stdout, so they sit
+on either side of a model call; `-o FILE` writes a file instead:
+
+```bash
+$ cat ticket.txt | veil mask --vault vault.json | your-llm-call | veil restore --vault vault.json
+$ veil mask ticket.txt --vault vault.json -o masked.txt
+```
+
+Input and output are UTF-8 on every path, pipes included, whatever the
+system's code page; line endings pass through unchanged. In Windows
+PowerShell, prefer `-o` to `>`, which re-encodes what a program prints.
+
 ![Real terminal output: veil mask against examples/support_ticket.txt, then the vault.json it produced](docs/assets/cli.png)
 
 ## Web demo

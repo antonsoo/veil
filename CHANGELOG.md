@@ -4,6 +4,30 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.4.1] - 2026-10-02
+
+The command line, used the way a shell uses it.
+
+### Fixed
+
+- `veil mask ticket.txt --vault v.json > masked.txt` on Windows. Python
+  before 3.15 gives a redirected stdout the system's code page (cp1252 in the
+  west), which has no `⟨` or `⟩`, so the command stopped with a
+  `UnicodeEncodeError` traceback at the first surrogate; UTF-8 text on stdin
+  was read as mojibake for the same reason. Standard input and output are
+  UTF-8 now, like the files. (Reproduced on Linux by giving the pipes that
+  encoding with `PYTHONIOENCODING`; the tests do the same for cp1252, cp437
+  and ASCII.)
+- `cat ticket.txt | veil mask --vault v.json`, the pipeline in the CLI's own
+  description, failed with "the following arguments are required: input":
+  stdin needed an explicit `-`. A command with no file reads stdin.
+- Line endings pass through. A CRLF file came out with LF endings.
+
+### Added
+
+- `-o` / `--output FILE` for `mask` and `restore`, for shells whose `>`
+  re-encodes program output (Windows PowerShell).
+
 ## [0.4.0] - 2026-10-01
 
 The SDK wrappers had only been run against fakes shaped like the SDKs. Run
