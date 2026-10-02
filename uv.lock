@@ -2321,7 +2321,7 @@ wheels = [
 
 [[package]]
 name = "veil-pii"
-version = "0.4.2"
+version = "0.4.3"
 source = { editable = "." }
 
 [package.optional-dependencies]
@@ -2359,7 +2359,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "anthropic", marker = "extra == 'anthropic'", specifier = ">=0.40" },
-    { name = "cryptography", marker = "extra == 'vault-crypto'", specifier = ">=42" },
+    { name = "cryptography", marker = "extra == 'vault-crypto'", specifier = ">=50" },
     { name = "openai", marker = "extra == 'openai'", specifier = ">=1.66" },
     { name = "spacy", marker = "extra == 'spacy'", specifier = ">=3.7" },
     { name = "veil-pii", extras = ["spacy", "vault-crypto", "anthropic", "openai"], marker = "extra == 'all'" },
@@ -2369,11 +2369,11 @@ provides-extras = ["spacy", "vault-crypto", "anthropic", "openai", "all"]
 [package.metadata.requires-dev]
 dev = [
     { name = "anthropic", specifier = ">=0.40" },
-    { name = "cryptography", specifier = ">=42" },
+    { name = "cryptography", specifier = ">=50" },
     { name = "hypothesis", specifier = ">=6.115" },
     { name = "mypy", specifier = ">=1.13" },
     { name = "openai", specifier = ">=1.66" },
-    { name = "pytest", specifier = ">=8.3" },
+    { name = "pytest", specifier = ">=9.0.3" },
     { name = "pytest-cov", specifier = ">=6.0" },
     { name = "ruff", specifier = ">=0.7" },
 ]

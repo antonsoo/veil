@@ -4,6 +4,17 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.4.3] - 2026-10-02
+
+### Security
+
+- The `vault-crypto` extra accepted `cryptography` from 42.0.0, a release with
+  published advisories (as has every release before 50.0.0). An ordinary
+  install already got the current version; one held back by another
+  package's constraints could get an old one for the code that encrypts the
+  vault. The minimum is `cryptography>=50`. `pip-audit` reports nothing for
+  the locked versions or for the minimum ones.
+
 ## [0.4.2] - 2026-10-02
 
 ### Added

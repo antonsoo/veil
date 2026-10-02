@@ -1,6 +1,6 @@
 [project]
 name = "veil-pii"
-version = "0.4.2"
+version = "0.4.3"
 description = "Reversible PII masking for LLM calls: mask before the prompt leaves your network, restore in the answer, streaming included."
 dynamic = ["readme"]
 requires-python = ">=3.10"
@@ -40,7 +40,7 @@ Changelog = "https://github.com/antonsoo/veil/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 spacy = ["spacy>=3.7"]
-vault-crypto = ["cryptography>=42"]
+vault-crypto = ["cryptography>=50"]
 anthropic = ["anthropic>=0.40"]
 openai = ["openai>=1.66"]
 all = ["veil-pii[spacy,vault-crypto,anthropic,openai]"]
@@ -50,12 +50,12 @@ veil = "veil.cli:main"
 
 [dependency-groups]
 dev = [
-    "pytest>=8.3",
+    "pytest>=9.0.3",
     "pytest-cov>=6.0",
     "hypothesis>=6.115",
     "ruff>=0.7",
     "mypy>=1.13",
-    "cryptography>=42",
+    "cryptography>=50",
     "anthropic>=0.40",
     "openai>=1.66",
 ]
