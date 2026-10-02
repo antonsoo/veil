@@ -9,7 +9,15 @@ from __future__ import annotations
 import json
 from typing import Any
 
-from openai.types.responses import (
+import pytest
+
+from veil.integrations._common import get_field
+from veil.integrations.openai import OpenAIVeil
+from veil.masker import Masker
+
+pytest.importorskip("openai")
+
+from openai.types.responses import (  # noqa: E402
     Response,
     ResponseCompletedEvent,
     ResponseFunctionCallArgumentsDeltaEvent,
@@ -17,10 +25,7 @@ from openai.types.responses import (
     ResponseTextDeltaEvent,
     ResponseTextDoneEvent,
 )
-
-from veil.integrations._common import get_field
-from veil.integrations.openai import OpenAIVeil
-from veil.masker import Masker
+from pydantic import ValidationError  # noqa: E402
 
 EMAIL = "alice@example.com"
 
@@ -121,17 +126,23 @@ def test_output_is_restored_on_the_real_response_model() -> None:
     surrogate = masker.mask(EMAIL)
     # The model may write the surrogate's brackets as JSON escapes inside arguments.
     escaped_args = json.dumps({"to": surrogate}, ensure_ascii=True)
-    response = make_response(
-        [
-            message(f"I wrote to {surrogate}."),
-            function_call(escaped_args),
-            {
-                "type": "reasoning",
-                "id": "rs_1",
-                "summary": [{"type": "summary_text", "text": f"User wants {surrogate} emailed"}],
-            },
-        ]
-    )
+    try:
+        response = make_response(
+            [
+                message(f"I wrote to {surrogate}."),
+                function_call(escaped_args),
+                {
+                    "type": "reasoning",
+                    "id": "rs_1",
+                    "summary": [
+                        {"type": "summary_text", "text": f"User wants {surrogate} emailed"}
+                    ],
+                },
+            ]
+        )
+    except ValidationError:
+        # The first SDKs with the Responses API modelled a reasoning item without `summary`.
+        pytest.skip("this openai SDK's Response model predates the reasoning item's summary")
     veil = OpenAIVeil(FakeClient(response), masker=masker)
     restored = veil.create_response(model="gpt-6-sol", input="go")
     assert isinstance(restored, Response)

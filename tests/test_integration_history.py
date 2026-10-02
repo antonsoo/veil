@@ -14,12 +14,15 @@ from __future__ import annotations
 import json
 from typing import Any
 
-from anthropic.types import Message
+import pytest
 
 from veil.integrations._common import ReplayCache
 from veil.integrations.anthropic import AnthropicVeil, mask_messages
 from veil.integrations.openai import OpenAIVeil
 from veil.masker import Masker
+
+anthropic_types = pytest.importorskip("anthropic.types")
+Message = anthropic_types.Message
 
 
 def _message(content: list[dict[str, Any]]) -> Message:
@@ -69,6 +72,8 @@ def _first_surrogate(request: dict[str, Any]) -> str:
 
 def _tool_call_turn(request: dict[str, Any]) -> Message:
     surrogate = _first_surrogate(request)
+    if not hasattr(anthropic_types, "ThinkingBlock"):
+        pytest.skip("this anthropic SDK's Message model predates thinking blocks")
     return _message(
         [
             {"type": "thinking", "thinking": "", "signature": "c2lnbmF0dXJl"},
