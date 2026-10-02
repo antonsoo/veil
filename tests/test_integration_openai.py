@@ -10,6 +10,8 @@ from __future__ import annotations
 
 from typing import Any
 
+import pytest
+
 from veil.integrations.openai import OpenAIVeil, mask_messages
 from veil.masker import Masker
 from veil.types import EntityType
@@ -193,6 +195,7 @@ def test_stream_flushes_held_back_tail_at_end() -> None:
 def test_stream_trailing_release_is_a_real_chunk() -> None:
     # Held-back text at the end of the stream comes out as a copy of the last real chunk,
     # so code reading chunk.choices[0].delta.content keeps working on it.
+    pytest.importorskip("openai")
     from openai.types.chat import ChatCompletionChunk
 
     masker = Masker()
