@@ -123,11 +123,33 @@ with client.stream(model="claude-opus-5-5", max_tokens=1024, messages=[...]) as 
         print(text, end="", flush=True)
 ```
 
+All three of the SDK's ways to stream come back restored: `stream.text_stream`,
+iterating the stream's events (the API's deltas, and the SDK's own `text` and
+`input_json` events and the snapshots on `content_block_stop` and
+`message_stop`), and the raw event iterator of `create(..., stream=True)`.
+Tool-input JSON is restored as its fragments arrive. Text held back because it
+might begin a surrogate is released before its block's `content_block_stop`.
+`AsyncAnthropicVeil` is the same wrapper for `AsyncAnthropic`:
+
+```python
+from anthropic import AsyncAnthropic
+from veil.integrations.anthropic import AsyncAnthropicVeil
+
+client = AsyncAnthropicVeil(AsyncAnthropic())
+response = await client.create(model="claude-opus-5-5", max_tokens=1024, messages=[...])
+async with client.stream(model="claude-opus-5-5", max_tokens=1024, messages=[...]) as stream:
+    async for text in stream.text_stream:
+        print(text, end="", flush=True)
+```
+
 ### With the OpenAI SDK
 
 `veil.integrations.openai.OpenAIVeil` (the `openai` extra) wraps both of
 OpenAI's APIs: `create` / `stream` for Chat Completions, and
-`create_response` / `stream_response` for the Responses API.
+`create_response` / `stream_response` for the Responses API. Passing
+`stream=True` to `create` or `create_response` streams the same way, restored.
+`AsyncOpenAIVeil` is the same wrapper for `AsyncOpenAI` (`await` each call,
+`async for` over a stream).
 
 ```python
 from openai import OpenAI
@@ -156,7 +178,21 @@ argument deltas are restored as they arrive, and any text held back because
 it might begin a surrogate is released, as one more delta event, before the
 matching `.done` event. With `previous_response_id` the server keeps the
 masked history, so keep the same `OpenAIVeil` (and its vault) for the whole
-conversation. Tested against the `openai` SDK's own response and event types.
+conversation.
+
+In a Chat Completions stream every choice has its own restorers (`n > 1`
+choices arrive interleaved, and so do parallel tool calls), refusals are
+restored like content, and held-back text is released in the chunk that
+carries the choice's `finish_reason`, so nothing arrives after a choice has
+finished or after the usage chunk.
+
+**How the wrappers are tested.** There is no API key in this repository and
+no live call. `tests/test_sdk_anthropic.py` and `tests/test_sdk_openai.py`
+run the real SDKs (sync and async clients) over a mocked HTTP transport that
+answers in the APIs' wire format, so the messages, chunks and events veil
+restores there are the ones the SDK builds for an application; a property
+test cuts a reply at arbitrary points and requires the same restored text.
+The other integration tests use fakes shaped like the SDK types.
 
 ### Multi-turn conversations and tool calls
 
@@ -216,9 +252,10 @@ stay valid JSON.
   `veil/vault.py`.
 - **CLI**: `veil mask`, `veil restore`, `veil audit`.
 - **SDK integrations**: thin wrappers for the Anthropic Messages API and
-  OpenAI's Chat Completions and Responses APIs that mask every outgoing
-  message (tool calls included), restore responses and streams, and replay
-  earlier assistant turns exactly as the model produced them.
+  OpenAI's Chat Completions and Responses APIs, for sync and async clients,
+  that mask every outgoing message (tool calls included), restore responses
+  and every way of streaming them, and replay earlier assistant turns exactly
+  as the model produced them.
 - **Zero runtime dependencies in the core.** Everything above the
   detectors/surrogates/restore/vault/CLI layer is an optional extra.
 
@@ -327,6 +364,14 @@ over-masking fix that followed it.
   customer's identity) or an optional, *unbenchmarked* spaCy backend. See
   `veil/backends/spacy_backend.py` for why we don't claim an NER accuracy
   number we haven't measured.
+- **The SDK wrappers cover the calls they name.** `create` and `stream`
+  (Messages, Chat Completions) and `create_response` / `stream_response`
+  (Responses), on sync and async clients. The SDKs' other entry points
+  (`client.chat.completions.stream()`, `client.responses.stream()`,
+  `.parse()`, batches, `count_tokens`) are not wrapped: called on the
+  underlying client they send what you pass, unmasked. A model's thinking
+  text is passed through as it was signed, so it shows surrogates, not the
+  originals.
 - **US-centric.** Phone (NANP), SSN, and the address heuristic assume
   US formats primarily; IBAN and E.164 phone cover international cases,
   but there's no general international address, national-ID, or

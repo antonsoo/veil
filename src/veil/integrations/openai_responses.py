@@ -37,7 +37,7 @@ so the same vault) has to serve every turn of a conversation.
 
 from __future__ import annotations
 
-from collections.abc import Iterator
+from collections.abc import AsyncIterator, Iterator
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -203,19 +203,39 @@ class OpenAIResponsesStream:
     """Wraps the event iterator from ``client.responses.create(..., stream=True)``
     so text, refusals and tool-call arguments arrive restored."""
 
-    raw: Iterator[Any]
+    raw: Any
     masker: Masker
     replay: ReplayCache | None = None
     _pending: dict[tuple[str, str, int], _Pending] = field(init=False, default_factory=dict)
 
+    def __enter__(self) -> OpenAIResponsesStream:
+        if hasattr(self.raw, "__enter__"):
+            self.raw.__enter__()
+        return self
+
+    def __exit__(self, *exc_info: object) -> Any:
+        if hasattr(self.raw, "__exit__"):
+            return self.raw.__exit__(*exc_info)
+        return None
+
+    def __getattr__(self, name: str) -> Any:
+        # close(), response, ...: whatever veil does not wrap is the SDK stream's.
+        if name.startswith("_") or name == "raw":
+            raise AttributeError(name)
+        return getattr(self.raw, name)
+
     def __iter__(self) -> Iterator[Any]:
         for event in self.raw:
             yield from self._restore_event(event)
-        # A stream cut off before its .done events: release what's held back.
+        yield from self._release_all()
+
+    def _release_all(self) -> Iterator[Any]:
+        """A stream cut off before its .done events: release what's held back."""
         for pending in self._pending.values():
             released = pending.release()
             if released is not None:
                 yield released
+        self._pending.clear()
 
     def _key(self, kind: str, event: Any) -> tuple[str, str, int]:
         return (kind, get_field(event, "item_id"), get_field(event, "content_index", 0))
@@ -276,3 +296,28 @@ _DONE = {
     "response.refusal.done": ("refusal", "refusal"),
     "response.function_call_arguments.done": ("arguments", "arguments"),
 }
+
+
+class AsyncOpenAIResponsesStream(OpenAIResponsesStream):
+    """The same for ``await client.responses.create(..., stream=True)`` on an
+    ``AsyncOpenAI`` client: ``async for event in stream``."""
+
+    async def __aenter__(self) -> AsyncOpenAIResponsesStream:
+        if hasattr(self.raw, "__aenter__"):
+            await self.raw.__aenter__()
+        return self
+
+    async def __aexit__(self, *exc_info: object) -> Any:
+        if hasattr(self.raw, "__aexit__"):
+            return await self.raw.__aexit__(*exc_info)
+        return None
+
+    async def __aiter__(self) -> AsyncIterator[Any]:
+        async for event in self.raw:
+            for restored in self._restore_event(event):
+                yield restored
+        for restored in self._release_all():
+            yield restored
+
+    def __iter__(self) -> Iterator[Any]:
+        raise TypeError("this is an async stream: use `async for`")

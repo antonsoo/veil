@@ -6,6 +6,7 @@ model object.
 
 from __future__ import annotations
 
+import inspect
 import json
 from collections import OrderedDict
 from typing import Any
@@ -48,6 +49,21 @@ def restore_arguments(arguments: str, masker: Masker) -> str:
         return restore_json_text(arguments, masker.vault)  # truncated or not JSON: best effort
     restored = restore_value(parsed, masker)
     return arguments if restored == parsed else json.dumps(restored, ensure_ascii=False)
+
+
+def needs_await(method: Any) -> bool:
+    """True when calling ``method`` returns a coroutine: a method of an SDK's async client.
+
+    Both SDKs wrap their ``create`` methods in a plain decorator, so the coroutine
+    function is only visible underneath it.
+    """
+    if method is None:
+        return False
+    try:
+        method = inspect.unwrap(method)
+    except ValueError:  # a cycle of __wrapped__: not something an SDK produces
+        return False
+    return inspect.iscoroutinefunction(method)
 
 
 def model_copy_with(obj: Any, **updates: Any) -> Any:

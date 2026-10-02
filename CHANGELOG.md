@@ -4,6 +4,69 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.4.0] - 2026-10-01
+
+The SDK wrappers had only been run against fakes shaped like the SDKs. Run
+against the real ones (anthropic 1.8.0, openai 3.19.2) over a mocked HTTP
+transport that answers in the APIs' wire format, they masked every request
+correctly and let surrogates through in several replies.
+
+### Fixed
+
+- **`create(..., stream=True)` returned the SDK's raw stream, unrestored.**
+  That is the usual way to stream Chat Completions and a supported one for
+  Messages and Responses. The request was masked and every chunk of the reply
+  came back with its surrogates (`'Mail ⟨EM'`, `'AIL_1⟩ now.'`). `create` and
+  `create_response` now return the same restored stream as `stream` and
+  `stream_response`.
+- **Anthropic: iterating a stream's events restored only the API's text
+  deltas.** The SDK also yields its own events, and those were passed through:
+  `text` (the delta and the text so far, which is what
+  `if event.type == "text": print(event.text)` prints), `input_json`, the
+  content block on `content_block_stop` and the message on `message_stop`. All
+  are restored now, and tool-input JSON is restored as its fragments arrive
+  instead of only in the final message.
+- **Anthropic: text held back at the end of a stream was dropped from the
+  events.** A reply ending on something that could begin a surrogate (`... or
+  ⟨EM`) lost those characters when iterating events (`text_stream` had them).
+  They are released before the block's `content_block_stop`, as one more
+  delta event of the SDK's own type.
+- **OpenAI: `n > 1` choices shared one restorer.** Their chunks interleave, so
+  two choices each cut inside a surrogate came out as
+  `'First: ⟨EMAILAIL_1⟩.'` and `'⟨EMSecond: _2⟩.'`. Each choice has its own
+  restorers now, for content, refusal and every tool call.
+- **OpenAI: held-back text arrived after the choice had finished.** It was
+  emitted after the `finish_reason` chunk and after the usage chunk of
+  `stream_options.include_usage`. It now comes in the chunk that carries the
+  `finish_reason`. A stream cut off without one still releases it at the end.
+- **Async clients were mishandled silently.** `AnthropicVeil(AsyncAnthropic())`
+  masked the request and returned the SDK's coroutine untouched: awaited, a
+  reply full of surrogates and no error. `OpenAIVeil(AsyncOpenAI())` failed
+  with `AttributeError: 'coroutine' object has no attribute 'choices'`. Each
+  wrapper now refuses the other kind of client and names the right one.
+
+### Changed
+
+- The `openai` extra asks for openai 1.66 or newer, the first release with
+  the Responses API. 1.50 was declared, and `create_response` failed on it
+  with `AttributeError: 'OpenAI' object has no attribute 'responses'`. The
+  new SDK tests pass on anthropic 0.40.0 and openai 1.66.0 (the declared
+  minimums) as well as on the current releases.
+
+### Added
+
+- `AsyncAnthropicVeil` and `AsyncOpenAIVeil`: the same wrappers for
+  `AsyncAnthropic` and `AsyncOpenAI` (`await client.create(...)`,
+  `async with client.stream(...)`, `async for`), sharing the event and chunk
+  restorers with the sync ones.
+- Refusal deltas in a Chat Completions stream are restored like content.
+- Stream wrappers are context managers where the SDK's are, add
+  `get_final_text()` and `current_message_snapshot` for Anthropic, and hand
+  anything they don't wrap (`close()`, `response`) to the SDK object.
+- `tests/test_sdk_anthropic.py` and `tests/test_sdk_openai.py`: 30 tests over
+  the real SDKs, sync and async, including a property test that cuts a reply
+  at arbitrary points.
+
 ## [0.3.2] - 2026-10-01
 
 ### Fixed
