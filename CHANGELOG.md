@@ -17,6 +17,17 @@ The web demo only; the package is unchanged.
   different: screenshots before and after match. The page now loads with
   every other host blocked except the CDN that Pyodide, the Python runtime, comes from.
 
+### Security
+
+- The built page carries a Content-Security-Policy. Scripts, styles, fonts and
+  workers load from the page's own origin only, and `connect-src 'self'` has
+  the browser refuse to send what you give the page to any other host, even
+  for a script injected through a bug in how the page renders a file. Inline
+  event handlers and `eval` are not allowed. The one other origin allowed is
+  the CDN that Pyodide, the Python runtime, is loaded from. Every control was
+  exercised in Chromium and Firefox with a listener for policy violations:
+  none.
+
 ## [0.4.3] - 2026-10-02
 
 ### Security

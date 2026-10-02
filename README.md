@@ -13,7 +13,9 @@ surrogates, and restore the originals in the answer — streaming included.
 
 **[Try the live demo →](https://antonsoo.github.io/veil/)** — runs the
 real Python package in your browser via [Pyodide](https://pyodide.org),
-nothing leaves the page. (`web/`; see [Web demo](#web-demo) below.)
+nothing leaves the page: its Content-Security-Policy lets it talk to its own
+origin and to the CDN Pyodide is downloaded from, and to nothing else.
+(`web/`; see [Web demo](#web-demo) below.)
 
 ## Why this exists
 
