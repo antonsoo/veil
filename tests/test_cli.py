@@ -181,3 +181,57 @@ def test_line_endings_pass_through(tmp_path) -> None:  # type: ignore[no-untyped
     back = tmp_path / "restored.txt"
     _run(["restore", str(out), "--vault", vault, "--output", str(back)])
     assert back.read_bytes() == crlf + b"\r\n"
+
+
+# -- names the caller already knows -------------------------------------------------------
+
+
+def test_known_names_are_masked_and_restored(tmp_path, capsys) -> None:  # type: ignore[no-untyped-def]
+    # A name has no pattern to detect; the application that calls veil knows it.
+    ticket = tmp_path / "ticket.txt"
+    ticket.write_text(
+        "My name is Jordan Alvarez (Acme Corp, Springfield).\nWrite to jordan@example.com.\n"
+        "Thanks,\njordan\n",
+        encoding="utf-8",
+    )
+    vault = str(tmp_path / "v.json")
+    args = ["--name", "Jordan Alvarez", "--name", "Jordan", "--org", "Acme Corp"]
+    assert main(["mask", str(ticket), "--vault", vault, *args, "--location", "Springfield"]) == 0
+    masked = capsys.readouterr().out
+    assert masked == (
+        "My name is ⟨PERSON_1⟩ (⟨ORG_1⟩, ⟨LOCATION_1⟩).\nWrite to ⟨EMAIL_1⟩.\nThanks,\n⟨PERSON_2⟩\n"
+    )
+    out = tmp_path / "masked.txt"
+    out.write_text(masked, encoding="utf-8")
+    assert main(["restore", str(out), "--vault", vault]) == 0
+    assert capsys.readouterr().out == ticket.read_text(encoding="utf-8")
+    # The name leaking back in an outgoing reply is what audit is for.
+    reply = tmp_path / "reply.txt"
+    reply.write_text("Dear Jordan Alvarez, your card was updated.\n", encoding="utf-8")
+    assert main(["audit", str(reply), "--vault", vault]) == 1
+    assert "'Jordan Alvarez'" in capsys.readouterr().out
+
+
+def test_names_file(tmp_path, capsys) -> None:  # type: ignore[no-untyped-def]
+    names = tmp_path / "names.txt"
+    # With a byte-order mark and CRLF, as Notepad saves it.
+    names.write_bytes(
+        "﻿# customer record 4471\r\nJordan Alvarez\r\n\r\norg: Acme Corp\r\n"
+        "Location: Springfield\r\nperson: J. Alvarez\r\n".encode()
+    )
+    ticket = tmp_path / "ticket.txt"
+    ticket.write_text("J. Alvarez of Acme Corp, Springfield (Jordan Alvarez)\n", encoding="utf-8")
+    vault = str(tmp_path / "v.json")
+    assert main(["mask", str(ticket), "--vault", vault, "--names-file", str(names)]) == 0
+    assert capsys.readouterr().out == "⟨PERSON_1⟩ of ⟨ORG_1⟩, ⟨LOCATION_1⟩ (⟨PERSON_2⟩)\n"
+
+
+def test_a_missing_names_file_is_one_line(tmp_path, capsys) -> None:  # type: ignore[no-untyped-def]
+    ticket = tmp_path / "ticket.txt"
+    ticket.write_text("hello\n", encoding="utf-8")
+    code = main(
+        ["mask", str(ticket), "--vault", str(tmp_path / "v.json"), "--names-file", "nope.txt"]
+    )
+    captured = capsys.readouterr()
+    assert code == 2
+    assert captured.err.strip() == "veil mask: file not found: nope.txt"

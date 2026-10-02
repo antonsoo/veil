@@ -262,16 +262,26 @@ stay valid JSON.
 ## CLI
 
 ```bash
-$ veil mask examples/support_ticket.txt --vault vault.json
+$ veil mask examples/support_ticket.txt --vault vault.json --name "Jordan Alvarez" --name Jordan
 Subject: Can't access my account
-...
-My account email is ⟨EMAIL_1⟩ and my phone is ⟨PHONE_1⟩. I tried to
+
+Hi team,
+
+My name is ⟨PERSON_1⟩ and I can't log in. My account email is
+⟨EMAIL_1⟩ and my phone is ⟨PHONE_1⟩. I tried to
 update the card on file (⟨CARD_1⟩) but the charge failed.
-...
+
+Thanks,
+⟨PERSON_2⟩
 
 $ veil restore masked_reply.txt --vault vault.json
 $ veil audit outgoing_reply.txt --vault vault.json   # exit 1 if anything leaked
 ```
+
+An email address or a card number has a shape; a name has none, so the names
+are yours to give: `--name`, `--org` and `--location` (each repeatable), or
+`--names-file` with one per line. Without them the ticket above keeps "Jordan
+Alvarez" in it.
 
 Each command reads stdin when no file is named and writes stdout, so they sit
 on either side of a model call; `-o FILE` writes a file instead:

@@ -4,6 +4,17 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.4.2] - 2026-10-02
+
+### Added
+
+- `veil mask --name`, `--org`, `--location` (each repeatable) and
+  `--names-file` (one name per line; `org:` and `location:` prefixes). The
+  library's most reliable way to mask a name, the names your application
+  already knows, had no way in from the command line: `veil mask` on the
+  bundled support ticket left "Jordan Alvarez" in the output, and the README's
+  sample skipped that line. The sample now shows the whole output.
+
 ## [0.4.1] - 2026-10-02
 
 The command line, used the way a shell uses it.

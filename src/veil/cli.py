@@ -21,6 +21,7 @@ from collections.abc import Sequence
 
 from veil import __version__
 from veil.audit import audit
+from veil.backends.known_entities import KnownEntitiesBackend
 from veil.masker import Masker
 from veil.restore import restore_exact, restore_tolerant
 from veil.vault import Vault, VaultError
@@ -53,10 +54,45 @@ def _write_output(text: str, path: str | None) -> None:
         f.write(text)
 
 
+_KINDS = {"person": "persons", "org": "orgs", "location": "locations"}
+
+
+def _known_entities(args: argparse.Namespace) -> KnownEntitiesBackend | None:
+    """The names given on the command line and in ``--names-file``.
+
+    Patterns find what has a shape (an email address, a card number); a name has none, and
+    the caller usually knows it already. A names file holds one name per line, a person's
+    unless the line starts with ``org:`` or ``location:``; blank lines and ``#`` comments are
+    skipped.
+    """
+    known: dict[str, list[str]] = {
+        "persons": list(args.name or []),
+        "orgs": list(args.org or []),
+        "locations": list(args.location or []),
+    }
+    for path in args.names_file or []:
+        with open(path, encoding="utf-8-sig") as f:
+            for raw in f:
+                line = raw.strip()
+                if not line or line.startswith("#"):
+                    continue
+                kind, sep, rest = line.partition(":")
+                if sep and kind.strip().lower() in _KINDS:
+                    known[_KINDS[kind.strip().lower()]].append(rest.strip())
+                else:
+                    known["persons"].append(line)
+    if not any(value.strip() for values in known.values() for value in values):
+        return None
+    return KnownEntitiesBackend(
+        persons=known["persons"], orgs=known["orgs"], locations=known["locations"]
+    )
+
+
 def _cmd_mask(args: argparse.Namespace) -> int:
     text = _read_input(args.input)
     vault = Vault.load(args.vault) if args.vault and _exists(args.vault) else Vault()
-    masker = Masker(vault=vault)
+    backend = _known_entities(args)
+    masker = Masker(vault=vault, name_backends=[backend] if backend else [])
     _write_output(masker.mask(text), args.output)
     if args.vault:
         vault.save(args.vault)
@@ -114,6 +150,22 @@ def build_parser() -> argparse.ArgumentParser:
     p_mask.add_argument("input", nargs="?", default="-", help=input_help)
     p_mask.add_argument("--vault", required=True, help="Vault JSON path (created/updated).")
     p_mask.add_argument("-o", "--output", metavar="FILE", help=output_help)
+    p_mask.add_argument(
+        "--name",
+        action="append",
+        metavar="NAME",
+        help="A person's name to mask, as your application knows it (repeatable). "
+        "Names have no pattern to detect: give each form that may appear, "
+        'e.g. --name "Jordan Alvarez" --name Jordan.',
+    )
+    p_mask.add_argument("--org", action="append", metavar="NAME", help="An organization's name.")
+    p_mask.add_argument("--location", action="append", metavar="NAME", help="A place name.")
+    p_mask.add_argument(
+        "--names-file",
+        action="append",
+        metavar="FILE",
+        help="A file of names, one per line: a person's, or 'org: ...' / 'location: ...'.",
+    )
     p_mask.set_defaults(func=_cmd_mask)
 
     p_restore = sub.add_parser("restore", help="Restore PII from surrogates using a vault.")
