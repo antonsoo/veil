@@ -44,6 +44,7 @@ app.innerHTML = `
     <button class="theme-toggle" id="theme-toggle" type="button">dark / light</button>
   </header>
 
+  <main class="page-main">
   <section class="intro">
     <h1>Watch a prompt get <span class="accent">veiled</span>.</h1>
     <p class="lede">
@@ -90,6 +91,7 @@ app.innerHTML = `
     <h2><span class="step-label">restored reply</span> streamed back through <code>Restorer</code></h2>
     <pre class="panel" id="reply-output"></pre>
   </section>
+  </main>
 
   <footer>
     Runs entirely client-side via <a href="https://pyodide.org" target="_blank" rel="noreferrer">Pyodide</a>.

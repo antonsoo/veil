@@ -28,6 +28,12 @@ The web demo only; the package is unchanged.
   exercised in Chromium and Firefox with a listener for policy violations:
   none.
 
+### Accessibility
+
+- Checked with axe-core (WCAG 2.1 A and AA, and its best-practice rules) in light and dark,
+  at desktop and phone widths: no findings now. The hint under the
+  input was dimmed by opacity to 3.2:1; the page has a `main` landmark.
+
 ## [0.4.3] - 2026-10-02
 
 ### Security
