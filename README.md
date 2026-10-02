@@ -406,7 +406,7 @@ over-masking fix that followed it.
 git clone https://github.com/antonsoo/veil
 cd veil
 uv sync --group dev
-uv run pytest          # 237 tests, including Hypothesis property tests
+uv run pytest          # including Hypothesis property tests
 uv run ruff check .    # lint
 uv run mypy            # typecheck (strict)
 ```
