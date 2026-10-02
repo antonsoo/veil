@@ -4,6 +4,19 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+
+The web demo only; the package is unchanged.
+
+### Changed
+
+- The page's fonts are served by the page itself. They came from Google Fonts,
+  the one request the page made to another origin; the same font files (every
+  subset, as Google serves them to a current browser) are now in
+  `web/src/fonts/`, with their SIL Open Font License texts. Nothing looks
+  different: screenshots before and after match. The page now loads with
+  every other host blocked except the CDN that Pyodide, the Python runtime, comes from.
+
 ## [0.4.3] - 2026-10-02
 
 ### Security

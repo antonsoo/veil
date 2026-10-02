@@ -3,6 +3,7 @@
 // Pyodide (see scripts/copy-veil-src.mjs for how the source gets here).
 // Nothing on this page ever leaves the browser: no network calls happen
 // after Pyodide and the package source finish loading.
+import "./fonts/fonts.css";
 import "./style.css";
 
 // Pyodide's own types aren't bundled; this is the small slice of its API
