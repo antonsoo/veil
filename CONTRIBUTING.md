@@ -23,6 +23,21 @@ uv run mypy                 # typecheck (strict)
 All four must pass before a PR is merged; `.github/workflows/ci.yml` runs
 the same checks.
 
+To exercise the optional spaCy backend:
+
+```bash
+uv sync --locked --group dev --extra spacy
+uv run --no-sync pytest tests/test_backends_spacy.py
+```
+
+These tests load a real spaCy pipeline with synthetic entity rules; they
+need no downloaded language model and do not measure NER accuracy. The CI
+job runs them on Python 3.10 and 3.14.
+
+The project's uv configuration prefers stable dependency releases. Use
+`uv sync --locked` to reproduce the committed lock; opt into prereleases
+explicitly only when testing them.
+
 ## Adding a detector
 
 Detectors live in `src/veil/detectors/`, implement the `Detector` protocol
@@ -56,3 +71,14 @@ the next build; there's no separate JS logic to keep in sync.
 ## Commit style
 
 Conventional Commits (`feat:`, `fix:`, `docs:`, `test:`, `ci:`, `chore:`).
+
+## Community and private reports
+
+Please follow the [Code of Conduct](CODE_OF_CONDUCT.md). Anton Soloviev
+maintains this project and handles conduct reports at
+[anton@praviel.com](mailto:anton@praviel.com).
+
+Use the bug or improvement forms for public issues. For a suspected security
+vulnerability or a conduct concern, email the maintainer privately with the
+repository name and relevant details. Do not post credentials, personal data,
+private logs, or confidential documents in a public issue.
