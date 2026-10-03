@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## Unreleased
+
+### Maintenance
+
+- The uv lock now resolves stable spaCy 3.8.16 and Pydantic 2.13.5 instead of
+  development/beta versions selected by a permissive local resolver setting. The
+  project explicitly prefers stable releases. A real spaCy pipeline regression runs
+  on Python 3.10 and 3.14 without a model download; typechecking also respects the
+  optional backend exclusion when the extra is installed.
+
 ## [0.4.4] - 2026-10-03
 
 ### Compatibility

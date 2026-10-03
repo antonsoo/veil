@@ -113,6 +113,9 @@ exclude = ["src/veil/backends/spacy_backend.py"]
 [[tool.mypy.overrides]]
 module = "veil.backends.spacy_backend"
 ignore_errors = true
+# Keep the excluded optional backend excluded when another module imports it.
+# Otherwise installing spaCy makes mypy parse NumPy's newer-syntax stubs at py310.
+follow_imports = "skip"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -120,3 +123,7 @@ addopts = "-ra"
 
 [tool.coverage.run]
 source = ["veil"]
+
+# Keep developer machines and CI on stable-preferred dependency resolution.
+[tool.uv]
+prerelease = "if-necessary"
