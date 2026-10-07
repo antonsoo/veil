@@ -104,3 +104,11 @@ jobs:
       - name: Build
         working-directory: web
         run: npm run build
+
+      - name: Install browser engines
+        working-directory: web
+        run: npx playwright install --with-deps chromium firefox
+
+      - name: Test the real Python browser demo
+        working-directory: web
+        run: npm run test:browser

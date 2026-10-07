@@ -6,34 +6,8 @@
 import "./fonts/fonts.css";
 import "./style.css";
 
-// Pyodide's own types aren't bundled; this is the small slice of its API
-// this file actually touches.
-interface PyProxyCallable {
-  (...args: unknown[]): unknown;
-}
-interface PyodideInterface {
-  runPythonAsync(code: string): Promise<unknown>;
-  runPython(code: string): unknown;
-  globals: { get(name: string): PyProxyCallable };
-  FS: {
-    mkdirTree(path: string): void;
-    writeFile(path: string, data: string): void;
-  };
-}
-declare function loadPyodide(config: { indexURL: string }): Promise<PyodideInterface>;
-
-const PYODIDE_VERSION = "0.26.4";
-const PYODIDE_CDN = `https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/full/`;
-
-interface VaultMapping {
-  type: string;
-  surrogate: string;
-  original: string;
-}
-interface MaskResult {
-  masked: string;
-  mappings: VaultMapping[];
-}
+import { MAX_NAMES_LENGTH, MAX_PROMPT_LENGTH, PREVIEW_LENGTH, PREVIEW_MAPPINGS } from "./protocol";
+import type { MaskResult, Reply, Request, VaultMapping } from "./protocol";
 
 const app = document.getElementById("app");
 if (!app) throw new Error("missing #app root");
@@ -49,14 +23,14 @@ app.innerHTML = `
     <h1>Watch a prompt get <span class="accent">veiled</span>.</h1>
     <p class="lede">
       Paste text with personal data below. Everything runs locally, in this
-      tab: the real <code>veil</code> Python package runs on Pyodide
-      (CPython compiled to WebAssembly), and nothing is sent anywhere.
+      tab. The Python runtime downloads when you select Mask it; your prompt
+      and vault stay here. Use fictional data to explore what the detectors catch.
     </p>
   </section>
 
   <section class="stage" data-stage="input">
     <label for="prompt">Your prompt</label>
-    <textarea id="prompt" spellcheck="false"></textarea>
+    <textarea id="prompt" spellcheck="false" aria-describedby="input-limits"></textarea>
 
     <label for="known-persons">Known entities <span class="hint">(names your app already knows — from your CRM or user record)</span></label>
     <input id="known-persons" type="text" spellcheck="false" />
@@ -66,29 +40,41 @@ app.innerHTML = `
       model. <a href="https://github.com/antonsoo/veil#features" target="_blank" rel="noreferrer">More in the README →</a>
     </p>
 
-    <button id="mask-btn" type="button">Mask it</button>
-    <div class="status" id="load-status">Loading Pyodide…</div>
+    <p class="note" id="input-limits">Demo limit: 100,000 characters in the prompt and 10,000 in known names; some symbols count twice. Longer input is rejected, never truncated.</p>
+    <div class="actions">
+      <button id="mask-btn" type="button">Mask it</button>
+      <button id="stop-btn" class="secondary" type="button" hidden>Cancel</button>
+      <button id="clear-btn" class="secondary" type="button">Clear private data</button>
+    </div>
+    <div class="status" id="load-status" role="status" aria-live="polite">Ready. Each prompt gets its own vault.</div>
   </section>
 
   <section class="stage" data-stage="masked" hidden>
-    <h2><span class="step-label">masked prompt</span> what the model actually sees</h2>
+    <h2><span class="step-label">masked prompt</span> what this prompt would send</h2>
     <pre class="panel" id="masked-output"></pre>
+    <p class="note" id="preview-note"></p>
+    <button id="download-masked" class="secondary" type="button">Download complete masked prompt</button>
   </section>
 
   <section class="stage" data-stage="vault" hidden>
     <h2><span class="step-label">vault</span> kept in this tab only</h2>
+    <p class="note" id="vault-count"></p>
+    <div class="table-scroll" role="region" aria-label="Vault mappings" tabindex="0">
     <table class="panel" id="vault-table" data-revealed="false">
       <thead>
         <tr><th>Type</th><th>Surrogate</th><th>Original</th></tr>
       </thead>
       <tbody></tbody>
     </table>
-    <button class="secondary" id="reveal-btn" type="button">Reveal originals</button>
+    </div>
+    <button class="secondary" id="reveal-btn" type="button" aria-pressed="false">Reveal originals</button>
+    <button class="secondary" id="download-vault" type="button">Download vault (contains originals)</button>
     <button id="simulate-btn" type="button">Simulate a model reply</button>
   </section>
 
   <section class="stage" data-stage="reply" hidden>
     <h2><span class="step-label">restored reply</span> streamed back through <code>Restorer</code></h2>
+    <p class="note">Fictional reply using this prompt only. No model is called and no action is performed.</p>
     <pre class="panel" id="reply-output"></pre>
   </section>
   </main>
@@ -127,233 +113,274 @@ promptEl.value =
   "the renewal.";
 knownPersonsEl.value = "Jordan Alvarez";
 
-function knownPersons(): string[] {
-  return knownPersonsEl.value
-    .split(",")
-    .map((name) => name.trim())
-    .filter((name) => name.length > 0);
-}
+const stopBtn = el<HTMLButtonElement>("stop-btn");
+const clearBtn = el<HTMLButtonElement>("clear-btn");
+const downloadMasked = el<HTMLButtonElement>("download-masked");
+const downloadVault = el<HTMLButtonElement>("download-vault");
+const previewNote = el<HTMLParagraphElement>("preview-note");
+const vaultCount = el<HTMLParagraphElement>("vault-count");
 
-// ---- Theme -----------------------------------------------------------
-
-function applyStoredTheme(): void {
+// Storage is optional. A private or sandboxed tab must still work.
+try {
   const saved = localStorage.getItem("veil-theme");
-  if (saved === "light" || saved === "dark") {
-    document.documentElement.dataset.theme = saved;
-  }
-}
-applyStoredTheme();
+  if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+} catch { /* use the system theme */ }
 themeToggle.addEventListener("click", () => {
-  const current =
-    document.documentElement.dataset.theme ??
-    (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  const current = document.documentElement.dataset.theme ??
+    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
   const next = current === "dark" ? "light" : "dark";
   document.documentElement.dataset.theme = next;
-  localStorage.setItem("veil-theme", next);
+  try { localStorage.setItem("veil-theme", next); } catch { /* in-memory theme still works */ }
 });
 
-// ---- Pyodide bootstrap -------------------------------------------------
+let worker: Worker | null = null;
+let sequence = 0;
+let busy = false;
+let sessionReady = false;
+let lastResult: MaskResult | null = null;
+let lastInput = "";
+let revealed = false;
+let pending: { id: number; resolve: (reply: Reply) => void; reject: (error: Error) => void; timer: number } | null = null;
 
-let pyodideReady: Promise<PyodideInterface> | null = null;
-
-async function getPyodide(): Promise<PyodideInterface> {
-  if (!pyodideReady) {
-    pyodideReady = bootstrap();
-  }
-  return pyodideReady;
+const snapshot = () => JSON.stringify([promptEl.value, knownPersonsEl.value]);
+function controls(): void {
+  maskBtn.disabled = busy;
+  stopBtn.hidden = !busy;
+  simulateBtn.disabled = busy || !sessionReady || lastResult === null || lastInput !== snapshot();
 }
 
-async function bootstrap(): Promise<PyodideInterface> {
-  const script = document.createElement("script");
-  script.src = `${PYODIDE_CDN}pyodide.js`;
-  const loaded = new Promise<void>((resolve, reject) => {
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error("failed to load Pyodide from CDN"));
-  });
-  document.head.appendChild(script);
-  await loaded;
-
-  const pyodide = await loadPyodide({ indexURL: PYODIDE_CDN });
-
-  loadStatus.textContent = "Fetching veil source…";
-  const manifestUrl = `${import.meta.env.BASE_URL}veil-src.json`;
-  const manifest: Record<string, string> = await (await fetch(manifestUrl)).json();
-  for (const [path, contents] of Object.entries(manifest)) {
-    const fullPath = `/veil_src/${path}`;
-    const dir = fullPath.slice(0, fullPath.lastIndexOf("/"));
-    pyodide.FS.mkdirTree(dir);
-    pyodide.FS.writeFile(fullPath, contents);
+function cancelWork(): void {
+  sequence += 1;
+  worker?.terminate();
+  worker = null;
+  sessionReady = false;
+  if (pending) {
+    clearTimeout(pending.timer);
+    pending.reject(new DOMException("Cancelled", "AbortError"));
+    pending = null;
   }
-
-  await pyodide.runPythonAsync(`
-import sys, json
-sys.path.insert(0, "/veil_src")
-from veil import Masker
-from veil.backends.known_entities import KnownEntitiesBackend
-from veil.restore import Restorer
-
-# The known-entities backend is the first-class way veil finds names: the
-# application (here, the demo page) supplies identities it already knows,
-# rather than guessing from free text. See do_mask() below for how the
-# "Known entities" field feeds this on every call.
-known = KnownEntitiesBackend()
-masker = Masker(name_backends=[known])
-
-def do_mask(text, persons_json):
-    known.persons = json.loads(persons_json)
-    masked = masker.mask(text)
-    mappings = [
-        {"type": m.type.value, "surrogate": m.surrogate, "original": m.original}
-        for m in masker.vault.mappings()
-    ]
-    return json.dumps({"masked": masked, "mappings": mappings})
-
-def make_restorer():
-    return Restorer(masker.vault)
-`);
-
-  loadStatus.textContent = "";
-  maskBtn.disabled = false;
-  return pyodide;
+  busy = false;
+  controls();
 }
 
-maskBtn.disabled = true;
-getPyodide()
-  .then(() => {
-    maskBtn.disabled = false;
-  })
-  .catch((err: unknown) => {
-    loadStatus.textContent = `Couldn't load Pyodide: ${String(err)}`;
+function request(message: Request): Promise<Reply> {
+  if (!worker) {
+    worker = new Worker(new URL("./python.worker.ts", import.meta.url), { type: "module" });
+    const owner = worker;
+    owner.onmessage = (event: MessageEvent<Reply>) => {
+      if (worker !== owner || event.data.id !== sequence || pending?.id !== event.data.id) return;
+      if (event.data.kind === "status") {
+        loadStatus.textContent = event.data.message;
+        return;
+      }
+      clearTimeout(pending.timer);
+      pending.resolve(event.data);
+      pending = null;
+    };
+    owner.onerror = (event) => {
+      event.preventDefault();
+      if (worker !== owner || !pending) return;
+      clearTimeout(pending.timer);
+      pending.reject(new Error("Couldn't start Python. Select Mask it to retry."));
+      pending = null;
+    };
+  }
+  const owner = worker;
+  return new Promise((resolve, reject) => {
+    const timer = window.setTimeout(() => {
+      if (pending?.id !== message.id) return;
+      pending = null;
+      reject(new Error("Python took too long to respond. Select Mask it to retry."));
+    }, 120_000);
+    pending = { id: message.id, resolve, reject, timer };
+    owner.postMessage(message);
   });
+}
 
-// ---- Masking -----------------------------------------------------------
+function renderMaskedOutput(result: MaskResult): void {
+  maskedOutput.replaceChildren();
+  let end = Math.min(result.masked.length, PREVIEW_LENGTH);
+  if (end < result.masked.length && /[\uD800-\uDBFF]/.test(result.masked[end - 1] ?? "")) end -= 1;
+  const preview = result.masked.slice(0, end);
+  const surrogates = new Set(result.mappings.map((mapping) => mapping.surrogate));
+  let start = 0;
+  for (const match of preview.matchAll(/⟨[A-Z]+_\d+⟩/g)) {
+    if (!surrogates.has(match[0])) continue;
+    maskedOutput.append(document.createTextNode(preview.slice(start, match.index)));
+    const span = document.createElement("span");
+    span.className = "tok";
+    span.textContent = match[0];
+    maskedOutput.append(span);
+    start = match.index + match[0].length;
+  }
+  maskedOutput.append(document.createTextNode(preview.slice(start)));
+  previewNote.textContent = end < result.masked.length
+    ? `Preview shows the first ${end.toLocaleString()} text units. The download contains the complete masked prompt.`
+    : "Complete masked prompt. Review it before sharing: detection can miss personal data.";
+}
 
-function renderMaskedOutput(masked: string, surrogates: string[]): void {
-  maskedOutput.innerHTML = "";
-  if (surrogates.length === 0) {
-    maskedOutput.textContent = masked;
+function renderVault(): void {
+  vaultBody.replaceChildren();
+  if (!lastResult) return;
+  const mappings = lastResult.mappings;
+  for (const mapping of mappings.slice(0, PREVIEW_MAPPINGS)) {
+    const row = document.createElement("tr");
+    for (const [className, text] of [
+      ["type-cell", mapping.type], ["surrogate-cell", mapping.surrogate],
+      ["original-cell", revealed ? mapping.original : "Hidden"],
+    ]) {
+      const cell = document.createElement("td");
+      cell.className = className;
+      cell.textContent = text;
+      row.append(cell);
+    }
+    vaultBody.append(row);
+  }
+  vaultCount.textContent = `${mappings.length.toLocaleString()} mappings in this prompt.` +
+    (mappings.length > PREVIEW_MAPPINGS ? ` Showing the first ${PREVIEW_MAPPINGS}; the vault download includes all mappings.` : "");
+  vaultTable.dataset.revealed = String(revealed);
+  revealBtn.textContent = revealed ? "Hide originals" : "Reveal originals";
+  revealBtn.setAttribute("aria-pressed", String(revealed));
+}
+
+function failure(error: unknown, id: number): void {
+  if (id !== sequence) return;
+  worker?.terminate();
+  worker = null;
+  sessionReady = false;
+  loadStatus.textContent = error instanceof Error ? error.message : "Couldn't process the prompt. Try again.";
+}
+
+async function mask(): Promise<void> {
+  const prompt = promptEl.value;
+  const names = knownPersonsEl.value;
+  if (!prompt.trim()) {
+    loadStatus.textContent = "Enter a prompt to mask.";
+    promptEl.focus();
     return;
   }
-  const pattern = new RegExp(`(${surrogates.map(escapeRegExp).join("|")})`, "g");
-  const parts = masked.split(pattern);
-  for (const part of parts) {
-    if (surrogates.includes(part)) {
-      const span = document.createElement("span");
-      span.className = "tok";
-      span.textContent = part;
-      maskedOutput.appendChild(span);
-    } else {
-      maskedOutput.appendChild(document.createTextNode(part));
-    }
+  if (prompt.length > MAX_PROMPT_LENGTH || names.length > MAX_NAMES_LENGTH) {
+    loadStatus.textContent = "Input exceeds the demo limits. Shorten it and try again; the previous result is unchanged.";
+    return;
   }
-}
-
-function escapeRegExp(s: string): string {
-  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-function renderVault(mappings: VaultMapping[]): void {
-  vaultBody.innerHTML = "";
-  for (const m of mappings) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td class="type-cell">${m.type}</td>
-      <td class="surrogate-cell">${m.surrogate}</td>
-      <td class="original-cell">${escapeHtml(m.original)}</td>
-    `;
-    vaultBody.appendChild(tr);
-  }
-  vaultTable.dataset.revealed = "false";
-  revealBtn.textContent = "Reveal originals";
-}
-
-function escapeHtml(s: string): string {
-  const div = document.createElement("div");
-  div.textContent = s;
-  return div.innerHTML;
-}
-
-maskBtn.addEventListener("click", () => {
-  void (async () => {
-    const pyodide = await getPyodide();
-    const doMask = pyodide.globals.get("do_mask");
-    const resultJson = doMask(promptEl.value, JSON.stringify(knownPersons())) as string;
-    const result = JSON.parse(resultJson) as MaskResult;
-    const surrogates = result.mappings.map((m) => m.surrogate);
-
-    renderMaskedOutput(result.masked, surrogates);
-    renderVault(result.mappings);
-
+  const input = snapshot();
+  const id = ++sequence;
+  busy = true;
+  controls();
+  loadStatus.textContent = "Preparing to mask locally…";
+  try {
+    const reply = await request({ id, kind: "mask", prompt, names,
+      manifestUrl: new URL(`${import.meta.env.BASE_URL}veil-src.json`, location.href).href });
+    if (id !== sequence) return;
+    if (reply.kind === "error") throw new Error(reply.message);
+    if (reply.kind !== "masked") throw new Error("Unexpected result. Try masking again.");
+    lastResult = reply.result;
+    lastInput = input;
+    sessionReady = true;
+    revealed = false;
+    renderMaskedOutput(lastResult);
+    renderVault();
     maskedStage.hidden = false;
     vaultStage.hidden = false;
     replyStage.hidden = true;
     replyOutput.textContent = "";
-  })();
+    loadStatus.textContent = `Masked this prompt with ${lastResult.mappings.length.toLocaleString()} mappings. Its vault is separate from earlier prompts.`;
+  } catch (error) {
+    failure(error, id);
+  } finally {
+    if (id === sequence) { busy = false; controls(); }
+  }
+}
+maskBtn.addEventListener("click", () => { void mask(); });
+
+function inputChanged(): void {
+  if (busy) cancelWork();
+  replyOutput.textContent = "";
+  replyStage.hidden = true;
+  loadStatus.textContent = lastResult
+    ? "Input changed. The previous result remains below; mask again before simulating a reply."
+    : "Input changed. Select Mask it to start.";
+  controls();
+}
+promptEl.addEventListener("input", inputChanged);
+knownPersonsEl.addEventListener("input", inputChanged);
+stopBtn.addEventListener("click", () => {
+  cancelWork();
+  replyOutput.textContent = "";
+  replyStage.hidden = true;
+  loadStatus.textContent = "Cancelled. Select Mask it when you're ready to continue.";
+  maskBtn.focus();
+});
+clearBtn.addEventListener("click", () => {
+  cancelWork();
+  lastResult = null;
+  lastInput = "";
+  revealed = false;
+  promptEl.value = "";
+  knownPersonsEl.value = "";
+  maskedOutput.replaceChildren();
+  vaultBody.replaceChildren();
+  replyOutput.replaceChildren();
+  previewNote.textContent = "";
+  vaultCount.textContent = "";
+  maskedStage.hidden = vaultStage.hidden = replyStage.hidden = true;
+  loadStatus.textContent = "Cleared the prompt, vault and reply from this session.";
+  controls();
+  promptEl.focus();
+});
+revealBtn.addEventListener("click", () => { revealed = !revealed; renderVault(); });
+
+function download(text: string, name: string, type: string): void {
+  const url = URL.createObjectURL(new Blob([text], { type }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = name;
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+downloadMasked.addEventListener("click", () => {
+  if (lastResult) download(lastResult.masked, "veil-masked.txt", "text/plain;charset=utf-8");
+});
+downloadVault.addEventListener("click", () => {
+  if (lastResult) download(JSON.stringify({ version: 1, mappings: lastResult.mappings }, null, 2), "veil-vault.json", "application/json");
 });
 
-revealBtn.addEventListener("click", () => {
-  const revealed = vaultTable.dataset.revealed === "true";
-  vaultTable.dataset.revealed = revealed ? "false" : "true";
-  revealBtn.textContent = revealed ? "Reveal originals" : "Hide originals";
-});
-
-// ---- Simulated streaming reply ------------------------------------------
-
-// This is the point the README makes concretely: a redaction tool would
-// force something like "Dear [REDACTED]", but veil's surrogates are
-// specific enough that the reply can address the person and refer back to
-// their details by name — it just can't say the *real* name or email
-// until restore happens. A real support bot also wouldn't echo a whole
-// card number back, so the card is acknowledged without naming it.
 function cannedReply(mappings: VaultMapping[]): string {
-  const surrogateFor = (type: string) => mappings.find((m) => m.type === type)?.surrogate;
+  const surrogateFor = (type: string) => mappings.find((mapping) => mapping.type === type)?.surrogate;
   const person = surrogateFor("PERSON");
   const email = surrogateFor("EMAIL");
-  const hasCard = mappings.some((m) => m.type === "CARD");
-
-  const greeting = person ? `Hi ${person}, thanks` : "Thanks";
-  if (hasCard && email) {
-    return `${greeting} — I've updated the card on file and will send a receipt to ${email}.`;
-  }
-  if (email) {
-    return `${greeting} — I've noted your details and will follow up at ${email} shortly.`;
-  }
-  return `${greeting} — I've noted the details and will follow up shortly.`;
+  const greeting = person ? `Hi ${person}.` : "Thanks for your message.";
+  return email ? `${greeting} The contact email in your message is ${email}.` : `${greeting} I've noted the details in your message.`;
 }
 
-simulateBtn.addEventListener("click", () => {
-  void (async () => {
-    const pyodide = await getPyodide();
-    const doMask = pyodide.globals.get("do_mask");
-    // Re-run mask on the current prompt to be sure the vault reflects it
-    // (a no-op if nothing changed — masking is idempotent per value).
-    const resultJson = doMask(promptEl.value, JSON.stringify(knownPersons())) as string;
-    const result = JSON.parse(resultJson) as MaskResult;
-    const reply = cannedReply(result.mappings);
-
-    replyStage.hidden = false;
-    replyOutput.textContent = "";
-    simulateBtn.disabled = true;
-
-    const makeRestorer = pyodide.globals.get("make_restorer");
-    const restorer = makeRestorer() as { feed(chunk: string): string; flush(): string; destroy(): void };
-
-    let i = 0;
-    const rand = (min: number, max: number) => Math.floor(min + Math.random() * (max - min + 1));
-
-    const step = () => {
-      if (i >= reply.length) {
-        replyOutput.textContent += restorer.flush();
-        restorer.destroy();
-        simulateBtn.disabled = false;
-        return;
-      }
-      const size = rand(2, 6);
-      const chunk = reply.slice(i, i + size);
-      i += size;
-      replyOutput.textContent += restorer.feed(chunk);
-      setTimeout(step, rand(30, 90));
-    };
-    step();
-  })();
-});
+async function simulate(): Promise<void> {
+  if (!lastResult || simulateBtn.disabled) return;
+  const id = ++sequence;
+  const characters = Array.from(cannedReply(lastResult.mappings));
+  const chunks: string[] = [];
+  for (let pos = 0; pos < characters.length; pos += 3) chunks.push(characters.slice(pos, pos + 3).join(""));
+  busy = true;
+  controls();
+  replyOutput.textContent = "";
+  replyStage.hidden = false;
+  loadStatus.textContent = "Restoring a fictional reply from this prompt…";
+  try {
+    const reply = await request({ id, kind: "restore", chunks });
+    if (id !== sequence) return;
+    if (reply.kind === "error") throw new Error(reply.message);
+    if (reply.kind !== "restored") throw new Error("Mask this prompt again before simulating.");
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    for (const chunk of reply.chunks) {
+      if (!reducedMotion) await new Promise((resolve) => setTimeout(resolve, 45));
+      if (id !== sequence) return;
+      replyOutput.textContent += chunk;
+    }
+    loadStatus.textContent = "Fictional reply restored. No model was called.";
+  } catch (error) {
+    failure(error, id);
+  } finally {
+    if (id === sequence) { busy = false; controls(); }
+  }
+}
+simulateBtn.addEventListener("click", () => { void simulate(); });
+controls();

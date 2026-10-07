@@ -3,6 +3,7 @@ import { contentSecurityPolicy } from "./vite.csp";
 
 export default defineConfig({
   base: "/veil/",
+  worker: { format: "es" },
   plugins: [
     contentSecurityPolicy({
       // Pyodide, the Python runtime, comes from its CDN and compiles WebAssembly.

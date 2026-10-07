@@ -222,6 +222,12 @@ them before restoring, so a surrogate the model wrote with `\u27e8`-style
 escapes is still found, and restored values are escaped so the arguments
 stay valid JSON.
 
+Streamed arguments use the same JSON string boundaries: mixed and uppercase
+Unicode escapes restore correctly, while literal backslashes, object keys and
+numbers remain unchanged. Feed `Restorer(vault, json_string=True)` from the
+beginning of the JSON document. It transforms string values incrementally;
+it does not validate or repair malformed JSON.
+
 ## Features
 
 - **Detectors** (`veil.detectors`): email, phone (NANP, or international
@@ -292,6 +298,12 @@ on either side of a model call; `-o FILE` writes a file instead:
 $ cat ticket.txt | veil mask --vault vault.json | your-llm-call | veil restore --vault vault.json
 $ veil mask ticket.txt --vault vault.json -o masked.txt
 ```
+
+The CLI saves the vault before emitting masked text. File writes replace a
+temporary sibling atomically and use owner-only permissions on POSIX. Input,
+output, names files and the vault must be distinct paths, including aliases.
+These protections do not encrypt a plaintext vault or coordinate concurrent
+writers. See [session integrity](docs/session-integrity.md) for the exact contract.
 
 Input and output are UTF-8 on every path, pipes included, whatever the
 system's code page; line endings pass through unchanged. In Windows
@@ -403,6 +415,9 @@ over-masking fix that followed it.
 - **Realistic surrogates can leak structure.** A format-preserving fake
   IBAN still reveals the real one's country; a fake card still reveals
   its network. See the trade-off discussion in `veil/surrogates.py`.
+  Finite name, organization and phone pools fall back to numbered placeholders.
+  A model or source text can also contain a surrogate literally; restoration
+  cannot tell an incidental occurrence from an intended reference.
 - **The vault is the whole game.** Anyone who reads the vault can
   de-anonymize the masked text — see the threat model in `veil/vault.py`
   before deciding where (or whether) to persist one.

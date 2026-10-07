@@ -6,6 +6,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Fixed
+
+- Finite realistic-name, organization, and phone pools now continue with numbered
+  placeholders instead of hanging. Allocation rejects an unchanged original and
+  bounds retries from custom generators. Failed allocation leaves the vault intact.
+- Saved vaults reject conflicting identities, duplicate JSON keys, invalid text,
+  and unsupported versions. Mapping objects are immutable so callers cannot
+  invalidate restoration indexes. Unversioned legacy vaults remain readable.
+- Vault and CLI output writes use temporary sibling files, atomic replacement,
+  and owner-only permissions on POSIX. The CLI saves the recovery vault before
+  emitting masked text, rejects input/output/vault aliases, and reports I/O errors.
+- Streamed tool-argument restoration decodes actual JSON string values, including
+  mixed Unicode escapes and surrogate pairs. Literal backslashes, object keys,
+  numbers, and unmatched spellings remain intact. Ambiguous tolerant spellings
+  are left unchanged instead of choosing an identity.
+
+### Browser demo
+
+- Each prompt gets a fresh vault. Python runs in a cancellable worker; input edits,
+  cancellation, and clearing cannot resurrect an earlier reply. Clear removes
+  the displayed prompt, vault and reply and terminates the Python worker.
+- Runtime-load failures can be retried. Denied browser storage does not prevent
+  startup. Hidden originals are omitted from the rendered table, not just blurred.
+- Input and DOM previews are bounded, with complete masked-text and vault downloads.
+  Added reproducible Chromium/Firefox workflows and corrected light-token and dark
+  button-hover contrast. Updated the affected source-map-js development dependency.
+
 ### Maintenance
 
 - The uv lock now resolves stable spaCy 3.8.16 and Pydantic 2.13.5 instead of
