@@ -62,6 +62,7 @@ cd web
 npm install
 npm run dev      # copies src/veil into public/veil-src.json, then serves the demo
 npm run build    # typecheck + production build to web/dist
+npm run test:browser  # real Pyodide, Chromium + Firefox; cached Playwright engines required
 ```
 
 The demo (`web/`) runs the real package via Pyodide — if you change

@@ -1,0 +1,58 @@
+{
+  "source_commit": "422c02b251a98cd917bf1978fac112ba976fc27b",
+  "environment": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python312": {
+    "passed": 329,
+    "skipped": 0,
+    "extras": [
+      "spacy",
+      "vault-crypto",
+      "anthropic",
+      "openai"
+    ]
+  },
+  "python314": {
+    "passed": 329,
+    "skipped": 0,
+    "extras": [
+      "spacy",
+      "vault-crypto",
+      "anthropic",
+      "openai"
+    ]
+  },
+  "python310_lowest_direct": {
+    "passed": 320,
+    "skipped": 7,
+    "skip_reasons": [
+      "spaCy extra not installed",
+      "six SDK features absent from the oldest supported SDK models"
+    ],
+    "openai": "1.66.0",
+    "anthropic": "0.40.0",
+    "cryptography": "50.0.0"
+  },
+  "node": "24.21.0",
+  "browser_scenarios": 12,
+  "lint": "passed",
+  "format": "passed",
+  "mypy_sources": 30,
+  "wheel_runtime_dependencies": 0,
+  "synthetic_corpus": {
+    "documents": 60,
+    "true_positives": 140,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "real_world_accuracy_claim": false
+  },
+  "artifacts": {
+    "dist/.gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+    "dist/veil_pii-0.4.4-py3-none-any.whl": "2bf409f166ae204f8b0bbba84fd416b82e9fba847bb47154547ac7fe3bf43cac",
+    "dist/veil_pii-0.4.4.tar.gz": "450489755b8bb9783c459511f47d34535317bc087deaa547c7144cd9c3feb3ca",
+    "web/dist/index.html": "728f4a31e726dd2e1eef6941effe3452a15131537d8691ab8fea4d1935f2253b",
+    "web/dist/assets/index-D09_ijNA.js": "a3631149b3fea55e41a73913fc8baee515dfd3c79afa0567658bc3b3d5721dc4",
+    "web/dist/assets/python.worker-BbGwCqMj.js": "bd92defdec879973cdf706316d6f353c072e956597a403eb1f628599ccd70776",
+    "web/dist/veil-src.json": "43d9d14db8d046b5a0cad1b2a21bd5d9439d8b45047e18024ae032898d80f997"
+  },
+  "publication": "local only"
+}
