@@ -30,12 +30,35 @@ import json
 from dataclasses import dataclass, field
 from typing import Any
 
+from veil._files import atomic_write_text
 from veil.surrogates import SurrogateGenerator
 from veil.types import EntityType, Mapping
 
 
 class VaultError(Exception):
     """Raised for vault serialization/deserialization/crypto failures."""
+
+
+MAX_SURROGATE_ATTEMPTS = 1024
+
+
+def _unique_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            # Keys can themselves contain private data. Never echo them here.
+            raise VaultError("vault JSON contains a duplicate object key")
+        result[key] = value
+    return result
+
+
+def _nonempty_text(value: Any, description: str) -> None:
+    if not isinstance(value, str) or not value:
+        raise VaultError(f"{description} must be a nonempty string")
+    try:
+        value.encode("utf-8")
+    except UnicodeEncodeError as exc:
+        raise VaultError(f"{description} contains an unpaired Unicode surrogate") from exc
 
 
 @dataclass
@@ -57,26 +80,31 @@ class Vault:
         detector: str = "",
     ) -> str:
         """Return the existing surrogate for ``original``, minting one if new."""
+        _nonempty_text(original, "original")
         key = (entity_type, original)
         existing = self._by_original.get(key)
         if existing is not None:
             return existing.surrogate
 
-        index = self._counters.get(entity_type, 0) + 1
-        self._counters[entity_type] = index
-        surrogate = generator.generate(entity_type, original, index)
-        # Extremely unlikely, but guard against a generator producing a
-        # surrogate that collides with an existing one for another value.
-        while surrogate in self._by_surrogate:
+        index = self._counters.get(entity_type, 0)
+        for _ in range(MAX_SURROGATE_ATTEMPTS):
             index += 1
-            self._counters[entity_type] = index
             surrogate = generator.generate(entity_type, original, index)
+            _nonempty_text(surrogate, "generated surrogate")
+            if surrogate != original and surrogate not in self._by_surrogate:
+                break
+        else:
+            raise VaultError(
+                "surrogate generator could not produce a distinct replacement after "
+                f"{MAX_SURROGATE_ATTEMPTS} attempts; use numbered placeholders"
+            )
 
         mapping = Mapping(
             type=entity_type, original=original, surrogate=surrogate, first_seen=detector
         )
         self._by_original[key] = mapping
         self._by_surrogate[surrogate] = mapping
+        self._counters[entity_type] = index
         self._derived.clear()
         return surrogate
 
@@ -119,28 +147,36 @@ class Vault:
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> Vault:
-        entries = data.get("mappings", []) if isinstance(data, dict) else None
+        entries = data.get("mappings") if isinstance(data, dict) else None
         if not isinstance(entries, list):
             raise VaultError("vault data must be an object with a 'mappings' list")
+        version = data.get("version", 1)  # accept unversioned legacy vaults
+        if type(version) is not int or version != 1:
+            raise VaultError("unsupported vault version; expected version 1")
         vault = cls()
         for n, entry in enumerate(entries, start=1):
             if not isinstance(entry, dict):
                 raise VaultError(f"vault mapping {n} is not an object")
             for key in ("type", "original", "surrogate"):
-                if not isinstance(entry.get(key), str):
-                    raise VaultError(f"vault mapping {n}: {key!r} must be a string")
-            if not entry["surrogate"]:
-                raise VaultError(f"vault mapping {n}: the surrogate is empty")
+                _nonempty_text(entry.get(key), f"vault mapping {n}: {key}")
             try:
                 etype = EntityType(entry["type"])
             except ValueError as exc:
-                raise VaultError(f"unknown entity type in vault data: {entry['type']!r}") from exc
+                raise VaultError(f"vault mapping {n}: unknown entity type") from exc
             detector = entry.get("detector", "")
+            if not isinstance(detector, str):
+                raise VaultError(f"vault mapping {n}: detector must be a string")
+            if (etype, entry["original"]) in vault._by_original:
+                raise VaultError(f"vault mapping {n}: duplicate original for this entity type")
+            if entry["surrogate"] in vault._by_surrogate:
+                raise VaultError(f"vault mapping {n}: duplicate surrogate")
+            if entry["surrogate"] == entry["original"]:
+                raise VaultError(f"vault mapping {n}: surrogate must differ from its original")
             mapping = Mapping(
                 type=etype,
                 original=entry["original"],
                 surrogate=entry["surrogate"],
-                first_seen=detector if isinstance(detector, str) else "",
+                first_seen=detector,
             )
             vault._by_original[(etype, mapping.original)] = mapping
             vault._by_surrogate[mapping.surrogate] = mapping
@@ -150,14 +186,23 @@ class Vault:
     @classmethod
     def from_json(cls, data: str) -> Vault:
         try:
-            parsed = json.loads(data)
+            parsed = json.loads(data, object_pairs_hook=_unique_object)
         except json.JSONDecodeError as exc:
-            raise VaultError(f"invalid vault JSON: {exc}") from exc
+            raise VaultError(
+                f"invalid vault JSON at line {exc.lineno}, column {exc.colno}"
+            ) from exc
+        except RecursionError as exc:
+            raise VaultError("vault JSON is nested too deeply") from exc
         return cls.from_dict(parsed)
 
     def save(self, path: str) -> None:
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(self.to_json())
+        """Atomically replace a vault, with owner-only permissions on POSIX.
+
+        A temporary sibling keeps a failed write from truncating the only copy
+        of a conversation's mappings. Symlinks are refused rather than followed.
+        This does not encrypt the file or coordinate concurrent writers.
+        """
+        atomic_write_text(path, self.to_json())
 
     @classmethod
     def load(cls, path: str) -> Vault:
@@ -175,9 +220,13 @@ class Vault:
         except ImportError as exc:
             raise VaultError(
                 "encrypt() requires the 'cryptography' package (veil's 'vault-crypto' extra): "
-                "pip install 'cryptography>=42'"
+                "pip install 'veil-pii[vault-crypto]'"
             ) from exc
-        return Fernet(key).encrypt(self.to_json(indent=None).encode("utf-8"))
+        try:
+            cipher = Fernet(key)
+        except (ValueError, TypeError) as exc:
+            raise VaultError("invalid Fernet key; use Vault.generate_key()") from exc
+        return cipher.encrypt(self.to_json(indent=None).encode("utf-8"))
 
     @classmethod
     def decrypt(cls, token: bytes, key: bytes) -> Vault:
@@ -186,13 +235,21 @@ class Vault:
         except ImportError as exc:
             raise VaultError(
                 "decrypt() requires the 'cryptography' package (veil's 'vault-crypto' extra): "
-                "pip install 'cryptography>=42'"
+                "pip install 'veil-pii[vault-crypto]'"
             ) from exc
         try:
-            plaintext = Fernet(key).decrypt(token)
+            cipher = Fernet(key)
+        except (ValueError, TypeError) as exc:
+            raise VaultError("invalid Fernet key; use Vault.generate_key()") from exc
+        try:
+            plaintext = cipher.decrypt(token)
         except InvalidToken as exc:
             raise VaultError("wrong key, or vault data is corrupted/tampered") from exc
-        return cls.from_json(plaintext.decode("utf-8"))
+        try:
+            text = plaintext.decode("utf-8")
+        except UnicodeDecodeError as exc:
+            raise VaultError("decrypted vault is not valid UTF-8") from exc
+        return cls.from_json(text)
 
     @staticmethod
     def generate_key() -> bytes:
@@ -201,6 +258,6 @@ class Vault:
         except ImportError as exc:
             raise VaultError(
                 "generate_key() requires the 'cryptography' package (veil's 'vault-crypto' extra): "
-                "pip install 'cryptography>=42'"
+                "pip install 'veil-pii[vault-crypto]'"
             ) from exc
         return Fernet.generate_key()

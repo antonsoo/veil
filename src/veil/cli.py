@@ -18,8 +18,10 @@ import json
 import os
 import sys
 from collections.abc import Sequence
+from pathlib import Path
 
 from veil import __version__
+from veil._files import atomic_write_text
 from veil.audit import audit
 from veil.backends.known_entities import KnownEntitiesBackend
 from veil.masker import Masker
@@ -50,8 +52,24 @@ def _write_output(text: str, path: str | None) -> None:
     if path is None:
         sys.stdout.write(text)
         return
-    with open(path, "w", encoding="utf-8", newline="") as f:
-        f.write(text)
+    atomic_write_text(path, text)
+
+
+def _check_paths(args: argparse.Namespace) -> None:
+    """Catch aliases before writing either half of a mask/vault pair."""
+    paths = [("vault", args.vault)]
+    if args.input != "-":
+        paths.append(("input", args.input))
+    if getattr(args, "output", None) is not None:
+        paths.append(("output", args.output))
+    paths.extend(("names file", name) for name in getattr(args, "names_file", None) or [])
+    for index, (label, name) in enumerate(paths):
+        for other_label, other_name in paths[:index]:
+            if label == other_label == "names file":
+                continue
+            a, b = Path(name), Path(other_name)
+            if a.resolve() == b.resolve() or (a.exists() and b.exists() and a.samefile(b)):
+                raise VaultError(f"{label} and {other_label} must use distinct files")
 
 
 _KINDS = {"person": "persons", "org": "orgs", "location": "locations"}
@@ -93,9 +111,10 @@ def _cmd_mask(args: argparse.Namespace) -> int:
     vault = Vault.load(args.vault) if args.vault and _exists(args.vault) else Vault()
     backend = _known_entities(args)
     masker = Masker(vault=vault, name_backends=[backend] if backend else [])
-    _write_output(masker.mask(text), args.output)
+    masked = masker.mask(text)
     if args.vault:
         vault.save(args.vault)
+    _write_output(masked, args.output)
     return 0
 
 
@@ -193,6 +212,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parser.parse_args(argv)
     _utf8_pipes()
     try:
+        _check_paths(args)
         return int(args.func(args))
     except FileNotFoundError as exc:
         print(f"veil {args.command}: file not found: {exc.filename}", file=sys.stderr)
@@ -202,6 +222,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 2
     except VaultError as exc:
         print(f"veil {args.command}: {exc}", file=sys.stderr)
+        return 2
+    except OSError as exc:
+        print(f"veil {args.command}: could not access file or stream: {exc}", file=sys.stderr)
         return 2
 
 

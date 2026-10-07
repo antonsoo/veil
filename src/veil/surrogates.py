@@ -119,6 +119,15 @@ class RealisticSurrogates:
             self.fallback = PlaceholderSurrogates()
 
     def generate(self, entity_type: EntityType, original: str, index: int) -> str:
+        # These pools are finite. Cycling after exhaustion made Vault retry
+        # forever; a numbered placeholder preserves uniqueness and reversibility.
+        capacity = {
+            EntityType.PERSON: len(_FIRST_NAMES) * len(_LAST_NAMES),
+            EntityType.ORG: len(_ORG_WORDS) * len(_ORG_SUFFIXES),
+            EntityType.PHONE: len(_FAKE_AREA_CODES) * 100,
+        }.get(entity_type)
+        if capacity is not None and index > capacity:
+            return self.fallback.generate(entity_type, original, index)
         if entity_type is EntityType.PERSON:
             first = _FIRST_NAMES[index % len(_FIRST_NAMES)]
             last = _LAST_NAMES[(index // len(_FIRST_NAMES)) % len(_LAST_NAMES)]

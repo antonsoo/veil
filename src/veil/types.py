@@ -69,7 +69,7 @@ class Entity:
             raise ValueError(f"confidence must be in [0, 1], got {self.confidence}")
 
 
-@dataclass(slots=True)
+@dataclass(frozen=True, slots=True)
 class Mapping:
     """One entry in the vault: an original value bound to its surrogate."""
 
