@@ -3,7 +3,7 @@
 Three entry points:
 
 - :func:`restore_exact` — surrogate substrings must match byte-for-byte.
-  Always correct, never over-restores, but a model that alters a
+  A model that alters a
   surrogate (recapitalizes a fake name, adds a possessive) won't be
   caught.
 - :func:`restore_tolerant` — additionally catches the rewrites models
@@ -63,7 +63,7 @@ def restore_tolerant(text: str, vault: Vault) -> str:
     original that happens to read like another value's surrogate stays as it
     is.
     """
-    exact = _trie(vault, json_string=False)
+    exact = _trie(vault)
     loose = _loose_trie(vault)
     out: list[str] = []
     pos = 0
@@ -96,6 +96,7 @@ def _mid_word(text: str, pos: int) -> bool:
 class _TrieNode:
     children: dict[str, _TrieNode] = field(default_factory=dict)
     terminal: str | None = None  # original value, if a surrogate ends here
+    ambiguous: bool = False  # conflicting originals share a tolerant spelling
 
 
 def _json_escaped(value: str, *, ascii_only: bool) -> str:
@@ -103,7 +104,7 @@ def _json_escaped(value: str, *, ascii_only: bool) -> str:
     return json.dumps(value, ensure_ascii=ascii_only)[1:-1]
 
 
-def _build_trie(vault: Vault, *, json_string: bool = False) -> _TrieNode:
+def _build_trie(vault: Vault) -> _TrieNode:
     root = _TrieNode()
 
     def add(surrogate: str, original: str) -> None:
@@ -113,23 +114,16 @@ def _build_trie(vault: Vault, *, json_string: bool = False) -> _TrieNode:
         node.terminal = original
 
     for mapping in vault.mappings():
-        if not json_string:
-            add(mapping.surrogate, mapping.original)
-            continue
-        # Inside a JSON string the original must be escaped to keep the JSON valid, and the model
-        # may have written the surrogate with its non-ASCII characters as \uXXXX escapes.
-        original = _json_escaped(mapping.original, ascii_only=False)
-        add(mapping.surrogate, original)
-        add(_json_escaped(mapping.surrogate, ascii_only=True), original)
+        add(mapping.surrogate, mapping.original)
     return root
 
 
-def _trie(vault: Vault, *, json_string: bool) -> _TrieNode:
+def _trie(vault: Vault) -> _TrieNode:
     """The vault's surrogate trie, built once per vault state rather than per string restored."""
-    key = "json_trie" if json_string else "trie"
+    key = "trie"
     trie = vault._derived.get(key)
     if trie is None:
-        trie = vault._derived[key] = _build_trie(vault, json_string=json_string)
+        trie = vault._derived[key] = _build_trie(vault)
     return trie
 
 
@@ -139,15 +133,18 @@ def _loose_trie(vault: Vault) -> _TrieNode:
     trie = vault._derived.get("loose_trie")
     if trie is None:
         trie = _TrieNode()
-        for surrogate in vault.surrogates():  # longest first: it wins a tie on the folded form
+        for surrogate in vault.surrogates():
             mapping = vault.lookup_surrogate(surrogate)
             words = [w for w in surrogate.split(" ") if w]
             if mapping is None or not words:
                 continue
             node = trie
-            for ch in " ".join(words):
-                node = node.children.setdefault(ch if ch == " " else ch.casefold(), _TrieNode())
-            if node.terminal is None:
+            for ch in " ".join(words).casefold():
+                node = node.children.setdefault(ch, _TrieNode())
+            if node.terminal is not None and node.terminal != mapping.original:
+                node.ambiguous = True
+                node.terminal = None
+            elif not node.ambiguous:
                 node.terminal = mapping.original
         vault._derived["loose_trie"] = trie
     return trie
@@ -181,10 +178,15 @@ def _longest_loose(trie: _TrieNode, text: str, pos: int) -> tuple[int, str] | No
                 i += 1
             node = gap
             continue
-        nxt = node.children.get(ch.casefold())
-        if nxt is None:
+        matched = True
+        for folded in ch.casefold():
+            nxt = node.children.get(folded)
+            if nxt is None:
+                matched = False
+                break
+            node = nxt
+        if not matched:
             break
-        node = nxt
         i += 1
         if node.terminal is not None and not _mid_word(text, i):
             best = (i, node.terminal)
@@ -202,22 +204,29 @@ class Restorer:
     was split into chunks — this is what the Hypothesis property tests in
     ``tests/test_restore_streaming.py`` check.
 
-    With ``json_string=True`` the text is (a fragment of) serialized JSON,
-    such as a tool call's streamed arguments: a surrogate is also recognized
-    in its ``\\uXXXX``-escaped form, and originals are written JSON-escaped
-    so the arguments stay valid JSON.
+    With ``json_string=True`` feed serialized JSON from its beginning, such as
+    a tool call's streamed arguments. String values are decoded for matching
+    (including mixed Unicode escapes); originals are written JSON-escaped.
+    Object keys, numbers and structural syntax are unchanged. Untouched text
+    keeps its exact spelling. This is a streaming transformer, not a validator
+    or a repair tool for malformed JSON.
     """
 
     def __init__(self, vault: Vault, *, json_string: bool = False) -> None:
-        self._trie = _trie(vault, json_string=json_string)
+        self._trie = _trie(vault)
         self._buffer = ""
+        self._json = _JSONRestorer(self._trie) if json_string else None
 
     def feed(self, chunk: str) -> str:
+        if self._json is not None:
+            return self._json.feed(chunk)
         self._buffer += chunk
         emitted, self._buffer = self._consume(self._buffer, final=False)
         return emitted
 
     def flush(self) -> str:
+        if self._json is not None:
+            return self._json.feed("", final=True)
         emitted, remainder = self._consume(self._buffer, final=True)
         self._buffer = ""
         assert remainder == ""  # a final pass never holds anything back
@@ -255,3 +264,134 @@ class Restorer:
             out.append(buffer[pos])
             pos += 1
         return "".join(out), buffer[pos:]
+
+
+_ESCAPES = {'"': '"', "\\": "\\", "/": "/", "b": "\b", "f": "\f", "n": "\n", "r": "\r", "t": "\t"}
+_HEX = frozenset("0123456789abcdefABCDEF")
+
+
+def _json_unit(text: str, pos: int, *, final: bool) -> tuple[str, int] | None:
+    """One decoded code point and its raw end, or an incomplete escape.
+
+    Retaining the raw spelling separately is essential: a literal backslash
+    followed by ``u27e8`` must never turn into a placeholder delimiter.
+    """
+    if text[pos] != "\\":
+        return text[pos], pos + 1
+    if pos + 1 == len(text):
+        return ("\\", pos + 1) if final else None
+    escape = text[pos + 1]
+    if escape in _ESCAPES:
+        return _ESCAPES[escape], pos + 2
+    if escape != "u":
+        return text[pos : pos + 2], pos + 2  # invalid: preserve, never repair
+    end = pos + 6
+    if end > len(text):
+        return (text[pos:], len(text)) if final else None
+    digits = text[pos + 2 : end]
+    if not all(ch in _HEX for ch in digits):
+        return text[pos:end], end
+    code = int(digits, 16)
+    if 0xD800 <= code <= 0xDBFF:
+        if end + 6 > len(text) and not final:
+            return None
+        low_digits = text[end + 2 : end + 6]
+        if (
+            text[end : end + 2] == "\\u"
+            and len(low_digits) == 4
+            and all(ch in _HEX for ch in low_digits)
+        ):
+            low = int(low_digits, 16)
+            if 0xDC00 <= low <= 0xDFFF:
+                return chr(0x10000 + (code - 0xD800) * 0x400 + low - 0xDC00), end + 6
+    return chr(code), end
+
+
+class _JSONRestorer:
+    """Decode only string values; retain raw units until a trie match is known.
+
+    Retained text is bounded by the longest surrogate prefix plus an incomplete
+    escape (at most 11 characters). Container state uses one flag per nesting
+    level. An entire tool-call string is never buffered just to parse its JSON.
+    """
+
+    def __init__(self, trie: _TrieNode) -> None:
+        self._trie = trie
+        self._tail = ""
+        self._units: list[tuple[str, str]] = []
+        self._inside = False
+        self._restore_string = False
+        self._objects: list[bool] = []
+        self._key_expected = False
+
+    def _release(self, *, final: bool) -> str:
+        out: list[str] = []
+        pos = 0
+        while pos < len(self._units):
+            node = self._trie
+            cursor = pos
+            best: tuple[int, str] | None = None
+            while cursor < len(self._units):
+                nxt = node.children.get(self._units[cursor][0])
+                if nxt is None:
+                    break
+                node = nxt
+                cursor += 1
+                if node.terminal is not None:
+                    best = cursor, node.terminal
+            else:
+                if not final and node.children:
+                    break
+            if best is not None:
+                pos, original = best
+                out.append(_json_escaped(original, ascii_only=False))
+            else:
+                out.append(self._units[pos][1])
+                pos += 1
+        del self._units[:pos]
+        return "".join(out)
+
+    def feed(self, chunk: str, *, final: bool = False) -> str:
+        text = self._tail + chunk
+        self._tail = ""
+        out: list[str] = []
+        pos = 0
+        while pos < len(text):
+            ch = text[pos]
+            if self._inside:
+                if ch == '"':
+                    out.append(self._release(final=True))
+                    out.append(ch)
+                    self._inside = False
+                    pos += 1
+                    continue
+                unit = _json_unit(text, pos, final=final)
+                if unit is None:
+                    self._tail = text[pos:]
+                    break
+                decoded, end = unit
+                raw = text[pos:end]
+                if self._restore_string:
+                    self._units.append((decoded, raw))
+                else:
+                    out.append(raw)
+                pos = end
+                continue
+            if ch == '"':
+                self._inside = True
+                self._restore_string = not self._key_expected
+            elif ch in "{[":
+                self._objects.append(ch == "{")
+                self._key_expected = ch == "{"
+            elif ch in "}]":
+                if self._objects:
+                    self._objects.pop()
+                self._key_expected = False
+            elif ch == ":":
+                self._key_expected = False
+            elif ch == ",":
+                self._key_expected = bool(self._objects and self._objects[-1])
+            out.append(ch)
+            pos += 1
+        out.append(self._release(final=final))
+        return "".join(out)
