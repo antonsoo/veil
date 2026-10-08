@@ -6,6 +6,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Measured on real text
+
+- A study, `studies/real-text/`: veil on phone numbers and email addresses as
+  people typed them into OpenStreetMap in 46 cities, and on 2.6 million words
+  of system logs, CI logs and source code. The released 0.4.4 masked 66% of
+  phone numbers written with a `+`, and in technical text made 11 false
+  maskings per 1,000 words. The detector changes below came out of it.
+
+### Changed
+
+- **Phone.** A number written with a `+` is found in any grouping. The
+  detector reads the calling code and checks that the national number has a
+  length that country uses (a table generated from libphonenumber's metadata;
+  veil still has no dependencies). `+33 1 23 45 67 89`, `+49 30 12345678` and
+  `+81 3-1234-5678` were all missed before. A `+` followed by digits that
+  start with no assigned code, or have the wrong length, is no longer a
+  number; a signed decimal (`m=+32.035815963`) never is.
+- **Secrets.** The low-confidence heuristic for random tokens no longer masks
+  tokens that read as words: file paths, test names, package paths, request
+  ids. Short tokens are held to an entropy their length can reach, so random
+  keys of 20 to 24 characters are found far more often.
+- **Cards.** The Luhn checksum is no longer enough. A candidate needs an
+  issuer's range and length, or a card's printed grouping, and must not be
+  part of a longer token. Unformatted digits with no known issuer are no
+  longer reported at reduced confidence. The issuer table gains UnionPay,
+  Maestro, Mir, RuPay and others.
+- **IP addresses.** Loopback, the unspecified address and reserved space
+  (`127.0.0.1`, `0.0.0.0`, `::`, `::1`, netmasks) are left alone, and so is the
+  version in a browser's product token or a Windows package name.
+- **Address (opt-in).** Numbered streets (`38 West 32nd Street`) and a
+  compass point after the suffix (`55 Bloor Street West`).
+- The synthetic corpus generator keeps to addresses a host can have. Fourteen
+  documents change by one IP address each; regenerate `benchmarks/corpus.jsonl`.
+
 ### Fixed
 
 - Finite realistic-name, organization, and phone pools now continue with numbered
