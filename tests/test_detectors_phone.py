@@ -106,3 +106,46 @@ def test_ignores_room_number() -> None:
 
 def test_ignores_build_number() -> None:
     assert values("Regression only reproduces on build 2026.09.21.1453.") == []
+
+
+# The cases below are shapes from OpenStreetMap phone tags that 0.4.4 missed
+# (studies/real-text): the digits are made up, the grouping is each country's.
+
+
+def test_international_numbers_are_found_however_the_digits_are_grouped() -> None:
+    for number in (
+        "+33 1 23 45 67 89",  # France: one digit, then pairs
+        "+49 30 12345678",  # Germany: eight digits in one group
+        "+81 3-1234-5678",  # Japan: a one-digit area code
+        "+61 2 9374 4000",  # Australia
+        "+353 1 679 1122",  # Ireland
+        "+39 06 6874848",  # Italy keeps the zero
+        "+91 98765 43210",  # India: five and five
+        "+44 (0)20 7946 0958",  # the trunk zero some print for domestic callers
+        "+49 30 / 123 456-0",
+        "+33.1.23.45.67.89",
+    ):
+        assert values(f"Call {number} today.") == [number], number
+
+
+def test_a_plus_and_digits_need_a_real_calling_code_and_length() -> None:
+    assert values("+999 123 456 789") == []  # no such calling code
+    assert values("+10 2026 10 08") == []  # North America, but nine digits
+    assert values("+33 1 23 45") == []  # France, but too short
+
+
+def test_digits_after_a_number_are_not_part_of_it() -> None:
+    assert values("call +1 212 555 0134 2026 times") == ["+1 212 555 0134"]
+    assert values("+1 212 555 0134 2026-10-08") == ["+1 212 555 0134"]
+    assert values("+1-416-555-0134x5") == ["+1-416-555-0134"]
+
+
+def test_signed_decimals_and_changelog_lines_are_not_numbers() -> None:
+    # Go prints a monotonic clock reading as m=+32.035815963.
+    assert values('at="2026-09-20 22:09:08.515982131 +0000 UTC m=+32.035815963"') == []
+    assert values("+4.13.3 / 2015-08-02") == []
+
+
+def test_an_international_number_outranks_the_ssn_shape_inside_it() -> None:
+    assert values("+33 142 78 2350") == ["+33 142 78 2350"]
+    assert values("ssn 142-78-2350") == []

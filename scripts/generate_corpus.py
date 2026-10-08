@@ -121,7 +121,13 @@ def make_iban(rng: random.Random) -> str:
 
 
 def make_ipv4(rng: random.Random) -> str:
-    return ".".join(str(rng.randint(1, 254)) for _ in range(4))
+    octets = [rng.randint(1, 254) for _ in range(4)]
+    # Keep to addresses a host can have: 127 is loopback, 224 and up is
+    # multicast and reserved space. Remapped rather than redrawn, so every
+    # other value in the corpus stays what it was.
+    if octets[0] == 127 or octets[0] >= 224:
+        octets[0] = octets[0] % 100 + 11
+    return ".".join(str(octet) for octet in octets)
 
 
 def make_secret(rng: random.Random) -> str:

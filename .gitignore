@@ -21,3 +21,4 @@ docs/site/
 # scanners flag committed copies as leaked credentials.
 benchmarks/*.jsonl
 .venv-minimums/
+/studies/*/cache/

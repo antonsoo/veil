@@ -50,8 +50,16 @@ def test_does_not_flag_digits_inside_a_valid_iban() -> None:
 
 
 def test_unknown_issuer_but_luhn_valid_is_lower_confidence() -> None:
-    # A Luhn-valid number outside our documented issuer ranges is still
-    # reported, just at reduced confidence.
-    entities = d.find("9999999999999995")
+    # Written the way a card is printed, a Luhn-valid number outside the
+    # documented issuer ranges is still reported, at reduced confidence.
+    entities = d.find("9999 9999 9999 9995")
     assert len(entities) == 1
     assert entities[0].confidence < 0.9
+
+
+def test_unformatted_digits_need_an_issuer_range() -> None:
+    # One digit run in ten passes Luhn. Without a card's grouping, the
+    # checksum alone is not evidence: this is how a log's block ids and
+    # millisecond timestamps were being masked as cards.
+    assert d.find("9999999999999995") == []
+    assert d.find("setTodayTotalDetailSteps=1514038620000##7111") == []

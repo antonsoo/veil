@@ -7,9 +7,14 @@ revocation checks:
    keys (this is intentional on their part, to make secret scanning
    possible). We match prefix + the provider's typical trailing-character
    length/alphabet.
-2. **High-entropy heuristic.** A bare base64/hex-looking token of at least
-   20 characters with Shannon entropy above a threshold is flagged at low
-   confidence. This will have false positives (hashes, IDs) and false
+2. **High-entropy heuristic.** A bare base64-looking token of at least 20
+   characters with Shannon entropy above a threshold is flagged at low
+   confidence, unless it reads as words. Entropy alone cannot tell a key
+   from a file path: ``user/root/rand/_temporary/_task_200811092030`` uses
+   as many different characters as a key does. What tells them apart is
+   that a path is made of words and a key is not (see
+   :mod:`veil.detectors._words`). This still has false positives (ETags,
+   lockfile hashes, anything else that really is random) and false
    negatives (short keys) — it's a backstop, not a guarantee.
 """
 
@@ -21,6 +26,7 @@ from bisect import bisect_left
 from collections.abc import Iterator
 
 from veil._spans import DisjointSpans
+from veil.detectors._words import looks_random
 from veil.types import Entity, EntityType, Span
 
 # A PEM private key, masked as one block from its BEGIN line to its END line;
@@ -87,6 +93,18 @@ def shannon_entropy(s: str) -> float:
     return -sum((c / n) * math.log2(c / n) for c in counts.values())
 
 
+def _entropy_floor(length: int) -> float:
+    """The least entropy a token of this length must have to be flagged.
+
+    A token of n characters cannot exceed log2(n) bits per character, so a
+    fixed floor of 4.0 passes between an eighth and two thirds of random
+    20-character keys, depending on their alphabet, and nearly all of them
+    only from 32 characters up. Short tokens are held to four fifths of
+    what their length allows instead.
+    """
+    return min(_ENTROPY_THRESHOLD, 0.8 * math.log2(length))
+
+
 def _looks_like_id_or_hash(s: str) -> bool:
     # Pure hex (common for hashes/UUID fragments) or a run with no digits at
     # all (likely prose/base64 padding) is not worth flagging at low confidence.
@@ -122,7 +140,10 @@ class SecretDetector:
                 # aws_secret_key is the one pattern with no distinguishing
                 # prefix (just "40 alnum characters"), so a plain SHA-1 hex
                 # hash (also 40 characters) would otherwise false-positive.
-                if pattern_name == "aws_secret_key" and _looks_like_id_or_hash(m.group(0)):
+                # A 40-character stretch of a file path matches it just as well.
+                if pattern_name == "aws_secret_key" and (
+                    _looks_like_id_or_hash(m.group(0)) or not looks_random(m.group(0))
+                ):
                     continue
                 known(pattern_name, m.start(), m.end())
 
@@ -131,10 +152,10 @@ class SecretDetector:
             if claimed.overlaps(span):
                 continue
             candidate = m.group(0)
-            if _looks_like_id_or_hash(candidate):
+            if _looks_like_id_or_hash(candidate) or not looks_random(candidate):
                 continue
             entropy = shannon_entropy(candidate)
-            if entropy < _ENTROPY_THRESHOLD:
+            if entropy < _entropy_floor(len(candidate)):
                 continue
             claimed.add(span)
             out.append(

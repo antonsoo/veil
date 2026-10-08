@@ -27,3 +27,18 @@ def test_confidence_is_reduced_for_heuristic() -> None:
 
 def test_no_match_without_number() -> None:
     assert values("Main Street is closed today.") == []
+
+
+# Shapes from OpenStreetMap addr: tags in New York, Chicago and Toronto.
+
+
+def test_finds_numbered_streets() -> None:
+    assert values("Deliver to 38 West 32nd Street, New York.") == ["38 West 32nd Street"]
+    assert values("The shop at 484 9th Avenue is closed.") == ["484 9th Avenue"]
+
+
+def test_takes_the_compass_point_after_the_suffix() -> None:
+    assert values("424 Park Avenue South, New York") == ["424 Park Avenue South"]
+    assert values("12 Queen St W, Toronto") == ["12 Queen St W"]
+    assert values("332-334 Queen Street West") == ["332-334 Queen Street West"]
+    assert values("turn at 5 Oak Street E of the river") == ["5 Oak Street"]

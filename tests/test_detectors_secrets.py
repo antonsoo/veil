@@ -98,3 +98,43 @@ def test_masks_a_truncated_private_key_through_its_body() -> None:
 
 def test_leaves_public_keys_and_certificates_alone() -> None:
     assert values(_pem("PUBLIC KEY", "MFkwEwYH")) == []
+
+
+# What 0.4.4 masked as secrets in real logs and source trees (studies/real-text).
+
+
+def test_paths_and_names_are_not_secrets() -> None:
+    for text in (
+        "NameSystem.allocateBlock: /user/root/rand/_temporary/_task_200811092030_0001_m_000742_0/part",
+        "--jsonfile=/logs/artifacts/junit_20261005-092148.stdout",
+        "=== RUN   TestSchedulerPerf/SchedulingPodAffinity/5000Nodes_5000Pods",
+        "ok  k8s.io/kubernetes/pkg/apis/discovery/v1beta1 0.02s",
+        "Failed to renew lease for [DFSClient_NONMAPREDUCE_1537864556_1] for 30 seconds",
+        "wsgi.server [req-d81279b2-d9df-48b7-9c36-edab3801c067 113d3a99c3da401fbd62cc2caa5b96d2]",
+        "GET /v2/54fadb412c4e40cdbaed9335e4c35a9e/servers/detail HTTP/1.1",
+        "def test_HTTP_302_TOO_MANY_REDIRECTS(self, httpbin):",
+        "path /usr/lib/jvm/java-7-openjdk-amd64/jre/bin",
+    ):
+        assert values(text) == [], text
+
+
+def test_random_tokens_are_still_found_beside_them() -> None:
+    assert values("h1:FRsXN1f5AsAjCGJKqEizvkpNtU+EGNCLh3NxZ/8L+MA=") == [
+        "FRsXN1f5AsAjCGJKqEizvkpNtU+EGNCLh3NxZ/8L+MA"
+    ]
+    assert values("Authorization: Bearer 2BPb1rsD95o5Jm5SqWs1KteqdnynnB7jkTE") == [
+        "2BPb1rsD95o5Jm5SqWs1KteqdnynnB7jkTE"
+    ]
+    # 20 characters: too short to reach 4.0 bits a character, and found now.
+    assert values("token k3jx9q2mzv7w1p8ybn4t") == ["k3jx9q2mzv7w1p8ybn4t"]
+
+
+def test_most_random_tokens_of_twenty_characters_are_found() -> None:
+    import random
+    import string
+
+    rng = random.Random(7)
+    for alphabet in (string.ascii_lowercase + string.digits, string.ascii_letters + string.digits):
+        tokens = ["".join(rng.choice(alphabet) for _ in range(20)) for _ in range(500)]
+        found = sum(values(f"token {token} end") == [token] for token in tokens)
+        assert found >= 450, (alphabet[:8], found)  # 0.4.4 found between 100 and 320
