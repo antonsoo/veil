@@ -1,0 +1,321 @@
+{
+ "source": "OpenStreetMap via the Overpass API",
+ "licence": "Open Database License 1.0, (c) OpenStreetMap contributors",
+ "endpoint": "https://overpass-api.de/api/interpreter",
+ "snapshot": "2026-10-01T00:00:00Z",
+ "query": "[out:json][timeout:180][date:\"2026-10-01T00:00:00Z\"];(nwr[\"phone\"](south,west,north,east);nwr[\"contact:phone\"](south,west,north,east);nwr[\"email\"](south,west,north,east);nwr[\"contact:email\"](south,west,north,east););out tags center;",
+ "cities": [
+  {
+   "country": "US",
+   "city": "Los Angeles",
+   "bbox": [
+    34.035,
+    -118.27,
+    34.065,
+    -118.235
+   ],
+   "file": "us-los-angeles.json",
+   "elements": 468,
+   "sha256": "51cfb4ae836f5b1e10a70e70dbb7a5568d4a31a4addca590d3dce1b9bbb31920"
+  },
+  {
+   "country": "CA",
+   "city": "Vancouver",
+   "bbox": [
+    49.27,
+    -123.135,
+    49.29,
+    -123.1
+   ],
+   "file": "ca-vancouver.json",
+   "elements": 1465,
+   "sha256": "6f79d8c6b74aaf55dc0184b2e477a2da479826077f49855d73aeaaa856fe8840"
+  },
+  {
+   "country": "CO",
+   "city": "Bogotá",
+   "bbox": [
+    4.595,
+    -74.085,
+    4.62,
+    -74.06
+   ],
+   "file": "co-bogota.json",
+   "elements": 205,
+   "sha256": "06b35f38e07da53352711f11f0cf6db27223bd15e87848971a9e6ba98d2907c0"
+  },
+  {
+   "country": "CL",
+   "city": "Santiago",
+   "bbox": [
+    -33.45,
+    -70.67,
+    -33.425,
+    -70.64
+   ],
+   "file": "cl-santiago.json",
+   "elements": 246,
+   "sha256": "7d24db5f28078a85b99147bb36e6a4f92846655dc5b5e92cf1cc4545f17cb966"
+  },
+  {
+   "country": "GB",
+   "city": "Manchester",
+   "bbox": [
+    53.47,
+    -2.255,
+    53.49,
+    -2.225
+   ],
+   "file": "gb-manchester.json",
+   "elements": 405,
+   "sha256": "aab23c76ba90aa0fc92b7013e5171e51e27a3b14b531b693216409d069616512"
+  },
+  {
+   "country": "FR",
+   "city": "Lyon",
+   "bbox": [
+    45.75,
+    4.82,
+    45.775,
+    4.85
+   ],
+   "file": "fr-lyon.json",
+   "elements": 3083,
+   "sha256": "8c7c17fe13917a480eaa43cd652b6b95c7a950c683a31aa0148429fe6cec5523"
+  },
+  {
+   "country": "DE",
+   "city": "Munich",
+   "bbox": [
+    48.13,
+    11.56,
+    48.15,
+    11.59
+   ],
+   "file": "de-munich.json",
+   "elements": 2028,
+   "sha256": "6055ac9bf6a08718dbd0ee83471c60c0426adcc9f241c7fdb4825f218b1fcb21"
+  },
+  {
+   "country": "AT",
+   "city": "Vienna",
+   "bbox": [
+    48.2,
+    16.36,
+    48.22,
+    16.385
+   ],
+   "file": "at-vienna.json",
+   "elements": 1271,
+   "sha256": "255f65f72438ff36977841aaa808434705f59622394523b78187af2708a84966"
+  },
+  {
+   "country": "CH",
+   "city": "Zurich",
+   "bbox": [
+    47.365,
+    8.53,
+    47.385,
+    8.555
+   ],
+   "file": "ch-zurich.json",
+   "elements": 1090,
+   "sha256": "51993fd0e95650e974f6316b751ee8c764e095185e46384d028877b555241095"
+  },
+  {
+   "country": "BE",
+   "city": "Brussels",
+   "bbox": [
+    50.84,
+    4.34,
+    50.86,
+    4.37
+   ],
+   "file": "be-brussels.json",
+   "elements": 1174,
+   "sha256": "3e8d6c30409e470e46ae4eb0dff7a5687a6288cf5e212b8f8a710eee54bd0b86"
+  },
+  {
+   "country": "ES",
+   "city": "Barcelona",
+   "bbox": [
+    41.38,
+    2.16,
+    41.4,
+    2.185
+   ],
+   "file": "es-barcelona.json",
+   "elements": 1253,
+   "sha256": "9c5fff98bb7a73380397cf0d9ebe49fe5deab3b434afcf2fb1d39cdf5def7f00"
+  },
+  {
+   "country": "PT",
+   "city": "Lisbon",
+   "bbox": [
+    38.705,
+    -9.15,
+    38.725,
+    -9.125
+   ],
+   "file": "pt-lisbon.json",
+   "elements": 1285,
+   "sha256": "32c40dc1950ec41d37f6eae0e8e38885fc36819afb9d699400386a17000b236c"
+  },
+  {
+   "country": "IT",
+   "city": "Milan",
+   "bbox": [
+    45.455,
+    9.175,
+    45.475,
+    9.2
+   ],
+   "file": "it-milan.json",
+   "elements": 1248,
+   "sha256": "8c1e051aeb5102a9899c4939b0a96d176dde2dd91c0154a6b85888d3fc943785"
+  },
+  {
+   "country": "DK",
+   "city": "Copenhagen",
+   "bbox": [
+    55.67,
+    12.56,
+    55.69,
+    12.59
+   ],
+   "file": "dk-copenhagen.json",
+   "elements": 764,
+   "sha256": "4f5af98211c79e6909cf5d10c347ca47abd40505424c59c69845465440f9b926"
+  },
+  {
+   "country": "CZ",
+   "city": "Prague",
+   "bbox": [
+    50.075,
+    14.415,
+    50.095,
+    14.44
+   ],
+   "file": "cz-prague.json",
+   "elements": 1482,
+   "sha256": "03940c0e8c54a3b1d0bf382543bf10b086a9e34de91b43f2e6927962ae18cc7b"
+  },
+  {
+   "country": "TR",
+   "city": "Istanbul",
+   "bbox": [
+    41.025,
+    28.97,
+    41.045,
+    28.995
+   ],
+   "file": "tr-istanbul.json",
+   "elements": 364,
+   "sha256": "d0a99c8c9e37a8f51ed4fdba5a73d560bfdbb7b3838c1c2e23b4e46b242648d2"
+  },
+  {
+   "country": "KE",
+   "city": "Nairobi",
+   "bbox": [
+    -1.295,
+    36.81,
+    -1.275,
+    36.835
+   ],
+   "file": "ke-nairobi.json",
+   "elements": 59,
+   "sha256": "16b07be9e0dbf1e0eca091354a4cdd61b8f91d3859dc8ad21369c9bdf725f478"
+  },
+  {
+   "country": "TH",
+   "city": "Bangkok",
+   "bbox": [
+    13.735,
+    100.52,
+    13.76,
+    100.545
+   ],
+   "file": "th-bangkok.json",
+   "elements": 268,
+   "sha256": "e66523aa8a9cffc4cc84f7c803f0e065febc78ba61004f3b534999f0c0056dc3"
+  },
+  {
+   "country": "ID",
+   "city": "Jakarta",
+   "bbox": [
+    -6.2,
+    106.815,
+    -6.175,
+    106.84
+   ],
+   "file": "id-jakarta.json",
+   "elements": 105,
+   "sha256": "d21830bc7869421bc9f6561fa3ee86875eef286cd027bf7b98b42a2e22e522fb"
+  },
+  {
+   "country": "HK",
+   "city": "Hong Kong",
+   "bbox": [
+    22.275,
+    114.15,
+    22.29,
+    114.18
+   ],
+   "file": "hk-hong-kong.json",
+   "elements": 427,
+   "sha256": "e81a30e3604e7e770b63265514b890b0e4645f7ea24e816c2c40e88ba6f73a00"
+  },
+  {
+   "country": "TW",
+   "city": "Taipei",
+   "bbox": [
+    25.035,
+    121.505,
+    25.06,
+    121.53
+   ],
+   "file": "tw-taipei.json",
+   "elements": 1632,
+   "sha256": "c7c185c5c7391dcc5538397559e23631db1469f31200d9d6e25f2e8c897daf95"
+  },
+  {
+   "country": "JP",
+   "city": "Osaka",
+   "bbox": [
+    34.69,
+    135.49,
+    34.71,
+    135.515
+   ],
+   "file": "jp-osaka.json",
+   "elements": 347,
+   "sha256": "ff455b42946998d2e3cd039ad48ef370cef41a8c1709205d297bad4f8daf63dd"
+  },
+  {
+   "country": "AU",
+   "city": "Melbourne",
+   "bbox": [
+    -37.825,
+    144.95,
+    -37.805,
+    144.975
+   ],
+   "file": "au-melbourne.json",
+   "elements": 628,
+   "sha256": "29ed7189d6da22ea97da93877a7b5857dddc7fc0b0494166f40a558e4b028d07"
+  },
+  {
+   "country": "NZ",
+   "city": "Auckland",
+   "bbox": [
+    -36.86,
+    174.755,
+    -36.84,
+    174.78
+   ],
+   "file": "nz-auckland.json",
+   "elements": 381,
+   "sha256": "31c4c23caf24eec4ce6183334a6a9d46ecf9d584824207201c9f193f00800198"
+  }
+ ]
+}

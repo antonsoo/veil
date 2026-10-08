@@ -1,0 +1,118 @@
+{
+ "0.4.4": {
+  "technical": {
+   "CARD": {
+    "a block id (blk_…)": 256,
+    "a millisecond timestamp": 20,
+    "a run of zeros": 2,
+    "another single number: a build id, an integer literal, a duration": 4,
+    "digits inside a UUID or hex id": 5,
+    "several separate numbers: dates, times, process ids, counters": 646,
+    "the decimals of a fraction": 8
+   },
+   "EMAIL domains": {
+    "163.com": 10,
+    "gmail.com": 223,
+    "k8s-infra-prow-build.iam.gserviceaccount.com": 30,
+    "p28-contacts.icloud.com": 10,
+    "qq.com": 17,
+    "users.noreply.github.com": 72
+   },
+   "IPV4": {
+    "a private or documentation address": 5641,
+    "a public address": 3205,
+    "a version number: a Windows package, a browser": 541,
+    "loopback": 1423,
+    "reserved space: a slice, a netmask, stray colons": 4,
+    "the unspecified address": 498
+   },
+   "IPV6": {
+    "a private or documentation address": 44,
+    "a public address": 20,
+    "loopback": 44,
+    "reserved space: a slice, a netmask, stray colons": 8,
+    "the unspecified address": 190
+   },
+   "IPV6 that are no host": {
+    "1200:0000:ab00:1234:0000:2552:7777:1313": 4,
+    "1::2": 1,
+    "::": 190,
+    "::1": 44,
+    "::2": 1,
+    "::ffff:127": 1,
+    "be::": 1
+   }
+  },
+  "technical_heldout": {
+   "CARD": {
+    "a millisecond timestamp": 4,
+    "another single number: a build id, an integer literal, a duration": 17,
+    "digits inside a UUID or hex id": 1,
+    "several separate numbers: dates, times, process ids, counters": 51,
+    "the decimals of a fraction": 50
+   },
+   "EMAIL domains": {
+    "gmail.com": 13,
+    "hotmail.com": 1,
+    "k8s-infra-prow-build.iam.gserviceaccount.com": 50,
+    "matteocollina.com": 1,
+    "palletsprojects.com": 3,
+    "python.org": 1
+   },
+   "IPV4": {
+    "a private or documentation address": 349,
+    "a public address": 275,
+    "a version number: a Windows package, a browser": 1,
+    "loopback": 252,
+    "the unspecified address": 79
+   },
+   "IPV6": {
+    "loopback": 37,
+    "the unspecified address": 31
+   },
+   "IPV6 that are no host": {
+    "::": 31,
+    "::1": 37
+   }
+  }
+ },
+ "checkout": {
+  "technical": {
+   "CARD": {},
+   "EMAIL domains": {
+    "163.com": 10,
+    "gmail.com": 223,
+    "k8s-infra-prow-build.iam.gserviceaccount.com": 30,
+    "p28-contacts.icloud.com": 10,
+    "qq.com": 17,
+    "users.noreply.github.com": 72
+   },
+   "IPV4": {
+    "a private or documentation address": 5641,
+    "a public address": 3205
+   },
+   "IPV6": {
+    "a private or documentation address": 44,
+    "a public address": 20
+   },
+   "IPV6 that are no host": {}
+  },
+  "technical_heldout": {
+   "CARD": {},
+   "EMAIL domains": {
+    "gmail.com": 13,
+    "hotmail.com": 1,
+    "k8s-infra-prow-build.iam.gserviceaccount.com": 50,
+    "matteocollina.com": 1,
+    "palletsprojects.com": 3,
+    "python.org": 1
+   },
+   "IPV4": {
+    "a private or documentation address": 349,
+    "a public address": 275
+   },
+   "IPV6": {},
+   "IPV6 that are no host": {}
+  }
+ }
+}

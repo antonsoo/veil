@@ -1,0 +1,295 @@
+{
+ "source": "OpenStreetMap via the Overpass API",
+ "licence": "Open Database License 1.0, (c) OpenStreetMap contributors",
+ "endpoint": "https://overpass-api.de/api/interpreter",
+ "snapshot": "2026-10-01T00:00:00Z",
+ "query": "[out:json][timeout:180][date:\"2026-10-01T00:00:00Z\"];(nwr[\"phone\"](south,west,north,east);nwr[\"contact:phone\"](south,west,north,east);nwr[\"email\"](south,west,north,east);nwr[\"contact:email\"](south,west,north,east););out tags center;",
+ "cities": [
+  {
+   "country": "US",
+   "city": "New York",
+   "bbox": [
+    40.74,
+    -74.0,
+    40.77,
+    -73.965
+   ],
+   "file": "us-new-york.json",
+   "elements": 3369,
+   "sha256": "85eab09c4fec5d56723b65168fa8359a2ce5c1c8dbc49a35636b8abc4917b835"
+  },
+  {
+   "country": "US",
+   "city": "Chicago",
+   "bbox": [
+    41.87,
+    -87.65,
+    41.9,
+    -87.615
+   ],
+   "file": "us-chicago.json",
+   "elements": 1103,
+   "sha256": "7e85504ea8bbe8c2b3931c87acf9c951fe2ca6f11153207d5a140e554d882fc4"
+  },
+  {
+   "country": "US",
+   "city": "Austin",
+   "bbox": [
+    30.255,
+    -97.76,
+    30.29,
+    -97.725
+   ],
+   "file": "us-austin.json",
+   "elements": 450,
+   "sha256": "cf67625fb0f6339119daeb9db5eb35080c002b5a496506d59adffd575d292e05"
+  },
+  {
+   "country": "CA",
+   "city": "Toronto",
+   "bbox": [
+    43.64,
+    -79.4,
+    43.67,
+    -79.37
+   ],
+   "file": "ca-toronto.json",
+   "elements": 1310,
+   "sha256": "56892f0f61a6ff19cfd796572cb39f2d2fa5d9900d87560a3a76d0c7775a0bb9"
+  },
+  {
+   "country": "MX",
+   "city": "Mexico City",
+   "bbox": [
+    19.42,
+    -99.18,
+    19.445,
+    -99.15
+   ],
+   "file": "mx-mexico-city.json",
+   "elements": 269,
+   "sha256": "c30353273b42bbb4e3ff33885fb123bb1f645b317e2a0a24ecdcb776c7b98503"
+  },
+  {
+   "country": "BR",
+   "city": "São Paulo",
+   "bbox": [
+    -23.565,
+    -46.665,
+    -23.54,
+    -46.63
+   ],
+   "file": "br-sao-paulo.json",
+   "elements": 491,
+   "sha256": "27851a59ebbf871a5ce5f5a0e5b5e8eba3c1478ff1fc80f2e1bcf07000f44621"
+  },
+  {
+   "country": "AR",
+   "city": "Buenos Aires",
+   "bbox": [
+    -34.61,
+    -58.39,
+    -34.59,
+    -58.365
+   ],
+   "file": "ar-buenos-aires.json",
+   "elements": 527,
+   "sha256": "76aae084c6d4be8a64c94fdbc53009127de4ef14972fad38bb471aa7ec0f8eb8"
+  },
+  {
+   "country": "GB",
+   "city": "London",
+   "bbox": [
+    51.5,
+    -0.15,
+    51.525,
+    -0.1
+   ],
+   "file": "gb-london.json",
+   "elements": 2097,
+   "sha256": "b2c0a3c048f3faea2dd906c323790ce0ae4b23f7c3d7b465aff50fd43578cab7"
+  },
+  {
+   "country": "IE",
+   "city": "Dublin",
+   "bbox": [
+    53.335,
+    -6.28,
+    53.355,
+    -6.24
+   ],
+   "file": "ie-dublin.json",
+   "elements": 1116,
+   "sha256": "eda354e1f39660c1a163e00a64422e40e1b8cc5b0f9be57424afe89c2ff9c281"
+  },
+  {
+   "country": "FR",
+   "city": "Paris",
+   "bbox": [
+    48.85,
+    2.33,
+    48.875,
+    2.37
+   ],
+   "file": "fr-paris.json",
+   "elements": 5004,
+   "sha256": "9a1911adfecc0a1d322e9d36fe747289a3668af4d0a106153b0ab01a591a3119"
+  },
+  {
+   "country": "DE",
+   "city": "Berlin",
+   "bbox": [
+    52.505,
+    13.37,
+    52.53,
+    13.42
+   ],
+   "file": "de-berlin.json",
+   "elements": 1614,
+   "sha256": "ba08dba328b6a17e7382801a62968d42b2b3b0b36c5823cc64b0c1caf2370d3d"
+  },
+  {
+   "country": "NL",
+   "city": "Amsterdam",
+   "bbox": [
+    52.36,
+    4.88,
+    52.38,
+    4.91
+   ],
+   "file": "nl-amsterdam.json",
+   "elements": 1196,
+   "sha256": "bc3624d4086d7e3580a9f85043f295e03dac9c35f7dc1d03771363ddb36d100b"
+  },
+  {
+   "country": "ES",
+   "city": "Madrid",
+   "bbox": [
+    40.405,
+    -3.715,
+    40.43,
+    -3.685
+   ],
+   "file": "es-madrid.json",
+   "elements": 2993,
+   "sha256": "e1ac14661b63a4e727b2cafb6461f6ec6a5f96827f928abbbadea4ba10bc949a"
+  },
+  {
+   "country": "IT",
+   "city": "Rome",
+   "bbox": [
+    41.89,
+    12.47,
+    41.91,
+    12.5
+   ],
+   "file": "it-rome.json",
+   "elements": 1153,
+   "sha256": "482bbad2856c358934f4bf2c12ea0e5cca3bdf6075915053e7dc61ddee6b3d3f"
+  },
+  {
+   "country": "PL",
+   "city": "Warsaw",
+   "bbox": [
+    52.22,
+    21.0,
+    52.245,
+    21.03
+   ],
+   "file": "pl-warsaw.json",
+   "elements": 980,
+   "sha256": "363f725047d4fd52c55efd420cbac9fa253663529ab04f2f5a3ce5cd15444363"
+  },
+  {
+   "country": "SE",
+   "city": "Stockholm",
+   "bbox": [
+    59.325,
+    18.05,
+    59.34,
+    18.08
+   ],
+   "file": "se-stockholm.json",
+   "elements": 1087,
+   "sha256": "01ac9391e4a62bfebb8a6a536328e64abd0b2bd76f30004e2cc42c022c4eb32d"
+  },
+  {
+   "country": "ZA",
+   "city": "Cape Town",
+   "bbox": [
+    -33.935,
+    18.41,
+    -33.915,
+    18.43
+   ],
+   "file": "za-cape-town.json",
+   "elements": 215,
+   "sha256": "1c1e6d47eebdc519c3b3b0ce0cd99a47dcac9d3f50245e7099dd436b74e7e3d8"
+  },
+  {
+   "country": "IN",
+   "city": "Bengaluru",
+   "bbox": [
+    12.96,
+    77.58,
+    12.99,
+    77.62
+   ],
+   "file": "in-bengaluru.json",
+   "elements": 309,
+   "sha256": "2993fba04fe1ab5935f470a4e1bc866034194d16d1d7284bc915bf9cb78ab4f5"
+  },
+  {
+   "country": "SG",
+   "city": "Singapore",
+   "bbox": [
+    1.28,
+    103.84,
+    1.305,
+    103.86
+   ],
+   "file": "sg-singapore.json",
+   "elements": 710,
+   "sha256": "0eb30829e0c06973b27512008b7c5fa90398e90c0a661d8cac8cd61a45f20eec"
+  },
+  {
+   "country": "JP",
+   "city": "Tokyo",
+   "bbox": [
+    35.675,
+    139.755,
+    35.7,
+    139.78
+   ],
+   "file": "jp-tokyo.json",
+   "elements": 820,
+   "sha256": "0bc53c147eca4101c1c8e093ab297d69abbd6e061678133164d95841a5b87541"
+  },
+  {
+   "country": "KR",
+   "city": "Seoul",
+   "bbox": [
+    37.555,
+    126.97,
+    37.575,
+    126.995
+   ],
+   "file": "kr-seoul.json",
+   "elements": 306,
+   "sha256": "16dd815b9d1e79ceb68fea9436d5e85a115f32f6f2c2bf858a8ee5e76cea99b9"
+  },
+  {
+   "country": "AU",
+   "city": "Sydney",
+   "bbox": [
+    -33.88,
+    151.195,
+    -33.86,
+    151.215
+   ],
+   "file": "au-sydney.json",
+   "elements": 371,
+   "sha256": "ff692acc12adb2557e3f14fe8e9eb7c22678f2ee3eea0700791713297c13ec7a"
+  }
+ ]
+}

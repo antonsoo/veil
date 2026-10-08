@@ -1,0 +1,3475 @@
+{
+ "0.4.4": {
+  "osm": {
+   "addresses": {
+    "CA": {
+     "found": 527,
+     "missed": 24,
+     "partly": 373
+    },
+    "US": {
+     "found": 1306,
+     "missed": 920,
+     "partly": 18
+    }
+   },
+   "elsewhere": {
+    "CARD": 415,
+    "EMAIL": 11,
+    "PHONE": 4,
+    "SECRET": 859
+   },
+   "elsewhere_keys": {
+    "CARD": {
+     "contact:facebook": 19,
+     "contact:website": 1,
+     "facebook": 2,
+     "mapillary": 4,
+     "operator:ref:vatin": 1,
+     "ref:FR:SIRET": 383,
+     "ref:sisa_codigo": 1,
+     "ref:vatin": 1,
+     "siren:range": 1,
+     "source": 1,
+     "wikimedia_commons": 1
+    },
+    "EMAIL": {
+     "check_date:opening_hours": 1,
+     "contact:facebook": 1,
+     "contact:mastodon": 5,
+     "operator": 1,
+     "website": 2,
+     "website:menu": 1
+    },
+    "PHONE": {
+     "contact:tty": 1,
+     "description": 1,
+     "operator": 1,
+     "source": 1
+    },
+    "SECRET": {
+     "app:apple": 5,
+     "contact:facebook": 105,
+     "contact:tripadvisor": 11,
+     "contact:website": 66,
+     "contact:youtube": 22,
+     "facebook": 15,
+     "heritage:website": 8,
+     "image": 111,
+     "source": 5,
+     "source_ref": 5,
+     "url": 9,
+     "website": 405,
+     "website:booking": 11,
+     "website:menu": 48,
+     "website:orders": 5
+    }
+   },
+   "emails": {
+    "found": 5011,
+    "missed": 4,
+    "not an address": 13,
+    "partly": 4
+   },
+   "phone_shapes": {
+    "AR international: as another type": {
+     "+dd d dd dddd dddd": 1
+    },
+    "AR international: found": {
+     "+dd dd ddd-dddd": 1,
+     "+dd dd dddd dddd": 30,
+     "+dd dd dddd-ddd": 1,
+     "+dd dd dddd-dddd": 423,
+     "+dd ddd ddd dddd": 3,
+     "+dd dddd-dddd": 3,
+     "+ddddd dddd-dddd": 1,
+     "+dddddddddddd": 13,
+     "+ddddddddddddd": 9
+    },
+    "AR international: missed": {
+     "+dd d dd dddd dddd": 3,
+     "+dd d dd dddd-dddd": 10,
+     "+dd dd ddddddd": 1,
+     "+dd dd dddddddd": 13,
+     "+dd ddd ddddddd": 2,
+     "+dd ddd dddddddd": 1,
+     "+dd dddddddddd": 6
+    },
+    "AR international: partly": {
+     "+dd dd dddd - dddd": 2,
+     "+dd dd dddd- dddd": 1,
+     "+dd ddd ddd ddddd": 1
+    },
+    "AR national: missed": {
+     "dd dddd-dddd": 1,
+     "dddd ddd dddd": 1,
+     "dddd-ddd-dddd": 27,
+     "dddd-dddd": 4,
+     "dddddddd": 1,
+     "ddddddddddd": 1
+    },
+    "AU international: found": {
+     "+dd ddd ddd ddd": 51
+    },
+    "AU international: missed": {
+     "+dd d dddd dddd": 311
+    },
+    "AU national: missed": {
+     "dddd ddd ddd": 13
+    },
+    "BR international: as another type": {
+     "+dd dd ddddd dddd": 3,
+     "+dd dd ddddd-dddd": 2
+    },
+    "BR international: found": {
+     "+dd dd ddd-dddd": 1,
+     "+dd dd dddd dddd": 116,
+     "+dd dd dddd-": 1,
+     "+dd dd dddd-ddd": 1,
+     "+dd dd dddd-dddd": 333,
+     "+dddddddddddd": 6,
+     "+ddddddddddddd": 5
+    },
+    "BR international: missed": {
+     "+dd dd d dddd dddd": 1,
+     "+dd dd d dddd-dddd": 5,
+     "+dd dd ddddd dddd": 24,
+     "+dd dd ddddd-dddd": 17,
+     "+dd dd dddddddd": 13,
+     "+dd dd ddddddddd": 2
+    },
+    "BR international: partly": {
+     "+dd dd dddd - dddd": 1
+    },
+    "BR national: missed": {
+     "dddd dd dddd": 1,
+     "dddd ddd dddd": 4,
+     "dddddddd": 1,
+     "ddddddddddd": 2
+    },
+    "CA international: found": {
+     "+-dddd-ddd-dddd": 1,
+     "+d ddd ddd dddd": 28,
+     "+d ddd ddd-dddd": 1,
+     "+d ddd-ddd-dddd": 74,
+     "+d-ddd ddd dddd": 2,
+     "+d-ddd-ddd-dddd": 861,
+     "+dddd-ddd-dddd": 1,
+     "+ddddddddddd": 34
+    },
+    "CA international: missed": {
+     "+d ddd ddddddd": 1,
+     "+d dddddddddd": 26,
+     "+d-ddd-ddd - dddd": 1,
+     "+d-ddd-ddd -dddd": 1,
+     "+d-ddd-ddd-ddddxd": 1,
+     "+d-ddd-ddd-ddddxdddd": 2,
+     "+d-ddd-ddddddd": 1,
+     "+d-dddddddddd": 1
+    },
+    "CA international: partly": {
+     "+d- ddd-ddd-dddd": 2
+    },
+    "CA national: found": {
+     "ddd-ddd-dddd": 1
+    },
+    "CA national: partly": {
+     "d-ddd-ddd-dddd": 2
+    },
+    "DE international: as another type": {
+     "+dd dd dd dd dd ddd": 1,
+     "+dd dd dddd ddddd": 1,
+     "+dd dd ddddd-dddd": 1,
+     "+dd dd ddddddddd": 4,
+     "+dd dd dddddddddd": 1,
+     "+dd ddd dddddddd": 1,
+     "+ddddddddddddd": 3
+    },
+    "DE international: found": {
+     "+dd dd dd dd dd dd": 14,
+     "+dd dd dd dd ddd": 5,
+     "+dd dd ddd dd dd dd": 4,
+     "+dd dd ddd dd ddd": 8,
+     "+dd dd ddd ddd dd": 9,
+     "+dd dd ddd ddd ddd": 6,
+     "+dd dd ddd dddd": 5,
+     "+dd dd dddd dddd": 16,
+     "+dddddddddd": 7,
+     "+ddddddddddd": 10,
+     "+dddddddddddd": 74,
+     "+ddddddddddddd": 9
+    },
+    "DE international: missed": {
+     "+dd dd ddd ddddd": 16,
+     "+dd dd ddd dddddd": 6,
+     "+dd dd ddddd": 9,
+     "+dd dd dddddd": 36,
+     "+dd dd dddddd-d": 8,
+     "+dd dd ddddddd": 121,
+     "+dd dd dddddddd": 444,
+     "+dd dd ddddddddd": 81,
+     "+dd dd dddddddddd": 13,
+     "+dd ddd ddddddd": 21,
+     "+dd ddd dddddddd": 14,
+     "+dd dddd ddddddd": 8
+    },
+    "DE international: partly": {
+     "+dd dd dd dd dd d": 4,
+     "+dd dd dd dd dd-d": 1,
+     "+dd dd ddd dd dd d": 1,
+     "+dd dd ddd dd dddd": 1,
+     "+dd dd ddd dd-d": 1,
+     "+dd dd ddd ddd d": 1,
+     "+dd dd dddd ddddd": 1,
+     "+dd dd dddd-d": 1,
+     "+dd dd dddd-ddddd": 5,
+     "+ddddddddd ddd": 1
+    },
+    "DE national: missed": {
+     "dddd ddddddd": 12
+    },
+    "ES international: found": {
+     "+dd dd dd dd ddd": 1,
+     "+dd dd ddd dd dd": 175,
+     "+dd dd ddd dddd": 26,
+     "+dd dd dddd ddd": 1,
+     "+dd ddd dd dd dd": 267,
+     "+dd ddd dd dddd": 6,
+     "+dd ddd ddd ddd": 153,
+     "+ddddddddddd": 149
+    },
+    "ES international: missed": {
+     "+dd d dd dd dd dd": 1,
+     "+dd dd d dd dd dd": 1,
+     "+dd dd ddddddd": 39,
+     "+dd ddd dddddd": 6,
+     "+dd ddddd dd dd": 1,
+     "+dd ddddd dddd": 1,
+     "+dd ddddddddd": 236
+    },
+    "ES international: partly": {
+     "+dd dd ddd dd dddd": 1
+    },
+    "ES national: missed": {
+     "Fr d:dd-dd:dd": 1,
+     "Mo-Th dd:dd-dd:dd, dd:dd-dd:dd": 1,
+     "dddd-dd-dd": 12
+    },
+    "FR international: found": {
+     "+dd ddd dd dd dd": 1,
+     "+dd ddd ddd ddd": 2,
+     "+ddd dd dd dd dd": 12,
+     "+dddddddddd": 1,
+     "+ddddddddddd": 69
+    },
+    "FR international: missed": {
+     "+dd d dd dd dd dd": 845,
+     "+dd d dddddddd": 3,
+     "+dd ddddddddd": 50,
+     "+dd dddddddddd": 1
+    },
+    "FR international: partly": {
+     "+dd ddd dd dddd": 1
+    },
+    "FR national: missed": {
+     "d ddd dd dd dd": 5,
+     "dd dd dd dd dd": 1
+    },
+    "GB international: found": {
+     "+dd dd dd ddd ddd": 1,
+     "+dd dd dddd dddd": 891,
+     "+dd ddd ddd dddd": 27,
+     "+dd ddd dddd ddd": 3,
+     "+dd dddd ddd ddd": 6,
+     "+dddd dddd dddd": 2,
+     "+ddddddddddd": 1,
+     "+dddddddddddd": 13
+    },
+    "GB international: missed": {
+     "+dd d dd dd dd dd": 1,
+     "+dd dd dddddddd": 13,
+     "+dd ddd ddddddd": 4,
+     "+dd dddd dddddd": 32,
+     "+dd dddddddddd": 10
+    },
+    "IE international: found": {
+     "+ddd dd ddd ddd": 4,
+     "+ddd dd ddd dddd": 50,
+     "+ddd ddd ddd ddd": 2,
+     "+ddd ddd dddd": 2,
+     "+ddd dddd dddd": 4,
+     "+ddddd ddd dddd": 1,
+     "+ddddddd dddd": 1,
+     "+ddddddddddd": 64,
+     "+dddddddddddd": 12
+    },
+    "IE international: missed": {
+     "+ddd d dd ddd dd": 1,
+     "+ddd d ddd dddd": 670,
+     "+ddd d dddd ddd": 7,
+     "+ddd d dddddd": 1,
+     "+ddd d ddddddd": 201,
+     "+ddd dd ddddd": 1,
+     "+ddd dd ddddddd": 8,
+     "+ddd ddd ddddd": 1,
+     "+ddd dddddddd": 4,
+     "+ddd ddddddddd": 2
+    },
+    "IE national: missed": {
+     "dddd ddd ddd": 4,
+     "dddd ddd dddd": 1,
+     "dddd-dddddd": 2,
+     "dddddddddd": 1
+    },
+    "IE national: partly": {
+     "d-ddd-ddd-dddd": 1
+    },
+    "IN international: as another type": {
+     "+dd ddd dddddddd": 1
+    },
+    "IN international: found": {
+     "+dd dd ddd ddd dd": 1,
+     "+dd dd dddd ddd": 1,
+     "+dd dd dddd dddd": 29,
+     "+dd ddd dddd dddd": 1,
+     "+dd dddd ddd ddd": 1,
+     "+dd-dd-dddd dddd": 4,
+     "+dd-dddd-ddd-ddd": 1,
+     "+dd-dddd-dddd-dd": 1,
+     "+dddd dddd dddd": 1,
+     "+dddddddddddd": 42
+    },
+    "IN international: missed": {
+     "+dd dd dddddddd": 5,
+     "+dd ddd ddddd ddd": 1,
+     "+dd ddd dddddddd": 3,
+     "+dd ddd- dddddddd": 2,
+     "+dd ddddd ddddd": 28,
+     "+dd dddddddddd": 17,
+     "+dd-d-ddd-ddd-dddd": 1,
+     "+dd-dd-dddddddd": 9,
+     "+dd-ddd-dddddddd": 1,
+     "+dd-dddddddddd": 3,
+     "+dddd ddd ddddd": 1,
+     "+ddddddd ddddd": 3
+    },
+    "IN international: partly": {
+     "+dddddddddddd/dd": 3
+    },
+    "IN national: found": {
+     "dddd ddd dddd": 1,
+     "https://web.whatsapp.com/send?phone=+dddddddddddd": 1
+    },
+    "IN national: missed": {
+     "(+dd) dddddddddd": 1,
+     "dd-dd-dddddddd": 1,
+     "dd-dddddddd": 2,
+     "ddd dddd dddd": 47,
+     "ddd dddddddd": 5,
+     "ddd-dddddddd": 3,
+     "dddd dddddddd": 2,
+     "dddddd ddddd": 11,
+     "dddddddd": 3,
+     "dddddddddd": 65,
+     "dddddddddd, dddddddddd": 1,
+     "ddddddddddd": 26
+    },
+    "IT international: found": {
+     "+dd dd dd dd dd dd": 5,
+     "+dd dd dd dd ddd": 10,
+     "+dd dd dd ddd": 4,
+     "+dd dd ddd dd ddd": 4,
+     "+dd dd ddd ddd dd": 5,
+     "+dd dd ddd dddd": 109,
+     "+dd dd dddd": 8,
+     "+dd dd dddd dddd": 141,
+     "+dd ddd ddd dddd": 33,
+     "+dddd dddd dddd": 5,
+     "+ddddddddddd": 34,
+     "+dddddddddddd": 48
+    },
+    "IT international: missed": {
+     "+dd dd ddd ddddd": 2,
+     "+dd dd ddddd": 11,
+     "+dd dd dddddd": 57,
+     "+dd dd ddddddd": 237,
+     "+dd dd dddddddd": 221,
+     "+dd dd ddddddddd": 4,
+     "+dd ddd ddddddd": 27,
+     "+dd ddd dddddddd": 1,
+     "+dd ddddddddd": 29,
+     "+dd dddddddddd": 33,
+     "+dd ddddddddddd": 2,
+     "+dddd ddddddd": 1
+    },
+    "IT national: missed": {
+     "ddd ddd ddd": 3
+    },
+    "JP international: as another type": {
+     "ddddddddddddd": 1
+    },
+    "JP international: found": {
+     "+dd dd dddd dddd": 11,
+     "+dd dd-dddd-dddd": 1,
+     "+dd ddd ddd ddd": 2,
+     "+dd dddd dddd": 2,
+     "+dd-dd-ddd-dddd": 1,
+     "+dd-dd-dddd-dddd": 6,
+     "+dd-ddd-ddd-ddd": 2,
+     "+dd-ddd-dddd-dddd": 1,
+     "+dddd-dddd-dddd": 2,
+     "+dddddddddd": 2,
+     "+ddddddddddd": 13,
+     "+dddddddddddd": 3
+    },
+    "JP international: missed": {
+     "+dd d dddd dddd": 301,
+     "+dd d dddd-dddd": 22,
+     "+dd d dddddddd": 28,
+     "+dd d-dddd-dddd": 197,
+     "+dd ddd dddddd": 1,
+     "+dd ddddd dddd": 1,
+     "+dd ddddddddd": 9,
+     "+dd-d-dddd -dddd": 1,
+     "+dd-d-dddd-dddd": 90,
+     "+dd-d-dddddddd": 27,
+     "+dd-dd-dddddddd": 1,
+     "dddd-dd-dddd": 1
+    },
+    "JP international: partly": {
+     "+dd ddd dd dddd": 1,
+     "+dd-ddd-dd-dddd": 1
+    },
+    "JP national: missed": {
+     "(dd) dddd-dddd": 1,
+     "*dd d dddd dddd": 2,
+     "dd dddd dddd": 1,
+     "dd ddddddddd": 1,
+     "dd-dddd-dddd": 97,
+     "ddd-dddd-dddd": 4,
+     "dddd-dd-dddd": 1,
+     "dddd-ddd-ddd": 3,
+     "dddddddddd": 12,
+     "ddddddddddd": 3
+    },
+    "JP national: partly": {
+     "dddd-ddd-ddd, +dd-dd-dddd-dddd": 1
+    },
+    "KR international: found": {
+     "+dd dd dddd dddd": 10,
+     "+dd dd-ddd-dddd": 55,
+     "+dd dd-dddd-dddd": 33,
+     "+dd ddd dddd": 1,
+     "+dd ddd dddd dddd": 1,
+     "+dd dddd dddd": 5,
+     "+dd-dd-dddd-dddd": 3,
+     "+dd-ddd-dddd-dddd": 1,
+     "+dd-dddd-dddd": 2,
+     "+ddddd-dddd-dddd": 10,
+     "+dddddddddd": 5,
+     "+ddddddddddd": 5
+    },
+    "KR international: missed": {
+     "+dd (d)d ddd dddd": 2,
+     "+dd d ddd dddd": 40,
+     "+dd d dddd dddd": 23,
+     "+dd d ddddddd": 2,
+     "+dd d dddddddd": 2,
+     "+dd d-ddd-dddd": 8,
+     "+dd d-dddd-dddd": 12,
+     "+dd-d-ddd-dddd": 5,
+     "+dd-d-dddd-dddd": 8,
+     "+dd-d-ddddddd": 2,
+     "+dd-d-dddddddd": 2,
+     "+dd-dd-dddddddd": 2
+    },
+    "KR national: missed": {
+     "dd dddd dddd": 1,
+     "dd-d-ddd-dddd": 2,
+     "dd-ddd-dddd": 27,
+     "dd-dddd-dddd": 8,
+     "ddd-dddd": 1,
+     "ddd-dddd-dddd": 2,
+     "dddd-dddd-dddd": 6,
+     "ddddddd": 1,
+     "ddddddddd": 1,
+     "dddddddddd": 2,
+     "ddddddddddd": 1
+    },
+    "MX international: found": {
+     "+dd dd dd dd dd dd": 1,
+     "+dd dd dddd dddd": 214,
+     "+dd ddd ddd dddd": 2,
+     "+dddd dddd dddd": 1,
+     "+dddddddddddd": 18
+    },
+    "MX international: missed": {
+     "+dd dd ddd ddddd": 5,
+     "+dd dd dddddddd": 21,
+     "+dd dddddddddd": 2
+    },
+    "MX international: partly": {
+     "+dddddddd dddd": 1
+    },
+    "MX national: missed": {
+     "ddd ddd dddd": 1,
+     "dddd dddd": 1,
+     "dddd-dddd": 1,
+     "dddddddd": 3
+    },
+    "NL international: found": {
+     "+dd dd dd dd ddd": 4,
+     "+dd dd dd ddd dd": 1,
+     "+dd dd ddd dd dd": 12,
+     "+dd dd ddd dddd": 781,
+     "+dd dd dddd ddd": 2,
+     "+dd ddd ddd ddd": 3,
+     "+ddddddddddd": 2
+    },
+    "NL international: missed": {
+     "+dd d dd dd dd dd": 3,
+     "+dd d dd dd dddd": 1,
+     "+dd d dddd dddd": 10,
+     "+dd d dddddddd": 74,
+     "+dd dd d ddd ddd": 1,
+     "+dd dd dd ddddd": 1,
+     "+dd dd ddddddd": 80
+    },
+    "NL national: missed": {
+     "dddd dddd": 2
+    },
+    "PL international: found": {
+     "+dd dd dd dd ddd": 17,
+     "+dd dd dd ddd": 1,
+     "+dd dd ddd dd dd": 505,
+     "+dd dd ddd dddd": 6,
+     "+dd ddd dd dd dd": 10,
+     "+dd ddd ddd dd": 1,
+     "+dd ddd ddd ddd": 370,
+     "+dddd ddd dd dd": 1,
+     "+ddddd ddd ddd": 1,
+     "+ddddddd dd dd": 1,
+     "+ddddddddddd": 73
+    },
+    "PL international: missed": {
+     "+dd dd ddddddd": 13,
+     "+dd ddd dddddd": 2,
+     "+dd ddddddddd": 95
+    },
+    "PL international: partly": {
+     "+dd ddd dd dddd": 1
+    },
+    "SE international: found": {
+     "+dd dd dd dd dd": 1,
+     "+dd dd ddd dd dd": 19,
+     "+dd dd ddd dddd": 3,
+     "+dd ddd ddd ddd": 2,
+     "+ddddddddd": 225,
+     "+dddddddddd": 248,
+     "+ddddddddddd": 306,
+     "+dddddddddddd": 4
+    },
+    "SE international: missed": {
+     "+dd d dd dd dd": 44,
+     "+dd d ddd dd dd": 58,
+     "+dd d ddd dd ddd": 2,
+     "+dd d ddd ddd": 1,
+     "+dd d ddd ddd dd": 38,
+     "+dd d ddd dddd": 1,
+     "+dd d dddddd": 2,
+     "+dd d ddddddd": 1,
+     "+dd d dddddddd": 3,
+     "+dd dd dddddd": 1
+    },
+    "SG international: found": {
+     "+dd ddd dd dd dd": 1,
+     "+dd ddd ddd dddd": 2,
+     "+dd dddd ddd dddd": 9,
+     "+dd dddd dddd": 509,
+     "+dddddd dddd": 2,
+     "+dddddddddd": 84,
+     "+ddddddddddd": 1
+    },
+    "SG international: missed": {
+     "+dd dddddddd": 145
+    },
+    "SG national: missed": {
+     "(+dd) dddd dddd-dddd": 1,
+     "(dd) dddd dddd": 1
+    },
+    "US international: found": {
+     "+d ddd ddd dddd": 99,
+     "+d ddd ddd-dddd": 7,
+     "+d ddd-ddd-dddd": 734,
+     "+d-ddd ddd-dddd": 4,
+     "+d-ddd-ddd-dddd": 1617,
+     "+dddd-ddd-dddd": 5,
+     "+ddddddddddd": 84
+    },
+    "US international: found, extension left": {
+     "+d-ddd-ddd-dddd xdd": 1
+    },
+    "US international: missed": {
+     "+d ddd ddddddd": 10,
+     "+d ddd-ddddddd": 1,
+     "+d dddddddddd": 10,
+     "+d-ddd- ddd-dddd": 1,
+     "+d-ddd-ddd- dddd": 1,
+     "+d-ddd-ddd-d-PIG": 1,
+     "+d-ddd-ddddddd": 2
+    },
+    "US national: found": {
+     "ddd ddd dddd": 1
+    },
+    "US national: missed": {
+     "ddddddddddd": 1
+    },
+    "US national: partly": {
+     "d (ddd) ddd-dddd": 1
+    },
+    "ZA international: found": {
+     "+dd dd ddd dddd": 153,
+     "+dd dd dddd ddd": 1,
+     "+dd ddd ddd ddd": 6,
+     "+dd ddd dddd dd": 1,
+     "+dddd ddd dddd": 3,
+     "+ddddddddddd": 33
+    },
+    "ZA international: missed": {
+     "+dd dd ddddddd": 3,
+     "+dd dddd ddddd": 1,
+     "+dd ddddddddd": 6,
+     "+ddd dddddddd": 1
+    },
+    "ZA international: partly": {
+     "+dd dd ddd dddd/d": 1
+    },
+    "ZA national: missed": {
+     "dddddddddd": 1
+    }
+   },
+   "phones": {
+    "AR": {
+     "international: as another type": 1,
+     "international: found": 484,
+     "international: missed": 36,
+     "international: partly": 4,
+     "national: missed": 35,
+     "not a full number": 1
+    },
+    "AU": {
+     "international: found": 51,
+     "international: missed": 311,
+     "national: missed": 13,
+     "not a full number": 1
+    },
+    "BR": {
+     "international: as another type": 5,
+     "international: found": 463,
+     "international: missed": 62,
+     "international: partly": 1,
+     "national: missed": 8,
+     "not a full number": 1
+    },
+    "CA": {
+     "international: found": 1002,
+     "international: missed": 34,
+     "international: partly": 2,
+     "national: found": 1,
+     "national: partly": 2,
+     "not a full number": 1
+    },
+    "DE": {
+     "international: as another type": 12,
+     "international: found": 195,
+     "international: missed": 833,
+     "international: partly": 17,
+     "national: missed": 12,
+     "not a full number": 1
+    },
+    "ES": {
+     "international: found": 778,
+     "international: missed": 285,
+     "international: partly": 1,
+     "national: missed": 14,
+     "not a full number": 20
+    },
+    "FR": {
+     "international: found": 85,
+     "international: missed": 899,
+     "international: partly": 1,
+     "national: missed": 6,
+     "not a full number": 2
+    },
+    "GB": {
+     "international: found": 944,
+     "international: missed": 60,
+     "not a full number": 1
+    },
+    "IE": {
+     "international: found": 140,
+     "international: missed": 896,
+     "national: missed": 8,
+     "national: partly": 1,
+     "not a full number": 2
+    },
+    "IN": {
+     "international: as another type": 1,
+     "international: found": 82,
+     "international: missed": 80,
+     "international: partly": 3,
+     "national: found": 2,
+     "national: missed": 170,
+     "not a full number": 3
+    },
+    "IT": {
+     "international: found": 429,
+     "international: missed": 635,
+     "national: missed": 3,
+     "not a full number": 1
+    },
+    "JP": {
+     "international: as another type": 1,
+     "international: found": 50,
+     "international: missed": 680,
+     "international: partly": 2,
+     "national: missed": 125,
+     "national: partly": 1
+    },
+    "KR": {
+     "international: found": 137,
+     "international: missed": 122,
+     "national: missed": 52,
+     "not a full number": 1
+    },
+    "MX": {
+     "international: found": 236,
+     "international: missed": 28,
+     "international: partly": 1,
+     "national: missed": 6
+    },
+    "NL": {
+     "international: found": 805,
+     "international: missed": 170,
+     "national: missed": 2,
+     "not a full number": 4
+    },
+    "PL": {
+     "international: found": 986,
+     "international: missed": 110,
+     "international: partly": 1,
+     "not a full number": 1
+    },
+    "SE": {
+     "international: found": 808,
+     "international: missed": 151,
+     "not a full number": 2
+    },
+    "SG": {
+     "international: found": 608,
+     "international: missed": 145,
+     "national: missed": 2,
+     "not a full number": 3
+    },
+    "US": {
+     "international: found": 2550,
+     "international: found, extension left": 1,
+     "international: missed": 26,
+     "national: found": 1,
+     "national: missed": 1,
+     "national: partly": 1,
+     "not a full number": 2
+    },
+    "ZA": {
+     "international: found": 197,
+     "international: missed": 11,
+     "international: partly": 1,
+     "national: missed": 1,
+     "not a full number": 1
+    }
+   },
+   "places": 16448,
+   "words": 764482
+  },
+  "osm_heldout": {
+   "addresses": {
+    "CA": {
+     "found": 958,
+     "missed": 8,
+     "partly": 2
+    },
+    "US": {
+     "found": 239,
+     "missed": 203,
+     "partly": 3
+    }
+   },
+   "elsewhere": {
+    "CARD": 745,
+    "EMAIL": 15,
+    "PHONE": 2,
+    "SECRET": 673
+   },
+   "elsewhere_keys": {
+    "CARD": {
+     "contact:facebook": 22,
+     "contact:website": 3,
+     "facebook": 7,
+     "image": 1,
+     "lacounty:bld_id": 1,
+     "mapillary": 1,
+     "old_ref:FR:SIRET": 2,
+     "ref:FR:SIRET": 701,
+     "ref:linz:address_id": 1,
+     "ref:zabaged": 3,
+     "was:ref:FR:SIRET": 1,
+     "website": 2
+    },
+    "EMAIL": {
+     "addr:street": 4,
+     "contact:booking": 1,
+     "contact:mastodon": 5,
+     "note": 1,
+     "website": 4
+    },
+    "PHONE": {
+     "contact:yelp": 1,
+     "number": 1
+    },
+    "SECRET": {
+     "contact:facebook": 77,
+     "contact:instagram": 5,
+     "contact:tripadvisor": 5,
+     "contact:website": 43,
+     "contact:yelp": 33,
+     "contact:youtube": 34,
+     "facebook": 11,
+     "heritage:website": 8,
+     "image": 98,
+     "source": 23,
+     "source_ref": 23,
+     "url": 8,
+     "website": 237,
+     "website:en": 4,
+     "website:menu": 40
+    }
+   },
+   "emails": {
+    "found": 5549,
+    "missed": 9,
+    "not an address": 8,
+    "partly": 3
+   },
+   "phone_shapes": {
+    "AT international: as another type": {
+     "+dd ddd ddd ddd dd": 1,
+     "+dd ddd dddddddd": 3,
+     "+ddddddddddddd": 1
+    },
+    "AT international: found": {
+     "+dd dd ddd ddd": 5,
+     "+dd dd dddd dddd": 11,
+     "+dd ddd dd dd ddd": 10,
+     "+dd ddd ddd dd dd": 13,
+     "+dd ddd ddd ddd dd": 7,
+     "+dd ddd ddd dddd": 6,
+     "+dd ddd dddd ddd": 3,
+     "+dd ddd dddd dddd": 3,
+     "+dddddddddd": 76,
+     "+ddddddddddd": 7,
+     "+dddddddddddd": 34,
+     "+ddddddddddddd": 9
+    },
+    "AT international: missed": {
+     "+dd d dd dd ddd": 12,
+     "+dd d ddd dd dd": 118,
+     "+dd d ddd dddd": 34,
+     "+dd d dddd ddd": 12,
+     "+dd d dddd ddddd": 10,
+     "+dd d ddddd-d": 13,
+     "+dd d dddddd": 14,
+     "+dd d ddddddd": 323,
+     "+dd d dddddddd": 16,
+     "+dd d ddddddddd": 22,
+     "+dd ddd ddddddd": 69,
+     "+dd ddd dddddddd": 31
+    },
+    "AT international: partly": {
+     "+dd d ddd dd dddd": 2,
+     "+dd dd dddd dddddd": 1,
+     "+dd ddd dddd ddddd": 1,
+     "+dd ddd dddd-d": 1
+    },
+    "AU international: found": {
+     "+dd ddd ddd ddd": 49
+    },
+    "AU international: missed": {
+     "+dd d dddd dddd": 569
+    },
+    "AU national: missed": {
+     "dddd ddd ddd": 11
+    },
+    "BE international: found": {
+     "+dd dd dd dd dd": 4,
+     "+dd dd ddd ddd": 1,
+     "+dd ddd dd dd dd": 81,
+     "+dd ddd dd ddd": 5,
+     "+dd ddd ddd ddd": 1
+    },
+    "BE international: missed": {
+     "+dd d ddd dd dd": 903,
+     "+dd dd ddddddd": 1,
+     "+dd dddd ddddddd": 1
+    },
+    "CA international: found": {
+     "+d ddd ddd dddd": 31,
+     "+d ddd ddd-dddd": 3,
+     "+d ddd-ddd-dddd": 33,
+     "+d-ddd-ddd dddd": 1,
+     "+d-ddd-ddd-dddd": 913,
+     "+dddd-ddd-dddd": 1,
+     "+ddddddddddd": 18
+    },
+    "CA international: found, extension left": {
+     "+d-ddd-ddd-dddd xd": 1
+    },
+    "CA national: found": {
+     "ddd-ddd-dddd": 2
+    },
+    "CH international: found": {
+     "+dd dd dd dd ddd": 1,
+     "+dd dd ddd dd dd": 843,
+     "+dd dd ddd dddd": 7,
+     "+dd ddd dd dd dd": 6,
+     "+dd ddd ddd ddd": 49,
+     "+dddd ddd dd dd": 4,
+     "+ddddd ddd ddd": 1,
+     "+ddddddddddd": 57
+    },
+    "CH international: missed": {
+     "+dd dd ddd d ddd": 1,
+     "+dd dd ddddddd": 10,
+     "+dd ddddddddd": 2,
+     "+dddd ddddddd": 1
+    },
+    "CL international: found": {
+     "+dd dd ddd dddd": 2,
+     "+dd ddd ddd ddd": 1,
+     "+dd ddd ddd dddd": 1,
+     "+dd dddd dddd": 1,
+     "+ddd ddd dd dd": 2,
+     "+ddd dddd dddd": 2,
+     "+dddd ddd dddd": 1,
+     "+ddddddd dddd": 2,
+     "+ddddddddd": 1,
+     "+dddddddddd": 18,
+     "+ddddddddddd": 77,
+     "+dddddddddddd": 3
+    },
+    "CL international: missed": {
+     "+dd (d) d ddd dddd": 1,
+     "+dd d d ddd dd dd": 1,
+     "+dd d d ddd dddd": 1,
+     "+dd d dddd dddd": 37,
+     "+dd d dddd dddd - ddd ddd ddd": 1,
+     "+dd d ddddd dddd": 1,
+     "+dd d ddddddd": 10,
+     "+dd d dddddddd": 9,
+     "+dd dd ddddddd": 1,
+     "+dd ddddddddd": 5,
+     "+ddd d ddddddd": 1
+    },
+    "CL national: found": {
+     ":+ddddddddddd": 1
+    },
+    "CL national: missed": {
+     "(d) dddd dddd": 2,
+     "(d)dddddddd": 2,
+     "(dd) dddddddd": 1,
+     "(dd-d) d ddd dd dd": 1,
+     "(dd-d) ddd dd dd": 1,
+     "(dd-d) ddd dddd": 1,
+     "(dd-d) dddd dddd": 1,
+     "(ddd)dddd dddd": 1,
+     "d dddd dddd": 1,
+     "ddddddddd": 9,
+     "dddddddddd": 3,
+     "ddddddddddd": 2
+    },
+    "CO international: found": {
+     "+dd ddd ddd dddd": 11,
+     "+ddddd ddd dddd": 1,
+     "+ddddddddd": 1,
+     "+dddddddddd": 2,
+     "+dddddddddddd": 2
+    },
+    "CO international: missed": {
+     "+d dddddddddd": 1,
+     "+dd d ddd dddd": 21,
+     "+dd d ddd ddddddd": 2,
+     "+dd ddd ddddddd": 142,
+     "+dd ddd ddddddd Ext. dddd-dddd-dddd": 1,
+     "+dd ddd ddddddd Ext. dddd-dddd-dddd-dddd": 1,
+     "+dd ddd ddddddd Ext.dddd": 1,
+     "+dd ddd ddddddd xdddd": 3,
+     "+dd ddd dddddddd": 1,
+     "+dd ddddddd": 7,
+     "dddddddddddd": 1
+    },
+    "CO national: missed": {
+     "Tel (ddd) ddddddd": 1,
+     "Tel. ddddddd": 3,
+     "Tel. ddddddd EXT. dddd": 8,
+     "Tel. ddddddd EXT.dddd": 1,
+     "ddd dddd": 1,
+     "ddddddd": 7,
+     "ddddddd - ddddddd": 2,
+     "ddddddd Ext ddd. Taquilla Ext ddd": 1,
+     "ddddddd Ext. -dddd -dddd": 1,
+     "dddddddddd - dddddddddd": 1
+    },
+    "CO national: partly": {
+     "ddd dd dd - ddd dd dd - ddd ddd dddd": 1
+    },
+    "CZ international: found": {
+     "+ddd ddd dd dd dd": 7,
+     "+ddd ddd ddd ddd": 844,
+     "+ddd ddd ddd ddd ddd": 1,
+     "+ddd dddd ddd dd": 1,
+     "+dddddd ddd ddd": 1,
+     "+ddddddddd": 1,
+     "+dddddddddddd": 99
+    },
+    "CZ international: missed": {
+     "+ddd d dddddddd": 2,
+     "+ddd ddd dddddd": 6,
+     "+ddd ddddddddd": 42
+    },
+    "CZ international: partly": {
+     "+ddd ddd ddd ddd-d": 1
+    },
+    "CZ national: missed": {
+     "ddd ddd ddd": 2,
+     "ddd ddd ddd ddd": 1
+    },
+    "DE international: as another type": {
+     "+dd dd dd dd ddd dd": 1,
+     "+dd dd ddd ddd ddd": 1,
+     "+dd dd dddd dd dd d": 1,
+     "+dd dd dddd ddd dd": 1,
+     "+dd dd ddddd-dddd": 1,
+     "+dd dd dddddd-ddd": 1,
+     "+dd dd dddddd-dddd": 1,
+     "+dd dd ddddddd-dd": 1,
+     "+dd dd ddddddddd": 3
+    },
+    "DE international: found": {
+     "+dd dd dd dd dd": 23,
+     "+dd dd dd dd dd dd": 28,
+     "+dd dd ddd dd dd": 36,
+     "+dd dd ddd dd ddd": 8,
+     "+dd dd ddd ddd": 74,
+     "+dd dd ddd ddd dd": 139,
+     "+dd dd ddd ddd ddd": 27,
+     "+dd dd ddd dddd": 10,
+     "+dd dd dddd ddd": 12,
+     "+dd dd dddd dddd": 71,
+     "+dd ddd ddd ddd dd": 8,
+     "+dddddddddddd": 8
+    },
+    "DE international: missed": {
+     "+dd dd ddd ddddd": 26,
+     "+dd dd ddddd": 7,
+     "+dd dd ddddd-dddd": 8,
+     "+dd dd dddddd": 110,
+     "+dd dd dddddd-d": 17,
+     "+dd dd dddddd-dd": 9,
+     "+dd dd ddddddd": 70,
+     "+dd dd dddddddd": 241,
+     "+dd dd ddddddddd": 24,
+     "+dd ddd ddddddd": 14,
+     "+dd dddd ddddddd": 8,
+     "+dd dddddddddd": 7
+    },
+    "DE international: partly": {
+     "+dd dd dd dd ddd-d": 1,
+     "+dd dd ddd dd dd-d": 4,
+     "+dd dd ddd dd-d": 3,
+     "+dd dd ddd ddd d": 4,
+     "+dd dd ddd ddd dd-d": 1,
+     "+dd dd ddd ddd-d": 9,
+     "+dd dd dddd d ddd": 1,
+     "+dd dd dddd dd dd d": 1,
+     "+dd dd dddd ddd d": 1,
+     "+dd dd dddd ddddd": 1,
+     "+dd dd dddd-d": 6,
+     "+dd dd dddd-ddddd": 1
+    },
+    "DE national: missed": {
+     "dddd ddddddd": 4
+    },
+    "DK international: found": {
+     "+dd dd dd dd dd": 192,
+     "+dd dd dd dddd": 1,
+     "+dd dd ddd ddd": 1,
+     "+dd ddd dd ddd": 2,
+     "+dd dddd dddd": 61,
+     "+dddddddddd": 55
+    },
+    "DK international: missed": {
+     "+dd dddddddd": 441
+    },
+    "ES international: found": {
+     "+dd dd dd ddd dd": 1,
+     "+dd dd ddd dd dd": 78,
+     "+dd dd ddd dddd": 13,
+     "+dd ddd dd dd dd": 248,
+     "+dd ddd dd dddd": 2,
+     "+dd ddd ddd ddd": 126,
+     "+dddd ddd dd dd": 3,
+     "+ddddd dd dd dd": 2,
+     "+ddddd ddd ddd": 1,
+     "+ddddddddddd": 361,
+     "+ddddddddddddd": 1
+    },
+    "ES international: missed": {
+     "+dd dd ddddddd": 8,
+     "+dd ddd dddddd": 10,
+     "+dd ddddddddd": 166
+    },
+    "ES international: partly": {
+     "+dd ddd dd dddd": 1
+    },
+    "ES national: missed": {
+     "ddd dd dd dd": 1
+    },
+    "FR international: found": {
+     "+dd ddd dd dd dd": 2,
+     "+dd ddd ddd ddd": 3,
+     "+ddd dd dd dd dd": 5,
+     "+ddddddddddd": 336
+    },
+    "FR international: missed": {
+     "+dd d dd dd dd dd": 614,
+     "+dd d dd ddd ddd": 1,
+     "+dd d dd dddddd": 1,
+     "+dd d dddd dddd": 1,
+     "+dd d dddddddd": 20,
+     "+dd dd ddddddd": 1,
+     "+dd ddddddddd": 4,
+     "+ddd dddddddd": 12
+    },
+    "FR national: missed": {
+     "d ddd dd dd dd": 4
+    },
+    "GB international: found": {
+     "+dd dd dddd dddd": 61,
+     "+dd ddd dd dd ddd": 1,
+     "+dd ddd ddd dd dd": 2,
+     "+dd ddd ddd dddd": 253,
+     "+dd ddd dddd": 1,
+     "+dd ddd dddd ddd": 2,
+     "+dd dddd ddd ddd": 4,
+     "+ddddd ddd dddd": 11,
+     "+dddddddddddd": 12
+    },
+    "GB international: missed": {
+     "+dd ddd ddddddd": 12,
+     "+dd dddd dddddd": 23,
+     "+dd ddddd ddddd": 1,
+     "+dd dddddddddd": 11,
+     "+ddddd ddddddd": 1
+    },
+    "HK international: found": {
+     "+d (ddd) ddd-dd-dd": 1,
+     "+dd ddd dddd dddd": 1,
+     "+ddd dddd dddd": 257,
+     "+ddd-dddd-dddd": 14,
+     "+dddddddddd": 2,
+     "+ddddddddddd": 12
+    },
+    "HK international: missed": {
+     "+ddd d dddd dddd": 1,
+     "+ddd dddddddd": 161,
+     "+ddd-dddddddd": 14
+    },
+    "HK national: missed": {
+     "(ddd) dddd dddd": 2,
+     "d ddd ddd-dd-dd": 1,
+     "ddd-dddd dddd": 1,
+     "dddd dddd": 14,
+     "dddddddd": 18,
+     "ddddddddddd": 1
+    },
+    "ID international: found": {
+     "+dd dd ddd dd dd": 3,
+     "+dd dd ddd dd ddd": 1,
+     "+dd dd ddd dddd": 3,
+     "+dd dd dddd ddd": 5,
+     "+dd dd dddd dddd": 4,
+     "+dd ddd ddd ddd": 2,
+     "+dd ddd dddd ddd": 1,
+     "+dd ddd dddd dddd": 9,
+     "+dddd dddd dddd": 1,
+     "+ddddddddddd": 17,
+     "+dddddddddddd": 13,
+     "+ddddddddddddd": 4
+    },
+    "ID international: missed": {
+     "+dd d ddd ddd": 6,
+     "+dd d dddd dddd": 1,
+     "+dd dd ddd ddddd": 1,
+     "+dd dd dddddd": 1,
+     "+dd dd ddddddd": 19,
+     "+dd dd dddddddd": 10,
+     "+dd ddd dddddddd": 1,
+     "+dd ddddddddd": 1,
+     "+dd-dd-dddddddd": 1,
+     "+dddd ddddddd": 2
+    },
+    "ID international: partly": {
+     "+dd ddd dddd dddd d": 1
+    },
+    "IT international: found": {
+     "+dd dd dd dd dd dd": 2,
+     "+dd dd ddd dd ddd": 1,
+     "+dd dd ddd ddd": 2,
+     "+dd dd ddd dddd": 13,
+     "+dd dd dddd dddd": 69,
+     "+dd ddd ddd dddd": 22,
+     "+ddddddddd": 2,
+     "+dddddddddd": 25,
+     "+ddddddddddd": 52,
+     "+dddddddddddd": 297,
+     "+ddddddddddddd": 2,
+     "+dddddddddddddd": 1
+    },
+    "IT international: in pieces": {
+     "+dddddddddddd:+dddddddddddd": 1
+    },
+    "IT international: missed": {
+     "+dd dd dd ddddddd": 1,
+     "+dd dd ddd ddddd": 1,
+     "+dd dd ddddd": 8,
+     "+dd dd dddddd": 106,
+     "+dd dd ddddddd": 71,
+     "+dd dd dddddddd": 436,
+     "+dd dd ddddddddd": 6,
+     "+dd ddd ddddddd": 14,
+     "+dd dddddddd": 2,
+     "+dd ddddddddd": 2,
+     "+dd dddddddddd": 7,
+     "+dddd dd dddddd": 1
+    },
+    "IT international: partly": {
+     "+dd dd dd dd d": 1,
+     "+dd dd dddd ddddd": 1,
+     "+dddddddd dddd": 1
+    },
+    "IT national: found": {
+     "https://wa.me/+dddddddddddd": 1
+    },
+    "IT national: missed": {
+     "ddddddddd": 1,
+     "dddddddddd": 1
+    },
+    "JP international: found": {
+     "+dd dd-dddd-ddd": 3,
+     "+dd ddd ddd ddd": 2,
+     "+dd ddd-ddd-ddd": 1,
+     "+dd-dd-ddd-dddd": 1,
+     "+dd-dd-dddd-dddd": 1,
+     "+dd-ddd-ddd-ddd": 1,
+     "+dd-ddd-dddd-ddd": 1,
+     "+ddd-dddd-dddd": 1,
+     "+dddd-dddd-dddd": 4,
+     "+ddddddddddd": 1,
+     "+dddddddddddd": 1
+    },
+    "JP international: missed": {
+     "+dd d dddd dddd": 76,
+     "+dd d dddd dddd‬": 1,
+     "+dd d dddd-dddd": 1,
+     "+dd d dddddddd": 2,
+     "+dd d-dddd-dddd": 43,
+     "+dd ddddddddd": 5,
+     "+dd-d-dddd-dddd": 71,
+     "+dd-d–dddd-dddd": 2
+    },
+    "JP national: missed": {
+     "dd dddd dddd": 1,
+     "dd-dddd-dddd": 121,
+     "ddd-ddd-dddd": 2,
+     "ddd-dddd-ddd": 1,
+     "ddd-dddd-dddd": 3,
+     "dddd-dd-dddd": 3,
+     "ddddddddd": 1,
+     "dddddddddd": 11,
+     "ddddddddddd": 1,
+     "dd−dddd−dddd": 1
+    },
+    "KE international: found": {
+     "+ddd ddd ddd ddd": 5,
+     "+ddd-ddd-ddd-dddd": 1,
+     "+dddddddddddd": 21
+    },
+    "KE international: missed": {
+     "+ddd dd ddddddd": 4,
+     "+ddd ddd dddddd": 13,
+     "+ddd ddddddddd": 2,
+     "+ddd(d)dd-ddddddd": 1,
+     "+ddd-ddddddddd": 1
+    },
+    "KE international: partly": {
+     "+ddd dd dddd dddd": 3
+    },
+    "KE national: missed": {
+     "ddd ddd dddddd": 1,
+     "ddd-ddddddd/d, ddd-ddddddd": 1,
+     "dddddddddd": 6,
+     "ddddddddddddd": 1
+    },
+    "NZ international: found": {
+     "+dd dd ddd ddd": 3,
+     "+dd dd ddd dddd": 28,
+     "+dd dd dddd dddd": 4,
+     "+dd ddd ddd ddd": 2,
+     "+dd ddd ddd dddd": 6
+    },
+    "NZ international: missed": {
+     "+dd d ddd ddd": 1,
+     "+dd d ddd dddd": 315,
+     "+dd dd ddd ddddd": 1
+    },
+    "NZ national: found": {
+     "(ddd) ddd-dddd": 1
+    },
+    "NZ national: missed": {
+     "dddd dd dd dd": 1,
+     "dddd ddd ddd": 15,
+     "dddd ddd dddd": 1
+    },
+    "PT international: as another type": {
+     "+dd dddd ddddddd": 1
+    },
+    "PT international: found": {
+     "+dd ddd dd dd dd": 2,
+     "+ddd dd ddd dd dd": 9,
+     "+ddd dd ddd dddd": 197,
+     "+ddd ddd ddd": 1,
+     "+ddd ddd ddd ddd": 636,
+     "+ddddd ddd dddd": 1,
+     "+dddddddddd": 1,
+     "+ddddddddddd": 2,
+     "+dddddddddddd": 112
+    },
+    "PT international: missed": {
+     "+ddd d dd ddd ddd": 1,
+     "+ddd dd ddddddd": 7,
+     "+ddd ddd dddddd": 59,
+     "+ddd ddddddddd": 48
+    },
+    "PT international: partly": {
+     "+ddd dd dddd ddd": 2,
+     "+ddd ddd ddd ddd+ddd ddd ddd ddd": 2
+    },
+    "TH international: found": {
+     "+dd (dd) ddd-dddd": 5,
+     "+dd dd ddd dddd": 28,
+     "+dd dd-ddd-dddd": 1,
+     "+dd ddd ddd ddd": 1,
+     "+dd ddd dddd": 1,
+     "+dd dddd dddd": 3,
+     "+dd-dd-ddd-dddd": 2,
+     "+ddd ddd dddd": 1,
+     "+dddd ddd dddd": 2,
+     "+dddddddddd": 49,
+     "+ddddddddddd": 31,
+     "+dddddddddddd": 1
+    },
+    "TH international: missed": {
+     "+dd d ddd dddd": 84,
+     "+dd d ddd dddd p dddd": 10,
+     "+dd d ddd dddd-dd": 2,
+     "+dd d ddddddd": 8,
+     "+dd d-ddd-dddd": 3,
+     "+dd dd ddddddd": 2,
+     "+dd dddddddd": 4,
+     "+dd ddddddddd": 3,
+     "+dd(d)dd-ddd-dddd": 1,
+     "+dd-d-ddd dddd": 1,
+     "+dd-d-ddd-dddd": 3,
+     "+dddd-d ddddddd": 1
+    },
+    "TH international: partly": {
+     "+dd dddd-dddd-d": 1,
+     "+dddddd dddd-d": 1
+    },
+    "TH national: missed": {
+     "(+dd) dd-ddd-dddd/(+dd)dd-ddd-ddddMobile: (+dd) ddd-ddd-dddd": 1,
+     "(+dd)d-ddd-dddd": 1,
+     "dd ddd dddd": 6,
+     "dd ddd dddd-d": 1,
+     "dd-ddd-dddd": 2,
+     "ddd ddd dddd": 2,
+     "ddd-ddd dddd": 1,
+     "ddddd-dddd-d": 1,
+     "ddddddddd": 12,
+     "ddddddddd-d": 1,
+     "dddddddddd": 9
+    },
+    "TR international: found": {
+     "+dd ddd dd dd": 1,
+     "+dd ddd ddd dd dd": 274,
+     "+dd ddd ddd dddd": 29,
+     "+dd ddd dddd": 2,
+     "+ddddd ddd dd dd": 1,
+     "+ddddd ddd dddd": 2,
+     "+dddddddddddd": 77
+    },
+    "TR international: missed": {
+     "+dd ddd ddddddd": 5,
+     "+dd dddddd dd dd": 1,
+     "+dd dddddddddd": 8,
+     "+dddd ddd dd dd": 1
+    },
+    "TR international: partly": {
+     "+dd ddd ddd d ddd": 1
+    },
+    "TR national: missed": {
+     "ddd dddd": 1,
+     "ddddddd": 3,
+     "dddddddddd": 1
+    },
+    "TW international: found": {
+     "+ddd ddd ddd ddd": 9,
+     "+ddd ddd-ddd-ddd": 1,
+     "+ddd dddd ddd ddd": 12,
+     "+ddd dddd ddd dddd": 1,
+     "+ddd dddd-ddd-ddd": 2,
+     "+ddddddddddd": 1
+    },
+    "TW international: missed": {
+     "+ddd d -dddddddl#ddddd": 2,
+     "+ddd d dddd dddd": 773,
+     "+ddd d dddd-dddd": 59,
+     "+ddd d dddddddd": 107,
+     "+ddd d dddddddd#dd": 9,
+     "+ddd d dddddddd#dddd": 9,
+     "+ddd ddddddddd": 4,
+     "+ddd dddddddddd": 2,
+     "+ddd-d-dddd-dddd": 88,
+     "+ddd-d-dddddddd": 48,
+     "+ddd-d-dddddddd#ddd": 3,
+     "+ddd-ddd-dddddd": 3
+    },
+    "TW international: partly": {
+     "+ddd dd dddd dddd": 1,
+     "+ddd dd dddd-dddd": 1
+    },
+    "TW national: missed": {
+     "dd dddd dddd": 2,
+     "dd-dddd-dddd": 1,
+     "dd-dddddddd": 2,
+     "dddd ddd ddd": 2,
+     "dddd-ddd-ddd": 1,
+     "dddddddddd": 3
+    },
+    "US international: found": {
+     "+d ddd ddd dddd": 14,
+     "+d ddd-ddd-dddd": 217,
+     "+d-ddd-ddd-dddd": 240,
+     "+dddd ddd dddd": 1,
+     "+dddd-ddd-dddd": 1,
+     "+ddddddddddd": 3
+    },
+    "US international: missed": {
+     "+d ddd ddddddd": 4,
+     "+d dddddddddd": 1
+    }
+   },
+   "phones": {
+    "AT": {
+     "international: as another type": 5,
+     "international: found": 214,
+     "international: missed": 810,
+     "international: partly": 5
+    },
+    "AU": {
+     "international: found": 49,
+     "international: missed": 569,
+     "national: missed": 11
+    },
+    "BE": {
+     "international: found": 92,
+     "international: missed": 905
+    },
+    "CA": {
+     "international: found": 1000,
+     "international: found, extension left": 1,
+     "national: found": 2
+    },
+    "CH": {
+     "international: found": 968,
+     "international: missed": 14,
+     "not a full number": 164
+    },
+    "CL": {
+     "international: found": 111,
+     "international: missed": 68,
+     "national: found": 1,
+     "national: missed": 26
+    },
+    "CO": {
+     "international: found": 17,
+     "international: missed": 181,
+     "national: missed": 26,
+     "national: partly": 1,
+     "not a full number": 2
+    },
+    "CZ": {
+     "international: found": 954,
+     "international: missed": 50,
+     "international: partly": 1,
+     "national: missed": 3
+    },
+    "DE": {
+     "international: as another type": 11,
+     "international: found": 511,
+     "international: missed": 598,
+     "international: partly": 35,
+     "national: missed": 4,
+     "not a full number": 1
+    },
+    "DK": {
+     "international: found": 312,
+     "international: missed": 441,
+     "not a full number": 2
+    },
+    "ES": {
+     "international: found": 836,
+     "international: missed": 184,
+     "international: partly": 1,
+     "national: missed": 1,
+     "not a full number": 1
+    },
+    "FR": {
+     "international: found": 346,
+     "international: missed": 654,
+     "national: missed": 4,
+     "not a full number": 1
+    },
+    "GB": {
+     "international: found": 347,
+     "international: missed": 48,
+     "not a full number": 1
+    },
+    "HK": {
+     "international: found": 287,
+     "international: missed": 176,
+     "national: missed": 37,
+     "not a full number": 6
+    },
+    "ID": {
+     "international: found": 65,
+     "international: missed": 43,
+     "international: partly": 1,
+     "not a full number": 1
+    },
+    "IT": {
+     "international: found": 494,
+     "international: in pieces": 1,
+     "international: missed": 659,
+     "international: partly": 3,
+     "national: found": 1,
+     "national: missed": 2
+    },
+    "JP": {
+     "international: found": 17,
+     "international: missed": 201,
+     "national: missed": 145
+    },
+    "KE": {
+     "international: found": 27,
+     "international: missed": 21,
+     "international: partly": 3,
+     "national: missed": 9
+    },
+    "NZ": {
+     "international: found": 43,
+     "international: missed": 317,
+     "national: found": 1,
+     "national: missed": 17
+    },
+    "PT": {
+     "international: as another type": 1,
+     "international: found": 961,
+     "international: missed": 115,
+     "international: partly": 4
+    },
+    "TH": {
+     "international: found": 125,
+     "international: missed": 137,
+     "international: partly": 2,
+     "national: missed": 37,
+     "not a full number": 17
+    },
+    "TR": {
+     "international: found": 386,
+     "international: missed": 15,
+     "international: partly": 1,
+     "national: missed": 5
+    },
+    "TW": {
+     "international: found": 26,
+     "international: missed": 1130,
+     "international: partly": 2,
+     "national: missed": 11
+    },
+    "US": {
+     "international: found": 476,
+     "international: missed": 5
+    }
+   },
+   "places": 15667,
+   "words": 733723
+  },
+  "random_tokens": {
+   "base32": {
+    "20": 13.1,
+    "24": 41.8,
+    "32": 89.3,
+    "40": 100.0
+   },
+   "base36": {
+    "20": 22.2,
+    "24": 56.9,
+    "32": 96.3,
+    "40": 100.0
+   },
+   "base62": {
+    "20": 64.5,
+    "24": 94.3,
+    "32": 99.8,
+    "40": 99.8
+   },
+   "base64url": {
+    "20": 64.1,
+    "24": 90.6,
+    "32": 97.0,
+    "40": 97.7
+   }
+  },
+  "technical": {
+   "code: expressjs-express": {
+    "by_detector": {
+     "email": 11,
+     "ip": 40,
+     "secret:high_entropy": 20,
+     "url_credential": 3
+    },
+    "by_type": {
+     "EMAIL": 11,
+     "IPV4": 26,
+     "IPV6": 14,
+     "SECRET": 20,
+     "URL_CREDENTIAL": 3
+    },
+    "files": 194,
+    "words": 81847
+   },
+   "code: gin-gonic-gin": {
+    "by_detector": {
+     "card": 5,
+     "email": 398,
+     "ip": 107,
+     "secret:high_entropy": 178
+    },
+    "by_type": {
+     "CARD": 5,
+     "EMAIL": 398,
+     "IPV4": 95,
+     "IPV6": 12,
+     "SECRET": 178
+    },
+    "files": 112,
+    "words": 77701
+   },
+   "code: pallets-flask": {
+    "by_detector": {
+     "email": 4,
+     "ip": 191,
+     "secret:high_entropy": 2
+    },
+    "by_type": {
+     "EMAIL": 4,
+     "IPV4": 83,
+     "IPV6": 108,
+     "SECRET": 2
+    },
+    "files": 224,
+    "words": 129296
+   },
+   "code: psf-requests": {
+    "by_detector": {
+     "email": 74,
+     "ip": 168,
+     "secret:high_entropy": 23,
+     "url_credential": 32
+    },
+    "by_type": {
+     "EMAIL": 74,
+     "IPV4": 96,
+     "IPV6": 72,
+     "SECRET": 23,
+     "URL_CREDENTIAL": 32
+    },
+    "files": 82,
+    "words": 59303
+   },
+   "kubernetes": {
+    "by_detector": {
+     "card": 73,
+     "email": 30,
+     "ip": 1679,
+     "secret:aws_secret_key": 240,
+     "secret:high_entropy": 13353
+    },
+    "by_type": {
+     "CARD": 73,
+     "EMAIL": 30,
+     "IPV4": 1615,
+     "IPV6": 64,
+     "SECRET": 13593
+    },
+    "files": 60,
+    "words": 841211
+   },
+   "loghub": {
+    "by_detector": {
+     "card": 863,
+     "email": 12,
+     "ip": 9433,
+     "secret:aws_secret_key": 40,
+     "secret:high_entropy": 3109
+    },
+    "by_type": {
+     "CARD": 863,
+     "EMAIL": 12,
+     "IPV4": 9397,
+     "IPV6": 36,
+     "SECRET": 3149
+    },
+    "files": 16,
+    "words": 416746
+   }
+  },
+  "technical_heldout": {
+   "code: axios-axios": {
+    "by_detector": {
+     "email": 2,
+     "ip": 28,
+     "phone": 2,
+     "secret:aws_secret_key": 1,
+     "secret:high_entropy": 121,
+     "url_credential": 2
+    },
+    "by_type": {
+     "EMAIL": 2,
+     "IPV4": 25,
+     "IPV6": 3,
+     "PHONE": 2,
+     "SECRET": 122,
+     "URL_CREDENTIAL": 2
+    },
+    "files": 224,
+    "words": 97871
+   },
+   "code: fastify-fastify": {
+    "by_detector": {
+     "card": 4,
+     "email": 16,
+     "ip": 270,
+     "secret:aws_secret_key": 3,
+     "secret:high_entropy": 67
+    },
+    "by_type": {
+     "CARD": 4,
+     "EMAIL": 16,
+     "IPV4": 219,
+     "IPV6": 51,
+     "SECRET": 70
+    },
+    "files": 353,
+    "words": 260556
+   },
+   "code: pallets-click": {
+    "by_detector": {
+     "email": 4,
+     "ip": 14,
+     "secret:high_entropy": 1
+    },
+    "by_type": {
+     "EMAIL": 4,
+     "IPV4": 2,
+     "IPV6": 12,
+     "SECRET": 1
+    },
+    "files": 117,
+    "words": 86963
+   },
+   "code: spf13-cobra": {
+    "by_detector": {
+     "ip": 2,
+     "secret:high_entropy": 57
+    },
+    "by_type": {
+     "IPV6": 2,
+     "SECRET": 57
+    },
+    "files": 61,
+    "words": 71341
+   },
+   "kubernetes": {
+    "by_detector": {
+     "card": 119,
+     "email": 50,
+     "ip": 710,
+     "secret:aws_secret_key": 144,
+     "secret:high_entropy": 4585
+    },
+    "by_type": {
+     "CARD": 119,
+     "EMAIL": 50,
+     "IPV4": 710,
+     "SECRET": 4729
+    },
+    "files": 40,
+    "words": 493199
+   }
+  },
+  "veil": "0.4.4"
+ },
+ "checkout": {
+  "osm": {
+   "addresses": {
+    "CA": {
+     "found": 909,
+     "missed": 11,
+     "partly": 4
+    },
+    "US": {
+     "found": 2120,
+     "missed": 107,
+     "partly": 17
+    }
+   },
+   "elsewhere": {
+    "CARD": 1,
+    "EMAIL": 11,
+    "PHONE": 7,
+    "SECRET": 72
+   },
+   "elsewhere_keys": {
+    "CARD": {
+     "mapillary": 1
+    },
+    "EMAIL": {
+     "check_date:opening_hours": 1,
+     "contact:facebook": 1,
+     "contact:mastodon": 5,
+     "operator": 1,
+     "website": 2,
+     "website:menu": 1
+    },
+    "PHONE": {
+     "contact:tty": 1,
+     "description": 1,
+     "note": 1,
+     "opening_hours": 1,
+     "operator": 1,
+     "source": 1,
+     "wheelchair:description": 1
+    },
+    "SECRET": {
+     "contact:facebook": 1,
+     "contact:linkedin": 1,
+     "contact:tripadvisor": 1,
+     "contact:website": 3,
+     "contact:youtube": 15,
+     "facebook": 2,
+     "fhrs:local_authority_id": 1,
+     "image": 26,
+     "image:0": 1,
+     "mapillary": 2,
+     "photo": 1,
+     "website": 15,
+     "website:menu": 2,
+     "wikimedia_commons": 1
+    }
+   },
+   "emails": {
+    "found": 5011,
+    "missed": 4,
+    "not an address": 13,
+    "partly": 4
+   },
+   "phone_shapes": {
+    "AR international: found": {
+     "+dd d dd dddd dddd": 4,
+     "+dd d dd dddd-dddd": 10,
+     "+dd dd dddd - dddd": 2,
+     "+dd dd dddd dddd": 30,
+     "+dd dd dddd-dddd": 423,
+     "+dd dd dddddddd": 13,
+     "+dd ddd ddd dddd": 3,
+     "+dd ddd ddddddd": 2,
+     "+dd ddd dddddddd": 1,
+     "+dd dddddddddd": 6,
+     "+dddddddddddd": 13,
+     "+ddddddddddddd": 9
+    },
+    "AR international: missed": {
+     "+dd dd ddd-dddd": 1,
+     "+dd dd dddd-ddd": 1,
+     "+dd dd ddddddd": 1,
+     "+dd dddd-dddd": 2
+    },
+    "AR national: missed": {
+     "dd dddd-dddd": 1,
+     "dddd ddd dddd": 1,
+     "dddd-ddd-dddd": 27,
+     "dddd-dddd": 4,
+     "dddddddd": 1,
+     "ddddddddddd": 1
+    },
+    "AU international: found": {
+     "+dd d dddd dddd": 311,
+     "+dd ddd ddd ddd": 51
+    },
+    "AU national: missed": {
+     "dddd ddd ddd": 13
+    },
+    "BR international: found": {
+     "+dd dd d dddd-dddd": 5,
+     "+dd dd ddd-dddd": 1,
+     "+dd dd dddd - dddd": 1,
+     "+dd dd dddd dddd": 116,
+     "+dd dd dddd-ddd": 1,
+     "+dd dd dddd-dddd": 333,
+     "+dd dd ddddd dddd": 27,
+     "+dd dd ddddd-dddd": 19,
+     "+dd dd dddddddd": 13,
+     "+dd dd ddddddddd": 2,
+     "+dddddddddddd": 6,
+     "+ddddddddddddd": 5
+    },
+    "BR international: missed": {
+     "+dd dd dddd-": 1
+    },
+    "BR national: missed": {
+     "dddd dd dddd": 1,
+     "dddd ddd dddd": 4,
+     "dddddddd": 1,
+     "ddddddddddd": 2
+    },
+    "CA international: found": {
+     "+-dddd-ddd-dddd": 1,
+     "+d ddd ddd dddd": 28,
+     "+d ddd ddd-dddd": 1,
+     "+d ddd-ddd-dddd": 74,
+     "+d dddddddddd": 26,
+     "+d- ddd-ddd-dddd": 2,
+     "+d-ddd ddd dddd": 2,
+     "+d-ddd-ddd-dddd": 861,
+     "+d-ddd-ddddddd": 1,
+     "+d-dddddddddd": 1,
+     "+dddd-ddd-dddd": 1,
+     "+ddddddddddd": 34
+    },
+    "CA international: found, extension left": {
+     "+d-ddd-ddd-ddddxd": 1,
+     "+d-ddd-ddd-ddddxdddd": 2
+    },
+    "CA national: found": {
+     "ddd-ddd-dddd": 1
+    },
+    "CA national: partly": {
+     "d-ddd-ddd-dddd": 2
+    },
+    "DE international: found": {
+     "+dd dd dd dd dd dd": 14,
+     "+dd dd ddd ddddd": 16,
+     "+dd dd dddd dddd": 16,
+     "+dd dd dddddd": 36,
+     "+dd dd ddddddd": 121,
+     "+dd dd dddddddd": 444,
+     "+dd dd ddddddddd": 85,
+     "+dd dd dddddddddd": 14,
+     "+dd ddd ddddddd": 21,
+     "+dd ddd dddddddd": 15,
+     "+dddddddddddd": 74,
+     "+ddddddddddddd": 12
+    },
+    "DE national: missed": {
+     "dddd ddddddd": 12
+    },
+    "ES international: found": {
+     "+dd d dd dd dd dd": 1,
+     "+dd dd d dd dd dd": 1,
+     "+dd dd ddd dd dd": 175,
+     "+dd dd ddd dddd": 26,
+     "+dd dd ddddddd": 39,
+     "+dd ddd dd dd dd": 267,
+     "+dd ddd dd dddd": 6,
+     "+dd ddd ddd ddd": 153,
+     "+dd ddd dddddd": 6,
+     "+dd ddddd dd dd": 1,
+     "+dd ddddddddd": 236,
+     "+ddddddddddd": 149
+    },
+    "ES international: partly": {
+     "+dd dd ddd dd dddd": 1
+    },
+    "ES national: missed": {
+     "Fr d:dd-dd:dd": 1,
+     "Mo-Th dd:dd-dd:dd, dd:dd-dd:dd": 1,
+     "dddd-dd-dd": 12
+    },
+    "FR international: found": {
+     "+dd d dd dd dd dd": 845,
+     "+dd d dddddddd": 3,
+     "+dd ddd dd dd dd": 1,
+     "+dd ddd dd dddd": 1,
+     "+dd ddd ddd ddd": 2,
+     "+dd ddddddddd": 50,
+     "+ddd dd dd dd dd": 12,
+     "+dddddddddd": 1,
+     "+ddddddddddd": 69
+    },
+    "FR international: missed": {
+     "+dd dddddddddd": 1
+    },
+    "FR national: missed": {
+     "d ddd dd dd dd": 5,
+     "dd dd dd dd dd": 1
+    },
+    "GB international: found": {
+     "+dd d dd dd dd dd": 1,
+     "+dd dd dd ddd ddd": 1,
+     "+dd dd dddd dddd": 891,
+     "+dd dd dddddddd": 13,
+     "+dd ddd ddd dddd": 27,
+     "+dd ddd dddd ddd": 3,
+     "+dd ddd ddddddd": 4,
+     "+dd dddd ddd ddd": 6,
+     "+dd dddd dddddd": 32,
+     "+dd dddddddddd": 10,
+     "+dddd dddd dddd": 2,
+     "+dddddddddddd": 13
+    },
+    "IE international: found": {
+     "+ddd d ddd dddd": 670,
+     "+ddd d dddd ddd": 7,
+     "+ddd d ddddddd": 201,
+     "+ddd dd ddd ddd": 4,
+     "+ddd dd ddd dddd": 50,
+     "+ddd dd ddddddd": 8,
+     "+ddd ddd dddd": 2,
+     "+ddd dddd dddd": 4,
+     "+ddd dddddddd": 4,
+     "+ddd ddddddddd": 2,
+     "+ddddddddddd": 64,
+     "+dddddddddddd": 12
+    },
+    "IE national: missed": {
+     "dddd ddd ddd": 4,
+     "dddd ddd dddd": 1,
+     "dddd-dddddd": 2,
+     "dddddddddd": 1
+    },
+    "IE national: partly": {
+     "d-ddd-ddd-dddd": 1
+    },
+    "IN international: found": {
+     "+dd dd dddd dddd": 29,
+     "+dd dd dddddddd": 5,
+     "+dd ddd dddddddd": 4,
+     "+dd ddd- dddddddd": 2,
+     "+dd ddddd ddddd": 28,
+     "+dd dddddddddd": 17,
+     "+dd-dd-dddd dddd": 4,
+     "+dd-dd-dddddddd": 9,
+     "+dd-dddddddddd": 3,
+     "+ddddddd ddddd": 3,
+     "+dddddddddddd": 42,
+     "+dddddddddddd/dd": 3
+    },
+    "IN national: found": {
+     "dddd ddd dddd": 1,
+     "https://web.whatsapp.com/send?phone=+dddddddddddd": 1
+    },
+    "IN national: missed": {
+     "(+dd) dddddddddd": 1,
+     "dd-dd-dddddddd": 1,
+     "dd-dddddddd": 2,
+     "ddd dddd dddd": 47,
+     "ddd dddddddd": 5,
+     "ddd-dddddddd": 3,
+     "dddd dddddddd": 2,
+     "dddddd ddddd": 11,
+     "dddddddd": 3,
+     "dddddddddd": 65,
+     "dddddddddd, dddddddddd": 1,
+     "ddddddddddd": 26
+    },
+    "IT international: found": {
+     "+dd dd ddd dddd": 109,
+     "+dd dd dddd dddd": 141,
+     "+dd dd ddddd": 11,
+     "+dd dd dddddd": 57,
+     "+dd dd ddddddd": 237,
+     "+dd dd dddddddd": 221,
+     "+dd ddd ddd dddd": 33,
+     "+dd ddd ddddddd": 27,
+     "+dd ddddddddd": 29,
+     "+dd dddddddddd": 33,
+     "+ddddddddddd": 34,
+     "+dddddddddddd": 48
+    },
+    "IT international: missed": {
+     "+ dddd ddddddddd": 1,
+     "+dd ddddddddddddd": 1
+    },
+    "IT international: partly": {
+     "+dd dd.dddddd-dd.ddddddd": 1
+    },
+    "IT national: missed": {
+     "ddd ddd ddd": 3
+    },
+    "JP international: found": {
+     "+dd d dddd dddd": 301,
+     "+dd d dddd-dddd": 22,
+     "+dd d dddddddd": 28,
+     "+dd d-dddd-dddd": 197,
+     "+dd dd dddd dddd": 11,
+     "+dd ddddddddd": 9,
+     "+dd-d-dddd-dddd": 90,
+     "+dd-d-dddddddd": 27,
+     "+dd-dd-dddd-dddd": 6,
+     "+dd-ddd-ddd-ddd": 2,
+     "+ddddddddddd": 13,
+     "+dddddddddddd": 3
+    },
+    "JP international: missed": {
+     "+d dddd dddd": 1,
+     "dddd-dd-dddd": 1,
+     "ddddddddddddd": 1
+    },
+    "JP national: missed": {
+     "(dd) dddd-dddd": 1,
+     "*dd d dddd dddd": 2,
+     "dd dddd dddd": 1,
+     "dd ddddddddd": 1,
+     "dd-dddd-dddd": 97,
+     "ddd-dddd-dddd": 4,
+     "dddd-dd-dddd": 1,
+     "dddd-ddd-ddd": 3,
+     "dddddddddd": 12,
+     "ddddddddddd": 3
+    },
+    "JP national: partly": {
+     "dddd-ddd-ddd, +dd-dd-dddd-dddd": 1
+    },
+    "KR international: found": {
+     "+dd d ddd dddd": 40,
+     "+dd d dddd dddd": 23,
+     "+dd d-ddd-dddd": 8,
+     "+dd d-dddd-dddd": 12,
+     "+dd dd dddd dddd": 10,
+     "+dd dd-ddd-dddd": 55,
+     "+dd dd-dddd-dddd": 33,
+     "+dd dddd dddd": 5,
+     "+dd-d-dddd-dddd": 8,
+     "+ddddd-dddd-dddd": 10,
+     "+dddddddddd": 5,
+     "+ddddddddddd": 5
+    },
+    "KR international: missed": {
+     "+ddddddd": 1
+    },
+    "KR national: missed": {
+     "dd dddd dddd": 1,
+     "dd-d-ddd-dddd": 2,
+     "dd-ddd-dddd": 27,
+     "dd-dddd-dddd": 8,
+     "ddd-dddd": 1,
+     "ddd-dddd-dddd": 2,
+     "dddd-dddd-dddd": 6,
+     "ddddddd": 1,
+     "ddddddddd": 1,
+     "dddddddddd": 2,
+     "ddddddddddd": 1
+    },
+    "MX international: found": {
+     "+dd dd dd dd dd dd": 1,
+     "+dd dd ddd ddddd": 5,
+     "+dd dd dddd dddd": 214,
+     "+dd dd dddddddd": 21,
+     "+dd ddd ddd dddd": 2,
+     "+dd dddddddddd": 2,
+     "+dddd dddd dddd": 1,
+     "+dddddddd dddd": 1,
+     "+dddddddddddd": 18
+    },
+    "MX national: missed": {
+     "ddd ddd dddd": 1,
+     "dddd dddd": 1,
+     "dddd-dddd": 1,
+     "dddddddd": 3
+    },
+    "NL international: found": {
+     "+dd d dd dd dd dd": 3,
+     "+dd d dddd dddd": 10,
+     "+dd d dddddddd": 74,
+     "+dd dd dd dd ddd": 4,
+     "+dd dd dd ddd dd": 1,
+     "+dd dd dd ddddd": 1,
+     "+dd dd ddd dd dd": 12,
+     "+dd dd ddd dddd": 781,
+     "+dd dd dddd ddd": 2,
+     "+dd dd ddddddd": 80,
+     "+dd ddd ddd ddd": 3,
+     "+ddddddddddd": 2
+    },
+    "NL national: missed": {
+     "dddd dddd": 2
+    },
+    "PL international: found": {
+     "+dd dd dd dd ddd": 17,
+     "+dd dd ddd dd dd": 505,
+     "+dd dd ddd dddd": 6,
+     "+dd dd ddddddd": 13,
+     "+dd ddd dd dd dd": 10,
+     "+dd ddd ddd dd": 1,
+     "+dd ddd ddd ddd": 370,
+     "+dd ddd dddddd": 2,
+     "+dd ddddddddd": 95,
+     "+ddddd ddd ddd": 1,
+     "+ddddddd dd dd": 1,
+     "+ddddddddddd": 73
+    },
+    "SE international: found": {
+     "+dd d dd dd dd": 44,
+     "+dd d ddd dd dd": 58,
+     "+dd d ddd dd ddd": 2,
+     "+dd d ddd ddd dd": 38,
+     "+dd d dddddddd": 3,
+     "+dd dd ddd dd dd": 19,
+     "+dd dd ddd dddd": 3,
+     "+dd ddd ddd ddd": 2,
+     "+ddddddddd": 225,
+     "+dddddddddd": 248,
+     "+ddddddddddd": 306,
+     "+dddddddddddd": 4
+    },
+    "SE international: missed": {
+     "+dd dd dddddd": 1
+    },
+    "SG international: found": {
+     "+dd ddd dd dd dd": 1,
+     "+dd ddd ddd dddd": 2,
+     "+dd dddd ddd dddd": 9,
+     "+dd dddd dddd": 509,
+     "+dd dddddddd": 145,
+     "+dddddd dddd": 2,
+     "+dddddddddd": 84,
+     "+ddddddddddd": 1
+    },
+    "SG national: missed": {
+     "(+dd) dddd dddd-dddd": 1,
+     "(dd) dddd dddd": 1
+    },
+    "US international: found": {
+     "+d ddd ddd dddd": 99,
+     "+d ddd ddd-dddd": 7,
+     "+d ddd ddddddd": 10,
+     "+d ddd-ddd-dddd": 734,
+     "+d ddd-ddddddd": 1,
+     "+d dddddddddd": 10,
+     "+d-ddd ddd-dddd": 4,
+     "+d-ddd- ddd-dddd": 1,
+     "+d-ddd-ddd-dddd": 1617,
+     "+d-ddd-ddddddd": 2,
+     "+dddd-ddd-dddd": 5,
+     "+ddddddddddd": 84
+    },
+    "US international: found, extension left": {
+     "+d-ddd-ddd-dddd xdd": 1
+    },
+    "US international: missed": {
+     "+d-ddd-ddd-d-PIG": 1
+    },
+    "US national: found": {
+     "ddd ddd dddd": 1
+    },
+    "US national: missed": {
+     "ddddddddddd": 1
+    },
+    "US national: partly": {
+     "d (ddd) ddd-dddd": 1
+    },
+    "ZA international: found": {
+     "+dd dd ddd dddd": 153,
+     "+dd dd ddd dddd/d": 1,
+     "+dd dd dddd ddd": 1,
+     "+dd dd ddddddd": 3,
+     "+dd ddd ddd ddd": 6,
+     "+dd ddd dddd dd": 1,
+     "+dd dddd ddddd": 1,
+     "+dd ddddddddd": 6,
+     "+ddd dddddddd": 1,
+     "+dddd ddd dddd": 3,
+     "+ddddddddddd": 33
+    },
+    "ZA national: missed": {
+     "dddddddddd": 1
+    }
+   },
+   "phones": {
+    "AR": {
+     "international: found": 520,
+     "international: missed": 5,
+     "national: missed": 35,
+     "not a full number": 1
+    },
+    "AU": {
+     "international: found": 362,
+     "national: missed": 13,
+     "not a full number": 1
+    },
+    "BR": {
+     "international: found": 530,
+     "international: missed": 1,
+     "national: missed": 8,
+     "not a full number": 1
+    },
+    "CA": {
+     "international: found": 1035,
+     "international: found, extension left": 3,
+     "national: found": 1,
+     "national: partly": 2,
+     "not a full number": 1
+    },
+    "DE": {
+     "international: found": 1057,
+     "national: missed": 12,
+     "not a full number": 1
+    },
+    "ES": {
+     "international: found": 1063,
+     "international: partly": 1,
+     "national: missed": 14,
+     "not a full number": 20
+    },
+    "FR": {
+     "international: found": 984,
+     "international: missed": 1,
+     "national: missed": 6,
+     "not a full number": 2
+    },
+    "GB": {
+     "international: found": 1004,
+     "not a full number": 1
+    },
+    "IE": {
+     "international: found": 1036,
+     "national: missed": 8,
+     "national: partly": 1,
+     "not a full number": 2
+    },
+    "IN": {
+     "international: found": 166,
+     "national: found": 2,
+     "national: missed": 170,
+     "not a full number": 3
+    },
+    "IT": {
+     "international: found": 1061,
+     "international: missed": 2,
+     "international: partly": 1,
+     "national: missed": 3,
+     "not a full number": 1
+    },
+    "JP": {
+     "international: found": 730,
+     "international: missed": 3,
+     "national: missed": 125,
+     "national: partly": 1
+    },
+    "KR": {
+     "international: found": 258,
+     "international: missed": 1,
+     "national: missed": 52,
+     "not a full number": 1
+    },
+    "MX": {
+     "international: found": 265,
+     "national: missed": 6
+    },
+    "NL": {
+     "international: found": 975,
+     "national: missed": 2,
+     "not a full number": 4
+    },
+    "PL": {
+     "international: found": 1097,
+     "not a full number": 1
+    },
+    "SE": {
+     "international: found": 958,
+     "international: missed": 1,
+     "not a full number": 2
+    },
+    "SG": {
+     "international: found": 753,
+     "national: missed": 2,
+     "not a full number": 3
+    },
+    "US": {
+     "international: found": 2575,
+     "international: found, extension left": 1,
+     "international: missed": 1,
+     "national: found": 1,
+     "national: missed": 1,
+     "national: partly": 1,
+     "not a full number": 2
+    },
+    "ZA": {
+     "international: found": 209,
+     "national: missed": 1,
+     "not a full number": 1
+    }
+   },
+   "places": 16448,
+   "words": 764482
+  },
+  "osm_heldout": {
+   "addresses": {
+    "CA": {
+     "found": 961,
+     "missed": 6,
+     "partly": 1
+    },
+    "US": {
+     "found": 359,
+     "missed": 80,
+     "partly": 6
+    }
+   },
+   "elsewhere": {
+    "CARD": 1,
+    "EMAIL": 15,
+    "PHONE": 6,
+    "SECRET": 71
+   },
+   "elsewhere_keys": {
+    "CARD": {
+     "mapillary": 1
+    },
+    "EMAIL": {
+     "addr:street": 4,
+     "contact:booking": 1,
+     "contact:mastodon": 5,
+     "note": 1,
+     "website": 4
+    },
+    "PHONE": {
+     "(id or coordinates)": 1,
+     "contact:telegram": 2,
+     "contact:yelp": 1,
+     "fixme": 1,
+     "number": 1
+    },
+    "SECRET": {
+     "bitcoin:address": 1,
+     "contact:facebook": 1,
+     "contact:google_plus": 1,
+     "contact:twitter": 2,
+     "contact:website": 1,
+     "contact:youtube": 16,
+     "description": 1,
+     "facebook": 2,
+     "image": 23,
+     "source_ref:url": 1,
+     "website": 14,
+     "website:menu": 8
+    }
+   },
+   "emails": {
+    "found": 5549,
+    "missed": 9,
+    "not an address": 8,
+    "partly": 3
+   },
+   "phone_shapes": {
+    "AT international: found": {
+     "+dd d ddd dd dd": 118,
+     "+dd d ddd dddd": 34,
+     "+dd d ddddd-d": 13,
+     "+dd d dddddd": 14,
+     "+dd d ddddddd": 323,
+     "+dd d dddddddd": 16,
+     "+dd d ddddddddd": 22,
+     "+dd ddd ddd dd dd": 13,
+     "+dd ddd ddddddd": 69,
+     "+dd ddd dddddddd": 34,
+     "+dddddddddd": 76,
+     "+dddddddddddd": 34
+    },
+    "AT international: missed": {
+     "+dd dd ddd": 1
+    },
+    "AU international: found": {
+     "+dd d dddd dddd": 569,
+     "+dd ddd ddd ddd": 49
+    },
+    "AU national: missed": {
+     "dddd ddd ddd": 11
+    },
+    "BE international: found": {
+     "+dd d ddd dd dd": 903,
+     "+dd dd dd dd dd": 4,
+     "+dd dd ddd ddd": 1,
+     "+dd dd ddddddd": 1,
+     "+dd ddd dd dd dd": 81,
+     "+dd ddd dd ddd": 5,
+     "+dd ddd ddd ddd": 1,
+     "+dd dddd ddddddd": 1
+    },
+    "CA international: found": {
+     "+d ddd ddd dddd": 31,
+     "+d ddd ddd-dddd": 3,
+     "+d ddd-ddd-dddd": 33,
+     "+d-ddd-ddd dddd": 1,
+     "+d-ddd-ddd-dddd": 913,
+     "+dddd-ddd-dddd": 1,
+     "+ddddddddddd": 18
+    },
+    "CA international: found, extension left": {
+     "+d-ddd-ddd-dddd xd": 1
+    },
+    "CA national: found": {
+     "ddd-ddd-dddd": 2
+    },
+    "CH international: found": {
+     "+dd dd dd dd ddd": 1,
+     "+dd dd ddd d ddd": 1,
+     "+dd dd ddd dd dd": 843,
+     "+dd dd ddd dddd": 7,
+     "+dd dd ddddddd": 10,
+     "+dd ddd dd dd dd": 6,
+     "+dd ddd ddd ddd": 49,
+     "+dd ddddddddd": 2,
+     "+dddd ddd dd dd": 4,
+     "+dddd ddddddd": 1,
+     "+ddddd ddd ddd": 1,
+     "+ddddddddddd": 57
+    },
+    "CL international: found": {
+     "+dd d d ddd dd dd": 1,
+     "+dd d d ddd dddd": 1,
+     "+dd d dddd dddd": 37,
+     "+dd d dddddddd": 9,
+     "+dd dd ddd dddd": 2,
+     "+dd dd ddddddd": 1,
+     "+dd ddd ddd ddd": 1,
+     "+dd ddddddddd": 5,
+     "+ddd dddd dddd": 2,
+     "+ddddddd dddd": 2,
+     "+ddddddddddd": 76,
+     "+dddddddddddd": 3
+    },
+    "CL international: missed": {
+     "+dd d ddddddd": 10,
+     "+dd dddd dddd": 1,
+     "+ddd ddd dd dd": 2,
+     "+ddddddddd": 1,
+     "+dddddddddd": 18,
+     "+ddddddddddd": 1
+    },
+    "CL international: partly": {
+     "+dd d dddd dddd - ddd ddd ddd": 1
+    },
+    "CL national: found": {
+     ":+ddddddddddd": 1
+    },
+    "CL national: missed": {
+     "(d) dddd dddd": 2,
+     "(d)dddddddd": 2,
+     "(dd) dddddddd": 1,
+     "(dd-d) d ddd dd dd": 1,
+     "(dd-d) ddd dd dd": 1,
+     "(dd-d) ddd dddd": 1,
+     "(dd-d) dddd dddd": 1,
+     "(ddd)dddd dddd": 1,
+     "d dddd dddd": 1,
+     "ddddddddd": 9,
+     "dddddddddd": 3,
+     "ddddddddddd": 2
+    },
+    "CO international: found": {
+     "+d dddddddddd": 1,
+     "+dd d ddd dddd": 21,
+     "+dd d ddd ddddddd": 2,
+     "+dd ddd ddd dddd": 11,
+     "+dd ddd ddddddd": 142,
+     "+dd ddd dddddddd": 1,
+     "+ddddd ddd dddd": 1,
+     "+dddddddddd": 2,
+     "+dddddddddddd": 2
+    },
+    "CO international: found, extension left": {
+     "+dd ddd ddddddd Ext. dddd-dddd-dddd": 1,
+     "+dd ddd ddddddd Ext. dddd-dddd-dddd-dddd": 1,
+     "+dd ddd ddddddd Ext.dddd": 1,
+     "+dd ddd ddddddd xdddd": 3
+    },
+    "CO international: missed": {
+     "+dd ddddddd": 7,
+     "+ddddddddd": 1,
+     "dddddddddddd": 1
+    },
+    "CO national: missed": {
+     "Tel (ddd) ddddddd": 1,
+     "Tel. ddddddd": 3,
+     "Tel. ddddddd EXT. dddd": 8,
+     "Tel. ddddddd EXT.dddd": 1,
+     "ddd dddd": 1,
+     "ddddddd": 7,
+     "ddddddd - ddddddd": 2,
+     "ddddddd Ext ddd. Taquilla Ext ddd": 1,
+     "ddddddd Ext. -dddd -dddd": 1,
+     "dddddddddd - dddddddddd": 1
+    },
+    "CO national: partly": {
+     "ddd dd dd - ddd dd dd - ddd ddd dddd": 1
+    },
+    "CZ international: found": {
+     "+ddd d dddddddd": 2,
+     "+ddd ddd dd dd dd": 7,
+     "+ddd ddd ddd ddd": 844,
+     "+ddd ddd ddd ddd ddd": 1,
+     "+ddd ddd ddd ddd-d": 1,
+     "+ddd ddd dddddd": 6,
+     "+ddd dddd ddd dd": 1,
+     "+ddd ddddddddd": 42,
+     "+dddddd ddd ddd": 1,
+     "+dddddddddddd": 98
+    },
+    "CZ international: missed": {
+     "+ddddddddd": 1,
+     "+dddddddddddd": 1
+    },
+    "CZ national: missed": {
+     "ddd ddd ddd": 2,
+     "ddd ddd ddd ddd": 1
+    },
+    "DE international: found": {
+     "+dd dd dd dd dd": 23,
+     "+dd dd dd dd dd dd": 28,
+     "+dd dd ddd dd dd": 36,
+     "+dd dd ddd ddd": 74,
+     "+dd dd ddd ddd dd": 139,
+     "+dd dd ddd ddd ddd": 28,
+     "+dd dd ddd ddddd": 26,
+     "+dd dd dddd dddd": 71,
+     "+dd dd dddddd": 110,
+     "+dd dd ddddddd": 70,
+     "+dd dd dddddddd": 241,
+     "+dd dd ddddddddd": 27
+    },
+    "DE international: missed": {
+     "+dd dd ddd": 1
+    },
+    "DE national: missed": {
+     "dddd ddddddd": 4
+    },
+    "DK international: found": {
+     "+dd dd dd dd dd": 192,
+     "+dd dd dd dddd": 1,
+     "+dd dd ddd ddd": 1,
+     "+dd ddd dd ddd": 2,
+     "+dd dddd dddd": 61,
+     "+dd dddddddd": 441,
+     "+dddddddddd": 55
+    },
+    "ES international: found": {
+     "+dd dd ddd dd dd": 78,
+     "+dd dd ddd dddd": 13,
+     "+dd dd ddddddd": 8,
+     "+dd ddd dd dd dd": 248,
+     "+dd ddd dd dddd": 3,
+     "+dd ddd ddd ddd": 126,
+     "+dd ddd dddddd": 10,
+     "+dd ddddddddd": 166,
+     "+dddd ddd dd dd": 3,
+     "+ddddd dd dd dd": 2,
+     "+ddddddddddd": 361,
+     "+ddddddddddddd": 1
+    },
+    "ES national: missed": {
+     "ddd dd dd dd": 1
+    },
+    "FR international: found": {
+     "+dd d dd dd dd dd": 614,
+     "+dd d dd ddd ddd": 1,
+     "+dd d dd dddddd": 1,
+     "+dd d dddd dddd": 1,
+     "+dd d dddddddd": 20,
+     "+dd dd ddddddd": 1,
+     "+dd ddd dd dd dd": 2,
+     "+dd ddd ddd ddd": 3,
+     "+dd ddddddddd": 4,
+     "+ddd dd dd dd dd": 5,
+     "+ddd dddddddd": 12,
+     "+ddddddddddd": 336
+    },
+    "FR national: missed": {
+     "d ddd dd dd dd": 4
+    },
+    "GB international: found": {
+     "+dd dd dddd dddd": 61,
+     "+dd ddd ddd dd dd": 2,
+     "+dd ddd ddd dddd": 253,
+     "+dd ddd dddd ddd": 2,
+     "+dd ddd ddddddd": 12,
+     "+dd dddd ddd ddd": 4,
+     "+dd dddd dddddd": 23,
+     "+dd ddddd ddddd": 1,
+     "+dd dddddddddd": 11,
+     "+ddddd ddd dddd": 11,
+     "+ddddd ddddddd": 1,
+     "+dddddddddddd": 12
+    },
+    "HK international: found": {
+     "+d (ddd) ddd-dd-dd": 1,
+     "+dd ddd dddd dddd": 1,
+     "+ddd d dddd dddd": 1,
+     "+ddd dddd dddd": 257,
+     "+ddd dddddddd": 161,
+     "+ddd-dddd-dddd": 14,
+     "+ddd-dddddddd": 14,
+     "+dddddddddd": 2,
+     "+ddddddddddd": 12
+    },
+    "HK national: missed": {
+     "(ddd) dddd dddd": 2,
+     "d ddd ddd-dd-dd": 1,
+     "ddd-dddd dddd": 1,
+     "dddd dddd": 14,
+     "dddddddd": 18,
+     "ddddddddddd": 1
+    },
+    "ID international: found": {
+     "+dd d ddd ddd": 6,
+     "+dd dd ddd dd dd": 3,
+     "+dd dd ddd dddd": 3,
+     "+dd dd dddd ddd": 5,
+     "+dd dd dddd dddd": 4,
+     "+dd dd ddddddd": 19,
+     "+dd dd dddddddd": 10,
+     "+dd ddd dddd dddd": 9,
+     "+dddd ddddddd": 2,
+     "+ddddddddddd": 17,
+     "+dddddddddddd": 13,
+     "+ddddddddddddd": 4
+    },
+    "IT international: found": {
+     "+dd dd ddd dddd": 13,
+     "+dd dd dddd dddd": 69,
+     "+dd dd ddddd": 8,
+     "+dd dd dddddd": 106,
+     "+dd dd ddddddd": 71,
+     "+dd dd dddddddd": 436,
+     "+dd ddd ddd dddd": 22,
+     "+dd ddd ddddddd": 14,
+     "+dd dddddddddd": 7,
+     "+dddddddddd": 25,
+     "+ddddddddddd": 52,
+     "+dddddddddddd": 297
+    },
+    "IT international: in pieces": {
+     "+dddddddddddd:+dddddddddddd": 1
+    },
+    "IT international: missed": {
+     "+dd dddddddddddddd": 1
+    },
+    "IT national: found": {
+     "https://wa.me/+dddddddddddd": 1
+    },
+    "IT national: missed": {
+     "ddddddddd": 1,
+     "dddddddddd": 1
+    },
+    "JP international: found": {
+     "+dd d dddd dddd": 76,
+     "+dd d dddd dddd‬": 1,
+     "+dd d dddd-dddd": 1,
+     "+dd d dddddddd": 2,
+     "+dd d-dddd-dddd": 43,
+     "+dd dd-dddd-ddd": 3,
+     "+dd ddd ddd ddd": 2,
+     "+dd ddddddddd": 5,
+     "+dd-d-dddd-dddd": 71,
+     "+ddd-dddd-dddd": 1,
+     "+dddd-dddd-dddd": 4,
+     "+ddddddddddd": 1
+    },
+    "JP international: missed": {
+     "+dd-d–dddd-dddd": 2
+    },
+    "JP national: missed": {
+     "dd dddd dddd": 1,
+     "dd-dddd-dddd": 121,
+     "ddd-ddd-dddd": 2,
+     "ddd-dddd-ddd": 1,
+     "ddd-dddd-dddd": 3,
+     "dddd-dd-dddd": 3,
+     "ddddddddd": 1,
+     "dddddddddd": 11,
+     "ddddddddddd": 1,
+     "dd−dddd−dddd": 1
+    },
+    "KE international: found": {
+     "+ddd dd dddd dddd": 3,
+     "+ddd dd ddddddd": 4,
+     "+ddd ddd ddd ddd": 5,
+     "+ddd ddd dddddd": 13,
+     "+ddd ddddddddd": 2,
+     "+ddd(d)dd-ddddddd": 1,
+     "+ddd-ddd-ddd-dddd": 1,
+     "+ddd-ddddddddd": 1,
+     "+dddddddddddd": 21
+    },
+    "KE national: missed": {
+     "ddd ddd dddddd": 1,
+     "ddd-ddddddd/d, ddd-ddddddd": 1,
+     "dddddddddd": 6,
+     "ddddddddddddd": 1
+    },
+    "NZ international: found": {
+     "+dd d ddd ddd": 1,
+     "+dd d ddd dddd": 315,
+     "+dd dd ddd ddd": 3,
+     "+dd dd ddd dddd": 28,
+     "+dd dd ddd ddddd": 1,
+     "+dd dd dddd dddd": 4,
+     "+dd ddd ddd ddd": 2,
+     "+dd ddd ddd dddd": 6
+    },
+    "NZ national: found": {
+     "(ddd) ddd-dddd": 1
+    },
+    "NZ national: missed": {
+     "dddd dd dd dd": 1,
+     "dddd ddd ddd": 15,
+     "dddd ddd dddd": 1
+    },
+    "PT international: found": {
+     "+dd ddd dd dd dd": 2,
+     "+ddd d dd ddd ddd": 1,
+     "+ddd dd ddd dd dd": 9,
+     "+ddd dd ddd dddd": 197,
+     "+ddd dd dddd ddd": 2,
+     "+ddd dd ddddddd": 7,
+     "+ddd ddd ddd ddd": 636,
+     "+ddd ddd dddddd": 59,
+     "+ddd ddddddddd": 48,
+     "+ddddd ddd dddd": 1,
+     "+ddddddddddd": 2,
+     "+dddddddddddd": 112
+    },
+    "PT international: missed": {
+     "+ddd ddd ddd": 1,
+     "+dddddddddd": 1
+    },
+    "PT international: partly": {
+     "+ddd ddd ddd ddd+ddd ddd ddd ddd": 2
+    },
+    "TH international: found": {
+     "+dd (dd) ddd-dddd": 5,
+     "+dd d ddd dddd": 84,
+     "+dd d ddddddd": 8,
+     "+dd d-ddd-dddd": 3,
+     "+dd dd ddd dddd": 28,
+     "+dd dd ddddddd": 2,
+     "+dd dddd dddd": 3,
+     "+dd dddddddd": 4,
+     "+dd ddddddddd": 3,
+     "+dd-d-ddd-dddd": 3,
+     "+dddddddddd": 49,
+     "+ddddddddddd": 31
+    },
+    "TH international: found, extension left": {
+     "+dd d ddd dddd p ddd": 1,
+     "+dd d ddd dddd p dddd": 10
+    },
+    "TH international: missed": {
+     "+dd ddd dddd": 1,
+     "ddddddddddddd": 1
+    },
+    "TH national: missed": {
+     "(+dd) dd-ddd-dddd/(+dd)dd-ddd-ddddMobile: (+dd) ddd-ddd-dddd": 1,
+     "(+dd)d-ddd-dddd": 1,
+     "dd ddd dddd": 6,
+     "dd ddd dddd-d": 1,
+     "dd-ddd-dddd": 2,
+     "ddd ddd dddd": 2,
+     "ddd-ddd dddd": 1,
+     "ddddd-dddd-d": 1,
+     "ddddddddd": 12,
+     "ddddddddd-d": 1,
+     "dddddddddd": 9
+    },
+    "TR international: found": {
+     "+dd ddd dd dd": 1,
+     "+dd ddd ddd d ddd": 1,
+     "+dd ddd ddd dd dd": 274,
+     "+dd ddd ddd dddd": 29,
+     "+dd ddd dddd": 2,
+     "+dd ddd ddddddd": 5,
+     "+dd dddddd dd dd": 1,
+     "+dd dddddddddd": 8,
+     "+ddddd ddd dd dd": 1,
+     "+ddddd ddd dddd": 2,
+     "+dddddddddddd": 77
+    },
+    "TR international: missed": {
+     "+dddd ddd dd dd": 1
+    },
+    "TR national: missed": {
+     "ddd dddd": 1,
+     "ddddddd": 3,
+     "dddddddddd": 1
+    },
+    "TW international: found": {
+     "+ddd d ddd dddd": 2,
+     "+ddd d dddd dddd": 773,
+     "+ddd d dddd-dddd": 59,
+     "+ddd d dddddddd": 107,
+     "+ddd d-dddddddd": 2,
+     "+ddd ddd ddd ddd": 9,
+     "+ddd dddd ddd ddd": 12,
+     "+ddd ddddddddd": 4,
+     "+ddd dddddddddd": 2,
+     "+ddd-d-dddd-dddd": 88,
+     "+ddd-d-dddddddd": 48,
+     "+ddd-ddd-dddddd": 3
+    },
+    "TW international: found, extension left": {
+     "+ddd d dddd dddd #dd": 1,
+     "+ddd d dddd dddd #dddd": 1,
+     "+ddd d dddd dddd extdddd": 1,
+     "+ddd d dddd dddd#ddd": 2,
+     "+ddd d dddd dddd#dddd": 1,
+     "+ddd d dddd-dddd #ddd": 1,
+     "+ddd d dddddddd#dd": 9,
+     "+ddd d dddddddd#dddd": 9,
+     "+ddd-d-dddd-dddd#ddd": 1,
+     "+ddd-d-dddddddd#ddd": 3
+    },
+    "TW international: missed": {
+     "+ddd d -dddddddl#ddddd": 2,
+     "+ddd d dddd ddddpdd": 1,
+     "+ddd-dd-)dddd-dddd": 1
+    },
+    "TW international: partly": {
+     "+ddd d dddddddd＃ddd": 1
+    },
+    "TW national: missed": {
+     "dd dddd dddd": 2,
+     "dd-dddd-dddd": 1,
+     "dd-dddddddd": 2,
+     "dddd ddd ddd": 2,
+     "dddd-ddd-ddd": 1,
+     "dddddddddd": 3
+    },
+    "US international: found": {
+     "+d ddd ddd dddd": 14,
+     "+d ddd ddddddd": 4,
+     "+d ddd-ddd-dddd": 217,
+     "+d dddddddddd": 1,
+     "+d-ddd-ddd-dddd": 240,
+     "+dddd ddd dddd": 1,
+     "+dddd-ddd-dddd": 1,
+     "+ddddddddddd": 3
+    }
+   },
+   "phones": {
+    "AT": {
+     "international: found": 1033,
+     "international: missed": 1
+    },
+    "AU": {
+     "international: found": 618,
+     "national: missed": 11
+    },
+    "BE": {
+     "international: found": 997
+    },
+    "CA": {
+     "international: found": 1000,
+     "international: found, extension left": 1,
+     "national: found": 2
+    },
+    "CH": {
+     "international: found": 982,
+     "not a full number": 164
+    },
+    "CL": {
+     "international: found": 145,
+     "international: missed": 33,
+     "international: partly": 1,
+     "national: found": 1,
+     "national: missed": 26
+    },
+    "CO": {
+     "international: found": 183,
+     "international: found, extension left": 6,
+     "international: missed": 9,
+     "national: missed": 26,
+     "national: partly": 1,
+     "not a full number": 2
+    },
+    "CZ": {
+     "international: found": 1003,
+     "international: missed": 2,
+     "national: missed": 3
+    },
+    "DE": {
+     "international: found": 1154,
+     "international: missed": 1,
+     "national: missed": 4,
+     "not a full number": 1
+    },
+    "DK": {
+     "international: found": 753,
+     "not a full number": 2
+    },
+    "ES": {
+     "international: found": 1021,
+     "national: missed": 1,
+     "not a full number": 1
+    },
+    "FR": {
+     "international: found": 1000,
+     "national: missed": 4,
+     "not a full number": 1
+    },
+    "GB": {
+     "international: found": 395,
+     "not a full number": 1
+    },
+    "HK": {
+     "international: found": 463,
+     "national: missed": 37,
+     "not a full number": 6
+    },
+    "ID": {
+     "international: found": 109,
+     "not a full number": 1
+    },
+    "IT": {
+     "international: found": 1155,
+     "international: in pieces": 1,
+     "international: missed": 1,
+     "national: found": 1,
+     "national: missed": 2
+    },
+    "JP": {
+     "international: found": 216,
+     "international: missed": 2,
+     "national: missed": 145
+    },
+    "KE": {
+     "international: found": 51,
+     "national: missed": 9
+    },
+    "NZ": {
+     "international: found": 360,
+     "national: found": 1,
+     "national: missed": 17
+    },
+    "PT": {
+     "international: found": 1077,
+     "international: missed": 2,
+     "international: partly": 2
+    },
+    "TH": {
+     "international: found": 251,
+     "international: found, extension left": 11,
+     "international: missed": 2,
+     "national: missed": 37,
+     "not a full number": 17
+    },
+    "TR": {
+     "international: found": 401,
+     "international: missed": 1,
+     "national: missed": 5
+    },
+    "TW": {
+     "international: found": 1124,
+     "international: found, extension left": 29,
+     "international: missed": 4,
+     "international: partly": 1,
+     "national: missed": 11
+    },
+    "US": {
+     "international: found": 481
+    }
+   },
+   "places": 15667,
+   "words": 733723
+  },
+  "random_tokens": {
+   "base32": {
+    "20": 91.6,
+    "24": 93.8,
+    "32": 89.0,
+    "40": 99.7
+   },
+   "base36": {
+    "20": 95.5,
+    "24": 95.7,
+    "32": 95.2,
+    "40": 99.5
+   },
+   "base62": {
+    "20": 96.8,
+    "24": 98.1,
+    "32": 99.7,
+    "40": 99.8
+   },
+   "base64url": {
+    "20": 91.2,
+    "24": 93.5,
+    "32": 96.5,
+    "40": 97.6
+   }
+  },
+  "technical": {
+   "code: expressjs-express": {
+    "by_detector": {
+     "email": 11,
+     "ip": 18,
+     "secret:high_entropy": 19,
+     "url_credential": 3
+    },
+    "by_type": {
+     "EMAIL": 11,
+     "IPV4": 18,
+     "SECRET": 19,
+     "URL_CREDENTIAL": 3
+    },
+    "files": 194,
+    "words": 81847
+   },
+   "code: gin-gonic-gin": {
+    "by_detector": {
+     "email": 398,
+     "ip": 70,
+     "secret:high_entropy": 85
+    },
+    "by_type": {
+     "EMAIL": 398,
+     "IPV4": 68,
+     "IPV6": 2,
+     "SECRET": 85
+    },
+    "files": 112,
+    "words": 77701
+   },
+   "code: pallets-flask": {
+    "by_detector": {
+     "email": 4,
+     "ip": 7
+    },
+    "by_type": {
+     "EMAIL": 4,
+     "IPV4": 7
+    },
+    "files": 224,
+    "words": 129296
+   },
+   "code: psf-requests": {
+    "by_detector": {
+     "email": 74,
+     "ip": 82,
+     "secret:high_entropy": 3,
+     "url_credential": 32
+    },
+    "by_type": {
+     "EMAIL": 74,
+     "IPV4": 81,
+     "IPV6": 1,
+     "SECRET": 3,
+     "URL_CREDENTIAL": 32
+    },
+    "files": 82,
+    "words": 59303
+   },
+   "kubernetes": {
+    "by_detector": {
+     "email": 30,
+     "ip": 336,
+     "secret:high_entropy": 12
+    },
+    "by_type": {
+     "EMAIL": 30,
+     "IPV4": 310,
+     "IPV6": 26,
+     "SECRET": 12
+    },
+    "files": 60,
+    "words": 841211
+   },
+   "loghub": {
+    "by_detector": {
+     "email": 12,
+     "ip": 8397,
+     "secret:high_entropy": 2
+    },
+    "by_type": {
+     "EMAIL": 12,
+     "IPV4": 8362,
+     "IPV6": 35,
+     "SECRET": 2
+    },
+    "files": 16,
+    "words": 416746
+   }
+  },
+  "technical_heldout": {
+   "code: axios-axios": {
+    "by_detector": {
+     "email": 2,
+     "phone": 2,
+     "secret:aws_secret_key": 1,
+     "secret:high_entropy": 2,
+     "url_credential": 2
+    },
+    "by_type": {
+     "EMAIL": 2,
+     "PHONE": 2,
+     "SECRET": 3,
+     "URL_CREDENTIAL": 2
+    },
+    "files": 224,
+    "words": 97871
+   },
+   "code: fastify-fastify": {
+    "by_detector": {
+     "email": 16,
+     "ip": 64,
+     "secret:high_entropy": 8
+    },
+    "by_type": {
+     "EMAIL": 16,
+     "IPV4": 64,
+     "SECRET": 8
+    },
+    "files": 353,
+    "words": 260556
+   },
+   "code: pallets-click": {
+    "by_detector": {
+     "email": 4
+    },
+    "by_type": {
+     "EMAIL": 4
+    },
+    "files": 117,
+    "words": 86963
+   },
+   "code: spf13-cobra": {
+    "by_detector": {
+     "secret:high_entropy": 12
+    },
+    "by_type": {
+     "SECRET": 12
+    },
+    "files": 61,
+    "words": 71341
+   },
+   "kubernetes": {
+    "by_detector": {
+     "email": 50,
+     "ip": 560,
+     "secret:high_entropy": 21
+    },
+    "by_type": {
+     "EMAIL": 50,
+     "IPV4": 560,
+     "SECRET": 21
+    },
+    "files": 40,
+    "words": 493199
+   }
+  },
+  "veil": "0.4.4"
+ },
+ "checkout-before": {
+  "technical": {
+   "code: expressjs-express": {
+    "by_detector": {
+     "email": 11,
+     "ip": 40,
+     "secret:high_entropy": 20,
+     "url_credential": 3
+    },
+    "by_type": {
+     "EMAIL": 11,
+     "IPV4": 26,
+     "IPV6": 14,
+     "SECRET": 20,
+     "URL_CREDENTIAL": 3
+    },
+    "files": 194,
+    "words": 81847
+   },
+   "code: gin-gonic-gin": {
+    "by_detector": {
+     "card": 5,
+     "email": 398,
+     "ip": 107,
+     "secret:high_entropy": 178
+    },
+    "by_type": {
+     "CARD": 5,
+     "EMAIL": 398,
+     "IPV4": 95,
+     "IPV6": 12,
+     "SECRET": 178
+    },
+    "files": 112,
+    "words": 77701
+   },
+   "code: pallets-flask": {
+    "by_detector": {
+     "email": 4,
+     "ip": 191,
+     "secret:high_entropy": 2
+    },
+    "by_type": {
+     "EMAIL": 4,
+     "IPV4": 83,
+     "IPV6": 108,
+     "SECRET": 2
+    },
+    "files": 224,
+    "words": 129296
+   },
+   "code: psf-requests": {
+    "by_detector": {
+     "email": 74,
+     "ip": 168,
+     "secret:high_entropy": 23,
+     "url_credential": 32
+    },
+    "by_type": {
+     "EMAIL": 74,
+     "IPV4": 96,
+     "IPV6": 72,
+     "SECRET": 23,
+     "URL_CREDENTIAL": 32
+    },
+    "files": 82,
+    "words": 59303
+   },
+   "kubernetes": {
+    "by_detector": {
+     "card": 73,
+     "email": 30,
+     "ip": 1679,
+     "secret:aws_secret_key": 240,
+     "secret:high_entropy": 13353
+    },
+    "by_type": {
+     "CARD": 73,
+     "EMAIL": 30,
+     "IPV4": 1615,
+     "IPV6": 64,
+     "SECRET": 13593
+    },
+    "files": 60,
+    "words": 841211
+   },
+   "loghub": {
+    "by_detector": {
+     "card": 863,
+     "email": 12,
+     "ip": 9433,
+     "secret:aws_secret_key": 40,
+     "secret:high_entropy": 3109
+    },
+    "by_type": {
+     "CARD": 863,
+     "EMAIL": 12,
+     "IPV4": 9397,
+     "IPV6": 36,
+     "SECRET": 3149
+    },
+    "files": 16,
+    "words": 416746
+   }
+  },
+  "veil": "0.4.4"
+ },
+ "libphonenumber": {
+  "osm": {
+   "elsewhere": {
+    "no region": 6,
+    "told the country": 2606
+   },
+   "no region": {
+    "international: found": 16608,
+    "international: missed": 47,
+    "international: partly": 4,
+    "national: found": 2,
+    "national: missed": 464,
+    "national: partly": 1
+   },
+   "told the country": {
+    "international: found": 16610,
+    "international: missed": 41,
+    "international: partly": 8,
+    "national: found": 432,
+    "national: missed": 35
+   }
+  },
+  "osm_heldout": {
+   "elsewhere": {
+    "no region": 4,
+    "told the country": 2112
+   },
+   "no region": {
+    "international: found": 15949,
+    "international: missed": 119,
+    "international: partly": 14,
+    "national: found": 3,
+    "national: missed": 340,
+    "national: partly": 1
+   },
+   "told the country": {
+    "international: found": 15950,
+    "international: missed": 118,
+    "international: partly": 14,
+    "national: found": 299,
+    "national: missed": 42,
+    "national: partly": 3
+   }
+  },
+  "phonenumbers": "9.0.40"
+ }
+}
