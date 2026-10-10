@@ -45,6 +45,14 @@ logs and source code, where almost nothing should be masked.
 These changes are in this repository and not yet in a release; `pip install
 veil-pii` gets 0.4.4.
 
+**A literal example must not become someone's address.** The source checkout
+also corrects a masking collision: a prompt containing an email and the literal
+token `⟨EMAIL_1⟩` previously used that token for both. Restoring the prompt
+changed the example into the address. Allocation now reserves source literals,
+and ambiguous reused mappings stop before output or an SDK request is sent.
+[Reproductions, actual SDK captures and browser downloads](studies/surrogate-collisions/README.md)
+show the correction and its limits. This change is not in the PyPI release.
+
 ## Why this exists
 
 Teams in healthcare, legal, finance, and support want to use hosted LLMs,
@@ -343,6 +351,37 @@ PowerShell, prefer `-o` to `>`, which re-encodes what a program prints.
 
 ![Real terminal output: veil mask against examples/support_ticket.txt, then the vault.json it produced](docs/assets/cli.png)
 
+## Literal tokens and related messages (source checkout)
+
+Use `mask_many` when several raw texts will share one vault. Every source is
+reserved before new replacements are chosen:
+
+```python
+from veil import Masker
+
+masker = Masker()
+masked = masker.mask_many(["Contact alice@example.org", "Example: ⟨email_1⟩"])
+assert masked == ["Contact ⟨EMAIL_2⟩", "Example: ⟨email_1⟩"]
+assert [masker.restore(text) for text in masked] == [
+    "Contact alice@example.org",
+    "Example: ⟨email_1⟩",
+]
+```
+
+`mask` checks one text; `mask_many` checks the supplied batch. Exact and tolerant
+restoration must reproduce each source. A collision with an existing identity
+raises `VaultError` and leaves the vault's mappings and counters unchanged.
+The CLI returns exit 2 without replacing its output or vault file. Existing
+identities are never silently renamed.
+
+SDK wrappers validate all raw text they mask for one request before calling the
+SDK, including separate system/instruction and tool-argument fields. If a later
+field collides with a token already allocated during preparation, the whole
+preparation fails and rolls back. Choose a fresh vault and a placeholder
+template absent from the complete request when retrying; do not feed pre-masked
+strings back into a masking wrapper. The [study](studies/surrogate-collisions/README.md)
+explains what is and is not covered.
+
 ## Web demo
 
 [antonsoo.github.io/veil](https://antonsoo.github.io/veil/) runs the
@@ -458,8 +497,12 @@ over-masking fix that followed it.
   IBAN still reveals the real one's country; a fake card still reveals
   its network. See the trade-off discussion in `veil/surrogates.py`.
   Finite name, organization and phone pools fall back to numbered placeholders.
-  A model or source text can also contain a surrogate literally; restoration
-  cannot tell an incidental occurrence from an intended reference.
+  The source checkout avoids collisions with the raw texts submitted together
+  and rejects ambiguous restoration. It does not retain earlier raw texts:
+  include the whole raw conversation in `mask_many` when extending one.
+  Provider-held history, signed/replayed blocks and future model-generated
+  literals are outside that check. Restoration alone cannot tell an incidental
+  model-generated occurrence from an intended reference.
 - **The vault is the whole game.** Anyone who reads the vault can
   de-anonymize the masked text — see the threat model in `veil/vault.py`
   before deciding where (or whether) to persist one.

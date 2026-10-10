@@ -1,0 +1,355 @@
+{
+  "label": "5758fd0",
+  "python": "3.12.12",
+  "sdkVersions": {
+    "openai": "3.23.0",
+    "anthropic": "1.11.0"
+  },
+  "scope": "Real SDK serialization and parsing over mock HTTP echo transports; no live provider/model call.",
+  "cases": 9,
+  "disagreements": 9,
+  "results": [
+    {
+      "case": "anthropic-literal-in-text",
+      "source": "Contact alice@example.org; literal ⟨email_1⟩",
+      "laterField": null,
+      "requests": [
+        {
+          "max_tokens": 64,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩; literal ⟨email_1⟩"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "restoredReply": "Contact alice@example.org; literal alice@example.org",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expectedRejection": true,
+        "transportBoundary": true,
+        "roundTrip": false,
+        "vaultRollback": true
+      },
+      "agrees": false
+    },
+    {
+      "case": "anthropic-literal-in-later-field",
+      "source": "alice@example.org",
+      "laterField": "Literal ⟨EMAIL_1⟩",
+      "requests": [
+        {
+          "max_tokens": 64,
+          "messages": [
+            {
+              "role": "user",
+              "content": "⟨EMAIL_1⟩"
+            }
+          ],
+          "model": "test-model",
+          "system": "Literal ⟨EMAIL_1⟩"
+        }
+      ],
+      "restoredReply": "alice@example.org",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expectedRejection": false,
+        "transportBoundary": false,
+        "roundTrip": false,
+        "vaultRollback": false
+      },
+      "agrees": false
+    },
+    {
+      "case": "anthropic-original-in-later-field",
+      "source": "alice@example.org",
+      "laterField": "user1@example.org",
+      "requests": [
+        {
+          "max_tokens": 64,
+          "messages": [
+            {
+              "role": "user",
+              "content": "user1@example.org"
+            }
+          ],
+          "model": "test-model",
+          "system": "user2@example.net"
+        }
+      ],
+      "restoredReply": "alice@example.org",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "user1@example.org",
+            "detector": "email"
+          },
+          {
+            "type": "EMAIL",
+            "original": "user1@example.org",
+            "surrogate": "user2@example.net",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expectedRejection": false,
+        "transportBoundary": false,
+        "roundTrip": false,
+        "vaultRollback": false
+      },
+      "agrees": false
+    },
+    {
+      "case": "chat-literal-in-text",
+      "source": "Contact alice@example.org; literal ⟨email_1⟩",
+      "laterField": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩; literal ⟨email_1⟩"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "restoredReply": "Contact alice@example.org; literal alice@example.org",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expectedRejection": true,
+        "transportBoundary": true,
+        "roundTrip": false,
+        "vaultRollback": true
+      },
+      "agrees": false
+    },
+    {
+      "case": "chat-literal-in-later-field",
+      "source": "alice@example.org",
+      "laterField": "Literal ⟨EMAIL_1⟩",
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "⟨EMAIL_1⟩"
+            },
+            {
+              "role": "user",
+              "content": "Literal ⟨EMAIL_1⟩"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "restoredReply": "alice@example.org",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expectedRejection": false,
+        "transportBoundary": false,
+        "roundTrip": false,
+        "vaultRollback": false
+      },
+      "agrees": false
+    },
+    {
+      "case": "chat-original-in-later-field",
+      "source": "alice@example.org",
+      "laterField": "user1@example.org",
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "user1@example.org"
+            },
+            {
+              "role": "user",
+              "content": "user2@example.net"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "restoredReply": "alice@example.org",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "user1@example.org",
+            "detector": "email"
+          },
+          {
+            "type": "EMAIL",
+            "original": "user1@example.org",
+            "surrogate": "user2@example.net",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expectedRejection": false,
+        "transportBoundary": false,
+        "roundTrip": false,
+        "vaultRollback": false
+      },
+      "agrees": false
+    },
+    {
+      "case": "responses-literal-in-text",
+      "source": "Contact alice@example.org; literal ⟨email_1⟩",
+      "laterField": null,
+      "requests": [
+        {
+          "input": "Contact ⟨EMAIL_1⟩; literal ⟨email_1⟩",
+          "model": "test-model"
+        }
+      ],
+      "restoredReply": "Contact alice@example.org; literal alice@example.org",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expectedRejection": true,
+        "transportBoundary": true,
+        "roundTrip": false,
+        "vaultRollback": true
+      },
+      "agrees": false
+    },
+    {
+      "case": "responses-literal-in-later-field",
+      "source": "alice@example.org",
+      "laterField": "Literal ⟨EMAIL_1⟩",
+      "requests": [
+        {
+          "input": "⟨EMAIL_1⟩",
+          "instructions": "Literal ⟨EMAIL_1⟩",
+          "model": "test-model"
+        }
+      ],
+      "restoredReply": "alice@example.org",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expectedRejection": false,
+        "transportBoundary": false,
+        "roundTrip": false,
+        "vaultRollback": false
+      },
+      "agrees": false
+    },
+    {
+      "case": "responses-original-in-later-field",
+      "source": "alice@example.org",
+      "laterField": "user1@example.org",
+      "requests": [
+        {
+          "input": "user1@example.org",
+          "instructions": "user2@example.net",
+          "model": "test-model"
+        }
+      ],
+      "restoredReply": "alice@example.org",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "user1@example.org",
+            "detector": "email"
+          },
+          {
+            "type": "EMAIL",
+            "original": "user1@example.org",
+            "surrogate": "user2@example.net",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expectedRejection": false,
+        "transportBoundary": false,
+        "roundTrip": false,
+        "vaultRollback": false
+      },
+      "agrees": false
+    }
+  ]
+}

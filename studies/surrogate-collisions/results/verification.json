@@ -1,0 +1,89 @@
+{
+  "sourceCommit": "21ce9c49723dfea3f594edc8c9e0d180f20f1d42",
+  "baseline": "5758fd0449e9c696960a09e88b9d8ee391475390",
+  "scope": "Clean source archive and local wheel; no PyPI release, live provider/model calls or hosted deployment.",
+  "platform": "WSL2 Linux, 14 vCPU, 48 GB RAM",
+  "cleanPython": {
+    "version": "3.14.7",
+    "commands": [
+      "uv sync --locked --group dev --extra spacy --python 3.14",
+      "uv run --no-sync ruff check .",
+      "uv run --no-sync ruff format --check .",
+      "uv run --no-sync mypy",
+      "uv run --no-sync pytest -q",
+      "LANG=de_DE.UTF-8 LC_ALL=de_DE.UTF-8 uv run --no-sync pytest -q",
+      "uv build"
+    ],
+    "passed": 379,
+    "localePassed": 379,
+    "optionalSpacyIncluded": true
+  },
+  "minimumInstalled": {
+    "python": "3.10.21",
+    "sdkVersions": {
+      "openai": "1.66.0",
+      "anthropic": "0.40.0"
+    },
+    "pytest": "9.0.3",
+    "hypothesis": "6.115.0",
+    "cryptography": "50.0.0",
+    "command": "python -I -m pytest CLEAN_ARCHIVE/tests -q",
+    "passed": 370,
+    "skipped": 7,
+    "skipReasons": [
+      "Optional spaCy backend not installed (one module skip).",
+      "Five checks require thinking blocks absent from Anthropic 0.40.0.",
+      "One check requires reasoning summaries absent from OpenAI 1.66.0."
+    ],
+    "replayCases": 23,
+    "sdkCaptureCases": 9,
+    "disagreements": 0
+  },
+  "currentInstalled": {
+    "python": "3.14.7",
+    "sdkVersions": {
+      "openai": "3.23.0",
+      "anthropic": "1.11.0"
+    },
+    "replayCases": 23,
+    "sdkCaptureCases": 9,
+    "disagreements": 0
+  },
+  "browser": {
+    "commands": [
+      "npm ci",
+      "npm run lint",
+      "npm run build",
+      "npm run test:browser"
+    ],
+    "node": "v26.7.0",
+    "installAuditVulnerabilities": 0,
+    "scenarios": 16,
+    "engines": [
+      "Chromium",
+      "Firefox"
+    ],
+    "screenshotsVisuallyInspected": true,
+    "record": "browser.json"
+  },
+  "artifactSha256": {
+    ".gitignore": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+    "veil_pii-0.4.4-py3-none-any.whl": "5ebc41312c32f6f683fc3c57bf2e72aff783581b4ac3134b3715c9b44af37453",
+    "veil_pii-0.4.4.tar.gz": "f2bb5cc9e70cf92a385cee25c40fc1f07dcad7bff3f7573b3de7e72c8772d607"
+  },
+  "wheelSourceMatches": {
+    "pythonFiles": 33,
+    "byteIdenticalToCommit": true
+  },
+  "browserSourceBundleSha256": "93c8932f2b5b71073ff542a25de92e356bdcdae5213d9f3e2e7368742cfc7f6e",
+  "readmeSupportTicket": "Installed CLI mask, restore and audit completed; restored file byte-identical to original.",
+  "publicCorpus": {
+    "files": 1483,
+    "bytes": 32925796,
+    "mappings": 1538,
+    "outputLedgerSha256": "b666208ae02cac376fd4a43449c17edd889250015486657a91cf6cd46147bc7b",
+    "changedOnRestore": 0,
+    "refused": 0
+  },
+  "browserSourceFilesMatchCommit": 33
+}

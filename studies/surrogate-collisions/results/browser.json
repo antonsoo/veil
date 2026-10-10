@@ -1,0 +1,254 @@
+[
+  {
+    "engine": "chromium",
+    "width": 320,
+    "colorScheme": "light",
+    "checks": [
+      "real Python",
+      "keyboard",
+      "hidden originals",
+      "prompt isolation",
+      "offline reuse",
+      "inert markup",
+      "complete vault export",
+      "clear",
+      "axe",
+      "CSP",
+      "no overflow"
+    ],
+    "runtimeAssetRequests": 5
+  },
+  {
+    "engine": "chromium",
+    "width": 320,
+    "colorScheme": "dark",
+    "checks": [
+      "real Python",
+      "keyboard",
+      "hidden originals",
+      "prompt isolation",
+      "offline reuse",
+      "inert markup",
+      "complete vault export",
+      "clear",
+      "axe",
+      "CSP",
+      "no overflow"
+    ],
+    "runtimeAssetRequests": 5
+  },
+  {
+    "engine": "chromium",
+    "width": 1280,
+    "colorScheme": "light",
+    "checks": [
+      "real Python",
+      "keyboard",
+      "hidden originals",
+      "prompt isolation",
+      "offline reuse",
+      "inert markup",
+      "complete vault export",
+      "clear",
+      "axe",
+      "CSP",
+      "no overflow"
+    ],
+    "runtimeAssetRequests": 5
+  },
+  {
+    "engine": "chromium",
+    "width": 1280,
+    "colorScheme": "dark",
+    "checks": [
+      "real Python",
+      "keyboard",
+      "hidden originals",
+      "prompt isolation",
+      "offline reuse",
+      "inert markup",
+      "complete vault export",
+      "clear",
+      "axe",
+      "CSP",
+      "no overflow"
+    ],
+    "runtimeAssetRequests": 5
+  },
+  {
+    "engine": "chromium",
+    "width": 375,
+    "checks": [
+      "literal surrogate remains literal",
+      "replacement uses distinct identity",
+      "real Python",
+      "masked download",
+      "vault download",
+      "streamed restoration",
+      "axe",
+      "CSP",
+      "no overflow"
+    ]
+  },
+  {
+    "engine": "chromium",
+    "width": 1280,
+    "checks": [
+      "literal surrogate remains literal",
+      "replacement uses distinct identity",
+      "real Python",
+      "masked download",
+      "vault download",
+      "streamed restoration",
+      "axe",
+      "CSP",
+      "no overflow"
+    ]
+  },
+  {
+    "engine": "chromium",
+    "checks": [
+      "denied storage",
+      "clear during streaming",
+      "bounded preview",
+      "full downloads",
+      "oversize rejection preserves previous result"
+    ]
+  },
+  {
+    "engine": "chromium",
+    "checks": [
+      "worker load failure",
+      "retry",
+      "cancellation during load",
+      "stale result suppression",
+      "retry after cancellation"
+    ]
+  },
+  {
+    "engine": "firefox",
+    "width": 320,
+    "colorScheme": "light",
+    "checks": [
+      "real Python",
+      "keyboard",
+      "hidden originals",
+      "prompt isolation",
+      "offline reuse",
+      "inert markup",
+      "complete vault export",
+      "clear",
+      "axe",
+      "CSP",
+      "no overflow"
+    ],
+    "runtimeAssetRequests": 5
+  },
+  {
+    "engine": "firefox",
+    "width": 320,
+    "colorScheme": "dark",
+    "checks": [
+      "real Python",
+      "keyboard",
+      "hidden originals",
+      "prompt isolation",
+      "offline reuse",
+      "inert markup",
+      "complete vault export",
+      "clear",
+      "axe",
+      "CSP",
+      "no overflow"
+    ],
+    "runtimeAssetRequests": 5
+  },
+  {
+    "engine": "firefox",
+    "width": 1280,
+    "colorScheme": "light",
+    "checks": [
+      "real Python",
+      "keyboard",
+      "hidden originals",
+      "prompt isolation",
+      "offline reuse",
+      "inert markup",
+      "complete vault export",
+      "clear",
+      "axe",
+      "CSP",
+      "no overflow"
+    ],
+    "runtimeAssetRequests": 5
+  },
+  {
+    "engine": "firefox",
+    "width": 1280,
+    "colorScheme": "dark",
+    "checks": [
+      "real Python",
+      "keyboard",
+      "hidden originals",
+      "prompt isolation",
+      "offline reuse",
+      "inert markup",
+      "complete vault export",
+      "clear",
+      "axe",
+      "CSP",
+      "no overflow"
+    ],
+    "runtimeAssetRequests": 5
+  },
+  {
+    "engine": "firefox",
+    "width": 375,
+    "checks": [
+      "literal surrogate remains literal",
+      "replacement uses distinct identity",
+      "real Python",
+      "masked download",
+      "vault download",
+      "streamed restoration",
+      "axe",
+      "CSP",
+      "no overflow"
+    ]
+  },
+  {
+    "engine": "firefox",
+    "width": 1280,
+    "checks": [
+      "literal surrogate remains literal",
+      "replacement uses distinct identity",
+      "real Python",
+      "masked download",
+      "vault download",
+      "streamed restoration",
+      "axe",
+      "CSP",
+      "no overflow"
+    ]
+  },
+  {
+    "engine": "firefox",
+    "checks": [
+      "denied storage",
+      "clear during streaming",
+      "bounded preview",
+      "full downloads",
+      "oversize rejection preserves previous result"
+    ]
+  },
+  {
+    "engine": "firefox",
+    "checks": [
+      "worker load failure",
+      "retry",
+      "cancellation during load",
+      "stale result suppression",
+      "retry after cancellation"
+    ]
+  }
+]

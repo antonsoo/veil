@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Surrogate identity
+
+- Reserve literal source tokens, case/whitespace variants and known original
+  values during replacement allocation. A documented placeholder no longer
+  becomes an email address during restoration, and a realistic fake does not
+  reuse another address or name present in the supplied source.
+- Add `Masker.mask_many` for related raw texts. Rejected batches roll back vault
+  mappings, counters and restore caches. Exact and tolerant restoration check
+  the complete prepared batch; established mappings are never reassigned.
+- Validate SDK request preparation before transport, across separate fields,
+  for sync and async create/stream entry points. Attribute-based input objects
+  are copied when updated so rejection leaves their source text available.
+- Retain before/after CLI and SDK captures, public-corpus compatibility and
+  actual browser downloads in `studies/surrogate-collisions`.
+
 ### Measured on real text
 
 - A study, `studies/real-text/`: veil on phone numbers and email addresses as

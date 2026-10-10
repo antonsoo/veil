@@ -1,0 +1,988 @@
+{
+  "label": "installed-21ce9c4",
+  "python": "3.14.7",
+  "scope": "Controlled fictitious inputs; exact and tolerant restoration, single-character streaming, and real CLI files. No model called.",
+  "moduleSha256": {
+    "masker.py": "ea56b9a55ea4e772fe08cedefcc3067cc78c69d64088f536e47e74c7bbbb834b",
+    "vault.py": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62",
+    "integrations/anthropic.py": "12dc7bae5b934182d212fc117069ec06b4c1d845251971eade613ca05339fb0a",
+    "integrations/openai.py": "5400dfccc2d7442fe9660a2860359dd7c37c4cf6a71d653860d3bb4a49f221f5",
+    "integrations/_common.py": "30ccaddd6543baf34c76e8c9c7d7fb2d64e58d8f5ef4c0a4a7add31c4f701581"
+  },
+  "cases": 23,
+  "disagreements": 0,
+  "results": [
+    {
+      "case": "plain-control",
+      "source": [
+        "The weather is mild."
+      ],
+      "priorSource": null,
+      "masked": [
+        "The weather is mild."
+      ],
+      "restored": [
+        "The weather is mild."
+      ],
+      "streamed": [
+        "The weather is mild."
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "email-control",
+      "source": [
+        "Contact alice@example.org and bob@example.net."
+      ],
+      "priorSource": null,
+      "masked": [
+        "Contact ⟨EMAIL_1⟩ and ⟨EMAIL_2⟩."
+      ],
+      "restored": [
+        "Contact alice@example.org and bob@example.net."
+      ],
+      "streamed": [
+        "Contact alice@example.org and bob@example.net."
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          },
+          {
+            "type": "EMAIL",
+            "original": "bob@example.net",
+            "surrogate": "⟨EMAIL_2⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "literal-⟨EMAIL_1⟩",
+      "source": [
+        "Contact alice@example.org; example ⟨EMAIL_1⟩."
+      ],
+      "priorSource": null,
+      "masked": [
+        "Contact ⟨EMAIL_2⟩; example ⟨EMAIL_1⟩."
+      ],
+      "restored": [
+        "Contact alice@example.org; example ⟨EMAIL_1⟩."
+      ],
+      "streamed": [
+        "Contact alice@example.org; example ⟨EMAIL_1⟩."
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_2⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "literal-⟨email_1⟩",
+      "source": [
+        "Contact alice@example.org; example ⟨email_1⟩."
+      ],
+      "priorSource": null,
+      "masked": [
+        "Contact ⟨EMAIL_2⟩; example ⟨email_1⟩."
+      ],
+      "restored": [
+        "Contact alice@example.org; example ⟨email_1⟩."
+      ],
+      "streamed": [
+        "Contact alice@example.org; example ⟨email_1⟩."
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_2⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "literal-x⟨eMaIl_1⟩y",
+      "source": [
+        "Contact alice@example.org; example x⟨eMaIl_1⟩y."
+      ],
+      "priorSource": null,
+      "masked": [
+        "Contact ⟨EMAIL_2⟩; example x⟨eMaIl_1⟩y."
+      ],
+      "restored": [
+        "Contact alice@example.org; example x⟨eMaIl_1⟩y."
+      ],
+      "streamed": [
+        "Contact alice@example.org; example x⟨eMaIl_1⟩y."
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_2⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "two-literals",
+      "source": [
+        "alice@example.org; examples ⟨EMAIL_1⟩ and ⟨EMAIL_2⟩."
+      ],
+      "priorSource": null,
+      "masked": [
+        "⟨EMAIL_3⟩; examples ⟨EMAIL_1⟩ and ⟨EMAIL_2⟩."
+      ],
+      "restored": [
+        "alice@example.org; examples ⟨EMAIL_1⟩ and ⟨EMAIL_2⟩."
+      ],
+      "streamed": [
+        "alice@example.org; examples ⟨EMAIL_1⟩ and ⟨EMAIL_2⟩."
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_3⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "literal-in-earlier-field",
+      "source": [
+        "Literal ⟨EMAIL_1⟩",
+        "alice@example.org"
+      ],
+      "priorSource": null,
+      "masked": [
+        "Literal ⟨EMAIL_1⟩",
+        "⟨EMAIL_2⟩"
+      ],
+      "restored": [
+        "Literal ⟨EMAIL_1⟩",
+        "alice@example.org"
+      ],
+      "streamed": [
+        "Literal ⟨EMAIL_1⟩",
+        "alice@example.org"
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_2⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "literal-in-later-field",
+      "source": [
+        "alice@example.org",
+        "Literal ⟨EMAIL_1⟩"
+      ],
+      "priorSource": null,
+      "masked": [
+        "⟨EMAIL_2⟩",
+        "Literal ⟨EMAIL_1⟩"
+      ],
+      "restored": [
+        "alice@example.org",
+        "Literal ⟨EMAIL_1⟩"
+      ],
+      "streamed": [
+        "alice@example.org",
+        "Literal ⟨EMAIL_1⟩"
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_2⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "realistic-email-control",
+      "source": [
+        "Contact alice@example.org."
+      ],
+      "priorSource": null,
+      "masked": [
+        "Contact user1@example.org."
+      ],
+      "restored": [
+        "Contact alice@example.org."
+      ],
+      "streamed": [
+        "Contact alice@example.org."
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "user1@example.org",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "realistic-source-address",
+      "source": [
+        "alice@example.org or user1@example.org"
+      ],
+      "priorSource": null,
+      "masked": [
+        "user2@example.net or user3@example.com"
+      ],
+      "restored": [
+        "alice@example.org or user1@example.org"
+      ],
+      "streamed": [
+        "alice@example.org or user1@example.org"
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "user2@example.net",
+            "detector": "email"
+          },
+          {
+            "type": "EMAIL",
+            "original": "user1@example.org",
+            "surrogate": "user3@example.com",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "realistic-address-across-fields",
+      "source": [
+        "alice@example.org",
+        "user1@example.org"
+      ],
+      "priorSource": null,
+      "masked": [
+        "user2@example.net",
+        "user3@example.com"
+      ],
+      "restored": [
+        "alice@example.org",
+        "user1@example.org"
+      ],
+      "streamed": [
+        "alice@example.org",
+        "user1@example.org"
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "user2@example.net",
+            "detector": "email"
+          },
+          {
+            "type": "EMAIL",
+            "original": "user1@example.org",
+            "surrogate": "user3@example.com",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "realistic-source-name",
+      "source": [
+        "Jordan Reyes met Blair Alder."
+      ],
+      "priorSource": null,
+      "masked": [
+        "Casey Alder met Dana Alder."
+      ],
+      "restored": [
+        "Jordan Reyes met Blair Alder."
+      ],
+      "streamed": [
+        "Jordan Reyes met Blair Alder."
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "PERSON",
+            "original": "Jordan Reyes",
+            "surrogate": "Casey Alder",
+            "detector": "known_entities"
+          },
+          {
+            "type": "PERSON",
+            "original": "Blair Alder",
+            "surrogate": "Dana Alder",
+            "detector": "known_entities"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "wrapped-name-literal",
+      "source": [
+        "Jordan Reyes met BLAIR\n ALDER."
+      ],
+      "priorSource": null,
+      "masked": [
+        "Casey Alder met BLAIR\n ALDER."
+      ],
+      "restored": [
+        "Jordan Reyes met BLAIR\n ALDER."
+      ],
+      "streamed": [
+        "Jordan Reyes met BLAIR\n ALDER."
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "PERSON",
+            "original": "Jordan Reyes",
+            "surrogate": "Casey Alder",
+            "detector": "known_entities"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "previous-original",
+      "source": [
+        "Jordan Reyes"
+      ],
+      "priorSource": "Casey Alder",
+      "masked": [
+        "Dana Alder"
+      ],
+      "restored": [
+        "Jordan Reyes"
+      ],
+      "streamed": [
+        "Jordan Reyes"
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "PERSON",
+            "original": "Casey Alder",
+            "surrogate": "Blair Alder",
+            "detector": "known_entities"
+          }
+        ]
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "PERSON",
+            "original": "Casey Alder",
+            "surrogate": "Blair Alder",
+            "detector": "known_entities"
+          },
+          {
+            "type": "PERSON",
+            "original": "Jordan Reyes",
+            "surrogate": "Dana Alder",
+            "detector": "known_entities"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "reused-vault-control",
+      "source": [
+        "alice@example.org again"
+      ],
+      "priorSource": "alice@example.org",
+      "masked": [
+        "⟨EMAIL_1⟩ again"
+      ],
+      "restored": [
+        "alice@example.org again"
+      ],
+      "streamed": [
+        "alice@example.org again"
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "reused-literal-only",
+      "source": [
+        "Example ⟨EMAIL_1⟩"
+      ],
+      "priorSource": "alice@example.org",
+      "masked": [],
+      "restored": [],
+      "streamed": [],
+      "expectedRejection": true,
+      "error": {
+        "type": "VaultError",
+        "message": "source text would change during surrogate restoration; use a fresh vault to remask the complete input"
+      },
+      "beforeVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "reused-literal-and-new-mapping",
+      "source": [
+        "new@example.org and ⟨email_1⟩"
+      ],
+      "priorSource": "alice@example.org",
+      "masked": [],
+      "restored": [],
+      "streamed": [],
+      "expectedRejection": true,
+      "error": {
+        "type": "VaultError",
+        "message": "source text would change during surrogate restoration; use a fresh vault to remask the complete input"
+      },
+      "beforeVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "reused-batch-failure",
+      "source": [
+        "new@example.org",
+        "⟨EMAIL_1⟩"
+      ],
+      "priorSource": "alice@example.org",
+      "masked": [],
+      "restored": [],
+      "streamed": [],
+      "expectedRejection": true,
+      "error": {
+        "type": "VaultError",
+        "message": "source text would change during surrogate restoration; use a fresh vault to remask the complete input"
+      },
+      "beforeVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "unavailable-generator",
+      "source": [
+        "alice@example.org and literal"
+      ],
+      "priorSource": null,
+      "masked": [],
+      "restored": [],
+      "streamed": [],
+      "expectedRejection": true,
+      "error": {
+        "type": "VaultError",
+        "message": "surrogate generator could not produce an available, distinct replacement after 1024 attempts; use numbered placeholders"
+      },
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "custom-template-control",
+      "source": [
+        "alice@example.org"
+      ],
+      "priorSource": null,
+      "masked": [
+        "[MASK_EMAIL_1]"
+      ],
+      "restored": [
+        "alice@example.org"
+      ],
+      "streamed": [
+        "alice@example.org"
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "[MASK_EMAIL_1]",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "custom-template-literal",
+      "source": [
+        "alice@example.org and [MASK_EMAIL_1]"
+      ],
+      "priorSource": null,
+      "masked": [
+        "[MASK_EMAIL_2] and [MASK_EMAIL_1]"
+      ],
+      "restored": [
+        "alice@example.org and [MASK_EMAIL_1]"
+      ],
+      "streamed": [
+        "alice@example.org and [MASK_EMAIL_1]"
+      ],
+      "expectedRejection": false,
+      "error": null,
+      "beforeVault": {
+        "version": 1,
+        "mappings": []
+      },
+      "afterVault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "[MASK_EMAIL_2]",
+            "detector": "email"
+          }
+        ]
+      },
+      "originalsInOutput": [],
+      "checks": {
+        "expectedRejection": true,
+        "reversible": true,
+        "noOriginalUsedAsReplacement": true,
+        "failedBatchPreservesVault": true,
+        "errorOmitsOriginals": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "cli-fresh-literal",
+      "source": "alice@example.org; literal ⟨EMAIL_1⟩\n",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "",
+      "output": "⟨EMAIL_2⟩; literal ⟨EMAIL_1⟩\n",
+      "restored": "alice@example.org; literal ⟨EMAIL_1⟩\n",
+      "vaultSha256Before": null,
+      "vaultSha256After": "fccd8517c8d0908e1ebe29bf7ccd0d932b0e9de583168eabe73305bbb066a001",
+      "checks": {
+        "exit": true,
+        "stdoutEmpty": true,
+        "output": true,
+        "vault": true,
+        "noOriginalInError": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "cli-reused-vault",
+      "source": "new@example.org; literal ⟨EMAIL_1⟩\n",
+      "exit": 2,
+      "stderr": "veil mask: source text would change during surrogate restoration; use a fresh vault to remask the complete input\n",
+      "stdout": "",
+      "output": "previous output",
+      "restored": "previous output",
+      "vaultSha256Before": "e5cd398f11e7779a04ff76db8e521b0ec0f9255e1b8d7292467c555845431115",
+      "vaultSha256After": "e5cd398f11e7779a04ff76db8e521b0ec0f9255e1b8d7292467c555845431115",
+      "checks": {
+        "exit": true,
+        "stdoutEmpty": true,
+        "output": true,
+        "vault": true,
+        "noOriginalInError": true
+      },
+      "agrees": true
+    }
+  ]
+}

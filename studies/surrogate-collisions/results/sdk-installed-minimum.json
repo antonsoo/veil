@@ -1,0 +1,249 @@
+{
+  "label": "installed-minimum-21ce9c4",
+  "python": "3.10.21",
+  "sdkVersions": {
+    "openai": "1.66.0",
+    "anthropic": "0.40.0"
+  },
+  "scope": "Real SDK serialization and parsing over mock HTTP echo transports; no live provider/model call.",
+  "cases": 9,
+  "disagreements": 0,
+  "results": [
+    {
+      "case": "anthropic-literal-in-text",
+      "source": "Contact alice@example.org; literal ⟨email_1⟩",
+      "laterField": null,
+      "requests": [
+        {
+          "max_tokens": 64,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_2⟩; literal ⟨email_1⟩"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "restoredReply": "Contact alice@example.org; literal ⟨email_1⟩",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_2⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expectedRejection": true,
+        "transportBoundary": true,
+        "roundTrip": true,
+        "vaultRollback": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "anthropic-literal-in-later-field",
+      "source": "alice@example.org",
+      "laterField": "Literal ⟨EMAIL_1⟩",
+      "requests": [],
+      "restoredReply": null,
+      "error": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expectedRejection": true,
+        "transportBoundary": true,
+        "roundTrip": true,
+        "vaultRollback": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "anthropic-original-in-later-field",
+      "source": "alice@example.org",
+      "laterField": "user1@example.org",
+      "requests": [],
+      "restoredReply": null,
+      "error": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expectedRejection": true,
+        "transportBoundary": true,
+        "roundTrip": true,
+        "vaultRollback": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "chat-literal-in-text",
+      "source": "Contact alice@example.org; literal ⟨email_1⟩",
+      "laterField": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_2⟩; literal ⟨email_1⟩"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "restoredReply": "Contact alice@example.org; literal ⟨email_1⟩",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_2⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expectedRejection": true,
+        "transportBoundary": true,
+        "roundTrip": true,
+        "vaultRollback": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "chat-literal-in-later-field",
+      "source": "alice@example.org",
+      "laterField": "Literal ⟨EMAIL_1⟩",
+      "requests": [],
+      "restoredReply": null,
+      "error": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expectedRejection": true,
+        "transportBoundary": true,
+        "roundTrip": true,
+        "vaultRollback": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "chat-original-in-later-field",
+      "source": "alice@example.org",
+      "laterField": "user1@example.org",
+      "requests": [],
+      "restoredReply": null,
+      "error": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expectedRejection": true,
+        "transportBoundary": true,
+        "roundTrip": true,
+        "vaultRollback": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "responses-literal-in-text",
+      "source": "Contact alice@example.org; literal ⟨email_1⟩",
+      "laterField": null,
+      "requests": [
+        {
+          "input": "Contact ⟨EMAIL_2⟩; literal ⟨email_1⟩",
+          "model": "test-model"
+        }
+      ],
+      "restoredReply": "Contact alice@example.org; literal ⟨email_1⟩",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_2⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expectedRejection": true,
+        "transportBoundary": true,
+        "roundTrip": true,
+        "vaultRollback": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "responses-literal-in-later-field",
+      "source": "alice@example.org",
+      "laterField": "Literal ⟨EMAIL_1⟩",
+      "requests": [],
+      "restoredReply": null,
+      "error": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expectedRejection": true,
+        "transportBoundary": true,
+        "roundTrip": true,
+        "vaultRollback": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "responses-original-in-later-field",
+      "source": "alice@example.org",
+      "laterField": "user1@example.org",
+      "requests": [],
+      "restoredReply": null,
+      "error": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expectedRejection": true,
+        "transportBoundary": true,
+        "roundTrip": true,
+        "vaultRollback": true
+      },
+      "agrees": true
+    }
+  ]
+}
