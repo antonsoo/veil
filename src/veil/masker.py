@@ -8,6 +8,8 @@ reading order, so the first value of a type in a text is numbered 1.
 
 from __future__ import annotations
 
+from collections.abc import Iterator, Sequence
+from contextlib import contextmanager
 from dataclasses import dataclass, field
 
 from veil._spans import DisjointSpans
@@ -17,7 +19,38 @@ from veil.detectors.base import Detector
 from veil.restore import restore_exact, restore_tolerant
 from veil.surrogates import PlaceholderSurrogates, SurrogateGenerator
 from veil.types import Entity
-from veil.vault import Vault
+from veil.vault import Vault, VaultError
+
+
+def _spelling(text: str) -> str:
+    # Conservative reservation for the case/whitespace rewrites accepted by
+    # tolerant restoration. The final check uses the actual restorers as well.
+    return " ".join(text.split()).casefold()
+
+
+@dataclass
+class _MaskingBatch:
+    sources: list[tuple[str, set[str]]] = field(default_factory=list)
+    pairs: list[tuple[str, str]] = field(default_factory=list)
+    used: set[str] = field(default_factory=set)
+    originals: set[str] = field(default_factory=set)
+
+    def reserve(self, text: str) -> None:
+        normalized = _spelling(text)
+        self.sources.append((normalized, set(normalized)))
+
+    def available(self, surrogate: str) -> bool:
+        normalized = _spelling(surrogate)
+        return (
+            bool(normalized)
+            and normalized not in self.originals
+            and not any(
+                # Most raw text has no placeholder delimiter: avoid scanning a
+                # large export once for every generated placeholder.
+                normalized[0] in chars and normalized in source
+                for source, chars in self.sources
+            )
+        )
 
 
 def _resolve_overlaps(entities: list[Entity]) -> list[Entity]:
@@ -42,15 +75,64 @@ def _resolve_overlaps(entities: list[Entity]) -> list[Entity]:
 
 @dataclass
 class Masker:
-    """Configure once, call :meth:`mask` per message. Reuse the same
-    :class:`Masker` (and its vault) across a whole conversation so repeated
-    values map to the same surrogate throughout.
+    """Reuse a vault so repeated values keep the same surrogate. Use
+    :meth:`mask_many` for related raw texts: reservations cover the whole
+    batch, including literal examples in other messages. Source texts are
+    not retained between batches; include earlier raw texts when adding turns.
     """
 
     detectors: list[Detector] = field(default_factory=default_detectors)
     name_backends: list[NameBackend] = field(default_factory=list)
     surrogate_generator: SurrogateGenerator = field(default_factory=PlaceholderSurrogates)
     vault: Vault = field(default_factory=Vault)
+    _batch: _MaskingBatch | None = field(default=None, init=False, repr=False, compare=False)
+
+    @contextmanager
+    def _masking_batch(self) -> Iterator[_MaskingBatch]:
+        """Internal request boundary. No prepared output may escape before exit.
+
+        Wrappers nest their ordinary mask calls here, before invoking the SDK.
+        A batch retains source text only until preparation finishes. Maskers
+        and their vaults are for sequential use, not shared concurrent writes.
+        """
+        if self._batch is not None:
+            yield self._batch
+            return
+        batch = _MaskingBatch(originals={_spelling(s) for s in self.vault.originals()})
+        with self.vault._transaction():
+            self._batch = batch
+            try:
+                yield batch
+                if any(not batch.available(s) for s in batch.used):
+                    raise VaultError(
+                        "a surrogate conflicts with another input in this request; "
+                        "remask the complete input with a fresh vault using mask_many"
+                    )
+                for source, masked in batch.pairs:
+                    if (
+                        restore_exact(masked, self.vault) != source
+                        or restore_tolerant(masked, self.vault) != source
+                    ):
+                        raise VaultError(
+                            "source text would change during surrogate restoration; "
+                            "use a fresh vault to remask the complete input"
+                        )
+            finally:
+                self._batch = None
+
+    def mask_many(self, texts: Sequence[str]) -> list[str]:
+        """Mask related raw texts together, reserving literals across all of them.
+
+        Either every result restores to its source or VaultError is raised and
+        this batch's vault changes are undone. No earlier source texts are kept
+        between calls; submit the complete raw conversation when adding turns.
+        """
+        if isinstance(texts, str):
+            raise TypeError("mask_many expects a sequence of strings, not one string")
+        with self._masking_batch() as batch:
+            for text in texts:
+                batch.reserve(text)
+            return [self._mask(text, batch) for text in texts]
 
     def find_entities(self, text: str) -> list[Entity]:
         found: list[Entity] = []
@@ -61,17 +143,29 @@ class Masker:
         return _resolve_overlaps(found)
 
     def mask(self, text: str) -> str:
+        """Mask one raw text; reject ambiguous restoration without changing the vault."""
+        return self.mask_many([text])[0]
+
+    def _mask(self, text: str, batch: _MaskingBatch) -> str:
         parts: list[str] = []
         pos = 0
         for entity in self.find_entities(text):
+            batch.originals.add(_spelling(entity.value))
             surrogate = self.vault.get_or_create(
-                entity.type, entity.value, self.surrogate_generator, entity.detector
+                entity.type,
+                entity.value,
+                self.surrogate_generator,
+                entity.detector,
+                available=batch.available,
             )
+            batch.used.add(surrogate)
             parts.append(text[pos : entity.span.start])
             parts.append(surrogate)
             pos = entity.span.end
         parts.append(text[pos:])
-        return "".join(parts)
+        masked = "".join(parts)
+        batch.pairs.append((text, masked))
+        return masked
 
     def restore(self, text: str, *, tolerant: bool = True) -> str:
         """Restore surrogates in ``text`` using this masker's vault.

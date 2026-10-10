@@ -236,7 +236,7 @@ function renderVault(): void {
     }
     vaultBody.append(row);
   }
-  vaultCount.textContent = `${mappings.length.toLocaleString()} mappings in this prompt.` +
+  vaultCount.textContent = `${mappings.length.toLocaleString()} ${mappings.length === 1 ? "mapping" : "mappings"} in this prompt.` +
     (mappings.length > PREVIEW_MAPPINGS ? ` Showing the first ${PREVIEW_MAPPINGS}; the vault download includes all mappings.` : "");
   vaultTable.dataset.revealed = String(revealed);
   revealBtn.textContent = revealed ? "Hide originals" : "Reveal originals";

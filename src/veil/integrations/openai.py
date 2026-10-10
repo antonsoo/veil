@@ -107,22 +107,23 @@ def mask_messages(
     to the *same* surrogate already in the vault rather than a new one.
     With ``replay``, a message veil restored is replaced by the original.
     """
-    out = []
-    for message in messages:
-        if replay is not None and get_field(message, "role") == "assistant":
-            original = replay.original_for(message)
-            if original is not None:
-                out.append(original)
-                continue
-        content = get_field(message, "content")
-        updates: dict[str, Any] = {}
-        if content is not None:
-            updates["content"] = mask_content(content, masker)
-        tool_calls = get_field(message, "tool_calls")
-        if tool_calls:
-            updates["tool_calls"] = _mask_tool_calls(tool_calls, masker)
-        out.append(model_copy_with(message, **updates) if updates else message)
-    return out
+    with masker._masking_batch():
+        out = []
+        for message in messages:
+            if replay is not None and get_field(message, "role") == "assistant":
+                original = replay.original_for(message)
+                if original is not None:
+                    out.append(original)
+                    continue
+            content = get_field(message, "content")
+            updates: dict[str, Any] = {}
+            if content is not None:
+                updates["content"] = mask_content(content, masker)
+            tool_calls = get_field(message, "tool_calls")
+            if tool_calls:
+                updates["tool_calls"] = _mask_tool_calls(tool_calls, masker)
+            out.append(model_copy_with(message, **updates) if updates else message)
+        return out
 
 
 def restore_response(response: Any, masker: Masker, replay: ReplayCache | None = None) -> Any:
@@ -358,13 +359,14 @@ def _is_async_client(client: Any) -> bool:
 def _response_kwargs(
     masker: Masker, replay: ReplayCache, input: Any, instructions: Any, kwargs: dict[str, Any]
 ) -> dict[str, Any]:
-    call_kwargs = dict(kwargs)
-    call_kwargs["input"] = openai_responses.mask_responses_input(input, masker, replay)
-    if isinstance(instructions, str):
-        call_kwargs["instructions"] = masker.mask(instructions)
-    elif instructions is not None:
-        call_kwargs["instructions"] = instructions
-    return call_kwargs
+    with masker._masking_batch():
+        call_kwargs = dict(kwargs)
+        call_kwargs["input"] = openai_responses.mask_responses_input(input, masker, replay)
+        if isinstance(instructions, str):
+            call_kwargs["instructions"] = masker.mask(instructions)
+        elif instructions is not None:
+            call_kwargs["instructions"] = instructions
+        return call_kwargs
 
 
 @dataclass

@@ -1,4 +1,3 @@
-from veil.backends.known_entities import KnownEntitiesBackend
 from veil.masker import Masker
 from veil.restore import restore_exact, restore_tolerant
 from veil.surrogates import PlaceholderSurrogates, RealisticSurrogates
@@ -66,12 +65,14 @@ def test_restore_tolerant_is_superset_of_exact() -> None:
 def test_restore_tolerant_never_rescans_a_restored_value() -> None:
     # "Blair Alder" is a real person here and also the fake name handed to
     # Jordan Reyes. Restoring the fake must not then rewrite the real one.
-    backend = KnownEntitiesBackend(persons=["Jordan Reyes", "Blair Alder"])
-    m = Masker(surrogate_generator=RealisticSurrogates(), name_backends=[backend])
+    # Such a legacy vault remains readable, though Masker now avoids minting
+    # a replacement that is also present in the source.
+    vault = Vault()
+    gen = RealisticSurrogates()
+    vault.get_or_create(EntityType.PERSON, "Jordan Reyes", gen)
+    vault.get_or_create(EntityType.PERSON, "Blair Alder", gen)
     text = "Jordan Reyes met Blair Alder."
-    masked = m.mask(text)
-    assert masked == "Blair Alder met Casey Alder."
-    assert restore_tolerant(masked, m.vault) == text
+    assert restore_tolerant("Blair Alder met Casey Alder.", vault) == text
 
 
 def test_restore_tolerant_restores_a_recased_placeholder_touching_other_text() -> None:

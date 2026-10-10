@@ -126,6 +126,41 @@ try {
         } finally { await context.close(); }
       }
 
+      for (const width of [375, 1280]) {
+        const literal = await pageFor(browser, { viewport: { width, height: 900 }, colorScheme: "dark" });
+        try {
+          await literal.page.goto(`${origin}/veil/`);
+          const source = "Contact alice@example.org. Keep the documentation example ⟨email_1⟩ literal.";
+          await literal.page.locator("#prompt").fill(source);
+          await literal.page.locator("#known-persons").fill("");
+          await mask(literal.page);
+          const expected = source.replace("alice@example.org", "⟨EMAIL_2⟩");
+          assert.equal(await literal.page.locator("#masked-output").textContent(), expected);
+          const downloads = [];
+          for (const selector of ["#download-masked", "#download-vault"]) {
+            const event = literal.page.waitForEvent("download");
+            await literal.page.locator(selector).click();
+            downloads.push(await readFile(await (await event).path(), "utf8"));
+          }
+          assert.equal(downloads[0], expected);
+          const vault = JSON.parse(downloads[1]);
+          assert.deepEqual(vault.mappings.map(({ original, surrogate }) => ({ original, surrogate })), [
+            { original: "alice@example.org", surrogate: "⟨EMAIL_2⟩" },
+          ]);
+          await literal.page.locator("#simulate-btn").click();
+          await status(literal.page, "Fictional reply restored");
+          assert.ok((await literal.page.locator("#reply-output").textContent()).includes("alice@example.org"));
+          await audit(literal.page);
+          await assertClean(literal.page, literal.errors);
+          if (process.env.VEIL_COLLISION_SCREENSHOTS) {
+            await mkdir(process.env.VEIL_COLLISION_SCREENSHOTS, { recursive: true });
+            await literal.page.screenshot({ path: join(process.env.VEIL_COLLISION_SCREENSHOTS, `${engine}-${width}.png`), fullPage: true });
+          }
+          evidence.push({ engine, width, checks: ["literal surrogate remains literal", "replacement uses distinct identity", "real Python", "masked download", "vault download", "streamed restoration", "axe", "CSP", "no overflow"] });
+          console.log(`PASS ${engine} ${width}px literal surrogate`);
+        } finally { await literal.context.close(); }
+      }
+
       const { context, page, errors } = await pageFor(browser, { viewport: { width: 375, height: 900 }, reducedMotion: "no-preference" });
       try {
         await context.addInitScript(() => {

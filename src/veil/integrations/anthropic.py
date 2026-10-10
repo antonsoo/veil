@@ -445,11 +445,12 @@ def _is_async_client(client: Any) -> bool:
 def _masked_call(
     masker: Masker, replay: ReplayCache, messages: list[Any], system: Any, kwargs: dict[str, Any]
 ) -> dict[str, Any]:
-    call_kwargs: dict[str, Any] = dict(kwargs)
-    call_kwargs["messages"] = mask_messages(messages, masker, replay)
-    if system is not None:
-        call_kwargs["system"] = mask_system(system, masker)
-    return call_kwargs
+    with masker._masking_batch():
+        call_kwargs: dict[str, Any] = dict(kwargs)
+        call_kwargs["messages"] = mask_messages(messages, masker, replay)
+        if system is not None:
+            call_kwargs["system"] = mask_system(system, masker)
+        return call_kwargs
 
 
 @dataclass

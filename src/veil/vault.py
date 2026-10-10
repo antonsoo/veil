@@ -27,6 +27,8 @@ conversation's duration.
 from __future__ import annotations
 
 import json
+from collections.abc import Callable, Iterator
+from contextlib import contextmanager
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -72,18 +74,44 @@ class Vault:
     # whenever a mapping is added, so a restore never works from a stale one.
     _derived: dict[str, Any] = field(default_factory=dict, repr=False, compare=False)
 
+    @contextmanager
+    def _transaction(self) -> Iterator[None]:
+        """Roll back library-owned state if preparing a masked request fails."""
+        before = (
+            self._by_original.copy(),
+            self._by_surrogate.copy(),
+            self._counters.copy(),
+            self._derived.copy(),
+        )
+        try:
+            yield
+        except BaseException:
+            self._by_original, self._by_surrogate, self._counters, self._derived = before
+            raise
+
     def get_or_create(
         self,
         entity_type: EntityType,
         original: str,
         generator: SurrogateGenerator,
         detector: str = "",
+        *,
+        available: Callable[[str], bool] | None = None,
     ) -> str:
-        """Return the existing surrogate for ``original``, minting one if new."""
+        """Return the existing surrogate for ``original``, minting one if new.
+
+        ``available`` can reserve source literals. An unavailable existing
+        mapping raises VaultError; established identities are never reassigned.
+        """
         _nonempty_text(original, "original")
         key = (entity_type, original)
         existing = self._by_original.get(key)
         if existing is not None:
+            if available is not None and not available(existing.surrogate):
+                raise VaultError(
+                    "an existing surrogate conflicts with source text; "
+                    "use a fresh vault to remask the complete input"
+                )
             return existing.surrogate
 
         index = self._counters.get(entity_type, 0)
@@ -91,11 +119,15 @@ class Vault:
             index += 1
             surrogate = generator.generate(entity_type, original, index)
             _nonempty_text(surrogate, "generated surrogate")
-            if surrogate != original and surrogate not in self._by_surrogate:
+            if (
+                surrogate != original
+                and surrogate not in self._by_surrogate
+                and (available is None or available(surrogate))
+            ):
                 break
         else:
             raise VaultError(
-                "surrogate generator could not produce a distinct replacement after "
+                "surrogate generator could not produce an available, distinct replacement after "
                 f"{MAX_SURROGATE_ATTEMPTS} attempts; use numbered placeholders"
             )
 

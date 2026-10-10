@@ -9,6 +9,7 @@ from __future__ import annotations
 import inspect
 import json
 from collections import OrderedDict
+from copy import copy
 from typing import Any
 
 from veil.masker import Masker
@@ -77,6 +78,7 @@ def model_copy_with(obj: Any, **updates: Any) -> Any:
         return obj.model_copy(update=updates)
     if isinstance(obj, dict):
         return {**obj, **updates}
+    obj = copy(obj)
     for key, val in updates.items():
         setattr(obj, key, val)
     return obj
