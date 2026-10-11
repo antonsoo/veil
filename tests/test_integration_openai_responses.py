@@ -183,18 +183,22 @@ def test_restored_output_fed_back_as_input_resends_the_original_items() -> None:
     resent = veil.client.responses.calls[1]["input"]
     assert EMAIL not in dump(resent)
     # Exactly the items the model produced, not a re-masked approximation.
-    assert resent[1] is original.output[0]
-    assert resent[2] is original.output[1]
+    assert resent[1].model_dump() == original.output[0].model_dump()
+    assert resent[2].model_dump() == original.output[1].model_dump()
+    assert (
+        resent[1] is not original.output[0]
+    )  # The remembered snapshot cannot be mutated by callers.
 
 
 def test_output_items_resent_as_plain_dicts_are_replayed_too() -> None:
     masker = Masker()
     surrogate = masker.mask(EMAIL)
-    original = make_response([message(f"Hi {surrogate}")])
+    original = make_response([message(f"Hi {surrogate}; reply to help@example.net")])
     veil = OpenAIVeil(FakeClient(original), masker=masker)
     first = veil.create_response(model="gpt-6-sol", input="go")
     veil.create_response(model="gpt-6-sol", input=[i.model_dump() for i in first.output])
-    assert veil.client.responses.calls[1]["input"][0] is original.output[0]
+    resent = veil.client.responses.calls[1]["input"][0]
+    assert resent.model_dump() == original.output[0].model_dump()
 
 
 def text_delta(delta: str, seq: int) -> ResponseTextDeltaEvent:
