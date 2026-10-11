@@ -1,0 +1,610 @@
+{
+  "label": "installed-python310-openai166",
+  "python": "3.10.21",
+  "openai_sdk": "1.66.0",
+  "scope": "Synthetic local SDK captures. No provider calls. Only restored string tokens may change.",
+  "cases": 16,
+  "disagreements": 0,
+  "results": [
+    {
+      "api": "chat",
+      "case": "decimal-precision",
+      "provider_response": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"amount\":0.12345678901234567890}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "restored_arguments": "{\"to\":\"alice@example.org\",\"amount\":0.12345678901234567890}",
+      "expected_arguments": "{\"to\":\"alice@example.org\",\"amount\":0.12345678901234567890}",
+      "replayed_arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"amount\":0.12345678901234567890}",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "large-exponent",
+      "provider_response": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"n\":1e309}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "restored_arguments": "{\"to\":\"alice@example.org\",\"n\":1e309}",
+      "expected_arguments": "{\"to\":\"alice@example.org\",\"n\":1e309}",
+      "replayed_arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"n\":1e309}",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "duplicate-members",
+      "provider_response": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"n\":1,\"n\":2}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "restored_arguments": "{\"to\":\"alice@example.org\",\"n\":1,\"n\":2}",
+      "expected_arguments": "{\"to\":\"alice@example.org\",\"n\":1,\"n\":2}",
+      "replayed_arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"n\":1,\"n\":2}",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "numeric-spelling",
+      "provider_response": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": " {\"to\":\"⟨EMAIL_1⟩\",\"n\":-0.00E-03,\"key\":\"\\u0061\"}\n"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "restored_arguments": " {\"to\":\"alice@example.org\",\"n\":-0.00E-03,\"key\":\"\\u0061\"}\n",
+      "expected_arguments": " {\"to\":\"alice@example.org\",\"n\":-0.00E-03,\"key\":\"\\u0061\"}\n",
+      "replayed_arguments": " {\"to\":\"⟨EMAIL_1⟩\",\"n\":-0.00E-03,\"key\":\"\\u0061\"}\n",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "escaped-surrogate",
+      "provider_response": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": "{\"to\":\"\\u27E8EMAIL_1\\u27E9\",\"n\":1.00e+2}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "restored_arguments": "{\"to\":\"alice@example.org\",\"n\":1.00e+2}",
+      "expected_arguments": "{\"to\":\"alice@example.org\",\"n\":1.00e+2}",
+      "replayed_arguments": "{\"to\":\"\\u27E8EMAIL_1\\u27E9\",\"n\":1.00e+2}",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "tolerant-surrogate",
+      "provider_response": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": "{\"to\":\"⟨email_1⟩\",\"n\":1.00e+2}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "restored_arguments": "{\"to\":\"alice@example.org\",\"n\":1.00e+2}",
+      "expected_arguments": "{\"to\":\"alice@example.org\",\"n\":1.00e+2}",
+      "replayed_arguments": "{\"to\":\"⟨email_1⟩\",\"n\":1.00e+2}",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "no-surrogate",
+      "provider_response": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": "{\"n\":1e309,\"n\":2,\"text\":\"\\u0061\"}"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "restored_arguments": "{\"n\":1e309,\"n\":2,\"text\":\"\\u0061\"}",
+      "expected_arguments": "{\"n\":1e309,\"n\":2,\"text\":\"\\u0061\"}",
+      "replayed_arguments": "{\"n\":1e309,\"n\":2,\"text\":\"\\u0061\"}",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "truncated",
+      "provider_response": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"n\":"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "restored_arguments": "{\"to\":\"alice@example.org\",\"n\":",
+      "expected_arguments": "{\"to\":\"alice@example.org\",\"n\":",
+      "replayed_arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"n\":",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "decimal-precision",
+      "provider_response": {
+        "id": "resp_1",
+        "object": "response",
+        "created_at": 1,
+        "model": "test-model",
+        "status": "completed",
+        "output": [
+          {
+            "id": "fc_1",
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "send_email",
+            "arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"amount\":0.12345678901234567890}",
+            "status": "completed"
+          }
+        ],
+        "parallel_tool_calls": true,
+        "tool_choice": "auto",
+        "tools": []
+      },
+      "restored_arguments": "{\"to\":\"alice@example.org\",\"amount\":0.12345678901234567890}",
+      "expected_arguments": "{\"to\":\"alice@example.org\",\"amount\":0.12345678901234567890}",
+      "replayed_arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"amount\":0.12345678901234567890}",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "large-exponent",
+      "provider_response": {
+        "id": "resp_1",
+        "object": "response",
+        "created_at": 1,
+        "model": "test-model",
+        "status": "completed",
+        "output": [
+          {
+            "id": "fc_1",
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "send_email",
+            "arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"n\":1e309}",
+            "status": "completed"
+          }
+        ],
+        "parallel_tool_calls": true,
+        "tool_choice": "auto",
+        "tools": []
+      },
+      "restored_arguments": "{\"to\":\"alice@example.org\",\"n\":1e309}",
+      "expected_arguments": "{\"to\":\"alice@example.org\",\"n\":1e309}",
+      "replayed_arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"n\":1e309}",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "duplicate-members",
+      "provider_response": {
+        "id": "resp_1",
+        "object": "response",
+        "created_at": 1,
+        "model": "test-model",
+        "status": "completed",
+        "output": [
+          {
+            "id": "fc_1",
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "send_email",
+            "arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"n\":1,\"n\":2}",
+            "status": "completed"
+          }
+        ],
+        "parallel_tool_calls": true,
+        "tool_choice": "auto",
+        "tools": []
+      },
+      "restored_arguments": "{\"to\":\"alice@example.org\",\"n\":1,\"n\":2}",
+      "expected_arguments": "{\"to\":\"alice@example.org\",\"n\":1,\"n\":2}",
+      "replayed_arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"n\":1,\"n\":2}",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "numeric-spelling",
+      "provider_response": {
+        "id": "resp_1",
+        "object": "response",
+        "created_at": 1,
+        "model": "test-model",
+        "status": "completed",
+        "output": [
+          {
+            "id": "fc_1",
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "send_email",
+            "arguments": " {\"to\":\"⟨EMAIL_1⟩\",\"n\":-0.00E-03,\"key\":\"\\u0061\"}\n",
+            "status": "completed"
+          }
+        ],
+        "parallel_tool_calls": true,
+        "tool_choice": "auto",
+        "tools": []
+      },
+      "restored_arguments": " {\"to\":\"alice@example.org\",\"n\":-0.00E-03,\"key\":\"\\u0061\"}\n",
+      "expected_arguments": " {\"to\":\"alice@example.org\",\"n\":-0.00E-03,\"key\":\"\\u0061\"}\n",
+      "replayed_arguments": " {\"to\":\"⟨EMAIL_1⟩\",\"n\":-0.00E-03,\"key\":\"\\u0061\"}\n",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "escaped-surrogate",
+      "provider_response": {
+        "id": "resp_1",
+        "object": "response",
+        "created_at": 1,
+        "model": "test-model",
+        "status": "completed",
+        "output": [
+          {
+            "id": "fc_1",
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "send_email",
+            "arguments": "{\"to\":\"\\u27E8EMAIL_1\\u27E9\",\"n\":1.00e+2}",
+            "status": "completed"
+          }
+        ],
+        "parallel_tool_calls": true,
+        "tool_choice": "auto",
+        "tools": []
+      },
+      "restored_arguments": "{\"to\":\"alice@example.org\",\"n\":1.00e+2}",
+      "expected_arguments": "{\"to\":\"alice@example.org\",\"n\":1.00e+2}",
+      "replayed_arguments": "{\"to\":\"\\u27E8EMAIL_1\\u27E9\",\"n\":1.00e+2}",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "tolerant-surrogate",
+      "provider_response": {
+        "id": "resp_1",
+        "object": "response",
+        "created_at": 1,
+        "model": "test-model",
+        "status": "completed",
+        "output": [
+          {
+            "id": "fc_1",
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "send_email",
+            "arguments": "{\"to\":\"⟨email_1⟩\",\"n\":1.00e+2}",
+            "status": "completed"
+          }
+        ],
+        "parallel_tool_calls": true,
+        "tool_choice": "auto",
+        "tools": []
+      },
+      "restored_arguments": "{\"to\":\"alice@example.org\",\"n\":1.00e+2}",
+      "expected_arguments": "{\"to\":\"alice@example.org\",\"n\":1.00e+2}",
+      "replayed_arguments": "{\"to\":\"⟨email_1⟩\",\"n\":1.00e+2}",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "no-surrogate",
+      "provider_response": {
+        "id": "resp_1",
+        "object": "response",
+        "created_at": 1,
+        "model": "test-model",
+        "status": "completed",
+        "output": [
+          {
+            "id": "fc_1",
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "send_email",
+            "arguments": "{\"n\":1e309,\"n\":2,\"text\":\"\\u0061\"}",
+            "status": "completed"
+          }
+        ],
+        "parallel_tool_calls": true,
+        "tool_choice": "auto",
+        "tools": []
+      },
+      "restored_arguments": "{\"n\":1e309,\"n\":2,\"text\":\"\\u0061\"}",
+      "expected_arguments": "{\"n\":1e309,\"n\":2,\"text\":\"\\u0061\"}",
+      "replayed_arguments": "{\"n\":1e309,\"n\":2,\"text\":\"\\u0061\"}",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "truncated",
+      "provider_response": {
+        "id": "resp_1",
+        "object": "response",
+        "created_at": 1,
+        "model": "test-model",
+        "status": "completed",
+        "output": [
+          {
+            "id": "fc_1",
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "send_email",
+            "arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"n\":",
+            "status": "completed"
+          }
+        ],
+        "parallel_tool_calls": true,
+        "tool_choice": "auto",
+        "tools": []
+      },
+      "restored_arguments": "{\"to\":\"alice@example.org\",\"n\":",
+      "expected_arguments": "{\"to\":\"alice@example.org\",\"n\":",
+      "replayed_arguments": "{\"to\":\"⟨EMAIL_1⟩\",\"n\":",
+      "checks": {
+        "restoration_preserves_other_tokens": true,
+        "history_replays_original_arguments": true
+      },
+      "agrees": true
+    }
+  ]
+}

@@ -48,3 +48,13 @@ tool handles them. This correction prevents Veil from silently deciding that
 question. Applications remain responsible for schema validation, safe execution
 and numeric support. These checks verify local SDK behavior, not provider
 acceptance or live model output. The change is not yet in a PyPI release.
+
+## Installed artifact
+
+A fresh archive of `e6b4ab6`, installed with locked dependencies on Python 3.14.7,
+passed Ruff lint/format, mypy and 456 tests. The optional spaCy module was skipped.
+The wheel was built from the source distribution, then installed separately on
+Python 3.10.21 with OpenAI 1.66.0. Its [16 restoration captures](results/installed-minimum.json)
+and all 16 earlier masking captures passed. Another 105 targeted tests passed;
+one was skipped because the minimum SDK predates reasoning-summary fields.
+[verification.json](results/verification.json) retains the artifact hash and scope.
