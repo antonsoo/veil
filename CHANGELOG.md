@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Message boundaries and history identity
+
+- Restore Anthropic text helpers per content block, including asynchronous
+  streams and partial consumption. Fragments in separate blocks cannot combine
+  into a restored private value.
+- Preserve each retained content/message object's original provider reply when
+  different replies restore to the same content. Reject ambiguous reconstructed
+  history before transport, with request masking rolled back.
+- Retain JSON nulls in replay fingerprints, mask user messages independently of
+  assistant history, and snapshot originals so callers cannot mutate the cache.
+- Keep synthetic before/after SDK HTTP captures in `studies/message-boundaries`.
+
 ### JSON tool history
 
 - Restore complete tool replies by rewriting only changed string values. Numeric

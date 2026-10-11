@@ -1,0 +1,101 @@
+# A content match must preserve its source
+
+Veil's source checkout fixes four related integration errors found at
+`7bec64d6bd76a19cf37a9bb3b56e6e77c1bd533b`. The retained
+[before](results/before.json) and [after](results/after.json) files contain
+synthetic responses, actual SDK output and outgoing HTTP request content.
+All contacts are fictional. There are no provider calls or real credentials.
+These are local source changes, not a PyPI release or a live-provider result.
+
+## What failed
+
+| Workflow | Before | After |
+| --- | --- | --- |
+| Anthropic text helpers, placeholder fragments in separate blocks | Invented a restored email absent from either block | Restores each block independently, then joins |
+| Two assistant replies with different placeholder casing but identical restored text | Replayed both as the second reply | Retained objects replay their own originals; ambiguous copies fail before transport |
+| Removing/adding `null` in an Anthropic tool input | Replayed the old input, discarding the edit | Sends the edited, masked input |
+| A user message repeating a provider-generated contact | Assistant replay bypassed masking | User content is masked |
+
+There are 16 controlled scenarios. Four streaming cases run synchronously and
+asynchronously; two history storage forms run through Anthropic and Chat
+Completions; two JSON-null edits and two user-content forms complete the set.
+Fourteen disagreed with their independent expected outputs before the fix;
+none disagree afterward. These deliberately selected counterexamples measure
+the demonstrated failures, not their frequency in production.
+
+## The two different boundaries
+
+The [Anthropic streaming protocol](https://platform.claude.com/docs/en/build-with-claude/streaming)
+gives each content block its own index, start, deltas and stop. Chunk boundaries
+within one block are transport details. A block boundary is part of the message.
+Veil used the SDK's flattened text iterator, which erased that distinction.
+`get_final_text()` similarly restored the concatenated raw text.
+
+The fix feeds the text iterator from the same indexed event restoration used by
+event consumers. Pending text is flushed at the matching block stop. Complete
+text is assembled from separately restored blocks. Sync/async helpers retain
+one event iterator so switching from partial text consumption to events keeps
+pending state. The SDK still owns its raw message accumulation and transport.
+
+For history, restoration can be many-to-one: an exact placeholder and a
+case-changed placeholder can both become the same email. A dictionary keyed only
+by restored content cannot distinguish the two original turns.
+
+```text
+provider turn A ----> restored object A ---+--> next request: original A
+                                         |
+provider turn B ----> restored object B ---+--> next request: original B
+                     (equal contents)
+
+serialized equal contents ------------------> ambiguous: refuse before HTTP
+```
+
+The cache now retains object identity separately from content fingerprints. It
+checks unchanged objects first; a content-only match must have one known
+provider value. String identity is deliberately excluded: Python can reuse the
+same string object for multiple occurrences. Ambiguous copied history raises a
+`VaultError` that contains no message text. Request preparation is transactional,
+so any mappings created before that error are rolled back.
+
+SDK `model_dump()` and `model_dump(exclude_none=True)` forms both work for
+unambiguous records. JSON nulls inside application dictionaries remain in both
+fingerprints. Saved originals are copied at capture and again for outbound use;
+editing either SDK snapshots or prepared requests cannot mutate the cache.
+
+## Reproduce
+
+From this repository:
+
+```bash
+uv sync --locked
+uv run python studies/message-boundaries/capture.py --source . --label source --check
+uv run pytest -q tests/test_anthropic_boundaries.py tests/test_replay_identity.py
+```
+
+For the old behavior, archive `7bec64d` into a temporary directory and pass that
+directory as `--source`. The script imports Veil from that source tree while using
+the same synthetic wire fixtures. Omit `--check` to retain the failing output.
+For a wheel installation, run the script using that environment's Python and
+omit `--source`; the receipt records its Python and SDK versions.
+
+The script's streaming oracle substitutes known tokens inside each complete
+source block before joining. Its history oracle compares the outbound strings
+with the two recorded originals, or requires an ambiguity error with no third
+request. The null and role checks inspect the actual outgoing request bodies.
+Unit regressions additionally cover every internal cut of the placeholder,
+partial iterator consumption, empty/tool-only messages, snapshot mutation,
+bounded identity retention and masking rollback.
+
+## Scope
+
+The cache is local to one wrapper. It retains at most 10,000 content fingerprints
+and 10,000 object identities; SDK serialization aliases count against the
+fingerprint limit. Exact replay only applies to retained, unchanged history.
+Keep the returned Anthropic content list or Chat Completions message object when
+different replies restore to the same value. Reconstructing an ambiguous object
+or reducing it to plain text loses the information needed for exact replay.
+Persisting that identity across application restarts is outside this cache.
+
+Streaming uses exact matching; complete blocks still allow tolerant restoration.
+Thinking/signature blocks remain untouched. This work does not measure detector
+recall, validate real provider signatures, or prove live-service compatibility.

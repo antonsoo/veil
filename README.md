@@ -237,20 +237,39 @@ The other integration tests use fakes shaped like the SDK types.
 Keep your history the normal way: append the assistant turn veil handed
 you (real values restored, including in the `tool_use` input your code is
 about to execute) and send the whole list on the next call. The wrapper
-remembers the exact blocks the model produced for everything it restored,
-and swaps them back in before the request leaves, so:
+remembers the blocks the model produced and swaps retained, unchanged assistant
+history back in before the request leaves. Keep the returned content/message
+objects in history: they identify their original occurrence even when different
+replies restore to the same text.
 
-- **No real value goes back to the provider.** Restored tool-call
+- **Restored values are masked again or replayed as their surrogates.** Tool-call
   arguments are the easy thing to leak: they are real by design, because
   your code has to act on them.
-- **The history the API sees never changes.** Re-masking a restored turn
+- **Retained history keeps the provider's original content.** Re-masking a restored turn
   only approximates the original (a support address the model wrote
-  itself looks like PII and would get a fresh surrogate). Any difference
-  is an edit to an earlier turn: the prompt cache restarts from there, and
-  on current Claude models every later thinking block's signature stops
-  matching its conversation, which accounts that enforce the check reject
-  with a 400. Thinking blocks are never masked or restored for the same
-  reason.
+  itself looks like PII and would get a fresh surrogate). Changing an earlier
+  turn can interrupt prompt-cache reuse. Thinking blocks and their signatures
+  are passed through unchanged.
+
+**Message boundaries and history identity (source checkout).** Anthropic
+`text_stream` and `get_final_text()` now restore each content block before
+joining text. A placeholder split between two different blocks stays literal;
+it cannot invent a contact from the vault. User messages always go through
+masking, even when they repeat an assistant reply. Adding or removing a JSON
+`null` in tool inputs counts as an edit.
+
+Copied dictionaries and plain strings can be replayed only when their content
+identifies one provider value. If two different replies restore to identical
+content, ambiguous reconstructed history raises `VaultError` before transport,
+and request preparation rolls back its vault changes. Keep the returned
+Anthropic `response.content` or Chat Completions `response.choices[0].message`
+objects to distinguish those occurrences. The cache retains at most 10,000
+content fingerprints and 10,000 object identities per wrapper. Edited or
+unrecognized history is masked afresh; a known ambiguous match still fails.
+Provider snapshots and outbound replay copies
+are separate, so later mutations cannot rewrite saved history.
+[Synthetic SDK captures and reproduction](studies/message-boundaries/README.md)
+show the exact before/after behavior. These changes are not yet released to PyPI.
 
 A turn veil didn't produce (or one you edited) is masked like any other
 message. In the source checkout, OpenAI tool-call arguments are decoded before

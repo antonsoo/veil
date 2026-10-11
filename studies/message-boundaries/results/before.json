@@ -1,0 +1,377 @@
+{
+  "label": "before-7bec64d",
+  "python": "3.12.12",
+  "anthropic_sdk": "1.11.0",
+  "openai_sdk": "3.23.0",
+  "scope": "Synthetic local HTTP captures through real SDKs. No provider calls or real personal data.",
+  "cases": 16,
+  "disagreements": 14,
+  "results": [
+    {
+      "case": "sync/within-one-block",
+      "input_blocks": [
+        [
+          "text",
+          [
+            "First ⟨EM",
+            "AIL_1⟩"
+          ]
+        ]
+      ],
+      "emitted_chunks": [
+        "First ",
+        "alice@example.com"
+      ],
+      "final_text": "First alice@example.com",
+      "expected_text": "First alice@example.com",
+      "checks": {
+        "stream_respects_blocks": true,
+        "final_text_respects_blocks": true,
+        "final_blocks_agree": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "async/within-one-block",
+      "input_blocks": [
+        [
+          "text",
+          [
+            "First ⟨EM",
+            "AIL_1⟩"
+          ]
+        ]
+      ],
+      "emitted_chunks": [
+        "First ",
+        "alice@example.com"
+      ],
+      "final_text": "First alice@example.com",
+      "expected_text": "First alice@example.com",
+      "checks": {
+        "stream_respects_blocks": true,
+        "final_text_respects_blocks": true,
+        "final_blocks_agree": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "sync/across-text-blocks",
+      "input_blocks": [
+        [
+          "text",
+          [
+            "First ⟨EM"
+          ]
+        ],
+        [
+          "text",
+          [
+            "AIL_1⟩ second ⟨EMAIL_2⟩"
+          ]
+        ]
+      ],
+      "emitted_chunks": [
+        "First ",
+        "alice@example.com second bob@example.org"
+      ],
+      "final_text": "First alice@example.com second bob@example.org",
+      "expected_text": "First ⟨EMAIL_1⟩ second bob@example.org",
+      "checks": {
+        "stream_respects_blocks": false,
+        "final_text_respects_blocks": false,
+        "final_blocks_agree": true
+      },
+      "agrees": false
+    },
+    {
+      "case": "async/across-text-blocks",
+      "input_blocks": [
+        [
+          "text",
+          [
+            "First ⟨EM"
+          ]
+        ],
+        [
+          "text",
+          [
+            "AIL_1⟩ second ⟨EMAIL_2⟩"
+          ]
+        ]
+      ],
+      "emitted_chunks": [
+        "First ",
+        "alice@example.com second bob@example.org"
+      ],
+      "final_text": "First alice@example.com second bob@example.org",
+      "expected_text": "First ⟨EMAIL_1⟩ second bob@example.org",
+      "checks": {
+        "stream_respects_blocks": false,
+        "final_text_respects_blocks": false,
+        "final_blocks_agree": true
+      },
+      "agrees": false
+    },
+    {
+      "case": "sync/across-tool-block",
+      "input_blocks": [
+        [
+          "text",
+          [
+            "First ⟨EM"
+          ]
+        ],
+        [
+          "tool_use",
+          [
+            "{\"to\":\"⟨EMAIL_2⟩\"}"
+          ]
+        ],
+        [
+          "text",
+          [
+            "AIL_1⟩ second ⟨EMAIL_2⟩"
+          ]
+        ]
+      ],
+      "emitted_chunks": [
+        "First ",
+        "alice@example.com second bob@example.org"
+      ],
+      "final_text": "First alice@example.com second bob@example.org",
+      "expected_text": "First ⟨EMAIL_1⟩ second bob@example.org",
+      "checks": {
+        "stream_respects_blocks": false,
+        "final_text_respects_blocks": false,
+        "final_blocks_agree": true
+      },
+      "agrees": false
+    },
+    {
+      "case": "async/across-tool-block",
+      "input_blocks": [
+        [
+          "text",
+          [
+            "First ⟨EM"
+          ]
+        ],
+        [
+          "tool_use",
+          [
+            "{\"to\":\"⟨EMAIL_2⟩\"}"
+          ]
+        ],
+        [
+          "text",
+          [
+            "AIL_1⟩ second ⟨EMAIL_2⟩"
+          ]
+        ]
+      ],
+      "emitted_chunks": [
+        "First ",
+        "alice@example.com second bob@example.org"
+      ],
+      "final_text": "First alice@example.com second bob@example.org",
+      "expected_text": "First ⟨EMAIL_1⟩ second bob@example.org",
+      "checks": {
+        "stream_respects_blocks": false,
+        "final_text_respects_blocks": false,
+        "final_blocks_agree": true
+      },
+      "agrees": false
+    },
+    {
+      "case": "sync/empty-text-block",
+      "input_blocks": [
+        [
+          "text",
+          [
+            "⟨EM"
+          ]
+        ],
+        [
+          "text",
+          []
+        ],
+        [
+          "text",
+          [
+            "AIL_1⟩"
+          ]
+        ]
+      ],
+      "emitted_chunks": [
+        "alice@example.com"
+      ],
+      "final_text": "alice@example.com",
+      "expected_text": "⟨EMAIL_1⟩",
+      "checks": {
+        "stream_respects_blocks": false,
+        "final_text_respects_blocks": false,
+        "final_blocks_agree": true
+      },
+      "agrees": false
+    },
+    {
+      "case": "async/empty-text-block",
+      "input_blocks": [
+        [
+          "text",
+          [
+            "⟨EM"
+          ]
+        ],
+        [
+          "text",
+          []
+        ],
+        [
+          "text",
+          [
+            "AIL_1⟩"
+          ]
+        ]
+      ],
+      "emitted_chunks": [
+        "alice@example.com"
+      ],
+      "final_text": "alice@example.com",
+      "expected_text": "⟨EMAIL_1⟩",
+      "checks": {
+        "stream_respects_blocks": false,
+        "final_text_respects_blocks": false,
+        "final_blocks_agree": true
+      },
+      "agrees": false
+    },
+    {
+      "case": "anthropic/history/objects",
+      "original_texts": [
+        "Mailing ⟨EMAIL_1⟩.",
+        "Mailing ⟨email_1⟩."
+      ],
+      "replayed_texts": [
+        "Mailing ⟨email_1⟩.",
+        "Mailing ⟨email_1⟩."
+      ],
+      "error": null,
+      "requests_sent": 3,
+      "checks": {
+        "preserves_identity_or_refuses_ambiguity": false
+      },
+      "agrees": false
+    },
+    {
+      "case": "anthropic/history/serialized",
+      "original_texts": [
+        "Mailing ⟨EMAIL_1⟩.",
+        "Mailing ⟨email_1⟩."
+      ],
+      "replayed_texts": [
+        "Mailing ⟨email_1⟩.",
+        "Mailing ⟨email_1⟩."
+      ],
+      "error": null,
+      "requests_sent": 3,
+      "checks": {
+        "preserves_identity_or_refuses_ambiguity": false
+      },
+      "agrees": false
+    },
+    {
+      "case": "chat/history/objects",
+      "original_texts": [
+        "Mailing ⟨EMAIL_1⟩.",
+        "Mailing ⟨email_1⟩."
+      ],
+      "replayed_texts": [
+        "Mailing ⟨email_1⟩.",
+        "Mailing ⟨email_1⟩."
+      ],
+      "error": null,
+      "requests_sent": 3,
+      "checks": {
+        "preserves_identity_or_refuses_ambiguity": false
+      },
+      "agrees": false
+    },
+    {
+      "case": "chat/history/serialized",
+      "original_texts": [
+        "Mailing ⟨EMAIL_1⟩.",
+        "Mailing ⟨email_1⟩."
+      ],
+      "replayed_texts": [
+        "Mailing ⟨email_1⟩.",
+        "Mailing ⟨email_1⟩."
+      ],
+      "error": null,
+      "requests_sent": 3,
+      "checks": {
+        "preserves_identity_or_refuses_ambiguity": false
+      },
+      "agrees": false
+    },
+    {
+      "case": "anthropic/history/remove-null",
+      "original_input": {
+        "to": "⟨EMAIL_1⟩",
+        "limit": null
+      },
+      "expected_input": {
+        "to": "⟨EMAIL_1⟩"
+      },
+      "sent_input": {
+        "to": "⟨EMAIL_1⟩",
+        "limit": null
+      },
+      "checks": {
+        "edit_preserved": false
+      },
+      "agrees": false
+    },
+    {
+      "case": "anthropic/history/add-null",
+      "original_input": {
+        "to": "⟨EMAIL_1⟩"
+      },
+      "expected_input": {
+        "to": "⟨EMAIL_1⟩",
+        "limit": null
+      },
+      "sent_input": {
+        "to": "⟨EMAIL_1⟩"
+      },
+      "checks": {
+        "edit_preserved": false
+      },
+      "agrees": false
+    },
+    {
+      "case": "anthropic/user/string",
+      "original_text": "Contact help@example.org.",
+      "sent_content": "Contact help@example.org.",
+      "checks": {
+        "user_text_masked": false
+      },
+      "agrees": false
+    },
+    {
+      "case": "anthropic/user/blocks",
+      "original_text": "Contact help@example.org.",
+      "sent_content": [
+        {
+          "text": "Contact help@example.org.",
+          "type": "text"
+        }
+      ],
+      "checks": {
+        "user_text_masked": false
+      },
+      "agrees": false
+    }
+  ]
+}
