@@ -259,7 +259,11 @@ masking, even when they repeat an assistant reply. Adding or removing a JSON
 `null` in tool inputs counts as an edit.
 
 Copied dictionaries and plain strings can be replayed only when their content
-identifies one provider value. If two different replies restore to identical
+identifies one provider value and the cache has never evicted a content entry.
+After an eviction, forgotten history could contain another original for the
+same restored value, so content-only matches raise `VaultError`. Unchanged
+retained objects (including blocks in a rebuilt content list) still identify
+their own originals. If two different replies restore to identical
 content, ambiguous reconstructed history raises `VaultError` before transport,
 and request preparation rolls back its vault changes. Keep the returned
 Anthropic `response.content` or Chat Completions `response.choices[0].message`

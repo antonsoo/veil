@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Retain JSON nulls in replay fingerprints, mask user messages independently of
   assistant history, and snapshot originals so callers cannot mutate the cache.
 - Keep synthetic before/after SDK HTTP captures in `studies/message-boundaries`.
+- Refuse content-only replay once cache eviction has removed the evidence of
+  uniqueness. An old turn cannot silently inherit a later equal turn's original.
+  Retained unchanged objects, including blocks in rebuilt content lists, still
+  replay their own originals.
 
 ### JSON tool history
 

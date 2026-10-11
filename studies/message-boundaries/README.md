@@ -117,6 +117,42 @@ and restores byte-for-byte to the input.
 
 ## Scope
 
+### Cache capacity follow-up
+
+A pre-publication long-run check at `ebc64b9` found another source-identity
+failure: once the cache forgot turn A, a later turn B with equal restored
+content appeared unique. Replaying the old A object then sent B's placeholder
+spelling. [Before](results/capacity-before.json) and
+[after](results/capacity-after.json) retain the actual SDK request bodies and
+a control using the default 10,000-entry capacity.
+
+```text
+turn A -> evicted -> equal turn B arrives -> old A is submitted
+before: content match chooses B
+after:  lost identity causes an error before HTTP
+```
+
+Content matching is now disabled permanently after the first content eviction.
+An unchanged retained object still identifies its original. A rebuilt list can
+also use its retained, unchanged block objects; a deep copy cannot. This is a
+deliberate bounded-memory tradeoff: retaining only recent collisions cannot
+establish uniqueness over forgotten history. Unrecognized or edited history
+still goes through fresh masking; it is not promised exact replay.
+
+Reproduce the five capacity scenarios with:
+
+```bash
+uv run python studies/message-boundaries/capacity.py --source . --check
+```
+
+Use an archive of `ebc64b9` with `--source` and omit `--check` for the failing
+behavior. The four SDK cases use an eight-entry cache to force eviction in
+eight replies; this is a deterministic counterexample, not a claim about a
+typical conversation length. SDK serialization aliases and individual block
+entries also consume capacity.
+
+### Remaining boundaries
+
 The cache is local to one wrapper. It retains at most 10,000 content fingerprints
 and 10,000 object identities; SDK serialization aliases count against the
 fingerprint limit. Exact replay only applies to retained, unchanged history.
