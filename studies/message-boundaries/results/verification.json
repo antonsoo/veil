@@ -1,0 +1,54 @@
+{
+  "source_commit": "8af48db",
+  "implementation_commits": ["49c440f", "7bdeb31"],
+  "baseline_commit": "7bec64d6bd76a19cf37a9bb3b56e6e77c1bd533b",
+  "clean_archive": {
+    "python": "3.12.12",
+    "anthropic": "1.11.0",
+    "openai": "3.23.0",
+    "ruff_check": "passed",
+    "ruff_format": "passed",
+    "mypy": "passed",
+    "pytest": {"passed": 493, "skipped": 1},
+    "skip": "Optional spaCy backend was not installed.",
+    "build": "uv build: source distribution, then wheel from that source distribution"
+  },
+  "artifacts": [
+    {
+      "file": "veil_pii-0.4.4-py3-none-any.whl",
+      "sha256": "0f6e66bf3de6c75b9951cff8893dd3c56d63bca315192480aa7ae0d399234d11"
+    },
+    {
+      "file": "veil_pii-0.4.4.tar.gz",
+      "sha256": "b66868b62d0431ffc577844fd48df98764c1a50f6e4a6d30e6a36ce64eea47db"
+    }
+  ],
+  "installed_current": {
+    "python": "3.14.7",
+    "anthropic": "1.13.0",
+    "openai": "3.28.0",
+    "veil_imported_from_installed_environment": true,
+    "capture_cases": 16,
+    "capture_disagreements": 0,
+    "pytest": {"passed": 493, "skipped": 1},
+    "skip": "Optional spaCy backend was not installed.",
+    "readme_python_example": "passed",
+    "readme_cli_support_ticket_mask_restore_byte_comparison": "passed",
+    "readme_cli_audit_masked_ticket": "exit 0"
+  },
+  "installed_minimum": {
+    "python": "3.10.21",
+    "anthropic": "0.40.0",
+    "openai": "1.66.0",
+    "veil_imported_from_installed_environment": true,
+    "capture_cases": 16,
+    "capture_disagreements": 0,
+    "pytest": {"passed": 487, "skipped": 7},
+    "skips": {
+      "optional_spacy_not_installed": 1,
+      "minimum_anthropic_predates_thinking_blocks": 5,
+      "minimum_openai_predates_reasoning_summary": 1
+    }
+  },
+  "scope": "Local source and installed wheel verification. Synthetic HTTP responses, no provider calls, no publication or deployment. Optional spaCy behavior was not exercised."
+}

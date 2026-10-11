@@ -86,6 +86,35 @@ Unit regressions additionally cover every internal cut of the placeholder,
 partial iterator consumption, empty/tool-only messages, snapshot mutation,
 bounded identity retention and masking rollback.
 
+## Clean and installed verification
+
+The [verification receipt](results/verification.json) identifies source commit
+`8af48db`, the wheel/sdist SHA-256 hashes, runtime versions and every skip. The
+wheel was built from the source distribution in a clean `git archive` of that
+commit. Tests in each installed environment imported Veil from its
+`site-packages`, outside the source checkout.
+
+| Environment | Python | Anthropic SDK | OpenAI SDK | Full suite | Capture disagreements |
+| --- | --- | --- | --- | --- | --- |
+| Clean source, locked dependencies | 3.12.12 | 1.11.0 | 3.23.0 | 493 passed, 1 skipped | 0/16 in source replay |
+| [Installed wheel, newly resolved SDKs](results/installed-current.json) | 3.14.7 | 1.13.0 | 3.28.0 | 493 passed, 1 skipped | 0/16 |
+| [Installed wheel, minimum direct dependencies](results/installed-minimum.json) | 3.10.21 | 0.40.0 | 1.66.0 | 487 passed, 7 skipped | 0/16 |
+
+The clean source commands were `uv sync --locked`, `uv run --locked ruff check .`,
+`uv run --locked ruff format --check .`, `uv run --locked mypy`,
+`uv run --locked pytest -q` and `uv build`. Each installed environment ran
+`python -m pytest -q <clean-archive>/tests` and the capture command above, without
+`--source`. The minimum environment used `uv pip install --resolution
+lowest-direct <wheel>[anthropic,openai,vault-crypto] --group dev` with this
+repository's development dependency declarations.
+
+The optional spaCy backend is absent in all three environments. The minimum
+SDKs additionally skip five tests requiring Anthropic thinking blocks and one
+requiring an OpenAI reasoning-summary field. All new boundary and replay
+regressions run in both installed environments. The installed Python README
+example passes, and the support-ticket CLI example masks, audits successfully,
+and restores byte-for-byte to the input.
+
 ## Scope
 
 The cache is local to one wrapper. It retains at most 10,000 content fingerprints
