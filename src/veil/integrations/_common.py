@@ -132,7 +132,8 @@ class ReplayCache:
 
     Distinct originals can restore to identical text. Retained list/dict/SDK
     objects carry their own identity; reconstructed values can use a content
-    match only while that match is unambiguous. Plain strings have no reliable
+    match only while that match is unambiguous and no content has been evicted.
+    Plain strings have no reliable
     occurrence identity. An ambiguous lookup fails before transport instead of
     choosing another turn's spelling. Both indexes are bounded by max_entries;
     exact replay is limited to retained, unchanged entries in this wrapper.
@@ -144,6 +145,7 @@ class ReplayCache:
         self._entries: OrderedDict[str, _ReplayValue] = OrderedDict()
         self._objects: OrderedDict[int, _ReplayObject] = OrderedDict()
         self._max_entries = max_entries
+        self._content_history_complete = True
 
     def remember(self, restored: Any, original: Any) -> None:
         key = fingerprint(restored)
@@ -159,6 +161,9 @@ class ReplayCache:
             self._entries.move_to_end(content_key)
         while len(self._entries) > self._max_entries:
             self._entries.popitem(last=False)
+            # A later equal value may have had a different original in the
+            # forgotten history. Bounded memory cannot prove uniqueness again.
+            self._content_history_complete = False
 
         # Strings may be interned, or restoration may return the same vault
         # string for several turns. Only containers have occurrence identity.
@@ -176,7 +181,7 @@ class ReplayCache:
             while len(self._objects) > self._max_entries:
                 self._objects.popitem(last=False)
 
-    def original_for(self, value: Any) -> Any | None:
+    def original_for(self, value: Any, *, identity_only: bool = False) -> Any | None:
         key = fingerprint(value)
         identity = self._objects.get(id(value))
         entry: _ReplayValue | None
@@ -185,7 +190,22 @@ class ReplayCache:
                 return None  # The application edited this object: mask it afresh.
             entry = identity.value
         else:
+            if identity_only:
+                return None
             entry = self._entries.get(key)
+            if entry is not None and (entry.ambiguous or not self._content_history_complete):
+                # Rebuilding a content list need not lose the identities of its
+                # blocks. Every block must still be unchanged and retained.
+                if isinstance(value, list) and value:
+                    originals = [self.original_for(item, identity_only=True) for item in value]
+                    if all(item is not None for item in originals):
+                        return originals
+                if not self._content_history_complete:
+                    raise VaultError(
+                        "Replay cache capacity was exceeded; copied or plain-text assistant "
+                        "history can no longer be identified safely. Keep unchanged returned "
+                        "message/content objects while retained, or begin a new conversation."
+                    )
         if entry is None:
             return None
         if entry.ambiguous:

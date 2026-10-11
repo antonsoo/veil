@@ -20,6 +20,7 @@ from veil.integrations._common import ReplayCache
 from veil.integrations.anthropic import AnthropicVeil, mask_messages
 from veil.integrations.openai import OpenAIVeil
 from veil.masker import Masker
+from veil.vault import VaultError
 
 anthropic_types = pytest.importorskip("anthropic.types")
 Message = anthropic_types.Message
@@ -180,7 +181,8 @@ def test_replay_cache_is_bounded() -> None:
         cache.remember(f"restored {i}", f"original {i}")
     assert len(cache) == 3
     assert cache.original_for("restored 0") is None
-    assert cache.original_for("restored 4") == "original 4"
+    with pytest.raises(VaultError, match="capacity was exceeded"):
+        cache.original_for("restored 4")
 
 
 class RecordingCompletions:

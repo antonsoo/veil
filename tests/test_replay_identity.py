@@ -128,6 +128,47 @@ def test_remembering_the_same_original_again_does_not_clear_ambiguity():
         cache.original_for("same")
 
 
+def test_eviction_never_turns_forgotten_history_into_a_later_original():
+    cache = ReplayCache(max_entries=2)
+    old = {"text": "same"}
+    cache.remember(old, {"text": "first original"})
+    for i in range(3):
+        cache.remember({"text": f"unrelated {i}"}, {"text": f"unrelated {i}"})
+    recent = {"text": "same"}
+    cache.remember(recent, {"text": "later original"})
+    assert cache.original_for(recent) == {"text": "later original"}
+    with pytest.raises(VaultError, match="capacity was exceeded"):
+        cache.original_for(old)
+    with pytest.raises(VaultError, match="capacity was exceeded"):
+        cache.original_for(deepcopy(recent))
+
+
+def test_ambiguous_content_lists_can_still_use_retained_block_identities():
+    cache = ReplayCache()
+    first = [{"text": "same"}]
+    second = [{"text": "same"}]
+    for restored, original in [(first, [{"text": "first"}]), (second, [{"text": "second"}])]:
+        cache.remember(restored, original)
+        cache.remember(restored[0], original[0])
+    assert cache.original_for(list(first)) == [{"text": "first"}]
+    assert cache.original_for(list(second)) == [{"text": "second"}]
+    with pytest.raises(VaultError, match="Ambiguous assistant history"):
+        cache.original_for(deepcopy(first))
+
+
+def test_retained_block_identity_survives_parent_list_eviction():
+    cache = ReplayCache(max_entries=2)
+    restored = [{"text": "same"}]
+    original = [{"text": "original"}]
+    cache.remember(restored, original)
+    cache.remember(restored[0], original[0])
+    cache.remember("extra", "extra")
+    # Simulate a separately reconstructed list being registered again. Its
+    # content match is now unsafe, but the retained block is identifiable.
+    cache.remember(list(restored), original)
+    assert cache.original_for(list(restored)) == original
+
+
 @pytest.mark.parametrize("edit", ["remove", "add"])
 def test_anthropic_tool_input_null_edits_reach_the_wire(edit):
     tool_input = {"to": "⟨EMAIL_1⟩", **({"limit": None} if edit == "remove" else {})}
