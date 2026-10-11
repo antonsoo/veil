@@ -1,0 +1,63 @@
+{
+  "source_commit": "e7799fd",
+  "implementation_commit": "52d6465",
+  "baseline_commit": "ebc64b9",
+  "clean_archive": {
+    "python": "3.12.12",
+    "ruff_check": "passed",
+    "ruff_format": "passed",
+    "mypy": "passed",
+    "pytest": {
+      "passed": 496,
+      "skipped": 1
+    },
+    "build": "uv build: source distribution, then wheel from that distribution"
+  },
+  "artifacts": [
+    {
+      "file": "veil_pii-0.4.4-py3-none-any.whl",
+      "sha256": "7e8503457e5562d263b8f2e35ae77e5dd8e22c536b24b9775b0aa91944e4bbf0"
+    },
+    {
+      "file": "veil_pii-0.4.4.tar.gz",
+      "sha256": "7cacb0bc3447d64a407c44171d684ce33110e38061379a95ce791ba259e2ce27"
+    }
+  ],
+  "scope": "Source and installed artifact verification. Synthetic local SDK captures; no provider calls or registry release.",
+  "installed_current": {
+    "python": "3.14.7",
+    "anthropic_sdk": "1.13.0",
+    "openai_sdk": "3.28.0",
+    "veil_imported_from_installed_environment": true,
+    "capacity_cases": 5,
+    "capacity_disagreements": 0,
+    "boundary_cases": 16,
+    "boundary_disagreements": 0,
+    "pytest": {
+      "passed": 496,
+      "skipped": 1
+    },
+    "skips": {
+      "optional_spacy_not_installed": 1
+    }
+  },
+  "installed_minimum": {
+    "python": "3.10.21",
+    "anthropic_sdk": "0.40.0",
+    "openai_sdk": "1.66.0",
+    "veil_imported_from_installed_environment": true,
+    "capacity_cases": 5,
+    "capacity_disagreements": 0,
+    "boundary_cases": 16,
+    "boundary_disagreements": 0,
+    "pytest": {
+      "passed": 490,
+      "skipped": 7
+    },
+    "skips": {
+      "optional_spacy_not_installed": 1,
+      "minimum_anthropic_predates_thinking_blocks": 5,
+      "minimum_openai_predates_reasoning_summary": 1
+    }
+  }
+}

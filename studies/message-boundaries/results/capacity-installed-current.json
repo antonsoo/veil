@@ -1,0 +1,78 @@
+{
+  "label": "installed-capacity-current",
+  "python": "3.14.7",
+  "anthropic_sdk": "1.13.0",
+  "scope": "Synthetic local SDK captures and a default-capacity cache control. No provider calls.",
+  "cases": 5,
+  "disagreements": 0,
+  "results": [
+    {
+      "case": "anthropic/eviction/old-object",
+      "original_texts": [
+        "Mailing ⟨EMAIL_1⟩.",
+        "Mailing ⟨email_1⟩."
+      ],
+      "sent_text": null,
+      "error": "Replay cache capacity was exceeded; copied or plain-text assistant history can no longer be identified safely. Keep unchanged returned message/content objects while retained, or begin a new conversation.",
+      "requests_sent": 8,
+      "checks": {
+        "retains_source_or_refuses": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "anthropic/eviction/recent-object",
+      "original_texts": [
+        "Mailing ⟨EMAIL_1⟩.",
+        "Mailing ⟨email_1⟩."
+      ],
+      "sent_text": "Mailing ⟨email_1⟩.",
+      "error": null,
+      "requests_sent": 9,
+      "checks": {
+        "retains_source_or_refuses": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "anthropic/eviction/recent-copy",
+      "original_texts": [
+        "Mailing ⟨EMAIL_1⟩.",
+        "Mailing ⟨email_1⟩."
+      ],
+      "sent_text": null,
+      "error": "Replay cache capacity was exceeded; copied or plain-text assistant history can no longer be identified safely. Keep unchanged returned message/content objects while retained, or begin a new conversation.",
+      "requests_sent": 8,
+      "checks": {
+        "retains_source_or_refuses": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "anthropic/eviction/recent-blocks",
+      "original_texts": [
+        "Mailing ⟨EMAIL_1⟩.",
+        "Mailing ⟨email_1⟩."
+      ],
+      "sent_text": "Mailing ⟨email_1⟩.",
+      "error": null,
+      "requests_sent": 9,
+      "checks": {
+        "retains_source_or_refuses": true
+      },
+      "agrees": true
+    },
+    {
+      "case": "default-capacity/forgotten-original",
+      "replayed_old_value": null,
+      "error": "Replay cache capacity was exceeded; copied or plain-text assistant history can no longer be identified safely. Keep unchanged returned message/content objects while retained, or begin a new conversation.",
+      "retained_content_entries": 10000,
+      "checks": {
+        "refuses_lost_identity": true,
+        "retains_recent_identity": true,
+        "bounded": true
+      },
+      "agrees": true
+    }
+  ]
+}

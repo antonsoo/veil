@@ -151,6 +151,15 @@ eight replies; this is a deterministic counterexample, not a claim about a
 typical conversation length. SDK serialization aliases and individual block
 entries also consume capacity.
 
+The follow-up [verification receipt](results/capacity-verification.json) covers
+source commit `e7799fd`, built as an sdist and then wheel from a clean archive.
+Both installed environments pass all five capacity scenarios and the earlier
+16 boundary scenarios. The current SDK environment passes 496 tests with the
+optional spaCy test skipped; the minimum SDK environment passes 490 with the
+same seven optional/version skips described above. Lint, formatting, type
+checking and the clean source suite also pass. Artifact hashes and full capture
+links are retained alongside the receipt; these remain synthetic local results.
+
 ### Remaining boundaries
 
 The cache is local to one wrapper. It retains at most 10,000 content fingerprints
