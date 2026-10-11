@@ -21,8 +21,8 @@ arrives after a choice has finished.
 **Async.** :class:`AsyncOpenAIVeil` is the same wrapper for
 ``openai.AsyncOpenAI``; each refuses the other kind of client.
 
-**Tool-call arguments are a JSON string.** In a complete response they are
-parsed, restored value by value, and re-serialized, so the restore doesn't
+**Tool-call arguments are a JSON string.** In a complete response, string
+values are decoded and only changed values are re-serialized, so the restore doesn't
 depend on how the model escaped the surrogate (a model may write ``⟨`` as
 ``\\u27e8``). Mid-stream a surrogate can straddle a ``{``/``"``/``,``
 boundary, so the fragments go through a :class:`veil.restore.Restorer` in

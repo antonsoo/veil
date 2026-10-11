@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### JSON tool history
 
+- Restore complete tool replies by rewriting only changed string values. Numeric
+  precision, large exponents, duplicate members and untouched spelling are no
+  longer lost when another argument contains a surrogate. Tolerant restoration,
+  best effort for malformed replies and exact provider-history replay remain.
 - Decode JSON string values before masking OpenAI Chat Completions and Responses
   function-call arguments. Unicode escapes can no longer conceal a detected
   email or known name from the outbound masking pass.

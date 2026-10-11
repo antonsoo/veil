@@ -262,10 +262,15 @@ the request is sent, with the request's vault changes rolled back. Put sensitive
 data in string values, not field names or numeric values. This fix is not yet in
 the PyPI release; [inspect the actual SDK captures](studies/json-tool-arguments/README.md).
 
-OpenAI tool-call arguments arrive as a JSON string; veil parses
-them before restoring, so a surrogate the model wrote with `\u27e8`-style
+OpenAI tool-call arguments arrive as a JSON string; veil decodes string values
+before restoring, so a surrogate the model wrote with `\u27e8`-style
 escapes is still found, and restored values are escaped so the arguments
 stay valid JSON.
+
+Complete replies now preserve unrelated JSON tokens too. Restoring an address
+must not round an amount, discard repeated members or convert a large exponent
+to `Infinity`. [Captured complete replies](studies/json-tool-restoration/README.md)
+record these corrections; they are not yet in the PyPI release.
 
 Streamed arguments use the same JSON string boundaries: mixed and uppercase
 Unicode escapes restore correctly, while literal backslashes, object keys and
