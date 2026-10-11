@@ -1,0 +1,27 @@
+{
+  "source_commit": "01ca618",
+  "clean_archive": {
+    "python": "3.14.7",
+    "openai": "3.23.0",
+    "ruff_check": "passed",
+    "ruff_format": "passed",
+    "mypy": "passed",
+    "pytest": {
+      "passed": 445,
+      "skipped": 1,
+      "skip": "Optional spaCy backend not installed"
+    },
+    "wheel_built_from_sdist": true
+  },
+  "artifact": {
+    "file": "veil_pii-0.4.4-py3-none-any.whl",
+    "sha256": "2fd91e2a3157fa061f38e8730fa836bdf942f03a03ef87edb3961a1b76feb1c6"
+  },
+  "installed": {
+    "python": "3.10.21",
+    "openai": "1.66.0",
+    "capture_cases": 16,
+    "disagreements": 0
+  },
+  "scope": "Local build and installed artifact. No registry release or live model calls."
+}

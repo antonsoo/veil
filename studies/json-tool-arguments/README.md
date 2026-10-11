@@ -61,3 +61,15 @@ anonymized; sensitive identifiers should be strings. Ordinary message text and
 custom-tool input are not recursively decoded as JSON. This verifies local SDK
 serialization, not remote provider acceptance or a real model's behavior. The
 source correction is not yet in a PyPI release.
+
+## Artifact verification
+
+A fresh archive of `01ca618` was installed on Python 3.14.7 with the locked
+development dependencies. Ruff lint/format, mypy, all 445 tests and the wheel
+build from the source distribution passed. One optional spaCy test module was
+skipped because that extra was not installed.
+
+The built wheel was separately installed on Python 3.10.21 with OpenAI 1.66.0,
+the declared minimum versions. Its [16 captured cases](results/installed-minimum.json)
+all agree with the corrected boundary. The wheel hash and exact verification
+scope are retained in [verification.json](results/verification.json).
