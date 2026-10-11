@@ -253,7 +253,16 @@ and swaps them back in before the request leaves, so:
   reason.
 
 A turn veil didn't produce (or one you edited) is masked like any other
-message. OpenAI tool-call arguments arrive as a JSON string; veil parses
+message. In the source checkout, OpenAI tool-call arguments are decoded before
+masking: `{"to":"alice\u0040example.org"}` contains an email even though its raw
+JSON spelling has no `@`. Only changed string values are rewritten; object
+structure, numeric spelling, duplicate members and untouched escapes are kept.
+Malformed JSON or a detected sensitive field name raises `VaultError` before
+the request is sent, with the request's vault changes rolled back. Put sensitive
+data in string values, not field names or numeric values. This fix is not yet in
+the PyPI release; [inspect the actual SDK captures](studies/json-tool-arguments/README.md).
+
+OpenAI tool-call arguments arrive as a JSON string; veil parses
 them before restoring, so a surrogate the model wrote with `\u27e8`-style
 escapes is still found, and restored values are escaped so the arguments
 stay valid JSON.
@@ -486,6 +495,12 @@ over-masking fix that followed it.
   underlying client they send what you pass, unmasked. A model's thinking
   text is passed through as it was signed, so it shows surrogates, not the
   originals.
+- **JSON argument masking covers string values.** Numbers, booleans and null
+  retain their types and are not anonymized. Encode sensitive identifiers as
+  strings. JSON escape decoding applies to function-call `arguments`, whose
+  format is specified by the API; it does not recursively interpret ordinary
+  message text or custom-tool input as JSON. Exact replay of provider-produced
+  history retains the provider's original arguments, including malformed ones.
 - **US-centric.** SSN and the address heuristic assume US formats. A phone
   number is found in the North American format, or in any country's when it
   is written with a `+`. Written the local way anywhere else

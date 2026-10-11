@@ -1,0 +1,675 @@
+{
+  "label": "after",
+  "python": "3.12.12",
+  "openai_sdk": "3.23.0",
+  "scope": "Synthetic contacts; real SDK serialization with local mock HTTP. No provider calls or real credentials.",
+  "cases": 16,
+  "disagreements": 0,
+  "results": [
+    {
+      "api": "chat",
+      "case": "escaped-address",
+      "source_arguments": "{\"to\":\"alice\\u0040example.org\"}",
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "id": "call_1",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": "{\"to\":\"⟨EMAIL_1⟩\"}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "Done"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "decoded_sent_arguments": {
+        "to": "⟨EMAIL_1⟩"
+      },
+      "restored_arguments": "{\"to\": \"alice@example.org\"}",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "fully-escaped-address",
+      "source_arguments": "{\"to\":\"\\u0061\\u006c\\u0069\\u0063\\u0065\\u0040\\u0065\\u0078\\u0061\\u006d\\u0070\\u006c\\u0065\\u002e\\u006f\\u0072\\u0067\"}",
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "id": "call_1",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": "{\"to\":\"⟨EMAIL_1⟩\"}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "Done"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "decoded_sent_arguments": {
+        "to": "⟨EMAIL_1⟩"
+      },
+      "restored_arguments": "{\"to\": \"alice@example.org\"}",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "nested-known-person",
+      "source_arguments": "{\"people\":[{\"name\":\"Zo\\u00eb Example\",\"email\":\"alice\\u0040example.org\"}],\"enabled\":true}",
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "id": "call_1",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": "{\"people\":[{\"name\":\"⟨PERSON_1⟩\",\"email\":\"⟨EMAIL_1⟩\"}],\"enabled\":true}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "Done"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "decoded_sent_arguments": {
+        "people": [
+          {
+            "name": "⟨PERSON_1⟩",
+            "email": "⟨EMAIL_1⟩"
+          }
+        ],
+        "enabled": true
+      },
+      "restored_arguments": "{\"people\": [{\"name\": \"Zoë Example\", \"email\": \"alice@example.org\"}], \"enabled\": true}",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "PERSON",
+            "original": "Zoë Example",
+            "surrogate": "⟨PERSON_1⟩",
+            "detector": "known_entities"
+          },
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "literal-placeholder",
+      "source_arguments": "{\"to\":\"alice\\u0040example.org\",\"example\":\"\\u27E8EMAIL_1\\u27E9\"}",
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "id": "call_1",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": "{\"to\":\"⟨EMAIL_2⟩\",\"example\":\"\\u27E8EMAIL_1\\u27E9\"}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "Done"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "decoded_sent_arguments": {
+        "to": "⟨EMAIL_2⟩",
+        "example": "⟨EMAIL_1⟩"
+      },
+      "restored_arguments": "{\"to\": \"alice@example.org\", \"example\": \"⟨EMAIL_1⟩\"}",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_2⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "literal-backslash",
+      "source_arguments": "{\"example\":\"alice\\\\u0040example.org\",\"emoji\":\"\\ud83d\\ude00\",\"n\":1.20e+03}",
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "tool_calls": [
+                {
+                  "type": "function",
+                  "id": "call_1",
+                  "function": {
+                    "name": "send_email",
+                    "arguments": "{\"example\":\"alice\\\\u0040example.org\",\"emoji\":\"\\ud83d\\ude00\",\"n\":1.20e+03}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "Done"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "decoded_sent_arguments": {
+        "example": "alice\\u0040example.org",
+        "emoji": "😀",
+        "n": 1200.0
+      },
+      "restored_arguments": "{\"example\":\"alice\\\\u0040example.org\",\"emoji\":\"\\ud83d\\ude00\",\"n\":1.20e+03}",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "truncated-arguments",
+      "source_arguments": "{\"to\":\"alice\\u0040example.org\"",
+      "requests": [],
+      "decoded_sent_arguments": null,
+      "restored_arguments": null,
+      "error": {
+        "type": "VaultError",
+        "message": "Tool arguments must be complete, valid JSON before masking"
+      },
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "non-json-number",
+      "source_arguments": "{\"to\":\"alice\\u0040example.org\",\"n\":NaN}",
+      "requests": [],
+      "decoded_sent_arguments": null,
+      "restored_arguments": null,
+      "error": {
+        "type": "VaultError",
+        "message": "Tool arguments must be complete, valid JSON before masking"
+      },
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "chat",
+      "case": "sensitive-field-name",
+      "source_arguments": "{\"alice\\u0040example.org\":\"yes\"}",
+      "requests": [],
+      "decoded_sent_arguments": null,
+      "restored_arguments": null,
+      "error": {
+        "type": "VaultError",
+        "message": "Tool arguments contain a sensitive JSON key; use a non-sensitive field name"
+      },
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "escaped-address",
+      "source_arguments": "{\"to\":\"alice\\u0040example.org\"}",
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call",
+              "call_id": "call_1",
+              "name": "send_email",
+              "arguments": "{\"to\":\"⟨EMAIL_1⟩\"}"
+            },
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": "Done"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "decoded_sent_arguments": {
+        "to": "⟨EMAIL_1⟩"
+      },
+      "restored_arguments": "{\"to\": \"alice@example.org\"}",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "fully-escaped-address",
+      "source_arguments": "{\"to\":\"\\u0061\\u006c\\u0069\\u0063\\u0065\\u0040\\u0065\\u0078\\u0061\\u006d\\u0070\\u006c\\u0065\\u002e\\u006f\\u0072\\u0067\"}",
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call",
+              "call_id": "call_1",
+              "name": "send_email",
+              "arguments": "{\"to\":\"⟨EMAIL_1⟩\"}"
+            },
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": "Done"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "decoded_sent_arguments": {
+        "to": "⟨EMAIL_1⟩"
+      },
+      "restored_arguments": "{\"to\": \"alice@example.org\"}",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "nested-known-person",
+      "source_arguments": "{\"people\":[{\"name\":\"Zo\\u00eb Example\",\"email\":\"alice\\u0040example.org\"}],\"enabled\":true}",
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call",
+              "call_id": "call_1",
+              "name": "send_email",
+              "arguments": "{\"people\":[{\"name\":\"⟨PERSON_1⟩\",\"email\":\"⟨EMAIL_1⟩\"}],\"enabled\":true}"
+            },
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": "Done"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "decoded_sent_arguments": {
+        "people": [
+          {
+            "name": "⟨PERSON_1⟩",
+            "email": "⟨EMAIL_1⟩"
+          }
+        ],
+        "enabled": true
+      },
+      "restored_arguments": "{\"people\": [{\"name\": \"Zoë Example\", \"email\": \"alice@example.org\"}], \"enabled\": true}",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "PERSON",
+            "original": "Zoë Example",
+            "surrogate": "⟨PERSON_1⟩",
+            "detector": "known_entities"
+          },
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "literal-placeholder",
+      "source_arguments": "{\"to\":\"alice\\u0040example.org\",\"example\":\"\\u27E8EMAIL_1\\u27E9\"}",
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call",
+              "call_id": "call_1",
+              "name": "send_email",
+              "arguments": "{\"to\":\"⟨EMAIL_2⟩\",\"example\":\"\\u27E8EMAIL_1\\u27E9\"}"
+            },
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": "Done"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "decoded_sent_arguments": {
+        "to": "⟨EMAIL_2⟩",
+        "example": "⟨EMAIL_1⟩"
+      },
+      "restored_arguments": "{\"to\": \"alice@example.org\", \"example\": \"⟨EMAIL_1⟩\"}",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "alice@example.org",
+            "surrogate": "⟨EMAIL_2⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "literal-backslash",
+      "source_arguments": "{\"example\":\"alice\\\\u0040example.org\",\"emoji\":\"\\ud83d\\ude00\",\"n\":1.20e+03}",
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call",
+              "call_id": "call_1",
+              "name": "send_email",
+              "arguments": "{\"example\":\"alice\\\\u0040example.org\",\"emoji\":\"\\ud83d\\ude00\",\"n\":1.20e+03}"
+            },
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": "Done"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "decoded_sent_arguments": {
+        "example": "alice\\u0040example.org",
+        "emoji": "😀",
+        "n": 1200.0
+      },
+      "restored_arguments": "{\"example\":\"alice\\\\u0040example.org\",\"emoji\":\"\\ud83d\\ude00\",\"n\":1.20e+03}",
+      "error": null,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "truncated-arguments",
+      "source_arguments": "{\"to\":\"alice\\u0040example.org\"",
+      "requests": [],
+      "decoded_sent_arguments": null,
+      "restored_arguments": null,
+      "error": {
+        "type": "VaultError",
+        "message": "Tool arguments must be complete, valid JSON before masking"
+      },
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "non-json-number",
+      "source_arguments": "{\"to\":\"alice\\u0040example.org\",\"n\":NaN}",
+      "requests": [],
+      "decoded_sent_arguments": null,
+      "restored_arguments": null,
+      "error": {
+        "type": "VaultError",
+        "message": "Tool arguments must be complete, valid JSON before masking"
+      },
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    },
+    {
+      "api": "responses",
+      "case": "sensitive-field-name",
+      "source_arguments": "{\"alice\\u0040example.org\":\"yes\"}",
+      "requests": [],
+      "decoded_sent_arguments": null,
+      "restored_arguments": null,
+      "error": {
+        "type": "VaultError",
+        "message": "Tool arguments contain a sensitive JSON key; use a non-sensitive field name"
+      },
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "checks": {
+        "expected_rejection": true,
+        "transport_boundary": true,
+        "decoded_contact_absent": true,
+        "round_trip": true,
+        "vault_rollback": true
+      },
+      "agrees": true
+    }
+  ]
+}

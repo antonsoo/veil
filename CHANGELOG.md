@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### JSON tool history
+
+- Decode JSON string values before masking OpenAI Chat Completions and Responses
+  function-call arguments. Unicode escapes can no longer conceal a detected
+  email or known name from the outbound masking pass.
+- Preserve unrelated JSON spelling and numeric precision; reserve decoded
+  placeholder literals together. Reject malformed arguments and detected
+  sensitive object keys before transport, rolling back request preparation.
+  Numeric values retain their types and remain outside string masking.
+- Retain real SDK before/after captures with synthetic contacts in
+  `studies/json-tool-arguments`. Existing provider-history replay stays exact.
+
 ### Surrogate identity
 
 - Reserve literal source tokens, case/whitespace variants and known original

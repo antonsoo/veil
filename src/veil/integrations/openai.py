@@ -50,6 +50,7 @@ from veil.integrations._common import (
     needs_await,
     restore_arguments,
 )
+from veil.integrations._json_arguments import mask_arguments
 from veil.masker import Masker
 from veil.restore import Restorer
 
@@ -91,7 +92,7 @@ def _mask_tool_calls(tool_calls: Any, masker: Masker) -> Any:
         if fn is not None:
             args = get_field(fn, "arguments")
             if isinstance(args, str):
-                fn = model_copy_with(fn, arguments=masker.mask(args))
+                fn = model_copy_with(fn, arguments=mask_arguments(args, masker))
             call = model_copy_with(call, function=fn)
         out.append(call)
     return out

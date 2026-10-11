@@ -42,6 +42,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from veil.integrations._common import ReplayCache, get_field, model_copy_with, restore_arguments
+from veil.integrations._json_arguments import mask_arguments
 from veil.masker import Masker
 from veil.restore import Restorer
 
@@ -80,7 +81,7 @@ def _mask_item(item: Any, masker: Masker) -> Any:
     if item_type == "function_call":
         arguments = get_field(item, "arguments")
         if isinstance(arguments, str):
-            return model_copy_with(item, arguments=masker.mask(arguments))
+            return model_copy_with(item, arguments=mask_arguments(arguments, masker))
     elif item_type in ("function_call_output", "custom_tool_call_output"):
         return model_copy_with(item, output=_mask_text_or_parts(get_field(item, "output"), masker))
     elif item_type == "custom_tool_call":
