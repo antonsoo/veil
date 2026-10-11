@@ -109,7 +109,14 @@ def mask_messages(
     messages: list[Any], masker: Masker, replay: ReplayCache | None = None
 ) -> list[Any]:
     return [
-        model_copy_with(m, content=mask_content(get_field(m, "content"), masker, replay))
+        model_copy_with(
+            m,
+            content=mask_content(
+                get_field(m, "content"),
+                masker,
+                replay if get_field(m, "role") == "assistant" else None,
+            ),
+        )
         for m in messages
     ]
 
@@ -308,11 +315,8 @@ class VeilMessageStream(_Delegating):
     raw: Any  # the object returned by client.messages.stream(...) (a context manager)
     masker: Masker
     replay: ReplayCache | None = None
-    _restorer: Restorer = field(init=False)
+    _events: Iterator[Any] | None = field(default=None, init=False)
     _entered: Any = field(default=None, init=False)
-
-    def __post_init__(self) -> None:
-        self._restorer = Restorer(self.masker.vault)
 
     def _target(self) -> Any:
         return self._entered if self._entered is not None else self.raw
@@ -326,16 +330,20 @@ class VeilMessageStream(_Delegating):
 
     @property
     def text_stream(self) -> Generator[str, None, None]:
-        for text in self._target().text_stream:
-            restored = self._restorer.feed(text)
-            if restored:
-                yield restored
-        tail = self._restorer.flush()
-        if tail:
-            yield tail
+        # The SDK's text_stream drops block boundaries. Restore indexed events
+        # first, so a prefix in one block cannot complete in another block.
+        for event in self:
+            text = _text_delta(event)
+            if text:
+                yield text
 
     def __iter__(self) -> Iterator[Any]:
         """Yield the SDK's events, restored (see :class:`EventRestorer`)."""
+        if self._events is None:
+            self._events = self._iter_events()
+        return self._events
+
+    def _iter_events(self) -> Iterator[Any]:
         events = EventRestorer(self.masker, self.replay)
         for event in self._target():
             yield from events.feed(event)
@@ -346,7 +354,7 @@ class VeilMessageStream(_Delegating):
         return restore_message(message, self.masker, self.replay)
 
     def get_final_text(self) -> str:
-        return self.masker.restore(self._target().get_final_text())
+        return _final_text(self.get_final_message())
 
     @property
     def current_message_snapshot(self) -> Any:
@@ -388,11 +396,8 @@ class AsyncVeilMessageStream(_Delegating):
     raw: Any
     masker: Masker
     replay: ReplayCache | None = None
-    _restorer: Restorer = field(init=False)
+    _events: AsyncIterator[Any] | None = field(default=None, init=False)
     _entered: Any = field(default=None, init=False)
-
-    def __post_init__(self) -> None:
-        self._restorer = Restorer(self.masker.vault)
 
     def _target(self) -> Any:
         return self._entered if self._entered is not None else self.raw
@@ -407,17 +412,19 @@ class AsyncVeilMessageStream(_Delegating):
     @property
     def text_stream(self) -> AsyncIterator[str]:
         async def restored_text() -> AsyncIterator[str]:
-            async for text in self._target().text_stream:
-                restored = self._restorer.feed(text)
-                if restored:
-                    yield restored
-            tail = self._restorer.flush()
-            if tail:
-                yield tail
+            async for event in self:
+                text = _text_delta(event)
+                if text:
+                    yield text
 
         return restored_text()
 
-    async def __aiter__(self) -> AsyncIterator[Any]:
+    def __aiter__(self) -> AsyncIterator[Any]:
+        if self._events is None:
+            self._events = self._iter_events()
+        return self._events
+
+    async def _iter_events(self) -> AsyncIterator[Any]:
         events = EventRestorer(self.masker, self.replay)
         async for event in self._target():
             for restored in events.feed(event):
@@ -430,11 +437,31 @@ class AsyncVeilMessageStream(_Delegating):
         return restore_message(message, self.masker, self.replay)
 
     async def get_final_text(self) -> str:
-        return self.masker.restore(await self._target().get_final_text())
+        return _final_text(await self.get_final_message())
 
     @property
     def current_message_snapshot(self) -> Any:
         return restore_message(self._target().current_message_snapshot, self.masker)
+
+
+def _text_delta(event: Any) -> str | None:
+    if get_field(event, "type") == "content_block_delta":
+        delta = get_field(event, "delta")
+        if get_field(delta, "type") == "text_delta":
+            return str(get_field(delta, "text", ""))
+    return None
+
+
+def _final_text(message: Any) -> str:
+    # Complete blocks have already been restored separately. Joining raw blocks
+    # before restoration invents matches that are absent from each source block.
+    blocks = get_field(message, "content", [])
+    texts = [get_field(block, "text", "") for block in blocks if get_field(block, "type") == "text"]
+    if not texts:
+        raise RuntimeError(
+            ".get_final_text() requires a text content block; use get_final_message().content for other block types"
+        )
+    return "".join(texts)
 
 
 def _is_async_client(client: Any) -> bool:
