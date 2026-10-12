@@ -1,0 +1,741 @@
+{
+  "sourceCommit": "838f22ed23d856e70621737c69f189ae2b47fcf4",
+  "baselineCommit": "33992a7b59f23cb158c17215f76de06604ef95d4",
+  "scope": "source only; no package release, tag, or hosted deployment",
+  "inputs": [
+    {
+      "path": ".python-version",
+      "bytes": 5,
+      "sha256": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 22999,
+      "sha256": "35bf1a2af80472df096e7ecf758bbc6f1dd0cb94a90a5a9f822fb9bf299e11bd"
+    },
+    {
+      "path": "README.md",
+      "bytes": 31103,
+      "sha256": "a5a1a203a80b80274ffabcc74269e654654899cdac7344e255cca2fd00ed82bf"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 3893,
+      "sha256": "e78b1a4cea7982da433a965da640d9449e465885171ea376629abaee62a66ad5"
+    },
+    {
+      "path": "src/veil/__init__.py",
+      "bytes": 1485,
+      "sha256": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980"
+    },
+    {
+      "path": "src/veil/_files.py",
+      "bytes": 948,
+      "sha256": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29"
+    },
+    {
+      "path": "src/veil/_spans.py",
+      "bytes": 1638,
+      "sha256": "e8e2f09a3f7b92535ffaacda6c3c820793465c9c00f16faec50c807147e1e62f"
+    },
+    {
+      "path": "src/veil/audit.py",
+      "bytes": 4486,
+      "sha256": "038bb18f7bc0e81d7cd2f5f2381b01a5fe16c331a84bff081b0f515e35dc8073"
+    },
+    {
+      "path": "src/veil/backends/__init__.py",
+      "bytes": 791,
+      "sha256": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b"
+    },
+    {
+      "path": "src/veil/backends/base.py",
+      "bytes": 737,
+      "sha256": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e"
+    },
+    {
+      "path": "src/veil/backends/known_entities.py",
+      "bytes": 2440,
+      "sha256": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55"
+    },
+    {
+      "path": "src/veil/backends/spacy_backend.py",
+      "bytes": 2608,
+      "sha256": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b"
+    },
+    {
+      "path": "src/veil/cli.py",
+      "bytes": 9091,
+      "sha256": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1"
+    },
+    {
+      "path": "src/veil/detectors/__init__.py",
+      "bytes": 1842,
+      "sha256": "4e6e202fe17c7c8d0bd6afea3f1611411eb6fbb5c4acfa3f9eb17eb9184107e6"
+    },
+    {
+      "path": "src/veil/detectors/_calling_codes.py",
+      "bytes": 5352,
+      "sha256": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c"
+    },
+    {
+      "path": "src/veil/detectors/_words.py",
+      "bytes": 4037,
+      "sha256": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887"
+    },
+    {
+      "path": "src/veil/detectors/address.py",
+      "bytes": 2109,
+      "sha256": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec"
+    },
+    {
+      "path": "src/veil/detectors/base.py",
+      "bytes": 768,
+      "sha256": "ac0e63d0d37d4626f9717a1ccafe4a093ecea9a0e1ef897afa200cfc85fb3ef2"
+    },
+    {
+      "path": "src/veil/detectors/card.py",
+      "bytes": 4910,
+      "sha256": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f"
+    },
+    {
+      "path": "src/veil/detectors/dob.py",
+      "bytes": 2166,
+      "sha256": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f"
+    },
+    {
+      "path": "src/veil/detectors/email.py",
+      "bytes": 1454,
+      "sha256": "226c1d9f6dba002e313aef9659eadd107d06f22a7a72549b9b9b07b3a5bb2e62"
+    },
+    {
+      "path": "src/veil/detectors/iban.py",
+      "bytes": 2865,
+      "sha256": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c"
+    },
+    {
+      "path": "src/veil/detectors/ip.py",
+      "bytes": 5935,
+      "sha256": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b"
+    },
+    {
+      "path": "src/veil/detectors/phone.py",
+      "bytes": 8040,
+      "sha256": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd"
+    },
+    {
+      "path": "src/veil/detectors/secrets.py",
+      "bytes": 7587,
+      "sha256": "1b26844666c717b64ad5ec18c9afd4ae5f0016ae6850c08c7b3458ec9cd9b7b2"
+    },
+    {
+      "path": "src/veil/detectors/ssn.py",
+      "bytes": 2457,
+      "sha256": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b"
+    },
+    {
+      "path": "src/veil/detectors/url.py",
+      "bytes": 5148,
+      "sha256": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099"
+    },
+    {
+      "path": "src/veil/integrations/__init__.py",
+      "bytes": 312,
+      "sha256": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881"
+    },
+    {
+      "path": "src/veil/integrations/_common.py",
+      "bytes": 9670,
+      "sha256": "742e8feececf9a86297155e2ca9a6bc22bda61677669cfae4873fb8386689a73"
+    },
+    {
+      "path": "src/veil/integrations/_json_arguments.py",
+      "bytes": 3631,
+      "sha256": "8189f42f3dcdb74cb4c74346732ba03116ee8e79e1468858f92086fdcb7c8188"
+    },
+    {
+      "path": "src/veil/integrations/anthropic.py",
+      "bytes": 22772,
+      "sha256": "4f1fa78f92a767077f2242a720c781e321e7b9d221234194eec531c7f865cedc"
+    },
+    {
+      "path": "src/veil/integrations/openai.py",
+      "bytes": 20679,
+      "sha256": "31a5811bf1a1159a23c6257a02fbf9de3532829985b5ce4186a0986e0bad42b6"
+    },
+    {
+      "path": "src/veil/integrations/openai_responses.py",
+      "bytes": 13835,
+      "sha256": "a91f68d5badab07c75e63b52859d65a1478c32d3c178cb8c549c85538d3492de"
+    },
+    {
+      "path": "src/veil/masker.py",
+      "bytes": 7285,
+      "sha256": "ea56b9a55ea4e772fe08cedefcc3067cc78c69d64088f536e47e74c7bbbb834b"
+    },
+    {
+      "path": "src/veil/py.typed",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/veil/restore.py",
+      "bytes": 14860,
+      "sha256": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38"
+    },
+    {
+      "path": "src/veil/surrogates.py",
+      "bytes": 6870,
+      "sha256": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0"
+    },
+    {
+      "path": "src/veil/types.py",
+      "bytes": 2126,
+      "sha256": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8"
+    },
+    {
+      "path": "src/veil/vault.py",
+      "bytes": 12250,
+      "sha256": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+    },
+    {
+      "path": "tests/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/sdk_wire.py",
+      "bytes": 10019,
+      "sha256": "d161e0e5493eb976b48e6dc00c64f1399a38b221d10122d21c74dfcc4f9f0bb2"
+    },
+    {
+      "path": "tests/test_anthropic_boundaries.py",
+      "bytes": 4407,
+      "sha256": "1243198f4502f7f8164858e7003759197e7a958aa50a57a70369508182a5c834"
+    },
+    {
+      "path": "tests/test_audit.py",
+      "bytes": 3765,
+      "sha256": "4596979b203b66cf1028baf2b9181c53c4ee312e1e0b5763f977804362631a49"
+    },
+    {
+      "path": "tests/test_backends_known_entities.py",
+      "bytes": 1208,
+      "sha256": "044d705081c658541fc4675acca75c4ea6fcdde5c2ef6e497189c87a0760a4eb"
+    },
+    {
+      "path": "tests/test_backends_spacy.py",
+      "bytes": 2370,
+      "sha256": "5cde67c9f8a9c7ffaaf4f59bdc5d0adbd18f087ff55314c0d40beec8a75549e0"
+    },
+    {
+      "path": "tests/test_cli.py",
+      "bytes": 10521,
+      "sha256": "6d8d3e341f5251a307dd484ac8dd18500617cc01b768be4e9d89123ffb28443b"
+    },
+    {
+      "path": "tests/test_cli_persistence.py",
+      "bytes": 2949,
+      "sha256": "f6524e5f7c6b2af12ee0a55c09bcb69024d8bc9c92306a97288a2d5478d1c416"
+    },
+    {
+      "path": "tests/test_credential_urls.py",
+      "bytes": 1100,
+      "sha256": "6f589182f87f532d4b45a831075bbc888732f57b0b304270302a4263c8b249bc"
+    },
+    {
+      "path": "tests/test_detectors_address.py",
+      "bytes": 1435,
+      "sha256": "dacff028d77b0e6ed71b978ee41a35bf568e5dd0b0c7ec17aeed09cc1260f625"
+    },
+    {
+      "path": "tests/test_detectors_card.py",
+      "bytes": 2623,
+      "sha256": "c95b550923962b805ac37060bcb3c07a352337256b76f2c061da7d5fd08a1ca3"
+    },
+    {
+      "path": "tests/test_detectors_dob.py",
+      "bytes": 763,
+      "sha256": "6b19ab63a9d3996d1b8afecd89e7231c63c149d7c700e7dbd478418f9bd5e8fb"
+    },
+    {
+      "path": "tests/test_detectors_email.py",
+      "bytes": 1354,
+      "sha256": "9f61e21dfd7a00dac4a6d07332e010cba0a394efaed520c291ececcae04c8975"
+    },
+    {
+      "path": "tests/test_detectors_iban.py",
+      "bytes": 1217,
+      "sha256": "3af2c1c1e6c3e1b24aa2d14d09c63aee41ad78681e81617605b0fda702b01bd6"
+    },
+    {
+      "path": "tests/test_detectors_ip.py",
+      "bytes": 5619,
+      "sha256": "097c0c78329da1c8eb66c71f0e0f127eac1b302f9c63eb0a6ab928e47cc4a025"
+    },
+    {
+      "path": "tests/test_detectors_phone.py",
+      "bytes": 5239,
+      "sha256": "5408cbda91463540aef7465af3ccb4e1a3023516d7f40eb5d779daf6095c35dc"
+    },
+    {
+      "path": "tests/test_detectors_secrets.py",
+      "bytes": 6645,
+      "sha256": "73f5b22c6af125361534db6048899d1a9fa12082fd0d05b8ca16737617c7ca02"
+    },
+    {
+      "path": "tests/test_detectors_ssn.py",
+      "bytes": 1822,
+      "sha256": "4bf8d39b3869006d158f32f72039d7142974ce3c34d8a5acad41108a3111cf8e"
+    },
+    {
+      "path": "tests/test_detectors_url.py",
+      "bytes": 1531,
+      "sha256": "dc646537c06b77ba87a3ed91ef1061a79fa603fcf52027638040347f0f48f97e"
+    },
+    {
+      "path": "tests/test_fuzz.py",
+      "bytes": 4787,
+      "sha256": "3c0212f6b0174eb82b37846dc985d2040fffb947f9cf5945e872c9d1a5e28d63"
+    },
+    {
+      "path": "tests/test_integration_anthropic.py",
+      "bytes": 6687,
+      "sha256": "a01e5fc676e1d36d6462891a4912a855ad9e184b1edccd0990d47a398dfc9f27"
+    },
+    {
+      "path": "tests/test_integration_history.py",
+      "bytes": 9256,
+      "sha256": "3489f4ca817edbfb55ae8b9f590724c6af9b9e3e32a5642e1370b39f70b99d55"
+    },
+    {
+      "path": "tests/test_integration_openai.py",
+      "bytes": 8080,
+      "sha256": "ea5cb105cf8def949c498c58fe517937fae575af6d79844d543b072177f8096d"
+    },
+    {
+      "path": "tests/test_integration_openai_responses.py",
+      "bytes": 14004,
+      "sha256": "65eae6baa642b6810570932bd36d5c7de0b608f8f1f94f4cffcf467b553e1464"
+    },
+    {
+      "path": "tests/test_json_argument_masking.py",
+      "bytes": 4353,
+      "sha256": "6a8c73490506e366047a2d4f6d92db50085d1f118d6008cfdadbbeac4b06efcc"
+    },
+    {
+      "path": "tests/test_json_argument_restoration.py",
+      "bytes": 2632,
+      "sha256": "dc8d9ca9c614200d853d205fb4e1b51be56e56e53b98f4e4609b20aa8b98fbee"
+    },
+    {
+      "path": "tests/test_json_lexing.py",
+      "bytes": 4658,
+      "sha256": "085cc96f88765f6264f92770f976e99df33865914edccd1832338ffa4c1f2b8b"
+    },
+    {
+      "path": "tests/test_mask_collisions.py",
+      "bytes": 5228,
+      "sha256": "502c970ec7c72c7a7f7e6991e551b57823de5bee902d6bfd4ba96319c8ce2b60"
+    },
+    {
+      "path": "tests/test_masker.py",
+      "bytes": 2974,
+      "sha256": "ae4e79b19a573540617954e65763c44ddef3dc27b34526265fc1c3c3eceae393"
+    },
+    {
+      "path": "tests/test_replay_identity.py",
+      "bytes": 8152,
+      "sha256": "a119cfff65918b3ec22ea54ff210f94ef85acf86b39594556ff39af14ab8e276"
+    },
+    {
+      "path": "tests/test_restore.py",
+      "bytes": 4259,
+      "sha256": "09c0ec238d6bd78a0c659402fdbe0b102eb8d8ea0e89cae009fdb90935328866"
+    },
+    {
+      "path": "tests/test_restore_ambiguity.py",
+      "bytes": 1435,
+      "sha256": "14fe2226dd48512030c06d29d7e18e0a828f3ffb80874c3c20e63e88571b005e"
+    },
+    {
+      "path": "tests/test_restore_json.py",
+      "bytes": 2415,
+      "sha256": "1e80048910d8a45ef6b0877306612d8e5918ffe7e591945990b91224180669da"
+    },
+    {
+      "path": "tests/test_restore_streaming.py",
+      "bytes": 3798,
+      "sha256": "067311019bec12839acd1131bb8841e3eaee5aab36c6bd88cd3c1a8b38d3cb32"
+    },
+    {
+      "path": "tests/test_scale.py",
+      "bytes": 1944,
+      "sha256": "5d585900695fa0fe0b69457b73d757fee426158bc7c9659a591f73bca04e7047"
+    },
+    {
+      "path": "tests/test_sdk_anthropic.py",
+      "bytes": 13398,
+      "sha256": "d4b84033610d137a7bd6d2845b92878c5e2c7ba7e9016c1213c8ff922b7eca61"
+    },
+    {
+      "path": "tests/test_sdk_json_arguments.py",
+      "bytes": 5820,
+      "sha256": "0fc9b05440a1ba40ec3ceae05e15ec07524d4dcf3d994624a4cefa181659bd1d"
+    },
+    {
+      "path": "tests/test_sdk_mask_collisions.py",
+      "bytes": 4902,
+      "sha256": "36c970d2093634b616bc5637a877abe510d7228ff7bed9c03f3dd6ce4ec361cf"
+    },
+    {
+      "path": "tests/test_sdk_openai.py",
+      "bytes": 13215,
+      "sha256": "b93eaa51992e19215c497524f13136e176cf2343056cba7928c2e320db6125d2"
+    },
+    {
+      "path": "tests/test_spans.py",
+      "bytes": 1044,
+      "sha256": "e8214eab4fdf7017e610485e103858847798b2f1e22c8db53fcddc9302b63a38"
+    },
+    {
+      "path": "tests/test_surrogates.py",
+      "bytes": 2327,
+      "sha256": "1f824b28d4600c0779e55e6322a6a78408e71881a66d7482c08b6fbef0720761"
+    },
+    {
+      "path": "tests/test_vault.py",
+      "bytes": 4726,
+      "sha256": "74f9dc1ecee03483e134de028cc551e0d84ce513cd334e60e07262e7ef707a16"
+    },
+    {
+      "path": "tests/test_vault_integrity.py",
+      "bytes": 6086,
+      "sha256": "aec952e870200553d5ab8965baebab8bbbcff607e2ad9f981d69f2b4a2316d71"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 567507,
+      "sha256": "87073d523582ce0aea78abc83e0d54cf409a03b2c83ea7094d433f522efce9d7"
+    },
+    {
+      "path": "web/.gitignore",
+      "bytes": 41,
+      "sha256": "04d1f2b94c880f48cfcf655e9eb562c0481b115b7664648ece76d5558f7d1ecc"
+    },
+    {
+      "path": "web/index.html",
+      "bytes": 1705,
+      "sha256": "a9bc37f94cd3205ec49a62b5da4a18966771e106f19c22cea894c7a2cc03d998"
+    },
+    {
+      "path": "web/package-lock.json",
+      "bytes": 37263,
+      "sha256": "217f936e3f4572c25382834cc1fa1a2829c394f6c5977a35d772ec61942943a7"
+    },
+    {
+      "path": "web/package.json",
+      "bytes": 762,
+      "sha256": "22cda55046407af89b58614ad9285d50c6bbfc2dd5d5ede86b4dcf4a9c0801dd"
+    },
+    {
+      "path": "web/scripts/check-browser.mjs",
+      "bytes": 14712,
+      "sha256": "0db6ed3fd9d36ff6dc9aaeff2dacc23ec6ed47dd62db18200cd534916a9195f9"
+    },
+    {
+      "path": "web/scripts/copy-veil-src.mjs",
+      "bytes": 1325,
+      "sha256": "0fac21a8471d1c33c4cdc5cc250897262b188171fd9f8bce7a1c45b8dbd0a611"
+    },
+    {
+      "path": "web/src/fonts/LICENSE.txt",
+      "bytes": 14055,
+      "sha256": "07993591b530f41c886aba3920a2afd3ad3c71ac3354caaadb6943a75937da78"
+    },
+    {
+      "path": "web/src/fonts/fonts.css",
+      "bytes": 14483,
+      "sha256": "6983e33ac07c2502aa8a3a7c296522e39f32f1f320972d56dae60e37c25b9bcd"
+    },
+    {
+      "path": "web/src/fonts/fraunces-italic-latin-ext.woff2",
+      "bytes": 37620,
+      "sha256": "bbf614d45de67a99e638b753611329b2cb8b5b6d8da53b2aee0267fe75cfc5c8"
+    },
+    {
+      "path": "web/src/fonts/fraunces-italic-latin.woff2",
+      "bytes": 42372,
+      "sha256": "13cd664e0f8bff7116e6aa798e59720e31ef389b682c76f4e813f4e7c7413bc3"
+    },
+    {
+      "path": "web/src/fonts/fraunces-italic-vietnamese.woff2",
+      "bytes": 12048,
+      "sha256": "b2383049df5de759100887e80450ef360e502d5b0454954fab2dcd6b322944f5"
+    },
+    {
+      "path": "web/src/fonts/fraunces-latin-ext.woff2",
+      "bytes": 59388,
+      "sha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e"
+    },
+    {
+      "path": "web/src/fonts/fraunces-latin.woff2",
+      "bytes": 67304,
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+    },
+    {
+      "path": "web/src/fonts/fraunces-vietnamese.woff2",
+      "bytes": 19700,
+      "sha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-400-cyrillic-ext.woff2",
+      "bytes": 6912,
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-400-cyrillic.woff2",
+      "bytes": 8356,
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-400-latin-ext.woff2",
+      "bytes": 13348,
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-400-latin.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-400-vietnamese.woff2",
+      "bytes": 5868,
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-500-cyrillic-ext.woff2",
+      "bytes": 6972,
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-500-cyrillic.woff2",
+      "bytes": 8460,
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-500-latin-ext.woff2",
+      "bytes": 13432,
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-500-latin.woff2",
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-mono-500-vietnamese.woff2",
+      "bytes": 6040,
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-sans-cyrillic-ext.woff2",
+      "bytes": 23568,
+      "sha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-sans-cyrillic.woff2",
+      "bytes": 29512,
+      "sha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-sans-greek.woff2",
+      "bytes": 19500,
+      "sha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-sans-latin-ext.woff2",
+      "bytes": 30964,
+      "sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-sans-latin.woff2",
+      "bytes": 45712,
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+    },
+    {
+      "path": "web/src/fonts/ibm-plex-sans-vietnamese.woff2",
+      "bytes": 13160,
+      "sha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2"
+    },
+    {
+      "path": "web/src/main.ts",
+      "bytes": 16317,
+      "sha256": "7c2eb0f2a2f344579335f74ac2b9437061addc4884598897f3da90826dae4c57"
+    },
+    {
+      "path": "web/src/protocol.ts",
+      "bytes": 726,
+      "sha256": "f2ca058015d35d0e4f933d916967109fb8badf86feb4e856e42d8408cfcebc55"
+    },
+    {
+      "path": "web/src/python.worker.ts",
+      "bytes": 3928,
+      "sha256": "dd2e72a1b1be9dae67eb545dd8ce1a011d5f1e00eee5761bfcc2f8b9a03eb98b"
+    },
+    {
+      "path": "web/src/style.css",
+      "bytes": 10336,
+      "sha256": "80594481c3790997135f8f858ded9d9933da12db00ca7823495361a7e0b19bc4"
+    },
+    {
+      "path": "web/tsconfig.json",
+      "bytes": 444,
+      "sha256": "359e57da00bf382d0580adeb27a3b89d228f4e3121a63bc8ec9a174b2f7e265f"
+    },
+    {
+      "path": "web/vite.config.ts",
+      "bytes": 468,
+      "sha256": "e009e853fe0e49f22d93b2591f8faa5b1bcb5cbe78a1511cf003d7f4413c9887"
+    },
+    {
+      "path": "web/vite.csp.ts",
+      "bytes": 2912,
+      "sha256": "a0a3087ad8ac363a358684d8e0166f4d9eccb0a2f77e731a8548a9287f7b8962"
+    }
+  ],
+  "archiveInputsMatch": 120,
+  "packageFilesMatchSourceSdistWheelAndBothInstalls": 35,
+  "artifacts": [
+    {
+      "file": "veil_pii-0.4.4.tar.gz",
+      "bytes": 93746,
+      "sha256": "5d154ba35704e099ce093c3f972d9c94c82b089a96cae337456ecd1ddc9b5b63"
+    },
+    {
+      "file": "veil_pii-0.4.4-py3-none-any.whl",
+      "bytes": 88402,
+      "sha256": "873d39a124d0e18138ba866b1500ab899880db8bb46e9fcc2239a29e4298d6c0"
+    }
+  ],
+  "installed": [
+    {
+      "python": "3.10.21",
+      "sdkVersions": {
+        "openai": "3.23.0",
+        "anthropic": "1.11.0",
+        "httpx2": "2.13.1"
+      },
+      "packageFilesMatchSource": 35,
+      "replayRowsMatchSource": true,
+      "cases": 150,
+      "cliFlows": 21,
+      "sdkRequests": 21,
+      "replaySha256": "e8370600e0f7266b0719a2efbb2b15ddf26b5b24edcb593c0b5dd0bef237b580"
+    },
+    {
+      "python": "3.14.7",
+      "sdkVersions": {
+        "openai": "3.23.0",
+        "anthropic": "1.11.0",
+        "httpx2": "2.13.1"
+      },
+      "packageFilesMatchSource": 35,
+      "replayRowsMatchSource": true,
+      "cases": 150,
+      "cliFlows": 21,
+      "sdkRequests": 21,
+      "replaySha256": "86a883794d1a6d873eac0e3232dc86fa64c4fc4c9d3310dbfcb84737193a89b2"
+    }
+  ],
+  "tests": [
+    {
+      "environment": "clean Python 3.12",
+      "passed": 627,
+      "skipped": 1,
+      "seconds": 17.04,
+      "skipReasons": [
+        "SKIPPED [1] tests/test_backends_spacy.py:14: install the spacy extra to test the real backend"
+      ],
+      "logSha256": "6e5514e09271434b625a50eeba448077aa18d4721bb0fe351ef258c798bb72a1"
+    },
+    {
+      "environment": "installed Python 3.10",
+      "passed": 627,
+      "skipped": 1,
+      "seconds": 40.19,
+      "skipReasons": [
+        "SKIPPED [1] clean/tests/test_backends_spacy.py:14: install the spacy extra to test the real backend"
+      ],
+      "logSha256": "0d5bbc29cff6cab2b44c5be418bb8be53f7cb70af568bf78701fbb40978f9a0c"
+    },
+    {
+      "environment": "installed Python 3.14",
+      "passed": 627,
+      "skipped": 1,
+      "seconds": 37.02,
+      "skipReasons": [
+        "SKIPPED [1] clean/tests/test_backends_spacy.py:14: install the spacy extra to test the real backend"
+      ],
+      "logSha256": "b40acc29305c4ba1b7209d931bb36f629a051baf19a0e48b43be291a4c156582"
+    }
+  ],
+  "cleanChecks": {
+    "ruff": "passed",
+    "format": "passed",
+    "mypy": "33 source files",
+    "webNode": "24.21.0",
+    "webLint": "passed",
+    "webBuild": "passed"
+  },
+  "browser": {
+    "existingScenarios": 16,
+    "existingLogSha256": "258fc39b4c13f5d702b05e96863b97428f876d8882110a6f03057dfc6102c319",
+    "targetedCases": 148,
+    "targetedExpectedMask": 148,
+    "downloads": 296,
+    "servedAssetsMatchCleanBuild": {
+      "assets/fraunces-italic-latin-BEbM7Mn6.woff2": {
+        "bytes": 42372,
+        "sha256": "13cd664e0f8bff7116e6aa798e59720e31ef389b682c76f4e813f4e7c7413bc3"
+      },
+      "assets/fraunces-latin-DihXLNYH.woff2": {
+        "bytes": 67304,
+        "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+      },
+      "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+        "bytes": 14708,
+        "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+      },
+      "assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2": {
+        "bytes": 14888,
+        "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+      },
+      "assets/ibm-plex-sans-latin-IvpUvPa2.woff2": {
+        "bytes": 45712,
+        "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+      },
+      "assets/index-CpvUtn8x.js": {
+        "bytes": 11118,
+        "sha256": "bbf5a223bfad0be3882b52c0d2b840e90e6b2dc12cd83fa618ce6d746ab2c8ba"
+      },
+      "assets/index-yPXPXXYm.css": {
+        "bytes": 19964,
+        "sha256": "a4df36cc56f870f5a610ca4f425c6dacd2cf5518f5f22ba7de0bc57faff2d290"
+      },
+      "assets/python.worker-BbGwCqMj.js": {
+        "bytes": 2248,
+        "sha256": "bd92defdec879973cdf706316d6f353c072e956597a403eb1f628599ccd70776"
+      },
+      "index.html": {
+        "bytes": 2099,
+        "sha256": "0d30cac121231eef5832d64fd2a3d3c90d21de2db3907d69814306d70c45e945"
+      },
+      "veil-src.json": {
+        "bytes": 202660,
+        "sha256": "5b48af4922c6d91c6414c33a89979441372a7aa9a2fa2691e46aa67722b978a5"
+      }
+    },
+    "screenshotsViewed": 4
+  }
+}
