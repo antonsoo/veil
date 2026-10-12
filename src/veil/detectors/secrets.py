@@ -61,8 +61,8 @@ def _private_key_blocks(text: str) -> Iterator[tuple[int, int]]:
         yield begin.start(), pos
 
 
-# (name, regex). Prefixes are real, publicly documented formats. Order
-# matters: more specific/prefixed formats are matched first so the
+# (name, regex). Known-prefix and compatibility-shape recognition, not
+# credential validation. More specific/prefixed formats are matched first so the
 # generic, prefix-free `aws_secret_key` pattern (any 40-char alnum run)
 # never shadows a more specific match nested inside a longer token.
 _KNOWN_PATTERNS: list[tuple[str, re.Pattern[str]]] = [

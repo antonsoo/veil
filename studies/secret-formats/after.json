@@ -5,7 +5,7 @@
     "httpx2": "2.13.1",
     "openai": "3.23.0"
   },
-  "secretDetectorSha256": "20b5c6625c318d8f378495b3ed901f89a1f0dc8c288d3e875303b4c01b22e42e",
+  "secretDetectorSha256": "1b26844666c717b64ad5ec18c9afd4ae5f0016ae6850c08c7b3458ec9cd9b7b2",
   "driverSha256": "5d5422faf149d103a693bfcf5f1701e50d0df24e5c26fbf51b1ebdeeaa350da0",
   "casesSha256": "98530dbfe15286ab4abb56020c7da36357deb6791e324b73c184d642f75b6309",
   "cases": 68,
