@@ -1,0 +1,2941 @@
+{
+  "python": "3.12.12",
+  "sdkVersions": {
+    "anthropic": "1.11.0",
+    "httpx2": "2.13.1",
+    "openai": "3.23.0"
+  },
+  "secretDetectorSha256": "20b5c6625c318d8f378495b3ed901f89a1f0dc8c288d3e875303b4c01b22e42e",
+  "driverSha256": "5d5422faf149d103a693bfcf5f1701e50d0df24e5c26fbf51b1ebdeeaa350da0",
+  "casesSha256": "98530dbfe15286ab4abb56020c7da36357deb6791e324b73c184d642f75b6309",
+  "cases": 68,
+  "fullyMasked": 68,
+  "sdkCalls": 204,
+  "fullyMaskedSdkCalls": 204,
+  "rows": [
+    {
+      "id": "proj-repeated-20",
+      "prefix": "sk-proj-",
+      "bodyLength": 20,
+      "sourceSha256": "23b406f18363bf8fc43bedffcdbbc656c5168d3ab04cb3fb087ba314a02f2a90",
+      "sourceCharacters": 61,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 33,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "23b406f18363bf8fc43bedffcdbbc656c5168d3ab04cb3fb087ba314a02f2a90",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "23b406f18363bf8fc43bedffcdbbc656c5168d3ab04cb3fb087ba314a02f2a90",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "23b406f18363bf8fc43bedffcdbbc656c5168d3ab04cb3fb087ba314a02f2a90",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-alphanumeric-20",
+      "prefix": "sk-proj-",
+      "bodyLength": 20,
+      "sourceSha256": "e8d8ed49153ba00d08de81eb7da14ea88809b3a7d1877dd19d210e1d8ceffe9c",
+      "sourceCharacters": 61,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 33,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "e8d8ed49153ba00d08de81eb7da14ea88809b3a7d1877dd19d210e1d8ceffe9c",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "e8d8ed49153ba00d08de81eb7da14ea88809b3a7d1877dd19d210e1d8ceffe9c",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "e8d8ed49153ba00d08de81eb7da14ea88809b3a7d1877dd19d210e1d8ceffe9c",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-url-safe-20",
+      "prefix": "sk-proj-",
+      "bodyLength": 20,
+      "sourceSha256": "bb1ef4b000d8462c3b73d6880accb88a6e6783f169d500ae0614809538503a3b",
+      "sourceCharacters": 61,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 33,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "bb1ef4b000d8462c3b73d6880accb88a6e6783f169d500ae0614809538503a3b",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "bb1ef4b000d8462c3b73d6880accb88a6e6783f169d500ae0614809538503a3b",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "bb1ef4b000d8462c3b73d6880accb88a6e6783f169d500ae0614809538503a3b",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-repeated-32",
+      "prefix": "sk-proj-",
+      "bodyLength": 32,
+      "sourceSha256": "ebdd63cfa1da4aeba322906089196706971374f89da25d21a28420a72ce8f54a",
+      "sourceCharacters": 73,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 45,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "ebdd63cfa1da4aeba322906089196706971374f89da25d21a28420a72ce8f54a",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "ebdd63cfa1da4aeba322906089196706971374f89da25d21a28420a72ce8f54a",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "ebdd63cfa1da4aeba322906089196706971374f89da25d21a28420a72ce8f54a",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-alphanumeric-32",
+      "prefix": "sk-proj-",
+      "bodyLength": 32,
+      "sourceSha256": "45cc63973dc64d133158dde188eb21d9153c7e5431d1eadf8f9958b10622f46f",
+      "sourceCharacters": 73,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 45,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "45cc63973dc64d133158dde188eb21d9153c7e5431d1eadf8f9958b10622f46f",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "45cc63973dc64d133158dde188eb21d9153c7e5431d1eadf8f9958b10622f46f",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "45cc63973dc64d133158dde188eb21d9153c7e5431d1eadf8f9958b10622f46f",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-url-safe-32",
+      "prefix": "sk-proj-",
+      "bodyLength": 32,
+      "sourceSha256": "bfc395b6c900f99a150e8faf2f9be6af6655e98ae0ae3431cfd3d95ce23ccdd5",
+      "sourceCharacters": 73,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 45,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "bfc395b6c900f99a150e8faf2f9be6af6655e98ae0ae3431cfd3d95ce23ccdd5",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "bfc395b6c900f99a150e8faf2f9be6af6655e98ae0ae3431cfd3d95ce23ccdd5",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "bfc395b6c900f99a150e8faf2f9be6af6655e98ae0ae3431cfd3d95ce23ccdd5",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-repeated-48",
+      "prefix": "sk-proj-",
+      "bodyLength": 48,
+      "sourceSha256": "7feeca1abe0be97a936febf2e188b14eb77d2ecc663904cb2051531402be0507",
+      "sourceCharacters": 89,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 61,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "7feeca1abe0be97a936febf2e188b14eb77d2ecc663904cb2051531402be0507",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "7feeca1abe0be97a936febf2e188b14eb77d2ecc663904cb2051531402be0507",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "7feeca1abe0be97a936febf2e188b14eb77d2ecc663904cb2051531402be0507",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-alphanumeric-48",
+      "prefix": "sk-proj-",
+      "bodyLength": 48,
+      "sourceSha256": "606368ae4be2d6ec36fe18d1ee8432209ff152925e408f798d95e83c8eb00e8a",
+      "sourceCharacters": 89,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 61,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "606368ae4be2d6ec36fe18d1ee8432209ff152925e408f798d95e83c8eb00e8a",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "606368ae4be2d6ec36fe18d1ee8432209ff152925e408f798d95e83c8eb00e8a",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "606368ae4be2d6ec36fe18d1ee8432209ff152925e408f798d95e83c8eb00e8a",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-url-safe-48",
+      "prefix": "sk-proj-",
+      "bodyLength": 48,
+      "sourceSha256": "d1b8ec4c1ffa648649750b72d12762c816a53ddcdbc7f195fbc415e25b7c9bbc",
+      "sourceCharacters": 89,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 61,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "d1b8ec4c1ffa648649750b72d12762c816a53ddcdbc7f195fbc415e25b7c9bbc",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "d1b8ec4c1ffa648649750b72d12762c816a53ddcdbc7f195fbc415e25b7c9bbc",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "d1b8ec4c1ffa648649750b72d12762c816a53ddcdbc7f195fbc415e25b7c9bbc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-repeated-64",
+      "prefix": "sk-proj-",
+      "bodyLength": 64,
+      "sourceSha256": "f37bbdaad6cbf622fa9112dcd8c14fc1002dda5a2e8f13f7860da8011ffa47ae",
+      "sourceCharacters": 105,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 77,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "f37bbdaad6cbf622fa9112dcd8c14fc1002dda5a2e8f13f7860da8011ffa47ae",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "f37bbdaad6cbf622fa9112dcd8c14fc1002dda5a2e8f13f7860da8011ffa47ae",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "f37bbdaad6cbf622fa9112dcd8c14fc1002dda5a2e8f13f7860da8011ffa47ae",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-alphanumeric-64",
+      "prefix": "sk-proj-",
+      "bodyLength": 64,
+      "sourceSha256": "b57909ad8763414bd36aec923721b3d91a7698dff5dad191d8d7d51f8c68c7ef",
+      "sourceCharacters": 105,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 77,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "b57909ad8763414bd36aec923721b3d91a7698dff5dad191d8d7d51f8c68c7ef",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "b57909ad8763414bd36aec923721b3d91a7698dff5dad191d8d7d51f8c68c7ef",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "b57909ad8763414bd36aec923721b3d91a7698dff5dad191d8d7d51f8c68c7ef",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-url-safe-64",
+      "prefix": "sk-proj-",
+      "bodyLength": 64,
+      "sourceSha256": "fbb80a92968c442e905349873126d5b8c885cfb2a91148e33b21ec38c68ed465",
+      "sourceCharacters": 105,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 77,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "fbb80a92968c442e905349873126d5b8c885cfb2a91148e33b21ec38c68ed465",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "fbb80a92968c442e905349873126d5b8c885cfb2a91148e33b21ec38c68ed465",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "fbb80a92968c442e905349873126d5b8c885cfb2a91148e33b21ec38c68ed465",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-repeated-96",
+      "prefix": "sk-proj-",
+      "bodyLength": 96,
+      "sourceSha256": "cc420286d98858d107351f76afa634563bdbaca5978b54e737c3cc6e27bac835",
+      "sourceCharacters": 137,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 109,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "cc420286d98858d107351f76afa634563bdbaca5978b54e737c3cc6e27bac835",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "cc420286d98858d107351f76afa634563bdbaca5978b54e737c3cc6e27bac835",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "cc420286d98858d107351f76afa634563bdbaca5978b54e737c3cc6e27bac835",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-alphanumeric-96",
+      "prefix": "sk-proj-",
+      "bodyLength": 96,
+      "sourceSha256": "80160ffca4aca0d8fcb71a31c0f52f256f3a3b84dba879d0f6270b569ee91051",
+      "sourceCharacters": 137,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 109,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "80160ffca4aca0d8fcb71a31c0f52f256f3a3b84dba879d0f6270b569ee91051",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "80160ffca4aca0d8fcb71a31c0f52f256f3a3b84dba879d0f6270b569ee91051",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "80160ffca4aca0d8fcb71a31c0f52f256f3a3b84dba879d0f6270b569ee91051",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-url-safe-96",
+      "prefix": "sk-proj-",
+      "bodyLength": 96,
+      "sourceSha256": "392f706fb5aa0c367680f9a031dd8af6b42aff81565c125629e9823bbe48e48e",
+      "sourceCharacters": 137,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 109,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "392f706fb5aa0c367680f9a031dd8af6b42aff81565c125629e9823bbe48e48e",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "392f706fb5aa0c367680f9a031dd8af6b42aff81565c125629e9823bbe48e48e",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "392f706fb5aa0c367680f9a031dd8af6b42aff81565c125629e9823bbe48e48e",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-repeated-128",
+      "prefix": "sk-proj-",
+      "bodyLength": 128,
+      "sourceSha256": "b7d8638ee2e739d5edee08b041695817e81790c7c10fbd7ee5e96c4b88ecfa0d",
+      "sourceCharacters": 169,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 141,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "b7d8638ee2e739d5edee08b041695817e81790c7c10fbd7ee5e96c4b88ecfa0d",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "b7d8638ee2e739d5edee08b041695817e81790c7c10fbd7ee5e96c4b88ecfa0d",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "b7d8638ee2e739d5edee08b041695817e81790c7c10fbd7ee5e96c4b88ecfa0d",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-alphanumeric-128",
+      "prefix": "sk-proj-",
+      "bodyLength": 128,
+      "sourceSha256": "8cb3e034e5b864e47b169f5ef0b36c7b460e5b56f7d45f0c1f2d4f51f4d7acbb",
+      "sourceCharacters": 169,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 141,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "8cb3e034e5b864e47b169f5ef0b36c7b460e5b56f7d45f0c1f2d4f51f4d7acbb",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "8cb3e034e5b864e47b169f5ef0b36c7b460e5b56f7d45f0c1f2d4f51f4d7acbb",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "8cb3e034e5b864e47b169f5ef0b36c7b460e5b56f7d45f0c1f2d4f51f4d7acbb",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-url-safe-128",
+      "prefix": "sk-proj-",
+      "bodyLength": 128,
+      "sourceSha256": "d655a90d9dae30df802a2809ee673d6f39d89902d750749ffe80c745caab811d",
+      "sourceCharacters": 169,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 141,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "d655a90d9dae30df802a2809ee673d6f39d89902d750749ffe80c745caab811d",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "d655a90d9dae30df802a2809ee673d6f39d89902d750749ffe80c745caab811d",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "d655a90d9dae30df802a2809ee673d6f39d89902d750749ffe80c745caab811d",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-repeated-156",
+      "prefix": "sk-proj-",
+      "bodyLength": 156,
+      "sourceSha256": "c6ca723d969570d40d5b031e512a459885d0bb838a094a837014dc2151c8a87c",
+      "sourceCharacters": 197,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 169,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "c6ca723d969570d40d5b031e512a459885d0bb838a094a837014dc2151c8a87c",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "c6ca723d969570d40d5b031e512a459885d0bb838a094a837014dc2151c8a87c",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "c6ca723d969570d40d5b031e512a459885d0bb838a094a837014dc2151c8a87c",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-alphanumeric-156",
+      "prefix": "sk-proj-",
+      "bodyLength": 156,
+      "sourceSha256": "39e6dd16b5311e7e93913fd8a9ee3e523303b521139b7ef3f78ae6af41f6d730",
+      "sourceCharacters": 197,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 169,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "39e6dd16b5311e7e93913fd8a9ee3e523303b521139b7ef3f78ae6af41f6d730",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "39e6dd16b5311e7e93913fd8a9ee3e523303b521139b7ef3f78ae6af41f6d730",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "39e6dd16b5311e7e93913fd8a9ee3e523303b521139b7ef3f78ae6af41f6d730",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-url-safe-156",
+      "prefix": "sk-proj-",
+      "bodyLength": 156,
+      "sourceSha256": "f2743a38dd8b2a92f1a8db8335357ae61084b185c45ade42c33c5f612726b08d",
+      "sourceCharacters": 197,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 169,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "f2743a38dd8b2a92f1a8db8335357ae61084b185c45ade42c33c5f612726b08d",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "f2743a38dd8b2a92f1a8db8335357ae61084b185c45ade42c33c5f612726b08d",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "f2743a38dd8b2a92f1a8db8335357ae61084b185c45ade42c33c5f612726b08d",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-repeated-162",
+      "prefix": "sk-proj-",
+      "bodyLength": 162,
+      "sourceSha256": "5477f850cb1963d9b6c487a35ba48a9fb1ae8f88651a456e0da8a2818a7d8dc9",
+      "sourceCharacters": 203,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 175,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "5477f850cb1963d9b6c487a35ba48a9fb1ae8f88651a456e0da8a2818a7d8dc9",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "5477f850cb1963d9b6c487a35ba48a9fb1ae8f88651a456e0da8a2818a7d8dc9",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "5477f850cb1963d9b6c487a35ba48a9fb1ae8f88651a456e0da8a2818a7d8dc9",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-alphanumeric-162",
+      "prefix": "sk-proj-",
+      "bodyLength": 162,
+      "sourceSha256": "033b47c5e373bedf5e3e9a40643da1556002dbc342249b0e2fe1698042cf7825",
+      "sourceCharacters": 203,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 175,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "033b47c5e373bedf5e3e9a40643da1556002dbc342249b0e2fe1698042cf7825",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "033b47c5e373bedf5e3e9a40643da1556002dbc342249b0e2fe1698042cf7825",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "033b47c5e373bedf5e3e9a40643da1556002dbc342249b0e2fe1698042cf7825",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-url-safe-162",
+      "prefix": "sk-proj-",
+      "bodyLength": 162,
+      "sourceSha256": "22ce79655a8b718828f54b72c7d3833e3339cf0b60bccde2a1f7c2f9fe76ae2e",
+      "sourceCharacters": 203,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 175,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "22ce79655a8b718828f54b72c7d3833e3339cf0b60bccde2a1f7c2f9fe76ae2e",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "22ce79655a8b718828f54b72c7d3833e3339cf0b60bccde2a1f7c2f9fe76ae2e",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "22ce79655a8b718828f54b72c7d3833e3339cf0b60bccde2a1f7c2f9fe76ae2e",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-repeated-256",
+      "prefix": "sk-proj-",
+      "bodyLength": 256,
+      "sourceSha256": "47d9db33f7116b9d6893e8ee6f9c69716ba51242ff04e11ca396e4f3b410c437",
+      "sourceCharacters": 297,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 269,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "47d9db33f7116b9d6893e8ee6f9c69716ba51242ff04e11ca396e4f3b410c437",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "47d9db33f7116b9d6893e8ee6f9c69716ba51242ff04e11ca396e4f3b410c437",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "47d9db33f7116b9d6893e8ee6f9c69716ba51242ff04e11ca396e4f3b410c437",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-alphanumeric-256",
+      "prefix": "sk-proj-",
+      "bodyLength": 256,
+      "sourceSha256": "9f8b22b7c513a0c7c38838e7d837894522c2929b79fb689c54679cc29c8ea747",
+      "sourceCharacters": 297,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 269,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "9f8b22b7c513a0c7c38838e7d837894522c2929b79fb689c54679cc29c8ea747",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "9f8b22b7c513a0c7c38838e7d837894522c2929b79fb689c54679cc29c8ea747",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "9f8b22b7c513a0c7c38838e7d837894522c2929b79fb689c54679cc29c8ea747",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-url-safe-256",
+      "prefix": "sk-proj-",
+      "bodyLength": 256,
+      "sourceSha256": "52f0e850d808dbf399e95536aec0a230de7e209d0c8bb452f762f090ba23da3e",
+      "sourceCharacters": 297,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 269,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "52f0e850d808dbf399e95536aec0a230de7e209d0c8bb452f762f090ba23da3e",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "52f0e850d808dbf399e95536aec0a230de7e209d0c8bb452f762f090ba23da3e",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "52f0e850d808dbf399e95536aec0a230de7e209d0c8bb452f762f090ba23da3e",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-repeated-4096",
+      "prefix": "sk-proj-",
+      "bodyLength": 4096,
+      "sourceSha256": "6a600ad978b5aca955ad886f21df314b4f06b9bd4d68620b7998698124c3ab99",
+      "sourceCharacters": 4137,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 4109,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "6a600ad978b5aca955ad886f21df314b4f06b9bd4d68620b7998698124c3ab99",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "6a600ad978b5aca955ad886f21df314b4f06b9bd4d68620b7998698124c3ab99",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "6a600ad978b5aca955ad886f21df314b4f06b9bd4d68620b7998698124c3ab99",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-alphanumeric-4096",
+      "prefix": "sk-proj-",
+      "bodyLength": 4096,
+      "sourceSha256": "be235a2f6213be38acb56b9b91dfb645218f6d06ce179f475aad0d8067c58380",
+      "sourceCharacters": 4137,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 4109,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "be235a2f6213be38acb56b9b91dfb645218f6d06ce179f475aad0d8067c58380",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "be235a2f6213be38acb56b9b91dfb645218f6d06ce179f475aad0d8067c58380",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "be235a2f6213be38acb56b9b91dfb645218f6d06ce179f475aad0d8067c58380",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-url-safe-4096",
+      "prefix": "sk-proj-",
+      "bodyLength": 4096,
+      "sourceSha256": "0df72e7b440961fd6f49a40c6810b19fa6f3ab65623c1e976067c7332a58a4ce",
+      "sourceCharacters": 4137,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 4109,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "0df72e7b440961fd6f49a40c6810b19fa6f3ab65623c1e976067c7332a58a4ce",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "0df72e7b440961fd6f49a40c6810b19fa6f3ab65623c1e976067c7332a58a4ce",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "0df72e7b440961fd6f49a40c6810b19fa6f3ab65623c1e976067c7332a58a4ce",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-ends-dash",
+      "prefix": "sk-proj-",
+      "bodyLength": 156,
+      "sourceSha256": "2c74ad3dafed3b019a9cb90e043f35c064e834cf1ff792856e652b3857c8dc6f",
+      "sourceCharacters": 197,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 169,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "2c74ad3dafed3b019a9cb90e043f35c064e834cf1ff792856e652b3857c8dc6f",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "2c74ad3dafed3b019a9cb90e043f35c064e834cf1ff792856e652b3857c8dc6f",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "2c74ad3dafed3b019a9cb90e043f35c064e834cf1ff792856e652b3857c8dc6f",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-ends-underscore",
+      "prefix": "sk-proj-",
+      "bodyLength": 156,
+      "sourceSha256": "cd3afd349839832118f5c2c99666abc649121bb867d88171cc001c67de8f216a",
+      "sourceCharacters": 197,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 169,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "cd3afd349839832118f5c2c99666abc649121bb867d88171cc001c67de8f216a",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "cd3afd349839832118f5c2c99666abc649121bb867d88171cc001c67de8f216a",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "cd3afd349839832118f5c2c99666abc649121bb867d88171cc001c67de8f216a",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-nested-github",
+      "prefix": "sk-proj-",
+      "bodyLength": 71,
+      "sourceSha256": "87a48b8464bb516169299423c35d8ded8460ac438cad1325036ab3ffc96aa8b7",
+      "sourceCharacters": 112,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 84,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "87a48b8464bb516169299423c35d8ded8460ac438cad1325036ab3ffc96aa8b7",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "87a48b8464bb516169299423c35d8ded8460ac438cad1325036ab3ffc96aa8b7",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "87a48b8464bb516169299423c35d8ded8460ac438cad1325036ab3ffc96aa8b7",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "proj-nested-anthropic",
+      "prefix": "sk-proj-",
+      "bodyLength": 68,
+      "sourceSha256": "9cef1a991b1590aa98562fb5154952a732ea9f11ac5fa0cef36dbb4e5f80cc21",
+      "sourceCharacters": 109,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 81,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "9cef1a991b1590aa98562fb5154952a732ea9f11ac5fa0cef36dbb4e5f80cc21",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "9cef1a991b1590aa98562fb5154952a732ea9f11ac5fa0cef36dbb4e5f80cc21",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "9cef1a991b1590aa98562fb5154952a732ea9f11ac5fa0cef36dbb4e5f80cc21",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-repeated-20",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 20,
+      "sourceSha256": "ccdb3211d6cd7026a53a7c6a3d31a1fe5cc671b7853558259b986357b38a8e84",
+      "sourceCharacters": 64,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 36,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "ccdb3211d6cd7026a53a7c6a3d31a1fe5cc671b7853558259b986357b38a8e84",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "ccdb3211d6cd7026a53a7c6a3d31a1fe5cc671b7853558259b986357b38a8e84",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "ccdb3211d6cd7026a53a7c6a3d31a1fe5cc671b7853558259b986357b38a8e84",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-alphanumeric-20",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 20,
+      "sourceSha256": "c8189e1bc373922c2955837567d52f78f987806f2e5e1376cc73ae1a9d886e04",
+      "sourceCharacters": 64,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 36,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "c8189e1bc373922c2955837567d52f78f987806f2e5e1376cc73ae1a9d886e04",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "c8189e1bc373922c2955837567d52f78f987806f2e5e1376cc73ae1a9d886e04",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "c8189e1bc373922c2955837567d52f78f987806f2e5e1376cc73ae1a9d886e04",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-url-safe-20",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 20,
+      "sourceSha256": "f3740454450fb1a86a0c37911d8dd760519d377e6c4ce6186013293882013255",
+      "sourceCharacters": 64,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 36,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "f3740454450fb1a86a0c37911d8dd760519d377e6c4ce6186013293882013255",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "f3740454450fb1a86a0c37911d8dd760519d377e6c4ce6186013293882013255",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "f3740454450fb1a86a0c37911d8dd760519d377e6c4ce6186013293882013255",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-repeated-32",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 32,
+      "sourceSha256": "69fa2d964dbe5e37c3671a66f80a7979c188b438cbfdc73386a5008df616c0cc",
+      "sourceCharacters": 76,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 48,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "69fa2d964dbe5e37c3671a66f80a7979c188b438cbfdc73386a5008df616c0cc",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "69fa2d964dbe5e37c3671a66f80a7979c188b438cbfdc73386a5008df616c0cc",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "69fa2d964dbe5e37c3671a66f80a7979c188b438cbfdc73386a5008df616c0cc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-alphanumeric-32",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 32,
+      "sourceSha256": "d46284139a07fbb46d669b0aace3f7f5baa1e8d0fd28abaf5eadaf33ba65c769",
+      "sourceCharacters": 76,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 48,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "d46284139a07fbb46d669b0aace3f7f5baa1e8d0fd28abaf5eadaf33ba65c769",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "d46284139a07fbb46d669b0aace3f7f5baa1e8d0fd28abaf5eadaf33ba65c769",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "d46284139a07fbb46d669b0aace3f7f5baa1e8d0fd28abaf5eadaf33ba65c769",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-url-safe-32",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 32,
+      "sourceSha256": "21800384da091cebc24451ab6c1020e779ed5dd23bdd042b2c51aee69ae7eebe",
+      "sourceCharacters": 76,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 48,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "21800384da091cebc24451ab6c1020e779ed5dd23bdd042b2c51aee69ae7eebe",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "21800384da091cebc24451ab6c1020e779ed5dd23bdd042b2c51aee69ae7eebe",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "21800384da091cebc24451ab6c1020e779ed5dd23bdd042b2c51aee69ae7eebe",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-repeated-48",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 48,
+      "sourceSha256": "3cb0707858c1b5ab91c210878e6f7aef75e96d6810760c847e42c11e4ca5305d",
+      "sourceCharacters": 92,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 64,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "3cb0707858c1b5ab91c210878e6f7aef75e96d6810760c847e42c11e4ca5305d",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "3cb0707858c1b5ab91c210878e6f7aef75e96d6810760c847e42c11e4ca5305d",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "3cb0707858c1b5ab91c210878e6f7aef75e96d6810760c847e42c11e4ca5305d",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-alphanumeric-48",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 48,
+      "sourceSha256": "366b3bc52488bc783d00086da7ca1de0bb101fd2bb1983f2012c0d7d764a0030",
+      "sourceCharacters": 92,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 64,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "366b3bc52488bc783d00086da7ca1de0bb101fd2bb1983f2012c0d7d764a0030",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "366b3bc52488bc783d00086da7ca1de0bb101fd2bb1983f2012c0d7d764a0030",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "366b3bc52488bc783d00086da7ca1de0bb101fd2bb1983f2012c0d7d764a0030",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-url-safe-48",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 48,
+      "sourceSha256": "d249a885519a5a526dcf9466f89fb3ceaf58dec23f2d10b3582fa823a0e2ed05",
+      "sourceCharacters": 92,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 64,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "d249a885519a5a526dcf9466f89fb3ceaf58dec23f2d10b3582fa823a0e2ed05",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "d249a885519a5a526dcf9466f89fb3ceaf58dec23f2d10b3582fa823a0e2ed05",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "d249a885519a5a526dcf9466f89fb3ceaf58dec23f2d10b3582fa823a0e2ed05",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-repeated-64",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 64,
+      "sourceSha256": "1a08b89f18ac3e4aeee663e55d95f41ce6c4a8a5b64ebea545992cb656b6dde3",
+      "sourceCharacters": 108,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 80,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "1a08b89f18ac3e4aeee663e55d95f41ce6c4a8a5b64ebea545992cb656b6dde3",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "1a08b89f18ac3e4aeee663e55d95f41ce6c4a8a5b64ebea545992cb656b6dde3",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "1a08b89f18ac3e4aeee663e55d95f41ce6c4a8a5b64ebea545992cb656b6dde3",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-alphanumeric-64",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 64,
+      "sourceSha256": "eb7b4fb25cc725eb25300e5c697f63ffb78b8a8c5b11c0e4b12660407d3232d3",
+      "sourceCharacters": 108,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 80,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "eb7b4fb25cc725eb25300e5c697f63ffb78b8a8c5b11c0e4b12660407d3232d3",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "eb7b4fb25cc725eb25300e5c697f63ffb78b8a8c5b11c0e4b12660407d3232d3",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "eb7b4fb25cc725eb25300e5c697f63ffb78b8a8c5b11c0e4b12660407d3232d3",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-url-safe-64",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 64,
+      "sourceSha256": "7f0845217b9099ab840739af25c38578a50fcb2dadcebac8c88a33181b634fd5",
+      "sourceCharacters": 108,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 80,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "7f0845217b9099ab840739af25c38578a50fcb2dadcebac8c88a33181b634fd5",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "7f0845217b9099ab840739af25c38578a50fcb2dadcebac8c88a33181b634fd5",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "7f0845217b9099ab840739af25c38578a50fcb2dadcebac8c88a33181b634fd5",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-repeated-96",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 96,
+      "sourceSha256": "5d886b3cd8b2094b4b81d22b705bab3f74e2d59855b4dea95d39e71332422f16",
+      "sourceCharacters": 140,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 112,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "5d886b3cd8b2094b4b81d22b705bab3f74e2d59855b4dea95d39e71332422f16",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "5d886b3cd8b2094b4b81d22b705bab3f74e2d59855b4dea95d39e71332422f16",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "5d886b3cd8b2094b4b81d22b705bab3f74e2d59855b4dea95d39e71332422f16",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-alphanumeric-96",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 96,
+      "sourceSha256": "38167d3bd0ed442b727083085c112dbb36d2c54442be433603b6f851961df69f",
+      "sourceCharacters": 140,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 112,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "38167d3bd0ed442b727083085c112dbb36d2c54442be433603b6f851961df69f",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "38167d3bd0ed442b727083085c112dbb36d2c54442be433603b6f851961df69f",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "38167d3bd0ed442b727083085c112dbb36d2c54442be433603b6f851961df69f",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-url-safe-96",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 96,
+      "sourceSha256": "a1fa377b79062c0b91ad6d2fee3d076ac56d4bfdbda9c9ebf208b509982ba145",
+      "sourceCharacters": 140,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 112,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "a1fa377b79062c0b91ad6d2fee3d076ac56d4bfdbda9c9ebf208b509982ba145",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "a1fa377b79062c0b91ad6d2fee3d076ac56d4bfdbda9c9ebf208b509982ba145",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "a1fa377b79062c0b91ad6d2fee3d076ac56d4bfdbda9c9ebf208b509982ba145",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-repeated-128",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 128,
+      "sourceSha256": "b2f4b9b077dcf59befde338e4dd5a245bded7bdf17f74ca6a02b34bf69e184a7",
+      "sourceCharacters": 172,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 144,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "b2f4b9b077dcf59befde338e4dd5a245bded7bdf17f74ca6a02b34bf69e184a7",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "b2f4b9b077dcf59befde338e4dd5a245bded7bdf17f74ca6a02b34bf69e184a7",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "b2f4b9b077dcf59befde338e4dd5a245bded7bdf17f74ca6a02b34bf69e184a7",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-alphanumeric-128",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 128,
+      "sourceSha256": "9bfe843062c4179511e7acac363615d23df36fc470bcd180a3d3e2397b9a8802",
+      "sourceCharacters": 172,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 144,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "9bfe843062c4179511e7acac363615d23df36fc470bcd180a3d3e2397b9a8802",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "9bfe843062c4179511e7acac363615d23df36fc470bcd180a3d3e2397b9a8802",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "9bfe843062c4179511e7acac363615d23df36fc470bcd180a3d3e2397b9a8802",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-url-safe-128",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 128,
+      "sourceSha256": "eeaa8be9b5e0dc0a5e0406d2fdb3fb0ac38b0f74afdf1c43a36e7aa52732d5c9",
+      "sourceCharacters": 172,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 144,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "eeaa8be9b5e0dc0a5e0406d2fdb3fb0ac38b0f74afdf1c43a36e7aa52732d5c9",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "eeaa8be9b5e0dc0a5e0406d2fdb3fb0ac38b0f74afdf1c43a36e7aa52732d5c9",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "eeaa8be9b5e0dc0a5e0406d2fdb3fb0ac38b0f74afdf1c43a36e7aa52732d5c9",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-repeated-156",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 156,
+      "sourceSha256": "7c0ab225651125a9933bfcb484c8626ecdb35d7b8404f2e66a7c5d5b1983b295",
+      "sourceCharacters": 200,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 172,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "7c0ab225651125a9933bfcb484c8626ecdb35d7b8404f2e66a7c5d5b1983b295",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "7c0ab225651125a9933bfcb484c8626ecdb35d7b8404f2e66a7c5d5b1983b295",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "7c0ab225651125a9933bfcb484c8626ecdb35d7b8404f2e66a7c5d5b1983b295",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-alphanumeric-156",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 156,
+      "sourceSha256": "e3773aeb79b3dbb1941cb2ee4c94146cf0c5e09c838e62d428d7d5720e0fd960",
+      "sourceCharacters": 200,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 172,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "e3773aeb79b3dbb1941cb2ee4c94146cf0c5e09c838e62d428d7d5720e0fd960",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "e3773aeb79b3dbb1941cb2ee4c94146cf0c5e09c838e62d428d7d5720e0fd960",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "e3773aeb79b3dbb1941cb2ee4c94146cf0c5e09c838e62d428d7d5720e0fd960",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-url-safe-156",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 156,
+      "sourceSha256": "5b7569900cd79dfc38913fece74befe51d265d6e736ff01742d931e15b88b7dc",
+      "sourceCharacters": 200,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 172,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "5b7569900cd79dfc38913fece74befe51d265d6e736ff01742d931e15b88b7dc",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "5b7569900cd79dfc38913fece74befe51d265d6e736ff01742d931e15b88b7dc",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "5b7569900cd79dfc38913fece74befe51d265d6e736ff01742d931e15b88b7dc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-repeated-162",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 162,
+      "sourceSha256": "fbdc6d9c4cb686dcb29165aa5a34a53e29ff83055cad0742e2e1afeb2c0e5a37",
+      "sourceCharacters": 206,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 178,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "fbdc6d9c4cb686dcb29165aa5a34a53e29ff83055cad0742e2e1afeb2c0e5a37",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "fbdc6d9c4cb686dcb29165aa5a34a53e29ff83055cad0742e2e1afeb2c0e5a37",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "fbdc6d9c4cb686dcb29165aa5a34a53e29ff83055cad0742e2e1afeb2c0e5a37",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-alphanumeric-162",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 162,
+      "sourceSha256": "061dcf74431bd7634df98cd5ecc97f0c4995821d39ebedafe54a4e1058f35eb0",
+      "sourceCharacters": 206,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 178,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "061dcf74431bd7634df98cd5ecc97f0c4995821d39ebedafe54a4e1058f35eb0",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "061dcf74431bd7634df98cd5ecc97f0c4995821d39ebedafe54a4e1058f35eb0",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "061dcf74431bd7634df98cd5ecc97f0c4995821d39ebedafe54a4e1058f35eb0",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-url-safe-162",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 162,
+      "sourceSha256": "88dc06068c7b198a4cefea66640b6d1884f160ea68e1b25dff74bbcbea4a3ea3",
+      "sourceCharacters": 206,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 178,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "88dc06068c7b198a4cefea66640b6d1884f160ea68e1b25dff74bbcbea4a3ea3",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "88dc06068c7b198a4cefea66640b6d1884f160ea68e1b25dff74bbcbea4a3ea3",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "88dc06068c7b198a4cefea66640b6d1884f160ea68e1b25dff74bbcbea4a3ea3",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-repeated-256",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 256,
+      "sourceSha256": "05244fb884571c367363f124b596fdd79a3119f3e27fe222e8dc68dd6dfe0f20",
+      "sourceCharacters": 300,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 272,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "05244fb884571c367363f124b596fdd79a3119f3e27fe222e8dc68dd6dfe0f20",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "05244fb884571c367363f124b596fdd79a3119f3e27fe222e8dc68dd6dfe0f20",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "05244fb884571c367363f124b596fdd79a3119f3e27fe222e8dc68dd6dfe0f20",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-alphanumeric-256",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 256,
+      "sourceSha256": "ff9b3c52c227a3d621df32301f5dc5732ccdeccef40a270fb94ce1cc8e783395",
+      "sourceCharacters": 300,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 272,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "ff9b3c52c227a3d621df32301f5dc5732ccdeccef40a270fb94ce1cc8e783395",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "ff9b3c52c227a3d621df32301f5dc5732ccdeccef40a270fb94ce1cc8e783395",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "ff9b3c52c227a3d621df32301f5dc5732ccdeccef40a270fb94ce1cc8e783395",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-url-safe-256",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 256,
+      "sourceSha256": "0cbc28d477a6508db723f4734bb3fd02d66620e60c914c9de5b90c57a4efef0f",
+      "sourceCharacters": 300,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 272,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "0cbc28d477a6508db723f4734bb3fd02d66620e60c914c9de5b90c57a4efef0f",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "0cbc28d477a6508db723f4734bb3fd02d66620e60c914c9de5b90c57a4efef0f",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "0cbc28d477a6508db723f4734bb3fd02d66620e60c914c9de5b90c57a4efef0f",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-repeated-4096",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 4096,
+      "sourceSha256": "06ecb45b57f5c87abdafcb41f45901bf974cc8ddf71da61d0295afd111928b36",
+      "sourceCharacters": 4140,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 4112,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "06ecb45b57f5c87abdafcb41f45901bf974cc8ddf71da61d0295afd111928b36",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "06ecb45b57f5c87abdafcb41f45901bf974cc8ddf71da61d0295afd111928b36",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "06ecb45b57f5c87abdafcb41f45901bf974cc8ddf71da61d0295afd111928b36",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-alphanumeric-4096",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 4096,
+      "sourceSha256": "90dd23921bee6b6e58e35c4cdccaac478e051d560c209af96f848201ed34a557",
+      "sourceCharacters": 4140,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 4112,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "90dd23921bee6b6e58e35c4cdccaac478e051d560c209af96f848201ed34a557",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "90dd23921bee6b6e58e35c4cdccaac478e051d560c209af96f848201ed34a557",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "90dd23921bee6b6e58e35c4cdccaac478e051d560c209af96f848201ed34a557",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-url-safe-4096",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 4096,
+      "sourceSha256": "0b41198de5807f1f8762db8f7ff773dfb678449eccb098f00665bc3f8042b678",
+      "sourceCharacters": 4140,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 4112,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "0b41198de5807f1f8762db8f7ff773dfb678449eccb098f00665bc3f8042b678",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "0b41198de5807f1f8762db8f7ff773dfb678449eccb098f00665bc3f8042b678",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "0b41198de5807f1f8762db8f7ff773dfb678449eccb098f00665bc3f8042b678",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-ends-dash",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 156,
+      "sourceSha256": "3deb766150abfc14ed86f18f870eace3fdef7436d2973cfb108c36fc9b239019",
+      "sourceCharacters": 200,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 172,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "3deb766150abfc14ed86f18f870eace3fdef7436d2973cfb108c36fc9b239019",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "3deb766150abfc14ed86f18f870eace3fdef7436d2973cfb108c36fc9b239019",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "3deb766150abfc14ed86f18f870eace3fdef7436d2973cfb108c36fc9b239019",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-ends-underscore",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 156,
+      "sourceSha256": "14ecb37208a5e3d6d1e35a66a0c9a9b72e30795d3b7ee5e35db5cefda0ba0257",
+      "sourceCharacters": 200,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 172,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "14ecb37208a5e3d6d1e35a66a0c9a9b72e30795d3b7ee5e35db5cefda0ba0257",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "14ecb37208a5e3d6d1e35a66a0c9a9b72e30795d3b7ee5e35db5cefda0ba0257",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "14ecb37208a5e3d6d1e35a66a0c9a9b72e30795d3b7ee5e35db5cefda0ba0257",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-nested-github",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 71,
+      "sourceSha256": "4d866073bc5241c7b598d3f586629983d7cb6108deb932dcc032d89b234156cc",
+      "sourceCharacters": 115,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 87,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "4d866073bc5241c7b598d3f586629983d7cb6108deb932dcc032d89b234156cc",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "4d866073bc5241c7b598d3f586629983d7cb6108deb932dcc032d89b234156cc",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "4d866073bc5241c7b598d3f586629983d7cb6108deb932dcc032d89b234156cc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "svcacct-nested-anthropic",
+      "prefix": "sk-svcacct-",
+      "bodyLength": 68,
+      "sourceSha256": "da60817b941029553f01e1e100aaed4efba1c150ff8ee76a073ac90bdf8c72fe",
+      "sourceCharacters": 112,
+      "maskedSha256": "ae198ac7cb12c5a882723f179b3d69aba4bdfb55312de4e1e37175153c9f646f",
+      "maskedCharacters": 43,
+      "fullyMasked": true,
+      "wholeTokenMapping": true,
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "secretSpans": [
+        {
+          "start": 5,
+          "end": 84,
+          "detector": "secret:openai_key"
+        }
+      ],
+      "sdk": [
+        {
+          "api": "chat",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "b7ecab0c48f493c7aaf574670671e597a101a035314ae5fee26e0190275174c2",
+          "restoredReplySha256": "da60817b941029553f01e1e100aaed4efba1c150ff8ee76a073ac90bdf8c72fe",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "a1c6434115ce8497a36a076cd5e6b8df99d330b41537b0dec97085dbe1ccc2eb",
+          "restoredReplySha256": "da60817b941029553f01e1e100aaed4efba1c150ff8ee76a073ac90bdf8c72fe",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "fullyMaskedAtTransport": true,
+          "requestBodySha256": "781f817013ca657af6e18efb45a56f7c6eccadec77345b675ada9a63a50cf26b",
+          "restoredReplySha256": "da60817b941029553f01e1e100aaed4efba1c150ff8ee76a073ac90bdf8c72fe",
+          "restoresExactly": true
+        }
+      ]
+    }
+  ]
+}

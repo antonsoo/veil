@@ -314,9 +314,12 @@ it does not validate or repair malformed JSON.
   and reserved space), credential-bearing URLs of any scheme
   (including `postgres://`/`redis://`-style connection strings), PEM private
   key blocks, API keys/secrets (`AKIA…`, `ghp_…`, `github_pat_…`, `xox…`,
-  `sk_live_…`, `sk-ant-…`, `sk-…`, plus a heuristic for random tokens that
+  `sk_live_…`, `sk-ant-…`, `sk-proj-…`, `sk-svcacct-…`, `sk-…`, plus a heuristic for random tokens that
   leaves alone anything that reads as words),
   context-gated date-of-birth, and an opt-in US street-address heuristic.
+  This checkout masks complete project/service-account-shaped token bodies;
+  the released package is unchanged. [Synthetic SDK replay and scope](studies/secret-formats/README.md)
+  explain the recognition heuristic and its limits.
 - **Names, orgs, and locations** via a pluggable `NameBackend`: a
   first-class `KnownEntitiesBackend` (you already know the customer's name
   from your own database — this is the most reliable option in practice)

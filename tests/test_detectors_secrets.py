@@ -138,3 +138,39 @@ def test_most_random_tokens_of_twenty_characters_are_found() -> None:
         tokens = ["".join(rng.choice(alphabet) for _ in range(20)) for _ in range(500)]
         found = sum(values(f"token {token} end") == [token] for token in tokens)
         assert found >= 450, (alphabet[:8], found)  # 0.4.4 found between 100 and 320
+
+
+# Deliberately synthetic shape probes. They are never sent to a provider and
+# do not establish which key lengths/alphabets a provider currently issues.
+def test_project_and_service_account_shaped_keys_are_one_complete_secret() -> None:
+    from veil import Masker
+
+    for prefix in ("sk-proj-", "sk-svcacct-"):
+        for body in (
+            "a" * 156,
+            "aZ3kQ9mP1xR7vL2nB8wT4dY6" * 7,
+            "aZ3k_Q9m-P1xR7vL2nB8wT4dY6" * 7,
+            "a" * 19 + "-",
+            "a" * 19 + "_",
+            "a" * 30 + "-ghp_" + "b" * 36,
+            "a" * 30 + "-sk-ant-" + "b" * 30,
+            "a" * 4096,
+        ):
+            token = prefix + body
+            text = f'credential="{token}"; keep this context'
+            found = d.find(text)
+            assert [(e.value, e.detector) for e in found] == [(token, "secret:openai_key")]
+            assert text[found[0].span.start : found[0].span.end] == token
+            masker = Masker()
+            masked = masker.mask(text)
+            assert masked == 'credential="⟨SECRET_1⟩"; keep this context'
+            assert masker.restore(masked) == text
+
+
+def test_project_key_recognition_does_not_consume_context_or_short_examples() -> None:
+    for prefix in ("sk-proj-", "sk-svcacct-"):
+        assert d.find(prefix + "...") == []
+        assert d.find(prefix + "a" * 19) == []
+        assert d.find("not_" + prefix + "a" * 156) == []
+        token = prefix + "a" * 156
+        assert values(f"({token}), and another {token}.") == [token, token]

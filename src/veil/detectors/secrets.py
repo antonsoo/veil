@@ -66,6 +66,14 @@ def _private_key_blocks(text: str) -> Iterator[tuple[int, int]]:
 # generic, prefix-free `aws_secret_key` pattern (any 40-char alnum run)
 # never shadows a more specific match nested inside a longer token.
 _KNOWN_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
+    # Project/service-account shaped tokens have URL-safe opaque bodies. Do not
+    # truncate them at a historical key length or at an internal '-' / '_'.
+    # Match the enclosing token before patterns that could recognize a fragment
+    # of its body. This is recognition for masking, not credential validation.
+    (
+        "openai_key",
+        re.compile(r"\bsk-(?:proj|svcacct)-[A-Za-z0-9_-]{20,}(?![A-Za-z0-9_-])"),
+    ),
     ("aws_access_key", re.compile(r"\bAKIA[0-9A-Z]{16}\b")),
     ("github_pat_classic", re.compile(r"\bghp_[A-Za-z0-9]{36}\b")),
     ("github_pat_fine", re.compile(r"\bgithub_pat_[A-Za-z0-9_]{22,255}\b")),

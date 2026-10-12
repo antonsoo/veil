@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Complete project-key masking
+
+- Recognize complete `sk-proj-` and `sk-svcacct-` shaped secrets, including
+  long URL-safe bodies and internal dashes/underscores. Previously the generic
+  entropy fallback could miss them or mask only a fragment. Enclosing tokens
+  take priority over supported key prefixes nested in their bodies.
+- Retain synthetic before/after SDK request checks and a public-text
+  compatibility replay in `studies/secret-formats`. Recognition is a masking
+  heuristic, not credential validation or a provider key-format guarantee.
+
 ### Message boundaries and history identity
 
 - Restore Anthropic text helpers per content block, including asynchronous

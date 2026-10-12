@@ -1,0 +1,17 @@
+{
+  "python": "3.12.12",
+  "files": 1483,
+  "words": 2616034,
+  "bytes": 32925796,
+  "detections": 10339,
+  "baseline": "5521b571b401966220165628df26290b5d647e63",
+  "changedFiles": 0,
+  "beforeRowsSha256": "61071597322cb12538711b162f98a840907caecc2a85161dbda602e2749f3fd2",
+  "afterRowsSha256": "61071597322cb12538711b162f98a840907caecc2a85161dbda602e2749f3fd2",
+  "manifests": {
+    "manifest-technical.json": "55176de41eaad86b6b6e83eca89555c1d6bb61d5a93540f9ad019687ac5b0da4",
+    "manifest-technical-heldout.json": "9a7e8ebbefe6a7b563c31b90ff0b9a5e17813d81821ee0ff956b4c0dd68b0202"
+  },
+  "driverSha256": "3c2e9295553cc43c703e3af1c45d9cfdd985a5f6c2e6dd250f64e0cac7d4d464",
+  "comparison": "Every resolved entity type, span, detector, confidence and value hashed per source; complete row arrays equal. Values are not retained."
+}
