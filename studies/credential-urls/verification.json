@@ -1,0 +1,738 @@
+{
+  "sourceCommit": "7168237815648a5935efbf16e7c4e5ccccaeefe0",
+  "sourceArchive": "git archive of committed source",
+  "checks": {
+    "lockedInstallPython": [
+      "3.10.21",
+      "3.14.7"
+    ],
+    "ruff": "passed (scratch virtual environments excluded)",
+    "format": "116 files passed (scratch virtual environments excluded)",
+    "mypy": "33 source files passed",
+    "pytest": [
+      {
+        "python": "3.10.21",
+        "passed": 537,
+        "skipped": 1,
+        "seconds": 21.92
+      },
+      {
+        "python": "3.14.7",
+        "passed": 537,
+        "skipped": 1,
+        "seconds": 19.64
+      }
+    ],
+    "skipReason": "optional spaCy backend is not installed",
+    "build": "sdist and wheel from clean archive",
+    "syntheticCorpus": "60 documents; all 140 expected entities found; not a real-world accuracy estimate",
+    "web": "npm ci, TypeScript check, Vite build, 16 existing Chromium/Firefox scenarios passed"
+  },
+  "artifacts": [
+    {
+      "file": "veil_pii-0.4.4-py3-none-any.whl",
+      "bytes": 87234,
+      "sha256": "e5508172be4d18c1d46019f0c7acddcfc33e76ecddd9117d75ec9e2fd024a7e4"
+    },
+    {
+      "file": "veil_pii-0.4.4.tar.gz",
+      "bytes": 92338,
+      "sha256": "40484d779625d546fcc825646a2243f45f2adaad93ad148b0948dea875bafbf0"
+    }
+  ],
+  "installed": [
+    {
+      "environment": "installed310",
+      "distributions": {
+        "veil-pii": "0.4.4"
+      },
+      "wheelFilesEqual": 39,
+      "files": [
+        {
+          "path": "veil/__init__.py",
+          "bytes": 1485,
+          "sha256": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980"
+        },
+        {
+          "path": "veil/_files.py",
+          "bytes": 948,
+          "sha256": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29"
+        },
+        {
+          "path": "veil/_spans.py",
+          "bytes": 1638,
+          "sha256": "e8e2f09a3f7b92535ffaacda6c3c820793465c9c00f16faec50c807147e1e62f"
+        },
+        {
+          "path": "veil/audit.py",
+          "bytes": 4486,
+          "sha256": "038bb18f7bc0e81d7cd2f5f2381b01a5fe16c331a84bff081b0f515e35dc8073"
+        },
+        {
+          "path": "veil/cli.py",
+          "bytes": 9091,
+          "sha256": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1"
+        },
+        {
+          "path": "veil/masker.py",
+          "bytes": 7285,
+          "sha256": "ea56b9a55ea4e772fe08cedefcc3067cc78c69d64088f536e47e74c7bbbb834b"
+        },
+        {
+          "path": "veil/py.typed",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "veil/restore.py",
+          "bytes": 14860,
+          "sha256": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38"
+        },
+        {
+          "path": "veil/surrogates.py",
+          "bytes": 6870,
+          "sha256": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0"
+        },
+        {
+          "path": "veil/types.py",
+          "bytes": 2126,
+          "sha256": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8"
+        },
+        {
+          "path": "veil/vault.py",
+          "bytes": 12250,
+          "sha256": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+        },
+        {
+          "path": "veil/backends/__init__.py",
+          "bytes": 791,
+          "sha256": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b"
+        },
+        {
+          "path": "veil/backends/base.py",
+          "bytes": 737,
+          "sha256": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e"
+        },
+        {
+          "path": "veil/backends/known_entities.py",
+          "bytes": 2440,
+          "sha256": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55"
+        },
+        {
+          "path": "veil/backends/spacy_backend.py",
+          "bytes": 2608,
+          "sha256": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b"
+        },
+        {
+          "path": "veil/detectors/__init__.py",
+          "bytes": 1842,
+          "sha256": "4e6e202fe17c7c8d0bd6afea3f1611411eb6fbb5c4acfa3f9eb17eb9184107e6"
+        },
+        {
+          "path": "veil/detectors/_calling_codes.py",
+          "bytes": 5352,
+          "sha256": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c"
+        },
+        {
+          "path": "veil/detectors/_words.py",
+          "bytes": 4037,
+          "sha256": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887"
+        },
+        {
+          "path": "veil/detectors/address.py",
+          "bytes": 2109,
+          "sha256": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec"
+        },
+        {
+          "path": "veil/detectors/base.py",
+          "bytes": 768,
+          "sha256": "ac0e63d0d37d4626f9717a1ccafe4a093ecea9a0e1ef897afa200cfc85fb3ef2"
+        },
+        {
+          "path": "veil/detectors/card.py",
+          "bytes": 4910,
+          "sha256": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f"
+        },
+        {
+          "path": "veil/detectors/dob.py",
+          "bytes": 2166,
+          "sha256": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f"
+        },
+        {
+          "path": "veil/detectors/email.py",
+          "bytes": 1454,
+          "sha256": "226c1d9f6dba002e313aef9659eadd107d06f22a7a72549b9b9b07b3a5bb2e62"
+        },
+        {
+          "path": "veil/detectors/iban.py",
+          "bytes": 2865,
+          "sha256": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c"
+        },
+        {
+          "path": "veil/detectors/ip.py",
+          "bytes": 3418,
+          "sha256": "c36c0f7e93d71c611404c15691bdc85d6572c22d443b7f4cb4f384870eb40420"
+        },
+        {
+          "path": "veil/detectors/phone.py",
+          "bytes": 8040,
+          "sha256": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd"
+        },
+        {
+          "path": "veil/detectors/secrets.py",
+          "bytes": 7587,
+          "sha256": "1b26844666c717b64ad5ec18c9afd4ae5f0016ae6850c08c7b3458ec9cd9b7b2"
+        },
+        {
+          "path": "veil/detectors/ssn.py",
+          "bytes": 2457,
+          "sha256": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b"
+        },
+        {
+          "path": "veil/detectors/url.py",
+          "bytes": 5148,
+          "sha256": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099"
+        },
+        {
+          "path": "veil/integrations/__init__.py",
+          "bytes": 312,
+          "sha256": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881"
+        },
+        {
+          "path": "veil/integrations/_common.py",
+          "bytes": 9670,
+          "sha256": "742e8feececf9a86297155e2ca9a6bc22bda61677669cfae4873fb8386689a73"
+        },
+        {
+          "path": "veil/integrations/_json_arguments.py",
+          "bytes": 3631,
+          "sha256": "8189f42f3dcdb74cb4c74346732ba03116ee8e79e1468858f92086fdcb7c8188"
+        },
+        {
+          "path": "veil/integrations/anthropic.py",
+          "bytes": 22772,
+          "sha256": "4f1fa78f92a767077f2242a720c781e321e7b9d221234194eec531c7f865cedc"
+        },
+        {
+          "path": "veil/integrations/openai.py",
+          "bytes": 20679,
+          "sha256": "31a5811bf1a1159a23c6257a02fbf9de3532829985b5ce4186a0986e0bad42b6"
+        },
+        {
+          "path": "veil/integrations/openai_responses.py",
+          "bytes": 13835,
+          "sha256": "a91f68d5badab07c75e63b52859d65a1478c32d3c178cb8c549c85538d3492de"
+        },
+        {
+          "path": "veil_pii-0.4.4.dist-info/METADATA",
+          "bytes": 33206,
+          "sha256": "a72e2e07a1414d4614a2d120ca33a44bec3e83e3cde773a87b30d9052b00b01a"
+        },
+        {
+          "path": "veil_pii-0.4.4.dist-info/WHEEL",
+          "bytes": 87,
+          "sha256": "5b77e4a649bbfb07fdbc123967eeecd1e5a478cfaca6eefc23c35e6fdf037848"
+        },
+        {
+          "path": "veil_pii-0.4.4.dist-info/entry_points.txt",
+          "bytes": 39,
+          "sha256": "eba967525577b57cfe4074152eb3bd5c4b8afd599ba809fec3b30e6789dc6192"
+        },
+        {
+          "path": "veil_pii-0.4.4.dist-info/licenses/LICENSE",
+          "bytes": 1071,
+          "sha256": "e26144be8673d69c175126ad8dcd9ed78431464f0b97120b799dc75ec7edb647"
+        }
+      ]
+    },
+    {
+      "environment": "installed314",
+      "distributions": {
+        "idna": "3.20",
+        "httpcore2": "2.13.1",
+        "typing-inspection": "0.4.4",
+        "truststore": "0.10.4",
+        "pydantic": "2.14.1",
+        "docstring_parser": "0.18.0",
+        "openai": "3.23.0",
+        "h11": "0.16.0",
+        "pydantic_core": "2.50.1",
+        "veil-pii": "0.4.4",
+        "anyio": "4.15.1",
+        "typing_extensions": "4.16.0",
+        "httpx2": "2.13.1",
+        "jiter": "0.17.0",
+        "annotated-types": "0.8.0",
+        "sniffio": "1.3.1",
+        "anthropic": "1.11.0"
+      },
+      "wheelFilesEqual": 39,
+      "files": [
+        {
+          "path": "veil/__init__.py",
+          "bytes": 1485,
+          "sha256": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980"
+        },
+        {
+          "path": "veil/_files.py",
+          "bytes": 948,
+          "sha256": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29"
+        },
+        {
+          "path": "veil/_spans.py",
+          "bytes": 1638,
+          "sha256": "e8e2f09a3f7b92535ffaacda6c3c820793465c9c00f16faec50c807147e1e62f"
+        },
+        {
+          "path": "veil/audit.py",
+          "bytes": 4486,
+          "sha256": "038bb18f7bc0e81d7cd2f5f2381b01a5fe16c331a84bff081b0f515e35dc8073"
+        },
+        {
+          "path": "veil/cli.py",
+          "bytes": 9091,
+          "sha256": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1"
+        },
+        {
+          "path": "veil/masker.py",
+          "bytes": 7285,
+          "sha256": "ea56b9a55ea4e772fe08cedefcc3067cc78c69d64088f536e47e74c7bbbb834b"
+        },
+        {
+          "path": "veil/py.typed",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "veil/restore.py",
+          "bytes": 14860,
+          "sha256": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38"
+        },
+        {
+          "path": "veil/surrogates.py",
+          "bytes": 6870,
+          "sha256": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0"
+        },
+        {
+          "path": "veil/types.py",
+          "bytes": 2126,
+          "sha256": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8"
+        },
+        {
+          "path": "veil/vault.py",
+          "bytes": 12250,
+          "sha256": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+        },
+        {
+          "path": "veil/backends/__init__.py",
+          "bytes": 791,
+          "sha256": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b"
+        },
+        {
+          "path": "veil/backends/base.py",
+          "bytes": 737,
+          "sha256": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e"
+        },
+        {
+          "path": "veil/backends/known_entities.py",
+          "bytes": 2440,
+          "sha256": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55"
+        },
+        {
+          "path": "veil/backends/spacy_backend.py",
+          "bytes": 2608,
+          "sha256": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b"
+        },
+        {
+          "path": "veil/detectors/__init__.py",
+          "bytes": 1842,
+          "sha256": "4e6e202fe17c7c8d0bd6afea3f1611411eb6fbb5c4acfa3f9eb17eb9184107e6"
+        },
+        {
+          "path": "veil/detectors/_calling_codes.py",
+          "bytes": 5352,
+          "sha256": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c"
+        },
+        {
+          "path": "veil/detectors/_words.py",
+          "bytes": 4037,
+          "sha256": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887"
+        },
+        {
+          "path": "veil/detectors/address.py",
+          "bytes": 2109,
+          "sha256": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec"
+        },
+        {
+          "path": "veil/detectors/base.py",
+          "bytes": 768,
+          "sha256": "ac0e63d0d37d4626f9717a1ccafe4a093ecea9a0e1ef897afa200cfc85fb3ef2"
+        },
+        {
+          "path": "veil/detectors/card.py",
+          "bytes": 4910,
+          "sha256": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f"
+        },
+        {
+          "path": "veil/detectors/dob.py",
+          "bytes": 2166,
+          "sha256": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f"
+        },
+        {
+          "path": "veil/detectors/email.py",
+          "bytes": 1454,
+          "sha256": "226c1d9f6dba002e313aef9659eadd107d06f22a7a72549b9b9b07b3a5bb2e62"
+        },
+        {
+          "path": "veil/detectors/iban.py",
+          "bytes": 2865,
+          "sha256": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c"
+        },
+        {
+          "path": "veil/detectors/ip.py",
+          "bytes": 3418,
+          "sha256": "c36c0f7e93d71c611404c15691bdc85d6572c22d443b7f4cb4f384870eb40420"
+        },
+        {
+          "path": "veil/detectors/phone.py",
+          "bytes": 8040,
+          "sha256": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd"
+        },
+        {
+          "path": "veil/detectors/secrets.py",
+          "bytes": 7587,
+          "sha256": "1b26844666c717b64ad5ec18c9afd4ae5f0016ae6850c08c7b3458ec9cd9b7b2"
+        },
+        {
+          "path": "veil/detectors/ssn.py",
+          "bytes": 2457,
+          "sha256": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b"
+        },
+        {
+          "path": "veil/detectors/url.py",
+          "bytes": 5148,
+          "sha256": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099"
+        },
+        {
+          "path": "veil/integrations/__init__.py",
+          "bytes": 312,
+          "sha256": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881"
+        },
+        {
+          "path": "veil/integrations/_common.py",
+          "bytes": 9670,
+          "sha256": "742e8feececf9a86297155e2ca9a6bc22bda61677669cfae4873fb8386689a73"
+        },
+        {
+          "path": "veil/integrations/_json_arguments.py",
+          "bytes": 3631,
+          "sha256": "8189f42f3dcdb74cb4c74346732ba03116ee8e79e1468858f92086fdcb7c8188"
+        },
+        {
+          "path": "veil/integrations/anthropic.py",
+          "bytes": 22772,
+          "sha256": "4f1fa78f92a767077f2242a720c781e321e7b9d221234194eec531c7f865cedc"
+        },
+        {
+          "path": "veil/integrations/openai.py",
+          "bytes": 20679,
+          "sha256": "31a5811bf1a1159a23c6257a02fbf9de3532829985b5ce4186a0986e0bad42b6"
+        },
+        {
+          "path": "veil/integrations/openai_responses.py",
+          "bytes": 13835,
+          "sha256": "a91f68d5badab07c75e63b52859d65a1478c32d3c178cb8c549c85538d3492de"
+        },
+        {
+          "path": "veil_pii-0.4.4.dist-info/METADATA",
+          "bytes": 33206,
+          "sha256": "a72e2e07a1414d4614a2d120ca33a44bec3e83e3cde773a87b30d9052b00b01a"
+        },
+        {
+          "path": "veil_pii-0.4.4.dist-info/WHEEL",
+          "bytes": 87,
+          "sha256": "5b77e4a649bbfb07fdbc123967eeecd1e5a478cfaca6eefc23c35e6fdf037848"
+        },
+        {
+          "path": "veil_pii-0.4.4.dist-info/entry_points.txt",
+          "bytes": 39,
+          "sha256": "eba967525577b57cfe4074152eb3bd5c4b8afd599ba809fec3b30e6789dc6192"
+        },
+        {
+          "path": "veil_pii-0.4.4.dist-info/licenses/LICENSE",
+          "bytes": 1071,
+          "sha256": "e26144be8673d69c175126ad8dcd9ed78431464f0b97120b799dc75ec7edb647"
+        }
+      ]
+    }
+  ],
+  "installedRowsEqual": true,
+  "sourceParity": [
+    {
+      "path": "src/veil/__init__.py",
+      "sha256": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980",
+      "bytes": 1485
+    },
+    {
+      "path": "src/veil/_files.py",
+      "sha256": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29",
+      "bytes": 948
+    },
+    {
+      "path": "src/veil/_spans.py",
+      "sha256": "e8e2f09a3f7b92535ffaacda6c3c820793465c9c00f16faec50c807147e1e62f",
+      "bytes": 1638
+    },
+    {
+      "path": "src/veil/audit.py",
+      "sha256": "038bb18f7bc0e81d7cd2f5f2381b01a5fe16c331a84bff081b0f515e35dc8073",
+      "bytes": 4486
+    },
+    {
+      "path": "src/veil/backends/__init__.py",
+      "sha256": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b",
+      "bytes": 791
+    },
+    {
+      "path": "src/veil/backends/base.py",
+      "sha256": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e",
+      "bytes": 737
+    },
+    {
+      "path": "src/veil/backends/known_entities.py",
+      "sha256": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55",
+      "bytes": 2440
+    },
+    {
+      "path": "src/veil/backends/spacy_backend.py",
+      "sha256": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b",
+      "bytes": 2608
+    },
+    {
+      "path": "src/veil/cli.py",
+      "sha256": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1",
+      "bytes": 9091
+    },
+    {
+      "path": "src/veil/detectors/__init__.py",
+      "sha256": "4e6e202fe17c7c8d0bd6afea3f1611411eb6fbb5c4acfa3f9eb17eb9184107e6",
+      "bytes": 1842
+    },
+    {
+      "path": "src/veil/detectors/_calling_codes.py",
+      "sha256": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c",
+      "bytes": 5352
+    },
+    {
+      "path": "src/veil/detectors/_words.py",
+      "sha256": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887",
+      "bytes": 4037
+    },
+    {
+      "path": "src/veil/detectors/address.py",
+      "sha256": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec",
+      "bytes": 2109
+    },
+    {
+      "path": "src/veil/detectors/base.py",
+      "sha256": "ac0e63d0d37d4626f9717a1ccafe4a093ecea9a0e1ef897afa200cfc85fb3ef2",
+      "bytes": 768
+    },
+    {
+      "path": "src/veil/detectors/card.py",
+      "sha256": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f",
+      "bytes": 4910
+    },
+    {
+      "path": "src/veil/detectors/dob.py",
+      "sha256": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f",
+      "bytes": 2166
+    },
+    {
+      "path": "src/veil/detectors/email.py",
+      "sha256": "226c1d9f6dba002e313aef9659eadd107d06f22a7a72549b9b9b07b3a5bb2e62",
+      "bytes": 1454
+    },
+    {
+      "path": "src/veil/detectors/iban.py",
+      "sha256": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c",
+      "bytes": 2865
+    },
+    {
+      "path": "src/veil/detectors/ip.py",
+      "sha256": "c36c0f7e93d71c611404c15691bdc85d6572c22d443b7f4cb4f384870eb40420",
+      "bytes": 3418
+    },
+    {
+      "path": "src/veil/detectors/phone.py",
+      "sha256": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd",
+      "bytes": 8040
+    },
+    {
+      "path": "src/veil/detectors/secrets.py",
+      "sha256": "1b26844666c717b64ad5ec18c9afd4ae5f0016ae6850c08c7b3458ec9cd9b7b2",
+      "bytes": 7587
+    },
+    {
+      "path": "src/veil/detectors/ssn.py",
+      "sha256": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b",
+      "bytes": 2457
+    },
+    {
+      "path": "src/veil/detectors/url.py",
+      "sha256": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099",
+      "bytes": 5148
+    },
+    {
+      "path": "src/veil/integrations/__init__.py",
+      "sha256": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881",
+      "bytes": 312
+    },
+    {
+      "path": "src/veil/integrations/_common.py",
+      "sha256": "742e8feececf9a86297155e2ca9a6bc22bda61677669cfae4873fb8386689a73",
+      "bytes": 9670
+    },
+    {
+      "path": "src/veil/integrations/_json_arguments.py",
+      "sha256": "8189f42f3dcdb74cb4c74346732ba03116ee8e79e1468858f92086fdcb7c8188",
+      "bytes": 3631
+    },
+    {
+      "path": "src/veil/integrations/anthropic.py",
+      "sha256": "4f1fa78f92a767077f2242a720c781e321e7b9d221234194eec531c7f865cedc",
+      "bytes": 22772
+    },
+    {
+      "path": "src/veil/integrations/openai.py",
+      "sha256": "31a5811bf1a1159a23c6257a02fbf9de3532829985b5ce4186a0986e0bad42b6",
+      "bytes": 20679
+    },
+    {
+      "path": "src/veil/integrations/openai_responses.py",
+      "sha256": "a91f68d5badab07c75e63b52859d65a1478c32d3c178cb8c549c85538d3492de",
+      "bytes": 13835
+    },
+    {
+      "path": "src/veil/masker.py",
+      "sha256": "ea56b9a55ea4e772fe08cedefcc3067cc78c69d64088f536e47e74c7bbbb834b",
+      "bytes": 7285
+    },
+    {
+      "path": "src/veil/py.typed",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "src/veil/restore.py",
+      "sha256": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38",
+      "bytes": 14860
+    },
+    {
+      "path": "src/veil/surrogates.py",
+      "sha256": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0",
+      "bytes": 6870
+    },
+    {
+      "path": "src/veil/types.py",
+      "sha256": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8",
+      "bytes": 2126
+    },
+    {
+      "path": "src/veil/vault.py",
+      "sha256": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62",
+      "bytes": 12250
+    }
+  ],
+  "packageVersion": "0.4.4",
+  "scope": "locally built artifacts; no package release or hosted deployment",
+  "browser": {
+    "casesEachRun": 156,
+    "expectedBefore": 84,
+    "expectedAfter": 156,
+    "downloadsEachRun": 312,
+    "servedAssetsEqual": 10,
+    "sourceManifestFilesEqual": 34,
+    "existingScenarios": 16,
+    "engines": [
+      {
+        "engine": "chromium",
+        "version": "153.0.8010.12",
+        "width": 375,
+        "offlineRequests": 0,
+        "pageErrors": []
+      },
+      {
+        "engine": "chromium",
+        "version": "153.0.8010.12",
+        "width": 1280,
+        "offlineRequests": 0,
+        "pageErrors": []
+      },
+      {
+        "engine": "firefox",
+        "version": "155.0",
+        "width": 375,
+        "offlineRequests": 0,
+        "pageErrors": []
+      },
+      {
+        "engine": "firefox",
+        "version": "155.0",
+        "width": 1280,
+        "offlineRequests": 0,
+        "pageErrors": []
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "docs/assets/credential-urls/after/chromium-1280.png",
+      "bytes": 128510,
+      "sha256": "fa3bddec98175fc3e8e1818a3d4c27bc8f71e5d5ddbfa50b7aaae822474299d3",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/assets/credential-urls/after/chromium-375.png",
+      "bytes": 102916,
+      "sha256": "922be17c2cb46a14d39170697e9f39b105ebafd0247d739cdc09aa4c65cc2056",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/assets/credential-urls/after/firefox-1280.png",
+      "bytes": 211140,
+      "sha256": "39d72df62d1cb36b42b427658a6846e55fe36be4cfea80e96ad83e486f833b0b",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/assets/credential-urls/after/firefox-375.png",
+      "bytes": 161682,
+      "sha256": "7564804efdeb858235aefca78606b49b8a1d857ab297d29395e9fe1f9d5484f3",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/assets/credential-urls/before/chromium-1280.png",
+      "bytes": 164012,
+      "sha256": "bb17700c8aded1f8b76a5981939cc5a10b42be819376f3df1e3d7876e49226eb",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/assets/credential-urls/before/chromium-375.png",
+      "bytes": 131654,
+      "sha256": "97937bcefaa0a15a071e0ef9a0d5a42b1daaab9ef4f885589ef453c4f5c280e7",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/assets/credential-urls/before/firefox-1280.png",
+      "bytes": 307175,
+      "sha256": "1dfa55a1e0b04ba60a01b65daf193d378c7b37fad36c2159aa1631ff06404a3d",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/assets/credential-urls/before/firefox-375.png",
+      "bytes": 263341,
+      "sha256": "475e40b040e250e455c3eead476b59211d7e633d691429a8ce719421bbe333df",
+      "visuallyInspected": true
+    }
+  ]
+}

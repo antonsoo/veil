@@ -1,0 +1,1348 @@
+{
+  "baseline": true,
+  "driverSha256": "7d1eedce40c40f9831839a913b44cefa6f3d4c37a00a7955925591a1bd08d76c",
+  "casesSha256": "0088116d7018a6e2ca9d7a2dad883f3ccd5dcd92b7637914f6e03b97f2818d39",
+  "cases": 156,
+  "expectedMask": 84,
+  "downloads": 312,
+  "servedAssets": {
+    "assets/fraunces-italic-latin-BEbM7Mn6.woff2": {
+      "bytes": 42372,
+      "sha256": "13cd664e0f8bff7116e6aa798e59720e31ef389b682c76f4e813f4e7c7413bc3"
+    },
+    "assets/fraunces-latin-DihXLNYH.woff2": {
+      "bytes": 67304,
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783"
+    },
+    "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": {
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7"
+    },
+    "assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2": {
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22"
+    },
+    "assets/ibm-plex-sans-latin-IvpUvPa2.woff2": {
+      "bytes": 45712,
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470"
+    },
+    "assets/index-CpvUtn8x.js": {
+      "bytes": 11118,
+      "sha256": "bbf5a223bfad0be3882b52c0d2b840e90e6b2dc12cd83fa618ce6d746ab2c8ba"
+    },
+    "assets/index-yPXPXXYm.css": {
+      "bytes": 19964,
+      "sha256": "a4df36cc56f870f5a610ca4f425c6dacd2cf5518f5f22ba7de0bc57faff2d290"
+    },
+    "assets/python.worker-BbGwCqMj.js": {
+      "bytes": 2248,
+      "sha256": "bd92defdec879973cdf706316d6f353c072e956597a403eb1f628599ccd70776"
+    },
+    "index.html": {
+      "bytes": 2099,
+      "sha256": "0d30cac121231eef5832d64fd2a3d3c90d21de2db3907d69814306d70c45e945"
+    },
+    "veil-src.json": {
+      "bytes": 198124,
+      "sha256": "43f31eb767c3e15955000688d93a0b3a934312756282ddde9c9e78e01596fb58"
+    }
+  },
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "cases": 39,
+      "expectedMask": 21,
+      "offlineRequests": 0,
+      "pageErrors": [],
+      "runtimeAssetRequests": 5,
+      "rows": [
+        {
+          "id": "gcs-v4",
+          "sourceSha256": "18980deaa8d9414858dd12904ec913d2937606119812c0fedfe2f942c26b1cc7",
+          "maskedSha256": "18980deaa8d9414858dd12904ec913d2937606119812c0fedfe2f942c26b1cc7",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "gcs-v2",
+          "sourceSha256": "eead73d2b2c8e381951d7b6ff4dad4aa1f19e9ce7d84392458058fe76187faf0",
+          "maskedSha256": "b77ec876e91ea233fb430dba5274a2b786a488a64f38d3ea52eafc2aba118235",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 2
+        },
+        {
+          "id": "aws-s3v4",
+          "sourceSha256": "4540452ed475d61a5eb680ddff30fab8effcdc2c4b1fcf72a8a691e39436a75a",
+          "maskedSha256": "582cbef20eb83673a5fce8cc21f112bfaa3b8fa8a73eb468ea2612ebc7ab9428",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 1
+        },
+        {
+          "id": "aws-s3",
+          "sourceSha256": "7f2cacad79a4ffc9e0a798a80692dec29e0fe393a3118c2c4d124ce95302b615",
+          "maskedSha256": "8d221e7b1595466fd9fd1e1f88d54b85b5c9f8463c69aa5838a552915fa3b9ab",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 2
+        },
+        {
+          "id": "azure-blob",
+          "sourceSha256": "f21e2a43d19eb3b109da7d5dcbe3bfea570cc2e8a6e9592b87feea4af8a3d1dd",
+          "maskedSha256": "19c1a3e01482841d2562127500d48ca1fd65458c42485fba9db199844bb12579",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 2
+        },
+        {
+          "id": "azure-account",
+          "sourceSha256": "af16a8217d764d3154e21ab45f9b38c098c1b9fcdbb077592623231c48b33937",
+          "maskedSha256": "48e659a7dc8860f302a778e9a4a1a48acb8042cf2b45a4954917e9f511b4e074",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 1
+        },
+        {
+          "id": "azure-stored-policy",
+          "sourceSha256": "9c5b1290bc4ceb3a378e00af27aea5648ef2e4f2bceb69ccda7ddc1717b7881b",
+          "maskedSha256": "c306f003748ad3dfb254b8b1e639608d4807480288849aa1f1e55cb97f534353",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 1
+        },
+        {
+          "id": "cloudfront-canned",
+          "sourceSha256": "520aea8940653cef3951a408d0f05b08ec009f4614637944936f5086decc789c",
+          "maskedSha256": "3fe5e097f98854f61f99768076f0e661af7b1d4c46f9feced599fe62748f5b26",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 7
+        },
+        {
+          "id": "cloudfront-custom",
+          "sourceSha256": "edaa773c2df0f67a8975db1155cbc3fc0ad46ba729b29eaf4790535e569d4058",
+          "maskedSha256": "3bcabf67214646e8ee8f0af645013c44ffb9a4f58ae1d04319ca662a665ad823",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 7
+        },
+        {
+          "id": "oauth-fragment",
+          "sourceSha256": "5e8ecdd51be4aafffb4159ba26ac3b1c868841eb7302d2058dbe05c35171018e",
+          "maskedSha256": "5e8ecdd51be4aafffb4159ba26ac3b1c868841eb7302d2058dbe05c35171018e",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "oauth-fragment-second",
+          "sourceSha256": "07c1a9656f28ec0cccd6f9c2c6f2cb6f15744c550ff4d5cb8625d79cb367e9d8",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "encoded-name",
+          "sourceSha256": "d1f61a023fc3a591f28fe2b903f304a7cff8a8224c1d6a3546a10b40b8faa4d5",
+          "maskedSha256": "d1f61a023fc3a591f28fe2b903f304a7cff8a8224c1d6a3546a10b40b8faa4d5",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "encoded-fragment-name",
+          "sourceSha256": "96ef5b84ef5256bd524c05ef630ebf95376a3c7b8bda102e2585c75aff7dcf56",
+          "maskedSha256": "96ef5b84ef5256bd524c05ef630ebf95376a3c7b8bda102e2585c75aff7dcf56",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "router-fragment",
+          "sourceSha256": "2b6187c3537ae31b9db784be5242f9e415521581a4a99a6f2e6e131a4b3741f5",
+          "maskedSha256": "2b6187c3537ae31b9db784be5242f9e415521581a4a99a6f2e6e131a4b3741f5",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "mixed-case",
+          "sourceSha256": "78265a7622deeb9952dec8b5189ee0c8311a3148c69ca4376b67a34af28b7028",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "duplicate-name",
+          "sourceSha256": "b138766b99310a687f70ae72c0919e33bd123c18cafc251e508c0f50bc7e7a0a",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "query-userinfo-control",
+          "sourceSha256": "842257f92ab805b259a2051f562b8c34069ec1e9291270cf67c145cecf8a4b00",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "encoded-azure-name",
+          "sourceSha256": "33ca8607168dbbf94bef33aed4340e2fefd855ebd91e3a071840bdd2ef6b509f",
+          "maskedSha256": "33ca8607168dbbf94bef33aed4340e2fefd855ebd91e3a071840bdd2ef6b509f",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "signature-first",
+          "sourceSha256": "e456d97e38790f350e79ba17d705e2dc8b7f3c8a264e0e8af9b540f862931587",
+          "maskedSha256": "e456d97e38790f350e79ba17d705e2dc8b7f3c8a264e0e8af9b540f862931587",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "azure-custom-domain",
+          "sourceSha256": "281be3666bedca95ebd3a05c15a8ed157c8ec33b5e7753405c0f59370f0b173d",
+          "maskedSha256": "281be3666bedca95ebd3a05c15a8ed157c8ec33b5e7753405c0f59370f0b173d",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "gcs-custom-domain",
+          "sourceSha256": "1cc3c491e23519de8ebcc5de3bf0e1098258585f7ea872e752ed8dc601d27a76",
+          "maskedSha256": "1cc3c491e23519de8ebcc5de3bf0e1098258585f7ea872e752ed8dc601d27a76",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "aws-custom-domain",
+          "sourceSha256": "16b5587e18c74027b06b00a55b573411ecfa03848cd7552b55df88b373b4f947",
+          "maskedSha256": "16b5587e18c74027b06b00a55b573411ecfa03848cd7552b55df88b373b4f947",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "legacy-router-fragment",
+          "sourceSha256": "51abe6a45d5048eb1c8d452ad427f433e1e8c3f564bd3e3f6e54a4a9c037b309",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "ordinary-url",
+          "sourceSha256": "eba941ea6883f346e7476f489dcebe1b889026251aeef3145686b594260e936f",
+          "maskedSha256": "eba941ea6883f346e7476f489dcebe1b889026251aeef3145686b594260e936f",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "generic-sig",
+          "sourceSha256": "aeb61c48cf106723db6960c2cc75d26da9f8e82ea144651a138cceca1577c669",
+          "maskedSha256": "aeb61c48cf106723db6960c2cc75d26da9f8e82ea144651a138cceca1577c669",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "generic-signature",
+          "sourceSha256": "e19370559c749d02eb510ec4bee47b85b82fa29f8462346fd0fe8497eeac8c3d",
+          "maskedSha256": "e19370559c749d02eb510ec4bee47b85b82fa29f8462346fd0fe8497eeac8c3d",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-token",
+          "sourceSha256": "d55575ed9f154707d14b9e9aeb3d89e8f5aee0ef955c8366f818b40211818c9a",
+          "maskedSha256": "d55575ed9f154707d14b9e9aeb3d89e8f5aee0ef955c8366f818b40211818c9a",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-fragment-token",
+          "sourceSha256": "108417f2b24924f0dcf18ae405ee63d756d6d0ee386f707b8b5d5f6e552917ce",
+          "maskedSha256": "108417f2b24924f0dcf18ae405ee63d756d6d0ee386f707b8b5d5f6e552917ce",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-azure-signature",
+          "sourceSha256": "82fff70b062fca18333312907dfba45069b0d05ff74966a8da78e24873429978",
+          "maskedSha256": "82fff70b062fca18333312907dfba45069b0d05ff74966a8da78e24873429978",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-azure-version",
+          "sourceSha256": "18c71c2b05cb5242ec66d850e8999897df94b1ee4707d6a952cd5589b24fbdc9",
+          "maskedSha256": "18c71c2b05cb5242ec66d850e8999897df94b1ee4707d6a952cd5589b24fbdc9",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-v4-signature",
+          "sourceSha256": "4d7f4a6bec65e885edd077ac15390b63021726a723dcdf11c071cd302da67064",
+          "maskedSha256": "4d7f4a6bec65e885edd077ac15390b63021726a723dcdf11c071cd302da67064",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-signer",
+          "sourceSha256": "76cedfd79cb1afa3fd6cc02e4ed304863fbc0b69847cd448b457d908fb6f1f88",
+          "maskedSha256": "76cedfd79cb1afa3fd6cc02e4ed304863fbc0b69847cd448b457d908fb6f1f88",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "similar-name",
+          "sourceSha256": "2650082dc796a8be3667beb7411367f3b973cfe4910fa788d649a64ef47cf3bd",
+          "maskedSha256": "2650082dc796a8be3667beb7411367f3b973cfe4910fa788d649a64ef47cf3bd",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "double-encoded-name",
+          "sourceSha256": "1ff5b8c08c5530d68d91d135f8e626e7cc853f0d420c7452468340152f283432",
+          "maskedSha256": "1ff5b8c08c5530d68d91d135f8e626e7cc853f0d420c7452468340152f283432",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "encoded-value",
+          "sourceSha256": "fbf44407c85472795db897bd745b773e7ba7c4a46087573dbdccdde85b8d1e64",
+          "maskedSha256": "fbf44407c85472795db897bd745b773e7ba7c4a46087573dbdccdde85b8d1e64",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "encoded-separator",
+          "sourceSha256": "31273ee5ce5e296231ce2a3cebaf6c2a3daf197f6ab45f50536bd590e685f0b3",
+          "maskedSha256": "31273ee5ce5e296231ce2a3cebaf6c2a3daf197f6ab45f50536bd590e685f0b3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "separate-components",
+          "sourceSha256": "cbf5a07e3a6aeb99b2e4a7e949d662f8a718f06fb7b847650cf4cc2193812a01",
+          "maskedSha256": "cbf5a07e3a6aeb99b2e4a7e949d662f8a718f06fb7b847650cf4cc2193812a01",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "path-only",
+          "sourceSha256": "96ec1104e12c7e1a883da676e5c4bf9605819ccd680d012f736d378ecbe7ddd1",
+          "maskedSha256": "96ec1104e12c7e1a883da676e5c4bf9605819ccd680d012f736d378ecbe7ddd1",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "userinfo",
+          "sourceSha256": "b0b78ec71f7d370f136f53d7cfac5cf075d5ce8085de86ec8db398366f56f52c",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1280,
+      "cases": 39,
+      "expectedMask": 21,
+      "offlineRequests": 0,
+      "pageErrors": [],
+      "runtimeAssetRequests": 5,
+      "rows": [
+        {
+          "id": "gcs-v4",
+          "sourceSha256": "18980deaa8d9414858dd12904ec913d2937606119812c0fedfe2f942c26b1cc7",
+          "maskedSha256": "18980deaa8d9414858dd12904ec913d2937606119812c0fedfe2f942c26b1cc7",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "gcs-v2",
+          "sourceSha256": "eead73d2b2c8e381951d7b6ff4dad4aa1f19e9ce7d84392458058fe76187faf0",
+          "maskedSha256": "b77ec876e91ea233fb430dba5274a2b786a488a64f38d3ea52eafc2aba118235",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 2
+        },
+        {
+          "id": "aws-s3v4",
+          "sourceSha256": "4540452ed475d61a5eb680ddff30fab8effcdc2c4b1fcf72a8a691e39436a75a",
+          "maskedSha256": "582cbef20eb83673a5fce8cc21f112bfaa3b8fa8a73eb468ea2612ebc7ab9428",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 1
+        },
+        {
+          "id": "aws-s3",
+          "sourceSha256": "7f2cacad79a4ffc9e0a798a80692dec29e0fe393a3118c2c4d124ce95302b615",
+          "maskedSha256": "8d221e7b1595466fd9fd1e1f88d54b85b5c9f8463c69aa5838a552915fa3b9ab",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 2
+        },
+        {
+          "id": "azure-blob",
+          "sourceSha256": "f21e2a43d19eb3b109da7d5dcbe3bfea570cc2e8a6e9592b87feea4af8a3d1dd",
+          "maskedSha256": "19c1a3e01482841d2562127500d48ca1fd65458c42485fba9db199844bb12579",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 2
+        },
+        {
+          "id": "azure-account",
+          "sourceSha256": "af16a8217d764d3154e21ab45f9b38c098c1b9fcdbb077592623231c48b33937",
+          "maskedSha256": "48e659a7dc8860f302a778e9a4a1a48acb8042cf2b45a4954917e9f511b4e074",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 1
+        },
+        {
+          "id": "azure-stored-policy",
+          "sourceSha256": "9c5b1290bc4ceb3a378e00af27aea5648ef2e4f2bceb69ccda7ddc1717b7881b",
+          "maskedSha256": "c306f003748ad3dfb254b8b1e639608d4807480288849aa1f1e55cb97f534353",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 1
+        },
+        {
+          "id": "cloudfront-canned",
+          "sourceSha256": "520aea8940653cef3951a408d0f05b08ec009f4614637944936f5086decc789c",
+          "maskedSha256": "3fe5e097f98854f61f99768076f0e661af7b1d4c46f9feced599fe62748f5b26",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 7
+        },
+        {
+          "id": "cloudfront-custom",
+          "sourceSha256": "edaa773c2df0f67a8975db1155cbc3fc0ad46ba729b29eaf4790535e569d4058",
+          "maskedSha256": "3bcabf67214646e8ee8f0af645013c44ffb9a4f58ae1d04319ca662a665ad823",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 7
+        },
+        {
+          "id": "oauth-fragment",
+          "sourceSha256": "5e8ecdd51be4aafffb4159ba26ac3b1c868841eb7302d2058dbe05c35171018e",
+          "maskedSha256": "5e8ecdd51be4aafffb4159ba26ac3b1c868841eb7302d2058dbe05c35171018e",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "oauth-fragment-second",
+          "sourceSha256": "07c1a9656f28ec0cccd6f9c2c6f2cb6f15744c550ff4d5cb8625d79cb367e9d8",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "encoded-name",
+          "sourceSha256": "d1f61a023fc3a591f28fe2b903f304a7cff8a8224c1d6a3546a10b40b8faa4d5",
+          "maskedSha256": "d1f61a023fc3a591f28fe2b903f304a7cff8a8224c1d6a3546a10b40b8faa4d5",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "encoded-fragment-name",
+          "sourceSha256": "96ef5b84ef5256bd524c05ef630ebf95376a3c7b8bda102e2585c75aff7dcf56",
+          "maskedSha256": "96ef5b84ef5256bd524c05ef630ebf95376a3c7b8bda102e2585c75aff7dcf56",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "router-fragment",
+          "sourceSha256": "2b6187c3537ae31b9db784be5242f9e415521581a4a99a6f2e6e131a4b3741f5",
+          "maskedSha256": "2b6187c3537ae31b9db784be5242f9e415521581a4a99a6f2e6e131a4b3741f5",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "mixed-case",
+          "sourceSha256": "78265a7622deeb9952dec8b5189ee0c8311a3148c69ca4376b67a34af28b7028",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "duplicate-name",
+          "sourceSha256": "b138766b99310a687f70ae72c0919e33bd123c18cafc251e508c0f50bc7e7a0a",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "query-userinfo-control",
+          "sourceSha256": "842257f92ab805b259a2051f562b8c34069ec1e9291270cf67c145cecf8a4b00",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "encoded-azure-name",
+          "sourceSha256": "33ca8607168dbbf94bef33aed4340e2fefd855ebd91e3a071840bdd2ef6b509f",
+          "maskedSha256": "33ca8607168dbbf94bef33aed4340e2fefd855ebd91e3a071840bdd2ef6b509f",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "signature-first",
+          "sourceSha256": "e456d97e38790f350e79ba17d705e2dc8b7f3c8a264e0e8af9b540f862931587",
+          "maskedSha256": "e456d97e38790f350e79ba17d705e2dc8b7f3c8a264e0e8af9b540f862931587",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "azure-custom-domain",
+          "sourceSha256": "281be3666bedca95ebd3a05c15a8ed157c8ec33b5e7753405c0f59370f0b173d",
+          "maskedSha256": "281be3666bedca95ebd3a05c15a8ed157c8ec33b5e7753405c0f59370f0b173d",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "gcs-custom-domain",
+          "sourceSha256": "1cc3c491e23519de8ebcc5de3bf0e1098258585f7ea872e752ed8dc601d27a76",
+          "maskedSha256": "1cc3c491e23519de8ebcc5de3bf0e1098258585f7ea872e752ed8dc601d27a76",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "aws-custom-domain",
+          "sourceSha256": "16b5587e18c74027b06b00a55b573411ecfa03848cd7552b55df88b373b4f947",
+          "maskedSha256": "16b5587e18c74027b06b00a55b573411ecfa03848cd7552b55df88b373b4f947",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "legacy-router-fragment",
+          "sourceSha256": "51abe6a45d5048eb1c8d452ad427f433e1e8c3f564bd3e3f6e54a4a9c037b309",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "ordinary-url",
+          "sourceSha256": "eba941ea6883f346e7476f489dcebe1b889026251aeef3145686b594260e936f",
+          "maskedSha256": "eba941ea6883f346e7476f489dcebe1b889026251aeef3145686b594260e936f",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "generic-sig",
+          "sourceSha256": "aeb61c48cf106723db6960c2cc75d26da9f8e82ea144651a138cceca1577c669",
+          "maskedSha256": "aeb61c48cf106723db6960c2cc75d26da9f8e82ea144651a138cceca1577c669",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "generic-signature",
+          "sourceSha256": "e19370559c749d02eb510ec4bee47b85b82fa29f8462346fd0fe8497eeac8c3d",
+          "maskedSha256": "e19370559c749d02eb510ec4bee47b85b82fa29f8462346fd0fe8497eeac8c3d",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-token",
+          "sourceSha256": "d55575ed9f154707d14b9e9aeb3d89e8f5aee0ef955c8366f818b40211818c9a",
+          "maskedSha256": "d55575ed9f154707d14b9e9aeb3d89e8f5aee0ef955c8366f818b40211818c9a",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-fragment-token",
+          "sourceSha256": "108417f2b24924f0dcf18ae405ee63d756d6d0ee386f707b8b5d5f6e552917ce",
+          "maskedSha256": "108417f2b24924f0dcf18ae405ee63d756d6d0ee386f707b8b5d5f6e552917ce",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-azure-signature",
+          "sourceSha256": "82fff70b062fca18333312907dfba45069b0d05ff74966a8da78e24873429978",
+          "maskedSha256": "82fff70b062fca18333312907dfba45069b0d05ff74966a8da78e24873429978",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-azure-version",
+          "sourceSha256": "18c71c2b05cb5242ec66d850e8999897df94b1ee4707d6a952cd5589b24fbdc9",
+          "maskedSha256": "18c71c2b05cb5242ec66d850e8999897df94b1ee4707d6a952cd5589b24fbdc9",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-v4-signature",
+          "sourceSha256": "4d7f4a6bec65e885edd077ac15390b63021726a723dcdf11c071cd302da67064",
+          "maskedSha256": "4d7f4a6bec65e885edd077ac15390b63021726a723dcdf11c071cd302da67064",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-signer",
+          "sourceSha256": "76cedfd79cb1afa3fd6cc02e4ed304863fbc0b69847cd448b457d908fb6f1f88",
+          "maskedSha256": "76cedfd79cb1afa3fd6cc02e4ed304863fbc0b69847cd448b457d908fb6f1f88",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "similar-name",
+          "sourceSha256": "2650082dc796a8be3667beb7411367f3b973cfe4910fa788d649a64ef47cf3bd",
+          "maskedSha256": "2650082dc796a8be3667beb7411367f3b973cfe4910fa788d649a64ef47cf3bd",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "double-encoded-name",
+          "sourceSha256": "1ff5b8c08c5530d68d91d135f8e626e7cc853f0d420c7452468340152f283432",
+          "maskedSha256": "1ff5b8c08c5530d68d91d135f8e626e7cc853f0d420c7452468340152f283432",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "encoded-value",
+          "sourceSha256": "fbf44407c85472795db897bd745b773e7ba7c4a46087573dbdccdde85b8d1e64",
+          "maskedSha256": "fbf44407c85472795db897bd745b773e7ba7c4a46087573dbdccdde85b8d1e64",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "encoded-separator",
+          "sourceSha256": "31273ee5ce5e296231ce2a3cebaf6c2a3daf197f6ab45f50536bd590e685f0b3",
+          "maskedSha256": "31273ee5ce5e296231ce2a3cebaf6c2a3daf197f6ab45f50536bd590e685f0b3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "separate-components",
+          "sourceSha256": "cbf5a07e3a6aeb99b2e4a7e949d662f8a718f06fb7b847650cf4cc2193812a01",
+          "maskedSha256": "cbf5a07e3a6aeb99b2e4a7e949d662f8a718f06fb7b847650cf4cc2193812a01",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "path-only",
+          "sourceSha256": "96ec1104e12c7e1a883da676e5c4bf9605819ccd680d012f736d378ecbe7ddd1",
+          "maskedSha256": "96ec1104e12c7e1a883da676e5c4bf9605819ccd680d012f736d378ecbe7ddd1",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "userinfo",
+          "sourceSha256": "b0b78ec71f7d370f136f53d7cfac5cf075d5ce8085de86ec8db398366f56f52c",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "cases": 39,
+      "expectedMask": 21,
+      "offlineRequests": 0,
+      "pageErrors": [],
+      "runtimeAssetRequests": 5,
+      "rows": [
+        {
+          "id": "gcs-v4",
+          "sourceSha256": "18980deaa8d9414858dd12904ec913d2937606119812c0fedfe2f942c26b1cc7",
+          "maskedSha256": "18980deaa8d9414858dd12904ec913d2937606119812c0fedfe2f942c26b1cc7",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "gcs-v2",
+          "sourceSha256": "eead73d2b2c8e381951d7b6ff4dad4aa1f19e9ce7d84392458058fe76187faf0",
+          "maskedSha256": "b77ec876e91ea233fb430dba5274a2b786a488a64f38d3ea52eafc2aba118235",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 2
+        },
+        {
+          "id": "aws-s3v4",
+          "sourceSha256": "4540452ed475d61a5eb680ddff30fab8effcdc2c4b1fcf72a8a691e39436a75a",
+          "maskedSha256": "582cbef20eb83673a5fce8cc21f112bfaa3b8fa8a73eb468ea2612ebc7ab9428",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 1
+        },
+        {
+          "id": "aws-s3",
+          "sourceSha256": "7f2cacad79a4ffc9e0a798a80692dec29e0fe393a3118c2c4d124ce95302b615",
+          "maskedSha256": "8d221e7b1595466fd9fd1e1f88d54b85b5c9f8463c69aa5838a552915fa3b9ab",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 2
+        },
+        {
+          "id": "azure-blob",
+          "sourceSha256": "f21e2a43d19eb3b109da7d5dcbe3bfea570cc2e8a6e9592b87feea4af8a3d1dd",
+          "maskedSha256": "19c1a3e01482841d2562127500d48ca1fd65458c42485fba9db199844bb12579",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 2
+        },
+        {
+          "id": "azure-account",
+          "sourceSha256": "af16a8217d764d3154e21ab45f9b38c098c1b9fcdbb077592623231c48b33937",
+          "maskedSha256": "48e659a7dc8860f302a778e9a4a1a48acb8042cf2b45a4954917e9f511b4e074",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 1
+        },
+        {
+          "id": "azure-stored-policy",
+          "sourceSha256": "9c5b1290bc4ceb3a378e00af27aea5648ef2e4f2bceb69ccda7ddc1717b7881b",
+          "maskedSha256": "c306f003748ad3dfb254b8b1e639608d4807480288849aa1f1e55cb97f534353",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 1
+        },
+        {
+          "id": "cloudfront-canned",
+          "sourceSha256": "520aea8940653cef3951a408d0f05b08ec009f4614637944936f5086decc789c",
+          "maskedSha256": "3fe5e097f98854f61f99768076f0e661af7b1d4c46f9feced599fe62748f5b26",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 7
+        },
+        {
+          "id": "cloudfront-custom",
+          "sourceSha256": "edaa773c2df0f67a8975db1155cbc3fc0ad46ba729b29eaf4790535e569d4058",
+          "maskedSha256": "3bcabf67214646e8ee8f0af645013c44ffb9a4f58ae1d04319ca662a665ad823",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 7
+        },
+        {
+          "id": "oauth-fragment",
+          "sourceSha256": "5e8ecdd51be4aafffb4159ba26ac3b1c868841eb7302d2058dbe05c35171018e",
+          "maskedSha256": "5e8ecdd51be4aafffb4159ba26ac3b1c868841eb7302d2058dbe05c35171018e",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "oauth-fragment-second",
+          "sourceSha256": "07c1a9656f28ec0cccd6f9c2c6f2cb6f15744c550ff4d5cb8625d79cb367e9d8",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "encoded-name",
+          "sourceSha256": "d1f61a023fc3a591f28fe2b903f304a7cff8a8224c1d6a3546a10b40b8faa4d5",
+          "maskedSha256": "d1f61a023fc3a591f28fe2b903f304a7cff8a8224c1d6a3546a10b40b8faa4d5",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "encoded-fragment-name",
+          "sourceSha256": "96ef5b84ef5256bd524c05ef630ebf95376a3c7b8bda102e2585c75aff7dcf56",
+          "maskedSha256": "96ef5b84ef5256bd524c05ef630ebf95376a3c7b8bda102e2585c75aff7dcf56",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "router-fragment",
+          "sourceSha256": "2b6187c3537ae31b9db784be5242f9e415521581a4a99a6f2e6e131a4b3741f5",
+          "maskedSha256": "2b6187c3537ae31b9db784be5242f9e415521581a4a99a6f2e6e131a4b3741f5",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "mixed-case",
+          "sourceSha256": "78265a7622deeb9952dec8b5189ee0c8311a3148c69ca4376b67a34af28b7028",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "duplicate-name",
+          "sourceSha256": "b138766b99310a687f70ae72c0919e33bd123c18cafc251e508c0f50bc7e7a0a",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "query-userinfo-control",
+          "sourceSha256": "842257f92ab805b259a2051f562b8c34069ec1e9291270cf67c145cecf8a4b00",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "encoded-azure-name",
+          "sourceSha256": "33ca8607168dbbf94bef33aed4340e2fefd855ebd91e3a071840bdd2ef6b509f",
+          "maskedSha256": "33ca8607168dbbf94bef33aed4340e2fefd855ebd91e3a071840bdd2ef6b509f",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "signature-first",
+          "sourceSha256": "e456d97e38790f350e79ba17d705e2dc8b7f3c8a264e0e8af9b540f862931587",
+          "maskedSha256": "e456d97e38790f350e79ba17d705e2dc8b7f3c8a264e0e8af9b540f862931587",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "azure-custom-domain",
+          "sourceSha256": "281be3666bedca95ebd3a05c15a8ed157c8ec33b5e7753405c0f59370f0b173d",
+          "maskedSha256": "281be3666bedca95ebd3a05c15a8ed157c8ec33b5e7753405c0f59370f0b173d",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "gcs-custom-domain",
+          "sourceSha256": "1cc3c491e23519de8ebcc5de3bf0e1098258585f7ea872e752ed8dc601d27a76",
+          "maskedSha256": "1cc3c491e23519de8ebcc5de3bf0e1098258585f7ea872e752ed8dc601d27a76",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "aws-custom-domain",
+          "sourceSha256": "16b5587e18c74027b06b00a55b573411ecfa03848cd7552b55df88b373b4f947",
+          "maskedSha256": "16b5587e18c74027b06b00a55b573411ecfa03848cd7552b55df88b373b4f947",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "legacy-router-fragment",
+          "sourceSha256": "51abe6a45d5048eb1c8d452ad427f433e1e8c3f564bd3e3f6e54a4a9c037b309",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "ordinary-url",
+          "sourceSha256": "eba941ea6883f346e7476f489dcebe1b889026251aeef3145686b594260e936f",
+          "maskedSha256": "eba941ea6883f346e7476f489dcebe1b889026251aeef3145686b594260e936f",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "generic-sig",
+          "sourceSha256": "aeb61c48cf106723db6960c2cc75d26da9f8e82ea144651a138cceca1577c669",
+          "maskedSha256": "aeb61c48cf106723db6960c2cc75d26da9f8e82ea144651a138cceca1577c669",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "generic-signature",
+          "sourceSha256": "e19370559c749d02eb510ec4bee47b85b82fa29f8462346fd0fe8497eeac8c3d",
+          "maskedSha256": "e19370559c749d02eb510ec4bee47b85b82fa29f8462346fd0fe8497eeac8c3d",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-token",
+          "sourceSha256": "d55575ed9f154707d14b9e9aeb3d89e8f5aee0ef955c8366f818b40211818c9a",
+          "maskedSha256": "d55575ed9f154707d14b9e9aeb3d89e8f5aee0ef955c8366f818b40211818c9a",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-fragment-token",
+          "sourceSha256": "108417f2b24924f0dcf18ae405ee63d756d6d0ee386f707b8b5d5f6e552917ce",
+          "maskedSha256": "108417f2b24924f0dcf18ae405ee63d756d6d0ee386f707b8b5d5f6e552917ce",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-azure-signature",
+          "sourceSha256": "82fff70b062fca18333312907dfba45069b0d05ff74966a8da78e24873429978",
+          "maskedSha256": "82fff70b062fca18333312907dfba45069b0d05ff74966a8da78e24873429978",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-azure-version",
+          "sourceSha256": "18c71c2b05cb5242ec66d850e8999897df94b1ee4707d6a952cd5589b24fbdc9",
+          "maskedSha256": "18c71c2b05cb5242ec66d850e8999897df94b1ee4707d6a952cd5589b24fbdc9",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-v4-signature",
+          "sourceSha256": "4d7f4a6bec65e885edd077ac15390b63021726a723dcdf11c071cd302da67064",
+          "maskedSha256": "4d7f4a6bec65e885edd077ac15390b63021726a723dcdf11c071cd302da67064",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-signer",
+          "sourceSha256": "76cedfd79cb1afa3fd6cc02e4ed304863fbc0b69847cd448b457d908fb6f1f88",
+          "maskedSha256": "76cedfd79cb1afa3fd6cc02e4ed304863fbc0b69847cd448b457d908fb6f1f88",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "similar-name",
+          "sourceSha256": "2650082dc796a8be3667beb7411367f3b973cfe4910fa788d649a64ef47cf3bd",
+          "maskedSha256": "2650082dc796a8be3667beb7411367f3b973cfe4910fa788d649a64ef47cf3bd",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "double-encoded-name",
+          "sourceSha256": "1ff5b8c08c5530d68d91d135f8e626e7cc853f0d420c7452468340152f283432",
+          "maskedSha256": "1ff5b8c08c5530d68d91d135f8e626e7cc853f0d420c7452468340152f283432",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "encoded-value",
+          "sourceSha256": "fbf44407c85472795db897bd745b773e7ba7c4a46087573dbdccdde85b8d1e64",
+          "maskedSha256": "fbf44407c85472795db897bd745b773e7ba7c4a46087573dbdccdde85b8d1e64",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "encoded-separator",
+          "sourceSha256": "31273ee5ce5e296231ce2a3cebaf6c2a3daf197f6ab45f50536bd590e685f0b3",
+          "maskedSha256": "31273ee5ce5e296231ce2a3cebaf6c2a3daf197f6ab45f50536bd590e685f0b3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "separate-components",
+          "sourceSha256": "cbf5a07e3a6aeb99b2e4a7e949d662f8a718f06fb7b847650cf4cc2193812a01",
+          "maskedSha256": "cbf5a07e3a6aeb99b2e4a7e949d662f8a718f06fb7b847650cf4cc2193812a01",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "path-only",
+          "sourceSha256": "96ec1104e12c7e1a883da676e5c4bf9605819ccd680d012f736d378ecbe7ddd1",
+          "maskedSha256": "96ec1104e12c7e1a883da676e5c4bf9605819ccd680d012f736d378ecbe7ddd1",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "userinfo",
+          "sourceSha256": "b0b78ec71f7d370f136f53d7cfac5cf075d5ce8085de86ec8db398366f56f52c",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1280,
+      "cases": 39,
+      "expectedMask": 21,
+      "offlineRequests": 0,
+      "pageErrors": [],
+      "runtimeAssetRequests": 5,
+      "rows": [
+        {
+          "id": "gcs-v4",
+          "sourceSha256": "18980deaa8d9414858dd12904ec913d2937606119812c0fedfe2f942c26b1cc7",
+          "maskedSha256": "18980deaa8d9414858dd12904ec913d2937606119812c0fedfe2f942c26b1cc7",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "gcs-v2",
+          "sourceSha256": "eead73d2b2c8e381951d7b6ff4dad4aa1f19e9ce7d84392458058fe76187faf0",
+          "maskedSha256": "b77ec876e91ea233fb430dba5274a2b786a488a64f38d3ea52eafc2aba118235",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 2
+        },
+        {
+          "id": "aws-s3v4",
+          "sourceSha256": "4540452ed475d61a5eb680ddff30fab8effcdc2c4b1fcf72a8a691e39436a75a",
+          "maskedSha256": "582cbef20eb83673a5fce8cc21f112bfaa3b8fa8a73eb468ea2612ebc7ab9428",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 1
+        },
+        {
+          "id": "aws-s3",
+          "sourceSha256": "7f2cacad79a4ffc9e0a798a80692dec29e0fe393a3118c2c4d124ce95302b615",
+          "maskedSha256": "8d221e7b1595466fd9fd1e1f88d54b85b5c9f8463c69aa5838a552915fa3b9ab",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 2
+        },
+        {
+          "id": "azure-blob",
+          "sourceSha256": "f21e2a43d19eb3b109da7d5dcbe3bfea570cc2e8a6e9592b87feea4af8a3d1dd",
+          "maskedSha256": "19c1a3e01482841d2562127500d48ca1fd65458c42485fba9db199844bb12579",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 2
+        },
+        {
+          "id": "azure-account",
+          "sourceSha256": "af16a8217d764d3154e21ab45f9b38c098c1b9fcdbb077592623231c48b33937",
+          "maskedSha256": "48e659a7dc8860f302a778e9a4a1a48acb8042cf2b45a4954917e9f511b4e074",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 1
+        },
+        {
+          "id": "azure-stored-policy",
+          "sourceSha256": "9c5b1290bc4ceb3a378e00af27aea5648ef2e4f2bceb69ccda7ddc1717b7881b",
+          "maskedSha256": "c306f003748ad3dfb254b8b1e639608d4807480288849aa1f1e55cb97f534353",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 1
+        },
+        {
+          "id": "cloudfront-canned",
+          "sourceSha256": "520aea8940653cef3951a408d0f05b08ec009f4614637944936f5086decc789c",
+          "maskedSha256": "3fe5e097f98854f61f99768076f0e661af7b1d4c46f9feced599fe62748f5b26",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 7
+        },
+        {
+          "id": "cloudfront-custom",
+          "sourceSha256": "edaa773c2df0f67a8975db1155cbc3fc0ad46ba729b29eaf4790535e569d4058",
+          "maskedSha256": "3bcabf67214646e8ee8f0af645013c44ffb9a4f58ae1d04319ca662a665ad823",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 7
+        },
+        {
+          "id": "oauth-fragment",
+          "sourceSha256": "5e8ecdd51be4aafffb4159ba26ac3b1c868841eb7302d2058dbe05c35171018e",
+          "maskedSha256": "5e8ecdd51be4aafffb4159ba26ac3b1c868841eb7302d2058dbe05c35171018e",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "oauth-fragment-second",
+          "sourceSha256": "07c1a9656f28ec0cccd6f9c2c6f2cb6f15744c550ff4d5cb8625d79cb367e9d8",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "encoded-name",
+          "sourceSha256": "d1f61a023fc3a591f28fe2b903f304a7cff8a8224c1d6a3546a10b40b8faa4d5",
+          "maskedSha256": "d1f61a023fc3a591f28fe2b903f304a7cff8a8224c1d6a3546a10b40b8faa4d5",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "encoded-fragment-name",
+          "sourceSha256": "96ef5b84ef5256bd524c05ef630ebf95376a3c7b8bda102e2585c75aff7dcf56",
+          "maskedSha256": "96ef5b84ef5256bd524c05ef630ebf95376a3c7b8bda102e2585c75aff7dcf56",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "router-fragment",
+          "sourceSha256": "2b6187c3537ae31b9db784be5242f9e415521581a4a99a6f2e6e131a4b3741f5",
+          "maskedSha256": "2b6187c3537ae31b9db784be5242f9e415521581a4a99a6f2e6e131a4b3741f5",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "mixed-case",
+          "sourceSha256": "78265a7622deeb9952dec8b5189ee0c8311a3148c69ca4376b67a34af28b7028",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "duplicate-name",
+          "sourceSha256": "b138766b99310a687f70ae72c0919e33bd123c18cafc251e508c0f50bc7e7a0a",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "query-userinfo-control",
+          "sourceSha256": "842257f92ab805b259a2051f562b8c34069ec1e9291270cf67c145cecf8a4b00",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "encoded-azure-name",
+          "sourceSha256": "33ca8607168dbbf94bef33aed4340e2fefd855ebd91e3a071840bdd2ef6b509f",
+          "maskedSha256": "33ca8607168dbbf94bef33aed4340e2fefd855ebd91e3a071840bdd2ef6b509f",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "signature-first",
+          "sourceSha256": "e456d97e38790f350e79ba17d705e2dc8b7f3c8a264e0e8af9b540f862931587",
+          "maskedSha256": "e456d97e38790f350e79ba17d705e2dc8b7f3c8a264e0e8af9b540f862931587",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "azure-custom-domain",
+          "sourceSha256": "281be3666bedca95ebd3a05c15a8ed157c8ec33b5e7753405c0f59370f0b173d",
+          "maskedSha256": "281be3666bedca95ebd3a05c15a8ed157c8ec33b5e7753405c0f59370f0b173d",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "gcs-custom-domain",
+          "sourceSha256": "1cc3c491e23519de8ebcc5de3bf0e1098258585f7ea872e752ed8dc601d27a76",
+          "maskedSha256": "1cc3c491e23519de8ebcc5de3bf0e1098258585f7ea872e752ed8dc601d27a76",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "aws-custom-domain",
+          "sourceSha256": "16b5587e18c74027b06b00a55b573411ecfa03848cd7552b55df88b373b4f947",
+          "maskedSha256": "16b5587e18c74027b06b00a55b573411ecfa03848cd7552b55df88b373b4f947",
+          "expectedMask": false,
+          "expectedMapping": false,
+          "mappingCount": 0
+        },
+        {
+          "id": "legacy-router-fragment",
+          "sourceSha256": "51abe6a45d5048eb1c8d452ad427f433e1e8c3f564bd3e3f6e54a4a9c037b309",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        },
+        {
+          "id": "ordinary-url",
+          "sourceSha256": "eba941ea6883f346e7476f489dcebe1b889026251aeef3145686b594260e936f",
+          "maskedSha256": "eba941ea6883f346e7476f489dcebe1b889026251aeef3145686b594260e936f",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "generic-sig",
+          "sourceSha256": "aeb61c48cf106723db6960c2cc75d26da9f8e82ea144651a138cceca1577c669",
+          "maskedSha256": "aeb61c48cf106723db6960c2cc75d26da9f8e82ea144651a138cceca1577c669",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "generic-signature",
+          "sourceSha256": "e19370559c749d02eb510ec4bee47b85b82fa29f8462346fd0fe8497eeac8c3d",
+          "maskedSha256": "e19370559c749d02eb510ec4bee47b85b82fa29f8462346fd0fe8497eeac8c3d",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-token",
+          "sourceSha256": "d55575ed9f154707d14b9e9aeb3d89e8f5aee0ef955c8366f818b40211818c9a",
+          "maskedSha256": "d55575ed9f154707d14b9e9aeb3d89e8f5aee0ef955c8366f818b40211818c9a",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-fragment-token",
+          "sourceSha256": "108417f2b24924f0dcf18ae405ee63d756d6d0ee386f707b8b5d5f6e552917ce",
+          "maskedSha256": "108417f2b24924f0dcf18ae405ee63d756d6d0ee386f707b8b5d5f6e552917ce",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-azure-signature",
+          "sourceSha256": "82fff70b062fca18333312907dfba45069b0d05ff74966a8da78e24873429978",
+          "maskedSha256": "82fff70b062fca18333312907dfba45069b0d05ff74966a8da78e24873429978",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-azure-version",
+          "sourceSha256": "18c71c2b05cb5242ec66d850e8999897df94b1ee4707d6a952cd5589b24fbdc9",
+          "maskedSha256": "18c71c2b05cb5242ec66d850e8999897df94b1ee4707d6a952cd5589b24fbdc9",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-v4-signature",
+          "sourceSha256": "4d7f4a6bec65e885edd077ac15390b63021726a723dcdf11c071cd302da67064",
+          "maskedSha256": "4d7f4a6bec65e885edd077ac15390b63021726a723dcdf11c071cd302da67064",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "empty-signer",
+          "sourceSha256": "76cedfd79cb1afa3fd6cc02e4ed304863fbc0b69847cd448b457d908fb6f1f88",
+          "maskedSha256": "76cedfd79cb1afa3fd6cc02e4ed304863fbc0b69847cd448b457d908fb6f1f88",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "similar-name",
+          "sourceSha256": "2650082dc796a8be3667beb7411367f3b973cfe4910fa788d649a64ef47cf3bd",
+          "maskedSha256": "2650082dc796a8be3667beb7411367f3b973cfe4910fa788d649a64ef47cf3bd",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "double-encoded-name",
+          "sourceSha256": "1ff5b8c08c5530d68d91d135f8e626e7cc853f0d420c7452468340152f283432",
+          "maskedSha256": "1ff5b8c08c5530d68d91d135f8e626e7cc853f0d420c7452468340152f283432",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "encoded-value",
+          "sourceSha256": "fbf44407c85472795db897bd745b773e7ba7c4a46087573dbdccdde85b8d1e64",
+          "maskedSha256": "fbf44407c85472795db897bd745b773e7ba7c4a46087573dbdccdde85b8d1e64",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "encoded-separator",
+          "sourceSha256": "31273ee5ce5e296231ce2a3cebaf6c2a3daf197f6ab45f50536bd590e685f0b3",
+          "maskedSha256": "31273ee5ce5e296231ce2a3cebaf6c2a3daf197f6ab45f50536bd590e685f0b3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "separate-components",
+          "sourceSha256": "cbf5a07e3a6aeb99b2e4a7e949d662f8a718f06fb7b847650cf4cc2193812a01",
+          "maskedSha256": "cbf5a07e3a6aeb99b2e4a7e949d662f8a718f06fb7b847650cf4cc2193812a01",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "path-only",
+          "sourceSha256": "96ec1104e12c7e1a883da676e5c4bf9605819ccd680d012f736d378ecbe7ddd1",
+          "maskedSha256": "96ec1104e12c7e1a883da676e5c4bf9605819ccd680d012f736d378ecbe7ddd1",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 0
+        },
+        {
+          "id": "userinfo",
+          "sourceSha256": "b0b78ec71f7d370f136f53d7cfac5cf075d5ce8085de86ec8db398366f56f52c",
+          "maskedSha256": "bae75cdf49a626990ce96e8f7fcae9553f2dae6bb798f59cb2b8a046428aabd3",
+          "expectedMask": true,
+          "expectedMapping": true,
+          "mappingCount": 1
+        }
+      ]
+    }
+  ]
+}

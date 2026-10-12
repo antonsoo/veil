@@ -1,0 +1,761 @@
+{
+  "python": "3.10.21",
+  "detectorSha256": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099",
+  "driverSha256": "622acbf846171d660d3ca16d9f57471b58cb135801be354a0e2ebc6e93474fc5",
+  "casesSha256": "0088116d7018a6e2ca9d7a2dad883f3ccd5dcd92b7637914f6e03b97f2818d39",
+  "sdkVersions": {},
+  "cases": 39,
+  "credentials": 24,
+  "expectedMasks": 39,
+  "credentialMasks": 24,
+  "unchangedCredentials": 0,
+  "cliExpectedMasks": 39,
+  "sdkCalls": 0,
+  "sdkExpectedMasks": 0,
+  "rows": [
+    {
+      "id": "gcs-v4",
+      "mask": true,
+      "sourceSha256": "bcb6cd9bbf99c578c93e1b02e6d2240ac8b29e0519a4ac6364cd2b43b823e860",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          790
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "gcs-v2",
+      "mask": true,
+      "sourceSha256": "e4a2362ad09d6bdf84cc319b3b78b336b6baf91df4648a8ef306c2aafa5caed1",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          501
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "aws-s3v4",
+      "mask": true,
+      "sourceSha256": "c804100bb0a77b098325d2ad1bed25da7cf85787651cc22c18725b75fbad1469",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          324
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "aws-s3",
+      "mask": true,
+      "sourceSha256": "704a45a2bb8f417dd99d33eb7dc66b3135b649aa89e7ecf43b295f34b9e6c017",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          154
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "azure-blob",
+      "mask": true,
+      "sourceSha256": "29dfe4420572ab7256b225f1e7be12b876969174a40f66962b61ed5e7b835e7e",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          198
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "azure-account",
+      "mask": true,
+      "sourceSha256": "7df9ccd094221a1cd57cee157cd709c1012a06bd3597a8ad56caf7f1e466ff88",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          202
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "azure-stored-policy",
+      "mask": true,
+      "sourceSha256": "5cbb80d758818066f0be6c02aea44af5e4bbe25129da5545c6dc0505bd11fe36",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          148
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "cloudfront-canned",
+      "mask": true,
+      "sourceSha256": "89e933065d80c39ce5a5eff3db13ab2fb22d13b22d903d4b3718a193599824e3",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          442
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "cloudfront-custom",
+      "mask": true,
+      "sourceSha256": "732f8bc26c7cce9b8c2f6353c5a04c1fdcba3f3fdf45d2c86a38e122df3808c2",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          603
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "oauth-fragment",
+      "mask": true,
+      "sourceSha256": "60c6f5f9c670e5019d6eedb6ba46ff7e8c1545a39910f01f7199485d7e625005",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          81
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "oauth-fragment-second",
+      "mask": true,
+      "sourceSha256": "ab691795251f6ed18caa3bf7f2e0dcf111d17a8ec29561f7f112efae02aa350c",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          72
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "encoded-name",
+      "mask": true,
+      "sourceSha256": "122a8a40efa51cdc038fdb56768ee5ca649d5c7f18135476bd321494c244b1d6",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          57
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "encoded-fragment-name",
+      "mask": true,
+      "sourceSha256": "2fa8208b2134494399c4f1b7adf36d38c624a377d9cc2530383100300092fffb",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          57
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "router-fragment",
+      "mask": true,
+      "sourceSha256": "bfc4d908d0111fa2e8e6fc185c9f2ca41d7115e35c805bfdab3b00ec95b5e879",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          67
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "mixed-case",
+      "mask": true,
+      "sourceSha256": "0325d86fb56a4d526feab385ce21209d6579ecf68e444193c81ae3c1d10fb56a",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          55
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "duplicate-name",
+      "mask": true,
+      "sourceSha256": "e83116a49bb96ae310fa6c2f018b41498790f04e0aa0ff2bed05043bab5d0fd9",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          69
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "query-userinfo-control",
+      "mask": true,
+      "sourceSha256": "93722142175b3314356ad010860c00d808b283084682775d9271a30eab8aa0ab",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          48
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "encoded-azure-name",
+      "mask": true,
+      "sourceSha256": "961b13856505180a16558e707e0be8ca1ba6ddfdb1cca5c20acbe8ff31df3e3c",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          58
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "signature-first",
+      "mask": true,
+      "sourceSha256": "a1fcf27335d1b84d5d227be006ec46fdfb7beef72f4173250128443ee24233bc",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          74
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "azure-custom-domain",
+      "mask": true,
+      "sourceSha256": "0ec1054d58462fffe2f4083009d9683ff6eeeb2a236188c77fe69bd0ad0bc169",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          54
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "gcs-custom-domain",
+      "mask": true,
+      "sourceSha256": "4d1fb368ea45a907586ffc78ab3ee002652c90ecef15a36568308feae148e40b",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          59
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "aws-custom-domain",
+      "mask": true,
+      "sourceSha256": "7e180118bad4c58a69848aeedef980e7e789c037de639c2394b4c1680d198038",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          58
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "legacy-router-fragment",
+      "mask": true,
+      "sourceSha256": "dc9c7c44ce90b96fb2f150c11abb659eabaca56a7b2a111f31f375e7d1aa0bcc",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          58
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "ordinary-url",
+      "mask": false,
+      "sourceSha256": "3a191c1aa00079ecbbfe589474f4f8b09e71a7c57cd9fb8769163341d9423cf0",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "3a191c1aa00079ecbbfe589474f4f8b09e71a7c57cd9fb8769163341d9423cf0",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "generic-sig",
+      "mask": false,
+      "sourceSha256": "b93d4e430f473854173f739415c6985c75821cc9c701e536a14b64717994cb4e",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "b93d4e430f473854173f739415c6985c75821cc9c701e536a14b64717994cb4e",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "generic-signature",
+      "mask": false,
+      "sourceSha256": "8402cbc1ef3bd90ef25c697a352c959e7d37f037c2e1d64c9c558e6d70e9ff09",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "8402cbc1ef3bd90ef25c697a352c959e7d37f037c2e1d64c9c558e6d70e9ff09",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "empty-token",
+      "mask": false,
+      "sourceSha256": "0f7ac259611b6e7d0be5f2a4db1966acd8cc2b5513ecc938ce55bd71142f5120",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "0f7ac259611b6e7d0be5f2a4db1966acd8cc2b5513ecc938ce55bd71142f5120",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "empty-fragment-token",
+      "mask": false,
+      "sourceSha256": "0d017ea665313f9ece131e700030bd5c6e7b4720c965b10bc7a580d0ee1a9fd2",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "0d017ea665313f9ece131e700030bd5c6e7b4720c965b10bc7a580d0ee1a9fd2",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "empty-azure-signature",
+      "mask": false,
+      "sourceSha256": "614ef39424017800ee92aa85208b4f7f4400c3c5bb41ea5c76d1d75376f74370",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "614ef39424017800ee92aa85208b4f7f4400c3c5bb41ea5c76d1d75376f74370",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "empty-azure-version",
+      "mask": false,
+      "sourceSha256": "c989ce33e9d6ceec8773ccb69f0680fe35d1aa701fb2e39e44bad6692353c728",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "c989ce33e9d6ceec8773ccb69f0680fe35d1aa701fb2e39e44bad6692353c728",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "empty-v4-signature",
+      "mask": false,
+      "sourceSha256": "d87ae150649132276dac390b2b7ecc478647e5407b6a8ee9919e8a094f2a767f",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "d87ae150649132276dac390b2b7ecc478647e5407b6a8ee9919e8a094f2a767f",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "empty-signer",
+      "mask": false,
+      "sourceSha256": "3825d3b8b8b19653bbec33f4a33f737af893c432fcd27d33309017671e0cb88c",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "3825d3b8b8b19653bbec33f4a33f737af893c432fcd27d33309017671e0cb88c",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "similar-name",
+      "mask": false,
+      "sourceSha256": "e245bfe8d5c26d35374558d21742928be1f22d4bd3c5158a291a34d3ed1fefa0",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "e245bfe8d5c26d35374558d21742928be1f22d4bd3c5158a291a34d3ed1fefa0",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "double-encoded-name",
+      "mask": false,
+      "sourceSha256": "d27a4d22c976179bd161957923547da20d344c8babb702410648267c7702a8a1",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "d27a4d22c976179bd161957923547da20d344c8babb702410648267c7702a8a1",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "encoded-value",
+      "mask": false,
+      "sourceSha256": "4e0b27e44d1312cb89531ec0141d511e833c60607b909a5e0544fdf2980ac84c",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "4e0b27e44d1312cb89531ec0141d511e833c60607b909a5e0544fdf2980ac84c",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "encoded-separator",
+      "mask": false,
+      "sourceSha256": "6ad6ce00a8577e970a2708ec9c3be5382c37b7e14c650497d6ea39d3e42aae07",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "6ad6ce00a8577e970a2708ec9c3be5382c37b7e14c650497d6ea39d3e42aae07",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "separate-components",
+      "mask": false,
+      "sourceSha256": "ffe66f836676b5ea47953c69cc6b0d18948631ea6274eddd5816b51aed155778",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "ffe66f836676b5ea47953c69cc6b0d18948631ea6274eddd5816b51aed155778",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "path-only",
+      "mask": false,
+      "sourceSha256": "366f61a1af61f355c33e3a6e9f7427636c2dd575b19a74f8c5dc4a9df617af55",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "366f61a1af61f355c33e3a6e9f7427636c2dd575b19a74f8c5dc4a9df617af55",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    },
+    {
+      "id": "userinfo",
+      "mask": true,
+      "sourceSha256": "aad314c72751430734fca324ced1e62fb208ac538cb9154f492ca8498f4c5266",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          46
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": []
+    }
+  ]
+}

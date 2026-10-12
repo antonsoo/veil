@@ -59,7 +59,7 @@ generation, not Veil installation.
 
 The matching fields agree with the providers' specifications:
 
-- [AWS query authentication](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html)
+- [AWS query authentication](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/sigv4-query-string-auth.html)
   describes `X-Amz-Signature`.
 - [GCS signed URLs](https://docs.cloud.google.com/storage/docs/access-control/signed-urls)
   and [V2 signing](https://docs.cloud.google.com/storage/docs/access-control/signed-urls-v2)
@@ -95,6 +95,48 @@ spans, whole-URL expectations, hashes, CLI outcomes and transport captures.
 Ten of the 24 credential inputs pass through entirely unchanged at baseline;
 eight more are only partially masked. These selected fixtures demonstrate
 specific gaps, not recall on real issued credentials or model behavior.
+
+## Browser and installed wheel
+
+The [baseline browser receipt](browser-before.json) records 84/156 expected
+results; the [corrected receipt](browser-after.json) records 156/156. Each run
+checks all 39 inputs in Chromium and Firefox at 375 and 1280 pixels, with 312
+actual masked-text/vault downloads. After runtime initialization, all cases
+run offline with zero additional requests. There are no page errors, CSP
+violations or horizontal page overflow. All ten served application assets
+match the tested build, and its 34 Python files match the source checkout.
+The [existing browser suite](browser-existing.json) also passes 16 scenarios
+covering keyboard use, both themes, accessibility, isolation and recovery.
+
+![Corrected desktop: one complete URL placeholder and one hidden vault mapping](../../docs/assets/credential-urls/after/chromium-1280.png)
+
+Compare the [baseline desktop](../../docs/assets/credential-urls/before/chromium-1280.png)
+and [corrected phone](../../docs/assets/credential-urls/after/chromium-375.png)
+captures. All eight screenshots were opened and inspected. The synthetic
+GCS URL is visible in the baseline output and replaced as a whole after the
+fix. The browser's canned reply does not echo URLs; exact restoration is
+verified through the library, CLI, streaming restorer and SDK echo captures.
+
+The [verification receipt](verification.json) covers a clean archive of
+production commit `7168237815648a5935efbf16e7c4e5ccccaeefe0`. Locked installs
+pass lint, formatting, mypy and 537 tests on both Python 3.10.21 and 3.14.7;
+the optional spaCy check is skipped in each. The sdist and wheel build, and
+the existing 60-document synthetic detector smoke check passes. Scratch
+virtual-environment directories were excluded from lint/format input.
+
+The wheel installs separately on Python 3.10 with **no other distributions**
+and passes all 39 CLI/library cases. A Python 3.14 installation with the real
+OpenAI and Anthropic SDKs also passes all 117 transport checks. Case records
+match the source replay exactly. See [core installation](installed-core310.json)
+and [SDK installation](installed-sdk314.json). All 39 retained wheel files
+(excluding the installer-rewritten `RECORD`) match both installations. All
+35 source package files, including `py.typed`, match the tested archive.
+
+The wheel is 87,234 bytes with SHA-256
+`e5508172be4d18c1d46019f0c7acddcfc33e76ecddd9117d75ec9e2fd024a7e4`.
+It retains version 0.4.4 and is a local artifact, not a registry release.
+The static build command is `npm run build --prefix web`, producing `web/dist`;
+this work does not deploy that build.
 
 ## Compatibility and cost
 
