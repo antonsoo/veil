@@ -1,13 +1,16 @@
 """URLs carrying embedded credentials or tokens.
 
-Two shapes, in a URL of any scheme (``https``, but also connection strings
+Credential shapes, in a URL of any scheme (``https``, but also connection strings
 like ``postgres://``, ``redis://`` or ``mongodb+srv://``, where credentials
 are most often embedded):
 
 - Userinfo in the authority: ``scheme://user:password@host/...``.
-- A sensitive token in the query string, e.g. ``?api_key=...`` or
-  ``?access_token=...`` — the whole URL is flagged since the token is only
-  meaningful in context and query strings are easy to truncate wrong.
+- A sensitive token in a query or fragment, including percent-encoded names.
+- Signed storage/CDN links: AWS/GCS V4, Azure Storage SAS, and the paired
+  signature/signer fields of AWS/GCS V2 and CloudFront.
+
+The whole original URL is flagged: credentials are meaningful in context and
+rewriting a signed URL can invalidate it. Recognition does not verify a signature.
 """
 
 from __future__ import annotations
@@ -15,6 +18,7 @@ from __future__ import annotations
 import re
 import string
 from collections.abc import Iterator
+from urllib.parse import unquote_plus
 
 from veil.types import Entity, EntityType, Span
 
@@ -22,11 +26,44 @@ _SCHEME_START = frozenset(string.ascii_letters)
 _SCHEME_CHARS = frozenset(string.ascii_letters + string.digits + "+.-")
 _URL_BODY_RE = re.compile(r"[^\s\"'<>]+")
 _AUTHORITY_END_RE = re.compile(r"[/\s@]")
-_SENSITIVE_PARAM_RE = re.compile(
-    r"[?&](?:api[_-]?key|access[_-]?token|auth[_-]?token|token|secret|password|session[_-]?id)="
-    r"[^&\s]+",
-    re.IGNORECASE,
+_SENSITIVE_NAME = (
+    r"(?:api[_-]?key|access[_-]?token|auth[_-]?token|token|secret|password|session[_-]?id)"
 )
+_SENSITIVE_NAME_RE = re.compile(_SENSITIVE_NAME, re.IGNORECASE)
+_SENSITIVE_PARAM_RE = re.compile(r"[?&]" + _SENSITIVE_NAME + r"=[^&\s]+", re.IGNORECASE)
+
+
+def _sensitive_parameters(component: str) -> bool:
+    # Split before decoding, and decode names only once. An encoded '&' or '='
+    # inside a value must not invent another parameter. Keep duplicate names
+    # with any nonempty value; an empty later duplicate cannot hide a token.
+    names = set()
+    for field in component.split("&"):
+        name, separator, value = field.partition("=")
+        if separator and value:
+            names.add(unquote_plus(name).lower())
+    if any(_SENSITIVE_NAME_RE.fullmatch(name) for name in names):
+        return True
+    if names & {"x-amz-signature", "x-goog-signature"}:
+        return True
+    if {"sig", "sv"} <= names:
+        return True
+    return "signature" in names and bool(
+        names & {"googleaccessid", "awsaccesskeyid", "key-pair-id"}
+    )
+
+
+def _has_credential_parameters(url: str) -> bool:
+    before_fragment, _, fragment = url.partition("#")
+    query = before_fragment.partition("?")[2]
+    # OAuth implicit redirects use '#access_token=...'. Client-side routers
+    # can use '#/callback?access_token=...'; keep those parameters together,
+    # but never combine a query's signer with a fragment's signature.
+    return any(
+        _sensitive_parameters(component)
+        for component in (query, fragment, fragment.partition("?")[2])
+        if component
+    )
 
 
 def _is_word(ch: str) -> bool:
@@ -83,7 +120,13 @@ class UrlCredentialDetector:
         out: list[Entity] = []
         for start, found in _urls(text):
             url = found.rstrip(").,;")
-            if _has_userinfo(url) or _SENSITIVE_PARAM_RE.search(url):
+            # Retain legacy raw matches, including router fragments, while
+            # adding decoded-name and signing-format recognition.
+            if (
+                _has_userinfo(url)
+                or _SENSITIVE_PARAM_RE.search(url)
+                or _has_credential_parameters(url)
+            ):
                 out.append(
                     Entity(
                         type=EntityType.URL_CREDENTIAL,

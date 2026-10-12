@@ -1,0 +1,1505 @@
+{
+  "python": "3.12.12",
+  "detectorSha256": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099",
+  "driverSha256": "622acbf846171d660d3ca16d9f57471b58cb135801be354a0e2ebc6e93474fc5",
+  "casesSha256": "0088116d7018a6e2ca9d7a2dad883f3ccd5dcd92b7637914f6e03b97f2818d39",
+  "sdkVersions": {
+    "openai": "3.23.0",
+    "anthropic": "1.11.0"
+  },
+  "cases": 39,
+  "credentials": 24,
+  "expectedMasks": 39,
+  "credentialMasks": 24,
+  "unchangedCredentials": 0,
+  "cliExpectedMasks": 39,
+  "sdkCalls": 117,
+  "sdkExpectedMasks": 117,
+  "rows": [
+    {
+      "id": "gcs-v4",
+      "mask": true,
+      "sourceSha256": "bcb6cd9bbf99c578c93e1b02e6d2240ac8b29e0519a4ac6364cd2b43b823e860",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          790
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "gcs-v2",
+      "mask": true,
+      "sourceSha256": "e4a2362ad09d6bdf84cc319b3b78b336b6baf91df4648a8ef306c2aafa5caed1",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          501
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "aws-s3v4",
+      "mask": true,
+      "sourceSha256": "c804100bb0a77b098325d2ad1bed25da7cf85787651cc22c18725b75fbad1469",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          324
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "aws-s3",
+      "mask": true,
+      "sourceSha256": "704a45a2bb8f417dd99d33eb7dc66b3135b649aa89e7ecf43b295f34b9e6c017",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          154
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "azure-blob",
+      "mask": true,
+      "sourceSha256": "29dfe4420572ab7256b225f1e7be12b876969174a40f66962b61ed5e7b835e7e",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          198
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "azure-account",
+      "mask": true,
+      "sourceSha256": "7df9ccd094221a1cd57cee157cd709c1012a06bd3597a8ad56caf7f1e466ff88",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          202
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "azure-stored-policy",
+      "mask": true,
+      "sourceSha256": "5cbb80d758818066f0be6c02aea44af5e4bbe25129da5545c6dc0505bd11fe36",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          148
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "cloudfront-canned",
+      "mask": true,
+      "sourceSha256": "89e933065d80c39ce5a5eff3db13ab2fb22d13b22d903d4b3718a193599824e3",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          442
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "cloudfront-custom",
+      "mask": true,
+      "sourceSha256": "732f8bc26c7cce9b8c2f6353c5a04c1fdcba3f3fdf45d2c86a38e122df3808c2",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          603
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "oauth-fragment",
+      "mask": true,
+      "sourceSha256": "60c6f5f9c670e5019d6eedb6ba46ff7e8c1545a39910f01f7199485d7e625005",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          81
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "oauth-fragment-second",
+      "mask": true,
+      "sourceSha256": "ab691795251f6ed18caa3bf7f2e0dcf111d17a8ec29561f7f112efae02aa350c",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          72
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "encoded-name",
+      "mask": true,
+      "sourceSha256": "122a8a40efa51cdc038fdb56768ee5ca649d5c7f18135476bd321494c244b1d6",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          57
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "encoded-fragment-name",
+      "mask": true,
+      "sourceSha256": "2fa8208b2134494399c4f1b7adf36d38c624a377d9cc2530383100300092fffb",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          57
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "router-fragment",
+      "mask": true,
+      "sourceSha256": "bfc4d908d0111fa2e8e6fc185c9f2ca41d7115e35c805bfdab3b00ec95b5e879",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          67
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "mixed-case",
+      "mask": true,
+      "sourceSha256": "0325d86fb56a4d526feab385ce21209d6579ecf68e444193c81ae3c1d10fb56a",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          55
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "duplicate-name",
+      "mask": true,
+      "sourceSha256": "e83116a49bb96ae310fa6c2f018b41498790f04e0aa0ff2bed05043bab5d0fd9",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          69
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "query-userinfo-control",
+      "mask": true,
+      "sourceSha256": "93722142175b3314356ad010860c00d808b283084682775d9271a30eab8aa0ab",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          48
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "encoded-azure-name",
+      "mask": true,
+      "sourceSha256": "961b13856505180a16558e707e0be8ca1ba6ddfdb1cca5c20acbe8ff31df3e3c",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          58
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "signature-first",
+      "mask": true,
+      "sourceSha256": "a1fcf27335d1b84d5d227be006ec46fdfb7beef72f4173250128443ee24233bc",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          74
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "azure-custom-domain",
+      "mask": true,
+      "sourceSha256": "0ec1054d58462fffe2f4083009d9683ff6eeeb2a236188c77fe69bd0ad0bc169",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          54
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "gcs-custom-domain",
+      "mask": true,
+      "sourceSha256": "4d1fb368ea45a907586ffc78ab3ee002652c90ecef15a36568308feae148e40b",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          59
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "aws-custom-domain",
+      "mask": true,
+      "sourceSha256": "7e180118bad4c58a69848aeedef980e7e789c037de639c2394b4c1680d198038",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          58
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "legacy-router-fragment",
+      "mask": true,
+      "sourceSha256": "dc9c7c44ce90b96fb2f150c11abb659eabaca56a7b2a111f31f375e7d1aa0bcc",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          58
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "ordinary-url",
+      "mask": false,
+      "sourceSha256": "3a191c1aa00079ecbbfe589474f4f8b09e71a7c57cd9fb8769163341d9423cf0",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "3a191c1aa00079ecbbfe589474f4f8b09e71a7c57cd9fb8769163341d9423cf0",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "e71e20d841505b2a1640c3ac6947369e0ce3161ae35baa554fb0b063511f3943",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "e34d50f9ebfaa0ff7feb39aa24b0e2414f782ccebe7abd4a9f544bb15c7dfe6a",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "c9f59b2e1c85b5f4964aa09b941ec238c6664d22f823609792ece8c01dfbaeac",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "generic-sig",
+      "mask": false,
+      "sourceSha256": "b93d4e430f473854173f739415c6985c75821cc9c701e536a14b64717994cb4e",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "b93d4e430f473854173f739415c6985c75821cc9c701e536a14b64717994cb4e",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "0de590f8d491fe763f04fe60e4b0484a68828f0dedc760e8dcfc5508f7799b55",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "e5d079cbe93c7e6a06014f8f69faba359c503b6bab41d0007c0c96f62c3ab43a",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "75f1f979a56240bda3a2d70334d3e9c35c8942551faf1c402c61f4aaed5d0582",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "generic-signature",
+      "mask": false,
+      "sourceSha256": "8402cbc1ef3bd90ef25c697a352c959e7d37f037c2e1d64c9c558e6d70e9ff09",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "8402cbc1ef3bd90ef25c697a352c959e7d37f037c2e1d64c9c558e6d70e9ff09",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "909ead89c076447fb15d7cc2772930dfd55bf9b0584ade54a9050c86b2723a9e",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ba93b8f804757400ee9692f7f9d21956c9165581851e7c72da9adadf0da22f1b",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "e97303edf6f79abf63fe9541cee042c9501922a57a8c50410821e6bf2b7c2501",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "empty-token",
+      "mask": false,
+      "sourceSha256": "0f7ac259611b6e7d0be5f2a4db1966acd8cc2b5513ecc938ce55bd71142f5120",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "0f7ac259611b6e7d0be5f2a4db1966acd8cc2b5513ecc938ce55bd71142f5120",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "6fe44183426d266a6027c1712c3f3fd2614cfe33694e0c9a1dfa2a1ac4e4aa94",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "efbc84952348d5186389764b22822388512d1a5dcda7bc195fc633697682704b",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "870fb1a3d30912a57f25f6f2db7294cfc8d699814c13048a0f514f26b0df1f07",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "empty-fragment-token",
+      "mask": false,
+      "sourceSha256": "0d017ea665313f9ece131e700030bd5c6e7b4720c965b10bc7a580d0ee1a9fd2",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "0d017ea665313f9ece131e700030bd5c6e7b4720c965b10bc7a580d0ee1a9fd2",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8176fac68f81152dabcd79030c834e0cfac3d92823405ff424394c261f172522",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "f39abd1a44bdd3db7ba778d77f0d75d3c09c80ab240b8103c8cf1b34c61c604a",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "ca1d8f6215c28159708c61591d00a0cc166488aa7b15909e245ed29cddb141fe",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "empty-azure-signature",
+      "mask": false,
+      "sourceSha256": "614ef39424017800ee92aa85208b4f7f4400c3c5bb41ea5c76d1d75376f74370",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "614ef39424017800ee92aa85208b4f7f4400c3c5bb41ea5c76d1d75376f74370",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "394ca9fe0a7dffc324f8d5e5e1d7502330531c58d63b8e20a914ad1b8ff17cc2",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "e84ea51c1470869d527365dedbcfa440400c485445bf06395c4be72407325c62",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "9d471292b1ef22a6aa63518a7beae4018241bd38b45115c059255aa05423d1db",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "empty-azure-version",
+      "mask": false,
+      "sourceSha256": "c989ce33e9d6ceec8773ccb69f0680fe35d1aa701fb2e39e44bad6692353c728",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "c989ce33e9d6ceec8773ccb69f0680fe35d1aa701fb2e39e44bad6692353c728",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "c3e4064929f220e2d9d783f0c248d05930e45aff2344b7d61bdab8fe513ce39c",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "381725ea923148cf8a2f074fb3eae282fb9e0a35092a828de8a15d62cfa05fe2",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "a0c28eb9ba907e5ba48c1d72e3d0ce5c364cefb114838c71aa797afb16e00b0f",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "empty-v4-signature",
+      "mask": false,
+      "sourceSha256": "d87ae150649132276dac390b2b7ecc478647e5407b6a8ee9919e8a094f2a767f",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "d87ae150649132276dac390b2b7ecc478647e5407b6a8ee9919e8a094f2a767f",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "99eee89aed78d212f4db076f2581bd772fad9290a0ce2b2f4b238016440fdefb",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "424878453aef213460edd42e3fdf9a5a6ba4ac0d644e355bb9d0d8dc1e5c72b1",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "2c9ec06e519b6ddc6c1999d13ed67badcf3c9f59438fba56230c5d25dc034627",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "empty-signer",
+      "mask": false,
+      "sourceSha256": "3825d3b8b8b19653bbec33f4a33f737af893c432fcd27d33309017671e0cb88c",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "3825d3b8b8b19653bbec33f4a33f737af893c432fcd27d33309017671e0cb88c",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "b27a2706084e824d9ffe6ab8d5f88a6890516e3bc2405c97d9d340a93be55418",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "b9fdd5612d0cb9dda14fdaa8e21cba6a82de723a9b977fc2c4deeb685dfdd2df",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "a7b04a064d745b52ba30dd389352942111e12b6f1fb1a0371c68d7a2a5431cf7",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "similar-name",
+      "mask": false,
+      "sourceSha256": "e245bfe8d5c26d35374558d21742928be1f22d4bd3c5158a291a34d3ed1fefa0",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "e245bfe8d5c26d35374558d21742928be1f22d4bd3c5158a291a34d3ed1fefa0",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "0d999e82b5353f3b58188aa9b4f796914fab675555ea21787b4d14ebd831b7e4",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "afe8b9500a57b305a98d2060844a0b9f710f29adc54427ecae46acd114013c9b",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "91ea7a4bb52672e66fd5d620b40f38fb043ca8ac3aeca6584daedd53888d60da",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "double-encoded-name",
+      "mask": false,
+      "sourceSha256": "d27a4d22c976179bd161957923547da20d344c8babb702410648267c7702a8a1",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "d27a4d22c976179bd161957923547da20d344c8babb702410648267c7702a8a1",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "ff97ecc2ce7d6138f20d46a0fa2164000c0aa5c89625c5cda6c6102333af36fd",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "03fde49df588dc4ead7f4fb84f308b37c374bf6585e95d183ce6967d1412b4c7",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "816d034d0250a77034bb79ed4cd310782aa305c79d00a7e4d4bfa1a1996fbb2a",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "encoded-value",
+      "mask": false,
+      "sourceSha256": "4e0b27e44d1312cb89531ec0141d511e833c60607b909a5e0544fdf2980ac84c",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "4e0b27e44d1312cb89531ec0141d511e833c60607b909a5e0544fdf2980ac84c",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "1a21c9e263427f0393476bc20b3ce41e7785ac19d92a3519d4acfb4379c90e53",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "7c7db867b9a20b41a7d417ff3b038f42b3ef9e71b89d05636cca24b30ce27acb",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "60c0182b4f00208019ac1127627307eb867a0e6ada00b7619785f1cc7b328918",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "encoded-separator",
+      "mask": false,
+      "sourceSha256": "6ad6ce00a8577e970a2708ec9c3be5382c37b7e14c650497d6ea39d3e42aae07",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "6ad6ce00a8577e970a2708ec9c3be5382c37b7e14c650497d6ea39d3e42aae07",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "492aa69cf51456e5ba9067a1ccc0ab4235f389ea9a6461ce882fb1f5c7614202",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "e2aa61b93c5938f85befa1279b272bce0a8540a1a9d4df497367e93b1493d56c",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "067016f8f69d157b6e833ad62f3ae0b476d3a662f5ce712fc0f6b067bb018092",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "separate-components",
+      "mask": false,
+      "sourceSha256": "ffe66f836676b5ea47953c69cc6b0d18948631ea6274eddd5816b51aed155778",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "ffe66f836676b5ea47953c69cc6b0d18948631ea6274eddd5816b51aed155778",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "e4b7f840cbddc92590fc44f212ba884753775954d9a40ded1bef5cda7dbf6b83",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "58440d02375a7fbdf0118af2c8361e76d3ef37aa7c80d1bdeb790d577ed66e4b",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "97cf3a32feda53f84a80529328ea0888d5a8925cedda84691d62e89c85e45852",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "path-only",
+      "mask": false,
+      "sourceSha256": "366f61a1af61f355c33e3a6e9f7427636c2dd575b19a74f8c5dc4a9df617af55",
+      "expectedDetection": true,
+      "spans": [],
+      "expectedMask": true,
+      "unchanged": true,
+      "maskedSha256": "366f61a1af61f355c33e3a6e9f7427636c2dd575b19a74f8c5dc4a9df617af55",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "ef8fb9b8b706d95121178d3838d4a3281c295c7af5f700824189aa55a3101878",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "1693a743fad80fabfb0e14f9d87686322a1736acd4e0e233bb05607bb48837b5",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "50192541941428f9525fc7b6e66516a66590ed87d8e3c1fe3e392aad95473e50",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "userinfo",
+      "mask": true,
+      "sourceSha256": "aad314c72751430734fca324ced1e62fb208ac538cb9154f492ca8498f4c5266",
+      "expectedDetection": true,
+      "spans": [
+        [
+          5,
+          46
+        ]
+      ],
+      "expectedMask": true,
+      "unchanged": false,
+      "maskedSha256": "5e69caa2dd72319cd075d721c834b2738475b1983641216c131c9de5eb314bdb",
+      "restoresExactly": true,
+      "streamRestoresExactly": true,
+      "cliExpectedMask": true,
+      "cliExpectedMapping": true,
+      "cliRestoresExactly": true,
+      "sdk": [
+        {
+          "api": "chat",
+          "expectedAtTransport": true,
+          "requestSha256": "8ff1f9abbf987e6fe18919c01379ea8326bf7727f26146eaca5652b598faa135",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "expectedAtTransport": true,
+          "requestSha256": "ae7ed0b0d42ee71311d52f761ec5ea4039876cf112d919fc535f7c06d2effe69",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "expectedAtTransport": true,
+          "requestSha256": "6e664f23e8d711e5b58925cef666ba865af7b75e9dcedbb1b13d6a60ef4e8cfc",
+          "restoresExactly": true
+        }
+      ]
+    }
+  ]
+}

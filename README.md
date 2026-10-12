@@ -320,6 +320,10 @@ it does not validate or repair malformed JSON.
   This checkout masks complete project/service-account-shaped token bodies;
   the released package is unchanged. [Synthetic SDK replay and scope](studies/secret-formats/README.md)
   explain the recognition heuristic and its limits.
+  This checkout also recognizes signed AWS/GCS, Azure Storage SAS and
+  CloudFront URLs, OAuth fragment tokens, and percent-encoded token parameter
+  names. [Credential-URL evidence and exact matching rules](studies/credential-urls/README.md)
+  cover whole-URL masking, ordinary-link controls and restoration.
 - **Names, orgs, and locations** via a pluggable `NameBackend`: a
   first-class `KnownEntitiesBackend` (you already know the customer's name
   from your own database — this is the most reliable option in practice)

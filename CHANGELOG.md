@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Credential-bearing URLs
+
+- Mask complete AWS/GCS signed URLs, Azure Storage SAS links and CloudFront
+  signed links, including custom domains. Recognize OAuth fragment tokens and
+  sensitive parameter names after one percent-decoding pass. Preserve the
+  original URL spelling for exact restoration.
+- Require companion fields for generic `sig`/`Signature` parameters. Ordinary
+  signature parameters and empty credential fields do not match the new rules.
+- Retain offline SDK-generated synthetic examples, before/after CLI and SDK
+  transport captures, ordinary-link controls and browser evidence in
+  `studies/credential-urls`. This recognizes formats; it does not authenticate
+  links or establish coverage of every credential scheme.
+
 ### Complete project-key masking
 
 - Recognize complete `sk-proj-` and `sk-svcacct-` shaped secrets, including

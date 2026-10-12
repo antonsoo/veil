@@ -1,0 +1,249 @@
+{
+  "synthetic": true,
+  "network": "socket connect and DNS blocked during generation",
+  "signingTime": "2026-10-12T12:00:00+00:00",
+  "packages": {
+    "google-cloud-storage": "3.17.0",
+    "google-auth": "2.61.0",
+    "azure-storage-blob": "12.31.0",
+    "boto3": "1.43.111",
+    "botocore": "1.43.111",
+    "cryptography": "50.0.2"
+  },
+  "cases": [
+    {
+      "id": "gcs-v4",
+      "url": "https://storage.googleapis.com/veil-synthetic/private.txt?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=fixture%40example.invalid%2F20261012%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20261012T120000Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=7d739b2716a958f066f38f339caba3282dee42fbf109fd211d7d85395d47338a3dc1ae59830fe8f91564384b45987d39ac97acdb9e8fb1dee035e8ffba91d252f55f61b4567e4b164aaf1434921c9ccf57c3e7a20335f793449e067b3d6ed7727d69effcfa20ef41f3dcab194ede872cd5a3307d5dc95efcb86b6859af79b0f29e92d0ef95c57e71075e9a308f243cad6f7912f857fe327c182d1ad72b3e287a3803a393840bc810d2c5dd9dc7313c1e8f140eb20bc11d826ecfd2e3ecb6e00dd2277995e91e7b3eb20fa37f72c04f76e96d0fd6bd232ffc2c7950ad25aabb5ea7074e770f8ec84d5d4557512f119cc5daf0c71bade8a33c06f51662757d64ea",
+      "origin": "google-cloud-storage Blob.generate_signed_url v4",
+      "mask": true
+    },
+    {
+      "id": "gcs-v2",
+      "url": "https://storage.googleapis.com/veil-synthetic/private.txt?Expires=1791892800&GoogleAccessId=fixture%40example.invalid&Signature=necpL3Nv2fGeo%2FKhHsB%2FMbf7Qd2Tm%2BQOQH9T1p3%2BafuO4PSjHhxf9M3LqtUV4xWY1Qe6SdFFOSQmS6S5nyc1zmI5nhI%2BR37ATbUZUCXCQRr3iOEx6e3G1BBfH05WgLLArXNkfo7uDsJCzFzl2T4MqH1ghyp3%2BKSCwlbUlkYhPYnqqASr18uuXi31BzDbvkMtzKkz0ZmAl9JoRB1DpGC91GiFyaJqSJvz9lKnnlnsKmeF9%2BxJPzfEu50i1N%2B%2FaQMNYMRcEX83qYXW1PzLB%2By5OeBXim0aVaaTglphqJMozLji7iTkvN6zppOjP4E310q6omeZHC5O4aIEUrQU6YumTA%3D%3D",
+      "origin": "google-cloud-storage Blob.generate_signed_url v2",
+      "mask": true
+    },
+    {
+      "id": "aws-s3v4",
+      "url": "https://veil-synthetic.s3.amazonaws.com/private.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20261012%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261012T120000Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=f48342dc5e904425b7470403d25028b4ef512184217f3083d4c544db91efe3bd",
+      "origin": "boto3 S3.generate_presigned_url s3v4",
+      "mask": true
+    },
+    {
+      "id": "aws-s3",
+      "url": "https://veil-synthetic.s3.amazonaws.com/private.txt?AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Signature=paDA0%2BJgG9VGbVkExAAq5hcL4hw%3D&Expires=1791892800",
+      "origin": "boto3 S3.generate_presigned_url s3",
+      "mask": true
+    },
+    {
+      "id": "azure-blob",
+      "url": "https://veilsynthetic.blob.core.windows.net/private/file.txt?st=2026-10-12T12%3A00%3A00Z&se=2026-10-13T12%3A00%3A00Z&sp=r&sv=2026-10-06&sr=b&sig=VEN5E5RP01x78sICglWE%2BUT8G3LYeDXnqdcrHJYb5NU%3D",
+      "origin": "azure-storage-blob generate_blob_sas",
+      "mask": true
+    },
+    {
+      "id": "azure-account",
+      "url": "https://veilsynthetic.blob.core.windows.net/private/file.txt?st=2026-10-12T12%3A00%3A00Z&se=2026-10-13T12%3A00%3A00Z&sp=r&sv=2026-10-06&ss=b&srt=o&sig=sPwQsYfn6quBap92JMiFGvG/RsCdIAeo4cVxbVZhJro%3D",
+      "origin": "azure-storage-blob generate_account_sas",
+      "mask": true
+    },
+    {
+      "id": "azure-stored-policy",
+      "url": "https://veilsynthetic.blob.core.windows.net/private/file.txt?sv=2026-10-06&si=synthetic&sr=b&sig=2DwmKNbH5wFhLZdCtz9hHmNGweJmHM1kwU3pp/M3daM%3D",
+      "origin": "azure-storage-blob generate_blob_sas",
+      "mask": true
+    },
+    {
+      "id": "cloudfront-canned",
+      "url": "https://cdn.example.invalid/private.txt?Expires=1791892800&Signature=DmZqFJgMeAITZYLt-wjdq05cOa-Hltrhy-MMOQaeAzGHkZGwy~HVi~o5~Kcg7no9NTpuPDgBasNY5BzKY3T9qStf~QmU~qrVJrQptOtizg1kzLQw7PG4dD~uUxlFa~-4bK0nLiGKGD3gOqqzgUwVlj6jScqyqyCZ~OvhVfqiYOyfxZmVgaVxt0Il-1X76rPkOmX1CAQPMF53ovNJqQwhcXHeOy~-SShqnEJ9BtgHxneAKRjHtJGn4FvoHI2UbwhJeEsy2sSVb4xSY275iRmHhsKQ-sZP9ZvRB5w88YR6mOn2P3y9iYpOHpY0jm99pgh2qrQqKfbHKQmwmJf8yo-VEA__&Key-Pair-Id=K_SYNTHETIC",
+      "origin": "botocore CloudFrontSigner canned policy",
+      "mask": true
+    },
+    {
+      "id": "cloudfront-custom",
+      "url": "https://cdn.example.invalid/private.txt?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9jZG4uZXhhbXBsZS5pbnZhbGlkL3ByaXZhdGUudHh0IiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkxODkyODAwfX19XX0_&Signature=DmZqFJgMeAITZYLt-wjdq05cOa-Hltrhy-MMOQaeAzGHkZGwy~HVi~o5~Kcg7no9NTpuPDgBasNY5BzKY3T9qStf~QmU~qrVJrQptOtizg1kzLQw7PG4dD~uUxlFa~-4bK0nLiGKGD3gOqqzgUwVlj6jScqyqyCZ~OvhVfqiYOyfxZmVgaVxt0Il-1X76rPkOmX1CAQPMF53ovNJqQwhcXHeOy~-SShqnEJ9BtgHxneAKRjHtJGn4FvoHI2UbwhJeEsy2sSVb4xSY275iRmHhsKQ-sZP9ZvRB5w88YR6mOn2P3y9iYpOHpY0jm99pgh2qrQqKfbHKQmwmJf8yo-VEA__&Key-Pair-Id=K_SYNTHETIC",
+      "origin": "botocore CloudFrontSigner custom policy",
+      "mask": true
+    },
+    {
+      "id": "oauth-fragment",
+      "url": "https://example.invalid/callback#access_token=short-secret&token_type=Bearer",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "oauth-fragment-second",
+      "url": "https://example.invalid/callback#state=ok&access_token=short-secret",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "encoded-name",
+      "url": "https://example.invalid/?access%5Ftoken=short-secret",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "encoded-fragment-name",
+      "url": "https://example.invalid/#access%5Ftoken=short-secret",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "router-fragment",
+      "url": "https://example.invalid/#/callback?access%5Ftoken=short-secret",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "mixed-case",
+      "url": "https://example.invalid/?AcCeSs_ToKeN=short-secret",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "duplicate-name",
+      "url": "https://example.invalid/?access_token=&access_token=short-secret",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "query-userinfo-control",
+      "url": "https://example.invalid/?token=short-secret",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "encoded-azure-name",
+      "url": "https://example.invalid/?s%76=2026&%73ig=short-secret",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "signature-first",
+      "url": "https://example.invalid/?Signature=short-secret&Key-Pair-Id=synthetic",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "azure-custom-domain",
+      "url": "https://example.invalid/?sig=short-secret&sv=2026",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "gcs-custom-domain",
+      "url": "https://example.invalid/?X-Goog-Signature=short-secret",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "aws-custom-domain",
+      "url": "https://example.invalid/?X-Amz-Signature=short-secret",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "legacy-router-fragment",
+      "url": "https://example.invalid/#/callback?token=short-secret",
+      "origin": "handwritten syntax control",
+      "mask": true
+    },
+    {
+      "id": "ordinary-url",
+      "url": "https://example.invalid/guide?topic=privacy#examples",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "generic-sig",
+      "url": "https://example.invalid/?sig=short-value",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "generic-signature",
+      "url": "https://example.invalid/?signature=short-value",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "empty-token",
+      "url": "https://example.invalid/?access_token=",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "empty-fragment-token",
+      "url": "https://example.invalid/#access_token=",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "empty-azure-signature",
+      "url": "https://example.invalid/?sv=2026&sig=",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "empty-azure-version",
+      "url": "https://example.invalid/?sv=&sig=short-value",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "empty-v4-signature",
+      "url": "https://example.invalid/?X-Goog-Signature=",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "empty-signer",
+      "url": "https://example.invalid/?Signature=short-value&Key-Pair-Id=",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "similar-name",
+      "url": "https://example.invalid/?not_access_token=short-value",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "double-encoded-name",
+      "url": "https://example.invalid/?access%255Ftoken=short-value",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "encoded-value",
+      "url": "https://example.invalid/?note=access_token%3Dshort-value",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "encoded-separator",
+      "url": "https://example.invalid/?note=x%26access_token%3Dshort-value",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "separate-components",
+      "url": "https://example.invalid/?sv=2026#sig=short-value",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "path-only",
+      "url": "https://example.invalid/access_token=short-value",
+      "origin": "handwritten syntax control",
+      "mask": false
+    },
+    {
+      "id": "userinfo",
+      "url": "postgres://user:short-secret@database/app",
+      "origin": "handwritten syntax control",
+      "mask": true
+    }
+  ]
+}
