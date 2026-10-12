@@ -1,0 +1,13 @@
+{
+  "python": "3.12.12",
+  "files": 1483,
+  "words": 2616034,
+  "bytes": 32925796,
+  "detections": 10339,
+  "beforeSha256": "9351a2305fe08cb2c8f9989cde5d0f790c081782a6f14b9de52502e123a50f7c",
+  "afterSha256": "9351a2305fe08cb2c8f9989cde5d0f790c081782a6f14b9de52502e123a50f7c",
+  "unchangedDetectionFiles": 1483,
+  "changedDetectionFiles": 0,
+  "identicalRetainedRows": "studies/credential-urls/corpus.json",
+  "retainedReceiptSha256": "d5e9c5c885b2be9c5121014b17386fd4b713d420f6474616e4f63139780212f9"
+}

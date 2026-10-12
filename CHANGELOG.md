@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Complete IPv6 literals
+
+- Mask IPv6 addresses with embedded IPv4 notation and scope IDs as one value;
+  do not expose the dotted suffix or interface name after masking a prefix.
+  Preserve the complete original spelling for exact restoration.
+- Treat mapped IPv4 loopback/reserved addresses consistently in dotted and
+  hexadecimal spelling. Recognize assigned NAT64 and SRv6 prefixes that fall
+  inside the standard library's broad reserved-space classification.
+- Validate the complete candidate before accepting it. Reject malformed
+  dotted tails/scopes without extracting an embedded IPv4 fragment.
+- Retain native-parser checks, public-text replay and actual CLI, SDK and
+  browser evidence in `studies/ip-literals`. Recognition is lexical; scope IDs
+  are not resolved against the host's interfaces.
+
 ### Credential-bearing URLs
 
 - Mask complete AWS/GCS signed URLs, Azure Storage SAS links and CloudFront

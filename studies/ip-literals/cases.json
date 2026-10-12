@@ -1,0 +1,1182 @@
+{
+  "synthetic": true,
+  "cases": [
+    {
+      "id": "generated-0-0-0-0",
+      "literal": "2001:db8:ab:cd::c000:221",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800ab00cd00000000c0000221"
+    },
+    {
+      "id": "generated-0-0-0-1",
+      "literal": "2001:db8:ab:cd::c000:221",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800ab00cd00000000c0000221"
+    },
+    {
+      "id": "generated-0-0-0-2",
+      "literal": "2001:db8:ab:cd::c000:221",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800ab00cd00000000c0000221"
+    },
+    {
+      "id": "generated-0-1-0-0",
+      "literal": "2001:0db8:00ab:00cd:0000:0000:c000:0221",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800ab00cd00000000c0000221"
+    },
+    {
+      "id": "generated-0-1-0-1",
+      "literal": "2001:0db8:00ab:00cd:0000:0000:c000:0221",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800ab00cd00000000c0000221"
+    },
+    {
+      "id": "generated-0-1-0-2",
+      "literal": "2001:0db8:00ab:00cd:0000:0000:c000:0221",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800ab00cd00000000c0000221"
+    },
+    {
+      "id": "generated-0-2-0-0",
+      "literal": "2001:0db8:00ab:00cd:0000:0000:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800ab00cd00000000c0000221"
+    },
+    {
+      "id": "generated-0-2-0-1",
+      "literal": "2001:0db8:00ab:00cd:0000:0000:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800ab00cd00000000c0000221"
+    },
+    {
+      "id": "generated-0-2-0-2",
+      "literal": "2001:0db8:00ab:00cd:0000:0000:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800ab00cd00000000c0000221"
+    },
+    {
+      "id": "generated-0-3-0-0",
+      "literal": "2001:0DB8:00AB:00CD:0000:0000:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800ab00cd00000000c0000221"
+    },
+    {
+      "id": "generated-0-3-0-1",
+      "literal": "2001:0DB8:00AB:00CD:0000:0000:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800ab00cd00000000c0000221"
+    },
+    {
+      "id": "generated-0-3-0-2",
+      "literal": "2001:0DB8:00AB:00CD:0000:0000:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800ab00cd00000000c0000221"
+    },
+    {
+      "id": "generated-1-0-0-0",
+      "literal": "fd42:1:2:3::c000:221",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fd4200010002000300000000c0000221"
+    },
+    {
+      "id": "generated-1-0-0-1",
+      "literal": "fd42:1:2:3::c000:221",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fd4200010002000300000000c0000221"
+    },
+    {
+      "id": "generated-1-0-0-2",
+      "literal": "fd42:1:2:3::c000:221",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fd4200010002000300000000c0000221"
+    },
+    {
+      "id": "generated-1-1-0-0",
+      "literal": "fd42:0001:0002:0003:0000:0000:c000:0221",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fd4200010002000300000000c0000221"
+    },
+    {
+      "id": "generated-1-1-0-1",
+      "literal": "fd42:0001:0002:0003:0000:0000:c000:0221",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fd4200010002000300000000c0000221"
+    },
+    {
+      "id": "generated-1-1-0-2",
+      "literal": "fd42:0001:0002:0003:0000:0000:c000:0221",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fd4200010002000300000000c0000221"
+    },
+    {
+      "id": "generated-1-2-0-0",
+      "literal": "fd42:0001:0002:0003:0000:0000:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fd4200010002000300000000c0000221"
+    },
+    {
+      "id": "generated-1-2-0-1",
+      "literal": "fd42:0001:0002:0003:0000:0000:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fd4200010002000300000000c0000221"
+    },
+    {
+      "id": "generated-1-2-0-2",
+      "literal": "fd42:0001:0002:0003:0000:0000:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fd4200010002000300000000c0000221"
+    },
+    {
+      "id": "generated-1-3-0-0",
+      "literal": "FD42:0001:0002:0003:0000:0000:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fd4200010002000300000000c0000221"
+    },
+    {
+      "id": "generated-1-3-0-1",
+      "literal": "FD42:0001:0002:0003:0000:0000:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fd4200010002000300000000c0000221"
+    },
+    {
+      "id": "generated-1-3-0-2",
+      "literal": "FD42:0001:0002:0003:0000:0000:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fd4200010002000300000000c0000221"
+    },
+    {
+      "id": "generated-2-0-0-0",
+      "literal": "fe80::c000:221",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-0-0-1",
+      "literal": "fe80::c000:221",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-0-0-2",
+      "literal": "fe80::c000:221",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-0-1-0",
+      "literal": "fe80::c000:221%en0",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-0-1-1",
+      "literal": "fe80::c000:221%en0",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-0-1-2",
+      "literal": "fe80::c000:221%en0",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-0-2-0",
+      "literal": "fe80::c000:221%13",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-0-2-1",
+      "literal": "fe80::c000:221%13",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-0-2-2",
+      "literal": "fe80::c000:221%13",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-0-3-0",
+      "literal": "fe80::c000:221%25eth0%2D1",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-0-3-1",
+      "literal": "fe80::c000:221%25eth0%2D1",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-0-3-2",
+      "literal": "fe80::c000:221%25eth0%2D1",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-1-0-0",
+      "literal": "fe80:0000:0000:0000:0000:0000:c000:0221",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-1-0-1",
+      "literal": "fe80:0000:0000:0000:0000:0000:c000:0221",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-1-0-2",
+      "literal": "fe80:0000:0000:0000:0000:0000:c000:0221",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-1-1-0",
+      "literal": "fe80:0000:0000:0000:0000:0000:c000:0221%en0",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-1-1-1",
+      "literal": "fe80:0000:0000:0000:0000:0000:c000:0221%en0",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-1-1-2",
+      "literal": "fe80:0000:0000:0000:0000:0000:c000:0221%en0",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-1-2-0",
+      "literal": "fe80:0000:0000:0000:0000:0000:c000:0221%13",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-1-2-1",
+      "literal": "fe80:0000:0000:0000:0000:0000:c000:0221%13",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-1-2-2",
+      "literal": "fe80:0000:0000:0000:0000:0000:c000:0221%13",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-1-3-0",
+      "literal": "fe80:0000:0000:0000:0000:0000:c000:0221%25eth0%2D1",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-1-3-1",
+      "literal": "fe80:0000:0000:0000:0000:0000:c000:0221%25eth0%2D1",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-1-3-2",
+      "literal": "fe80:0000:0000:0000:0000:0000:c000:0221%25eth0%2D1",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-2-0-0",
+      "literal": "fe80:0000:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-2-0-1",
+      "literal": "fe80:0000:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-2-0-2",
+      "literal": "fe80:0000:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-2-1-0",
+      "literal": "fe80:0000:0000:0000:0000:0000:192.0.2.33%en0",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-2-1-1",
+      "literal": "fe80:0000:0000:0000:0000:0000:192.0.2.33%en0",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-2-1-2",
+      "literal": "fe80:0000:0000:0000:0000:0000:192.0.2.33%en0",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-2-2-0",
+      "literal": "fe80:0000:0000:0000:0000:0000:192.0.2.33%13",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-2-2-1",
+      "literal": "fe80:0000:0000:0000:0000:0000:192.0.2.33%13",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-2-2-2",
+      "literal": "fe80:0000:0000:0000:0000:0000:192.0.2.33%13",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-2-3-0",
+      "literal": "fe80:0000:0000:0000:0000:0000:192.0.2.33%25eth0%2D1",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-2-3-1",
+      "literal": "fe80:0000:0000:0000:0000:0000:192.0.2.33%25eth0%2D1",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-2-3-2",
+      "literal": "fe80:0000:0000:0000:0000:0000:192.0.2.33%25eth0%2D1",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-3-0-0",
+      "literal": "FE80:0000:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-3-0-1",
+      "literal": "FE80:0000:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-3-0-2",
+      "literal": "FE80:0000:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-3-1-0",
+      "literal": "FE80:0000:0000:0000:0000:0000:192.0.2.33%en0",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-3-1-1",
+      "literal": "FE80:0000:0000:0000:0000:0000:192.0.2.33%en0",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-3-1-2",
+      "literal": "FE80:0000:0000:0000:0000:0000:192.0.2.33%en0",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-3-2-0",
+      "literal": "FE80:0000:0000:0000:0000:0000:192.0.2.33%13",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-3-2-1",
+      "literal": "FE80:0000:0000:0000:0000:0000:192.0.2.33%13",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-3-2-2",
+      "literal": "FE80:0000:0000:0000:0000:0000:192.0.2.33%13",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-3-3-0",
+      "literal": "FE80:0000:0000:0000:0000:0000:192.0.2.33%25eth0%2D1",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-3-3-1",
+      "literal": "FE80:0000:0000:0000:0000:0000:192.0.2.33%25eth0%2D1",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-2-3-3-2",
+      "literal": "FE80:0000:0000:0000:0000:0000:192.0.2.33%25eth0%2D1",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "fe8000000000000000000000c0000221"
+    },
+    {
+      "id": "generated-3-0-0-0",
+      "literal": "64:ff9b::c000:221",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0000000000000000c0000221"
+    },
+    {
+      "id": "generated-3-0-0-1",
+      "literal": "64:ff9b::c000:221",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0000000000000000c0000221"
+    },
+    {
+      "id": "generated-3-0-0-2",
+      "literal": "64:ff9b::c000:221",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0000000000000000c0000221"
+    },
+    {
+      "id": "generated-3-1-0-0",
+      "literal": "0064:ff9b:0000:0000:0000:0000:c000:0221",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0000000000000000c0000221"
+    },
+    {
+      "id": "generated-3-1-0-1",
+      "literal": "0064:ff9b:0000:0000:0000:0000:c000:0221",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0000000000000000c0000221"
+    },
+    {
+      "id": "generated-3-1-0-2",
+      "literal": "0064:ff9b:0000:0000:0000:0000:c000:0221",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0000000000000000c0000221"
+    },
+    {
+      "id": "generated-3-2-0-0",
+      "literal": "0064:ff9b:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0000000000000000c0000221"
+    },
+    {
+      "id": "generated-3-2-0-1",
+      "literal": "0064:ff9b:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0000000000000000c0000221"
+    },
+    {
+      "id": "generated-3-2-0-2",
+      "literal": "0064:ff9b:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0000000000000000c0000221"
+    },
+    {
+      "id": "generated-3-3-0-0",
+      "literal": "0064:FF9B:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0000000000000000c0000221"
+    },
+    {
+      "id": "generated-3-3-0-1",
+      "literal": "0064:FF9B:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0000000000000000c0000221"
+    },
+    {
+      "id": "generated-3-3-0-2",
+      "literal": "0064:FF9B:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0000000000000000c0000221"
+    },
+    {
+      "id": "generated-4-0-0-0",
+      "literal": "64:ff9b:1:2::c000:221",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0001000200000000c0000221"
+    },
+    {
+      "id": "generated-4-0-0-1",
+      "literal": "64:ff9b:1:2::c000:221",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0001000200000000c0000221"
+    },
+    {
+      "id": "generated-4-0-0-2",
+      "literal": "64:ff9b:1:2::c000:221",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0001000200000000c0000221"
+    },
+    {
+      "id": "generated-4-1-0-0",
+      "literal": "0064:ff9b:0001:0002:0000:0000:c000:0221",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0001000200000000c0000221"
+    },
+    {
+      "id": "generated-4-1-0-1",
+      "literal": "0064:ff9b:0001:0002:0000:0000:c000:0221",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0001000200000000c0000221"
+    },
+    {
+      "id": "generated-4-1-0-2",
+      "literal": "0064:ff9b:0001:0002:0000:0000:c000:0221",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0001000200000000c0000221"
+    },
+    {
+      "id": "generated-4-2-0-0",
+      "literal": "0064:ff9b:0001:0002:0000:0000:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0001000200000000c0000221"
+    },
+    {
+      "id": "generated-4-2-0-1",
+      "literal": "0064:ff9b:0001:0002:0000:0000:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0001000200000000c0000221"
+    },
+    {
+      "id": "generated-4-2-0-2",
+      "literal": "0064:ff9b:0001:0002:0000:0000:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0001000200000000c0000221"
+    },
+    {
+      "id": "generated-4-3-0-0",
+      "literal": "0064:FF9B:0001:0002:0000:0000:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0001000200000000c0000221"
+    },
+    {
+      "id": "generated-4-3-0-1",
+      "literal": "0064:FF9B:0001:0002:0000:0000:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0001000200000000c0000221"
+    },
+    {
+      "id": "generated-4-3-0-2",
+      "literal": "0064:FF9B:0001:0002:0000:0000:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "0064ff9b0001000200000000c0000221"
+    },
+    {
+      "id": "generated-5-0-0-0",
+      "literal": "5f00:1::c000:221",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "5f0000010000000000000000c0000221"
+    },
+    {
+      "id": "generated-5-0-0-1",
+      "literal": "5f00:1::c000:221",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "5f0000010000000000000000c0000221"
+    },
+    {
+      "id": "generated-5-0-0-2",
+      "literal": "5f00:1::c000:221",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "5f0000010000000000000000c0000221"
+    },
+    {
+      "id": "generated-5-1-0-0",
+      "literal": "5f00:0001:0000:0000:0000:0000:c000:0221",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "5f0000010000000000000000c0000221"
+    },
+    {
+      "id": "generated-5-1-0-1",
+      "literal": "5f00:0001:0000:0000:0000:0000:c000:0221",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "5f0000010000000000000000c0000221"
+    },
+    {
+      "id": "generated-5-1-0-2",
+      "literal": "5f00:0001:0000:0000:0000:0000:c000:0221",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "5f0000010000000000000000c0000221"
+    },
+    {
+      "id": "generated-5-2-0-0",
+      "literal": "5f00:0001:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "5f0000010000000000000000c0000221"
+    },
+    {
+      "id": "generated-5-2-0-1",
+      "literal": "5f00:0001:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "5f0000010000000000000000c0000221"
+    },
+    {
+      "id": "generated-5-2-0-2",
+      "literal": "5f00:0001:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "5f0000010000000000000000c0000221"
+    },
+    {
+      "id": "generated-5-3-0-0",
+      "literal": "5F00:0001:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "5f0000010000000000000000c0000221"
+    },
+    {
+      "id": "generated-5-3-0-1",
+      "literal": "5F00:0001:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "5f0000010000000000000000c0000221"
+    },
+    {
+      "id": "generated-5-3-0-2",
+      "literal": "5F00:0001:0000:0000:0000:0000:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "5f0000010000000000000000c0000221"
+    },
+    {
+      "id": "generated-6-0-0-0",
+      "literal": "::ffff:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "generated-6-0-0-1",
+      "literal": "::ffff:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "generated-6-0-0-2",
+      "literal": "::ffff:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "generated-6-1-0-0",
+      "literal": "0000:0000:0000:0000:0000:ffff:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "generated-6-1-0-1",
+      "literal": "0000:0000:0000:0000:0000:ffff:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "generated-6-1-0-2",
+      "literal": "0000:0000:0000:0000:0000:ffff:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "generated-6-2-0-0",
+      "literal": "0000:0000:0000:0000:0000:ffff:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "generated-6-2-0-1",
+      "literal": "0000:0000:0000:0000:0000:ffff:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "generated-6-2-0-2",
+      "literal": "0000:0000:0000:0000:0000:ffff:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "generated-6-3-0-0",
+      "literal": "0000:0000:0000:0000:0000:FFFF:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]:443\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "generated-6-3-0-1",
+      "literal": "0000:0000:0000:0000:0000:FFFF:192.0.2.33",
+      "prefix": "route=",
+      "suffix": "/64\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "generated-6-3-0-2",
+      "literal": "0000:0000:0000:0000:0000:FFFF:192.0.2.33",
+      "prefix": "Host ",
+      "suffix": ". Please retry.\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "regression-0",
+      "literal": "2001:db8::192.0.2.33",
+      "prefix": "peer=",
+      "suffix": "\n",
+      "mask": true,
+      "nativeAddressHex": "20010db80000000000000000c0000221"
+    },
+    {
+      "id": "regression-1",
+      "literal": "2001:db8:122:344::192.0.2.33",
+      "prefix": "peer=",
+      "suffix": "\n",
+      "mask": true,
+      "nativeAddressHex": "20010db80122034400000000c0000221"
+    },
+    {
+      "id": "regression-2",
+      "literal": "::ffff:192.0.2.33",
+      "prefix": "peer=",
+      "suffix": "\n",
+      "mask": true,
+      "nativeAddressHex": "00000000000000000000ffffc0000221"
+    },
+    {
+      "id": "regression-3",
+      "literal": "::192.0.2.33",
+      "prefix": "peer=",
+      "suffix": "\n",
+      "mask": true,
+      "nativeAddressHex": "000000000000000000000000c0000221"
+    },
+    {
+      "id": "regression-4",
+      "literal": "2001:db8::127.0.0.1",
+      "prefix": "peer=",
+      "suffix": "\n",
+      "mask": true,
+      "nativeAddressHex": "20010db800000000000000007f000001"
+    },
+    {
+      "id": "regression-5",
+      "literal": "2001:db8::0.0.0.0",
+      "prefix": "peer=",
+      "suffix": "\n",
+      "mask": true,
+      "nativeAddressHex": "20010db8000000000000000000000000"
+    },
+    {
+      "id": "regression-6",
+      "literal": "fe80::1%eth0.100",
+      "prefix": "peer=",
+      "suffix": "\n",
+      "mask": true,
+      "nativeAddressHex": "fe800000000000000000000000000001"
+    },
+    {
+      "id": "control-0",
+      "literal": "::",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-1",
+      "literal": "::1",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-2",
+      "literal": "::0.0.0.1",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-3",
+      "literal": "::ffff:127.0.0.1",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-4",
+      "literal": "::ffff:7f00:1",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-5",
+      "literal": "::ffff:0.0.0.0",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-6",
+      "literal": "::ffff:255.255.255.0",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-7",
+      "literal": "::ffff:ffff:ff00",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-8",
+      "literal": "be::",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-9",
+      "literal": "1::2",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-10",
+      "literal": "::2",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-11",
+      "literal": "fe80::1%",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-12",
+      "literal": "fe80::1%%en0",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-13",
+      "literal": "fe80::1%25eth0%2G1",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-14",
+      "literal": "2001:db8::192.0.2.33%",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-15",
+      "literal": "2001:db8::192.0.2.33%%en0",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-16",
+      "literal": "2001:db8::192.0.2.33:abcd",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-17",
+      "literal": "2001:db8::192.0.2.33.4",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-18",
+      "literal": "2001:db8:::192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-19",
+      "literal": "2001:db8::256.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-20",
+      "literal": "2001:db8::192.000.2.33",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-21",
+      "literal": "12345:db8::192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    },
+    {
+      "id": "control-22",
+      "literal": "2001:db8:0:0:0:0:0:192.0.2.33",
+      "prefix": "peer=[",
+      "suffix": "]\n",
+      "mask": false
+    }
+  ]
+}

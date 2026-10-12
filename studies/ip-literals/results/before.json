@@ -1,0 +1,1385 @@
+{
+  "python": "3.12.12",
+  "baseline": true,
+  "cases": 150,
+  "expectedSpans": 28,
+  "expectedMask": 28,
+  "exactRestorations": 150,
+  "streamedRestorations": 600,
+  "cliFlows": 21,
+  "cliExpectedMask": 0,
+  "cliExactRestorations": 21,
+  "sdk": [
+    {
+      "id": "regression-0",
+      "api": "chat",
+      "expectedAtTransport": false,
+      "requestSha256": "6308783712b01971005e37fdc3d02e0d282ba93af7165f657762b139a33d066f",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-0",
+      "api": "responses",
+      "expectedAtTransport": false,
+      "requestSha256": "3943a39fce44ef95336f8a7d8d4db2d096d3f1b5a2a88d0517acfa9aa7c1639c",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-0",
+      "api": "anthropic",
+      "expectedAtTransport": false,
+      "requestSha256": "f027f579653b7af949a706024b7cb108be83dd1b0e799f200e50a63ff92e465d",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-1",
+      "api": "chat",
+      "expectedAtTransport": false,
+      "requestSha256": "6308783712b01971005e37fdc3d02e0d282ba93af7165f657762b139a33d066f",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-1",
+      "api": "responses",
+      "expectedAtTransport": false,
+      "requestSha256": "3943a39fce44ef95336f8a7d8d4db2d096d3f1b5a2a88d0517acfa9aa7c1639c",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-1",
+      "api": "anthropic",
+      "expectedAtTransport": false,
+      "requestSha256": "f027f579653b7af949a706024b7cb108be83dd1b0e799f200e50a63ff92e465d",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-2",
+      "api": "chat",
+      "expectedAtTransport": false,
+      "requestSha256": "7247406228a2d8f363e289037bb43931cb93d12eccfee7281abfc932afd460c1",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-2",
+      "api": "responses",
+      "expectedAtTransport": false,
+      "requestSha256": "d55971a9360024e3fcf9e523dd1119a53544a74110af4ed7e6e12c80d3332344",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-2",
+      "api": "anthropic",
+      "expectedAtTransport": false,
+      "requestSha256": "4143240a375010444267839432327dec5f334254dcaf15cc0470e4ce60b3e3d2",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-3",
+      "api": "chat",
+      "expectedAtTransport": false,
+      "requestSha256": "28fabee523542b256dd88ee37a8b59fce1977b31e4a439c17b3feb94b521b5e5",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-3",
+      "api": "responses",
+      "expectedAtTransport": false,
+      "requestSha256": "8d6dacc589ed198459b27a10a2c873f4679dd91e80eececc67a3c1027dc647e6",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-3",
+      "api": "anthropic",
+      "expectedAtTransport": false,
+      "requestSha256": "4c2faa0665b0499e64e1dfb3d559852277767c37787fdbb89f18096e4ace7cab",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-4",
+      "api": "chat",
+      "expectedAtTransport": false,
+      "requestSha256": "49a4c369b455c9b384f3e313f73c8487b790f5921dac5683c315ef47c3c95716",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-4",
+      "api": "responses",
+      "expectedAtTransport": false,
+      "requestSha256": "cef8b58b694beb75b33b6253feb95b80ee8914d3ef116a944b6bdbc0385969dc",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-4",
+      "api": "anthropic",
+      "expectedAtTransport": false,
+      "requestSha256": "1822d78738934882f363952e8606eb66ce4ca2867877380cc5a907047e177114",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-5",
+      "api": "chat",
+      "expectedAtTransport": false,
+      "requestSha256": "3c78481aa0886e2bc5b18a04c4006a53a9461f910c0c20cc830d3b803648ea51",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-5",
+      "api": "responses",
+      "expectedAtTransport": false,
+      "requestSha256": "ae7d63aa49fd99f9bfa1bd6e5faeea3fe012e4af243f58cddd4da9fc56154caa",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-5",
+      "api": "anthropic",
+      "expectedAtTransport": false,
+      "requestSha256": "32741c2c02e1ec5894253ecc67022598eb8441e5dbd84b3baae9cf3d9eb5d27a",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-6",
+      "api": "chat",
+      "expectedAtTransport": false,
+      "requestSha256": "f7fb8dc121f5b1944e042a44a72bf499215572e330938ba5de2204614a7e7e9b",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-6",
+      "api": "responses",
+      "expectedAtTransport": false,
+      "requestSha256": "3a7708b3927dae4a78664375c8d56a42ad63f0bb24d18614064626a045b589f1",
+      "restoresExactly": true
+    },
+    {
+      "id": "regression-6",
+      "api": "anthropic",
+      "expectedAtTransport": false,
+      "requestSha256": "c39f7ff22bba2bed478f58999da5393ce005454c2dd540b33c45e88ef67f2f18",
+      "restoresExactly": true
+    }
+  ],
+  "sdkRequests": 21,
+  "sdkExpectedMask": 0,
+  "rows": [
+    {
+      "id": "generated-0-0-0-0",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩]:443\n"
+    },
+    {
+      "id": "generated-0-0-0-1",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "route=⟨IPV6_1⟩/64\n"
+    },
+    {
+      "id": "generated-0-0-0-2",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "Host ⟨IPV6_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-0-1-0-0",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩]:443\n"
+    },
+    {
+      "id": "generated-0-1-0-1",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "route=⟨IPV6_1⟩/64\n"
+    },
+    {
+      "id": "generated-0-1-0-2",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "Host ⟨IPV6_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-0-2-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[2001:0db8:00ab:00cd:0000:0000:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-0-2-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=2001:0db8:00ab:00cd:0000:0000:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-0-2-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 2001:0db8:00ab:00cd:0000:0000:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-0-3-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[2001:0DB8:00AB:00CD:0000:0000:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-0-3-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=2001:0DB8:00AB:00CD:0000:0000:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-0-3-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 2001:0DB8:00AB:00CD:0000:0000:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-1-0-0-0",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩]:443\n"
+    },
+    {
+      "id": "generated-1-0-0-1",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "route=⟨IPV6_1⟩/64\n"
+    },
+    {
+      "id": "generated-1-0-0-2",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "Host ⟨IPV6_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-1-1-0-0",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩]:443\n"
+    },
+    {
+      "id": "generated-1-1-0-1",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "route=⟨IPV6_1⟩/64\n"
+    },
+    {
+      "id": "generated-1-1-0-2",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "Host ⟨IPV6_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-1-2-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[fd42:0001:0002:0003:0000:0000:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-1-2-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=fd42:0001:0002:0003:0000:0000:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-1-2-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host fd42:0001:0002:0003:0000:0000:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-1-3-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[FD42:0001:0002:0003:0000:0000:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-1-3-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=FD42:0001:0002:0003:0000:0000:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-1-3-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host FD42:0001:0002:0003:0000:0000:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-2-0-0-0",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩]:443\n"
+    },
+    {
+      "id": "generated-2-0-0-1",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "route=⟨IPV6_1⟩/64\n"
+    },
+    {
+      "id": "generated-2-0-0-2",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "Host ⟨IPV6_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-2-0-1-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩%en0]:443\n"
+    },
+    {
+      "id": "generated-2-0-1-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=⟨IPV6_1⟩%en0/64\n"
+    },
+    {
+      "id": "generated-2-0-1-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host ⟨IPV6_1⟩%en0. Please retry.\n"
+    },
+    {
+      "id": "generated-2-0-2-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩%13]:443\n"
+    },
+    {
+      "id": "generated-2-0-2-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=⟨IPV6_1⟩%13/64\n"
+    },
+    {
+      "id": "generated-2-0-2-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host ⟨IPV6_1⟩%13. Please retry.\n"
+    },
+    {
+      "id": "generated-2-0-3-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩%25eth0%2D1]:443\n"
+    },
+    {
+      "id": "generated-2-0-3-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=⟨IPV6_1⟩%25eth0%2D1/64\n"
+    },
+    {
+      "id": "generated-2-0-3-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host ⟨IPV6_1⟩%25eth0%2D1. Please retry.\n"
+    },
+    {
+      "id": "generated-2-1-0-0",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩]:443\n"
+    },
+    {
+      "id": "generated-2-1-0-1",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "route=⟨IPV6_1⟩/64\n"
+    },
+    {
+      "id": "generated-2-1-0-2",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "Host ⟨IPV6_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-2-1-1-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩%en0]:443\n"
+    },
+    {
+      "id": "generated-2-1-1-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=⟨IPV6_1⟩%en0/64\n"
+    },
+    {
+      "id": "generated-2-1-1-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host ⟨IPV6_1⟩%en0. Please retry.\n"
+    },
+    {
+      "id": "generated-2-1-2-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩%13]:443\n"
+    },
+    {
+      "id": "generated-2-1-2-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=⟨IPV6_1⟩%13/64\n"
+    },
+    {
+      "id": "generated-2-1-2-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host ⟨IPV6_1⟩%13. Please retry.\n"
+    },
+    {
+      "id": "generated-2-1-3-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩%25eth0%2D1]:443\n"
+    },
+    {
+      "id": "generated-2-1-3-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=⟨IPV6_1⟩%25eth0%2D1/64\n"
+    },
+    {
+      "id": "generated-2-1-3-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host ⟨IPV6_1⟩%25eth0%2D1. Please retry.\n"
+    },
+    {
+      "id": "generated-2-2-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[fe80:0000:0000:0000:0000:0000:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-2-2-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=fe80:0000:0000:0000:0000:0000:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-2-2-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host fe80:0000:0000:0000:0000:0000:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-2-2-1-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[fe80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%en0]:443\n"
+    },
+    {
+      "id": "generated-2-2-1-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=fe80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%en0/64\n"
+    },
+    {
+      "id": "generated-2-2-1-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host fe80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%en0. Please retry.\n"
+    },
+    {
+      "id": "generated-2-2-2-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[fe80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%13]:443\n"
+    },
+    {
+      "id": "generated-2-2-2-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=fe80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%13/64\n"
+    },
+    {
+      "id": "generated-2-2-2-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host fe80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%13. Please retry.\n"
+    },
+    {
+      "id": "generated-2-2-3-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[fe80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%25eth0%2D1]:443\n"
+    },
+    {
+      "id": "generated-2-2-3-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=fe80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%25eth0%2D1/64\n"
+    },
+    {
+      "id": "generated-2-2-3-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host fe80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%25eth0%2D1. Please retry.\n"
+    },
+    {
+      "id": "generated-2-3-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[FE80:0000:0000:0000:0000:0000:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-2-3-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=FE80:0000:0000:0000:0000:0000:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-2-3-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host FE80:0000:0000:0000:0000:0000:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-2-3-1-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[FE80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%en0]:443\n"
+    },
+    {
+      "id": "generated-2-3-1-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=FE80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%en0/64\n"
+    },
+    {
+      "id": "generated-2-3-1-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host FE80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%en0. Please retry.\n"
+    },
+    {
+      "id": "generated-2-3-2-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[FE80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%13]:443\n"
+    },
+    {
+      "id": "generated-2-3-2-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=FE80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%13/64\n"
+    },
+    {
+      "id": "generated-2-3-2-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host FE80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%13. Please retry.\n"
+    },
+    {
+      "id": "generated-2-3-3-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[FE80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%25eth0%2D1]:443\n"
+    },
+    {
+      "id": "generated-2-3-3-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=FE80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%25eth0%2D1/64\n"
+    },
+    {
+      "id": "generated-2-3-3-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host FE80:0000:0000:0000:0000:0000:⟨IPV4_1⟩%25eth0%2D1. Please retry.\n"
+    },
+    {
+      "id": "generated-3-0-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[64:ff9b::c000:221]:443\n"
+    },
+    {
+      "id": "generated-3-0-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=64:ff9b::c000:221/64\n"
+    },
+    {
+      "id": "generated-3-0-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 64:ff9b::c000:221. Please retry.\n"
+    },
+    {
+      "id": "generated-3-1-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[0064:ff9b:0000:0000:0000:0000:c000:0221]:443\n"
+    },
+    {
+      "id": "generated-3-1-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=0064:ff9b:0000:0000:0000:0000:c000:0221/64\n"
+    },
+    {
+      "id": "generated-3-1-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 0064:ff9b:0000:0000:0000:0000:c000:0221. Please retry.\n"
+    },
+    {
+      "id": "generated-3-2-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[0064:ff9b:0000:0000:0000:0000:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-3-2-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=0064:ff9b:0000:0000:0000:0000:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-3-2-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 0064:ff9b:0000:0000:0000:0000:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-3-3-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[0064:FF9B:0000:0000:0000:0000:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-3-3-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=0064:FF9B:0000:0000:0000:0000:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-3-3-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 0064:FF9B:0000:0000:0000:0000:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-4-0-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[64:ff9b:1:2::c000:221]:443\n"
+    },
+    {
+      "id": "generated-4-0-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=64:ff9b:1:2::c000:221/64\n"
+    },
+    {
+      "id": "generated-4-0-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 64:ff9b:1:2::c000:221. Please retry.\n"
+    },
+    {
+      "id": "generated-4-1-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[0064:ff9b:0001:0002:0000:0000:c000:0221]:443\n"
+    },
+    {
+      "id": "generated-4-1-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=0064:ff9b:0001:0002:0000:0000:c000:0221/64\n"
+    },
+    {
+      "id": "generated-4-1-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 0064:ff9b:0001:0002:0000:0000:c000:0221. Please retry.\n"
+    },
+    {
+      "id": "generated-4-2-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[0064:ff9b:0001:0002:0000:0000:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-4-2-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=0064:ff9b:0001:0002:0000:0000:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-4-2-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 0064:ff9b:0001:0002:0000:0000:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-4-3-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[0064:FF9B:0001:0002:0000:0000:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-4-3-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=0064:FF9B:0001:0002:0000:0000:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-4-3-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 0064:FF9B:0001:0002:0000:0000:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-5-0-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[5f00:1::c000:221]:443\n"
+    },
+    {
+      "id": "generated-5-0-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=5f00:1::c000:221/64\n"
+    },
+    {
+      "id": "generated-5-0-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 5f00:1::c000:221. Please retry.\n"
+    },
+    {
+      "id": "generated-5-1-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[5f00:0001:0000:0000:0000:0000:c000:0221]:443\n"
+    },
+    {
+      "id": "generated-5-1-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=5f00:0001:0000:0000:0000:0000:c000:0221/64\n"
+    },
+    {
+      "id": "generated-5-1-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 5f00:0001:0000:0000:0000:0000:c000:0221. Please retry.\n"
+    },
+    {
+      "id": "generated-5-2-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[5f00:0001:0000:0000:0000:0000:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-5-2-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=5f00:0001:0000:0000:0000:0000:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-5-2-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 5f00:0001:0000:0000:0000:0000:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-5-3-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[5F00:0001:0000:0000:0000:0000:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-5-3-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=5F00:0001:0000:0000:0000:0000:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-5-3-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 5F00:0001:0000:0000:0000:0000:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-6-0-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[::ffff:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-6-0-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=::ffff:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-6-0-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host ::ffff:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-6-1-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[0000:0000:0000:0000:0000:ffff:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-6-1-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=0000:0000:0000:0000:0000:ffff:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-6-1-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 0000:0000:0000:0000:0000:ffff:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-6-2-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[0000:0000:0000:0000:0000:ffff:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-6-2-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=0000:0000:0000:0000:0000:ffff:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-6-2-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 0000:0000:0000:0000:0000:ffff:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "generated-6-3-0-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[0000:0000:0000:0000:0000:FFFF:⟨IPV4_1⟩]:443\n"
+    },
+    {
+      "id": "generated-6-3-0-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "route=0000:0000:0000:0000:0000:FFFF:⟨IPV4_1⟩/64\n"
+    },
+    {
+      "id": "generated-6-3-0-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "Host 0000:0000:0000:0000:0000:FFFF:⟨IPV4_1⟩. Please retry.\n"
+    },
+    {
+      "id": "regression-0",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=⟨IPV6_1⟩.0.2.33\n"
+    },
+    {
+      "id": "regression-1",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=⟨IPV6_1⟩.0.2.33\n"
+    },
+    {
+      "id": "regression-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=::ffff:⟨IPV4_1⟩\n"
+    },
+    {
+      "id": "regression-3",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=::⟨IPV4_1⟩\n"
+    },
+    {
+      "id": "regression-4",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=⟨IPV6_1⟩.0.0.1\n"
+    },
+    {
+      "id": "regression-5",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=⟨IPV6_1⟩.0.0.0\n"
+    },
+    {
+      "id": "regression-6",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=⟨IPV6_1⟩%eth0.100\n"
+    },
+    {
+      "id": "control-0",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[::]\n"
+    },
+    {
+      "id": "control-1",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[::1]\n"
+    },
+    {
+      "id": "control-2",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[::⟨IPV4_1⟩]\n"
+    },
+    {
+      "id": "control-3",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[::ffff:127.0.0.1]\n"
+    },
+    {
+      "id": "control-4",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[::ffff:7f00:1]\n"
+    },
+    {
+      "id": "control-5",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[::ffff:0.0.0.0]\n"
+    },
+    {
+      "id": "control-6",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[::ffff:255.255.255.0]\n"
+    },
+    {
+      "id": "control-7",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[::ffff:ffff:ff00]\n"
+    },
+    {
+      "id": "control-8",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[be::]\n"
+    },
+    {
+      "id": "control-9",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[1::2]\n"
+    },
+    {
+      "id": "control-10",
+      "expectedSpans": true,
+      "expectedMask": true,
+      "restoresExactly": true,
+      "masked": "peer=[::2]\n"
+    },
+    {
+      "id": "control-11",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩%]\n"
+    },
+    {
+      "id": "control-12",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩%%en0]\n"
+    },
+    {
+      "id": "control-13",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩%25eth0%2G1]\n"
+    },
+    {
+      "id": "control-14",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩.0.2.33%]\n"
+    },
+    {
+      "id": "control-15",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩.0.2.33%%en0]\n"
+    },
+    {
+      "id": "control-16",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩.0.2.33:abcd]\n"
+    },
+    {
+      "id": "control-17",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩.0.2.33.4]\n"
+    },
+    {
+      "id": "control-18",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[2001:db8:::⟨IPV4_1⟩]\n"
+    },
+    {
+      "id": "control-19",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩.0.2.33]\n"
+    },
+    {
+      "id": "control-20",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩.000.2.33]\n"
+    },
+    {
+      "id": "control-21",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[12345:db8::⟨IPV4_1⟩]\n"
+    },
+    {
+      "id": "control-22",
+      "expectedSpans": false,
+      "expectedMask": false,
+      "restoresExactly": true,
+      "masked": "peer=[⟨IPV6_1⟩.0.2.33]\n"
+    }
+  ],
+  "cli": [
+    {
+      "id": "regression-0",
+      "format": "text",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "8742b60329814c1c73c7ef23b6cf1c6ed0babf22f83503a9c6d3db5807988bcd",
+      "maskedSha256": "7da1f26d00818c9e5fdb99f82e388dfb60fedcd4cd99036ded0b404bf9abfc55"
+    },
+    {
+      "id": "regression-0",
+      "format": "json",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "6aea50fc3bc83eb94edd9b6c979fdfc2709c1966e00432f41669780d8f63df8f",
+      "maskedSha256": "38edaba4cf7a5441d23d5cd1eda25eab36f671a92667e78915df17bf683cf93d"
+    },
+    {
+      "id": "regression-0",
+      "format": "jsonl",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "63d2e5c610ec4f9ea6099b60a4ce4bdecdd82aaa0ae127842c390a3f6256f8d3",
+      "maskedSha256": "48c7f1b30053c2889be2097bb7107530a50c051b3c3a854dac5088fa5a6d70a8"
+    },
+    {
+      "id": "regression-1",
+      "format": "text",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "2f91497a0c05cca0178a33804ca0df469645dd1784806de3603ae55c3d502c4d",
+      "maskedSha256": "7da1f26d00818c9e5fdb99f82e388dfb60fedcd4cd99036ded0b404bf9abfc55"
+    },
+    {
+      "id": "regression-1",
+      "format": "json",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "ce4f2c9a87286f066c001bbf45152cf29a761a5e1a31284269fa0403309a4d99",
+      "maskedSha256": "38edaba4cf7a5441d23d5cd1eda25eab36f671a92667e78915df17bf683cf93d"
+    },
+    {
+      "id": "regression-1",
+      "format": "jsonl",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "5d2196bface7bb773d06c8fd3206848444a1e96565a1312c19dcce0067c0d594",
+      "maskedSha256": "48c7f1b30053c2889be2097bb7107530a50c051b3c3a854dac5088fa5a6d70a8"
+    },
+    {
+      "id": "regression-2",
+      "format": "text",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "98f9a6df8b3b2c6df2f69c69357c7f1cba6cf54627cf66af152f5be63a2c7007",
+      "maskedSha256": "4c75e5657dfc52a42018d41b3047899c1a07dfb506f28a30ecc5a2cd31c76a51"
+    },
+    {
+      "id": "regression-2",
+      "format": "json",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "d1981669c49f76e16fd9b7d7126062333532da725ec2204ce472afd45fa237e8",
+      "maskedSha256": "8f4f15b67c371f00b0606db501c1d58761f8a3cad3a76650d983564aca2a89a7"
+    },
+    {
+      "id": "regression-2",
+      "format": "jsonl",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "dafe058978dbcd61beff41283333d57f686c00c709c947ecfad3bfb4eb7c0607",
+      "maskedSha256": "0d3e44f254020da8a19efeef6b82229198f378a87ad20a623b39deac2ad78b6f"
+    },
+    {
+      "id": "regression-3",
+      "format": "text",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "a1e826ad532ef6d3660a19f5e3a2daa96ecf0b0ba49f5890c462f142fa72b90f",
+      "maskedSha256": "a8976359f3bbcfbc43a529f20bcdc38b54546cf103622cd6b14680eab60516e5"
+    },
+    {
+      "id": "regression-3",
+      "format": "json",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "713651d614477422155edbfc19566489a9df0df7cd0c3e57d9d7249aff9c11a7",
+      "maskedSha256": "5a05a115f2c54da7f7ec81b7769d3bdbb705dc5e7afa8a2d54434ca668577cff"
+    },
+    {
+      "id": "regression-3",
+      "format": "jsonl",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "5a66e456f2b1af951f2635835018920a5f60d9c7712b39d140ae77defd149205",
+      "maskedSha256": "fd87bfd3fac79f4f2ee257b2377bd696ab8615133e726fda0fd2b64bfbbf37d6"
+    },
+    {
+      "id": "regression-4",
+      "format": "text",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "33185562a1f040bb8ee5ee0226448d81f6adb68da302f8330dd278b6f154ffb2",
+      "maskedSha256": "51be642cdee1328f6a7cace0fb5b25dc00184e4959d8fa1c1b12db654be9a88c"
+    },
+    {
+      "id": "regression-4",
+      "format": "json",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "14546d22ff6c2a0a5eccea4d2eb5961389a031ddc2a1f7548ef73b52330f251c",
+      "maskedSha256": "4f86d0f5d3d4b2fbe230fc2c40c1a4220082b0bb61918412086d2ddbd82dc3cc"
+    },
+    {
+      "id": "regression-4",
+      "format": "jsonl",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "a3fb354ae68edb96f3672fa930f9db1976dc10d1c12e06b7edc695a0a82aa0c0",
+      "maskedSha256": "0fbf2ea2db6049a04e34250946928c2dc83e7b86a2aeb420eab71105892ed691"
+    },
+    {
+      "id": "regression-5",
+      "format": "text",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "0d78e7a8aae694c8b2f26cf13c197017ad04981ee0beacc30f943622e60375ab",
+      "maskedSha256": "d27e37a13a361489cea260ba146db4e2dc5ccde6c0360a82a51e571b3ff373c9"
+    },
+    {
+      "id": "regression-5",
+      "format": "json",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "158f4101a1207a0f6b5428ce801a3fc8eb616c16fae6e97e841256a5977cefc2",
+      "maskedSha256": "190c915bd082ea6af44a89b085edd688fa43e9c7f47a149ecd5697a9855a9230"
+    },
+    {
+      "id": "regression-5",
+      "format": "jsonl",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "f755f8ba078f2068fcaddad117e81b76d9a11ce1975cd14ae0bd382f57a66dd9",
+      "maskedSha256": "8756ba33ac2f5dbba9460e4030f022e48a54421632ce59e33a3aeedae3ccaa95"
+    },
+    {
+      "id": "regression-6",
+      "format": "text",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "bc2a65ad5b0a90a7042cff9083ab9a5fd63cf847ab0204fd716ef9933f1d80c6",
+      "maskedSha256": "2b7a8b291ce250d2b1d0396554449b4770214422a1065d38ab17b57df0c8044b"
+    },
+    {
+      "id": "regression-6",
+      "format": "json",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "8194337272dd230d337f35a9aceb97dc02d60f6e90509cf23a5ed8bfe3f4a3cb",
+      "maskedSha256": "21af62d1cb7d071e1840b4f81ee1d1d0f5ea17fb435bceab1ac0fac7d597e35a"
+    },
+    {
+      "id": "regression-6",
+      "format": "jsonl",
+      "expectedMask": false,
+      "restoresExactly": true,
+      "sourceSha256": "752125e878b4a8b0e71a4b777772521117e1abc9c950c8d6bc2eac8a97519354",
+      "maskedSha256": "646146c20f7b28c38df8b78fd98f07991c846b52e50f6177b2022ce8756412c0"
+    }
+  ]
+}

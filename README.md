@@ -301,6 +301,13 @@ numbers remain unchanged. Feed `Restorer(vault, json_string=True)` from the
 beginning of the JSON document. It transforms string values incrementally;
 it does not validate or repair malformed JSON.
 
+**Complete IPv6 literals (source checkout).** Mixed addresses such as
+`2001:db8::192.0.2.33` and scoped addresses such as `fe80::1%en0` now become
+one surrogate. Previously, the mixed address left `.0.2.33` visible and the
+scoped address left `%en0` visible. Exact restoration preserves the original
+spelling. [Recognition policy and before/after evidence](studies/ip-literals/README.md)
+cover reserved-space exceptions, malformed-input controls and SDK transport.
+
 ## Features
 
 - **Detectors** (`veil.detectors`): email, phone (NANP, or international
@@ -311,7 +318,7 @@ it does not validate or repair malformed JSON.
   IBAN (mod-97 + per-country length),
   US SSN (excluding never-issued ranges), IPv4/IPv6 (a dotted quad labelled
   as a version is left alone, and so are loopback, the unspecified address
-  and reserved space), credential-bearing URLs of any scheme
+  and most reserved space), credential-bearing URLs of any scheme
   (including `postgres://`/`redis://`-style connection strings), PEM private
   key blocks, API keys/secrets (`AKIA…`, `ghp_…`, `github_pat_…`, `xox…`,
   `sk_live_…`, `sk-ant-…`, `sk-proj-…`, `sk-svcacct-…`, `sk-…`, plus a heuristic for random tokens that

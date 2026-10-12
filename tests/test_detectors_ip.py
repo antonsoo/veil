@@ -1,3 +1,6 @@
+import pytest
+
+from veil import Masker
 from veil.detectors.ip import IpDetector
 
 d = IpDetector()
@@ -84,3 +87,83 @@ def test_product_and_package_versions_are_not_addresses() -> None:
         e.value
         for e in d.find("NameNode address change detected. Old: msra-sa-41/10.190.173.170:9000")
     ] == ["10.190.173.170"]
+
+
+@pytest.mark.parametrize(
+    "literal",
+    [
+        "2001:db8::192.0.2.33",
+        "2001:db8:122:344::192.0.2.33",
+        "0:0:0:0:0:ffff:192.0.2.33",
+        "::ffff:192.0.2.33",
+        "::ffff:c000:221",
+        "::192.0.2.33",
+        "64:ff9b::192.0.2.33",
+        "64:ff9b::c000:221",
+        "64:ff9b:1::c000:221",
+        "5f00::1234",
+        "fe80::1%en0",
+        "fe80::1%13",
+        "fe80::1%25eth0",
+        "fe80::1%25eth0%2D1",
+        "fe80::1%eth0.100",
+        "2001:db8::127.0.0.1",
+        "2001:db8::0.0.0.0",
+    ],
+)
+@pytest.mark.parametrize(
+    "prefix,suffix", [("peer=", "\n"), ("[", "]:443"), ("", "/64"), ("", ". Please retry.")]
+)
+def test_complete_ipv6_literals_and_exact_restoration(
+    literal: str, prefix: str, suffix: str
+) -> None:
+    text = prefix + literal + suffix
+    entities = d.find(text)
+    assert [(e.type.value, e.value, e.span.start, e.span.end) for e in entities] == [
+        ("IPV6", literal, len(prefix), len(prefix) + len(literal))
+    ]
+    masker = Masker()
+    masked = masker.mask(text)
+    assert masked == prefix + "⟨IPV6_1⟩" + suffix
+    assert masker.restore(masked, tolerant=False) == text
+
+
+@pytest.mark.parametrize(
+    "literal",
+    [
+        "::",
+        "::1",
+        "::0.0.0.1",
+        "::ffff:127.0.0.1",
+        "::ffff:7f00:1",
+        "::ffff:0.0.0.0",
+        "::ffff:255.255.255.0",
+        "::ffff:ffff:ff00",
+        "fe80::1%",
+        "fe80::1%%en0",
+        "fe80::1%25eth0%2G1",
+        "2001:db8::192.0.2.33%",
+        "2001:db8::192.0.2.33%%en0",
+        "2001:db8::192.0.2.33:abcd",
+        "2001:db8::192.0.2.33.4",
+        "2001:db8:::192.0.2.33",
+        "2001:db8::256.0.2.33",
+        "2001:db8::192.000.2.33",
+        "12345:db8::192.0.2.33",
+        "2001:db8:0:0:0:0:0:192.0.2.33",
+    ],
+)
+def test_no_fragment_from_excluded_or_malformed_ipv6(literal: str) -> None:
+    assert d.find("peer=[" + literal + "]") == []
+
+
+def test_adjacent_ipv4_is_not_lost_to_ipv6_suppression() -> None:
+    text = "bad=[2001:db8::192.0.2.33.4] good=192.0.2.33 scoped=[fe80::1%en0]"
+    assert [(e.type.value, e.value) for e in d.find(text)] == [
+        ("IPV4", "192.0.2.33"),
+        ("IPV6", "fe80::1%en0"),
+    ]
+
+
+def test_ipv6_before_period_without_space() -> None:
+    assert [e.value for e in d.find("Host fe80::1.Please retry.")] == ["fe80::1"]
