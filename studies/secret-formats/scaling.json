@@ -1,0 +1,80 @@
+{
+  "python": "3.12.12",
+  "secretDetectorSha256": "1b26844666c717b64ad5ec18c9afd4ae5f0016ae6850c08c7b3458ec9cd9b7b2",
+  "driverSha256": "177c89e225c7864ac7a76a83789bfc488fddf07652cd536eaafc4b03fbcad107",
+  "scope": "SecretDetector.find only, one warm-up and five timed calls; controlled synthetic shapes, not a throughput guarantee",
+  "rows": [
+    {
+      "shape": "single-body",
+      "bodyCharacters": 10000,
+      "milliseconds": [
+        2.661473990883678,
+        6.217547997948714,
+        7.178005995228887,
+        1.8307900027139112,
+        5.8169279946014285
+      ],
+      "medianMs": 5.8169279946014285
+    },
+    {
+      "shape": "single-body",
+      "bodyCharacters": 100000,
+      "milliseconds": [
+        34.35944400553126,
+        45.81581900129095,
+        22.429479999118485,
+        17.635269003221765,
+        20.466114990995266
+      ],
+      "medianMs": 22.429479999118485
+    },
+    {
+      "shape": "single-body",
+      "bodyCharacters": 1000000,
+      "milliseconds": [
+        282.5926130026346,
+        353.4781170019414,
+        318.2553340011509,
+        316.11869799962733,
+        279.6372670127312
+      ],
+      "medianMs": 316.11869799962733
+    },
+    {
+      "shape": "nested-prefixes",
+      "bodyCharacters": 10000,
+      "milliseconds": [
+        2.3399630008498207,
+        1.9192970066796988,
+        2.153280991478823,
+        1.7137779941549525,
+        1.6778579883975908
+      ],
+      "medianMs": 1.9192970066796988
+    },
+    {
+      "shape": "nested-prefixes",
+      "bodyCharacters": 100000,
+      "milliseconds": [
+        33.316347005893476,
+        37.32843999750912,
+        31.67691800626926,
+        31.27459999814164,
+        23.14640000986401
+      ],
+      "medianMs": 31.67691800626926
+    },
+    {
+      "shape": "nested-prefixes",
+      "bodyCharacters": 1000000,
+      "milliseconds": [
+        249.08843499724753,
+        229.970341999433,
+        223.49881700938568,
+        204.89666900539305,
+        214.57854700565804
+      ],
+      "medianMs": 223.49881700938568
+    }
+  ]
+}

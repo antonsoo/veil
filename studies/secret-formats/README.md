@@ -32,6 +32,9 @@ belong to the same token and are masked with it. Short placeholders such as
 `sk-proj-...` do not match this rule. This does not make Veil a credential
 validator or a complete secret scanner.
 
+The detector change is in `5d850ac`; `b5f819a` clarifies a comment without
+changing executable code. The validation records below cover the final source.
+
 ## Controlled replay
 
 [`cases.py`](cases.py) generates 68 deterministic shapes: two prefixes, three
@@ -52,10 +55,51 @@ chunk sizes also restore exactly. **Restoration passing does not prove that
 masking happened:** unchanged leaked text can round-trip too.
 
 The [before](before.json) and [after](after.json) receipts retain input/output
-hashes, detector spans, complete-token vault coverage, actual request-body hashes
+hashes, detector spans, complete-token vault coverage, normalized request-body hashes (sorted JSON keys)
 and dependency versions. Raw synthetic token strings can be regenerated from
 the driver. Mock echo behavior does not represent a model's behavior, and these
 selected cases are not an estimate of recall on issued credentials.
+
+The actual CLI has the same 12/68 to 68/68 improvement. [`cli.py`](cli.py)
+invokes the executable 136 times, saves one vault per case, and restores each
+masked stdout through that saved vault. Inputs include a final newline, as
+the CLI documents newline-terminated output. All vaults round-trip in both
+[before](cli-before.json) and [after](cli-after.json) captures.
+
+## Browser and installed artifact
+
+[`browser.mjs`](browser.mjs) runs the production Pyodide UI in Chromium and
+Firefox, each at 375 and 1280 pixels. After the initial runtime download, every
+case runs offline. Each run checks 272 prompt masks and 544 actual masked-text
+and vault downloads. Baseline gives 48 complete masks; corrected source gives
+272. There are no post-disconnection requests, page errors, CSP violations or
+horizontal page overflow. All ten served application assets, including the
+Python source manifest, are byte-compared against the build. The only external
+requests are initial GETs for the configured Pyodide runtime.
+
+![Corrected desktop browser: one complete secret, original hidden in the vault](../../docs/assets/secret-formats/after/chromium-1280.png)
+
+Compare the [baseline desktop](../../docs/assets/secret-formats/before/chromium-1280.png)
+and [corrected mobile](../../docs/assets/secret-formats/after/chromium-375.png)
+captures. All eight retained images were opened and inspected. Complete
+[before](browser-before.json) and [after](browser-after.json) browser receipts
+include every case and served-asset hash. The demo's canned reply does not echo
+secrets; secret restoration is checked by the library, SDK and CLI captures.
+
+The [verification receipt](verification.json) records a fresh archive, locked
+install, lint, formatting, mypy, full suite, sdist and wheel build. The suite
+passes 498 checks on Python 3.10, 3.12 and 3.14, with the optional spaCy check
+skipped. At the declared minimum SDK versions it passes 492, with seven skips
+for spaCy and provider model features those old SDKs do not expose. The existing
+browser suite also passes all 16 scenarios, including both themes, accessibility,
+cancellation, retry, clearing and large downloads.
+
+The final wheel is installed separately on Python 3.10 and 3.14, and with the
+minimum SDK dependencies on Python 3.10. Each repeats all 204 transport calls;
+complete case results agree across environments. All 34 installed Python source
+files match the checkout. A Python 3.12 environment with only the wheel installed
+repeats all 136 CLI calls, checking the dependency-free core. No registry package
+was released; the locally built wheel retains the existing metadata version.
 
 ## Public-text compatibility
 
@@ -67,6 +111,14 @@ comparison; **no file's detections changed**. Values are hashed in memory rather
 than redistributed. [Original sources and licences](../real-text/README.md#sources-and-licences)
 remain in the earlier study. This corpus result does not establish false-positive
 rates on other text.
+
+[`scaling.py`](scaling.py) also checks single long bodies and repeated nested
+prefixes at 10,000, 100,000 and 1,000,000 characters. Every input is one complete
+secret. The [timings](scaling.json) retain one warmup and five timed calls per
+shape for `SecretDetector.find` only. Million-character medians were 316.1 and
+223.5 ms on 14-vCPU WSL2 Linux with 48 GB RAM amid other local work. These are
+controlled measurements, not an end-to-end latency guarantee; the browser demo
+has its separate 100,000-character prompt limit.
 
 ## Reproduce
 
@@ -90,3 +142,18 @@ PYTHONPATH=src uv run python studies/secret-formats/corpus.py studies/real-text/
 The complete `rows` arrays must agree. Missing files or changed source hashes
 stop the replay. The compact retained receipt records both aggregate row hashes
 and the source manifest hashes.
+
+Installed CLI and browser checks:
+
+```bash
+python studies/secret-formats/cli.py --bin /path/to/venv/bin/veil --output /tmp/veil-keys-cli.json
+cd web
+npm ci && npm run lint && npm run build
+npm run test:browser
+cd ..
+node studies/secret-formats/browser.mjs web /tmp/veil-keys-browser --screenshots /tmp/veil-keys-shots
+```
+
+The browser driver requires Playwright's Chromium and Firefox installations and
+network access for its initial Pyodide download. Pass `--baseline` to retain
+coverage failures without rejecting the baseline run. Build output is `web/dist`.

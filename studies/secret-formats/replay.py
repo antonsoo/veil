@@ -133,7 +133,7 @@ for c in cases():
             "api": api,
             "fullyMaskedAtTransport": outgoing == expected,
             "requestBodySha256": digest(
-                json.dumps(body, ensure_ascii=False, separators=(",", ":"))
+                json.dumps(body, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
             ),
             "restoredReplySha256": digest(reply),
             "restoresExactly": reply == source,
