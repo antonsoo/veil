@@ -90,6 +90,33 @@ uv run python studies/surrogate-collisions/replay.py --source .
 uv run python studies/anthropic-documents/capture.py --source . --check
 ```
 
+## Clean and installed artifacts
+
+[Verification](results/verification.json) archives implementation `115eefe`,
+installs the committed lock on Python 3.12.12, and runs lint, formatting, strict
+types and the complete native suite: 639 passed, with one optional spaCy test
+skipped because that extra is not installed. The source distribution builds
+successfully, then supplies the wheel used in two fresh installations.
+
+| Installed interpreter | Matching package files | Batch cases | Reservation oracle | Collision cases | SDK captures |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Python 3.10.21 | 35 | 9 | 20,000 | 23 | 36 |
+| Python 3.14.7 | 35 | 9 | 20,000 | 23 | 36 |
+
+Both installations preserve every masked-output, vault and SDK-request hash,
+all collision outcomes and the full reservation-oracle result. The benchmark
+cases run once per installed interpreter to verify behavior; they are not a
+cross-version performance comparison. [Python 3.10 records](results/python310-benchmarks.json),
+[Python 3.14 records](results/python314-benchmarks.json). The 89,384-byte wheel
+has SHA-256 `10e521b305ce68d00e6a5cd548b24f11c6dcf90b016643b1ca25febb2838222a`.
+
+The initial installed-file checker included test-generated Python 3.12 bytecode
+and stopped on the Python 3.10 installation. Excluding `__pycache__` corrected
+that harness; completed clean checks were retained and installed verification
+resumed. Application source and built artifacts did not change. All 298 tracked
+archive files match the implementation commit. These are source/package checks,
+not a hosted browser or deployment verification.
+
 ## Limits
 
 This is an optimization of the existing reservation rule. If every source

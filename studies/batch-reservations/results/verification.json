@@ -1,0 +1,772 @@
+{
+  "implementationCommit": "115eefeab42cdafdfac933a317827b5f9816af30",
+  "steps": [
+    {
+      "name": "clean-install",
+      "exit": 0,
+      "evidence": "clean-install.log",
+      "resumedFromCompletedStep": true
+    },
+    {
+      "name": "clean-lint",
+      "exit": 0,
+      "evidence": "clean-lint.log",
+      "resumedFromCompletedStep": true
+    },
+    {
+      "name": "clean-format",
+      "exit": 0,
+      "evidence": "clean-format.log",
+      "resumedFromCompletedStep": true
+    },
+    {
+      "name": "clean-types",
+      "exit": 0,
+      "evidence": "clean-types.log",
+      "resumedFromCompletedStep": true
+    },
+    {
+      "name": "clean-tests",
+      "exit": 0,
+      "evidence": "clean-tests.log",
+      "resumedFromCompletedStep": true
+    },
+    {
+      "name": "clean-build",
+      "exit": 0,
+      "evidence": "clean-build.log",
+      "resumedFromCompletedStep": true
+    },
+    {
+      "name": "sdist-wheel",
+      "exit": 0,
+      "evidence": "sdist-wheel.log",
+      "resumedFromCompletedStep": true
+    },
+    {
+      "name": "locked-requirements",
+      "exit": 0,
+      "evidence": "locked-requirements.log",
+      "resumedFromCompletedStep": true
+    },
+    {
+      "name": "python310-venv",
+      "exit": 0,
+      "evidence": "python310-venv.log",
+      "resumedFromCompletedStep": true
+    },
+    {
+      "name": "python310-install",
+      "exit": 0,
+      "evidence": "python310-install.log",
+      "resumedFromCompletedStep": true
+    },
+    {
+      "name": "python310-files",
+      "exit": 0,
+      "evidence": "python310-files.log",
+      "resumedFromCompletedStep": true
+    },
+    {
+      "name": "python310-files",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "-c",
+        "import json,veil,platform;print(json.dumps({\"root\":list(veil.__path__)[0],\"python\":platform.python_version()}))"
+      ],
+      "exit": 0,
+      "seconds": 0.048
+    },
+    {
+      "name": "python310-batch-500",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "batch-500",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.119
+    },
+    {
+      "name": "python310-batch-2000",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "batch-2000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.279
+    },
+    {
+      "name": "python310-batch-8000",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "batch-8000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.885
+    },
+    {
+      "name": "python310-literal-8000",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "literal-8000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.892
+    },
+    {
+      "name": "python310-single-8000",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "single-8000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.692
+    },
+    {
+      "name": "python310-shared-delimiter-1000",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "shared-delimiter-1000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.333
+    },
+    {
+      "name": "python310-realistic-1000",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "realistic-1000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.182
+    },
+    {
+      "name": "python310-custom-1000",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "custom-1000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.19
+    },
+    {
+      "name": "python310-sdk-4000",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "sdk-4000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 2.438
+    },
+    {
+      "name": "python310-oracle",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/oracle.py"
+      ],
+      "exit": 0,
+      "seconds": 0.28
+    },
+    {
+      "name": "python310-collisions",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "<scratch>/clean-115eefe/studies/surrogate-collisions/replay.py"
+      ],
+      "exit": 0,
+      "seconds": 0.234
+    },
+    {
+      "name": "python310-documents",
+      "command": [
+        "<scratch>/installed-python310/bin/python",
+        "<scratch>/clean-115eefe/studies/anthropic-documents/capture.py",
+        "--check"
+      ],
+      "exit": 0,
+      "seconds": 1.086
+    },
+    {
+      "name": "python310-version",
+      "command": [
+        "<scratch>/installed-python310/bin/veil",
+        "--version"
+      ],
+      "exit": 0,
+      "seconds": 0.055
+    },
+    {
+      "name": "python314-venv",
+      "command": [
+        "uv",
+        "venv",
+        "--python",
+        "3.14",
+        "<scratch>/installed-python314"
+      ],
+      "exit": 0,
+      "seconds": 0.016
+    },
+    {
+      "name": "python314-install",
+      "command": [
+        "uv",
+        "pip",
+        "install",
+        "--python",
+        "<scratch>/installed-python314/bin/python",
+        "-r",
+        "<scratch>/requirements.txt",
+        "<scratch>/from-sdist/veil_pii-0.4.4-py3-none-any.whl"
+      ],
+      "exit": 0,
+      "seconds": 0.208
+    },
+    {
+      "name": "python314-files",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "-c",
+        "import json,veil,platform;print(json.dumps({\"root\":list(veil.__path__)[0],\"python\":platform.python_version()}))"
+      ],
+      "exit": 0,
+      "seconds": 0.075
+    },
+    {
+      "name": "python314-batch-500",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "batch-500",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.095
+    },
+    {
+      "name": "python314-batch-2000",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "batch-2000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.245
+    },
+    {
+      "name": "python314-batch-8000",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "batch-8000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.7
+    },
+    {
+      "name": "python314-literal-8000",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "literal-8000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.667
+    },
+    {
+      "name": "python314-single-8000",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "single-8000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.569
+    },
+    {
+      "name": "python314-shared-delimiter-1000",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "shared-delimiter-1000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.341
+    },
+    {
+      "name": "python314-realistic-1000",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "realistic-1000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.204
+    },
+    {
+      "name": "python314-custom-1000",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "custom-1000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 0.135
+    },
+    {
+      "name": "python314-sdk-4000",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/benchmark.py",
+        "--case",
+        "sdk-4000",
+        "--repeats",
+        "1"
+      ],
+      "exit": 0,
+      "seconds": 2.574
+    },
+    {
+      "name": "python314-oracle",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "<scratch>/clean-115eefe/studies/batch-reservations/oracle.py"
+      ],
+      "exit": 0,
+      "seconds": 0.245
+    },
+    {
+      "name": "python314-collisions",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "<scratch>/clean-115eefe/studies/surrogate-collisions/replay.py"
+      ],
+      "exit": 0,
+      "seconds": 0.25
+    },
+    {
+      "name": "python314-documents",
+      "command": [
+        "<scratch>/installed-python314/bin/python",
+        "<scratch>/clean-115eefe/studies/anthropic-documents/capture.py",
+        "--check"
+      ],
+      "exit": 0,
+      "seconds": 0.9
+    },
+    {
+      "name": "python314-version",
+      "command": [
+        "<scratch>/installed-python314/bin/veil",
+        "--version"
+      ],
+      "exit": 0,
+      "seconds": 0.063
+    }
+  ],
+  "installed": [
+    {
+      "label": "python310",
+      "python": "3.10.21",
+      "packageFiles": [
+        {
+          "path": "__init__.py",
+          "sha256": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980"
+        },
+        {
+          "path": "_files.py",
+          "sha256": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29"
+        },
+        {
+          "path": "_spans.py",
+          "sha256": "e8e2f09a3f7b92535ffaacda6c3c820793465c9c00f16faec50c807147e1e62f"
+        },
+        {
+          "path": "audit.py",
+          "sha256": "038bb18f7bc0e81d7cd2f5f2381b01a5fe16c331a84bff081b0f515e35dc8073"
+        },
+        {
+          "path": "backends/__init__.py",
+          "sha256": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b"
+        },
+        {
+          "path": "backends/base.py",
+          "sha256": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e"
+        },
+        {
+          "path": "backends/known_entities.py",
+          "sha256": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55"
+        },
+        {
+          "path": "backends/spacy_backend.py",
+          "sha256": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b"
+        },
+        {
+          "path": "cli.py",
+          "sha256": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1"
+        },
+        {
+          "path": "detectors/__init__.py",
+          "sha256": "4e6e202fe17c7c8d0bd6afea3f1611411eb6fbb5c4acfa3f9eb17eb9184107e6"
+        },
+        {
+          "path": "detectors/_calling_codes.py",
+          "sha256": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c"
+        },
+        {
+          "path": "detectors/_words.py",
+          "sha256": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887"
+        },
+        {
+          "path": "detectors/address.py",
+          "sha256": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec"
+        },
+        {
+          "path": "detectors/base.py",
+          "sha256": "ac0e63d0d37d4626f9717a1ccafe4a093ecea9a0e1ef897afa200cfc85fb3ef2"
+        },
+        {
+          "path": "detectors/card.py",
+          "sha256": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f"
+        },
+        {
+          "path": "detectors/dob.py",
+          "sha256": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f"
+        },
+        {
+          "path": "detectors/email.py",
+          "sha256": "226c1d9f6dba002e313aef9659eadd107d06f22a7a72549b9b9b07b3a5bb2e62"
+        },
+        {
+          "path": "detectors/iban.py",
+          "sha256": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c"
+        },
+        {
+          "path": "detectors/ip.py",
+          "sha256": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b"
+        },
+        {
+          "path": "detectors/phone.py",
+          "sha256": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd"
+        },
+        {
+          "path": "detectors/secrets.py",
+          "sha256": "1b26844666c717b64ad5ec18c9afd4ae5f0016ae6850c08c7b3458ec9cd9b7b2"
+        },
+        {
+          "path": "detectors/ssn.py",
+          "sha256": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b"
+        },
+        {
+          "path": "detectors/url.py",
+          "sha256": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099"
+        },
+        {
+          "path": "integrations/__init__.py",
+          "sha256": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881"
+        },
+        {
+          "path": "integrations/_common.py",
+          "sha256": "742e8feececf9a86297155e2ca9a6bc22bda61677669cfae4873fb8386689a73"
+        },
+        {
+          "path": "integrations/_json_arguments.py",
+          "sha256": "8189f42f3dcdb74cb4c74346732ba03116ee8e79e1468858f92086fdcb7c8188"
+        },
+        {
+          "path": "integrations/anthropic.py",
+          "sha256": "fa34cf4b05539a7dc5cbb92b9e8e7b9ad4d60351beff284593cd68850df9c9a7"
+        },
+        {
+          "path": "integrations/openai.py",
+          "sha256": "31a5811bf1a1159a23c6257a02fbf9de3532829985b5ce4186a0986e0bad42b6"
+        },
+        {
+          "path": "integrations/openai_responses.py",
+          "sha256": "a91f68d5badab07c75e63b52859d65a1478c32d3c178cb8c549c85538d3492de"
+        },
+        {
+          "path": "masker.py",
+          "sha256": "d1ab3df9739183e7023bb38358f57475c2f605f52da710767431c8fd9d2e15b6"
+        },
+        {
+          "path": "py.typed",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "restore.py",
+          "sha256": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38"
+        },
+        {
+          "path": "surrogates.py",
+          "sha256": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0"
+        },
+        {
+          "path": "types.py",
+          "sha256": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8"
+        },
+        {
+          "path": "vault.py",
+          "sha256": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+        }
+      ],
+      "benchmarkCases": 9,
+      "allMaskedVaultAndRequestHashesMatchSource": true,
+      "oracle": {
+        "seed": 20261013,
+        "checks": 20000,
+        "disagreements": 0,
+        "sha256": "3441af0922daa9e3d09fc5f721bc08a34d8076483975a133a1ad0da29908e049"
+      },
+      "collisionCases": 23,
+      "allCollisionCasesMatchSource": true,
+      "sdkRequests": 36,
+      "allSdkCapturesMatchSource": true,
+      "anthropic": "1.11.0"
+    },
+    {
+      "label": "python314",
+      "python": "3.14.7",
+      "packageFiles": [
+        {
+          "path": "__init__.py",
+          "sha256": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980"
+        },
+        {
+          "path": "_files.py",
+          "sha256": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29"
+        },
+        {
+          "path": "_spans.py",
+          "sha256": "e8e2f09a3f7b92535ffaacda6c3c820793465c9c00f16faec50c807147e1e62f"
+        },
+        {
+          "path": "audit.py",
+          "sha256": "038bb18f7bc0e81d7cd2f5f2381b01a5fe16c331a84bff081b0f515e35dc8073"
+        },
+        {
+          "path": "backends/__init__.py",
+          "sha256": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b"
+        },
+        {
+          "path": "backends/base.py",
+          "sha256": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e"
+        },
+        {
+          "path": "backends/known_entities.py",
+          "sha256": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55"
+        },
+        {
+          "path": "backends/spacy_backend.py",
+          "sha256": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b"
+        },
+        {
+          "path": "cli.py",
+          "sha256": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1"
+        },
+        {
+          "path": "detectors/__init__.py",
+          "sha256": "4e6e202fe17c7c8d0bd6afea3f1611411eb6fbb5c4acfa3f9eb17eb9184107e6"
+        },
+        {
+          "path": "detectors/_calling_codes.py",
+          "sha256": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c"
+        },
+        {
+          "path": "detectors/_words.py",
+          "sha256": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887"
+        },
+        {
+          "path": "detectors/address.py",
+          "sha256": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec"
+        },
+        {
+          "path": "detectors/base.py",
+          "sha256": "ac0e63d0d37d4626f9717a1ccafe4a093ecea9a0e1ef897afa200cfc85fb3ef2"
+        },
+        {
+          "path": "detectors/card.py",
+          "sha256": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f"
+        },
+        {
+          "path": "detectors/dob.py",
+          "sha256": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f"
+        },
+        {
+          "path": "detectors/email.py",
+          "sha256": "226c1d9f6dba002e313aef9659eadd107d06f22a7a72549b9b9b07b3a5bb2e62"
+        },
+        {
+          "path": "detectors/iban.py",
+          "sha256": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c"
+        },
+        {
+          "path": "detectors/ip.py",
+          "sha256": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b"
+        },
+        {
+          "path": "detectors/phone.py",
+          "sha256": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd"
+        },
+        {
+          "path": "detectors/secrets.py",
+          "sha256": "1b26844666c717b64ad5ec18c9afd4ae5f0016ae6850c08c7b3458ec9cd9b7b2"
+        },
+        {
+          "path": "detectors/ssn.py",
+          "sha256": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b"
+        },
+        {
+          "path": "detectors/url.py",
+          "sha256": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099"
+        },
+        {
+          "path": "integrations/__init__.py",
+          "sha256": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881"
+        },
+        {
+          "path": "integrations/_common.py",
+          "sha256": "742e8feececf9a86297155e2ca9a6bc22bda61677669cfae4873fb8386689a73"
+        },
+        {
+          "path": "integrations/_json_arguments.py",
+          "sha256": "8189f42f3dcdb74cb4c74346732ba03116ee8e79e1468858f92086fdcb7c8188"
+        },
+        {
+          "path": "integrations/anthropic.py",
+          "sha256": "fa34cf4b05539a7dc5cbb92b9e8e7b9ad4d60351beff284593cd68850df9c9a7"
+        },
+        {
+          "path": "integrations/openai.py",
+          "sha256": "31a5811bf1a1159a23c6257a02fbf9de3532829985b5ce4186a0986e0bad42b6"
+        },
+        {
+          "path": "integrations/openai_responses.py",
+          "sha256": "a91f68d5badab07c75e63b52859d65a1478c32d3c178cb8c549c85538d3492de"
+        },
+        {
+          "path": "masker.py",
+          "sha256": "d1ab3df9739183e7023bb38358f57475c2f605f52da710767431c8fd9d2e15b6"
+        },
+        {
+          "path": "py.typed",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "restore.py",
+          "sha256": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38"
+        },
+        {
+          "path": "surrogates.py",
+          "sha256": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0"
+        },
+        {
+          "path": "types.py",
+          "sha256": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8"
+        },
+        {
+          "path": "vault.py",
+          "sha256": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+        }
+      ],
+      "benchmarkCases": 9,
+      "allMaskedVaultAndRequestHashesMatchSource": true,
+      "oracle": {
+        "seed": 20261013,
+        "checks": 20000,
+        "disagreements": 0,
+        "sha256": "3441af0922daa9e3d09fc5f721bc08a34d8076483975a133a1ad0da29908e049"
+      },
+      "collisionCases": 23,
+      "allCollisionCasesMatchSource": true,
+      "sdkRequests": 36,
+      "allSdkCapturesMatchSource": true,
+      "anthropic": "1.11.0"
+    }
+  ],
+  "archive": {
+    "files": 298,
+    "allTrackedBytesMatchCommit": true
+  },
+  "artifacts": [
+    {
+      "name": "veil_pii-0.4.4.tar.gz",
+      "bytes": 97749,
+      "sha256": "33728c7cec30d377b1b48a370e393b8817c44eff312a813baf78fe7120709403"
+    },
+    {
+      "name": "veil_pii-0.4.4-py3-none-any.whl",
+      "bytes": 89384,
+      "sha256": "10e521b305ce68d00e6a5cd548b24f11c6dcf90b016643b1ca25febb2838222a"
+    }
+  ],
+  "notes": [
+    "The first installed-file comparison accidentally included Python 3.12 bytecode generated by the clean test run; it stopped on the Python 3.10 installation before any benchmark. The corrected comparison excludes __pycache__ and resumes completed clean steps without rerunning them. Runtime source and artifacts did not change.",
+    "Native clean environment uses the committed lock on Python 3.12.12. Installed verification uses the same exported lock with interpreter markers, plus a wheel built from the sdist.",
+    "Benchmarks use synthetic inputs; real SDK serialization is confined to local mock HTTP transport. No package registry release or hosted deployment."
+  ],
+  "tests": {
+    "passed": 639,
+    "skipped": 1,
+    "skipReason": "Optional spaCy extra not installed; that backend is unchanged."
+  }
+}

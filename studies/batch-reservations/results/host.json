@@ -1,5 +1,6 @@
 {
-  "python": "3.12.3",
+  "benchmarkPython": "3.12.12",
+  "receiptWriterPython": "3.12.3",
   "kernel": "6.18.54.1-microsoft-standard-WSL2",
   "machine": "x86_64",
   "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
