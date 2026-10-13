@@ -1,0 +1,1019 @@
+{
+  "label": "before",
+  "python": "3.12.12",
+  "anthropic": "1.11.0",
+  "scope": "Synthetic documents; actual SDK with local mock transport; no model or network calls.",
+  "cases": [
+    {
+      "shape": "plain",
+      "inside_tool_result": false,
+      "mode": "create",
+      "async": false,
+      "request_sha256": "59a8d3fecba3faa4fec8e5cba5b1f33efcf4c55ff86a58708fdff86006e55207",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      },
+      "request": {
+        "max_tokens": 128,
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "document",
+                "source": {
+                  "type": "text",
+                  "media_type": "text/plain",
+                  "data": "Contact alice@example.com about this order."
+                },
+                "title": "Record for bob@example.org",
+                "context": "Owner carol@example.net",
+                "citations": {
+                  "enabled": true
+                },
+                "cache_control": {
+                  "type": "ephemeral"
+                }
+              },
+              {
+                "type": "text",
+                "text": "Who is the contact?"
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "restored_answer": "Contact alice@example.com about this order."
+    },
+    {
+      "shape": "plain",
+      "inside_tool_result": false,
+      "mode": "create",
+      "async": true,
+      "request_sha256": "59a8d3fecba3faa4fec8e5cba5b1f33efcf4c55ff86a58708fdff86006e55207",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "plain",
+      "inside_tool_result": false,
+      "mode": "raw",
+      "async": false,
+      "request_sha256": "08da020a60241c2c9c11a23ea0f8b8a1f8300ab097111ee34f034a38e8210c89",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "plain",
+      "inside_tool_result": false,
+      "mode": "raw",
+      "async": true,
+      "request_sha256": "08da020a60241c2c9c11a23ea0f8b8a1f8300ab097111ee34f034a38e8210c89",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "plain",
+      "inside_tool_result": false,
+      "mode": "helper",
+      "async": false,
+      "request_sha256": "08da020a60241c2c9c11a23ea0f8b8a1f8300ab097111ee34f034a38e8210c89",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "plain",
+      "inside_tool_result": false,
+      "mode": "helper",
+      "async": true,
+      "request_sha256": "08da020a60241c2c9c11a23ea0f8b8a1f8300ab097111ee34f034a38e8210c89",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "plain",
+      "inside_tool_result": true,
+      "mode": "create",
+      "async": false,
+      "request_sha256": "5078e1f7885fbcddee233883eef34a500732fffe334077afa12885abedd6a223",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      },
+      "request": {
+        "max_tokens": 128,
+        "messages": [
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "toolu_fixture",
+                "name": "read_record",
+                "input": {}
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "tool_result",
+                "tool_use_id": "toolu_fixture",
+                "content": [
+                  {
+                    "type": "document",
+                    "source": {
+                      "type": "text",
+                      "media_type": "text/plain",
+                      "data": "Contact alice@example.com about this order."
+                    },
+                    "title": "Record for bob@example.org",
+                    "context": "Owner carol@example.net",
+                    "citations": {
+                      "enabled": true
+                    },
+                    "cache_control": {
+                      "type": "ephemeral"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "restored_answer": "Contact alice@example.com about this order."
+    },
+    {
+      "shape": "plain",
+      "inside_tool_result": true,
+      "mode": "create",
+      "async": true,
+      "request_sha256": "5078e1f7885fbcddee233883eef34a500732fffe334077afa12885abedd6a223",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "plain",
+      "inside_tool_result": true,
+      "mode": "raw",
+      "async": false,
+      "request_sha256": "9517a783fea259ed6c46a6b8b61eb14e0720e7f0fa50c80a7a01215340d78b42",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "plain",
+      "inside_tool_result": true,
+      "mode": "raw",
+      "async": true,
+      "request_sha256": "9517a783fea259ed6c46a6b8b61eb14e0720e7f0fa50c80a7a01215340d78b42",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "plain",
+      "inside_tool_result": true,
+      "mode": "helper",
+      "async": false,
+      "request_sha256": "9517a783fea259ed6c46a6b8b61eb14e0720e7f0fa50c80a7a01215340d78b42",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "plain",
+      "inside_tool_result": true,
+      "mode": "helper",
+      "async": true,
+      "request_sha256": "9517a783fea259ed6c46a6b8b61eb14e0720e7f0fa50c80a7a01215340d78b42",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-string",
+      "inside_tool_result": false,
+      "mode": "create",
+      "async": false,
+      "request_sha256": "46065cf68940997571a16247ea2be054933f9b221dd6126fc85d679e68977b19",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      },
+      "request": {
+        "max_tokens": 128,
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "document",
+                "source": {
+                  "type": "content",
+                  "content": "Contact alice@example.com about this order."
+                },
+                "title": "Record for bob@example.org",
+                "context": "Owner carol@example.net",
+                "citations": {
+                  "enabled": true
+                },
+                "cache_control": {
+                  "type": "ephemeral"
+                }
+              },
+              {
+                "type": "text",
+                "text": "Who is the contact?"
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "restored_answer": "Contact alice@example.com about this order."
+    },
+    {
+      "shape": "content-string",
+      "inside_tool_result": false,
+      "mode": "create",
+      "async": true,
+      "request_sha256": "46065cf68940997571a16247ea2be054933f9b221dd6126fc85d679e68977b19",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-string",
+      "inside_tool_result": false,
+      "mode": "raw",
+      "async": false,
+      "request_sha256": "b21ac92ab83a12c628f5693444780f255d00e2f18b5e7b0054f1d33fe9c5d0d9",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-string",
+      "inside_tool_result": false,
+      "mode": "raw",
+      "async": true,
+      "request_sha256": "b21ac92ab83a12c628f5693444780f255d00e2f18b5e7b0054f1d33fe9c5d0d9",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-string",
+      "inside_tool_result": false,
+      "mode": "helper",
+      "async": false,
+      "request_sha256": "b21ac92ab83a12c628f5693444780f255d00e2f18b5e7b0054f1d33fe9c5d0d9",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-string",
+      "inside_tool_result": false,
+      "mode": "helper",
+      "async": true,
+      "request_sha256": "b21ac92ab83a12c628f5693444780f255d00e2f18b5e7b0054f1d33fe9c5d0d9",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-string",
+      "inside_tool_result": true,
+      "mode": "create",
+      "async": false,
+      "request_sha256": "b88abb4f920b7d853596d817d8bbd713131321eb7051a79ca3f91eb97a9766d7",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      },
+      "request": {
+        "max_tokens": 128,
+        "messages": [
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "toolu_fixture",
+                "name": "read_record",
+                "input": {}
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "tool_result",
+                "tool_use_id": "toolu_fixture",
+                "content": [
+                  {
+                    "type": "document",
+                    "source": {
+                      "type": "content",
+                      "content": "Contact alice@example.com about this order."
+                    },
+                    "title": "Record for bob@example.org",
+                    "context": "Owner carol@example.net",
+                    "citations": {
+                      "enabled": true
+                    },
+                    "cache_control": {
+                      "type": "ephemeral"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "restored_answer": "Contact alice@example.com about this order."
+    },
+    {
+      "shape": "content-string",
+      "inside_tool_result": true,
+      "mode": "create",
+      "async": true,
+      "request_sha256": "b88abb4f920b7d853596d817d8bbd713131321eb7051a79ca3f91eb97a9766d7",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-string",
+      "inside_tool_result": true,
+      "mode": "raw",
+      "async": false,
+      "request_sha256": "f7596e6e3ace465900ee89b6cd34855e7bd97a636bdefbe62bca5e4e380a4dd0",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-string",
+      "inside_tool_result": true,
+      "mode": "raw",
+      "async": true,
+      "request_sha256": "f7596e6e3ace465900ee89b6cd34855e7bd97a636bdefbe62bca5e4e380a4dd0",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-string",
+      "inside_tool_result": true,
+      "mode": "helper",
+      "async": false,
+      "request_sha256": "f7596e6e3ace465900ee89b6cd34855e7bd97a636bdefbe62bca5e4e380a4dd0",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-string",
+      "inside_tool_result": true,
+      "mode": "helper",
+      "async": true,
+      "request_sha256": "f7596e6e3ace465900ee89b6cd34855e7bd97a636bdefbe62bca5e4e380a4dd0",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-blocks",
+      "inside_tool_result": false,
+      "mode": "create",
+      "async": false,
+      "request_sha256": "15bbc46b84b886dc554b59bfe3daccfea3255f57103cc3583d4cff487aa85d6a",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      },
+      "request": {
+        "max_tokens": 128,
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "document",
+                "source": {
+                  "type": "content",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Contact alice@example.com about this order."
+                    },
+                    {
+                      "type": "image",
+                      "source": {
+                        "type": "base64",
+                        "media_type": "image/png",
+                        "data": "AA=="
+                      }
+                    }
+                  ]
+                },
+                "title": "Record for bob@example.org",
+                "context": "Owner carol@example.net",
+                "citations": {
+                  "enabled": true
+                },
+                "cache_control": {
+                  "type": "ephemeral"
+                }
+              },
+              {
+                "type": "text",
+                "text": "Who is the contact?"
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "restored_answer": "Contact alice@example.com about this order."
+    },
+    {
+      "shape": "content-blocks",
+      "inside_tool_result": false,
+      "mode": "create",
+      "async": true,
+      "request_sha256": "15bbc46b84b886dc554b59bfe3daccfea3255f57103cc3583d4cff487aa85d6a",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-blocks",
+      "inside_tool_result": false,
+      "mode": "raw",
+      "async": false,
+      "request_sha256": "112945bc27392f70fca4dc82b96da8e1ab3ad4aec81111512610ddcdfa68f7e1",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-blocks",
+      "inside_tool_result": false,
+      "mode": "raw",
+      "async": true,
+      "request_sha256": "112945bc27392f70fca4dc82b96da8e1ab3ad4aec81111512610ddcdfa68f7e1",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-blocks",
+      "inside_tool_result": false,
+      "mode": "helper",
+      "async": false,
+      "request_sha256": "112945bc27392f70fca4dc82b96da8e1ab3ad4aec81111512610ddcdfa68f7e1",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-blocks",
+      "inside_tool_result": false,
+      "mode": "helper",
+      "async": true,
+      "request_sha256": "112945bc27392f70fca4dc82b96da8e1ab3ad4aec81111512610ddcdfa68f7e1",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-blocks",
+      "inside_tool_result": true,
+      "mode": "create",
+      "async": false,
+      "request_sha256": "45d660df3a04d9a9bc472927999603248682a4caa273074b018fb8b0c9290242",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      },
+      "request": {
+        "max_tokens": 128,
+        "messages": [
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "toolu_fixture",
+                "name": "read_record",
+                "input": {}
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "tool_result",
+                "tool_use_id": "toolu_fixture",
+                "content": [
+                  {
+                    "type": "document",
+                    "source": {
+                      "type": "content",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Contact alice@example.com about this order."
+                        },
+                        {
+                          "type": "image",
+                          "source": {
+                            "type": "base64",
+                            "media_type": "image/png",
+                            "data": "AA=="
+                          }
+                        }
+                      ]
+                    },
+                    "title": "Record for bob@example.org",
+                    "context": "Owner carol@example.net",
+                    "citations": {
+                      "enabled": true
+                    },
+                    "cache_control": {
+                      "type": "ephemeral"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "restored_answer": "Contact alice@example.com about this order."
+    },
+    {
+      "shape": "content-blocks",
+      "inside_tool_result": true,
+      "mode": "create",
+      "async": true,
+      "request_sha256": "45d660df3a04d9a9bc472927999603248682a4caa273074b018fb8b0c9290242",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-blocks",
+      "inside_tool_result": true,
+      "mode": "raw",
+      "async": false,
+      "request_sha256": "847a05cab0cd8f489c5b01daf8597b2b5855f42871041bba916416028dd23465",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-blocks",
+      "inside_tool_result": true,
+      "mode": "raw",
+      "async": true,
+      "request_sha256": "847a05cab0cd8f489c5b01daf8597b2b5855f42871041bba916416028dd23465",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-blocks",
+      "inside_tool_result": true,
+      "mode": "helper",
+      "async": false,
+      "request_sha256": "847a05cab0cd8f489c5b01daf8597b2b5855f42871041bba916416028dd23465",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    },
+    {
+      "shape": "content-blocks",
+      "inside_tool_result": true,
+      "mode": "helper",
+      "async": true,
+      "request_sha256": "847a05cab0cd8f489c5b01daf8597b2b5855f42871041bba916416028dd23465",
+      "unmasked_contacts": [
+        "alice@example.com",
+        "bob@example.org",
+        "carol@example.net"
+      ],
+      "checks": {
+        "detected_contacts_absent": false,
+        "caller_input_unchanged": true,
+        "answer_restored": true,
+        "source_shape_unchanged": true,
+        "citation_control_unchanged": true,
+        "cache_control_unchanged": true,
+        "image_unchanged": true
+      }
+    }
+  ],
+  "request_count": 36,
+  "requests_with_unmasked_contacts": 36
+}

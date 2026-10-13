@@ -13,8 +13,10 @@ so the events veil sees there are the ones the SDK really builds.
 
 **What gets masked:** every text block, tool-result content string and
 ``tool_use`` input value in ``messages``, and every text block in ``system``
-(both the plain-string and the list-of-blocks forms). Images and other binary
-content pass through untouched — veil only understands text. Thinking blocks
+(both the plain-string and the list-of-blocks forms). Document titles, context,
+plain-text sources and custom-content text are masked too, including documents
+inside tool results. Images, PDF bytes and URL/file references pass through
+untouched — veil only understands inline text. Thinking blocks
 pass through untouched too: they carry a signature over their exact content.
 
 **What gets restored:** every text block and tool_use ``input`` value in
@@ -49,7 +51,7 @@ restored (or one the application edited) is masked like any other.
 
 from __future__ import annotations
 
-from collections.abc import AsyncIterator, Generator, Iterator
+from collections.abc import AsyncIterator, Generator, Iterable, Iterator, Mapping
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -66,7 +68,7 @@ from veil.restore import Restorer
 
 
 def mask_content(content: Any, masker: Masker, replay: ReplayCache | None = None) -> Any:
-    """Mask a message's ``content`` field (a string, or a list of blocks).
+    """Mask a message's ``content`` field (a string, or an iterable of blocks).
 
     With ``replay``, anything veil restored earlier is swapped back for the
     exact original instead of being re-masked.
@@ -77,7 +79,7 @@ def mask_content(content: Any, masker: Masker, replay: ReplayCache | None = None
             return original
     if isinstance(content, str):
         return masker.mask(content)
-    if isinstance(content, list):
+    if isinstance(content, Iterable) and not isinstance(content, bytes | Mapping):
         return [_mask_block(b, masker, replay) for b in content]
     return content
 
@@ -102,7 +104,39 @@ def _mask_block(block: Any, masker: Masker, replay: ReplayCache | None = None) -
         tool_input = get_field(block, "input")
         if tool_input is not None:
             return model_copy_with(block, input=mask_value(tool_input, masker))
+    elif block_type == "document":
+        return _mask_document(block, masker)
     return block
+
+
+def _mask_document(block: Any, masker: Masker) -> Any:
+    """Only transform inline text; opaque sources and citation coordinates stay opaque.
+
+    Citations refer to the masked source seen by the provider, whose character
+    offsets may differ from the caller's original document. Do not rewrite the
+    format, chunk boundaries, references or binary bytes to disguise that fact.
+    """
+    updates: dict[str, Any] = {}
+    for key in ("title", "context"):
+        value = get_field(block, key)
+        if isinstance(value, str):
+            updates[key] = masker.mask(value)
+    source = get_field(block, "source")
+    kind = get_field(source, "type")
+    if kind == "text":
+        data = get_field(source, "data")
+        if isinstance(data, str):
+            updates["source"] = model_copy_with(source, data=masker.mask(data))
+    elif kind == "content":
+        content = get_field(source, "content")
+        if isinstance(content, str):
+            updates["source"] = model_copy_with(source, content=masker.mask(content))
+        elif isinstance(content, Iterable) and not isinstance(content, bytes | Mapping):
+            # The SDK accepts an iterable of content blocks, not only lists.
+            updates["source"] = model_copy_with(
+                source, content=[_mask_block(part, masker) for part in content]
+            )
+    return model_copy_with(block, **updates) if updates else block
 
 
 def mask_messages(
@@ -122,11 +156,7 @@ def mask_messages(
 
 
 def mask_system(system: Any, masker: Masker) -> Any:
-    if isinstance(system, str):
-        return masker.mask(system)
-    if isinstance(system, list):
-        return [_mask_block(b, masker) for b in system]
-    return system
+    return mask_content(system, masker)
 
 
 def _restore_block(block: Any, masker: Masker) -> Any:

@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Anthropic inline documents
+
+- Mask document titles, context, plain-text sources and custom-content text,
+  including documents nested inside tool results. Traverse SDK-supported content
+  iterables without changing binary sources, references or citation/cache controls.
+- Preserve provider citation quotes and locations in masked-source coordinates;
+  answer text remains restored and retained assistant history replays unchanged.
+- Retain 36 actual SDK before/after request captures with synthetic contacts,
+  across sync/async calls and both streaming interfaces, in `studies/anthropic-documents`.
+
 ### Complete IPv6 literals
 
 - Mask IPv6 addresses with embedded IPv4 notation and scope IDs as one value;

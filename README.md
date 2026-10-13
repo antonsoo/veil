@@ -180,6 +180,17 @@ async with client.stream(model="claude-opus-5-5", max_tokens=1024, messages=[...
         print(text, end="", flush=True)
 ```
 
+**Inline documents (source checkout, unreleased).** Anthropic document `title`,
+`context`, plain-text `source.data` and custom-content text now pass through
+masking, including documents inside tool results. Previously all three example
+contacts reached the SDK transport unchanged in each of the 36 retained requests.
+[Before/after SDK captures and supported forms](studies/anthropic-documents/README.md).
+PDF/image bytes and URL/file references remain opaque; sanitize them separately.
+Returned citation quotes and locations stay exactly as the provider supplied
+them and refer to the **masked source**, not character offsets in your original
+document. Answer text is restored normally. The wrapper does not map citation
+coordinates back to original text.
+
 ### With the OpenAI SDK
 
 `veil.integrations.openai.OpenAIVeil` (the `openai` extra) wraps both of
