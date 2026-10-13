@@ -1,0 +1,8 @@
+{
+  "python": "3.12.3",
+  "kernel": "6.18.54.1-microsoft-standard-WSL2",
+  "machine": "x86_64",
+  "cpu": "AMD Ryzen 7 7800X3D 8-Core Processor",
+  "availableCpus": 14,
+  "measurement": "Three sequential repetitions per fresh case process, before/after order alternates between cases; all raw times retained. Peak RSS covers the whole process including imports and correctness checks. No claim of production workload or general scaling bound."
+}

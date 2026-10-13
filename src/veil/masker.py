@@ -30,26 +30,25 @@ def _spelling(text: str) -> str:
 
 @dataclass
 class _MaskingBatch:
-    sources: list[tuple[str, set[str]]] = field(default_factory=list)
+    sources: dict[str, list[str]] = field(default_factory=dict)
     pairs: list[tuple[str, str]] = field(default_factory=list)
     used: set[str] = field(default_factory=set)
     originals: set[str] = field(default_factory=set)
 
     def reserve(self, text: str) -> None:
         normalized = _spelling(text)
-        self.sources.append((normalized, set(normalized)))
+        # Index once per source, not once per candidate surrogate. The usual
+        # placeholder delimiter is absent from most texts in a large batch.
+        # Add later nested inputs too: the final check must see every source.
+        for char in set(normalized):
+            self.sources.setdefault(char, []).append(normalized)
 
     def available(self, surrogate: str) -> bool:
         normalized = _spelling(surrogate)
         return (
             bool(normalized)
             and normalized not in self.originals
-            and not any(
-                # Most raw text has no placeholder delimiter: avoid scanning a
-                # large export once for every generated placeholder.
-                normalized[0] in chars and normalized in source
-                for source, chars in self.sources
-            )
+            and not any(normalized in source for source in self.sources.get(normalized[0], ()))
         )
 
 

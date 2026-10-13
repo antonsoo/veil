@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Batch reservation performance
+
+- Index reserved source text by its characters so each candidate surrogate only
+  searches sources that could contain it. Preserve normalized literal matching,
+  source boundaries, late nested reservations and failed-batch rollback.
+- Retain before/after timings, exact output/vault comparisons and actual SDK
+  serialization checks in `studies/batch-reservations`. The constructed
+  8,000-message batch improves from 9.87 s to 0.51 s on the recorded host;
+  this is not a general linear-time or detector-accuracy claim.
+
 ### Anthropic inline documents
 
 - Mask document titles, context, plain-text sources and custom-content text,

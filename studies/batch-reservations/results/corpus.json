@@ -1,0 +1,8 @@
+{
+  "documents": 240,
+  "mappings": 503,
+  "inputSha256": "c81ea3513a0caa0b0f78aab9aae02d4407ca00dde03af91b3757caaf0d163dfd",
+  "outputSha256": "412bd13fa7ed589314ede672c1d2607ab07acd3d803be836b94cfe7710edd48a",
+  "vaultSha256": "5076df9d7d42263382ced8706703bf51d4b9c106993a72cdf5b0ea0bd30882f5",
+  "exactAndTolerantRoundtrips": true
+}

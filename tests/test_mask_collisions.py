@@ -34,6 +34,22 @@ def test_batch_reserves_literals_even_in_a_later_text(reverse: bool) -> None:
     assert len(masker.vault) == 1
 
 
+def test_batch_reservations_do_not_join_separate_source_boundaries() -> None:
+    texts = ["Contact alice@example.org", "⟨EMAIL_", "1⟩"]
+    masker = Masker()
+    masked = masker.mask_many(texts)
+    assert masked == ["Contact ⟨EMAIL_1⟩", "⟨EMAIL_", "1⟩"]
+    assert [masker.restore(text) for text in masked] == texts
+
+
+def test_custom_batch_reservations_keep_normalized_literals_inside_a_source() -> None:
+    texts = ["Contact alice@example.org", "An example: WRAP\u00a0EMAIL\n1."]
+    masker = Masker(surrogate_generator=PlaceholderSurrogates(template="Wrap {type} {n}"))
+    masked = masker.mask_many(texts)
+    assert masked == ["Contact Wrap EMAIL 2", texts[1]]
+    assert [masker.restore(text) for text in masked] == texts
+
+
 def test_realistic_email_cannot_recycle_another_source_address() -> None:
     text = "Contact alice@example.org or user1@example.org."
     masker = Masker(surrogate_generator=RealisticSurrogates())

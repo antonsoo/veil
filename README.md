@@ -506,7 +506,13 @@ this checkout makes 0.12.
 detectors run on every document; varies run to run — see `elapsed_s` in
 the script's output). Time grows in step with the input: a 270 KB export
 holding 16,000 values masks in 0.65 s and restores in 0.22 s, and
-`tests/test_scale.py` keeps it that way.
+`tests/test_scale.py` keeps it that way. Those measurements concern one text.
+The source checkout also speeds up batches of many short texts: a constructed
+8,000-message batch drops from 9.87 s to 0.51 s, with identical masked text,
+vault and round trips. A 4,000-block inline document through the actual SDK's
+local mock transport drops from 2.78 s to 0.57 s. The
+[batch study](studies/batch-reservations/README.md) records the host, all samples,
+controls and limits. This improvement is not in the PyPI release.
 
 **Streaming-restore overhead:** within roughly ±20% of non-streamed
 restore at a 24-character chunk size, on the same corpus — noise-level on

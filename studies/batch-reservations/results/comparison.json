@@ -1,0 +1,92 @@
+[
+  {
+    "case": "batch-500",
+    "inputBytes": 27780,
+    "beforeSeconds": 0.060564958985196427,
+    "afterSeconds": 0.026613672001985833,
+    "speedup": 2.2757084772322003,
+    "beforePeakRssKiB": 22760,
+    "afterPeakRssKiB": 21240,
+    "allEvidenceHashesMatch": true
+  },
+  {
+    "case": "batch-2000",
+    "inputBytes": 113780,
+    "beforeSeconds": 0.6780819000268821,
+    "afterSeconds": 0.12109560100361705,
+    "speedup": 5.599558484429407,
+    "beforePeakRssKiB": 28756,
+    "afterPeakRssKiB": 25788,
+    "allEvidenceHashesMatch": true
+  },
+  {
+    "case": "batch-8000",
+    "inputBytes": 461780,
+    "beforeSeconds": 9.866491544002201,
+    "afterSeconds": 0.5092806100146845,
+    "speedup": 19.373389345645247,
+    "beforePeakRssKiB": 55884,
+    "afterPeakRssKiB": 43108,
+    "allEvidenceHashesMatch": true
+  },
+  {
+    "case": "literal-8000",
+    "inputBytes": 461821,
+    "beforeSeconds": 8.90911205598968,
+    "afterSeconds": 0.49514243300654925,
+    "speedup": 17.99302879757801,
+    "beforePeakRssKiB": 55272,
+    "afterPeakRssKiB": 43352,
+    "allEvidenceHashesMatch": true
+  },
+  {
+    "case": "single-8000",
+    "inputBytes": 469779,
+    "beforeSeconds": 0.4204299609991722,
+    "afterSeconds": 0.43071908300044015,
+    "speedup": 0.976111757274387,
+    "beforePeakRssKiB": 39248,
+    "afterPeakRssKiB": 38816,
+    "allEvidenceHashesMatch": true
+  },
+  {
+    "case": "shared-delimiter-1000",
+    "inputBytes": 79780,
+    "beforeSeconds": 0.32071388300391845,
+    "afterSeconds": 0.20479087802232243,
+    "speedup": 1.5660555103873341,
+    "beforePeakRssKiB": 24736,
+    "afterPeakRssKiB": 23148,
+    "allEvidenceHashesMatch": true
+  },
+  {
+    "case": "realistic-1000",
+    "inputBytes": 55780,
+    "beforeSeconds": 0.15473695000400767,
+    "afterSeconds": 0.061773363006068394,
+    "speedup": 2.504913808704358,
+    "beforePeakRssKiB": 29944,
+    "afterPeakRssKiB": 28384,
+    "allEvidenceHashesMatch": true
+  },
+  {
+    "case": "custom-1000",
+    "inputBytes": 55780,
+    "beforeSeconds": 0.16593824798474088,
+    "afterSeconds": 0.06805589099531062,
+    "speedup": 2.43826427893178,
+    "beforePeakRssKiB": 23908,
+    "afterPeakRssKiB": 22212,
+    "allEvidenceHashesMatch": true
+  },
+  {
+    "case": "sdk-4000",
+    "inputBytes": 229780,
+    "beforeSeconds": 2.7843822950089816,
+    "afterSeconds": 0.5651535019860603,
+    "speedup": 4.9267717270159626,
+    "beforePeakRssKiB": 86888,
+    "afterPeakRssKiB": 80992,
+    "allEvidenceHashesMatch": true
+  }
+]

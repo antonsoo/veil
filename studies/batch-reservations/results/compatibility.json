@@ -1,0 +1,13 @@
+{
+  "collisionCases": 23,
+  "collisionFullResultsIdentical": true,
+  "actualSdkRequests": 36,
+  "allSdkRequestsAndResponsesIdentical": true,
+  "anthropic": "1.11.0",
+  "oracle": {
+    "seed": 20261013,
+    "checks": 20000,
+    "disagreements": 0,
+    "sha256": "3441af0922daa9e3d09fc5f721bc08a34d8076483975a133a1ad0da29908e049"
+  }
+}
