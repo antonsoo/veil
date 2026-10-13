@@ -1,0 +1,238 @@
+{
+  "implementation": "f3f9d5fe73e1faffb86d79d219339a1fb53fab18",
+  "test_compatibility_commit": "c60a5f2236f213d9f9d7577077bc9507088b2f1c",
+  "unchanged_archive_files": 286,
+  "unit_tests": 640,
+  "browser_scenarios": 16,
+  "checks": [
+    {
+      "name": "install",
+      "exit": 0
+    },
+    {
+      "name": "lint",
+      "exit": 0
+    },
+    {
+      "name": "format",
+      "exit": 0
+    },
+    {
+      "name": "types",
+      "exit": 0
+    },
+    {
+      "name": "unit",
+      "exit": 0
+    },
+    {
+      "name": "build",
+      "exit": 0
+    },
+    {
+      "name": "clean-replay",
+      "exit": 0
+    },
+    {
+      "name": "web-install",
+      "exit": 0
+    },
+    {
+      "name": "web-lint",
+      "exit": 0
+    },
+    {
+      "name": "web-build",
+      "exit": 0
+    },
+    {
+      "name": "browser",
+      "exit": 0
+    },
+    {
+      "name": "bare-venv",
+      "exit": 0
+    },
+    {
+      "name": "bare-install",
+      "exit": 0
+    },
+    {
+      "name": "bare-core",
+      "exit": 0
+    },
+    {
+      "name": "minimum-venv",
+      "exit": 0
+    },
+    {
+      "name": "minimum-install",
+      "exit": 0
+    },
+    {
+      "name": "minimum-replay",
+      "exit": 0
+    },
+    {
+      "name": "minimum-replay-final",
+      "exit": 0
+    },
+    {
+      "name": "minimum-sdk-tests-final",
+      "exit": 0
+    },
+    {
+      "name": "current-venv",
+      "exit": 0
+    },
+    {
+      "name": "current-install",
+      "exit": 0
+    },
+    {
+      "name": "current-replay-final",
+      "exit": 0
+    },
+    {
+      "name": "current-sdk-tests-final",
+      "exit": 0
+    }
+  ],
+  "installed": [
+    {
+      "python": "3.12.12",
+      "environment": "bare",
+      "identical_library_files": 34
+    },
+    {
+      "python": "3.10.21",
+      "environment": "minimum",
+      "identical_library_files": 34,
+      "anthropic": "0.40.0",
+      "request_count": 36,
+      "requests_with_unmasked_contacts": 0,
+      "sdk_tests_passed": 31,
+      "sdk_tests_skipped": 2
+    },
+    {
+      "python": "3.12.12",
+      "environment": "current",
+      "identical_library_files": 34,
+      "anthropic": "1.11.0",
+      "request_count": 36,
+      "requests_with_unmasked_contacts": 0,
+      "sdk_tests_passed": 33,
+      "sdk_tests_skipped": 0
+    }
+  ],
+  "scope": "Fresh archive and installed wheel; source publication only, no release or deployment. Synthetic mocked HTTP, no live model calls.",
+  "compatibility_note": "Anthropic 0.40.0 predates structured citation stream events. The initial new citation-stream test assumed that SDK feature and failed; it now skips there. Runtime source bytes are unchanged. All 36 minimum-SDK document transport cases already passed.",
+  "wheel": {
+    "filename": "veil_pii-0.4.4-py3-none-any.whl",
+    "bytes": 89139,
+    "sha256": "3ecd91335823bfe87a965522938846c34edba3a25a48fc1e2d1654766a738305"
+  },
+  "logs": {
+    "install.log": {
+      "bytes": 1812,
+      "sha256": "ee19c545fc2da64d0edc06d111bf4ff68c76ebdb7907057b1ab479c29a79d285"
+    },
+    "lint.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "format.log": {
+      "bytes": 28,
+      "sha256": "18ba381e222ff2e3d590e705f8802e5d9fe3aab8d52c82662caf0509de82dddc"
+    },
+    "types.log": {
+      "bytes": 44,
+      "sha256": "81b8a767756bd649de91d7b0c104614fe1e706bce451b754a92161491825cfde"
+    },
+    "unit.log": {
+      "bytes": 741,
+      "sha256": "c89901ab05b61fa22383eee09b9de39e8bb05af85614b2409431e46e28f6bfd8"
+    },
+    "build.log": {
+      "bytes": 251,
+      "sha256": "3711a115b5f027f8f68f5007a400123a65d1bb3c275758b8c1397cd249b07efd"
+    },
+    "clean-replay.log": {
+      "bytes": 27267,
+      "sha256": "b633ef32f5e4ff35acc08efd7422a06961e29917a66bac8302ff6491007979a3"
+    },
+    "web-install.log": {
+      "bytes": 465,
+      "sha256": "5bd9d800fc348afe40749dd3e3059c83341cad2c2db3da1bbc894c5605f73c7a"
+    },
+    "web-lint.log": {
+      "bytes": 64,
+      "sha256": "61cdb9d7137c591ce171ff8c340ba2e6f24f1d219d383a866a0e284d3715c996"
+    },
+    "web-build.log": {
+      "bytes": 2225,
+      "sha256": "73112672b999a41efd4ee6494c9c6d3d545b48a1120fc8ca4fb5dce29d3b0e17"
+    },
+    "browser.log": {
+      "bytes": 629,
+      "sha256": "e57dd0434eadc19df2d362292d680490baf1ba07e0d71352de18159873b593e9"
+    },
+    "bare-venv.log": {
+      "bytes": 120,
+      "sha256": "5a449fc0cf1c9fa8bc9ddd652dca6832deefb0553fcb395ce6f7c7811e62211a"
+    },
+    "bare-install.log": {
+      "bytes": 239,
+      "sha256": "8d16d042c4701346846eaba1760d3c289e93c043d17b9045d1bc6558e7d4fae0"
+    },
+    "bare-core.log": {
+      "bytes": 50,
+      "sha256": "fa3f5b0e19c2b20b9f099de9999c04daf46da6cacc724c6755b117647dd64cd4"
+    },
+    "minimum-venv.log": {
+      "bytes": 126,
+      "sha256": "ba5f5224971664b07f6a022187ad7ab1a0d607075c0ee3cb889619d424d08ba8"
+    },
+    "minimum-install.log": {
+      "bytes": 711,
+      "sha256": "95d8098cc6b44efb4b0d040e945dcfcb64d621e6e894b3577bca8d38e047dc64"
+    },
+    "minimum-replay.log": {
+      "bytes": 27269,
+      "sha256": "a3afb0550454bb1bb75bc26bfff3ac1a5feb045835e49ddd00ae598914ea36f6"
+    },
+    "minimum-replay-final.log": {
+      "bytes": 27269,
+      "sha256": "a3afb0550454bb1bb75bc26bfff3ac1a5feb045835e49ddd00ae598914ea36f6"
+    },
+    "minimum-sdk-tests-final.log": {
+      "bytes": 393,
+      "sha256": "1dae510004aa3b659a44499d667f89b2705aa98745163e1b52dc3632ba15dacd"
+    },
+    "current-venv.log": {
+      "bytes": 126,
+      "sha256": "8124f01b39e97c601e7d4ce5df677d36b2e65049977f0c5caa6366f84057ea61"
+    },
+    "current-install.log": {
+      "bytes": 767,
+      "sha256": "603de1e3a09b4cb2beee87fc682b9dd941496a330cab431cbb1a779d59e04cf5"
+    },
+    "current-replay-final.log": {
+      "bytes": 27269,
+      "sha256": "015e626da6ad87e464966c91f8b4f528deac0fcfb84c5d101d38dbfe7f9eaef2"
+    },
+    "current-sdk-tests-final.log": {
+      "bytes": 99,
+      "sha256": "3b66f89fbd4ea8e76e94aa78e461303a7a84ebc5dcdbf9045e17725affae58ca"
+    }
+  },
+  "terminal_screenshot": {
+    "created_and_inspected": true,
+    "bytes": 193558,
+    "sha256": "4540bafa8fbaf4a952ba9ad9c76f07fc19c72cbb74f874439fb59f65479a1e6d"
+  },
+  "sdk_transport_cases_per_environment": 36,
+  "before_requests_with_unmasked_contacts": 36,
+  "after_requests_with_unmasked_contacts": 0,
+  "baseline": "e5444d1b1ab686bdf6fb3d3eba5ea86b2d254f3b"
+}

@@ -75,3 +75,30 @@ fetch URLs, decode PDF/image content, traverse unrelated API block types, or mak
 the detectors complete. Request preparation uses the existing transactional
 masking boundary. No package release or hosted deployment is part of this source
 change.
+
+## Clean package verification
+
+The [verification receipt](results/verification.json) records a fresh implementation
+archive: locked install with all extras, lint, formatting, type checks, **640 tests**,
+wheel/sdist build, web install/typecheck/build and **16 existing browser scenarios**.
+The browser scenarios exercise real Python in Chromium and Firefox, including
+offline reuse; they do not exercise the SDK, which runs in Python environments.
+All 286 archived files remained unchanged. The one new terminal screenshot above
+was inspected; the browser run created no screenshots.
+
+| Fresh installation | Python | Anthropic | Document requests | SDK regression checks |
+|---|---|---|---|---|
+| Core wheel only | 3.12.12 | Absent | Not applicable | Core masking/restoration round trip |
+| Minimum SDK | 3.10.21 | 0.40.0 | 36, no detected contacts sent | 31 passed, 2 skipped |
+| Current SDK | 3.12.12 | 1.11.0 | 36, no detected contacts sent | 33 passed |
+
+The minimum SDK predates structured citation stream events and thinking blocks.
+An initial new citation test assumed that SDK feature; the final test explicitly
+skips it on SDKs without the type. Current-SDK citation snapshots and raw events
+are checked. This test-only compatibility change leaves every runtime source
+byte identical to the clean build. Each installation's 34 Python library files
+match that source.
+
+The tested `veil_pii-0.4.4-py3-none-any.whl` is 89,139 bytes, SHA-256
+`3ecd91335823bfe87a965522938846c34edba3a25a48fc1e2d1654766a738305`.
+The package version is unchanged; these checks do not publish the wheel.
