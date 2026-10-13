@@ -156,6 +156,8 @@ def test_citation_coordinates_and_quote_stay_in_provider_space_during_replay() -
 
 
 def test_streamed_citation_keeps_the_masked_source_quote_and_offsets() -> None:
+    if not hasattr(anthropic.types, "CitationsDelta"):
+        pytest.skip("this Anthropic SDK predates structured citation stream events")
     citation = {}
 
     def reply(body: dict) -> list:
