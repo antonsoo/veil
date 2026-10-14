@@ -258,6 +258,16 @@ sync/async calls, both streaming entrypoints, complete replies and failed
 request preparation. Streaming output restoration continues to cover text,
 refusals and modern function-tool arguments.
 
+Inline text arrays in the source checkout are visited before SDK serialization,
+including tuples and generators: Chat content parts, Responses input items,
+message/tool-output parts and reasoning summaries. Equivalent non-list arrays
+previously sent unmasked contacts. Lists and tuples are copied; a one-shot
+iterator is consumed during preparation and cannot be rewound if preparation
+fails. Vault changes still roll back before transport. Image/file references
+and encrypted reasoning remain opaque.
+[Captured array-shape workflows](studies/iterable-text/README.md) retain the
+before/after evidence. This correction is unreleased.
+
 **How the wrappers are tested.** There is no API key in this repository and
 no live call. `tests/test_sdk_anthropic.py` and `tests/test_sdk_openai.py`
 run the real SDKs (sync and async clients) over a mocked HTTP transport that

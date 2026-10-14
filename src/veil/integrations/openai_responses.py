@@ -4,7 +4,7 @@
 
 Built against the shapes in the ``openai`` Python SDK's ``openai.types.responses``:
 
-**What gets masked:** ``instructions``, and in ``input`` (a string or a list of
+**What gets masked:** ``instructions``, and in ``input`` (a string or an iterable of
 items) every message's text (a string, or ``input_text`` / ``output_text``
 parts), ``function_call`` arguments (a JSON *string*, as in Chat Completions),
 ``function_call_output`` output, and the input and output of custom tool calls.
@@ -37,7 +37,7 @@ so the same vault) has to serve every turn of a conversation.
 
 from __future__ import annotations
 
-from collections.abc import AsyncIterator, Iterator
+from collections.abc import AsyncIterator, Iterable, Iterator, Mapping
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -50,7 +50,7 @@ from veil.restore import Restorer
 _TEXT_PARTS = ("input_text", "output_text", "text")
 
 
-def _mask_parts(parts: list[Any], masker: Masker) -> list[Any]:
+def _mask_parts(parts: Iterable[Any], masker: Masker) -> list[Any]:
     out = []
     for part in parts:
         part_type = get_field(part, "type")
@@ -67,7 +67,7 @@ def _mask_parts(parts: list[Any], masker: Masker) -> list[Any]:
 def _mask_text_or_parts(value: Any, masker: Masker) -> Any:
     if isinstance(value, str):
         return masker.mask(value)
-    if isinstance(value, list):
+    if isinstance(value, Iterable) and not isinstance(value, bytes | bytearray | Mapping):
         return _mask_parts(value, masker)
     return value
 
@@ -93,12 +93,14 @@ def _mask_item(item: Any, masker: Masker) -> Any:
         # restart, say) may hold real values. Only the summary text changes; the
         # encrypted content is never touched.
         summary = get_field(item, "summary")
-        if isinstance(summary, list) and summary:
+        if isinstance(summary, Iterable) and not isinstance(
+            summary, str | bytes | bytearray | Mapping
+        ):
             return model_copy_with(item, summary=_map_text(summary, masker.mask))
     return item
 
 
-def _map_text(entries: list[Any], fn: Any) -> list[Any]:
+def _map_text(entries: Iterable[Any], fn: Any) -> list[Any]:
     return [
         model_copy_with(e, text=fn(get_field(e, "text")))
         if isinstance(get_field(e, "text"), str)
@@ -108,14 +110,17 @@ def _map_text(entries: list[Any], fn: Any) -> list[Any]:
 
 
 def mask_responses_input(input: Any, masker: Masker, replay: ReplayCache | None = None) -> Any:
-    """Mask a Responses API ``input``: a string, or a list of input items.
+    """Mask a Responses API ``input``: a string, or an iterable of input items.
+
+    One-shot iterators are consumed once during preparation, before transport.
+    Preparation rollback restores vault changes, not the caller's iterator.
 
     With ``replay``, an item veil restored earlier (an ``output`` item fed back
     as history) is replaced by the exact original instead of being re-masked.
     """
     if isinstance(input, str):
         return masker.mask(input)
-    if not isinstance(input, list):
+    if not isinstance(input, Iterable) or isinstance(input, bytes | bytearray | Mapping):
         return input
     out = []
     for item in input:

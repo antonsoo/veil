@@ -45,7 +45,7 @@ byte-identical (see :class:`veil.integrations._common.ReplayCache`).
 
 from __future__ import annotations
 
-from collections.abc import AsyncIterator, Iterator
+from collections.abc import AsyncIterator, Iterable, Iterator, Mapping
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -75,9 +75,10 @@ __all__ = [
 
 
 def mask_content(content: Any, masker: Masker) -> Any:
+    """Visit SDK iterable content before serialization makes it a JSON array."""
     if isinstance(content, str):
         return masker.mask(content)
-    if isinstance(content, list):
+    if isinstance(content, Iterable) and not isinstance(content, bytes | bytearray | Mapping):
         return [_mask_content_block(b, masker) for b in content]
     return content
 

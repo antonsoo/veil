@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### OpenAI iterable inline text
+
+- Visit tuple and generator content parts before SDK serialization can expose
+  unmasked text. Cover Chat text/refusals, Responses input items, message and
+  tool-output parts, and reasoning summaries while retaining opaque references
+  and encrypted reasoning content.
+- Materialize Responses input iterators before the SDK call. Top-level
+  generators were previously rejected by the SDK; this supported lowering is
+  distinct from the reproduced privacy bypasses in other non-list arrays.
+- Keep request-wide surrogate collision checks, vault rollback on failed
+  iteration and exact retained provider-item replay. One-shot iterator
+  consumption cannot be undone. Retain actual SDK captures and reproduction
+  commands in `studies/iterable-text/`.
+
 ### Anthropic tool-input serialization
 
 - Mask strings inside tuples before the SDK serializes them as JSON arrays.
