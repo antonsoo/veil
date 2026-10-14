@@ -1,0 +1,21 @@
+...................................s.................................... [  7%]
+........................................................................ [ 15%]
+........................................................................ [ 22%]
+........................................................................ [ 30%]
+........................................................................ [ 37%]
+........................................................................ [ 45%]
+...........sss.s............s........................................... [ 53%]
+........................................................................ [ 60%]
+.........................s.............................................. [ 68%]
+........................................................................ [ 75%]
+........................................................................ [ 83%]
+........................................................................ [ 91%]
+........................................................................ [ 98%]
+.............                                                            [100%]
+=========================== short test summary info ============================
+SKIPPED [1] veil-email-clean/tests/test_backends_spacy.py:14: install the spacy extra to test the real backend
+SKIPPED [1] veil-email-clean/tests/test_anthropic_documents.py:160: this Anthropic SDK predates structured citation stream events
+SKIPPED [4] veil-email-clean/tests/test_integration_history.py:77: this anthropic SDK's Message model predates thinking blocks
+SKIPPED [1] veil-email-clean/tests/test_integration_openai_responses.py:145: this openai SDK's Response model predates the reasoning item's summary
+SKIPPED [1] veil-email-clean/tests/test_sdk_anthropic.py:186: this anthropic SDK predates thinking blocks
+942 passed, 8 skipped in 12.20s

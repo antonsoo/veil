@@ -14,6 +14,12 @@ Anthropic Messages, sync and async, complete and character-at-a-time streamed
 replies. CLI masking, persisted vault reload, exact restoration and four
 additional streaming chunk sizes are checked for each fixture.
 
+The separate [tool-argument capture](tool-arguments.py) checks seven difficult
+addresses in all three APIs. At baseline none of the 21 tool inputs is fully
+masked; both installed wheels mask all 21. Anthropic dictionary inputs restore
+exactly, and Chat/Responses JSON strings keep original whitespace, escapes,
+duplicate keys and the arbitrary-precision integer spelling.
+
 | Fixture outcomes | Baseline | Corrected source |
 | --- | ---: | ---: |
 | Complete masks of supported mailbox fixtures | 3 / 19 | 19 / 19 |
@@ -68,6 +74,11 @@ international letters in three local parts and three Unicode domains. Twelve
 tags still do not receive a full email mask; these include multi-address tag
 values, spaces, invisible characters and malformed entries. An `@` in a tag
 does not establish that its contents are a valid address.
+
+The [installed core-only detector-pool check](results/installed-core-contact-pool.json)
+also runs `Masker.find_entities` with all default detectors on these same tags.
+Its coverage agrees with the standalone email detector: these extra identities
+remain fully masked after overlap resolution in the actual product pipeline.
 
 The 2,616,034-word technical corpus was also rechecked. Manual review of every
 changed detection found 27 newly covered quoted mailbox occurrences and seven
@@ -126,3 +137,44 @@ in Chromium and Firefox at 375px and 1280px. No model is called.
 
 This is a local source correction. It has no corresponding registry release
 or verified hosted deployment.
+
+## Installed artifact verification
+
+Code commit `06ca417` was exported into a fresh directory. Python 3.14.7 passed
+lint, format, type checks and 952 tests, with the optional spaCy backend installed
+and no skips. `uv build` built the wheel from its source distribution. The
+[verification receipt](results/verification.json) records artifact hashes,
+all runtime file hashes, checks and the retained command output in
+[`results/logs/`](results/logs/). Temporary/user-home paths in logs are replaced
+with placeholders; other output is unchanged.
+
+| Separate wheel installation | Actual SDK capture | Additional checks |
+| --- | --- | --- |
+| Python 3.14.7, OpenAI 3.31.0, Anthropic 1.14.0 | [288 text/stream requests](results/installed-current.json), [21 tool requests](results/tool-installed-current.json) | 217 mailbox/SDK/JSON/collision regressions passed |
+| Python 3.10.21, OpenAI 1.66.0, Anthropic 0.40.0 | [288 text/stream requests](results/installed-floor.json), [21 tool requests](results/tool-installed-floor.json) | 942 passed; 8 explicit optional-backend/older-SDK shape skips |
+| Python 3.12.12, core wheel only | No SDK dependency installed | All 24 core cases, character streaming and the actual `veil mask`/`veil restore` console pair passed |
+
+Source, current SDKs and the explicitly pinned SDK floors produce identical
+captured cases and request bodies. All 35 runtime files match working source,
+clean archive, sdist, wheel and each of the three installations. The browser
+manifest matches all 34 Python files; actual received assets match the served
+clean build. Run [the artifact verifier](verify-artifacts.py) with `--help` for
+its required existing-artifact paths; it makes no install or network request.
+The package metadata remains `0.4.4`: these are local builds of the corrected
+source, not a claim that PyPI's existing release contains this change.
+
+The clean browser build passed all 16 existing demo scenarios plus the four
+new offline mailbox workflows in the [browser receipt](results/browser/receipt.json).
+The downloaded text and vault are retained alongside that receipt. All four
+screenshots were inspected: the page stays within the viewport at 375px and
+desktop sizes, and long mailbox values wrap inside the vault. The short native
+textarea can scroll to display the rest of the input.
+
+![Complete identities in the actual local Python demo, with synthetic originals deliberately revealed](../../docs/assets/email-mailboxes-1280.png)
+
+![The same local masking and vault workflow at 375px](../../docs/assets/email-mailboxes-375.png)
+
+The build command remains `cd web && npm ci && npm run build`, producing
+`web/dist/`. Suggested repository description (unchanged scope):
+"Reversible PII masking for LLM calls, with exact streaming restoration and inspectable privacy boundaries."
+Topics: `pii`, `privacy`, `llm`, `pseudonymization`, `redaction`, `streaming`, `python`.

@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "type": "EMAIL",
+      "original": "first!last@example.org",
+      "surrogate": "⟨EMAIL_1⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "private/account@example.org",
+      "surrogate": "⟨EMAIL_2⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "customer=private@example.org",
+      "surrogate": "⟨EMAIL_3⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "!private@example.org",
+      "surrogate": "⟨EMAIL_4⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "private!@example.org",
+      "surrogate": "⟨EMAIL_5⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "\"private name\"@example.org",
+      "surrogate": "⟨EMAIL_6⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "\"private@name\"@example.org",
+      "surrogate": "⟨EMAIL_7⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "\"private@example.net\"@example.org",
+      "surrogate": "⟨EMAIL_8⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "\"contact private@example.net today\"@example.org",
+      "surrogate": "⟨EMAIL_9⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "\"private\\\"name\"@example.org",
+      "surrogate": "⟨EMAIL_10⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "señora@example.org",
+      "surrogate": "⟨EMAIL_11⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "señora@example.org",
+      "surrogate": "⟨EMAIL_12⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "private@bücher.example",
+      "surrogate": "⟨EMAIL_13⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "private@example.みんな",
+      "surrogate": "⟨EMAIL_14⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "private@example.xn--q9jyb4c",
+      "surrogate": "⟨EMAIL_15⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "private@example.abcdefghijklmnopqrstuvwxy",
+      "surrogate": "⟨EMAIL_16⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "ordinary@example.org",
+      "surrogate": "⟨EMAIL_17⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "o'brien@example.org",
+      "surrogate": "⟨EMAIL_18⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "private+billing@mail.example.org",
+      "surrogate": "⟨EMAIL_19⟩",
+      "detector": "email"
+    }
+  ]
+}

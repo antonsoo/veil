@@ -1,0 +1,22 @@
+{
+  "environment": "Installed core-only wheel; actual Masker.find_entities including all default detectors",
+  "manifests": [
+    {
+      "manifest": "manifest-osm.json",
+      "coverage": {
+        "found": 5014,
+        "missed": 2,
+        "partly": 3
+      }
+    },
+    {
+      "manifest": "manifest-osm-heldout.json",
+      "coverage": {
+        "found": 5554,
+        "missed": 6,
+        "partly": 1
+      }
+    }
+  ],
+  "emailSourceSha256": "72581de8de3a9bc7ed6027563e0d9987b314193d059deeadaf1b3e57b21e0e7d"
+}

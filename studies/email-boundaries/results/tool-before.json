@@ -1,0 +1,495 @@
+{
+  "versions": {
+    "veil-pii": "0.4.4",
+    "openai": "3.23.0",
+    "anthropic": "1.11.0"
+  },
+  "emailSourceSha256": "226c1d9f6dba002e313aef9659eadd107d06f22a7a72549b9b9b07b3a5bb2e62",
+  "workflows": [
+    {
+      "id": "bang-interior",
+      "api": "chat",
+      "request": {
+        "messages": [
+          {
+            "role": "assistant",
+            "content": null,
+            "tool_calls": [
+              {
+                "id": "call_1",
+                "type": "function",
+                "function": {
+                  "name": "contact",
+                  "arguments": "{\n \"to\": \"first!⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "bang-interior",
+      "api": "responses",
+      "request": {
+        "input": [
+          {
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "contact",
+            "arguments": "{\n \"to\": \"first!⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "bang-interior",
+      "api": "anthropic",
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "toolu_1",
+                "name": "contact",
+                "input": {
+                  "to": "first!⟨EMAIL_1⟩",
+                  "n": 9007199254740993,
+                  "x": 2
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "slash-interior",
+      "api": "chat",
+      "request": {
+        "messages": [
+          {
+            "role": "assistant",
+            "content": null,
+            "tool_calls": [
+              {
+                "id": "call_1",
+                "type": "function",
+                "function": {
+                  "name": "contact",
+                  "arguments": "{\n \"to\": \"private/⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "slash-interior",
+      "api": "responses",
+      "request": {
+        "input": [
+          {
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "contact",
+            "arguments": "{\n \"to\": \"private/⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "slash-interior",
+      "api": "anthropic",
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "toolu_1",
+                "name": "contact",
+                "input": {
+                  "to": "private/⟨EMAIL_1⟩",
+                  "n": 9007199254740993,
+                  "x": 2
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "quoted-space",
+      "api": "chat",
+      "request": {
+        "messages": [
+          {
+            "role": "assistant",
+            "content": null,
+            "tool_calls": [
+              {
+                "id": "call_1",
+                "type": "function",
+                "function": {
+                  "name": "contact",
+                  "arguments": "{\n \"to\": \"\\\"private name\\\"@example.org\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "quoted-space",
+      "api": "responses",
+      "request": {
+        "input": [
+          {
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "contact",
+            "arguments": "{\n \"to\": \"\\\"private name\\\"@example.org\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "quoted-space",
+      "api": "anthropic",
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "toolu_1",
+                "name": "contact",
+                "input": {
+                  "to": "\"private name\"@example.org",
+                  "n": 9007199254740993,
+                  "x": 2
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "quoted-mailbox-inside",
+      "api": "chat",
+      "request": {
+        "messages": [
+          {
+            "role": "assistant",
+            "content": null,
+            "tool_calls": [
+              {
+                "id": "call_1",
+                "type": "function",
+                "function": {
+                  "name": "contact",
+                  "arguments": "{\n \"to\": \"\\\"⟨EMAIL_1⟩\\\"@example.org\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "quoted-mailbox-inside",
+      "api": "responses",
+      "request": {
+        "input": [
+          {
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "contact",
+            "arguments": "{\n \"to\": \"\\\"⟨EMAIL_1⟩\\\"@example.org\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "quoted-mailbox-inside",
+      "api": "anthropic",
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "toolu_1",
+                "name": "contact",
+                "input": {
+                  "to": "\"⟨EMAIL_1⟩\"@example.org",
+                  "n": 9007199254740993,
+                  "x": 2
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "quoted-escape",
+      "api": "chat",
+      "request": {
+        "messages": [
+          {
+            "role": "assistant",
+            "content": null,
+            "tool_calls": [
+              {
+                "id": "call_1",
+                "type": "function",
+                "function": {
+                  "name": "contact",
+                  "arguments": "{\n \"to\": \"\\\"private\\\\\\\"name\\\"@example.org\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "quoted-escape",
+      "api": "responses",
+      "request": {
+        "input": [
+          {
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "contact",
+            "arguments": "{\n \"to\": \"\\\"private\\\\\\\"name\\\"@example.org\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "quoted-escape",
+      "api": "anthropic",
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "toolu_1",
+                "name": "contact",
+                "input": {
+                  "to": "\"private\\\"name\"@example.org",
+                  "n": 9007199254740993,
+                  "x": 2
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "unicode-local",
+      "api": "chat",
+      "request": {
+        "messages": [
+          {
+            "role": "assistant",
+            "content": null,
+            "tool_calls": [
+              {
+                "id": "call_1",
+                "type": "function",
+                "function": {
+                  "name": "contact",
+                  "arguments": "{\n \"to\": \"señora@example.org\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "unicode-local",
+      "api": "responses",
+      "request": {
+        "input": [
+          {
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "contact",
+            "arguments": "{\n \"to\": \"señora@example.org\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "unicode-local",
+      "api": "anthropic",
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "toolu_1",
+                "name": "contact",
+                "input": {
+                  "to": "señora@example.org",
+                  "n": 9007199254740993,
+                  "x": 2
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "unicode-domain",
+      "api": "chat",
+      "request": {
+        "messages": [
+          {
+            "role": "assistant",
+            "content": null,
+            "tool_calls": [
+              {
+                "id": "call_1",
+                "type": "function",
+                "function": {
+                  "name": "contact",
+                  "arguments": "{\n \"to\": \"private@bücher.example\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "unicode-domain",
+      "api": "responses",
+      "request": {
+        "input": [
+          {
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "contact",
+            "arguments": "{\n \"to\": \"private@bücher.example\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    },
+    {
+      "id": "unicode-domain",
+      "api": "anthropic",
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "toolu_1",
+                "name": "contact",
+                "input": {
+                  "to": "private@bücher.example",
+                  "n": 9007199254740993,
+                  "x": 2
+                }
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "completeMask": false,
+      "exactRestore": true
+    }
+  ],
+  "completeMasks": 0,
+  "transport": "Actual SDKs over mocked HTTP; synthetic inputs and replies, no provider contact."
+}

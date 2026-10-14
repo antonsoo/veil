@@ -1,0 +1,8 @@
+Using CPython 3.12.12
+Creating virtual environment at: veil-email-installed-core
+Activate with: source veil-email-installed-core/bin/activate
+Using Python 3.12.12 environment at: veil-email-installed-core
+Resolved 1 package in 4ms
+Prepared 1 package in 11ms
+Installed 1 package in 4ms
+ + veil-pii==0.4.4 (from file://<scratch>/veil-email-artifacts/veil_pii-0.4.4-py3-none-any.whl)
