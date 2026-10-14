@@ -1,0 +1,277 @@
+{
+  "code_commit": "b60ee9dd8a8947b37d7ca8a00546cdb38ebeb2d1",
+  "baseline_commit": "a67a5b674609586244bee0fb341fe3bbf3876861",
+  "clean_checks": {
+    "commands": [
+      "uv sync --locked --group dev --extra spacy --python 3.12",
+      "uv run --no-sync ruff check .",
+      "uv run --no-sync ruff format --check .",
+      "uv run --no-sync mypy",
+      "uv run --no-sync pytest -q",
+      "uv build"
+    ],
+    "passed_tests": 701,
+    "skipped_tests": 0,
+    "mypy_files": 33
+  },
+  "installed_checks": {
+    "current": {
+      "python": "3.14.7",
+      "anthropic": "1.11.0",
+      "pydantic": "2.14.1",
+      "sdk_workflows": 44,
+      "regressions_passed": 35
+    },
+    "floor": {
+      "python": "3.10.21",
+      "anthropic": "0.40.0",
+      "pydantic": "2.14.1",
+      "sdk_workflows": 44,
+      "regressions_passed": 35
+    },
+    "core": {
+      "python": "3.12.12",
+      "optional_sdks": "absent",
+      "documented_mask_restore_example": "passed"
+    },
+    "source_files_matched_in_wheel_sdist_three_installations_and_browser_manifest": 34
+  },
+  "unchanged_supported_wire_controls": [
+    {
+      "kind": "plain-json",
+      "method": "create",
+      "async": false
+    },
+    {
+      "kind": "plain-json",
+      "method": "raw-stream",
+      "async": false
+    },
+    {
+      "kind": "plain-json",
+      "method": "helper-stream",
+      "async": false
+    },
+    {
+      "kind": "plain-json",
+      "method": "create",
+      "async": true
+    },
+    {
+      "kind": "plain-json",
+      "method": "raw-stream",
+      "async": true
+    },
+    {
+      "kind": "plain-json",
+      "method": "helper-stream",
+      "async": true
+    },
+    {
+      "kind": "serialized-model",
+      "method": "create",
+      "async": false
+    },
+    {
+      "kind": "serialized-model",
+      "method": "raw-stream",
+      "async": false
+    },
+    {
+      "kind": "serialized-model",
+      "method": "helper-stream",
+      "async": false
+    },
+    {
+      "kind": "serialized-model",
+      "method": "create",
+      "async": true
+    },
+    {
+      "kind": "serialized-model",
+      "method": "raw-stream",
+      "async": true
+    },
+    {
+      "kind": "serialized-model",
+      "method": "helper-stream",
+      "async": true
+    },
+    {
+      "kind": "provider-replay",
+      "method": "create",
+      "async": false
+    },
+    {
+      "kind": "provider-replay",
+      "method": "create",
+      "async": true
+    }
+  ],
+  "web_checks": {
+    "commands": [
+      "npm ci",
+      "npm run lint",
+      "npm run build",
+      "npm run test:browser"
+    ],
+    "browser_scenarios": 16,
+    "engines": [
+      "Chromium",
+      "Firefox"
+    ],
+    "offline_reuse": true,
+    "output": "web/dist/",
+    "manifest_files_match_clean_source": 34,
+    "manifest_sha256": "a1ef52dea9fdee9068d3665354bc4a1f0ab3da5acbaa45293c290bd2f236c448"
+  },
+  "artifacts": {
+    "veil_pii-0.4.4-py3-none-any.whl": {
+      "bytes": 91029,
+      "sha256": "29f36e78bf4040616eda0b68e752fca80f810bd838c3e31f7e5f87c4aba3d3fc"
+    },
+    "veil_pii-0.4.4.tar.gz": {
+      "bytes": 100338,
+      "sha256": "252cc813cb9c140391660619ddcc14c594ed632172dd8c58868a607650129e1f"
+    }
+  },
+  "source_files": {
+    "veil/__init__.py": {
+      "bytes": 1485,
+      "sha256": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980"
+    },
+    "veil/_files.py": {
+      "bytes": 948,
+      "sha256": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29"
+    },
+    "veil/_spans.py": {
+      "bytes": 1638,
+      "sha256": "e8e2f09a3f7b92535ffaacda6c3c820793465c9c00f16faec50c807147e1e62f"
+    },
+    "veil/audit.py": {
+      "bytes": 4486,
+      "sha256": "038bb18f7bc0e81d7cd2f5f2381b01a5fe16c331a84bff081b0f515e35dc8073"
+    },
+    "veil/backends/__init__.py": {
+      "bytes": 791,
+      "sha256": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b"
+    },
+    "veil/backends/base.py": {
+      "bytes": 737,
+      "sha256": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e"
+    },
+    "veil/backends/known_entities.py": {
+      "bytes": 2440,
+      "sha256": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55"
+    },
+    "veil/backends/spacy_backend.py": {
+      "bytes": 2608,
+      "sha256": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b"
+    },
+    "veil/cli.py": {
+      "bytes": 9091,
+      "sha256": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1"
+    },
+    "veil/detectors/__init__.py": {
+      "bytes": 1842,
+      "sha256": "4e6e202fe17c7c8d0bd6afea3f1611411eb6fbb5c4acfa3f9eb17eb9184107e6"
+    },
+    "veil/detectors/_calling_codes.py": {
+      "bytes": 5352,
+      "sha256": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c"
+    },
+    "veil/detectors/_words.py": {
+      "bytes": 4037,
+      "sha256": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887"
+    },
+    "veil/detectors/address.py": {
+      "bytes": 2109,
+      "sha256": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec"
+    },
+    "veil/detectors/base.py": {
+      "bytes": 768,
+      "sha256": "ac0e63d0d37d4626f9717a1ccafe4a093ecea9a0e1ef897afa200cfc85fb3ef2"
+    },
+    "veil/detectors/card.py": {
+      "bytes": 4910,
+      "sha256": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f"
+    },
+    "veil/detectors/dob.py": {
+      "bytes": 2166,
+      "sha256": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f"
+    },
+    "veil/detectors/email.py": {
+      "bytes": 1454,
+      "sha256": "226c1d9f6dba002e313aef9659eadd107d06f22a7a72549b9b9b07b3a5bb2e62"
+    },
+    "veil/detectors/iban.py": {
+      "bytes": 2865,
+      "sha256": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c"
+    },
+    "veil/detectors/ip.py": {
+      "bytes": 5935,
+      "sha256": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b"
+    },
+    "veil/detectors/phone.py": {
+      "bytes": 8040,
+      "sha256": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd"
+    },
+    "veil/detectors/secrets.py": {
+      "bytes": 7587,
+      "sha256": "1b26844666c717b64ad5ec18c9afd4ae5f0016ae6850c08c7b3458ec9cd9b7b2"
+    },
+    "veil/detectors/ssn.py": {
+      "bytes": 2457,
+      "sha256": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b"
+    },
+    "veil/detectors/url.py": {
+      "bytes": 5148,
+      "sha256": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099"
+    },
+    "veil/integrations/__init__.py": {
+      "bytes": 312,
+      "sha256": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881"
+    },
+    "veil/integrations/_common.py": {
+      "bytes": 10757,
+      "sha256": "ded423d9741b9443adc658959487911a11e43cfe9393aa7c548651a3d99e71e7"
+    },
+    "veil/integrations/_json_arguments.py": {
+      "bytes": 3631,
+      "sha256": "8189f42f3dcdb74cb4c74346732ba03116ee8e79e1468858f92086fdcb7c8188"
+    },
+    "veil/integrations/anthropic.py": {
+      "bytes": 24731,
+      "sha256": "1e50d8f710c006c9d06c9df5e2888cd71947934f80ebb6f1a7bacce171586255"
+    },
+    "veil/integrations/openai.py": {
+      "bytes": 22752,
+      "sha256": "c7b35c8dcf30d921b644329be4511d1481f7b015cff9e9e7612f37951a6ee958"
+    },
+    "veil/integrations/openai_responses.py": {
+      "bytes": 13835,
+      "sha256": "a91f68d5badab07c75e63b52859d65a1478c32d3c178cb8c549c85538d3492de"
+    },
+    "veil/masker.py": {
+      "bytes": 7348,
+      "sha256": "d1ab3df9739183e7023bb38358f57475c2f605f52da710767431c8fd9d2e15b6"
+    },
+    "veil/restore.py": {
+      "bytes": 14860,
+      "sha256": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38"
+    },
+    "veil/surrogates.py": {
+      "bytes": 6870,
+      "sha256": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0"
+    },
+    "veil/types.py": {
+      "bytes": 2126,
+      "sha256": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8"
+    },
+    "veil/vault.py": {
+      "bytes": 12250,
+      "sha256": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+    }
+  },
+  "publication": "Verified local artifacts; authorized source push recorded separately. No PyPI release, tag or hosted deployment."
+}

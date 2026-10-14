@@ -1,0 +1,2 @@
+npm notice run veil-demo@0.1.0 lint
+npm notice run tsc --noEmit

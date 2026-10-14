@@ -1,0 +1,7 @@
+Synthetic contacts; actual SDK serialization over mocked HTTP.
+Tuple: {"contacts": ["⟨EMAIL_1⟩"]}
+Sensitive key: Tool input contains a sensitive JSON key; use a non-sensitive field name
+  HTTP calls: 0; vault entries: 0
+Custom object: Tool input contains a value outside plain JSON types; serialize custom objects to plain JSON before masking
+  HTTP calls: 0; vault entries: 0
+Explicit plain JSON: {"contact": {"email": "⟨EMAIL_1⟩"}}

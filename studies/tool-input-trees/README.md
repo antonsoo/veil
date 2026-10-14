@@ -63,6 +63,29 @@ rollback, error messages that do not repeat the contacts, and edits to real
 returned SDK tool-use objects. Those edits cannot revive provider-history
 replay after their keys change.
 
+## Installed artifact verification
+
+The [verification receipt](results/verification.json) identifies source commit
+`b60ee9d`, the wheel and source-archive hashes, and the retained clean-check logs.
+A fresh archive passed lint, format, type checks, 701 Python tests with spaCy
+included and no skips, package/web builds and all 16 existing Chromium/Firefox
+demo scenarios, including offline reuse. All 34 runtime files match that source,
+the wheel, source archive, three installations and browser manifest.
+
+| Installed environment | SDK replay | Additional regressions |
+| --- | --- | --- |
+| Python 3.14.7 / Anthropic 1.11.0 | [44 workflows; zero disagreements or fresh raw-value cases](results/installed-current.json) | 35 passed |
+| Python 3.10.21 / Anthropic 0.40.0 | [44 workflows; zero disagreements or fresh raw-value cases](results/installed-floor.json) | 35 passed |
+| Python 3.12.12 / core wheel only | Documented mask/restore example passed; optional SDKs absent | Not an SDK run |
+
+The 14 ordinary JSON, explicitly serialized-model and provider-history controls
+have exactly the same captured request bodies before and after the repair.
+The [terminal capture](../../docs/assets/tool-input-trees.ansi) comes from
+`python studies/tool-input-trees/demo.py` run against the installed current wheel,
+with the actual SDK serializing synthetic tool inputs over mocked transport.
+
+![Installed tool preparation: masked tuple, rejected sensitive key and custom object, supported explicit JSON](../../docs/assets/tool-input-trees.png)
+
 ## Boundaries
 
 Key detection uses the configured detectors and name backends; it is not
