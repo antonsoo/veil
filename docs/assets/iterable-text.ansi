@@ -1,0 +1,10 @@
+OpenAI SDK 3.23.0; synthetic contacts over mocked HTTP.
+Input                             HTTP calls   Raw contact  Vault entries
+chat-text / tuple                          1         False              1
+chat-text / generator                      1         False              1
+chat-refusal / tuple                       1         False              1
+response-content / generator               1         False              1
+response-summary / tuple                   1         False              1
+response-input / tuple                     1         False              1
+Generator literal collision: VaultError; HTTP calls 0; vault entries 0.
+One-shot iterators are consumed during preparation, including failures.

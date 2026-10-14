@@ -60,6 +60,28 @@ and exact replay of real returned SDK items inside tuple/generator histories,
 including the provider's lowercase surrogate spelling. All transports are
 mocked. There are no live inference, token-usage or production-privacy claims.
 
+## Installed artifact verification
+
+The [verification receipt](results/verification.json) identifies code commit
+`1906438`, artifact hashes, all matched runtime files and retained check logs.
+A fresh archived checkout passed lint, format, type checks, 837 Python tests
+with spaCy included and no skips, package/web builds and all 16 existing
+Chromium/Firefox demo scenarios, including offline reuse.
+
+| Installed environment | Captured transport workflows | Additional regressions |
+| --- | --- | --- |
+| Python 3.14.7 / OpenAI 3.23.0 | [126; zero disagreements or raw-contact cases](results/installed-current.json) | 136 passed |
+| Python 3.10.21 / OpenAI 1.66.0 | [126; zero disagreements or raw-contact cases](results/installed-floor.json) | 136 passed |
+| Python 3.12.12 / core wheel only | Documented mask/restore example passed; optional SDKs absent | Not an SDK run |
+
+All 34 runtime files match the tested source, wheel, source archive, three
+installations and browser manifest. All 36 ordinary list request controls have
+the same captured JSON bodies before and after this repair. The
+[terminal output](../../docs/assets/iterable-text.ansi) was captured unedited
+from `python studies/iterable-text/demo.py` against the installed current wheel.
+
+![Installed tuple and generator inputs masked before actual SDK transport, with a rejected collision](../../docs/assets/iterable-text.png)
+
 This source correction has no corresponding registry release or verified hosted
 deployment. Build the local package with `uv build`; the existing browser demo
 build is `cd web && npm run build`, producing `web/dist/`.

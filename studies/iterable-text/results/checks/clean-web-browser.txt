@@ -1,0 +1,19 @@
+npm notice run veil-demo@0.1.0 test:browser
+npm notice run node scripts/check-browser.mjs
+PASS chromium 320px light
+PASS chromium 320px dark
+PASS chromium 1280px light
+PASS chromium 1280px dark
+PASS chromium 375px literal surrogate
+PASS chromium 1280px literal surrogate
+PASS chromium recovery and limits
+PASS chromium load failure and cancellation
+PASS firefox 320px light
+PASS firefox 320px dark
+PASS firefox 1280px light
+PASS firefox 1280px dark
+PASS firefox 375px literal surrogate
+PASS firefox 1280px literal surrogate
+PASS firefox recovery and limits
+PASS firefox load failure and cancellation
+16 browser scenarios passed.

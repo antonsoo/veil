@@ -1,0 +1,12 @@
+{
+  "python": "3.10.21",
+  "openai": "1.66.0",
+  "runtimeSourceSha256": {
+    "openai.py": "830b8cf890680ea4edae8489d55402a9163a0effa210350037434a61a0ccb9d3",
+    "openai_responses.py": "3650dfc325747ecce45a847de3efb36a6087f28ffd63b0317dee302ee1ce092e"
+  },
+  "population": "Synthetic contacts and controlled replies over real SDK/mock HTTP. No live API acceptance or inference. Responses top-level generators were rejected by the baseline SDK and are a newly materialized input, not a baseline privacy leak.",
+  "count": 126,
+  "disagreements": 0,
+  "requestsWithRawContact": 0
+}

@@ -1,0 +1,8 @@
+Using CPython 3.12.12
+Creating virtual environment at: core
+Activate with: source core/bin/activate
+Using Python 3.12.12 environment at: core
+Resolved 1 package in 5ms
+Prepared 1 package in 11ms
+Installed 1 package in 4ms
+ + veil-pii==0.4.4 (from file://<verification-workdir>/clean/dist/veil_pii-0.4.4-py3-none-any.whl)

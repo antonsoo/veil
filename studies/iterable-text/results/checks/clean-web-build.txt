@@ -1,0 +1,37 @@
+npm notice run veil-demo@0.1.0 prebuild
+npm notice run node scripts/copy-veil-src.mjs
+wrote 34 files to <verification-workdir>/clean/web/public/veil-src.json
+npm notice run veil-demo@0.1.0 build
+npm notice run tsc --noEmit && vite build
+vite v6.4.3 building for production...
+transforming...
+✓ 6 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                             2.10 kB │ gzip: 0.80 kB
+dist/assets/python.worker-BbGwCqMj.js                       2.25 kB
+dist/assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2     5.87 kB
+dist/assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2     6.04 kB
+dist/assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2   6.91 kB
+dist/assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2   6.97 kB
+dist/assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2       8.36 kB
+dist/assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2       8.46 kB
+dist/assets/fraunces-italic-vietnamese-B7PmIdA3.woff2      12.05 kB
+dist/assets/ibm-plex-sans-vietnamese-Dg1JeJN0.woff2        13.16 kB
+dist/assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2     13.35 kB
+dist/assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2     13.43 kB
+dist/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2         14.71 kB
+dist/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2         14.89 kB
+dist/assets/ibm-plex-sans-greek-CmyJS8uq.woff2             19.50 kB
+dist/assets/fraunces-vietnamese-Czevyj-6.woff2             19.70 kB
+dist/assets/ibm-plex-sans-cyrillic-ext-d45eAU9y.woff2      23.57 kB
+dist/assets/ibm-plex-sans-cyrillic-BAAhND-U.woff2          29.51 kB
+dist/assets/ibm-plex-sans-latin-ext-CIII54If.woff2         30.96 kB
+dist/assets/fraunces-italic-latin-ext-C5JMU4hr.woff2       37.62 kB
+dist/assets/fraunces-italic-latin-BEbM7Mn6.woff2           42.37 kB
+dist/assets/ibm-plex-sans-latin-IvpUvPa2.woff2             45.71 kB
+dist/assets/fraunces-latin-ext-CJcjJNj7.woff2              59.39 kB
+dist/assets/fraunces-latin-DihXLNYH.woff2                  67.30 kB
+dist/assets/index-yPXPXXYm.css                             19.96 kB │ gzip: 3.31 kB
+dist/assets/index-CpvUtn8x.js                              11.12 kB │ gzip: 4.52 kB
+✓ built in 323ms

@@ -1,0 +1,3596 @@
+{
+  "python": "3.10.21",
+  "openai": "1.66.0",
+  "runtimeSourceSha256": {
+    "openai.py": "830b8cf890680ea4edae8489d55402a9163a0effa210350037434a61a0ccb9d3",
+    "openai_responses.py": "3650dfc325747ecce45a847de3efb36a6087f28ffd63b0317dee302ee1ce092e"
+  },
+  "population": "Synthetic contacts and controlled replies over real SDK/mock HTTP. No live API acceptance or inference. Responses top-level generators were rejected by the baseline SDK and are a newly materialized input, not a baseline privacy leak.",
+  "count": 126,
+  "disagreements": 0,
+  "requestsWithRawContact": 0,
+  "cases": [
+    {
+      "kind": "chat-text",
+      "shape": "list",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "list",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "list",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "list",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "list",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "list",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "tuple",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "tuple",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "tuple",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "tuple",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "tuple",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "tuple",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "generator",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "generator",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "generator",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "generator",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "generator",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "generator",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "https://example.invalid/opaque.png"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "list",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "list",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "list",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "list",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "list",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "list",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "tuple",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "tuple",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "tuple",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "tuple",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "tuple",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "tuple",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "generator",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "generator",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "generator",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "generator",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "generator",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-refusal",
+      "shape": "generator",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "list",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "list",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "list",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "list",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "list",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "list",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "tuple",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "tuple",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "tuple",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "tuple",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "tuple",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "tuple",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "generator",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "generator",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "generator",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "generator",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "generator",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "generator",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "list",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "list",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "list",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "list",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "list",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "list",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "tuple",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "tuple",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "tuple",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "tuple",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "tuple",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "tuple",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "generator",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "generator",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "generator",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "generator",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "generator",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-tool-output",
+      "shape": "generator",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "function_call_output",
+              "call_id": "call_1",
+              "output": [
+                {
+                  "type": "input_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "list",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "list",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "list",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "list",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "list",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "list",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "tuple",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "tuple",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "tuple",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "tuple",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "tuple",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "tuple",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "generator",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "generator",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "generator",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "generator",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "generator",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-summary",
+      "shape": "generator",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "type": "reasoning",
+              "id": "rs_1",
+              "summary": [
+                {
+                  "type": "summary_text",
+                  "text": "Contact ⟨EMAIL_1⟩."
+                }
+              ],
+              "encrypted_content": "opaque-signature"
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "list",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "list",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "list",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "list",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "list",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "list",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "tuple",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "tuple",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "tuple",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "tuple",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "tuple",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "tuple",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "generator",
+      "async": false,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "generator",
+      "async": false,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "generator",
+      "async": false,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "generator",
+      "async": true,
+      "mode": "complete",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "generator",
+      "async": true,
+      "mode": "create-stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "generator",
+      "async": true,
+      "mode": "stream",
+      "collision": false,
+      "requests": [
+        {
+          "input": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "vaultEntriesAfter": 1,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "list",
+      "async": false,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "list",
+      "async": true,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "tuple",
+      "async": false,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "tuple",
+      "async": true,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "generator",
+      "async": false,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "chat-text",
+      "shape": "generator",
+      "async": true,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "list",
+      "async": false,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "list",
+      "async": true,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "tuple",
+      "async": false,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "tuple",
+      "async": true,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "generator",
+      "async": false,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-content",
+      "shape": "generator",
+      "async": true,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "list",
+      "async": false,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "list",
+      "async": true,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "tuple",
+      "async": false,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "tuple",
+      "async": true,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": false,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "generator",
+      "async": false,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    },
+    {
+      "kind": "response-input",
+      "shape": "generator",
+      "async": true,
+      "mode": "complete",
+      "collision": true,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "vaultEntriesAfter": 0,
+      "recognizedRawContactSent": false,
+      "originalBlocksUnchanged": true,
+      "oneShotIterator": true,
+      "agrees": true
+    }
+  ]
+}
