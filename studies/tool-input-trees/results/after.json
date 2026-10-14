@@ -1,0 +1,1466 @@
+{
+  "python": "3.12.12",
+  "sdk": {
+    "anthropic": "1.11.0",
+    "pydantic": "2.13.5"
+  },
+  "runtimeSourceSha256": "ded423d9741b9443adc658959487911a11e43cfe9393aa7c548651a3d99e71e7",
+  "population": "Synthetic contacts, card-shaped detector control and controlled SDK replies over mocked HTTP transport. No live provider acceptance, inference or data-protection guarantee.",
+  "count": 44,
+  "disagreements": 0,
+  "freshCallerRequestsWithRecognizedRawValues": 0,
+  "cases": [
+    {
+      "kind": "tuple",
+      "method": "create",
+      "async": false,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contacts": [
+                      "⟨EMAIL_1⟩",
+                      {
+                        "nested": [
+                          "⟨EMAIL_2⟩",
+                          1267650600228229401496703205376,
+                          true,
+                          null,
+                          1.125
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 2,
+      "agrees": true
+    },
+    {
+      "kind": "tuple",
+      "method": "raw-stream",
+      "async": false,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contacts": [
+                      "⟨EMAIL_1⟩",
+                      {
+                        "nested": [
+                          "⟨EMAIL_2⟩",
+                          1267650600228229401496703205376,
+                          true,
+                          null,
+                          1.125
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 2,
+      "agrees": true
+    },
+    {
+      "kind": "tuple",
+      "method": "helper-stream",
+      "async": false,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contacts": [
+                      "⟨EMAIL_1⟩",
+                      {
+                        "nested": [
+                          "⟨EMAIL_2⟩",
+                          1267650600228229401496703205376,
+                          true,
+                          null,
+                          1.125
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 2,
+      "agrees": true
+    },
+    {
+      "kind": "tuple",
+      "method": "create",
+      "async": true,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contacts": [
+                      "⟨EMAIL_1⟩",
+                      {
+                        "nested": [
+                          "⟨EMAIL_2⟩",
+                          1267650600228229401496703205376,
+                          true,
+                          null,
+                          1.125
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 2,
+      "agrees": true
+    },
+    {
+      "kind": "tuple",
+      "method": "raw-stream",
+      "async": true,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contacts": [
+                      "⟨EMAIL_1⟩",
+                      {
+                        "nested": [
+                          "⟨EMAIL_2⟩",
+                          1267650600228229401496703205376,
+                          true,
+                          null,
+                          1.125
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 2,
+      "agrees": true
+    },
+    {
+      "kind": "tuple",
+      "method": "helper-stream",
+      "async": true,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contacts": [
+                      "⟨EMAIL_1⟩",
+                      {
+                        "nested": [
+                          "⟨EMAIL_2⟩",
+                          1267650600228229401496703205376,
+                          true,
+                          null,
+                          1.125
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 2,
+      "agrees": true
+    },
+    {
+      "kind": "sensitive-key",
+      "method": "create",
+      "async": false,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input contains a sensitive JSON key; use a non-sensitive field name"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "sensitive-key",
+      "method": "raw-stream",
+      "async": false,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input contains a sensitive JSON key; use a non-sensitive field name"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "sensitive-key",
+      "method": "helper-stream",
+      "async": false,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input contains a sensitive JSON key; use a non-sensitive field name"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "sensitive-key",
+      "method": "create",
+      "async": true,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input contains a sensitive JSON key; use a non-sensitive field name"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "sensitive-key",
+      "method": "raw-stream",
+      "async": true,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input contains a sensitive JSON key; use a non-sensitive field name"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "sensitive-key",
+      "method": "helper-stream",
+      "async": true,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input contains a sensitive JSON key; use a non-sensitive field name"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "numeric-key",
+      "method": "create",
+      "async": false,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input JSON objects require string keys"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "numeric-key",
+      "method": "raw-stream",
+      "async": false,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input JSON objects require string keys"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "numeric-key",
+      "method": "helper-stream",
+      "async": false,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input JSON objects require string keys"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "numeric-key",
+      "method": "create",
+      "async": true,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input JSON objects require string keys"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "numeric-key",
+      "method": "raw-stream",
+      "async": true,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input JSON objects require string keys"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "numeric-key",
+      "method": "helper-stream",
+      "async": true,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input JSON objects require string keys"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "opaque-model",
+      "method": "create",
+      "async": false,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input contains a value outside plain JSON types; serialize custom objects to plain JSON before masking"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "opaque-model",
+      "method": "raw-stream",
+      "async": false,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input contains a value outside plain JSON types; serialize custom objects to plain JSON before masking"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "opaque-model",
+      "method": "helper-stream",
+      "async": false,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input contains a value outside plain JSON types; serialize custom objects to plain JSON before masking"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "opaque-model",
+      "method": "create",
+      "async": true,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input contains a value outside plain JSON types; serialize custom objects to plain JSON before masking"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "opaque-model",
+      "method": "raw-stream",
+      "async": true,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input contains a value outside plain JSON types; serialize custom objects to plain JSON before masking"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "opaque-model",
+      "method": "helper-stream",
+      "async": true,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "Tool input contains a value outside plain JSON types; serialize custom objects to plain JSON before masking"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "tuple-collision",
+      "method": "create",
+      "async": false,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "tuple-collision",
+      "method": "raw-stream",
+      "async": false,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "tuple-collision",
+      "method": "helper-stream",
+      "async": false,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "tuple-collision",
+      "method": "create",
+      "async": true,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "tuple-collision",
+      "method": "raw-stream",
+      "async": true,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "tuple-collision",
+      "method": "helper-stream",
+      "async": true,
+      "expected": "reject",
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "requests": [],
+      "transportCalls": 0,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 0,
+      "agrees": true
+    },
+    {
+      "kind": "plain-json",
+      "method": "create",
+      "async": false,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contact": "⟨EMAIL_1⟩",
+                    "nested": [
+                      "⟨EMAIL_2⟩",
+                      1267650600228229401496703205376,
+                      false,
+                      null,
+                      1.125
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 2,
+      "agrees": true
+    },
+    {
+      "kind": "plain-json",
+      "method": "raw-stream",
+      "async": false,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contact": "⟨EMAIL_1⟩",
+                    "nested": [
+                      "⟨EMAIL_2⟩",
+                      1267650600228229401496703205376,
+                      false,
+                      null,
+                      1.125
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 2,
+      "agrees": true
+    },
+    {
+      "kind": "plain-json",
+      "method": "helper-stream",
+      "async": false,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contact": "⟨EMAIL_1⟩",
+                    "nested": [
+                      "⟨EMAIL_2⟩",
+                      1267650600228229401496703205376,
+                      false,
+                      null,
+                      1.125
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 2,
+      "agrees": true
+    },
+    {
+      "kind": "plain-json",
+      "method": "create",
+      "async": true,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contact": "⟨EMAIL_1⟩",
+                    "nested": [
+                      "⟨EMAIL_2⟩",
+                      1267650600228229401496703205376,
+                      false,
+                      null,
+                      1.125
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 2,
+      "agrees": true
+    },
+    {
+      "kind": "plain-json",
+      "method": "raw-stream",
+      "async": true,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contact": "⟨EMAIL_1⟩",
+                    "nested": [
+                      "⟨EMAIL_2⟩",
+                      1267650600228229401496703205376,
+                      false,
+                      null,
+                      1.125
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 2,
+      "agrees": true
+    },
+    {
+      "kind": "plain-json",
+      "method": "helper-stream",
+      "async": true,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contact": "⟨EMAIL_1⟩",
+                    "nested": [
+                      "⟨EMAIL_2⟩",
+                      1267650600228229401496703205376,
+                      false,
+                      null,
+                      1.125
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 2,
+      "agrees": true
+    },
+    {
+      "kind": "serialized-model",
+      "method": "create",
+      "async": false,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contact": {
+                      "email": "⟨EMAIL_1⟩"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 1,
+      "agrees": true
+    },
+    {
+      "kind": "serialized-model",
+      "method": "raw-stream",
+      "async": false,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contact": {
+                      "email": "⟨EMAIL_1⟩"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 1,
+      "agrees": true
+    },
+    {
+      "kind": "serialized-model",
+      "method": "helper-stream",
+      "async": false,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contact": {
+                      "email": "⟨EMAIL_1⟩"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 1,
+      "agrees": true
+    },
+    {
+      "kind": "serialized-model",
+      "method": "create",
+      "async": true,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contact": {
+                      "email": "⟨EMAIL_1⟩"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 1,
+      "agrees": true
+    },
+    {
+      "kind": "serialized-model",
+      "method": "raw-stream",
+      "async": true,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contact": {
+                      "email": "⟨EMAIL_1⟩"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 1,
+      "agrees": true
+    },
+    {
+      "kind": "serialized-model",
+      "method": "helper-stream",
+      "async": true,
+      "expected": "mask",
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {
+                    "contact": {
+                      "email": "⟨EMAIL_1⟩"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": "Done."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "transportCalls": 1,
+      "recognizedRawValuesSent": [],
+      "callerInputUnchanged": true,
+      "vaultEntriesAfter": 1,
+      "agrees": true
+    },
+    {
+      "kind": "provider-replay",
+      "async": false,
+      "method": "create",
+      "expected": "exact provider-owned replay; provider's pre-existing key is not fresh caller data",
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model"
+        },
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "id": "toolu_1",
+                  "input": {
+                    "records": {
+                      "alice@example.org": "active"
+                    },
+                    "contact": "⟨email_1⟩"
+                  },
+                  "name": "lookup",
+                  "type": "tool_use"
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "agrees": true
+    },
+    {
+      "kind": "provider-replay",
+      "async": true,
+      "method": "create",
+      "expected": "exact provider-owned replay; provider's pre-existing key is not fresh caller data",
+      "requests": [
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model"
+        },
+        {
+          "max_tokens": 32,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Review contact ⟨EMAIL_1⟩."
+            },
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "id": "toolu_1",
+                  "input": {
+                    "records": {
+                      "alice@example.org": "active"
+                    },
+                    "contact": "⟨email_1⟩"
+                  },
+                  "name": "lookup",
+                  "type": "tool_use"
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "agrees": true
+    }
+  ]
+}

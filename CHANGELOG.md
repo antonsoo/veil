@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Anthropic tool-input serialization
+
+- Mask strings inside tuples before the SDK serializes them as JSON arrays.
+  Preserve ordinary JSON primitive values and caller-owned input objects.
+- Reject detected sensitive keys, non-string object keys, nonfinite numbers
+  and opaque custom values during fresh tool-input preparation. Domain models
+  must be explicitly serialized to plain JSON before masking; passing them
+  untouched allowed the SDK to expose their hidden strings later.
+- Keep tuple literals inside request-wide collision checks and roll back failed
+  preparation before transport. Retained provider-owned input still replays
+  exactly; edited keys are checked as fresh input. Real SDK/mock-transport
+  captures and installed-package evidence are in `studies/tool-input-trees/`.
+
 ### Chat Completions history text
 
 - Mask outgoing refusal fields and refusal content parts, legacy function-call

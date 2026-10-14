@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import inspect
 import json
+import math
 from collections import OrderedDict
 from copy import copy, deepcopy
 from dataclasses import dataclass
@@ -19,14 +20,36 @@ from veil.vault import VaultError
 
 
 def mask_value(value: Any, masker: Masker) -> Any:
-    """Recursively mask every string found in a JSON-shaped value."""
+    """Mask a plain JSON tree before the SDK can serialize unvisited text.
+
+    Tuples serialize as JSON arrays. Other custom objects may also serialize,
+    but their hidden text cannot safely pass through this traversal. Callers
+    must convert those objects to plain JSON first. Keys retain their meaning;
+    a detected sensitive key rejects rather than leaking or being renamed.
+    """
     if isinstance(value, str):
         return masker.mask(value)
-    if isinstance(value, list):
+    if isinstance(value, list | tuple):
         return [mask_value(v, masker) for v in value]
     if isinstance(value, dict):
-        return {k: mask_value(v, masker) for k, v in value.items()}
-    return value
+        masked: dict[str, Any] = {}
+        for key, item in value.items():
+            if not isinstance(key, str):
+                raise VaultError("Tool input JSON objects require string keys")
+            if masker.find_entities(key):
+                raise VaultError(
+                    "Tool input contains a sensitive JSON key; use a non-sensitive field name"
+                )
+            masked[key] = mask_value(item, masker)
+        return masked
+    if isinstance(value, float) and not math.isfinite(value):
+        raise VaultError("Tool input JSON numbers must be finite")
+    if value is None or isinstance(value, int | float | bool):
+        return value
+    raise VaultError(
+        "Tool input contains a value outside plain JSON types; "
+        "serialize custom objects to plain JSON before masking"
+    )
 
 
 def restore_value(value: Any, masker: Masker, *, tolerant: bool = True) -> Any:

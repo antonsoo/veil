@@ -19,6 +19,12 @@ inside tool results. Images, PDF bytes and URL/file references pass through
 untouched — veil only understands inline text. Thinking blocks
 pass through untouched too: they carry a signature over their exact content.
 
+Fresh tool inputs must be plain JSON trees. Lists and tuples are traversed;
+tuples become JSON arrays. Detected sensitive keys, non-string keys, nonfinite
+numbers and opaque custom objects reject before transport. Serialize domain
+models to plain JSON explicitly so their strings can be visited. Exact retained
+provider history uses the existing replay path instead of being re-masked.
+
 **What gets restored:** every text block and tool_use ``input`` value in
 the response, including from a token stream (via
 :class:`veil.restore.Restorer`, so a surrogate split across chunks is still

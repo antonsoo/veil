@@ -191,6 +191,18 @@ them and refer to the **masked source**, not character offsets in your original
 document. Answer text is restored normally. The wrapper does not map citation
 coordinates back to original text.
 
+**Tool-input serialization (source checkout, unreleased).** Tuple values used
+to bypass masking before the SDK turned them into JSON arrays. Custom model
+objects and sensitive dictionary keys could also carry raw recognized
+identifiers to transport. Fresh tool inputs now use plain JSON trees: tuple
+entries are masked, detected sensitive keys reject, and opaque objects must be
+serialized explicitly first, such as `contact.model_dump(mode="json")`.
+Numbers, booleans and null retain their types. The
+[44-workflow SDK replay](studies/tool-input-trees/README.md) captures 24 raw-value
+request cases before and none after, across sync/async create and streaming
+calls. Unchanged retained provider history still replays exactly; that history
+is separate from fresh caller input.
+
 ### With the OpenAI SDK
 
 `veil.integrations.openai.OpenAIVeil` (the `openai` extra) wraps both of
@@ -571,6 +583,11 @@ over-masking fix that followed it.
   format is specified by the API; it does not recursively interpret ordinary
   message text or custom-tool input as JSON. Exact replay of provider-produced
   history retains the provider's original arguments, including malformed ones.
+  Fresh Anthropic tool inputs require string-keyed dictionaries, lists/tuples
+  and finite JSON scalars. Detected sensitive keys cannot safely be renamed;
+  they reject the request. Convert custom model objects to plain JSON before
+  passing them to the wrapper. Tuple text participates in the same request
+  collision checks and rollback as ordinary list/string content.
 - **US-centric.** SSN and the address heuristic assume US formats. A phone
   number is found in the North American format, or in any country's when it
   is written with a `+`. Written the local way anywhere else
