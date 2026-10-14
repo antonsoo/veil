@@ -1,0 +1,2238 @@
+{
+  "scope": "54 real SDK / mocked transport workflows; synthetic emails, no live API calls",
+  "python": "3.14.7",
+  "openai": "3.23.0",
+  "source_override": false,
+  "product_origin": "installed site-packages",
+  "integration_sha256": "c7b35c8dcf30d921b644329be4511d1481f7b015cff9e9e7612f37951a6ee958",
+  "transport_fixture_sha256": "d161e0e5493eb976b48e6dc00c64f1399a38b221d10122d21c74dfcc4f9f0bb2",
+  "count": 54,
+  "disagreements": 0,
+  "raw_contact_sent_cases": 0,
+  "cases": [
+    {
+      "field": "refusal",
+      "operation": "mask",
+      "client": "sync",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "refusal": "Cannot contact alice@example.com."
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "refusal": "Cannot contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "mask",
+      "client": "sync",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "refusal": "Cannot contact alice@example.com."
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "refusal": "Cannot contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "mask",
+      "client": "sync",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "refusal": "Cannot contact alice@example.com."
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "refusal": "Cannot contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "mask",
+      "client": "async",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "refusal": "Cannot contact alice@example.com."
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "refusal": "Cannot contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "mask",
+      "client": "async",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "refusal": "Cannot contact alice@example.com."
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "refusal": "Cannot contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "mask",
+      "client": "async",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "refusal": "Cannot contact alice@example.com."
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "refusal": "Cannot contact ⟨EMAIL_1⟩."
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "collision",
+      "client": "sync",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "refusal": "Cannot contact ⟨EMAIL_1⟩."
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "collision",
+      "client": "sync",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "refusal": "Cannot contact ⟨EMAIL_1⟩."
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "collision",
+      "client": "sync",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "refusal": "Cannot contact ⟨EMAIL_1⟩."
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "collision",
+      "client": "async",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "refusal": "Cannot contact ⟨EMAIL_1⟩."
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "collision",
+      "client": "async",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "refusal": "Cannot contact ⟨EMAIL_1⟩."
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "collision",
+      "client": "async",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "refusal": "Cannot contact ⟨EMAIL_1⟩."
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "refusal-part",
+      "operation": "mask",
+      "client": "sync",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "refusal",
+              "refusal": "Cannot contact alice@example.com."
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Cannot contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal-part",
+      "operation": "mask",
+      "client": "sync",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "refusal",
+              "refusal": "Cannot contact alice@example.com."
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Cannot contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal-part",
+      "operation": "mask",
+      "client": "sync",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "refusal",
+              "refusal": "Cannot contact alice@example.com."
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Cannot contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal-part",
+      "operation": "mask",
+      "client": "async",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "refusal",
+              "refusal": "Cannot contact alice@example.com."
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Cannot contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal-part",
+      "operation": "mask",
+      "client": "async",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "refusal",
+              "refusal": "Cannot contact alice@example.com."
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Cannot contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal-part",
+      "operation": "mask",
+      "client": "async",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "refusal",
+              "refusal": "Cannot contact alice@example.com."
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "refusal",
+                  "refusal": "Cannot contact ⟨EMAIL_1⟩."
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal-part",
+      "operation": "collision",
+      "client": "sync",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "refusal",
+              "refusal": "Cannot contact ⟨EMAIL_1⟩."
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "refusal-part",
+      "operation": "collision",
+      "client": "sync",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "refusal",
+              "refusal": "Cannot contact ⟨EMAIL_1⟩."
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "refusal-part",
+      "operation": "collision",
+      "client": "sync",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "refusal",
+              "refusal": "Cannot contact ⟨EMAIL_1⟩."
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "refusal-part",
+      "operation": "collision",
+      "client": "async",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "refusal",
+              "refusal": "Cannot contact ⟨EMAIL_1⟩."
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "refusal-part",
+      "operation": "collision",
+      "client": "async",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "refusal",
+              "refusal": "Cannot contact ⟨EMAIL_1⟩."
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "refusal-part",
+      "operation": "collision",
+      "client": "async",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "refusal",
+              "refusal": "Cannot contact ⟨EMAIL_1⟩."
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "mask",
+      "client": "sync",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "function_call": {
+            "name": "contact",
+            "arguments": "{\n \"to\": \"alice@example.com\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "function_call": {
+                "name": "contact",
+                "arguments": "{\n \"to\": \"⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+              }
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "mask",
+      "client": "sync",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "function_call": {
+            "name": "contact",
+            "arguments": "{\n \"to\": \"alice@example.com\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "function_call": {
+                "name": "contact",
+                "arguments": "{\n \"to\": \"⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+              }
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "mask",
+      "client": "sync",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "function_call": {
+            "name": "contact",
+            "arguments": "{\n \"to\": \"alice@example.com\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "function_call": {
+                "name": "contact",
+                "arguments": "{\n \"to\": \"⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+              }
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "mask",
+      "client": "async",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "function_call": {
+            "name": "contact",
+            "arguments": "{\n \"to\": \"alice@example.com\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "function_call": {
+                "name": "contact",
+                "arguments": "{\n \"to\": \"⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+              }
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "mask",
+      "client": "async",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "function_call": {
+            "name": "contact",
+            "arguments": "{\n \"to\": \"alice@example.com\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "function_call": {
+                "name": "contact",
+                "arguments": "{\n \"to\": \"⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+              }
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "mask",
+      "client": "async",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "function_call": {
+            "name": "contact",
+            "arguments": "{\n \"to\": \"alice@example.com\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "function_call": {
+                "name": "contact",
+                "arguments": "{\n \"to\": \"⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+              }
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "collision",
+      "client": "sync",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "function_call": {
+            "name": "contact",
+            "arguments": "{\n \"to\": \"⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "collision",
+      "client": "sync",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "function_call": {
+            "name": "contact",
+            "arguments": "{\n \"to\": \"⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "collision",
+      "client": "sync",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "function_call": {
+            "name": "contact",
+            "arguments": "{\n \"to\": \"⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "collision",
+      "client": "async",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "function_call": {
+            "name": "contact",
+            "arguments": "{\n \"to\": \"⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "collision",
+      "client": "async",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "function_call": {
+            "name": "contact",
+            "arguments": "{\n \"to\": \"⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "collision",
+      "client": "async",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "function_call": {
+            "name": "contact",
+            "arguments": "{\n \"to\": \"⟨EMAIL_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+          }
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "mask",
+      "client": "sync",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "custom",
+              "custom": {
+                "name": "contact",
+                "input": "Cannot contact alice@example.com."
+              }
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "custom",
+                  "custom": {
+                    "name": "contact",
+                    "input": "Cannot contact ⟨EMAIL_1⟩."
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "mask",
+      "client": "sync",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "custom",
+              "custom": {
+                "name": "contact",
+                "input": "Cannot contact alice@example.com."
+              }
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "custom",
+                  "custom": {
+                    "name": "contact",
+                    "input": "Cannot contact ⟨EMAIL_1⟩."
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "mask",
+      "client": "sync",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "custom",
+              "custom": {
+                "name": "contact",
+                "input": "Cannot contact alice@example.com."
+              }
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "custom",
+                  "custom": {
+                    "name": "contact",
+                    "input": "Cannot contact ⟨EMAIL_1⟩."
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "mask",
+      "client": "async",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "custom",
+              "custom": {
+                "name": "contact",
+                "input": "Cannot contact alice@example.com."
+              }
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "custom",
+                  "custom": {
+                    "name": "contact",
+                    "input": "Cannot contact ⟨EMAIL_1⟩."
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "mask",
+      "client": "async",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "custom",
+              "custom": {
+                "name": "contact",
+                "input": "Cannot contact alice@example.com."
+              }
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "custom",
+                  "custom": {
+                    "name": "contact",
+                    "input": "Cannot contact ⟨EMAIL_1⟩."
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "mask",
+      "client": "async",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "custom",
+              "custom": {
+                "name": "contact",
+                "input": "Cannot contact alice@example.com."
+              }
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "custom",
+                  "custom": {
+                    "name": "contact",
+                    "input": "Cannot contact ⟨EMAIL_1⟩."
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "collision",
+      "client": "sync",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "custom",
+              "custom": {
+                "name": "contact",
+                "input": "Cannot contact ⟨EMAIL_1⟩."
+              }
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "collision",
+      "client": "sync",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "custom",
+              "custom": {
+                "name": "contact",
+                "input": "Cannot contact ⟨EMAIL_1⟩."
+              }
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "collision",
+      "client": "sync",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "custom",
+              "custom": {
+                "name": "contact",
+                "input": "Cannot contact ⟨EMAIL_1⟩."
+              }
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "collision",
+      "client": "async",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "custom",
+              "custom": {
+                "name": "contact",
+                "input": "Cannot contact ⟨EMAIL_1⟩."
+              }
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "collision",
+      "client": "async",
+      "entrypoint": "create-stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "custom",
+              "custom": {
+                "name": "contact",
+                "input": "Cannot contact ⟨EMAIL_1⟩."
+              }
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "collision",
+      "client": "async",
+      "entrypoint": "stream",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "custom",
+              "custom": {
+                "name": "contact",
+                "input": "Cannot contact ⟨EMAIL_1⟩."
+              }
+            }
+          ]
+        }
+      ],
+      "provider_reply": null,
+      "returned": null,
+      "requests": [],
+      "failure": {
+        "type": "VaultError",
+        "message": "a surrogate conflicts with another input in this request; remask the complete input with a fresh vault using mask_many"
+      },
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 0,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "restore-and-replay",
+      "client": "sync",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        }
+      ],
+      "provider_reply": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "refusal": "Cannot contact ⟨email_1⟩."
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "returned": {
+        "refusal": "Cannot contact alice@example.com.",
+        "role": "assistant"
+      },
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩"
+            }
+          ],
+          "model": "test-model"
+        },
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩"
+            },
+            {
+              "content": null,
+              "refusal": "Cannot contact ⟨email_1⟩.",
+              "role": "assistant"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "refusal",
+      "operation": "restore-and-replay",
+      "client": "async",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        }
+      ],
+      "provider_reply": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "refusal": "Cannot contact ⟨email_1⟩."
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "returned": {
+        "refusal": "Cannot contact alice@example.com.",
+        "role": "assistant"
+      },
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩"
+            }
+          ],
+          "model": "test-model"
+        },
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩"
+            },
+            {
+              "content": null,
+              "refusal": "Cannot contact ⟨email_1⟩.",
+              "role": "assistant"
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "restore-and-replay",
+      "client": "sync",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        }
+      ],
+      "provider_reply": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "function_call": {
+                "name": "contact",
+                "arguments": "{\n \"to\": \"⟨email_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+              }
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "returned": {
+        "role": "assistant",
+        "function_call": {
+          "arguments": "{\n \"to\": \"alice@example.com\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}",
+          "name": "contact"
+        }
+      },
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩"
+            }
+          ],
+          "model": "test-model"
+        },
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩"
+            },
+            {
+              "content": null,
+              "role": "assistant",
+              "function_call": {
+                "arguments": "{\n \"to\": \"⟨email_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}",
+                "name": "contact"
+              }
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "legacy",
+      "operation": "restore-and-replay",
+      "client": "async",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        }
+      ],
+      "provider_reply": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "function_call": {
+                "name": "contact",
+                "arguments": "{\n \"to\": \"⟨email_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}"
+              }
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "returned": {
+        "role": "assistant",
+        "function_call": {
+          "arguments": "{\n \"to\": \"alice@example.com\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}",
+          "name": "contact"
+        }
+      },
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩"
+            }
+          ],
+          "model": "test-model"
+        },
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩"
+            },
+            {
+              "content": null,
+              "role": "assistant",
+              "function_call": {
+                "arguments": "{\n \"to\": \"⟨email_1⟩\", \"n\": 9007199254740993, \"x\": 1, \"x\": 2\n}",
+                "name": "contact"
+              }
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "restore-and-replay",
+      "client": "sync",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        }
+      ],
+      "provider_reply": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "custom",
+                  "custom": {
+                    "name": "contact",
+                    "input": "Cannot contact ⟨email_1⟩."
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "returned": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "id": "call_1",
+            "custom": {
+              "input": "Cannot contact alice@example.com.",
+              "name": "contact"
+            },
+            "type": "custom"
+          }
+        ]
+      },
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩"
+            }
+          ],
+          "model": "test-model"
+        },
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩"
+            },
+            {
+              "content": null,
+              "role": "assistant",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "custom": {
+                    "input": "Cannot contact ⟨email_1⟩.",
+                    "name": "contact"
+                  },
+                  "type": "custom"
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    },
+    {
+      "field": "custom",
+      "operation": "restore-and-replay",
+      "client": "async",
+      "entrypoint": "create",
+      "source": [
+        {
+          "role": "user",
+          "content": "Contact alice@example.com"
+        }
+      ],
+      "provider_reply": {
+        "id": "chatcmpl-1",
+        "object": "chat.completion",
+        "created": 1,
+        "model": "test-model",
+        "choices": [
+          {
+            "index": 0,
+            "finish_reason": "stop",
+            "message": {
+              "role": "assistant",
+              "content": null,
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "custom",
+                  "custom": {
+                    "name": "contact",
+                    "input": "Cannot contact ⟨email_1⟩."
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        }
+      },
+      "returned": {
+        "role": "assistant",
+        "tool_calls": [
+          {
+            "id": "call_1",
+            "custom": {
+              "input": "Cannot contact alice@example.com.",
+              "name": "contact"
+            },
+            "type": "custom"
+          }
+        ]
+      },
+      "requests": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩"
+            }
+          ],
+          "model": "test-model"
+        },
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": "Contact ⟨EMAIL_1⟩"
+            },
+            {
+              "content": null,
+              "role": "assistant",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "custom": {
+                    "input": "Cannot contact ⟨email_1⟩.",
+                    "name": "contact"
+                  },
+                  "type": "custom"
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "failure": null,
+      "raw_contact_sent": false,
+      "source_unchanged": true,
+      "vault_size": 1,
+      "agrees": true
+    }
+  ]
+}

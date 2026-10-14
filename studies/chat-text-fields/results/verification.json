@@ -1,0 +1,65 @@
+{
+  "code_commit": "db481ccc7f7efbe295d4594e02609ac8ea4b323a",
+  "clean_checks": {
+    "commands": [
+      "uv sync --locked --group dev --extra spacy",
+      "uv run --no-sync ruff check .",
+      "uv run --no-sync ruff format --check .",
+      "uv run --no-sync mypy",
+      "uv run --no-sync pytest -q",
+      "uv build"
+    ],
+    "passed_tests": 666,
+    "skipped_tests": 0,
+    "mypy_files": 33
+  },
+  "installed_checks": {
+    "current": {
+      "python": "3.14.7",
+      "openai": "3.23.0",
+      "sdk_workflows": 54,
+      "regressions_passed": 24
+    },
+    "floor": {
+      "python": "3.10.21",
+      "openai": "1.66.0",
+      "sdk_workflows": 54,
+      "regressions_passed": 24
+    },
+    "core": {
+      "python": "3.12.12",
+      "optional_sdks": "absent",
+      "documented_mask_restore_example": "passed"
+    },
+    "source_files_matched_in_wheel_and_all_three_installations": 34,
+    "integration_sha256": "c7b35c8dcf30d921b644329be4511d1481f7b015cff9e9e7612f37951a6ee958"
+  },
+  "web_checks": {
+    "commands": [
+      "npm ci",
+      "npm run lint",
+      "npm run build",
+      "npm run test:browser"
+    ],
+    "browser_scenarios": 16,
+    "engines": [
+      "Chromium",
+      "Firefox"
+    ],
+    "offline_reuse": true,
+    "output": "web/dist/",
+    "manifest_files_match_clean_source": 34,
+    "manifest_sha256": "681ae554e889900a5b736cec640da3379dd18db64ac13c9bd1a86d1ecb70e469"
+  },
+  "artifacts": {
+    "veil_pii-0.4.4.tar.gz": {
+      "bytes": 98794,
+      "sha256": "e7924c1d2477fd1317eb3866536b07ffffac97612a06b27e2e2c5e2c3af13ab6"
+    },
+    "veil_pii-0.4.4-py3-none-any.whl": {
+      "bytes": 90029,
+      "sha256": "47766b7ade89117930bb30b99f1674791c072d76ce88337ed5e2e2a14c1a19c1"
+    }
+  },
+  "publication": "Local commits and local artifacts only; no push, package release or deployment."
+}

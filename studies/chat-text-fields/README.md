@@ -84,3 +84,39 @@ text-field change. JSON keys containing detected sensitive values reject
 legacy arguments just as they reject modern function arguments.
 The name of a tool or function is not renamed. Existing replay-cache capacity
 and ambiguity limits still apply.
+
+## Clean and installed verification
+
+A fresh archive of implementation commit `db481cc` passed a locked install
+including the optional spaCy backend, lint, formatting, strict mypy and all
+666 tests with no skips. Wheel and source-distribution builds passed. The
+web install, typecheck/build and 16 existing Chromium/Firefox scenarios
+also passed, including offline reuse and mobile layouts. Browser scenarios
+exercise the core Python demo, not these optional SDK wrappers.
+
+| Installed wheel environment | SDK workflows | Additional regression cases |
+| --- | --- | --- |
+| Python 3.14.7, OpenAI 3.23.0 | 54 pass; zero raw-contact request bodies | 24 pass |
+| Python 3.10.21, OpenAI 1.66.0 | 54 pass; zero raw-contact request bodies | 24 pass |
+| Python 3.12.12, core wheel only | SDK absent | Documented masking/restoration example passes |
+
+[Current](results/installed-current.json) and [floor](results/installed-floor.json)
+captures use the installed wheel with `PYTHONPATH` cleared. The replay verifies
+that product imports come from `site-packages`. Older SDKs represent newer
+custom-tool fields as extra protocol data; this verifies their local
+serialization/transformation, not server acceptance of an older SDK's schema.
+
+The [receipt](results/verification.json) records commands, artifact hashes,
+versions and limits. All 34 runtime Python files match the clean source in
+the wheel, three installations and built browser manifest. The locally built
+wheel is 90,029 bytes with SHA-256
+`47766b7ade89117930bb30b99f1674791c072d76ce88337ed5e2e2a14c1a19c1`.
+The package version remains unchanged; no package was published and no demo
+was deployed. `cd web && npm run build` produces `web/dist/`.
+
+![Actual installed SDK request, restored refusal and exact replay](../../docs/assets/chat-text-fields.png)
+
+[The demo](demo.py) prints actual captured fields from the local SDK transport.
+The image was rendered from its [unedited stdout](../../docs/assets/chat-text-fields.ansi)
+using the installed current wheel, then visually inspected. Its API key is a
+dummy literal used only by the mock transport.

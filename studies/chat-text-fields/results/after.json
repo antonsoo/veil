@@ -4,7 +4,7 @@
   "openai": "3.23.0",
   "source_override": true,
   "product_origin": "source",
-  "integration_sha256": "35c87f780fe9de93ff6c1e402bc585dfdb48ef871924bf204fb536ee295d3f7f",
+  "integration_sha256": "c7b35c8dcf30d921b644329be4511d1481f7b015cff9e9e7612f37951a6ee958",
   "transport_fixture_sha256": "d161e0e5493eb976b48e6dc00c64f1399a38b221d10122d21c74dfcc4f9f0bb2",
   "count": 54,
   "disagreements": 0,
