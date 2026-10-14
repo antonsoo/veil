@@ -235,6 +235,17 @@ restored like content, and held-back text is released in the chunk that
 carries the choice's `finish_reason`, so nothing arrives after a choice has
 finished or after the usage chunk.
 
+The source checkout also masks Chat Completions refusal history (both the
+`refusal` message field and refusal content parts), legacy
+`function_call.arguments`, and custom-tool `input`. Complete replies restore
+those fields too; retained unchanged replies still replay the exact provider
+spelling. Previously, these history fields could pass raw contacts through
+to the SDK request body. The correction is unreleased.
+[Actual SDK before/after captures](studies/chat-text-fields/README.md) cover
+sync/async calls, both streaming entrypoints, complete replies and failed
+request preparation. Streaming output restoration continues to cover text,
+refusals and modern function-tool arguments.
+
 **How the wrappers are tested.** There is no API key in this repository and
 no live call. `tests/test_sdk_anthropic.py` and `tests/test_sdk_openai.py`
 run the real SDKs (sync and async clients) over a mocked HTTP transport that

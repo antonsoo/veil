@@ -30,6 +30,13 @@ JSON-string mode instead - one per tool-call index, since parallel tool
 calls interleave their fragments by index - which also recognizes the
 escaped form and writes originals JSON-escaped.
 
+**Other complete-message text fields.** Refusals, custom-tool input and the
+deprecated ``function_call.arguments`` are masked in outgoing history and
+restored in complete replies. Refusals may also appear as input content
+parts. Custom-tool input is plain text; function arguments use the JSON
+transformation above. Streaming restoration here covers ordinary text,
+refusals and modern function-tool arguments.
+
 **History replay:** an assistant message veil restored is swapped back for
 the exact message the model produced when the application resends it, so
 real values never return to the API and the resent history stays
@@ -80,6 +87,10 @@ def _mask_content_block(block: Any, masker: Masker) -> Any:
         text = get_field(block, "text")
         if isinstance(text, str):
             return model_copy_with(block, text=masker.mask(text))
+    if get_field(block, "type") == "refusal":
+        refusal = get_field(block, "refusal")
+        if isinstance(refusal, str):
+            return model_copy_with(block, refusal=masker.mask(refusal))
     return block
 
 
@@ -94,6 +105,13 @@ def _mask_tool_calls(tool_calls: Any, masker: Masker) -> Any:
             if isinstance(args, str):
                 fn = model_copy_with(fn, arguments=mask_arguments(args, masker))
             call = model_copy_with(call, function=fn)
+        custom = get_field(call, "custom")
+        if custom is not None:
+            value = get_field(custom, "input")
+            if isinstance(value, str):
+                call = model_copy_with(
+                    call, custom=model_copy_with(custom, input=masker.mask(value))
+                )
         out.append(call)
     return out
 
@@ -101,9 +119,11 @@ def _mask_tool_calls(tool_calls: Any, masker: Masker) -> Any:
 def mask_messages(
     messages: list[Any], masker: Masker, replay: ReplayCache | None = None
 ) -> list[Any]:
-    """Mask ``content`` on every message (system/user/assistant/tool), and
-    ``tool_calls[].function.arguments`` on any prior assistant turns being
-    resent as history — those may contain real values a previous
+    """Mask content/refusals, function arguments and custom-tool input in history.
+
+    Refusals can be a message field or a content part. Function arguments
+    can be modern tool calls or the deprecated ``function_call`` field.
+    These may contain real values a previous
     :meth:`veil.masker.Masker.restore` call put back; re-masking maps them
     to the *same* surrogate already in the vault rather than a new one.
     With ``replay``, a message veil restored is replaced by the original.
@@ -120,6 +140,15 @@ def mask_messages(
             updates: dict[str, Any] = {}
             if content is not None:
                 updates["content"] = mask_content(content, masker)
+            refusal = get_field(message, "refusal")
+            if isinstance(refusal, str):
+                updates["refusal"] = masker.mask(refusal)
+            legacy = get_field(message, "function_call")
+            arguments = get_field(legacy, "arguments")
+            if isinstance(arguments, str):
+                updates["function_call"] = model_copy_with(
+                    legacy, arguments=mask_arguments(arguments, masker)
+                )
             tool_calls = get_field(message, "tool_calls")
             if tool_calls:
                 updates["tool_calls"] = _mask_tool_calls(tool_calls, masker)
@@ -138,9 +167,16 @@ def _restore_choice(choice: Any, masker: Masker, replay: ReplayCache | None = No
     if message is None:
         return choice
     updates: dict[str, Any] = {}
-    content = get_field(message, "content")
-    if isinstance(content, str):
-        updates["content"] = masker.restore(content)
+    for field_name in ("content", "refusal"):
+        value = get_field(message, field_name)
+        if isinstance(value, str):
+            updates[field_name] = masker.restore(value)
+    legacy = get_field(message, "function_call")
+    arguments = get_field(legacy, "arguments")
+    if isinstance(arguments, str):
+        updates["function_call"] = model_copy_with(
+            legacy, arguments=restore_arguments(arguments, masker)
+        )
     tool_calls = get_field(message, "tool_calls")
     if tool_calls:
         new_calls = []
@@ -151,6 +187,13 @@ def _restore_choice(choice: Any, masker: Masker, replay: ReplayCache | None = No
                 if isinstance(args, str):
                     fn = model_copy_with(fn, arguments=restore_arguments(args, masker))
                 call = model_copy_with(call, function=fn)
+            custom = get_field(call, "custom")
+            if custom is not None:
+                value = get_field(custom, "input")
+                if isinstance(value, str):
+                    call = model_copy_with(
+                        call, custom=model_copy_with(custom, input=masker.restore(value))
+                    )
             new_calls.append(call)
         updates["tool_calls"] = new_calls
     if not updates:

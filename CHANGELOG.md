@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Chat Completions history text
+
+- Mask outgoing refusal fields and refusal content parts, legacy function-call
+  JSON arguments, and custom-tool input. These previously bypassed masking and
+  could put detected raw contacts into the SDK's request body, including when
+  edited or reconstructed assistant history was resent.
+- Restore refusal, legacy function-call arguments and custom-tool input in
+  complete replies, retaining exact unchanged provider history for replay.
+  Newly covered input text participates in request-level collision detection
+  and rollback before transport. Legacy arguments reuse the JSON path that
+  preserves number precision, duplicate keys and unrelated syntax.
+- Retain 54 before/after real SDK transport workflows using synthetic replies
+  and contacts in [the reproduction study](studies/chat-text-fields/README.md).
+
+
 ### Batch reservation performance
 
 - Index reserved source text by its characters so each candidate surrogate only
