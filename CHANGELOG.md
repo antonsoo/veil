@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Complete mailbox masking
+
+- Mask complete dot-atom local parts containing valid ASCII punctuation,
+  supported international local parts, quoted local parts and Unicode or
+  punycode domains. The previous detector could leave an identity prefix in
+  outgoing prompts or pass the entire address through unchanged.
+- Bound candidate scans and check full local/domain lengths. Invalid long
+  tokens cannot become shorter mailbox matches; quoted internal `@` characters
+  stay inside the local part. Retain original spelling for exact restoration.
+- Keep real SDK, CLI, retained contact/log/code corpus and offline Pyodide
+  evidence in `studies/email-boundaries/`. Detection remains syntactic:
+  templates and adjacent code can be ambiguous, and this is not a complete
+  RFC parser or a deliverability check.
+
 ### OpenAI iterable inline text
 
 - Visit tuple and generator content parts before SDK serialization can expose

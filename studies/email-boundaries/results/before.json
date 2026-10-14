@@ -1,0 +1,4813 @@
+{
+  "python": "3.12.12 (main, Feb 12 2026, 00:42:14) [Clang 21.1.4 ]",
+  "emailSourceSha256": "226c1d9f6dba002e313aef9659eadd107d06f22a7a72549b9b9b07b3a5bb2e62",
+  "versions": {
+    "veil-pii": "0.4.4",
+    "openai": "3.23.0",
+    "anthropic": "1.11.0"
+  },
+  "casesSha256": "503a0422bfba6c7ec91a3dba3706b54e826b679eb3413c5d00d7409b9f345894",
+  "cases": [
+    {
+      "id": "bang-interior",
+      "address": "first!last@example.org",
+      "mask": true,
+      "source": "Contact <first!last@example.org> today.\n",
+      "masked": "Contact <first!⟨EMAIL_1⟩> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "last@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <first!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <first!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <first!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <first!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <first!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <first!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <first!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <first!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <first!⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <first!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <first!⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <first!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <first!⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <first!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <first!⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <first!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <first!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <first!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <first!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <first!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <first!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <first!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <first!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <first!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "slash-interior",
+      "address": "private/account@example.org",
+      "mask": true,
+      "source": "Contact <private/account@example.org> today.\n",
+      "masked": "Contact <private/⟨EMAIL_1⟩> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "account@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private/⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private/⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private/⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private/⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private/⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private/⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private/⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private/⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <private/⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private/⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <private/⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private/⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <private/⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private/⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <private/⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private/⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private/⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private/⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private/⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private/⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private/⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private/⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private/⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private/⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "equal-interior",
+      "address": "customer=private@example.org",
+      "mask": true,
+      "source": "Contact <customer=private@example.org> today.\n",
+      "masked": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "private@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <customer=⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <customer=⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <customer=⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <customer=⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <customer=⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <customer=⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <customer=⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <customer=⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <customer=⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "bang-leading",
+      "address": "!private@example.org",
+      "mask": true,
+      "source": "Contact <!private@example.org> today.\n",
+      "masked": "Contact <!⟨EMAIL_1⟩> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "private@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <!⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <!⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <!⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <!⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <!⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <!⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "bang-trailing",
+      "address": "private!@example.org",
+      "mask": true,
+      "source": "Contact <private!@example.org> today.\n",
+      "masked": "Contact <private!@example.org> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private!@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private!@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private!@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private!@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private!@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private!@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private!@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private!@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <private!@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private!@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <private!@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private!@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <private!@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private!@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <private!@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private!@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private!@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private!@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private!@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private!@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private!@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private!@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private!@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private!@example.org> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "quoted-space",
+      "address": "\"private name\"@example.org",
+      "mask": true,
+      "source": "Contact <\"private name\"@example.org> today.\n",
+      "masked": "Contact <\"private name\"@example.org> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <\"private name\"@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <\"private name\"@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <\"private name\"@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <\"private name\"@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private name\"@example.org> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "quoted-at",
+      "address": "\"private@name\"@example.org",
+      "mask": true,
+      "source": "Contact <\"private@name\"@example.org> today.\n",
+      "masked": "Contact <\"private@name\"@example.org> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private@name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private@name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private@name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private@name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private@name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private@name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private@name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private@name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <\"private@name\"@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private@name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <\"private@name\"@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private@name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <\"private@name\"@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private@name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <\"private@name\"@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private@name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private@name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private@name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private@name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private@name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private@name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private@name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private@name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private@name\"@example.org> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "quoted-mailbox-inside",
+      "address": "\"private@example.net\"@example.org",
+      "mask": true,
+      "source": "Contact <\"private@example.net\"@example.org> today.\n",
+      "masked": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "private@example.net",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"⟨EMAIL_1⟩\"@example.org> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "quoted-prose-inside",
+      "address": "\"contact private@example.net today\"@example.org",
+      "mask": true,
+      "source": "Contact <\"contact private@example.net today\"@example.org> today.\n",
+      "masked": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "private@example.net",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"contact ⟨EMAIL_1⟩ today\"@example.org> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "quoted-escape",
+      "address": "\"private\\\"name\"@example.org",
+      "mask": true,
+      "source": "Contact <\"private\\\"name\"@example.org> today.\n",
+      "masked": "Contact <\"private\\\"name\"@example.org> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private\\\"name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private\\\"name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private\\\"name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private\\\"name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private\\\"name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private\\\"name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private\\\"name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private\\\"name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <\"private\\\"name\"@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private\\\"name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <\"private\\\"name\"@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private\\\"name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <\"private\\\"name\"@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private\\\"name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <\"private\\\"name\"@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private\\\"name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private\\\"name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private\\\"name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private\\\"name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private\\\"name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private\\\"name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <\"private\\\"name\"@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <\"private\\\"name\"@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <\"private\\\"name\"@example.org> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "unicode-local",
+      "address": "señora@example.org",
+      "mask": true,
+      "source": "Contact <señora@example.org> today.\n",
+      "masked": "Contact <señora@example.org> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señora@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <señora@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señora@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <señora@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señora@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <señora@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señora@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <señora@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <señora@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <señora@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <señora@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <señora@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <señora@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <señora@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <señora@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <señora@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señora@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <señora@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señora@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <señora@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señora@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <señora@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señora@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <señora@example.org> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "combining-local",
+      "address": "señora@example.org",
+      "mask": true,
+      "source": "Contact <señora@example.org> today.\n",
+      "masked": "Contact <señ⟨EMAIL_1⟩> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "ora@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señ⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <señ⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señ⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <señ⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señ⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <señ⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señ⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <señ⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <señ⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <señ⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <señ⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <señ⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <señ⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <señ⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <señ⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <señ⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señ⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <señ⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señ⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <señ⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señ⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <señ⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <señ⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <señ⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "unicode-domain",
+      "address": "private@bücher.example",
+      "mask": true,
+      "source": "Contact <private@bücher.example> today.\n",
+      "masked": "Contact <private@bücher.example> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@bücher.example> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@bücher.example> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@bücher.example> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@bücher.example> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@bücher.example> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@bücher.example> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@bücher.example> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@bücher.example> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@bücher.example> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@bücher.example> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@bücher.example> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@bücher.example> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@bücher.example> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@bücher.example> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@bücher.example> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@bücher.example> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@bücher.example> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@bücher.example> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@bücher.example> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@bücher.example> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@bücher.example> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@bücher.example> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@bücher.example> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@bücher.example> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "unicode-tld",
+      "address": "private@example.みんな",
+      "mask": true,
+      "source": "Contact <private@example.みんな> today.\n",
+      "masked": "Contact <private@example.みんな> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.みんな> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.みんな> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.みんな> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.みんな> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.みんな> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.みんな> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.みんな> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.みんな> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@example.みんな> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.みんな> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@example.みんな> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.みんな> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@example.みんな> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.みんな> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@example.みんな> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.みんな> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.みんな> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.みんな> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.みんな> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.みんな> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.みんな> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.みんな> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.みんな> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.みんな> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "punycode-tld",
+      "address": "private@example.xn--q9jyb4c",
+      "mask": true,
+      "source": "Contact <private@example.xn--q9jyb4c> today.\n",
+      "masked": "Contact <private@example.xn--q9jyb4c> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.xn--q9jyb4c> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.xn--q9jyb4c> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.xn--q9jyb4c> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.xn--q9jyb4c> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.xn--q9jyb4c> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.xn--q9jyb4c> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.xn--q9jyb4c> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.xn--q9jyb4c> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@example.xn--q9jyb4c> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.xn--q9jyb4c> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@example.xn--q9jyb4c> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.xn--q9jyb4c> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@example.xn--q9jyb4c> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.xn--q9jyb4c> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@example.xn--q9jyb4c> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.xn--q9jyb4c> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.xn--q9jyb4c> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.xn--q9jyb4c> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.xn--q9jyb4c> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.xn--q9jyb4c> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.xn--q9jyb4c> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.xn--q9jyb4c> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.xn--q9jyb4c> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.xn--q9jyb4c> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "long-tld",
+      "address": "private@example.abcdefghijklmnopqrstuvwxy",
+      "mask": true,
+      "source": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+      "masked": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": false,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.abcdefghijklmnopqrstuvwxy> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "ordinary-control",
+      "address": "ordinary@example.org",
+      "mask": true,
+      "source": "Contact <ordinary@example.org> today.\n",
+      "masked": "Contact <⟨EMAIL_1⟩> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": true,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "ordinary@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "apostrophe-control",
+      "address": "o'brien@example.org",
+      "mask": true,
+      "source": "Contact <o'brien@example.org> today.\n",
+      "masked": "Contact <⟨EMAIL_1⟩> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": true,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "o'brien@example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "plus-control",
+      "address": "private+billing@mail.example.org",
+      "mask": true,
+      "source": "Contact <private+billing@mail.example.org> today.\n",
+      "masked": "Contact <⟨EMAIL_1⟩> today.\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\n",
+      "completeMask": true,
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "EMAIL",
+            "original": "private+billing@mail.example.org",
+            "surrogate": "⟨EMAIL_1⟩",
+            "detector": "email"
+          }
+        ]
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <⟨EMAIL_1⟩> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <⟨EMAIL_1⟩> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <⟨EMAIL_1⟩> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <⟨EMAIL_1⟩> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "invalid-double-dot",
+      "address": "private..name@example.org",
+      "mask": false,
+      "source": "Contact <private..name@example.org> today.\n",
+      "masked": "Contact <private..name@example.org> today.\n",
+      "expected": "Contact <private..name@example.org> today.\n",
+      "completeMask": true,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private..name@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private..name@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private..name@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private..name@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private..name@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private..name@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private..name@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private..name@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <private..name@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private..name@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <private..name@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private..name@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <private..name@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private..name@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <private..name@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private..name@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private..name@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private..name@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private..name@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private..name@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private..name@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private..name@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private..name@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private..name@example.org> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "invalid-trailing-local-dot",
+      "address": "private.@example.org",
+      "mask": false,
+      "source": "Contact <private.@example.org> today.\n",
+      "masked": "Contact <private.@example.org> today.\n",
+      "expected": "Contact <private.@example.org> today.\n",
+      "completeMask": true,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private.@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private.@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private.@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private.@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private.@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private.@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private.@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private.@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <private.@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private.@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <private.@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private.@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <private.@example.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private.@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <private.@example.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private.@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private.@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private.@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private.@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private.@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private.@example.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private.@example.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private.@example.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private.@example.org> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "invalid-domain-label",
+      "address": "private@example-.org",
+      "mask": false,
+      "source": "Contact <private@example-.org> today.\n",
+      "masked": "Contact <private@example-.org> today.\n",
+      "expected": "Contact <private@example-.org> today.\n",
+      "completeMask": true,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example-.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example-.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example-.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example-.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example-.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example-.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example-.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example-.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@example-.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example-.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@example-.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example-.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@example-.org> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example-.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@example-.org> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example-.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example-.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example-.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example-.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example-.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example-.org> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example-.org> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example-.org> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example-.org> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "invalid-domain-underscore",
+      "address": "private@example.org_suffix",
+      "mask": false,
+      "source": "Contact <private@example.org_suffix> today.\n",
+      "masked": "Contact <private@example.org_suffix> today.\n",
+      "expected": "Contact <private@example.org_suffix> today.\n",
+      "completeMask": true,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.org_suffix> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.org_suffix> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.org_suffix> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.org_suffix> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.org_suffix> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.org_suffix> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.org_suffix> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.org_suffix> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@example.org_suffix> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.org_suffix> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@example.org_suffix> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.org_suffix> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@example.org_suffix> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.org_suffix> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@example.org_suffix> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.org_suffix> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.org_suffix> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.org_suffix> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.org_suffix> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.org_suffix> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.org_suffix> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@example.org_suffix> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@example.org_suffix> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@example.org_suffix> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    },
+    {
+      "id": "local-domain",
+      "address": "private@localhost",
+      "mask": false,
+      "source": "Contact <private@localhost> today.\n",
+      "masked": "Contact <private@localhost> today.\n",
+      "expected": "Contact <private@localhost> today.\n",
+      "completeMask": true,
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "sdk": [
+        {
+          "api": "chat",
+          "async": false,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@localhost> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@localhost> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": false,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@localhost> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@localhost> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": false,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@localhost> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@localhost> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "chat",
+          "async": true,
+          "stream": true,
+          "request": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@localhost> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@localhost> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@localhost> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@localhost> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": false,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@localhost> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@localhost> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": false,
+          "request": {
+            "input": "Contact <private@localhost> today.\n",
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@localhost> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "responses",
+          "async": true,
+          "stream": true,
+          "request": {
+            "input": "Contact <private@localhost> today.\n",
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@localhost> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@localhost> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@localhost> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": false,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@localhost> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@localhost> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": false,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@localhost> today.\n"
+              }
+            ],
+            "model": "test-model"
+          },
+          "outgoing": "Contact <private@localhost> today.\n",
+          "restoresExactly": true
+        },
+        {
+          "api": "anthropic",
+          "async": true,
+          "stream": true,
+          "request": {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Contact <private@localhost> today.\n"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          },
+          "outgoing": "Contact <private@localhost> today.\n",
+          "restoresExactly": true
+        }
+      ]
+    }
+  ],
+  "completeCases": 8,
+  "sdkRequests": 288,
+  "transport": "Actual installed SDKs over httpx MockTransport; synthetic echo responses, no provider request."
+}

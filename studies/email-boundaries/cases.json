@@ -1,0 +1,29 @@
+{
+  "provenance": "Synthetic mailbox fixtures; example.org and example.net are reserved domains. Unicode labels illustrate syntax, not deliverability.",
+  "cases": [
+    {"id": "bang-interior", "address": "first!last@example.org", "mask": true},
+    {"id": "slash-interior", "address": "private/account@example.org", "mask": true},
+    {"id": "equal-interior", "address": "customer=private@example.org", "mask": true},
+    {"id": "bang-leading", "address": "!private@example.org", "mask": true},
+    {"id": "bang-trailing", "address": "private!@example.org", "mask": true},
+    {"id": "quoted-space", "address": "\"private name\"@example.org", "mask": true},
+    {"id": "quoted-at", "address": "\"private@name\"@example.org", "mask": true},
+    {"id": "quoted-mailbox-inside", "address": "\"private@example.net\"@example.org", "mask": true},
+    {"id": "quoted-prose-inside", "address": "\"contact private@example.net today\"@example.org", "mask": true},
+    {"id": "quoted-escape", "address": "\"private\\\"name\"@example.org", "mask": true},
+    {"id": "unicode-local", "address": "señora@example.org", "mask": true},
+    {"id": "combining-local", "address": "señora@example.org", "mask": true},
+    {"id": "unicode-domain", "address": "private@bücher.example", "mask": true},
+    {"id": "unicode-tld", "address": "private@example.みんな", "mask": true},
+    {"id": "punycode-tld", "address": "private@example.xn--q9jyb4c", "mask": true},
+    {"id": "long-tld", "address": "private@example.abcdefghijklmnopqrstuvwxy", "mask": true},
+    {"id": "ordinary-control", "address": "ordinary@example.org", "mask": true},
+    {"id": "apostrophe-control", "address": "o'brien@example.org", "mask": true},
+    {"id": "plus-control", "address": "private+billing@mail.example.org", "mask": true},
+    {"id": "invalid-double-dot", "address": "private..name@example.org", "mask": false},
+    {"id": "invalid-trailing-local-dot", "address": "private.@example.org", "mask": false},
+    {"id": "invalid-domain-label", "address": "private@example-.org", "mask": false},
+    {"id": "invalid-domain-underscore", "address": "private@example.org_suffix", "mask": false},
+    {"id": "local-domain", "address": "private@localhost", "mask": false}
+  ]
+}

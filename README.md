@@ -45,6 +45,15 @@ logs and source code, where almost nothing should be masked.
 These changes are in this repository and not yet in a release; `pip install
 veil-pii` gets 0.4.4.
 
+**Source update: mask the whole mailbox.** `first!last@example.org` previously
+became `first!⟨EMAIL_1⟩`, exposing part of the identity in outgoing SDK requests.
+The source detector now covers full ASCII dot-atoms, supported international
+and quoted local parts, and Unicode/punycode domains. A fresh recheck of the
+retained contact corpus fully masks eight more email tags. Exact restoration,
+actual SDK transport captures and syntax ambiguities are documented in the
+[mailbox study](studies/email-boundaries/README.md). Build this source to use
+the correction; this update does not release PyPI or deploy the live demo.
+
 **A literal example must not become someone's address.** The source checkout
 also corrects a masking collision: a prompt containing an email and the literal
 token `⟨EMAIL_1⟩` previously used that token for both. Restoring the prompt

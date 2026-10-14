@@ -1,0 +1,489 @@
+{
+  "rows": [
+    {
+      "manifest": "manifest-osm.json",
+      "before": {
+        "found": 5011,
+        "missed": 4,
+        "partly": 4
+      },
+      "after": {
+        "found": 5014,
+        "missed": 2,
+        "partly": 3
+      }
+    },
+    {
+      "manifest": "manifest-osm-heldout.json",
+      "before": {
+        "found": 5549,
+        "missed": 9,
+        "partly": 3
+      },
+      "after": {
+        "found": 5554,
+        "missed": 6,
+        "partly": 1
+      }
+    },
+    {
+      "manifest": "manifest-technical.json",
+      "words": 1606104,
+      "before": 545,
+      "after": 560,
+      "removedSpansAllCoveredByLargerSpans": true,
+      "changes": {
+        "existing_mailbox_span_extended": 14,
+        "quoted_mailbox_occurrence_recovered": 14,
+        "source_template_not_a_contact": 1
+      },
+      "changedDetections": [
+        {
+          "file": "loghub/Mac_2k.log",
+          "span": [
+            95116,
+            95163
+          ],
+          "sha256": "224fac814fe4aecbb83304a27802530cb239f344bc2b13678a203d51afa2bf20",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "loghub/Mac_2k.log",
+          "span": [
+            95412,
+            95459
+          ],
+          "sha256": "224fac814fe4aecbb83304a27802530cb239f344bc2b13678a203d51afa2bf20",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "loghub/Mac_2k.log",
+          "span": [
+            95509,
+            95556
+          ],
+          "sha256": "224fac814fe4aecbb83304a27802530cb239f344bc2b13678a203d51afa2bf20",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "loghub/Mac_2k.log",
+          "span": [
+            95719,
+            95766
+          ],
+          "sha256": "224fac814fe4aecbb83304a27802530cb239f344bc2b13678a203d51afa2bf20",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "loghub/Mac_2k.log",
+          "span": [
+            95816,
+            95863
+          ],
+          "sha256": "224fac814fe4aecbb83304a27802530cb239f344bc2b13678a203d51afa2bf20",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "loghub/Mac_2k.log",
+          "span": [
+            219621,
+            219668
+          ],
+          "sha256": "224fac814fe4aecbb83304a27802530cb239f344bc2b13678a203d51afa2bf20",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "loghub/Mac_2k.log",
+          "span": [
+            219965,
+            220012
+          ],
+          "sha256": "224fac814fe4aecbb83304a27802530cb239f344bc2b13678a203d51afa2bf20",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "loghub/Mac_2k.log",
+          "span": [
+            220062,
+            220109
+          ],
+          "sha256": "224fac814fe4aecbb83304a27802530cb239f344bc2b13678a203d51afa2bf20",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "loghub/Mac_2k.log",
+          "span": [
+            220293,
+            220340
+          ],
+          "sha256": "224fac814fe4aecbb83304a27802530cb239f344bc2b13678a203d51afa2bf20",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "loghub/Mac_2k.log",
+          "span": [
+            220390,
+            220437
+          ],
+          "sha256": "224fac814fe4aecbb83304a27802530cb239f344bc2b13678a203d51afa2bf20",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "code/psf-requests/eb54136305e7b566.rst",
+          "span": [
+            27824,
+            27843
+          ],
+          "sha256": "74370d5447afb82fbec1b5f5be8da2c339aa0c815f5be2bb27e3c1d135247d0d",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/psf-requests/eb54136305e7b566.rst",
+          "span": [
+            30734,
+            30750
+          ],
+          "sha256": "476015e6cfd28ecd77e6fbcd9dc9884b5710e91eb4b5fdb400736986bc2f3ed0",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/psf-requests/eb54136305e7b566.rst",
+          "span": [
+            35438,
+            35459
+          ],
+          "sha256": "f7ff93ca9e57e1a75f83d2b36417ee949d0fb149f1af78b5bef138d9ba9c4d28",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "code/psf-requests/33c13e0b177bacd2.py",
+          "span": [
+            11989,
+            12019
+          ],
+          "sha256": "bf29aac7ba023e20f8538346d9f381c5251a30c634d0cb98c62fd88cbb526444",
+          "classification": "source_template_not_a_contact"
+        },
+        {
+          "file": "code/psf-requests/33c13e0b177bacd2.py",
+          "span": [
+            20035,
+            20053
+          ],
+          "sha256": "f0cfbfff0bee27b2a51911b7cc4d7ec98f54815f6c9e0a4e365cf018d8222581",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "code/psf-requests/33c13e0b177bacd2.py",
+          "span": [
+            20073,
+            20091
+          ],
+          "sha256": "f0cfbfff0bee27b2a51911b7cc4d7ec98f54815f6c9e0a4e365cf018d8222581",
+          "classification": "existing_mailbox_span_extended"
+        },
+        {
+          "file": "code/pallets-flask/c247d9db6a11e2b6.rst",
+          "span": [
+            3171,
+            3205
+          ],
+          "sha256": "a244fb3c8b1a18de749ff3e2f48f06480fc3d408ba37182035263c51b1425acb",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/pallets-flask/c247d9db6a11e2b6.rst",
+          "span": [
+            3226,
+            3243
+          ],
+          "sha256": "258d8dc916db8cea2cafb6c3cd0cb0246efe061421dbd83ec3a350428cabda4f",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/expressjs-express/cca7c350b8fb056e.js",
+          "span": [
+            938,
+            957
+          ],
+          "sha256": "c5c3a9c83219456baebcee66d27bad8569a3489d2997501a965a1858373890ab",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/expressjs-express/cca7c350b8fb056e.js",
+          "span": [
+            988,
+            1007
+          ],
+          "sha256": "241bf6ab8b139857e0dc4698c76f02fee41e4dffa53e63b57201965b7e2ca56f",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/expressjs-express/cca7c350b8fb056e.js",
+          "span": [
+            1038,
+            1057
+          ],
+          "sha256": "4950d1d76a3fd42afb1cb65d57782e5ad0342ec52ee5a73c521a5ad215372854",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/expressjs-express/5480ed23e3b2983b.js",
+          "span": [
+            500,
+            518
+          ],
+          "sha256": "d7c7dcd6b212ad8eaa5aacef394e491daaa510680bf770245bf8065ed13e5908",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/expressjs-express/5480ed23e3b2983b.js",
+          "span": [
+            575,
+            592
+          ],
+          "sha256": "b320a86a9f70476a4c4e01853c93ed8ccb78920fd505aee8ea56f1fc98cf851f",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/expressjs-express/5480ed23e3b2983b.js",
+          "span": [
+            648,
+            679
+          ],
+          "sha256": "30f3a219d62bd54dc6e8a1010ff5b44043e282cab2378ef6a1047145d4b11cb8",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/expressjs-express/ec77c2dd8321b232.js",
+          "span": [
+            75,
+            93
+          ],
+          "sha256": "d7c7dcd6b212ad8eaa5aacef394e491daaa510680bf770245bf8065ed13e5908",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/expressjs-express/ec77c2dd8321b232.js",
+          "span": [
+            124,
+            144
+          ],
+          "sha256": "3535e41475a662a741bce88b064b0ce16bb62bc6c8aec3ada9f026652ff4759f",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/expressjs-express/140de0b8ace177bc.js",
+          "span": [
+            1624,
+            1650
+          ],
+          "sha256": "9c78c3f2643829d180e34f5e6c0ab3f8d585aa8daaebd5827f372b8b6a8134c5",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/expressjs-express/140de0b8ace177bc.js",
+          "span": [
+            2126,
+            2154
+          ],
+          "sha256": "bc458e76ba99e8e1b80d14ef8480c5043dbf5b5f96a555fe19fdf73d4735a137",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/gin-gonic-gin/552f47512a00afe5.go",
+          "span": [
+            15204,
+            15226
+          ],
+          "sha256": "e89bdd0141b36cc88dbb20952cba70010f671ab3f8b5663da59bc9021e45c214",
+          "classification": "existing_mailbox_span_extended"
+        }
+      ]
+    },
+    {
+      "manifest": "manifest-technical-heldout.json",
+      "words": 1009930,
+      "before": 73,
+      "after": 92,
+      "removedSpansAllCoveredByLargerSpans": true,
+      "changes": {
+        "quoted_mailbox_occurrence_recovered": 13,
+        "source_template_not_a_contact": 6
+      },
+      "changedDetections": [
+        {
+          "file": "code/fastify-fastify/6a50ba5934a94292.js",
+          "span": [
+            852,
+            860
+          ],
+          "sha256": "8d25c6cdbbd5bd280ae194e6989dba7905391f63b0b708563c29ff71f6ee022f",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/fastify-fastify/6a50ba5934a94292.js",
+          "span": [
+            1631,
+            1639
+          ],
+          "sha256": "8d25c6cdbbd5bd280ae194e6989dba7905391f63b0b708563c29ff71f6ee022f",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/fastify-fastify/6a50ba5934a94292.js",
+          "span": [
+            2023,
+            2031
+          ],
+          "sha256": "8d25c6cdbbd5bd280ae194e6989dba7905391f63b0b708563c29ff71f6ee022f",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/fastify-fastify/6a50ba5934a94292.js",
+          "span": [
+            2411,
+            2419
+          ],
+          "sha256": "8d25c6cdbbd5bd280ae194e6989dba7905391f63b0b708563c29ff71f6ee022f",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/fastify-fastify/9b13ad538dabd9e0.js",
+          "span": [
+            11497,
+            11513
+          ],
+          "sha256": "94261c7b1880c6b8c1973d38e235ee41dcb3689ae57d35e914f7c495f59d6a0a",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/fastify-fastify/9b13ad538dabd9e0.js",
+          "span": [
+            11747,
+            11763
+          ],
+          "sha256": "94261c7b1880c6b8c1973d38e235ee41dcb3689ae57d35e914f7c495f59d6a0a",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/fastify-fastify/3cb669ead73a4027.js",
+          "span": [
+            12669,
+            12679
+          ],
+          "sha256": "8e570b0b9fed1db252e4a405b58b5e308f3578c34746c05b9ceae716e0db28e5",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/fastify-fastify/3cb669ead73a4027.js",
+          "span": [
+            12799,
+            12809
+          ],
+          "sha256": "8e570b0b9fed1db252e4a405b58b5e308f3578c34746c05b9ceae716e0db28e5",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/axios-axios/06b20da575e08045.yml",
+          "span": [
+            880,
+            920
+          ],
+          "sha256": "3979a7b80335266e8bb056aae71683404200cb4c7fbd9ea6aca349f1cb1c80b0",
+          "classification": "source_template_not_a_contact"
+        },
+        {
+          "file": "code/axios-axios/9db21559b2b68ac3.yml",
+          "span": [
+            421,
+            461
+          ],
+          "sha256": "3979a7b80335266e8bb056aae71683404200cb4c7fbd9ea6aca349f1cb1c80b0",
+          "classification": "source_template_not_a_contact"
+        },
+        {
+          "file": "code/axios-axios/15c806aa50953819.yml",
+          "span": [
+            579,
+            619
+          ],
+          "sha256": "3979a7b80335266e8bb056aae71683404200cb4c7fbd9ea6aca349f1cb1c80b0",
+          "classification": "source_template_not_a_contact"
+        },
+        {
+          "file": "code/axios-axios/551d1fcf87f78cc3.yml",
+          "span": [
+            683,
+            723
+          ],
+          "sha256": "3979a7b80335266e8bb056aae71683404200cb4c7fbd9ea6aca349f1cb1c80b0",
+          "classification": "source_template_not_a_contact"
+        },
+        {
+          "file": "code/axios-axios/551d1fcf87f78cc3.yml",
+          "span": [
+            2585,
+            2625
+          ],
+          "sha256": "3979a7b80335266e8bb056aae71683404200cb4c7fbd9ea6aca349f1cb1c80b0",
+          "classification": "source_template_not_a_contact"
+        },
+        {
+          "file": "code/axios-axios/4c108b46124da564.yml",
+          "span": [
+            419,
+            459
+          ],
+          "sha256": "3979a7b80335266e8bb056aae71683404200cb4c7fbd9ea6aca349f1cb1c80b0",
+          "classification": "source_template_not_a_contact"
+        },
+        {
+          "file": "code/axios-axios/44e027b25829495b.js",
+          "span": [
+            4837,
+            4853
+          ],
+          "sha256": "2f72cd84e238657abb6d180e44c685dc3ecdcdc80d025cdae0c6bf5abceed46c",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/axios-axios/44e027b25829495b.js",
+          "span": [
+            5356,
+            5372
+          ],
+          "sha256": "2f72cd84e238657abb6d180e44c685dc3ecdcdc80d025cdae0c6bf5abceed46c",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/axios-axios/44e027b25829495b.js",
+          "span": [
+            9254,
+            9270
+          ],
+          "sha256": "2f72cd84e238657abb6d180e44c685dc3ecdcdc80d025cdae0c6bf5abceed46c",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/axios-axios/44e027b25829495b.js",
+          "span": [
+            9771,
+            9787
+          ],
+          "sha256": "2f72cd84e238657abb6d180e44c685dc3ecdcdc80d025cdae0c6bf5abceed46c",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        },
+        {
+          "file": "code/axios-axios/44e027b25829495b.js",
+          "span": [
+            16847,
+            16863
+          ],
+          "sha256": "2f72cd84e238657abb6d180e44c685dc3ecdcdc80d025cdae0c6bf5abceed46c",
+          "classification": "quoted_mailbox_occurrence_recovered"
+        }
+      ]
+    }
+  ]
+}
