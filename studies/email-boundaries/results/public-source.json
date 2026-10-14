@@ -1,0 +1,274 @@
+{
+  "verifiedSourceHead": "dc73da7cce216217a8bb7006ea194dd6923a05de",
+  "parent": "d3f43e00f501cdd186c345a1ef6180e0e509afd3",
+  "sourceFiles": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 27409,
+      "sha256": "4b269214bc23759f62ebca0fd1f781729a8b1fd76a5e22fea527c3726a61ebd9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 35433,
+      "sha256": "8503b6240daef976c12bbee13f71a3a77209ebb5f3f6e0413718efebb00a19a4"
+    },
+    {
+      "path": "docs/assets/email-mailboxes-1280.png",
+      "bytes": 147500,
+      "sha256": "1fe45c5f9aa5cbd546fd2389413d1cfbd15aa7b6475b6708454584ad708c7c6d"
+    },
+    {
+      "path": "docs/assets/email-mailboxes-375.png",
+      "bytes": 121528,
+      "sha256": "760b588058680ccb8a593a46500acfb1ead88970eea26a765fe7fd7b2ece0849"
+    },
+    {
+      "path": "src/veil/detectors/email.py",
+      "bytes": 7032,
+      "sha256": "72581de8de3a9bc7ed6027563e0d9987b314193d059deeadaf1b3e57b21e0e7d"
+    },
+    {
+      "path": "studies/email-boundaries/README.md",
+      "bytes": 11057,
+      "sha256": "866629c568b6b7af952d28c26f4f181fe775306c21b3fd92bd3980dd2be6d882"
+    },
+    {
+      "path": "studies/email-boundaries/benchmark.py",
+      "bytes": 1650,
+      "sha256": "8e95092a74dc6113f199059fda53e4262e5a3c3752c64eccc47853824b425ed1"
+    },
+    {
+      "path": "studies/email-boundaries/cases.json",
+      "bytes": 2238,
+      "sha256": "503a0422bfba6c7ec91a3dba3706b54e826b679eb3413c5d00d7409b9f345894"
+    },
+    {
+      "path": "studies/email-boundaries/check-browser.mjs",
+      "bytes": 7350,
+      "sha256": "c6b48ded743a72f143c3509554e8aaf0f7636f8b97be391e8c8bd9067405daba"
+    },
+    {
+      "path": "studies/email-boundaries/corpus.py",
+      "bytes": 5131,
+      "sha256": "f114ca29bbd9ced03e2fc8717f9b80e7d7b9904f5854319943dcd0c593a6a292"
+    },
+    {
+      "path": "studies/email-boundaries/replay.py",
+      "bytes": 7863,
+      "sha256": "3bcaf499f446ec873385fadc2868f76345b156d756b0d809dfeaa2a12227faec"
+    },
+    {
+      "path": "studies/email-boundaries/results/after.json",
+      "bytes": 135228,
+      "sha256": "951065fd73f9a213891be24331e6b3efa678bc68ba26b30330771bdf1fd66a53"
+    },
+    {
+      "path": "studies/email-boundaries/results/before.json",
+      "bytes": 138450,
+      "sha256": "34ef31b50af6bbf913372f1378763fe6daaa6af2343c98bf0b6d63f295c2f9d8"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/chromium-1280-masked.txt",
+      "bytes": 796,
+      "sha256": "b3fd9a480277023a92f42520589e816d766472837da1c24c20b71e55bc59d5da"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/chromium-1280-vault.json",
+      "bytes": 2842,
+      "sha256": "2306d29b0e61351954ef6091bb702a114e14841e6c5037d37319924345e0b099"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/chromium-1280.png",
+      "bytes": 147500,
+      "sha256": "1fe45c5f9aa5cbd546fd2389413d1cfbd15aa7b6475b6708454584ad708c7c6d"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/chromium-375-masked.txt",
+      "bytes": 796,
+      "sha256": "b3fd9a480277023a92f42520589e816d766472837da1c24c20b71e55bc59d5da"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/chromium-375-vault.json",
+      "bytes": 2842,
+      "sha256": "2306d29b0e61351954ef6091bb702a114e14841e6c5037d37319924345e0b099"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/chromium-375.png",
+      "bytes": 121528,
+      "sha256": "760b588058680ccb8a593a46500acfb1ead88970eea26a765fe7fd7b2ece0849"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/firefox-1280-masked.txt",
+      "bytes": 796,
+      "sha256": "b3fd9a480277023a92f42520589e816d766472837da1c24c20b71e55bc59d5da"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/firefox-1280-vault.json",
+      "bytes": 2842,
+      "sha256": "2306d29b0e61351954ef6091bb702a114e14841e6c5037d37319924345e0b099"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/firefox-1280.png",
+      "bytes": 219678,
+      "sha256": "2a133c76f04827c573591da358962dd7d77bf2d36d04ff9ef45745c3ef510083"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/firefox-375-masked.txt",
+      "bytes": 796,
+      "sha256": "b3fd9a480277023a92f42520589e816d766472837da1c24c20b71e55bc59d5da"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/firefox-375-vault.json",
+      "bytes": 2842,
+      "sha256": "2306d29b0e61351954ef6091bb702a114e14841e6c5037d37319924345e0b099"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/firefox-375.png",
+      "bytes": 182537,
+      "sha256": "e68cc12e23ee9173fbb3f23518e99683146d64b5dea76084763c4832996a41b4"
+    },
+    {
+      "path": "studies/email-boundaries/results/browser/receipt.json",
+      "bytes": 3388,
+      "sha256": "df1010f1a181783153f55b2a86ddbc93aa70c3c1da9d7f139434242f038e6a70"
+    },
+    {
+      "path": "studies/email-boundaries/results/corpus-after.json",
+      "bytes": 157561,
+      "sha256": "8b766bb3380bd3dff7c181ad5ba3a8fc2e5e4f1630bcd86217a5d5538542af78"
+    },
+    {
+      "path": "studies/email-boundaries/results/corpus-before.json",
+      "bytes": 149507,
+      "sha256": "f13dabc8804dd16e1e98d82dac57509aa64ffeb3aef358bf7b701bdce3d06197"
+    },
+    {
+      "path": "studies/email-boundaries/results/corpus-review.json",
+      "bytes": 15495,
+      "sha256": "d2e931e2a468c0cdeca3e25732393b000aa7110a6253b0af83bd26de17d7f376"
+    },
+    {
+      "path": "studies/email-boundaries/results/installed-core-contact-pool.json",
+      "bytes": 518,
+      "sha256": "14a245d6be5ef063c66e72f92a8ead4afd6a35262026df52f4ece0c2ef8f644f"
+    },
+    {
+      "path": "studies/email-boundaries/results/installed-current.json",
+      "bytes": 135227,
+      "sha256": "75dd5839c3b1d4554a86759e956bb07f3517031227de31f5c7b35ce16bf3c60f"
+    },
+    {
+      "path": "studies/email-boundaries/results/installed-floor.json",
+      "bytes": 135228,
+      "sha256": "690817aee97165d0f1a9238489ef735d0c0db3b2b0e82f6bd7404d553be00513"
+    },
+    {
+      "path": "studies/email-boundaries/results/logs/clean-browser.txt",
+      "bytes": 264,
+      "sha256": "5db59d9acdb00d9ff1ecd55f235d8cbb93d32ab00d7300834de492d3b8660d53"
+    },
+    {
+      "path": "studies/email-boundaries/results/logs/clean-build.txt",
+      "bytes": 229,
+      "sha256": "30812f319a8b8a9be02a1d80e962cca6f825b93d185c41afde9d7cc9fb1f43d9"
+    },
+    {
+      "path": "studies/email-boundaries/results/logs/clean-python-checks.txt",
+      "bytes": 1856,
+      "sha256": "ba5d02ad6ea6b8d08acccadd1e1c9382f2ff376e531049b8f1b934ccbba111f9"
+    },
+    {
+      "path": "studies/email-boundaries/results/logs/clean-python-install.txt",
+      "bytes": 1795,
+      "sha256": "25e59886dbd951a8d3c8272967cd0bd89a833c4f1a637bb378a23346ff34823e"
+    },
+    {
+      "path": "studies/email-boundaries/results/logs/clean-web-checks.txt",
+      "bytes": 2894,
+      "sha256": "41fe954efc2f52c1d48b4cc9016b298f71eb41ca55372b0b718223dde4ba4d57"
+    },
+    {
+      "path": "studies/email-boundaries/results/logs/clean-web-install.txt",
+      "bytes": 462,
+      "sha256": "98757cee643fadfb42179f8060eaa176e6dd21d1db29ce1fcde560a93c4262f9"
+    },
+    {
+      "path": "studies/email-boundaries/results/logs/core-install.txt",
+      "bytes": 381,
+      "sha256": "ec96f859299d23930309b25280a5c7d1bcae7cadd06ceb3798bbb8674543f13e"
+    },
+    {
+      "path": "studies/email-boundaries/results/logs/current-install.txt",
+      "bytes": 1066,
+      "sha256": "75e21428c08684354e57de1f6bcabb118e4df6f8d9b7db0aecf312662bdf8651"
+    },
+    {
+      "path": "studies/email-boundaries/results/logs/floor-install.txt",
+      "bytes": 1480,
+      "sha256": "a89681a7e091e5e7362af715dde69a510b8786d4f681c43fdb20d17db087b63f"
+    },
+    {
+      "path": "studies/email-boundaries/results/logs/installed-current-checks.txt",
+      "bytes": 340,
+      "sha256": "4474c57f3412d873a734ced1c5ca9811b8df07ca985c61decfe5e0deb82a80ac"
+    },
+    {
+      "path": "studies/email-boundaries/results/logs/installed-floor-checks.txt",
+      "bytes": 1855,
+      "sha256": "ef4f95a7dd8cbf6432e19f5dde38b0a38e75e4e21f95f3abf1c676c70f016c28"
+    },
+    {
+      "path": "studies/email-boundaries/results/timing-after.json",
+      "bytes": 1757,
+      "sha256": "7c99a410eb996c8e88b6fe0da565af2423061dea862e8ab5a914c5b0720babfb"
+    },
+    {
+      "path": "studies/email-boundaries/results/timing-before.json",
+      "bytes": 1749,
+      "sha256": "845df9f38028c7b80bca05b2607295d4ada0049cb2b01ba56424aa9e942e12b1"
+    },
+    {
+      "path": "studies/email-boundaries/results/tool-before.json",
+      "bytes": 12535,
+      "sha256": "627d9f92e21226b6ce3b3ebe4ab2444d4ac4efd67cd237b4c07ae74758ed220f"
+    },
+    {
+      "path": "studies/email-boundaries/results/tool-installed-current.json",
+      "bytes": 12246,
+      "sha256": "a18a98350828b60e7e41a0546042d0208d3c8cc8c8d02be51da86b7bc66f637a"
+    },
+    {
+      "path": "studies/email-boundaries/results/tool-installed-floor.json",
+      "bytes": 12246,
+      "sha256": "488303b0f6ddc867b0c4f8ae35e40ccd4a52d244d893cb64f2fed2dc44e98afa"
+    },
+    {
+      "path": "studies/email-boundaries/results/verification.json",
+      "bytes": 8122,
+      "sha256": "3a03212cbb269dea5af06c34642f1602fb84bb96bef2e3145112e4bc19d6625e"
+    },
+    {
+      "path": "studies/email-boundaries/review-corpus.py",
+      "bytes": 3103,
+      "sha256": "b941c80d4554170f80643adca5dbe82e7630b7cf3c4339855f56b2a46f1fcf44"
+    },
+    {
+      "path": "studies/email-boundaries/tool-arguments.py",
+      "bytes": 6391,
+      "sha256": "464619e9d7b9aaed58663789d354605d8195f551ea72ded75a05012c3319af37"
+    },
+    {
+      "path": "studies/email-boundaries/verify-artifacts.py",
+      "bytes": 6135,
+      "sha256": "2883c356c4581e562f9653c570efe617becbf30dc9de8d7d6e5be3057f15829b"
+    },
+    {
+      "path": "tests/test_email_boundaries.py",
+      "bytes": 4091,
+      "sha256": "da9952f2563e47b3ed20a1751dd10a724008b584613d973c12484c2036675cb3"
+    }
+  ],
+  "matchedFiles": 53,
+  "method": "Pinned GitHub raw-file bytes compared with a clean local main checkout after push.",
+  "publicationBoundary": "Git source only; no package release or hosted deployment."
+}

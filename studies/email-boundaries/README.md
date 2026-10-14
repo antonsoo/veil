@@ -178,3 +178,13 @@ The build command remains `cd web && npm ci && npm run build`, producing
 `web/dist/`. Suggested repository description (unchanged scope):
 "Reversible PII masking for LLM calls, with exact streaming restoration and inspectable privacy boundaries."
 Topics: `pii`, `privacy`, `llm`, `pseudonymization`, `redaction`, `streaming`, `python`.
+
+## Public source verification
+
+The corrected source and retained evidence were pushed to `main` at
+`dc73da7cce216217a8bb7006ea194dd6923a05de` after installation and browser checks.
+All 53 changed files match pinned GitHub raw-file bytes from a clean local
+checkout. The [public-source receipt](results/public-source.json) records their
+sizes and SHA-256 hashes. This updates Git source; it does not publish a PyPI
+release or deploy the hosted browser demo. The earlier local artifact records
+retain their original verification boundary.
