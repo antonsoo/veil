@@ -15,7 +15,9 @@ so the events veil sees there are the ones the SDK really builds.
 ``tool_use`` input value in ``messages``, and every text block in ``system``
 (both the plain-string and the list-of-blocks forms). Document titles, context,
 plain-text sources and custom-content text are masked too, including documents
-inside tool results. Images, PDF bytes and URL/file references pass through
+inside tool results. Search-result source labels, titles and iterable text
+content are masked while retaining each citable block's position. Images,
+PDF bytes and document URL/file references pass through
 untouched — veil only understands inline text. Thinking blocks
 pass through untouched too: they carry a signature over their exact content.
 
@@ -112,7 +114,27 @@ def _mask_block(block: Any, masker: Masker, replay: ReplayCache | None = None) -
             return model_copy_with(block, input=mask_value(tool_input, masker))
     elif block_type == "document":
         return _mask_document(block, masker)
+    elif block_type == "search_result":
+        return _mask_search_result(block, masker)
     return block
+
+
+def _mask_search_result(block: Any, masker: Masker) -> Any:
+    """Mask inline retrieval text without changing citable block boundaries.
+
+    Source is an arbitrary attribution label, not a resource to fetch. It can
+    itself contain a contact or a signed URL. Citations retain the masked
+    provider-space label and quote, just as document citations do.
+    """
+    updates: dict[str, Any] = {}
+    for key in ("source", "title"):
+        value = get_field(block, key)
+        if isinstance(value, str):
+            updates[key] = masker.mask(value)
+    content = get_field(block, "content")
+    if isinstance(content, Iterable) and not isinstance(content, str | bytes | bytearray | Mapping):
+        updates["content"] = [_mask_block(part, masker) for part in content]
+    return model_copy_with(block, **updates) if updates else block
 
 
 def _mask_document(block: Any, masker: Masker) -> Any:

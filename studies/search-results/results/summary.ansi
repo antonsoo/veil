@@ -1,0 +1,10 @@
+label: source
+package_origin: selected-source
+python: 3.12.12
+anthropic: 1.11.0
+workflow_count: 36
+requests_with_raw_contacts: 0
+workflows_with_unchanged_citations: 36
+workflows_with_restored_answers: 36
+workflows_with_failures: 0
+Controlled synthetic contacts and replies; real SDK; mock HTTP only.

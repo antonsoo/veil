@@ -200,6 +200,14 @@ them and refer to the **masked source**, not character offsets in your original
 document. Answer text is restored normally. The wrapper does not map citation
 coordinates back to original text.
 
+**Retrieved search results (source checkout, unreleased).** Anthropic
+`search_result` source labels, titles and text blocks now pass through masking,
+including results inside tool responses and content supplied as an iterator.
+Previously all four recognized contacts reached transport unchanged in each of
+36 SDK workflows. Citations retain the masked attribution and quotes; their
+result/block indices and retained assistant replay stay intact.
+[Before/after captures and citation boundaries](studies/search-results/README.md).
+
 **Tool-input serialization (source checkout, unreleased).** Tuple values used
 to bypass masking before the SDK turned them into JSON arrays. Custom model
 objects and sensitive dictionary keys could also carry raw recognized

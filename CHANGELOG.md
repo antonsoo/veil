@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Anthropic retrieved search results
+
+- Mask `search_result` source labels, titles and each inline text block,
+  directly in messages and inside tool results. Previously this retrieval
+  form bypassed masking even for recognized sensitive values.
+- Visit list, tuple and generator content before transport. Keep result and
+  block order, citation/cache settings, source-space citation quotes and
+  exact retained assistant replay. Collisions and iterator failures use
+  request-level vault rollback.
+- Retain the 36-workflow actual SDK/mock HTTP reproduction in
+  `studies/search-results/`. No live provider call or package release.
+
 ### Complete mailbox masking
 
 - Mask complete dot-atom local parts containing valid ASCII punctuation,
