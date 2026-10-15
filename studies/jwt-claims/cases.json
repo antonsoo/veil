@@ -1,0 +1,175 @@
+{
+  "provenance": "Synthetic claims and locally generated signatures; not issued credentials. Asymmetric private keys are discarded.",
+  "encoder": "PyJWT 2.15.1",
+  "cases": [
+    {
+      "id": "hs256",
+      "algorithm": "HS256",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjdXN0b21lci0xMDQyIiwiZW1haWwiOiJhbGljZUBleGFtcGxlLm9yZyIsIm5hbWUiOiJBbGljZSBFeGFtcGxlIiwiZXhwIjoyMDAwMDAwMDAwfQ.prS2BP3OwsKuRxp3yt8fqBg-nkts-K6NtkiErlxYOlw",
+      "verificationKey": "synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-",
+      "claims": {
+        "sub": "customer-1042",
+        "email": "alice@example.org",
+        "name": "Alice Example",
+        "exp": 2000000000
+      },
+      "claimsSha256": "d70055f74ae115e0e83fa96a333dc35a4a635cdc4a850f0ab2e4f481121465d7",
+      "oracle": "PyJWT signature verification"
+    },
+    {
+      "id": "hs384",
+      "algorithm": "HS384",
+      "token": "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjdXN0b21lci0xMDQyIiwiZW1haWwiOiJhbGljZUBleGFtcGxlLm9yZyIsIm5hbWUiOiJBbGljZSBFeGFtcGxlIiwiZXhwIjoyMDAwMDAwMDAwfQ.wBU3S_tHAZnEAik0x3Nf84WOs7RAOJXsmaRH7HAYjw5fSV3IiM2XJWAfD4azQ6Ij",
+      "verificationKey": "synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-",
+      "claims": {
+        "sub": "customer-1042",
+        "email": "alice@example.org",
+        "name": "Alice Example",
+        "exp": 2000000000
+      },
+      "claimsSha256": "d70055f74ae115e0e83fa96a333dc35a4a635cdc4a850f0ab2e4f481121465d7",
+      "oracle": "PyJWT signature verification"
+    },
+    {
+      "id": "hs512",
+      "algorithm": "HS512",
+      "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjdXN0b21lci0xMDQyIiwiZW1haWwiOiJhbGljZUBleGFtcGxlLm9yZyIsIm5hbWUiOiJBbGljZSBFeGFtcGxlIiwiZXhwIjoyMDAwMDAwMDAwfQ.7QmtHEbC_n_5F0Bi07KofnziSVJkfHmdIGm95_rOCMsEQnv65qq01XoKZHCIprA4U8ka5YlGOiu-5I4BZ7iaDg",
+      "verificationKey": "synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-",
+      "claims": {
+        "sub": "customer-1042",
+        "email": "alice@example.org",
+        "name": "Alice Example",
+        "exp": 2000000000
+      },
+      "claimsSha256": "d70055f74ae115e0e83fa96a333dc35a4a635cdc4a850f0ab2e4f481121465d7",
+      "oracle": "PyJWT signature verification"
+    },
+    {
+      "id": "rs256",
+      "algorithm": "RS256",
+      "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjdXN0b21lci0xMDQyIiwiZW1haWwiOiJhbGljZUBleGFtcGxlLm9yZyIsIm5hbWUiOiJBbGljZSBFeGFtcGxlIiwiZXhwIjoyMDAwMDAwMDAwfQ.KJlKvGP-gRGCzdjolGG4THHjCNnHpCX37So4wCBgYXRedWbDwsQUGsd7zaOi3BVqJAm54nd24Xw9SSs6iEpCw3wk-fVxHpEwVaDe1BSzWexnjutljQiewSTypNsoRqXdVHVljKP02IqWPG-qXvxJK6sDYvxFafZ1N_ozrVvw3n5b_C3BuDLu0L5LAXPI4bwWSJTc9o8JuIl5jYRYBTrxCfSZhoGZBvmo6uv9Vz_voC2eRBnSpgo1l2VCIqjIstjtTFa1Hw9rqno2Xn9ND5nnu1QRcKCCX4JvhfNHNjgT7i2niaK7k2moP5dFrAi4SccyF4BHd4kPBx53KCtd78XYDQ",
+      "verificationKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAluCH1L+tYPew22yYtOb3\nHu2Wyw/0Dr6S/2xt7awetakEBf/DhjLSVtZSudLwFG+vYvec9uBeJZV4DEYQCx/S\nzIicyqYPfdx7qOT7FRiflUWcRm4y3lY44KoOSfbGbmqWlVhGMbgyV9jPgC2pcp1q\nvH/B6J5COUsECBXyFePPIU/L2HrcFSPLg3D7tnyLx0MofEZF0f5RTdD82jEIGgpr\nJC6kxgz6oZI2/t9PFMr2PC8iCfiiMcoiUPzji4K8L6JwYZSqwGjmC2/zDq44NYHN\nKsEIBxQdcwkx6UtyhlaF6pYbuLISHUC5BMB8HESPU1FYytdXPx/sX8m/jqikbB6A\nmwIDAQAB\n-----END PUBLIC KEY-----\n",
+      "claims": {
+        "sub": "customer-1042",
+        "email": "alice@example.org",
+        "name": "Alice Example",
+        "exp": 2000000000
+      },
+      "claimsSha256": "d70055f74ae115e0e83fa96a333dc35a4a635cdc4a850f0ab2e4f481121465d7",
+      "oracle": "PyJWT signature verification"
+    },
+    {
+      "id": "ps256",
+      "algorithm": "PS256",
+      "token": "eyJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjdXN0b21lci0xMDQyIiwiZW1haWwiOiJhbGljZUBleGFtcGxlLm9yZyIsIm5hbWUiOiJBbGljZSBFeGFtcGxlIiwiZXhwIjoyMDAwMDAwMDAwfQ.P9_Uzbywa1nUTzgnxnyTGsw8JTDEoj-XaQilutcXy10FYwEwHRDcgjkTatmz38MC3jUZIElXoWcLJrOvzvYjE-hWB9806mRDZ-Q1CQKND0zSjo9Xx0__WynVQWj1ckTMPLlbm-cfqoK9QuRpS92FoBi3cBT8tQyYu-60ryLWlrYXXwib7HIoR60IlTNbF_WevOxdsLRXFPM3owDbmdvbVDmANSApLucggzeeamjx0zx-y4pynDRpGgAMil2gYc9qcvoePIvhUctDw0Avum6sH9v6OfkvYHVkO1Zv0ui9d-LhyrucBUKUItpk1_dQ6zv7gli-g_vnPiB61DFAcpmNOg",
+      "verificationKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAluCH1L+tYPew22yYtOb3\nHu2Wyw/0Dr6S/2xt7awetakEBf/DhjLSVtZSudLwFG+vYvec9uBeJZV4DEYQCx/S\nzIicyqYPfdx7qOT7FRiflUWcRm4y3lY44KoOSfbGbmqWlVhGMbgyV9jPgC2pcp1q\nvH/B6J5COUsECBXyFePPIU/L2HrcFSPLg3D7tnyLx0MofEZF0f5RTdD82jEIGgpr\nJC6kxgz6oZI2/t9PFMr2PC8iCfiiMcoiUPzji4K8L6JwYZSqwGjmC2/zDq44NYHN\nKsEIBxQdcwkx6UtyhlaF6pYbuLISHUC5BMB8HESPU1FYytdXPx/sX8m/jqikbB6A\nmwIDAQAB\n-----END PUBLIC KEY-----\n",
+      "claims": {
+        "sub": "customer-1042",
+        "email": "alice@example.org",
+        "name": "Alice Example",
+        "exp": 2000000000
+      },
+      "claimsSha256": "d70055f74ae115e0e83fa96a333dc35a4a635cdc4a850f0ab2e4f481121465d7",
+      "oracle": "PyJWT signature verification"
+    },
+    {
+      "id": "es256",
+      "algorithm": "ES256",
+      "token": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjdXN0b21lci0xMDQyIiwiZW1haWwiOiJhbGljZUBleGFtcGxlLm9yZyIsIm5hbWUiOiJBbGljZSBFeGFtcGxlIiwiZXhwIjoyMDAwMDAwMDAwfQ.dCcsBFsp-XcO6ywLL-tAEcNCqCOHl4upEyDhvcU6OBEg03h9XnvSE7Q-OujDKBYbWhaDzHtGyMkEXoyH0MUWVg",
+      "verificationKey": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEKFuEvlqHD0nFDU8/zUWN7CP4FAkC\niywVe4PQOTCZPz9dz65i4JUrREA5gWXYwEnvHTZvX0VsSh0Ck3VYHiTxXg==\n-----END PUBLIC KEY-----\n",
+      "claims": {
+        "sub": "customer-1042",
+        "email": "alice@example.org",
+        "name": "Alice Example",
+        "exp": 2000000000
+      },
+      "claimsSha256": "d70055f74ae115e0e83fa96a333dc35a4a635cdc4a850f0ab2e4f481121465d7",
+      "oracle": "PyJWT signature verification"
+    },
+    {
+      "id": "eddsa",
+      "algorithm": "EdDSA",
+      "token": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjdXN0b21lci0xMDQyIiwiZW1haWwiOiJhbGljZUBleGFtcGxlLm9yZyIsIm5hbWUiOiJBbGljZSBFeGFtcGxlIiwiZXhwIjoyMDAwMDAwMDAwfQ.4N2wBipXPyOvYNUyKUqGT_0tv3dPQBRGcC66tJ4Y_k1SV4Q-UZl1GYfHJ7pqxC2wn3Z2s_GFRw9hBkGmVGLKAw",
+      "verificationKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAp2E45Hs+MihRaO4oNkZQn7Nf0GGvpFDbGD+tJiEF7lo=\n-----END PUBLIC KEY-----\n",
+      "claims": {
+        "sub": "customer-1042",
+        "email": "alice@example.org",
+        "name": "Alice Example",
+        "exp": 2000000000
+      },
+      "claimsSha256": "d70055f74ae115e0e83fa96a333dc35a4a635cdc4a850f0ab2e4f481121465d7",
+      "oracle": "PyJWT signature verification"
+    },
+    {
+      "id": "unsecured",
+      "algorithm": "none",
+      "token": "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJjdXN0b21lci0xMDQyIiwiZW1haWwiOiJhbGljZUBleGFtcGxlLm9yZyIsIm5hbWUiOiJBbGljZSBFeGFtcGxlIiwiZXhwIjoyMDAwMDAwMDAwfQ.",
+      "verificationKey": "",
+      "claims": {
+        "sub": "customer-1042",
+        "email": "alice@example.org",
+        "name": "Alice Example",
+        "exp": 2000000000
+      },
+      "claimsSha256": "d70055f74ae115e0e83fa96a333dc35a4a635cdc4a850f0ab2e4f481121465d7",
+      "oracle": "PyJWT decode only; unsecured JWT"
+    },
+    {
+      "id": "no-typ",
+      "algorithm": "HS256",
+      "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjdXN0b21lci0xMDQyIiwiZW1haWwiOiJhbGljZUBleGFtcGxlLm9yZyIsIm5hbWUiOiJBbGljZSBFeGFtcGxlIiwiZXhwIjoyMDAwMDAwMDAwfQ.dseWbalyVAdP3ss7BmDH3eVFq9NQ1nHaG2VVaLqwJjo",
+      "verificationKey": "synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-",
+      "claims": {
+        "sub": "customer-1042",
+        "email": "alice@example.org",
+        "name": "Alice Example",
+        "exp": 2000000000
+      },
+      "claimsSha256": "d70055f74ae115e0e83fa96a333dc35a4a635cdc4a850f0ab2e4f481121465d7",
+      "oracle": "PyJWT signature verification"
+    },
+    {
+      "id": "unicode-claims",
+      "algorithm": "HS256",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjdXN0b21lci0xMDQyIiwiZW1haWwiOiJcdTUyMjlcdTc1MjhcdTgwMDVAXHU0ZjhiXHUzMDQ4Llx1MzBjNlx1MzBiOVx1MzBjOCIsIm5hbWUiOiJcdTY3YjZcdTdhN2FcdTMwNmVcdTUyMjlcdTc1MjhcdTgwMDUiLCJleHAiOjIwMDAwMDAwMDB9.plUWevVGxE6tLcu3z15G7YPeAdZKd8djYlupGRZptj8",
+      "verificationKey": "synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-",
+      "claims": {
+        "sub": "customer-1042",
+        "email": "利用者@例え.テスト",
+        "name": "架空の利用者",
+        "exp": 2000000000
+      },
+      "claimsSha256": "57df1391d8b67a7ef950d9957da7f6fd78e9ab8338215d7d1769d744461a1c17",
+      "oracle": "PyJWT signature verification"
+    },
+    {
+      "id": "long-claims",
+      "algorithm": "HS256",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjdXN0b21lci0xMDQyIiwiZW1haWwiOiJhbGljZUBleGFtcGxlLm9yZyIsIm5hbWUiOiJBbGljZSBFeGFtcGxlIiwiZXhwIjoyMDAwMDAwMDAwLCJub3RlcyI6IlN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuIFN5bnRoZXRpYyBwcml2YXRlIGNhc2Ugbm90ZXMuICJ9.ZSw0P7htb6WnDGi6Gm0qIDhNPX0QxPcG0PDSirOBs34",
+      "verificationKey": "synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-",
+      "claims": {
+        "sub": "customer-1042",
+        "email": "alice@example.org",
+        "name": "Alice Example",
+        "exp": 2000000000,
+        "notes": "Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. Synthetic private case notes. "
+      },
+      "claimsSha256": "83583ecbf0b94c7e8d22705317cc473a1ee7d17824ce3ac823b08b99537d1741",
+      "oracle": "PyJWT signature verification"
+    },
+    {
+      "id": "header-url",
+      "algorithm": "HS256",
+      "token": "eyJhbGciOiJIUzI1NiIsImprdSI6Imh0dHBzOi8vZXhhbXBsZS5pbnZhbGlkL2tleXMiLCJraWQiOiJzeW50aGV0aWMta2V5LWlkIiwidHlwIjoiSldUIn0.eyJzdWIiOiJjdXN0b21lci0xMDQyIiwiZW1haWwiOiJhbGljZUBleGFtcGxlLm9yZyIsIm5hbWUiOiJBbGljZSBFeGFtcGxlIiwiZXhwIjoyMDAwMDAwMDAwfQ.kjbTuxEl4OQwB8kI6LBqe1ql8mQCpY3wE6TSJoFpxC0",
+      "verificationKey": "synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-synthetic-test-only-signing-material-",
+      "claims": {
+        "sub": "customer-1042",
+        "email": "alice@example.org",
+        "name": "Alice Example",
+        "exp": 2000000000
+      },
+      "claimsSha256": "d70055f74ae115e0e83fa96a333dc35a4a635cdc4a850f0ab2e4f481121465d7",
+      "oracle": "PyJWT signature verification"
+    }
+  ]
+}

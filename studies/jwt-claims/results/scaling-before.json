@@ -1,0 +1,207 @@
+{
+  "python": "3.12.12",
+  "logicalCPUs": 14,
+  "platform": "Linux",
+  "secretSourceSha256": "1ded4fe0254315b71ad28a66260e8fe533f422db9f2fe53e800f28ed49db8129",
+  "jwtSourceSha256": null,
+  "warmups": 1,
+  "repeats": 3,
+  "scope": "SecretDetector.find only; synthetic structure, not verified signatures.",
+  "rows": [
+    {
+      "shape": "opaque-claims",
+      "inputBytes": 13401,
+      "inputSha256": "ab636394cb23bb9673d9e8e6d30bff194ca273356c5ec2a79c32d66044307a80",
+      "medianSeconds": 0.010845789016457275,
+      "seconds": [
+        0.010845789016457275,
+        0.012229569983901456,
+        0.009320069017121568
+      ],
+      "entities": 1,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "oversized-header",
+      "inputBytes": 10017,
+      "inputSha256": "8033f01de7e2f002583a14e7db7f9e084f977fe62a49a2af14f5a4c16c9fd5e7",
+      "medianSeconds": 0.0070850680058356375,
+      "seconds": [
+        0.001755169010721147,
+        0.0070850680058356375,
+        0.00783576600952074
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "one-long-word",
+      "inputBytes": 10000,
+      "inputSha256": "27dd1f61b867b6a0f6e9d8a41c43231de52107e53ae424de8f847b821db4b711",
+      "medianSeconds": 0.010680156003218144,
+      "seconds": [
+        0.013446280994685367,
+        0.007662857999093831,
+        0.010680156003218144
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "many-dots",
+      "inputBytes": 10000,
+      "inputSha256": "746361d33365f0f403b02d7b50d698122fe9745e24a47f9b49a38b63795250d3",
+      "medianSeconds": 0.006667229987215251,
+      "seconds": [
+        0.006667229987215251,
+        0.007211689982796088,
+        0.005975588981527835
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "four-parts",
+      "inputBytes": 7750,
+      "inputSha256": "abc9c6c6a04cff7102fb1fb9a152298c0be20539c64468c213b0825ec2b082c1",
+      "medianSeconds": 0.016275964997475967,
+      "seconds": [
+        0.024760274012805894,
+        0.01503602002048865,
+        0.016275964997475967
+      ],
+      "entities": 125,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "opaque-claims",
+      "inputBytes": 133401,
+      "inputSha256": "60d5f3b01a1d0c335f1b3ff1857ef53697ab8e5dafdd1c71a033b8721f0f4885",
+      "medianSeconds": 0.056985370989423245,
+      "seconds": [
+        0.08303374401293695,
+        0.056985370989423245,
+        0.03679051500512287
+      ],
+      "entities": 1,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "oversized-header",
+      "inputBytes": 100017,
+      "inputSha256": "0793a577eccd24af0c8dc119cf0bbb6144a83360e2390547d9ae156ad5690dd7",
+      "medianSeconds": 0.0531040350033436,
+      "seconds": [
+        0.03617156998370774,
+        0.09913353898446076,
+        0.0531040350033436
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "one-long-word",
+      "inputBytes": 100000,
+      "inputSha256": "6d1cf22d7cc09b085dfc25ee1a1f3ae0265804c607bc2074ad253bcc82fd81ee",
+      "medianSeconds": 0.02392721502110362,
+      "seconds": [
+        0.03780832700431347,
+        0.02392721502110362,
+        0.022894872003234923
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "many-dots",
+      "inputBytes": 100000,
+      "inputSha256": "db84b9438e28b070e676c1ec8bb02c7c533402df31fb0014b6bffeaeb4aa1d97",
+      "medianSeconds": 0.03562277200398967,
+      "seconds": [
+        0.021451723005156964,
+        0.03562277200398967,
+        0.04265871399547905
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "four-parts",
+      "inputBytes": 77500,
+      "inputSha256": "fa492164deba3798b38533eedaa0d9c85a966c1254fcabdf4ce16e16fe91a40d",
+      "medianSeconds": 0.11069236899493262,
+      "seconds": [
+        0.11632634399575181,
+        0.11069236899493262,
+        0.0963919369969517
+      ],
+      "entities": 1250,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "opaque-claims",
+      "inputBytes": 1333401,
+      "inputSha256": "a9736b8d6fe1485a5f4d2d05b93b2f71c121aa4310994752b643f99ed137427d",
+      "medianSeconds": 0.42722202200093307,
+      "seconds": [
+        0.9524125690222718,
+        0.40705689901369624,
+        0.42722202200093307
+      ],
+      "entities": 1,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "oversized-header",
+      "inputBytes": 1000017,
+      "inputSha256": "4ff5ce676946e786a3441bf063a398eab1cfa6ccad350ae17e437499fe953766",
+      "medianSeconds": 0.39040288102114573,
+      "seconds": [
+        0.42945392700494267,
+        0.39040288102114573,
+        0.2940070519980509
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "one-long-word",
+      "inputBytes": 1000000,
+      "inputSha256": "cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0",
+      "medianSeconds": 0.4917576809821185,
+      "seconds": [
+        0.43808161199558526,
+        0.4917576809821185,
+        0.7900770999840461
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "many-dots",
+      "inputBytes": 1000000,
+      "inputSha256": "0b1e0483996b7a776f2367c57e2287635e0fc7545c86b61eafbb73abfca3df67",
+      "medianSeconds": 0.23584768900764175,
+      "seconds": [
+        0.6339570120035205,
+        0.23584768900764175,
+        0.2152065459813457
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "four-parts",
+      "inputBytes": 775000,
+      "inputSha256": "1b4ac4b3610d8952bb6d4900284e82c3df404eac328194b4e6015b9a55d1d267",
+      "medianSeconds": 1.0912173010001425,
+      "seconds": [
+        1.1215909630118404,
+        1.0912173010001425,
+        1.0334714109776542
+      ],
+      "entities": 12500,
+      "wholeInputMasked": false
+    }
+  ]
+}

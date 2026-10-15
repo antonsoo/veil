@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Whole compact JWT masking
+
+- Mask supported compact JWTs as one credential. Generic entropy detection
+  previously replaced header/signature fragments while leaving base64-encoded
+  customer names, emails and other identity claims visible.
+- Decode only a bounded JOSE header. Claims remain opaque; signature validity,
+  expiration and external key services do not affect masking. Signed and
+  unsecured forms, optional `typ`, padded compatibility spellings and trailing
+  sentence punctuation retain exact restoration.
+- Retain native PyJWT/signature oracles, actual SDK captures, CLI vaults,
+  malformed/large-input checks and corpus evidence in `studies/jwt-claims/`.
+  The core remains dependency-free; PyJWT is a development-only oracle.
+
 ### Temporary AWS access key IDs
 
 - Recognize `ASIA` STS access key IDs alongside `AKIA`, with the existing

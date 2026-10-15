@@ -124,8 +124,8 @@ existing reversible PII masking tool.
 
 ## Public source
 
-Source/evidence revision `087b682` was pushed to `main` after the user authorized
-pushing. All 66 changed files match their pinned public GitHub raw-file bytes
+Source/evidence revision `087b682` was pushed to `main` after verification.
+All 66 changed files match their pinned public GitHub raw-file bytes
 ([receipt](results/public-source.json)); the working tree was clean and the
 remote `main` matched at verification. The remote `gh-pages` revision remained
 `8a15aaf198636907a1254f247f2159c6a53984d9` across this source push. No package

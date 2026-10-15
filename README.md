@@ -394,6 +394,10 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   The source also recognizes temporary AWS `ASIA` key IDs independently of
   entropy/word heuristics. [Seeded coverage and actual SDK requests](studies/sts-key-ids/README.md)
   retain the previously missed cases; this correction is unreleased.
+  The source also masks supported compact JWTs as whole credentials, covering
+  encoded identity claims that fragment masking left visible.
+  [Native signature oracles and SDK captures](studies/jwt-claims/README.md)
+  document recognition boundaries; this change does not authenticate tokens.
   This checkout also recognizes signed AWS/GCS, Azure Storage SAS and
   CloudFront URLs, OAuth fragment tokens, and percent-encoded token parameter
   names. [Credential-URL evidence and exact matching rules](studies/credential-urls/README.md)

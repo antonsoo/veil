@@ -26,6 +26,7 @@ from bisect import bisect_left
 from collections.abc import Iterator
 
 from veil._spans import DisjointSpans
+from veil.detectors._jwt import compact_jwt_spans
 from veil.detectors._words import looks_random
 from veil.types import Entity, EntityType, Span
 
@@ -128,7 +129,7 @@ class SecretDetector:
         out: list[Entity] = []
         claimed = DisjointSpans()
 
-        def known(pattern_name: str, start: int, end: int) -> None:
+        def known(pattern_name: str, start: int, end: int, confidence: float = 0.97) -> None:
             span = Span(start, end)
             if claimed.overlaps(span):
                 return
@@ -139,12 +140,16 @@ class SecretDetector:
                     value=text[start:end],
                     span=span,
                     detector=f"{self.name}:{pattern_name}",
-                    confidence=0.97,
+                    confidence=confidence,
                 )
             )
 
         for start, end in _private_key_blocks(text):
             known("private_key", start, end)
+        for start, end in compact_jwt_spans(text):
+            # A recognized JOSE header identifies the enclosing credential.
+            # A card-like signature fragment must not displace its claims.
+            known("jwt", start, end, confidence=1.0)
         for pattern_name, rx in _KNOWN_PATTERNS:
             for m in rx.finditer(text):
                 # aws_secret_key is the one pattern with no distinguishing

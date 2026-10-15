@@ -1,0 +1,207 @@
+{
+  "python": "3.12.12",
+  "logicalCPUs": 14,
+  "platform": "Linux",
+  "secretSourceSha256": "a0c2de4a9741f0ae25a4b491a3ff25a6dab9cacab2cc21f761c32e44f4368493",
+  "jwtSourceSha256": "24ca1a07c536eb9ce164a58f8bdb207421a3d4f165c3dd997034c39cd9de3c77",
+  "warmups": 1,
+  "repeats": 3,
+  "scope": "SecretDetector.find only; synthetic structure, not verified signatures.",
+  "rows": [
+    {
+      "shape": "opaque-claims",
+      "inputBytes": 13401,
+      "inputSha256": "ab636394cb23bb9673d9e8e6d30bff194ca273356c5ec2a79c32d66044307a80",
+      "medianSeconds": 0.006320219981716946,
+      "seconds": [
+        0.012872167979367077,
+        0.002886214992031455,
+        0.006320219981716946
+      ],
+      "entities": 1,
+      "wholeInputMasked": true
+    },
+    {
+      "shape": "oversized-header",
+      "inputBytes": 10017,
+      "inputSha256": "8033f01de7e2f002583a14e7db7f9e084f977fe62a49a2af14f5a4c16c9fd5e7",
+      "medianSeconds": 0.002934821997769177,
+      "seconds": [
+        0.002934821997769177,
+        0.0017974369984585792,
+        0.01270080401445739
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "one-long-word",
+      "inputBytes": 10000,
+      "inputSha256": "27dd1f61b867b6a0f6e9d8a41c43231de52107e53ae424de8f847b821db4b711",
+      "medianSeconds": 0.009339583979453892,
+      "seconds": [
+        0.013798789004795253,
+        0.00203631300246343,
+        0.009339583979453892
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "many-dots",
+      "inputBytes": 10000,
+      "inputSha256": "746361d33365f0f403b02d7b50d698122fe9745e24a47f9b49a38b63795250d3",
+      "medianSeconds": 0.0018767350120469928,
+      "seconds": [
+        0.0018767350120469928,
+        0.012838121998356655,
+        0.0018343510164413601
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "four-parts",
+      "inputBytes": 7750,
+      "inputSha256": "abc9c6c6a04cff7102fb1fb9a152298c0be20539c64468c213b0825ec2b082c1",
+      "medianSeconds": 0.01769616099772975,
+      "seconds": [
+        0.01769616099772975,
+        0.028248243004782125,
+        0.015351444977568462
+      ],
+      "entities": 125,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "opaque-claims",
+      "inputBytes": 133401,
+      "inputSha256": "60d5f3b01a1d0c335f1b3ff1857ef53697ab8e5dafdd1c71a033b8721f0f4885",
+      "medianSeconds": 0.10725383998942561,
+      "seconds": [
+        0.10910866697668098,
+        0.10725383998942561,
+        0.04981917201075703
+      ],
+      "entities": 1,
+      "wholeInputMasked": true
+    },
+    {
+      "shape": "oversized-header",
+      "inputBytes": 100017,
+      "inputSha256": "0793a577eccd24af0c8dc119cf0bbb6144a83360e2390547d9ae156ad5690dd7",
+      "medianSeconds": 0.021787861012853682,
+      "seconds": [
+        0.02272581699071452,
+        0.021787861012853682,
+        0.019868233997840434
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "one-long-word",
+      "inputBytes": 100000,
+      "inputSha256": "6d1cf22d7cc09b085dfc25ee1a1f3ae0265804c607bc2074ad253bcc82fd81ee",
+      "medianSeconds": 0.04170182000962086,
+      "seconds": [
+        0.02580813699751161,
+        0.05427002502256073,
+        0.04170182000962086
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "many-dots",
+      "inputBytes": 100000,
+      "inputSha256": "db84b9438e28b070e676c1ec8bb02c7c533402df31fb0014b6bffeaeb4aa1d97",
+      "medianSeconds": 0.028258464008104056,
+      "seconds": [
+        0.02847830599057488,
+        0.01843796798493713,
+        0.028258464008104056
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "four-parts",
+      "inputBytes": 77500,
+      "inputSha256": "fa492164deba3798b38533eedaa0d9c85a966c1254fcabdf4ce16e16fe91a40d",
+      "medianSeconds": 0.0633162589801941,
+      "seconds": [
+        0.0633162589801941,
+        0.05847070598974824,
+        0.07064638900919817
+      ],
+      "entities": 1250,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "opaque-claims",
+      "inputBytes": 1333401,
+      "inputSha256": "a9736b8d6fe1485a5f4d2d05b93b2f71c121aa4310994752b643f99ed137427d",
+      "medianSeconds": 0.7566820189822465,
+      "seconds": [
+        0.548278512986144,
+        0.8273027620161884,
+        0.7566820189822465
+      ],
+      "entities": 1,
+      "wholeInputMasked": true
+    },
+    {
+      "shape": "oversized-header",
+      "inputBytes": 1000017,
+      "inputSha256": "4ff5ce676946e786a3441bf063a398eab1cfa6ccad350ae17e437499fe953766",
+      "medianSeconds": 0.330672190990299,
+      "seconds": [
+        0.3102997320238501,
+        0.330672190990299,
+        0.39782788199954666
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "one-long-word",
+      "inputBytes": 1000000,
+      "inputSha256": "cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0",
+      "medianSeconds": 0.4261397029913496,
+      "seconds": [
+        0.4261397029913496,
+        0.32378359002177604,
+        0.4512444350111764
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "many-dots",
+      "inputBytes": 1000000,
+      "inputSha256": "0b1e0483996b7a776f2367c57e2287635e0fc7545c86b61eafbb73abfca3df67",
+      "medianSeconds": 0.40530323100392707,
+      "seconds": [
+        0.27781698998296633,
+        0.4376821279875003,
+        0.40530323100392707
+      ],
+      "entities": 0,
+      "wholeInputMasked": false
+    },
+    {
+      "shape": "four-parts",
+      "inputBytes": 775000,
+      "inputSha256": "1b4ac4b3610d8952bb6d4900284e82c3df404eac328194b4e6015b9a55d1d267",
+      "medianSeconds": 1.0662406589835882,
+      "seconds": [
+        0.7844994920014869,
+        1.4397514290176332,
+        1.0662406589835882
+      ],
+      "entities": 12500,
+      "wholeInputMasked": false
+    }
+  ]
+}
