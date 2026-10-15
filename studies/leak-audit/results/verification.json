@@ -1,0 +1,258 @@
+{
+  "date": "2026-10-15",
+  "sourceCommit": "be9f8d23d65af0c807beeb07eae90657b79a7bc6",
+  "steps": [
+    {
+      "name": "install",
+      "argv": [
+        "uv",
+        "sync",
+        "--locked",
+        "--group",
+        "dev",
+        "--python",
+        "3.12"
+      ],
+      "exitCode": 0,
+      "seconds": 0.3837853970180731,
+      "logSha256": "ffdb01d853cdcaff2d783c6cbaafd88784a8461d641590a599dc0a83873512c2"
+    },
+    {
+      "name": "lint",
+      "argv": [
+        "uv",
+        "run",
+        "--no-sync",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exitCode": 0,
+      "seconds": 0.03253518900601193,
+      "logSha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "name": "format",
+      "argv": [
+        "uv",
+        "run",
+        "--no-sync",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exitCode": 0,
+      "seconds": 0.03264406599919312,
+      "logSha256": "3accebe6ea89f2c78ec6c12dbcaa6ecf88913ed058c8e2b2909b52889ac7ba20"
+    },
+    {
+      "name": "types",
+      "argv": [
+        "uv",
+        "run",
+        "--no-sync",
+        "mypy"
+      ],
+      "exitCode": 0,
+      "seconds": 1.5022237350058276,
+      "logSha256": "32c1f154f636757bc9df6843701b18b495673a7cf2e0f68b592d2055d6ae6c07"
+    },
+    {
+      "name": "tests",
+      "argv": [
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "-q"
+      ],
+      "exitCode": 0,
+      "seconds": 14.034619003010448,
+      "logSha256": "3752cc0a339256f09d8d58f741239f40c1171b2a663e902e9a49e6488b448f26"
+    },
+    {
+      "name": "build",
+      "argv": [
+        "uv",
+        "build",
+        "--out-dir",
+        "<scratch>/artifacts"
+      ],
+      "exitCode": 0,
+      "seconds": 0.5566465989977587,
+      "logSha256": "285cacdbc01b3503f6c9e9a1a314a95c6c2c30fe58fefbdb7e641d2da4041874"
+    },
+    {
+      "name": "venv-3.10",
+      "argv": [
+        "uv",
+        "venv",
+        "--python",
+        "3.10",
+        "<scratch>/consumer-3.10"
+      ],
+      "exitCode": 0,
+      "seconds": 0.013368382002227008,
+      "logSha256": "75ed8c6f74103ac883b8f727be0126b2fba898d312531e0b1b3e90732babd511"
+    },
+    {
+      "name": "install-3.10",
+      "argv": [
+        "uv",
+        "pip",
+        "install",
+        "--python",
+        "<scratch>/consumer-3.10/bin/python",
+        "<scratch>/artifacts/veil_pii-0.4.4-py3-none-any.whl"
+      ],
+      "exitCode": 0,
+      "seconds": 0.028174813982332125,
+      "logSha256": "19dfb581518cc0db99001023cf878a0b2716832441fe3eccb7cb17a498a2eeb4"
+    },
+    {
+      "name": "replay-3.10",
+      "argv": [
+        "<scratch>/consumer-3.10/bin/python",
+        "<checkout>/studies/leak-audit/replay.py",
+        "--output",
+        "<checkout>/studies/leak-audit/results/installed-python310.json"
+      ],
+      "exitCode": 0,
+      "seconds": 2.230620957008796,
+      "logSha256": "6a3ace580567bf5f5c5456bf4094f5b7faaa1369cba4881f114db0e3ed1e5328"
+    },
+    {
+      "name": "venv-3.12",
+      "argv": [
+        "uv",
+        "venv",
+        "--python",
+        "3.12",
+        "<scratch>/consumer-3.12"
+      ],
+      "exitCode": 0,
+      "seconds": 0.012758016004227102,
+      "logSha256": "b72de838d2928b5f3b2795a6db0c6d7955c1c0da51b2eb919708f5c8b9f8d0bd"
+    },
+    {
+      "name": "install-3.12",
+      "argv": [
+        "uv",
+        "pip",
+        "install",
+        "--python",
+        "<scratch>/consumer-3.12/bin/python",
+        "<scratch>/artifacts/veil_pii-0.4.4-py3-none-any.whl"
+      ],
+      "exitCode": 0,
+      "seconds": 0.015948426007525995,
+      "logSha256": "1b8b08b9eb081e7bad3ad1ba590003380779a4914e20ee06566d789e30cdd184"
+    },
+    {
+      "name": "replay-3.12",
+      "argv": [
+        "<scratch>/consumer-3.12/bin/python",
+        "<checkout>/studies/leak-audit/replay.py",
+        "--output",
+        "<checkout>/studies/leak-audit/results/installed-python312.json"
+      ],
+      "exitCode": 0,
+      "seconds": 1.7235417200135998,
+      "logSha256": "5008632497ca8338489d2d3ce68b49e448ffc04e15fc24d7025cfe13c834fbda"
+    },
+    {
+      "name": "venv-3.14",
+      "argv": [
+        "uv",
+        "venv",
+        "--python",
+        "3.14",
+        "<scratch>/consumer-3.14"
+      ],
+      "exitCode": 0,
+      "seconds": 0.01329675200395286,
+      "logSha256": "b759da57a98495b78c85a497240de9d53dc1f1fc591548ccf1e471a1aaf440d6"
+    },
+    {
+      "name": "install-3.14",
+      "argv": [
+        "uv",
+        "pip",
+        "install",
+        "--python",
+        "<scratch>/consumer-3.14/bin/python",
+        "<scratch>/artifacts/veil_pii-0.4.4-py3-none-any.whl"
+      ],
+      "exitCode": 0,
+      "seconds": 0.016171770985238254,
+      "logSha256": "c374ca6876490fe1c3cbc35abd834ecb83dfe813773371c324892024bb9b5b70"
+    },
+    {
+      "name": "replay-3.14",
+      "argv": [
+        "<scratch>/consumer-3.14/bin/python",
+        "<checkout>/studies/leak-audit/replay.py",
+        "--output",
+        "<checkout>/studies/leak-audit/results/installed-python314.json"
+      ],
+      "exitCode": 0,
+      "seconds": 1.5812971819832455,
+      "logSha256": "65e8fecf4e3a49cbb4d0263aaa72c082e5d84083475c59f78dcbe2847249ffc7"
+    }
+  ],
+  "wheel": {
+    "filename": "veil_pii-0.4.4-py3-none-any.whl",
+    "bytes": 97938,
+    "sha256": "d7da2efa5e6780f8192764eb2faf129fde3016d2b13113e3d03896a4a10d116f"
+  },
+  "modules": {
+    "veil/__init__.py": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980",
+    "veil/_files.py": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29",
+    "veil/_spans.py": "e8e2f09a3f7b92535ffaacda6c3c820793465c9c00f16faec50c807147e1e62f",
+    "veil/audit.py": "1d939cb1c1c2e765b6c450dc5614877cabaeb3513d456e084ce87b4c9d6e43dd",
+    "veil/backends/__init__.py": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b",
+    "veil/backends/base.py": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e",
+    "veil/backends/known_entities.py": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55",
+    "veil/backends/spacy_backend.py": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b",
+    "veil/cli.py": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1",
+    "veil/detectors/__init__.py": "4e6e202fe17c7c8d0bd6afea3f1611411eb6fbb5c4acfa3f9eb17eb9184107e6",
+    "veil/detectors/_calling_codes.py": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c",
+    "veil/detectors/_http_auth.py": "d1932bd690b5673c6b70cd0425b2fc7d4b06225e3219b48ac001872dbef23af2",
+    "veil/detectors/_jwt.py": "24ca1a07c536eb9ce164a58f8bdb207421a3d4f165c3dd997034c39cd9de3c77",
+    "veil/detectors/_words.py": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887",
+    "veil/detectors/address.py": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec",
+    "veil/detectors/base.py": "ac0e63d0d37d4626f9717a1ccafe4a093ecea9a0e1ef897afa200cfc85fb3ef2",
+    "veil/detectors/card.py": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f",
+    "veil/detectors/dob.py": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f",
+    "veil/detectors/email.py": "6c55c1532b289c0ab791570c24616aacd636929e64319e1badcd2ea69b359e77",
+    "veil/detectors/iban.py": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c",
+    "veil/detectors/ip.py": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b",
+    "veil/detectors/phone.py": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd",
+    "veil/detectors/secrets.py": "76890834c2f928f864759a1ae0bee7d3154367ba3e422c50a2e2ef2ccca81505",
+    "veil/detectors/ssn.py": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b",
+    "veil/detectors/url.py": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099",
+    "veil/integrations/__init__.py": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881",
+    "veil/integrations/_common.py": "aa87f659a6cfd1a242f4ad463b552379034922c5c485d4070907868b8d826164",
+    "veil/integrations/_json_arguments.py": "454f44c460b8a15e409458612959ad5138a6e0c2b053b2bc203ea99b66f7306c",
+    "veil/integrations/anthropic.py": "3f27a9955ce49c788bf2d3e97babbe8e197ac15d3c1c939c50a198595411a821",
+    "veil/integrations/openai.py": "830b8cf890680ea4edae8489d55402a9163a0effa210350037434a61a0ccb9d3",
+    "veil/integrations/openai_responses.py": "3650dfc325747ecce45a847de3efb36a6087f28ffd63b0317dee302ee1ce092e",
+    "veil/masker.py": "d1ab3df9739183e7023bb38358f57475c2f605f52da710767431c8fd9d2e15b6",
+    "veil/restore.py": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38",
+    "veil/surrogates.py": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0",
+    "veil/types.py": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8",
+    "veil/vault.py": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+  },
+  "allInstalledSourceBytesMatch": true,
+  "sourceTestsTail": "........................................................................ [  6%]\n........................................................................ [ 12%]\n........................................................................ [ 18%]\n........................................................................ [ 24%]\n........................................................................ [ 30%]\n........................................................................ [ 36%]\n........................................................................ [ 43%]\n........................................................................ [ 49%]\n........................................................................ [ 55%]\n........................................................................ [ 61%]\n........................................................................ [ 67%]\n........................................................................ [ 73%]\n........................................................................ [ 80%]\n........................................................................ [ 86%]\n........................................................................ [ 92%]\n........................................................................ [ 98%]\n.................                                                        [100%]\n=========================== short test summary info ============================\nSKIPPED [1] tests/test_backends_spacy.py:14: install the spacy extra to test the real backend\n1169 passed, 1 skipped in 13.06s\n",
+  "registryRelease": false,
+  "hostedDeployment": false,
+  "baselineWheel": {
+    "sourceCommit": "e0eff010da46de9aff6c143802a3de65edb389bd",
+    "filename": "veil_pii-0.4.4-py3-none-any.whl",
+    "bytes": 97508,
+    "sha256": "d2b4afceac226ecee3bbacf8467a9e10168c20d4218a8e2670de54e052d9e071"
+  },
+  "replaySha256": "538ff7120411e6eee4f1348b222b8bc17162678cf5658294e1d02062d55dc640"
+}

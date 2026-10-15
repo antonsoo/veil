@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Original-value audit responsiveness
+
+- Index long originals by a bounded prefix before checking their complete value.
+  Varied-length credential URLs no longer trigger large substring copies at
+  every potential starting character. Equal-length prefix collisions share an
+  exact hash lookup. Matching, offsets, ordering and per-value overlap semantics
+  stay exact; cached indexes follow additions and transaction rollback.
+- Retain controlled baseline/current CLI and installed-wheel replays in
+  `studies/leak-audit/`, including shared-prefix and ordinary email controls.
+  The core gains no runtime dependency.
+
 ### Explicit HTTP authorization credentials
 
 - Mask complete Basic/Bearer token values in `Authorization` and

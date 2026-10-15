@@ -1,0 +1,16 @@
+Veil leak audit: installed wheels, CPython 3.12.12
+Controlled synthetic identities and URLs; same input/result hashes
+
+Case                            Before ms     After ms   Findings
+-----------------------------------------------------------------
+varied-urls-clean               24,511.55        14.68          0
+varied-urls-leak                26,813.80        17.14          2
+same-length-emails                  21.41        23.76          1
+shared-prefix-urls               5,874.28        10.85          1
+overlap-and-unicode                  0.49         0.38        164
+same-length-shared-prefix           28.31        29.69          1
+
+CLI varied-urls-clean: 25.247s -> 0.181s; exit 0; 0 exact findings
+CLI varied-urls-leak: 24.633s -> 0.188s; exit 1; 2 exact findings
+All 6 cases agree with independent per-value search.
+Cold timings include index construction; single-host observations.

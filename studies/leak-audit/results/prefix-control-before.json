@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-15",
+  "controlledSyntheticInputs": true,
+  "python": "3.12.12",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "veilVersion": "0.4.4",
+  "cases": [
+    {
+      "case": "same-length-shared-prefix",
+      "inputChars": 560075,
+      "inputBytes": 560075,
+      "inputSha256": "3b5c0e412b2085260efd2375f64d93cd9646c2cc278c15956a1fb87b7f707407",
+      "mappings": 1000,
+      "distinctLengths": 1,
+      "coldSeconds": 0.028311888017924502,
+      "warmSeconds": 0.033074390987167135,
+      "exactOracleMatch": true,
+      "count": 1,
+      "sha256": "282d79e26184124d8ef3aaf1b481fb9111df8c90d1c264090c04acc64d117912",
+      "occurrences": [
+        {
+          "type": "URL_CREDENTIAL",
+          "valueSha256": "691b42156abb35e360ba63e6e6dd977b6213bbfcda159c8b428fa473dc63cbf1",
+          "start": 560000,
+          "end": 560075
+        }
+      ]
+    }
+  ]
+}
