@@ -146,3 +146,18 @@ def test_leak_index_tracks_additions_and_transaction_rollback() -> None:
     except ValueError:
         pass
     assert len(find_leaked_originals(text, vault)) == 3
+
+
+def test_equal_length_originals_share_a_prefix_without_becoming_equal() -> None:
+    vault = Vault()
+    generator = PlaceholderSurrogates()
+    prefix = "https://files.example.test/shared/archive/"
+    originals = [f"{prefix}{i:06d}?token=synthetic-{i:06d}" for i in range(100)]
+    for original in originals:
+        vault.get_or_create(EntityType.URL_CREDENTIAL, original, generator)
+    vault.get_or_create(EntityType.SECRET, originals[-1], generator)
+    text = f"💬 {prefix}public-link\n{originals[-1]}\n{originals[0]}\n{originals[-1]}"
+    assert [
+        (f.entity.type.value, f.entity.value, f.entity.span.start)
+        for f in find_leaked_originals(text, vault)
+    ] == _leaks_by_searching_per_value(text, vault)

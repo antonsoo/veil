@@ -37,28 +37,29 @@ class LeakFinding:
 
 # Keep candidate slices bounded even when a vault holds thousands of long,
 # differently sized URLs or documents. A prefix is only a candidate filter;
-# startswith below still verifies the complete original, without copying it.
+# full originals, never their prefixes, establish a leak.
 _PREFIX_LENGTH = 32
 _Entries = list[tuple[int, Mapping]]
-_Candidates = dict[str, list[tuple[str, _Entries]]]
+_ByValue = dict[str, _Entries]
+_Candidates = dict[str, list[tuple[int, _ByValue]]]
 
 
 def _originals_index(vault: Vault) -> tuple[_Candidates, dict[str, list[int]]]:
     """Exact originals grouped by a bounded prefix, plus prefix lengths by first character."""
     index = vault._derived.get("originals")
     if index is None:
-        by_value: dict[str, _Entries] = {}
+        by_value: _ByValue = {}
         for order, mapping in enumerate(vault.mappings()):
             if mapping.original:
                 by_value.setdefault(mapping.original, []).append((order, mapping))
-        candidates: _Candidates = {}
+        grouped: dict[str, dict[int, _ByValue]] = {}
         lengths: dict[str, set[int]] = {}
         for value, entries in by_value.items():
             prefix = value[:_PREFIX_LENGTH]
-            candidates.setdefault(prefix, []).append((value, entries))
+            grouped.setdefault(prefix, {}).setdefault(len(value), {})[value] = entries
             lengths.setdefault(value[0], set()).add(len(prefix))
         index = vault._derived["originals"] = (
-            candidates,
+            {prefix: list(by_length.items()) for prefix, by_length in grouped.items()},
             {first: sorted(found) for first, found in lengths.items()},
         )
     return index
@@ -72,8 +73,20 @@ def find_leaked_originals(text: str, vault: Vault) -> list[LeakFinding]:
     free_from: dict[str, int] = {}  # occurrences of one value are counted without overlap
     for start, ch in enumerate(text):
         for length in lengths_by_first.get(ch, ()):
-            for value, entries in candidates.get(text[start : start + length], ()):
-                if start < free_from.get(value, 0) or not text.startswith(value, start):
+            for full_length, by_value in candidates.get(text[start : start + length], ()):
+                if len(by_value) == 1:
+                    value, entries = next(iter(by_value.items()))
+                    if not text.startswith(value, start):
+                        continue
+                else:
+                    # Many equal-length originals can share a URL host or PEM
+                    # header. One full hash lookup avoids comparing each one.
+                    # This longer slice is needed only after its prefix matches.
+                    value = text[start : start + full_length]
+                    entries = by_value.get(value, [])
+                    if not entries:
+                        continue
+                if start < free_from.get(value, 0):
                     continue
                 free_from[value] = start + len(value)
                 found.extend((start, order, mapping) for order, mapping in entries)
