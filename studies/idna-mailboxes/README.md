@@ -83,3 +83,40 @@ node studies/email-boundaries/check-browser.mjs web/dist studies/idna-mailboxes/
 
 This correction is local and unreleased. It does not update PyPI or the hosted
 demo. The project description and topics remain unchanged.
+
+## Clean build and installed artifacts
+
+Implementation commit `96f9158` was exported into a fresh directory. With locked
+development dependencies and the optional spaCy backend, Python 3.12.12 passed
+Ruff, formatting, strict mypy and **1,059 tests without skips**. `uv build`
+built the wheel from the source distribution. The clean browser checkout passed
+type checking, production build and all 16 existing browser scenarios.
+[Captured check output](results/logs/clean-checks.log) and
+[browser checks](results/logs/clean-web-checks.log) retain the commands' output;
+scratch/home path prefixes are replaced with placeholders.
+
+| Separate wheel installation | Core/CLI cases | Actual SDK requests |
+| --- | ---: | ---: |
+| Python 3.14.7, OpenAI 3.31.0, Anthropic 1.14.0 | 101/101 | 12/12 |
+| Python 3.10.21, OpenAI 1.66.0, Anthropic 0.40.0 | 101/101 | 12/12 |
+| Python 3.12.12, no optional dependencies | 101/101 | Not installed |
+
+All cases, SDK request bodies and restoration results match the source replay.
+All 35 runtime files match the clean archive, sdist, wheel and installations;
+the browser bundles the same 34 Python files. The
+[artifact receipt](results/verification.json) retains file and artifact hashes.
+`verify-artifacts.py --help` describes how to recheck existing artifacts.
+It performs no install or network operation. The package version remains
+0.4.4 for these local builds; no registry upload was made.
+
+The [browser receipt](results/browser/receipt.json) covers 11 cases in each of
+Chromium and Firefox at 375px and 1280px. Pyodide initialized online using a
+neutral prompt; masking, downloads, restoration and simulated streaming ran
+after disconnection without new requests. Downloaded text and vaults retain
+the whole identities. Received assets match the tested clean build byte for
+byte. All four screenshots were inspected: no horizontal overflow or clipped
+vault values; the short input textarea can scroll.
+
+![Actual clean-build browser with synthetic originals revealed](results/browser/chromium-1280.png)
+
+![The same masking workflow at 375px](results/browser/firefox-375.png)
