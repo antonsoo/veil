@@ -162,5 +162,11 @@ All eight new screenshots were inspected. The build command is
 `cd web && npm run build`, with output in `web/dist/`; the artifact receipt
 retains sizes and hashes for all 27 build files.
 
-This work is a local source correction. No package release or hosted deployment
-is included.
+## Public source
+
+Source/evidence revision `9f309dc3fb4ceb51a5adfdac5696f2644e98cb55` was pushed
+to `main`. The [public-source receipt](results/public-source.json) verifies
+all 61 changed files against pinned GitHub raw URLs, with byte counts and
+SHA-256 hashes. The remote branch matched the clean local source at capture.
+
+No package release or manual hosted deployment is included.
