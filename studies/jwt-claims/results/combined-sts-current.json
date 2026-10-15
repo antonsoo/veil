@@ -1,0 +1,293 @@
+{
+  "provenance": "Synthetic key-shaped identifiers, not issued credentials; no AWS or model calls.",
+  "seed": 20261015,
+  "bodyAlphabet": "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567",
+  "python": "3.14.7",
+  "secretSourceSha256": "a0c2de4a9741f0ae25a4b491a3ff25a6dab9cacab2cc21f761c32e44f4368493",
+  "counts": {
+    "AKIA": {
+      "generated": 1000,
+      "completelyRecognized": 1000,
+      "explicitlyRecognized": 1000,
+      "rowsSha256": "57b6fd530bd608f0924d50926f420f9c09ac0e6ee30858dff3902b4c41071c7e"
+    },
+    "ASIA": {
+      "generated": 1000,
+      "completelyRecognized": 1000,
+      "explicitlyRecognized": 1000,
+      "rowsSha256": "01a15fb94f81183e45c7ecde17150f63c97db6b9cded1365b7a55822fc2ab665"
+    }
+  },
+  "cases": [
+    {
+      "key": "ASIA4J2RI3GSPL7SLMJN",
+      "masked": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "expected": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "correct": true,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "key": "ASIAYSY3Y52XLD7NZ34H",
+      "masked": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "expected": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "correct": true,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "key": "ASIAZKCBPDZKGSLHIEPC",
+      "masked": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "expected": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "correct": true,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "key": "ASIAAHW63PIK6ALWRAOT",
+      "masked": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "expected": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "correct": true,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "key": "AKIA4J2RI3GSPL7SLMJN",
+      "masked": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "expected": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "correct": true,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    }
+  ],
+  "sdk": [
+    {
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "request": {
+        "model": "test-model",
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\""
+          }
+        ]
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\"",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "request": {
+        "model": "test-model",
+        "stream": true,
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\""
+          }
+        ]
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\"",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "request": {
+        "model": "test-model",
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\""
+          }
+        ]
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\"",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "request": {
+        "model": "test-model",
+        "stream": true,
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\""
+          }
+        ]
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\"",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "request": {
+        "model": "test-model",
+        "input": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\""
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\"",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "request": {
+        "model": "test-model",
+        "stream": true,
+        "input": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\""
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\"",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "request": {
+        "model": "test-model",
+        "input": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\""
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\"",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "request": {
+        "model": "test-model",
+        "stream": true,
+        "input": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\""
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\"",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\""
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\"",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\""
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\"",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\""
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\"",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\""
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_2⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_3⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_4⟩\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_5⟩\"",
+      "restoresExactly": true,
+      "correct": true
+    }
+  ],
+  "sdkVersions": {
+    "openai": "3.31.0",
+    "anthropic": "1.14.0"
+  }
+}

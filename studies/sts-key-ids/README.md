@@ -57,7 +57,8 @@ changed resolved detections across 1,483 files, 32,925,796 bytes and 2,616,034
 words: all 10,372 keep their type, span, value, detector and confidence. This
 checks collateral behavior on that corpus, not STS-key recall in production.
 
-The change is unreleased; no PyPI release or manual hosted deployment was made.
+The change remains unreleased on PyPI. The original checks below preceded the
+hosted update recorded at the end of this study.
 Build the browser with `cd web && npm ci && npm run build` (`web/dist/`). The
 existing browser harness accepts the retained secret fixture:
 
@@ -118,8 +119,8 @@ The existing IDNA screenshots were compared by hash and the final captures
 were inspected again. Detailed build/install logs replace local scratch/home
 path prefixes with placeholders; other output is retained.
 
-The build output remains `web/dist/`. Neither PyPI nor the hosted site was
-updated. Suggested repository description and topics remain those of the
+The build output remains `web/dist/`. At this checkpoint neither PyPI nor the
+hosted site was updated. Suggested repository description and topics remain those of the
 existing reversible PII masking tool.
 
 ## Public source
@@ -130,3 +131,16 @@ All 66 changed files match their pinned public GitHub raw-file bytes
 remote `main` matched at verification. The remote `gh-pages` revision remained
 `8a15aaf198636907a1254f247f2159c6a53984d9` across this source push. No package
 release or manual site deployment is part of this verification.
+
+## Hosted update, 2026-10-15
+
+The combined build was subsequently deployed at
+`3ec5b259550638b703c28a8092e7b9c5600dbe06`. All 27 served files match the tested
+clean build. The [hosted browser receipt](results/hosted-browser/receipt.json)
+replays all six key/control cases in Chromium and Firefox at 375/1280 pixels:
+whole-value masking and exact masked/vault downloads/restoration work offline
+after neutral runtime initialization. All four screenshots were inspected.
+The canned reply does not mention secrets; native SDK replays cover their
+stream restoration. The
+[combined publication record](../jwt-claims/README.md#public-source-and-hosted-demo)
+retains asset hashes. No PyPI upload was made.

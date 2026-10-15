@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "type": "EMAIL",
+      "original": "alice@example。org",
+      "surrogate": "⟨EMAIL_1⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "alice@example.org。private.example",
+      "surrogate": "⟨EMAIL_2⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "alice@example．org",
+      "surrogate": "⟨EMAIL_3⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "alice@example｡org",
+      "surrogate": "⟨EMAIL_4⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "利用者@例え。テスト",
+      "surrogate": "⟨EMAIL_5⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "\"private name\"@example．org",
+      "surrogate": "⟨EMAIL_6⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "first!last@例え｡example",
+      "surrogate": "⟨EMAIL_7⟩",
+      "detector": "email"
+    },
+    {
+      "type": "EMAIL",
+      "original": "alice@one。two．three｡example",
+      "surrogate": "⟨EMAIL_8⟩",
+      "detector": "email"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "type": "SECRET",
+      "original": "ASIA4J2RI3GSPL7SLMJN",
+      "surrogate": "⟨SECRET_1⟩",
+      "detector": "secret:aws_access_key"
+    },
+    {
+      "type": "SECRET",
+      "original": "ASIAYSY3Y52XLD7NZ34H",
+      "surrogate": "⟨SECRET_2⟩",
+      "detector": "secret:aws_access_key"
+    },
+    {
+      "type": "SECRET",
+      "original": "ASIAZKCBPDZKGSLHIEPC",
+      "surrogate": "⟨SECRET_3⟩",
+      "detector": "secret:aws_access_key"
+    },
+    {
+      "type": "SECRET",
+      "original": "ASIAAHW63PIK6ALWRAOT",
+      "surrogate": "⟨SECRET_4⟩",
+      "detector": "secret:aws_access_key"
+    },
+    {
+      "type": "SECRET",
+      "original": "AKIA4J2RI3GSPL7SLMJN",
+      "surrogate": "⟨SECRET_5⟩",
+      "detector": "secret:aws_access_key"
+    }
+  ]
+}

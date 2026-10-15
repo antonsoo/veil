@@ -147,3 +147,39 @@ exercise JWT streaming restoration; the native SDK replay does.
 
 Registry publication and hosted deployment are separate from these local
 artifact checks.
+
+## Public source and hosted demo
+
+Source/evidence revision `56b126cdf5ea5ae8040c8cc0b445e51bfbea276b` was pushed
+to `main`. All 45 changed files since `588e2d4` were fetched from pinned public
+GitHub URLs and byte-compared with the clean working tree. The
+[source receipt](results/public-source.json) retains URLs, sizes and hashes.
+
+The exact tested `web/dist/` from `d739ddc` was published by a normal
+fast-forward `gh-pages` commit, `3ec5b259550638b703c28a8092e7b9c5600dbe06`.
+The [live asset receipt](results/hosted-assets.json) verifies **all 27 build
+files**, fetched back from [the existing demo](https://antonsoo.github.io/veil/),
+against their local bytes and SHA-256 hashes. No Pages settings or branch
+history were rewritten.
+
+The [hosted JWT receipt](results/hosted-browser/receipt.json) repeats all eight
+cases in Chromium/Firefox at 375/1280 pixels against that public origin. The
+same deployment passes all 11
+[IDNA mailbox cases](../idna-mailboxes/results/hosted-browser/receipt.json) and
+all six [STS/control cases](../sts-key-ids/results/hosted-browser/receipt.json)
+in each engine/width. Every fresh context disconnects after a neutral runtime
+initialization, before the first fixture masking and downloads. All 12 hosted
+screenshots were inspected; no page errors or horizontal overflow occurred.
+The harness hashes the actual received app assets against the tested build.
+
+To repeat a hosted workflow, use the current shared harness:
+
+```sh
+VEIL_BROWSER_ORIGIN=https://antonsoo.github.io node studies/email-boundaries/check-browser.mjs web/dist /tmp/veil-hosted-jwt studies/jwt-claims/browser-cases.json
+```
+
+The final installed wheel also preserves the earlier
+[101-case IDNA results and 12 actual SDK bodies](results/combined-idna-current.json)
+and [STS population/case results and 12 SDK bodies](results/combined-sts-current.json)
+exactly. Hosted browser checks exercise local masking, not the Python SDK
+wrappers. No live identity/provider API was called and no PyPI release was made.

@@ -1,0 +1,11 @@
+Contact <⟨EMAIL_1⟩> today.
+Contact <⟨EMAIL_2⟩> today.
+Contact <⟨EMAIL_3⟩> today.
+Contact <⟨EMAIL_4⟩> today.
+Contact <⟨EMAIL_5⟩> today.
+Contact <⟨EMAIL_6⟩> today.
+Contact <⟨EMAIL_7⟩> today.
+Contact <⟨EMAIL_8⟩> today.
+Contact <alice@example.org。private_suffix> today.
+Contact <alice@example.org．.private.example> today.
+Contact <alice@example.org｡private.123> today.

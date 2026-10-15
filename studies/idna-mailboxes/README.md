@@ -81,8 +81,9 @@ The existing real-Python browser harness accepts this study's cases:
 node studies/email-boundaries/check-browser.mjs web/dist studies/idna-mailboxes/results/browser studies/idna-mailboxes/browser-cases.json
 ```
 
-This correction is an unreleased source change. It does not update PyPI or the hosted
-demo. The project description and topics remain unchanged.
+This correction remains unreleased on PyPI. The original artifact checks below
+preceded the hosted update recorded at the end of this study. The project
+description and topics remain unchanged.
 
 ## Clean build and installed artifacts
 
@@ -129,3 +130,14 @@ the clean checkout byte for byte. The
 [public-source receipt](../sts-key-ids/results/public-source.json) records
 sizes and SHA-256 hashes. This verifies Git source and retained evidence;
 it does not publish a package or verify the hosted demo's runtime.
+
+## Hosted update, 2026-10-15
+
+The combined build containing this correction was subsequently deployed at
+`3ec5b259550638b703c28a8092e7b9c5600dbe06`. All 27 served files match the tested
+clean build. The [hosted browser receipt](results/hosted-browser/receipt.json)
+replays all 11 cases in Chromium and Firefox at 375/1280 pixels: whole-value
+masking, exact downloads/restoration and the canned reply work offline after
+neutral runtime initialization. All four screenshots were inspected. The
+[combined publication record](../jwt-claims/README.md#public-source-and-hosted-demo)
+retains the deployment and asset hashes. PyPI remains unchanged.
