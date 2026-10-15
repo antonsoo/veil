@@ -1,0 +1,411 @@
+{
+  "repository": "https://github.com/antonsoo/veil",
+  "verifiedRevision": "087b682fd03bdf6e482d3449f1ad3ffacf413d07",
+  "baselineRevision": "f8a7892217c8296160273a83b7b779b962214cd8",
+  "cleanAtVerification": true,
+  "remoteMainMatched": true,
+  "remoteRefs": {
+    "refs/heads/gh-pages": "8a15aaf198636907a1254f247f2159c6a53984d9",
+    "refs/heads/main": "087b682fd03bdf6e482d3449f1ad3ffacf413d07"
+  },
+  "changedFiles": 66,
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 29252,
+      "sha256": "f5b571883745a513a950f00d77ef9a6e72ddaac8816b4f98179b61877b0e12f9",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/CHANGELOG.md"
+    },
+    {
+      "path": "README.md",
+      "bytes": 36455,
+      "sha256": "7e8839ea2ee8d103255cd47c1a9b97d11e84706539e50ea815745a8b28273587",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/README.md"
+    },
+    {
+      "path": "src/veil/detectors/email.py",
+      "bytes": 7495,
+      "sha256": "6c55c1532b289c0ab791570c24616aacd636929e64319e1badcd2ea69b359e77",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/src/veil/detectors/email.py"
+    },
+    {
+      "path": "src/veil/detectors/secrets.py",
+      "bytes": 7755,
+      "sha256": "1ded4fe0254315b71ad28a66260e8fe533f422db9f2fe53e800f28ed49db8129",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/src/veil/detectors/secrets.py"
+    },
+    {
+      "path": "studies/email-boundaries/check-browser.mjs",
+      "bytes": 7811,
+      "sha256": "c5d6ac2f42f8f54ac3d33ea4a65c3f485f2c1f98d1c433ebf449962c323a2578",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/email-boundaries/check-browser.mjs"
+    },
+    {
+      "path": "studies/idna-mailboxes/README.md",
+      "bytes": 6676,
+      "sha256": "73b1ddb619ebb7d8ba76d9bcff8c4b3f322b72c5f2c48b52475dbab91fb8632c",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/README.md"
+    },
+    {
+      "path": "studies/idna-mailboxes/browser-cases.json",
+      "bytes": 1060,
+      "sha256": "c15d74c759d75eb672223b95c95a3c443eb07b69ae0322e3df5d1f3fac4fbc40",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/browser-cases.json"
+    },
+    {
+      "path": "studies/idna-mailboxes/replay.py",
+      "bytes": 6490,
+      "sha256": "251b64ddaae47f3f5c68fc178a8d27997efd55f9c6121036758382fe4e0f84cc",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/replay.py"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/after.json",
+      "bytes": 61815,
+      "sha256": "1fad8797683be2b1d8b78143ef7cb6c6d738c162a4f4a2a5b85aadfc5d481563",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/after.json"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/before.json",
+      "bytes": 63582,
+      "sha256": "ede55bbd4914c18543ffddd5f75ebf1f4e376664542daf39f588c2e152bf25c7",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/before.json"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/chromium-1280-masked.txt",
+      "bytes": 402,
+      "sha256": "32c59c98ab72445a52e7d1577740de0b9437e8e75fc1f2dc4f35d011f42761b1",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/chromium-1280-masked.txt"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/chromium-1280-vault.json",
+      "bytes": 1208,
+      "sha256": "a3340457d9c23b34cecdc123afbacdb91687fa8e693eecf98a92e621bbec8c31",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/chromium-1280-vault.json"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/chromium-1280.png",
+      "bytes": 149831,
+      "sha256": "18e88daa6a18b5d064ee86470cfe19b58e0e56447ef2968eb676cdd1ec6d1c0d",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/chromium-1280.png"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/chromium-375-masked.txt",
+      "bytes": 402,
+      "sha256": "32c59c98ab72445a52e7d1577740de0b9437e8e75fc1f2dc4f35d011f42761b1",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/chromium-375-masked.txt"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/chromium-375-vault.json",
+      "bytes": 1208,
+      "sha256": "a3340457d9c23b34cecdc123afbacdb91687fa8e693eecf98a92e621bbec8c31",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/chromium-375-vault.json"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/chromium-375.png",
+      "bytes": 122981,
+      "sha256": "7e3fd3c9b20b58cc58c48b528fffd3b713665f8dcf926dc7e8f2327727010ac2",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/chromium-375.png"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/firefox-1280-masked.txt",
+      "bytes": 402,
+      "sha256": "32c59c98ab72445a52e7d1577740de0b9437e8e75fc1f2dc4f35d011f42761b1",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/firefox-1280-masked.txt"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/firefox-1280-vault.json",
+      "bytes": 1208,
+      "sha256": "a3340457d9c23b34cecdc123afbacdb91687fa8e693eecf98a92e621bbec8c31",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/firefox-1280-vault.json"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/firefox-1280.png",
+      "bytes": 219850,
+      "sha256": "24a3101dac784b30332f4d5edaeb36b61457dd4e5f0b4ea6ea936a6534e02459",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/firefox-1280.png"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/firefox-375-masked.txt",
+      "bytes": 402,
+      "sha256": "32c59c98ab72445a52e7d1577740de0b9437e8e75fc1f2dc4f35d011f42761b1",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/firefox-375-masked.txt"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/firefox-375-vault.json",
+      "bytes": 1208,
+      "sha256": "a3340457d9c23b34cecdc123afbacdb91687fa8e693eecf98a92e621bbec8c31",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/firefox-375-vault.json"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/firefox-375.png",
+      "bytes": 185254,
+      "sha256": "d15e505d7f3abec3761653e5f29992f734957edcb040d555ef0011d5eaf7ad22",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/firefox-375.png"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/browser/receipt.json",
+      "bytes": 3384,
+      "sha256": "5b35fce3ad0f9f08e060b51c7aa9939c6d271a7a39c2335b6e53ed99e3833fed",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/browser/receipt.json"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/corpus.json",
+      "bytes": 1980,
+      "sha256": "5fbfa4026259039ec20b09f472dfb30ef7b21f57bceb2e94afa4069f360b9f7d",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/corpus.json"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/logs/clean-browser.log",
+      "bytes": 264,
+      "sha256": "e5c5d85ccfa7927ae38b647506301070dc8484ce1d8dde66df57a736a3d83ef3",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/logs/clean-browser.log"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/logs/clean-checks.log",
+      "bytes": 1540,
+      "sha256": "baf0b5c9bf7367e42e5b81ded4e829daf15bf87598b5534df57ce966ea334dc2",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/logs/clean-checks.log"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/logs/clean-install.log",
+      "bytes": 1556,
+      "sha256": "13d133753e915060918a4545a17d1539e85838d63fd0ea6bdc92b299619e84cc",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/logs/clean-install.log"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/logs/clean-web-checks.log",
+      "bytes": 2893,
+      "sha256": "0f472c3042bd025a4e0d02c62286751fa2fc646d316175805529f9e8607a56a8",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/logs/clean-web-checks.log"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/logs/clean-web-install.log",
+      "bytes": 462,
+      "sha256": "a3619ed876c822c3979255a18a6ea9bcb5ac3821d81da65f8d4c5d84325ac439",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/logs/clean-web-install.log"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/logs/installed-core.log",
+      "bytes": 237,
+      "sha256": "20bf37d29049fea0142fa340bef6d1865fded7df5c992f262f4c1419764d2fc5",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/logs/installed-core.log"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/logs/installed-current.log",
+      "bytes": 586,
+      "sha256": "45913bad2f3ede56d801152719c5c0bfca673a8f057d1f0f95718e5cf8b98be4",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/logs/installed-current.log"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/logs/installed-floor.log",
+      "bytes": 583,
+      "sha256": "588184148e54fd8dfcdb0792d482cd56aab382552281495074cce7e08bdba780",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/logs/installed-floor.log"
+    },
+    {
+      "path": "studies/idna-mailboxes/results/verification.json",
+      "bytes": 7311,
+      "sha256": "5f2bdff73973b06edba493b971355ce6cfa75dcbd9d573c6eb617c921113ae03",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/results/verification.json"
+    },
+    {
+      "path": "studies/idna-mailboxes/verify-artifacts.py",
+      "bytes": 5122,
+      "sha256": "8e6e03d454471cbb56ff2adb71a884627abd4134031f6a2c0258e0c465d82218",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/idna-mailboxes/verify-artifacts.py"
+    },
+    {
+      "path": "studies/sts-key-ids/README.md",
+      "bytes": 6985,
+      "sha256": "81ce945edbc7618acb1843d96017ce955867fa538670a94482d9d4097a685996",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/README.md"
+    },
+    {
+      "path": "studies/sts-key-ids/browser-cases.json",
+      "bytes": 631,
+      "sha256": "fa27b92c46a51365d62bd492f0325f7071da3423ef72ae6834ec71dd31f3235f",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/browser-cases.json"
+    },
+    {
+      "path": "studies/sts-key-ids/replay.py",
+      "bytes": 5762,
+      "sha256": "dd47d9314c9f041378a279f61ec374e936674c87501ecb1e42e5b15df1de9bf5",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/replay.py"
+    },
+    {
+      "path": "studies/sts-key-ids/results/after.json",
+      "bytes": 10885,
+      "sha256": "4dd2001e1fb6b12b029b212f778d32fed63fb2c25a271dc89320fec3031e00ff",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/after.json"
+    },
+    {
+      "path": "studies/sts-key-ids/results/before.json",
+      "bytes": 11497,
+      "sha256": "fcbd2dfe8a9d8103c2f57f94288794d91df804bdc21448cedaf73f2d4571b9ba",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/before.json"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/chromium-1280-masked.txt",
+      "bytes": 181,
+      "sha256": "822d7c78b2a4cefe0c4d32dd0c2fc24532130de47e953403ac1d7cf69c4722f0",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/chromium-1280-masked.txt"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/chromium-1280-vault.json",
+      "bytes": 828,
+      "sha256": "f84ba20a11d085de24e02c9d7c47c77f9e4293b8c34ad7e954bbeb7b16249d4b",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/chromium-1280-vault.json"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/chromium-1280.png",
+      "bytes": 121634,
+      "sha256": "3bc154f3b4d4dfc0633520c5c825860f922f71edbfb332bf611b103cd1477eb2",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/chromium-1280.png"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/chromium-375-masked.txt",
+      "bytes": 181,
+      "sha256": "822d7c78b2a4cefe0c4d32dd0c2fc24532130de47e953403ac1d7cf69c4722f0",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/chromium-375-masked.txt"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/chromium-375-vault.json",
+      "bytes": 828,
+      "sha256": "f84ba20a11d085de24e02c9d7c47c77f9e4293b8c34ad7e954bbeb7b16249d4b",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/chromium-375-vault.json"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/chromium-375.png",
+      "bytes": 109559,
+      "sha256": "3ee6c8bb8a3ca9ebb41836f18e6097e5880940f7abb3b211e424af45d356a544",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/chromium-375.png"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/firefox-1280-masked.txt",
+      "bytes": 181,
+      "sha256": "822d7c78b2a4cefe0c4d32dd0c2fc24532130de47e953403ac1d7cf69c4722f0",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/firefox-1280-masked.txt"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/firefox-1280-vault.json",
+      "bytes": 828,
+      "sha256": "f84ba20a11d085de24e02c9d7c47c77f9e4293b8c34ad7e954bbeb7b16249d4b",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/firefox-1280-vault.json"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/firefox-1280.png",
+      "bytes": 183244,
+      "sha256": "954193c498ecdeb1e95ea72b3a0ad68795b3c6a1dff0ce1023c7586aef71d1c1",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/firefox-1280.png"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/firefox-375-masked.txt",
+      "bytes": 181,
+      "sha256": "822d7c78b2a4cefe0c4d32dd0c2fc24532130de47e953403ac1d7cf69c4722f0",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/firefox-375-masked.txt"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/firefox-375-vault.json",
+      "bytes": 828,
+      "sha256": "f84ba20a11d085de24e02c9d7c47c77f9e4293b8c34ad7e954bbeb7b16249d4b",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/firefox-375-vault.json"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/firefox-375.png",
+      "bytes": 159092,
+      "sha256": "6d4f5a4c45edddf552b1cd005086cf7740e37497e6ab9e01d1613e56880c99e9",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/firefox-375.png"
+    },
+    {
+      "path": "studies/sts-key-ids/results/browser/receipt.json",
+      "bytes": 3719,
+      "sha256": "3c1bf04d748651c7d3dc88869fd81c37025f6101cca19629accb76903559f1e9",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/browser/receipt.json"
+    },
+    {
+      "path": "studies/sts-key-ids/results/corpus.json",
+      "bytes": 319,
+      "sha256": "9c8e9238adb8720a70b8a2077e39b15a962fa43630658bf9fed7c82ed2b0c0b5",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/corpus.json"
+    },
+    {
+      "path": "studies/sts-key-ids/results/idna-final.json",
+      "bytes": 4968,
+      "sha256": "cf5358083b6fe3615280a438f37bdba31365c4db7b09687c86d4e73a37894a40",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/idna-final.json"
+    },
+    {
+      "path": "studies/sts-key-ids/results/logs/clean-browser.log",
+      "bytes": 256,
+      "sha256": "a70a2e2d69eeda6b1b2fce7c800606c524706009f27d20d23ca1f89d0af8a4fa",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/logs/clean-browser.log"
+    },
+    {
+      "path": "studies/sts-key-ids/results/logs/clean-checks.log",
+      "bytes": 2162,
+      "sha256": "a1b9c1c3eea48eb3ad040c41f8c6fc97156641f191d50daf8c1ab10ec4c099eb",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/logs/clean-checks.log"
+    },
+    {
+      "path": "studies/sts-key-ids/results/logs/clean-install.log",
+      "bytes": 1552,
+      "sha256": "ca010ab1240d9cdcc170d8a3633f834d09a8e04d7bdcfc5234f2c4f524afe735",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/logs/clean-install.log"
+    },
+    {
+      "path": "studies/sts-key-ids/results/logs/clean-web-checks.log",
+      "bytes": 2892,
+      "sha256": "24d7dbc985cddb988f1826086bd958032487d1915e0631cb472e66c39f2dc283",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/logs/clean-web-checks.log"
+    },
+    {
+      "path": "studies/sts-key-ids/results/logs/clean-web-install.log",
+      "bytes": 462,
+      "sha256": "98757cee643fadfb42179f8060eaa176e6dd21d1db29ce1fcde560a93c4262f9",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/logs/clean-web-install.log"
+    },
+    {
+      "path": "studies/sts-key-ids/results/logs/final-idna-browser.log",
+      "bytes": 256,
+      "sha256": "98d49881ef211158d9938cd14b0e4547dceda9a777a700542e80a2393e817f3e",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/logs/final-idna-browser.log"
+    },
+    {
+      "path": "studies/sts-key-ids/results/logs/installed-core.log",
+      "bytes": 235,
+      "sha256": "bb3871865eadab0e7fe17c5f7dd74664bc02178f5848ffeea49832fac7e3f93a",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/logs/installed-core.log"
+    },
+    {
+      "path": "studies/sts-key-ids/results/logs/installed-current.log",
+      "bytes": 583,
+      "sha256": "0de53b68dc2cdee4e04d00aa7418db269b8cccae49ca4daf4928db3e03599048",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/logs/installed-current.log"
+    },
+    {
+      "path": "studies/sts-key-ids/results/logs/installed-floor.log",
+      "bytes": 579,
+      "sha256": "74879211ce04bc29795792861b1fdeeb287e3ce40c13e0396df63aa378de386c",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/logs/installed-floor.log"
+    },
+    {
+      "path": "studies/sts-key-ids/results/verification.json",
+      "bytes": 7615,
+      "sha256": "22300108ab244edbead331924f4dc472fbfc400f4a75d9d732a783856bb6bc8a",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/studies/sts-key-ids/results/verification.json"
+    },
+    {
+      "path": "tests/test_email_idna_separators.py",
+      "bytes": 2763,
+      "sha256": "b1e6897f4a2ad08fd78c62e1750b5f7ce960199ec5fb58609b896226ff9ef2c9",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/tests/test_email_idna_separators.py"
+    },
+    {
+      "path": "tests/test_sts_access_keys.py",
+      "bytes": 2084,
+      "sha256": "ca789a4c742e9e3f42feb818d7cb9349a0812c603257cc9afb799bcd8284e7a4",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/087b682fd03bdf6e482d3449f1ad3ffacf413d07/tests/test_sts_access_keys.py"
+    }
+  ],
+  "scope": "Pushed Git source and evidence only. No registry release or manual hosted deployment. gh-pages stayed at its pre-push revision."
+}

@@ -81,7 +81,7 @@ The existing real-Python browser harness accepts this study's cases:
 node studies/email-boundaries/check-browser.mjs web/dist studies/idna-mailboxes/results/browser studies/idna-mailboxes/browser-cases.json
 ```
 
-This correction is local and unreleased. It does not update PyPI or the hosted
+This correction is an unreleased source change. It does not update PyPI or the hosted
 demo. The project description and topics remain unchanged.
 
 ## Clean build and installed artifacts
@@ -120,3 +120,12 @@ vault values; the short input textarea can scroll.
 ![Actual clean-build browser with synthetic originals revealed](results/browser/chromium-1280.png)
 
 ![The same masking workflow at 375px](results/browser/firefox-375.png)
+
+## Public source
+
+The corrected source and both studies were pushed to `main` at `087b682`.
+All 66 changed files were fetched from pinned public GitHub URLs and matched
+the clean checkout byte for byte. The
+[public-source receipt](../sts-key-ids/results/public-source.json) records
+sizes and SHA-256 hashes. This verifies Git source and retained evidence;
+it does not publish a package or verify the hosted demo's runtime.

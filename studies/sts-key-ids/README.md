@@ -57,7 +57,7 @@ changed resolved detections across 1,483 files, 32,925,796 bytes and 2,616,034
 words: all 10,372 keep their type, span, value, detector and confidence. This
 checks collateral behavior on that corpus, not STS-key recall in production.
 
-The change is local and unreleased; PyPI and the hosted demo are unchanged.
+The change is unreleased; no PyPI release or manual hosted deployment was made.
 Build the browser with `cd web && npm ci && npm run build` (`web/dist/`). The
 existing browser harness accepts the retained secret fixture:
 
@@ -121,3 +121,12 @@ path prefixes with placeholders; other output is retained.
 The build output remains `web/dist/`. Neither PyPI nor the hosted site was
 updated. Suggested repository description and topics remain those of the
 existing reversible PII masking tool.
+
+## Public source
+
+Source/evidence revision `087b682` was pushed to `main` after the user authorized
+pushing. All 66 changed files match their pinned public GitHub raw-file bytes
+([receipt](results/public-source.json)); the working tree was clean and the
+remote `main` matched at verification. The remote `gh-pages` revision remained
+`8a15aaf198636907a1254f247f2159c6a53984d9` across this source push. No package
+release or manual site deployment is part of this verification.
