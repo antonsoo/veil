@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-15",
+  "baseline": "e0eff010da46de9aff6c143802a3de65edb389bd",
+  "sourceHead": "065627cb19534a239068bef68cc6124d85db02ce",
+  "remoteHead": "065627cb19534a239068bef68cc6124d85db02ce",
+  "cleanTreeAtCapture": true,
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/CHANGELOG.md",
+      "httpStatus": 200,
+      "bytes": 31546,
+      "sha256": "f6d5440b5c3b6ed5941eab2486c32cf9958bddbd66f4562cc27fed648c23423d",
+      "matchesCheckout": true
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/README.md",
+      "httpStatus": 200,
+      "bytes": 37661,
+      "sha256": "77af7b23a004e487651f23a049643f2d7a772ef719522c1a060e47d8a479c687",
+      "matchesCheckout": true
+    },
+    {
+      "path": "docs/assets/leak-audit.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/docs/assets/leak-audit.png",
+      "httpStatus": 200,
+      "bytes": 178621,
+      "sha256": "358d0796e1dc4f43a512e4373b2ca499c84097275bba87124beba8ce20c83197",
+      "matchesCheckout": true
+    },
+    {
+      "path": "src/veil/audit.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/src/veil/audit.py",
+      "httpStatus": 200,
+      "bytes": 5700,
+      "sha256": "1d939cb1c1c2e765b6c450dc5614877cabaeb3513d456e084ce87b4c9d6e43dd",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/leak-audit/README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/studies/leak-audit/README.md",
+      "httpStatus": 200,
+      "bytes": 6655,
+      "sha256": "26065684d2511e27a29bae4cf2ba7177a2674e12ec05e30f6ac9db7ff870d1f1",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/leak-audit/replay.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/studies/leak-audit/replay.py",
+      "httpStatus": 200,
+      "bytes": 8960,
+      "sha256": "538ff7120411e6eee4f1348b222b8bc17162678cf5658294e1d02062d55dc640",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/leak-audit/results/after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/studies/leak-audit/results/after.json",
+      "httpStatus": 200,
+      "bytes": 35361,
+      "sha256": "5a7b061d8718cdc3d89d5f7faad3942358bcd01d66d0f8d3bbc73cbdb20b8b73",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/leak-audit/results/before.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/studies/leak-audit/results/before.json",
+      "httpStatus": 200,
+      "bytes": 34676,
+      "sha256": "3585d95fdf6535ce42bf5a01f17371f775add37db5956fd323cc17b4870b69ee",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/leak-audit/results/installed-python310.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/studies/leak-audit/results/installed-python310.json",
+      "httpStatus": 200,
+      "bytes": 35360,
+      "sha256": "19c45c9592f18e23404579b186ba4d0bb64261cbab6e47c33faa7088b07e974f",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/leak-audit/results/installed-python312.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/studies/leak-audit/results/installed-python312.json",
+      "httpStatus": 200,
+      "bytes": 35362,
+      "sha256": "a85158e9f7965b580fb2309fac44b228ef9730ce894d21cea7ed8cfb33145073",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/leak-audit/results/installed-python314.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/studies/leak-audit/results/installed-python314.json",
+      "httpStatus": 200,
+      "bytes": 35362,
+      "sha256": "b227ff7df43fb4068c58ad696197d309ee77ebaf750fe97a33ccf6c50445ef88",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/leak-audit/results/prefix-control-before.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/studies/leak-audit/results/prefix-control-before.json",
+      "httpStatus": 200,
+      "bytes": 913,
+      "sha256": "1d6e206f929a4aae0b55a22ab35df3fc6ff4116d38046a18cc1c0717985aeebb",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/leak-audit/results/summary.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/studies/leak-audit/results/summary.txt",
+      "httpStatus": 200,
+      "bytes": 901,
+      "sha256": "4601057404104c7cf94fdeab3adb973ce95f61f6712b626d1c2e15537ebbf744",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/leak-audit/results/verification.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/studies/leak-audit/results/verification.json",
+      "httpStatus": 200,
+      "bytes": 10976,
+      "sha256": "4819b5b16c15b31e8cc32dcfee24ae82993087b4c124c4eabed6bbcfa7eac590",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/leak-audit/summarize.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/studies/leak-audit/summarize.py",
+      "httpStatus": 200,
+      "bytes": 1944,
+      "sha256": "8a1dc1ca2b742d8bdc7aae08fd32dea45e7edec8d5861ca20be79a8cd7e814f4",
+      "matchesCheckout": true
+    },
+    {
+      "path": "tests/test_audit.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/065627cb19534a239068bef68cc6124d85db02ce/tests/test_audit.py",
+      "httpStatus": 200,
+      "bytes": 6628,
+      "sha256": "c48f2961547ebbe9ceaf87b63bf088de2f8b69bca6b637150ec191b26409d7ce",
+      "matchesCheckout": true
+    }
+  ],
+  "allPinnedPublicBytesMatch": true,
+  "scope": "Source verification only. No registry release or hosted deployment is established by this receipt."
+}

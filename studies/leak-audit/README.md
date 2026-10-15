@@ -117,3 +117,8 @@ The tested wheel is 97,938 bytes, SHA-256
 `d7da2efa5e6780f8192764eb2faf129fde3016d2b13113e3d03896a4a10d116f`.
 It retains the existing `0.4.4` version for local installation verification.
 This is a source correction, not a new PyPI release or hosted browser deployment.
+
+The [public-source receipt](results/publication.json) records a clean checkout at
+`065627cb19534a239068bef68cc6124d85db02ce`, an equal remote HEAD and matching pinned
+GitHub bytes for all 16 changed implementation/evidence files. The later
+receipt commit changes documentation only.
