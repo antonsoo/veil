@@ -1,0 +1,293 @@
+{
+  "provenance": "Synthetic key-shaped identifiers, not issued credentials; no AWS or model calls.",
+  "seed": 20261015,
+  "bodyAlphabet": "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567",
+  "python": "3.12.12",
+  "secretSourceSha256": "1b26844666c717b64ad5ec18c9afd4ae5f0016ae6850c08c7b3458ec9cd9b7b2",
+  "counts": {
+    "AKIA": {
+      "generated": 1000,
+      "completelyRecognized": 1000,
+      "explicitlyRecognized": 1000,
+      "rowsSha256": "57b6fd530bd608f0924d50926f420f9c09ac0e6ee30858dff3902b4c41071c7e"
+    },
+    "ASIA": {
+      "generated": 1000,
+      "completelyRecognized": 841,
+      "explicitlyRecognized": 0,
+      "rowsSha256": "492beb0d9b89f715366e1124e1accdc5145af3f5bfd9f25e28494b7855f44017"
+    }
+  },
+  "cases": [
+    {
+      "key": "ASIA4J2RI3GSPL7SLMJN",
+      "masked": "export AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\r\n",
+      "expected": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "key": "ASIAYSY3Y52XLD7NZ34H",
+      "masked": "export AWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\r\n",
+      "expected": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "key": "ASIAZKCBPDZKGSLHIEPC",
+      "masked": "export AWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\r\n",
+      "expected": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "key": "ASIAAHW63PIK6ALWRAOT",
+      "masked": "export AWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\r\n",
+      "expected": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "key": "AKIA4J2RI3GSPL7SLMJN",
+      "masked": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "expected": "export AWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"\r\n",
+      "correct": true,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    }
+  ],
+  "sdk": [
+    {
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\""
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\""
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\""
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\""
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "request": {
+        "input": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+        "model": "test-model"
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "request": {
+        "input": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "request": {
+        "input": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+        "model": "test-model"
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "request": {
+        "input": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\""
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\""
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\""
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\""
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "AWS_ACCESS_KEY_ID=\"ASIA4J2RI3GSPL7SLMJN\"\nAWS_ACCESS_KEY_ID=\"ASIAYSY3Y52XLD7NZ34H\"\nAWS_ACCESS_KEY_ID=\"ASIAZKCBPDZKGSLHIEPC\"\nAWS_ACCESS_KEY_ID=\"ASIAAHW63PIK6ALWRAOT\"\nAWS_ACCESS_KEY_ID=\"⟨SECRET_1⟩\"",
+      "restoresExactly": true,
+      "correct": false
+    }
+  ],
+  "sdkVersions": {
+    "openai": "3.23.0",
+    "anthropic": "1.11.0"
+  }
+}

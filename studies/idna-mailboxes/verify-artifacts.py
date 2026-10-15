@@ -92,7 +92,7 @@ print(json.dumps({'python': sys.version.split()[0], 'files': {
     }
     assert bundled == {name: value for name, value in source.items() if name.endswith(".py")}
     browser = json.loads(args.browser.read_text())
-    assert browser["sourceSha256"] == source["veil/detectors/email.py"]
+    assert browser["sourceSha256"] == source[browser.get("sourceModule", "veil/detectors/email.py")]
     assert browser["manifestSha256"] == digest(manifest.read_bytes())
     assert browser["servedAssetsMatch"]
     for path, expected in browser["receivedAssets"].items():

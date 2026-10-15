@@ -74,7 +74,9 @@ _KNOWN_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
         "openai_key",
         re.compile(r"\bsk-(?:proj|svcacct)-[A-Za-z0-9_-]{20,}(?![A-Za-z0-9_-])"),
     ),
-    ("aws_access_key", re.compile(r"\bAKIA[0-9A-Z]{16}\b")),
+    # AWS IAM documents AKIA for long-term and ASIA for STS temporary key IDs.
+    # Either known prefix must work without the generic entropy/word heuristic.
+    ("aws_access_key", re.compile(r"\b(?:AKIA|ASIA)[0-9A-Z]{16}\b")),
     ("github_pat_classic", re.compile(r"\bghp_[A-Za-z0-9]{36}\b")),
     ("github_pat_fine", re.compile(r"\bgithub_pat_[A-Za-z0-9_]{22,255}\b")),
     ("github_oauth", re.compile(r"\bgho_[A-Za-z0-9]{36}\b")),

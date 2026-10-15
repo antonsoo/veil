@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Temporary AWS access key IDs
+
+- Recognize `ASIA` STS access key IDs alongside `AKIA`, with the existing
+  20-character shape and whole-token boundaries. Temporary IDs previously
+  depended on generic entropy/word heuristics and could leave the prompt intact.
+- Retain seeded key-shape coverage, CLI/vault restoration and real SDK request
+  captures in `studies/sts-key-ids/`. Recognition does not validate a credential
+  or guarantee coverage of session tokens or other unrecognized formats.
+
 ### IDNA mailbox domain boundaries
 
 - Consume all four IDNA label separators before validating a mailbox domain.

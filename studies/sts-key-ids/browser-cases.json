@@ -1,0 +1,13 @@
+{
+  "provenance": "Constructed key-shaped identifiers, not issued AWS credentials.",
+  "entityType": "SECRET",
+  "detectorModule": "veil/detectors/secrets.py",
+  "cases": [
+    {"id": "sts-word-filter", "address": "ASIA4J2RI3GSPL7SLMJN", "mask": true},
+    {"id": "sts-entropy", "address": "ASIAYSY3Y52XLD7NZ34H", "mask": true},
+    {"id": "sts-no-digits", "address": "ASIAZKCBPDZKGSLHIEPC", "mask": true},
+    {"id": "sts-other", "address": "ASIAAHW63PIK6ALWRAOT", "mask": true},
+    {"id": "permanent-control", "address": "AKIA4J2RI3GSPL7SLMJN", "mask": true},
+    {"id": "ordinary-word", "address": "ASIA", "mask": false}
+  ]
+}

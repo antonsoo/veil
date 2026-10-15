@@ -11,10 +11,13 @@ const here = fileURLToPath(new URL(".", import.meta.url));
 const dist = resolve(process.argv[2] ?? join(here, "../../web/dist"));
 const out = resolve(process.argv[3] ?? join(here, "results/browser"));
 await mkdir(out, { recursive: true });
-const cases = JSON.parse(await readFile(resolve(process.argv[4] ?? join(here, "cases.json")), "utf8")).cases;
+const fixture = JSON.parse(await readFile(resolve(process.argv[4] ?? join(here, "cases.json")), "utf8"));
+const cases = fixture.cases;
+const entityType = fixture.entityType ?? "EMAIL";
+const detectorModule = fixture.detectorModule ?? "veil/detectors/email.py";
 const source = cases.map(c => `Contact <${c.address}> today.`).join("\n");
 let next = 0;
-const expected = cases.map(c => c.mask ? `Contact <⟨EMAIL_${++next}⟩> today.` : `Contact <${c.address}> today.`).join("\n");
+const expected = cases.map(c => c.mask ? `Contact <⟨${entityType}_${++next}⟩> today.` : `Contact <${c.address}> today.`).join("\n");
 const hash = bytes => createHash("sha256").update(bytes).digest("hex");
 const mime = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".woff2": "font/woff2" };
 const served = new Map();
@@ -81,7 +84,9 @@ try {
           assert.equal(restored, source);
           await page.locator("#simulate-btn").click();
           await status(page, "Fictional reply restored");
-          assert.ok((await page.locator("#reply-output").textContent()).includes(cases[0].address));
+          const reply = await page.locator("#reply-output").textContent();
+          if (entityType === "EMAIL") assert.ok(reply.includes(cases[0].address));
+          else assert.ok(reply.length > 0 && !reply.includes("⟨")); // canned reply references only names/emails
           await writeFile(join(out, `${engine}-${width}-masked.txt`), maskedFile);
           await writeFile(join(out, `${engine}-${width}-vault.json`), vaultFile);
           const screenshotSource = cases.slice(0, 2).concat(cases.filter(c => ["unicode-local", "quoted-space", "unicode-domain"].includes(c.id)));
@@ -96,11 +101,12 @@ try {
           assert.equal(requests.length, requestCount, "offline mailbox actions needed no new assets");
           const external = requests.filter(request => !request.url.startsWith(origin));
           assert.ok(external.every(request => request.url.startsWith("https://cdn.jsdelivr.net/pyodide/v0.26.4/full/") && request.method === "GET" && !request.body));
-          rows.push({ engine, width, cases: cases.length, completeMailboxes: next,
+          rows.push({ engine, width, cases: cases.length, entityType, completeValues: next,
+            cannedReplyReferencesOriginal: entityType === "EMAIL",
             maskedDownloadSha256: hash(maskedFile), vaultDownloadSha256: hash(vaultFile),
             exactRestore: restored === source, offlineRequests: requests.length - requestCount,
             errors, noOverflow: true, runtime: "Actual bundled Python via Pyodide; initialized online with a neutral prompt." });
-          console.log(`PASS ${engine} ${width}px: ${cases.length} offline mailbox cases and exact downloads`);
+          console.log(`PASS ${engine} ${width}px: ${cases.length} offline ${entityType} cases and exact downloads`);
         } finally { await context.close(); }
       }
     } finally { await browser.close(); }
@@ -108,9 +114,9 @@ try {
   await Promise.all(reads);
   for (const [path, digest] of received) assert.equal(digest, served.get(path), path);
   const manifest = JSON.parse(await readFile(join(dist, "veil-src.json"), "utf8"));
-  const email = await readFile(join(here, "../../src/veil/detectors/email.py"));
-  assert.equal(hash(manifest["veil/detectors/email.py"]), hash(email));
-  await writeFile(join(out, "receipt.json"), JSON.stringify({ rows, sourceSha256: hash(email),
+  const detector = await readFile(join(here, "../../src", detectorModule));
+  assert.equal(hash(manifest[detectorModule]), hash(detector));
+  await writeFile(join(out, "receipt.json"), JSON.stringify({ rows, sourceModule: detectorModule, sourceSha256: hash(detector),
     manifestSha256: hash(await readFile(join(dist, "veil-src.json"))),
     receivedAssets: Object.fromEntries(received), servedAssetsMatch: true }, null, 2) + "\n");
 } finally { await new Promise(done => server.close(done)); }

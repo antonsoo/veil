@@ -1,0 +1,11 @@
+{
+  "python": "3.12.12",
+  "files": 1483,
+  "words": 2616034,
+  "bytes": 32925796,
+  "detections": 10372,
+  "unchangedFromBaseline": true,
+  "baseline": "67e4100",
+  "baselineReceipt": "../idna-mailboxes/results/corpus.json",
+  "resolvedRowsSha256": "c64fecdab4248396b1a64db5ffa45aec6cdf610aafbe9bc3fbcc7f77113f0a5b"
+}
