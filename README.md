@@ -426,6 +426,10 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   proven equal to non-streamed restore under arbitrary chunking.
 - **Leak audit** (`veil.audit`): checks outgoing text for original values
   that should never reappear, and flags *new* PII the model introduced.
+  In source, fragments inside known whole values are kept out of new-PII
+  findings; outside and boundary-crossing candidates remain visible. An explicit
+  empty detector list keeps only original-leak checks.
+  [Known-value boundaries and actual CLI evidence](studies/audit-boundaries/README.md).
   The source checkout bounds candidate-prefix work for long vault values: a
   controlled 3,000-URL audit changed from 24.5 seconds to 15 ms with identical
   findings. [Installed-wheel replay and limits](studies/leak-audit/README.md).

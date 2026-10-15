@@ -1,0 +1,28 @@
+Veil: known containers and new PII, installed Python 3.12 wheels
+Synthetic inputs; original-leak tuples must remain identical
+
+Case                                Before new  After new  Known leaks
+----------------------------------------------------------------------
+known-url-mailbox                            1          0            1
+known-url-ip                                 1          0            1
+new-mailbox-outside-known-url                2          1            1
+same-mailbox-outside-known-url               2          1            1
+changed-url-is-still-new                     1          1            0
+known-surrogate-embedded-mailbox             1          0            0
+new-next-to-known-surrogate                  2          1            0
+known-email-inside-new-url                   1          1            1
+overlapping-original-occurrences             2          0            1
+adjacent-known-values-not-unioned            1          1            2
+crosses-known-value-boundary                 1          1            1
+partial-unknown-overlap                      1          1            1
+explicit-empty-detectors                     1          0            0
+empty-detectors-retain-known-leak            2          0            1
+
+Declared case expectations: 5/14 -> 14/14
+CLI known-url-mailbox: exit 1 -> 1; findings 2 -> 1
+CLI known-url-ip: exit 1 -> 1; findings 2 -> 1
+CLI new-mailbox-outside-known-url: exit 1 -> 1; findings 3 -> 2
+CLI known-surrogate-embedded-mailbox: exit 1 -> 0; findings 1 -> 0
+CLI new-next-to-known-surrogate: exit 1 -> 1; findings 2 -> 1
+New candidates crossing a known boundary remain visible.
+Explicit [] disables new-PII detectors; original leaks still count.

@@ -1,0 +1,873 @@
+{
+  "date": "2026-10-15",
+  "syntheticInputs": true,
+  "python": "3.12.12",
+  "auditModuleSha256": "1d939cb1c1c2e765b6c450dc5614877cabaeb3513d456e084ce87b4c9d6e43dd",
+  "cases": [
+    {
+      "case": "known-url-mailbox",
+      "text": "https://files.example.test/share?token=alice@example.com",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "URL_CREDENTIAL",
+            "original": "https://files.example.test/share?token=alice@example.com",
+            "surrogate": "⟨URL_CREDENTIAL_1⟩",
+            "detector": "url_credential"
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "//files.example.test/share?token=alice@example.com",
+          "start": 6,
+          "end": 56
+        }
+      ],
+      "leakedOriginals": [
+        {
+          "kind": "leaked_original",
+          "type": "URL_CREDENTIAL",
+          "value": "https://files.example.test/share?token=alice@example.com",
+          "start": 0,
+          "end": 56
+        }
+      ],
+      "combined": [
+        {
+          "kind": "leaked_original",
+          "type": "URL_CREDENTIAL",
+          "value": "https://files.example.test/share?token=alice@example.com",
+          "start": 0,
+          "end": 56
+        },
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "//files.example.test/share?token=alice@example.com",
+          "start": 6,
+          "end": 56
+        }
+      ],
+      "expectedNewValues": [],
+      "expectedNewValuesMatch": false,
+      "cli": {
+        "exitCode": 1,
+        "findings": [
+          {
+            "kind": "leaked_original",
+            "type": "URL_CREDENTIAL",
+            "value": "https://files.example.test/share?token=alice@example.com",
+            "start": 0,
+            "end": 56,
+            "detector": "vault"
+          },
+          {
+            "kind": "new_pii",
+            "type": "EMAIL",
+            "value": "//files.example.test/share?token=alice@example.com",
+            "start": 6,
+            "end": 56,
+            "detector": "email"
+          }
+        ],
+        "cliMaskRestoreExact": true
+      }
+    },
+    {
+      "case": "known-url-ip",
+      "text": "https://203.0.113.42/archive?token=synthetic-private",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "URL_CREDENTIAL",
+            "original": "https://203.0.113.42/archive?token=synthetic-private",
+            "surrogate": "⟨URL_CREDENTIAL_1⟩",
+            "detector": "url_credential"
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "IPV4",
+          "value": "203.0.113.42",
+          "start": 8,
+          "end": 20
+        }
+      ],
+      "leakedOriginals": [
+        {
+          "kind": "leaked_original",
+          "type": "URL_CREDENTIAL",
+          "value": "https://203.0.113.42/archive?token=synthetic-private",
+          "start": 0,
+          "end": 52
+        }
+      ],
+      "combined": [
+        {
+          "kind": "leaked_original",
+          "type": "URL_CREDENTIAL",
+          "value": "https://203.0.113.42/archive?token=synthetic-private",
+          "start": 0,
+          "end": 52
+        },
+        {
+          "kind": "new_pii",
+          "type": "IPV4",
+          "value": "203.0.113.42",
+          "start": 8,
+          "end": 20
+        }
+      ],
+      "expectedNewValues": [],
+      "expectedNewValuesMatch": false,
+      "cli": {
+        "exitCode": 1,
+        "findings": [
+          {
+            "kind": "leaked_original",
+            "type": "URL_CREDENTIAL",
+            "value": "https://203.0.113.42/archive?token=synthetic-private",
+            "start": 0,
+            "end": 52,
+            "detector": "vault"
+          },
+          {
+            "kind": "new_pii",
+            "type": "IPV4",
+            "value": "203.0.113.42",
+            "start": 8,
+            "end": 20,
+            "detector": "ip"
+          }
+        ],
+        "cliMaskRestoreExact": true
+      }
+    },
+    {
+      "case": "new-mailbox-outside-known-url",
+      "text": "https://files.example.test/share?token=alice@example.com\nNew: bob@example.com",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "URL_CREDENTIAL",
+            "original": "https://files.example.test/share?token=alice@example.com",
+            "surrogate": "⟨URL_CREDENTIAL_1⟩",
+            "detector": "url_credential"
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "//files.example.test/share?token=alice@example.com",
+          "start": 6,
+          "end": 56
+        },
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "bob@example.com",
+          "start": 62,
+          "end": 77
+        }
+      ],
+      "leakedOriginals": [
+        {
+          "kind": "leaked_original",
+          "type": "URL_CREDENTIAL",
+          "value": "https://files.example.test/share?token=alice@example.com",
+          "start": 0,
+          "end": 56
+        }
+      ],
+      "combined": [
+        {
+          "kind": "leaked_original",
+          "type": "URL_CREDENTIAL",
+          "value": "https://files.example.test/share?token=alice@example.com",
+          "start": 0,
+          "end": 56
+        },
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "//files.example.test/share?token=alice@example.com",
+          "start": 6,
+          "end": 56
+        },
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "bob@example.com",
+          "start": 62,
+          "end": 77
+        }
+      ],
+      "expectedNewValues": [
+        "bob@example.com"
+      ],
+      "expectedNewValuesMatch": false,
+      "cli": {
+        "exitCode": 1,
+        "findings": [
+          {
+            "kind": "leaked_original",
+            "type": "URL_CREDENTIAL",
+            "value": "https://files.example.test/share?token=alice@example.com",
+            "start": 0,
+            "end": 56,
+            "detector": "vault"
+          },
+          {
+            "kind": "new_pii",
+            "type": "EMAIL",
+            "value": "//files.example.test/share?token=alice@example.com",
+            "start": 6,
+            "end": 56,
+            "detector": "email"
+          },
+          {
+            "kind": "new_pii",
+            "type": "EMAIL",
+            "value": "bob@example.com",
+            "start": 62,
+            "end": 77,
+            "detector": "email"
+          }
+        ],
+        "cliMaskRestoreExact": true
+      }
+    },
+    {
+      "case": "same-mailbox-outside-known-url",
+      "text": "https://files.example.test/share?token=alice@example.com\nStandalone: alice@example.com",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "URL_CREDENTIAL",
+            "original": "https://files.example.test/share?token=alice@example.com",
+            "surrogate": "⟨URL_CREDENTIAL_1⟩",
+            "detector": "url_credential"
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "//files.example.test/share?token=alice@example.com",
+          "start": 6,
+          "end": 56
+        },
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "alice@example.com",
+          "start": 69,
+          "end": 86
+        }
+      ],
+      "leakedOriginals": [
+        {
+          "kind": "leaked_original",
+          "type": "URL_CREDENTIAL",
+          "value": "https://files.example.test/share?token=alice@example.com",
+          "start": 0,
+          "end": 56
+        }
+      ],
+      "combined": [
+        {
+          "kind": "leaked_original",
+          "type": "URL_CREDENTIAL",
+          "value": "https://files.example.test/share?token=alice@example.com",
+          "start": 0,
+          "end": 56
+        },
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "//files.example.test/share?token=alice@example.com",
+          "start": 6,
+          "end": 56
+        },
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "alice@example.com",
+          "start": 69,
+          "end": 86
+        }
+      ],
+      "expectedNewValues": [
+        "alice@example.com"
+      ],
+      "expectedNewValuesMatch": false
+    },
+    {
+      "case": "changed-url-is-still-new",
+      "text": "https://203.0.113.42/changed?token=synthetic-private",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "SECRET",
+            "original": "https://203.0.113.42/archive?token=synthetic-private",
+            "surrogate": "⟨SECRET_1⟩",
+            "detector": ""
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "URL_CREDENTIAL",
+          "value": "https://203.0.113.42/changed?token=synthetic-private",
+          "start": 0,
+          "end": 52
+        }
+      ],
+      "leakedOriginals": [],
+      "combined": [
+        {
+          "kind": "new_pii",
+          "type": "URL_CREDENTIAL",
+          "value": "https://203.0.113.42/changed?token=synthetic-private",
+          "start": 0,
+          "end": 52
+        }
+      ],
+      "expectedNewValues": [
+        "https://203.0.113.42/changed?token=synthetic-private"
+      ],
+      "expectedNewValuesMatch": true
+    },
+    {
+      "case": "known-surrogate-embedded-mailbox",
+      "text": "https://surrogate.example.test/share?token=fake@example.com",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "SECRET",
+            "original": "https://files.example.test/share?token=alice@example.com",
+            "surrogate": "https://surrogate.example.test/share?token=fake@example.com",
+            "detector": ""
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "//surrogate.example.test/share?token=fake@example.com",
+          "start": 6,
+          "end": 59
+        }
+      ],
+      "leakedOriginals": [],
+      "combined": [
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "//surrogate.example.test/share?token=fake@example.com",
+          "start": 6,
+          "end": 59
+        }
+      ],
+      "expectedNewValues": [],
+      "expectedNewValuesMatch": false,
+      "cli": {
+        "exitCode": 1,
+        "findings": [
+          {
+            "kind": "new_pii",
+            "type": "EMAIL",
+            "value": "//surrogate.example.test/share?token=fake@example.com",
+            "start": 6,
+            "end": 59,
+            "detector": "email"
+          }
+        ],
+        "cliMaskRestoreExact": false
+      }
+    },
+    {
+      "case": "new-next-to-known-surrogate",
+      "text": "https://surrogate.example.test/share?token=fake@example.com\nbob@example.com",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "SECRET",
+            "original": "https://files.example.test/share?token=alice@example.com",
+            "surrogate": "https://surrogate.example.test/share?token=fake@example.com",
+            "detector": ""
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "//surrogate.example.test/share?token=fake@example.com",
+          "start": 6,
+          "end": 59
+        },
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "bob@example.com",
+          "start": 60,
+          "end": 75
+        }
+      ],
+      "leakedOriginals": [],
+      "combined": [
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "//surrogate.example.test/share?token=fake@example.com",
+          "start": 6,
+          "end": 59
+        },
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "bob@example.com",
+          "start": 60,
+          "end": 75
+        }
+      ],
+      "expectedNewValues": [
+        "bob@example.com"
+      ],
+      "expectedNewValuesMatch": false,
+      "cli": {
+        "exitCode": 1,
+        "findings": [
+          {
+            "kind": "new_pii",
+            "type": "EMAIL",
+            "value": "//surrogate.example.test/share?token=fake@example.com",
+            "start": 6,
+            "end": 59,
+            "detector": "email"
+          },
+          {
+            "kind": "new_pii",
+            "type": "EMAIL",
+            "value": "bob@example.com",
+            "start": 60,
+            "end": 75,
+            "detector": "email"
+          }
+        ],
+        "cliMaskRestoreExact": false
+      }
+    },
+    {
+      "case": "known-email-inside-new-url",
+      "text": "https://files.example.test/share?token=alice@example.com",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "SECRET",
+            "original": "alice@example.com",
+            "surrogate": "⟨SECRET_1⟩",
+            "detector": ""
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "URL_CREDENTIAL",
+          "value": "https://files.example.test/share?token=alice@example.com",
+          "start": 0,
+          "end": 56
+        }
+      ],
+      "leakedOriginals": [
+        {
+          "kind": "leaked_original",
+          "type": "SECRET",
+          "value": "alice@example.com",
+          "start": 39,
+          "end": 56
+        }
+      ],
+      "combined": [
+        {
+          "kind": "new_pii",
+          "type": "URL_CREDENTIAL",
+          "value": "https://files.example.test/share?token=alice@example.com",
+          "start": 0,
+          "end": 56
+        },
+        {
+          "kind": "leaked_original",
+          "type": "SECRET",
+          "value": "alice@example.com",
+          "start": 39,
+          "end": 56
+        }
+      ],
+      "expectedNewValues": [
+        "https://files.example.test/share?token=alice@example.com"
+      ],
+      "expectedNewValuesMatch": true
+    },
+    {
+      "case": "overlapping-original-occurrences",
+      "text": "ababa",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "SECRET",
+            "original": "aba",
+            "surrogate": "⟨SECRET_1⟩",
+            "detector": ""
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "PERSON",
+          "value": "ba",
+          "start": 1,
+          "end": 3
+        },
+        {
+          "kind": "new_pii",
+          "type": "PERSON",
+          "value": "ba",
+          "start": 3,
+          "end": 5
+        }
+      ],
+      "leakedOriginals": [
+        {
+          "kind": "leaked_original",
+          "type": "SECRET",
+          "value": "aba",
+          "start": 0,
+          "end": 3
+        }
+      ],
+      "combined": [
+        {
+          "kind": "leaked_original",
+          "type": "SECRET",
+          "value": "aba",
+          "start": 0,
+          "end": 3
+        },
+        {
+          "kind": "new_pii",
+          "type": "PERSON",
+          "value": "ba",
+          "start": 1,
+          "end": 3
+        },
+        {
+          "kind": "new_pii",
+          "type": "PERSON",
+          "value": "ba",
+          "start": 3,
+          "end": 5
+        }
+      ],
+      "expectedNewValues": [],
+      "expectedNewValuesMatch": false
+    },
+    {
+      "case": "adjacent-known-values-not-unioned",
+      "text": "secretAsecretB",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "SECRET",
+            "original": "secretA",
+            "surrogate": "⟨SECRET_1⟩",
+            "detector": ""
+          },
+          {
+            "type": "SECRET",
+            "original": "secretB",
+            "surrogate": "⟨SECRET_2⟩",
+            "detector": ""
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "PERSON",
+          "value": "Asecret",
+          "start": 6,
+          "end": 13
+        }
+      ],
+      "leakedOriginals": [
+        {
+          "kind": "leaked_original",
+          "type": "SECRET",
+          "value": "secretA",
+          "start": 0,
+          "end": 7
+        },
+        {
+          "kind": "leaked_original",
+          "type": "SECRET",
+          "value": "secretB",
+          "start": 7,
+          "end": 14
+        }
+      ],
+      "combined": [
+        {
+          "kind": "leaked_original",
+          "type": "SECRET",
+          "value": "secretA",
+          "start": 0,
+          "end": 7
+        },
+        {
+          "kind": "new_pii",
+          "type": "PERSON",
+          "value": "Asecret",
+          "start": 6,
+          "end": 13
+        },
+        {
+          "kind": "leaked_original",
+          "type": "SECRET",
+          "value": "secretB",
+          "start": 7,
+          "end": 14
+        }
+      ],
+      "expectedNewValues": [
+        "Asecret"
+      ],
+      "expectedNewValuesMatch": true
+    },
+    {
+      "case": "crosses-known-value-boundary",
+      "text": "secretAoutside",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "SECRET",
+            "original": "secretA",
+            "surrogate": "⟨SECRET_1⟩",
+            "detector": ""
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "PERSON",
+          "value": "Aoutside",
+          "start": 6,
+          "end": 14
+        }
+      ],
+      "leakedOriginals": [
+        {
+          "kind": "leaked_original",
+          "type": "SECRET",
+          "value": "secretA",
+          "start": 0,
+          "end": 7
+        }
+      ],
+      "combined": [
+        {
+          "kind": "leaked_original",
+          "type": "SECRET",
+          "value": "secretA",
+          "start": 0,
+          "end": 7
+        },
+        {
+          "kind": "new_pii",
+          "type": "PERSON",
+          "value": "Aoutside",
+          "start": 6,
+          "end": 14
+        }
+      ],
+      "expectedNewValues": [
+        "Aoutside"
+      ],
+      "expectedNewValuesMatch": true
+    },
+    {
+      "case": "partial-unknown-overlap",
+      "text": "xxsecretA",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "SECRET",
+            "original": "secretA",
+            "surrogate": "⟨SECRET_1⟩",
+            "detector": ""
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "PERSON",
+          "value": "xxsecret",
+          "start": 0,
+          "end": 8
+        }
+      ],
+      "leakedOriginals": [
+        {
+          "kind": "leaked_original",
+          "type": "SECRET",
+          "value": "secretA",
+          "start": 2,
+          "end": 9
+        }
+      ],
+      "combined": [
+        {
+          "kind": "new_pii",
+          "type": "PERSON",
+          "value": "xxsecret",
+          "start": 0,
+          "end": 8
+        },
+        {
+          "kind": "leaked_original",
+          "type": "SECRET",
+          "value": "secretA",
+          "start": 2,
+          "end": 9
+        }
+      ],
+      "expectedNewValues": [
+        "xxsecret"
+      ],
+      "expectedNewValuesMatch": true
+    },
+    {
+      "case": "explicit-empty-detectors",
+      "text": "bob@example.com",
+      "vault": {
+        "version": 1,
+        "mappings": []
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "bob@example.com",
+          "start": 0,
+          "end": 15
+        }
+      ],
+      "leakedOriginals": [],
+      "combined": [
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "bob@example.com",
+          "start": 0,
+          "end": 15
+        }
+      ],
+      "expectedNewValues": [],
+      "expectedNewValuesMatch": false
+    },
+    {
+      "case": "empty-detectors-retain-known-leak",
+      "text": "https://files.example.test/share?token=alice@example.com\nbob@example.com",
+      "vault": {
+        "version": 1,
+        "mappings": [
+          {
+            "type": "URL_CREDENTIAL",
+            "original": "https://files.example.test/share?token=alice@example.com",
+            "surrogate": "⟨URL_CREDENTIAL_1⟩",
+            "detector": "url_credential"
+          }
+        ]
+      },
+      "newPii": [
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "//files.example.test/share?token=alice@example.com",
+          "start": 6,
+          "end": 56
+        },
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "bob@example.com",
+          "start": 57,
+          "end": 72
+        }
+      ],
+      "leakedOriginals": [
+        {
+          "kind": "leaked_original",
+          "type": "URL_CREDENTIAL",
+          "value": "https://files.example.test/share?token=alice@example.com",
+          "start": 0,
+          "end": 56
+        }
+      ],
+      "combined": [
+        {
+          "kind": "leaked_original",
+          "type": "URL_CREDENTIAL",
+          "value": "https://files.example.test/share?token=alice@example.com",
+          "start": 0,
+          "end": 56
+        },
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "//files.example.test/share?token=alice@example.com",
+          "start": 6,
+          "end": 56
+        },
+        {
+          "kind": "new_pii",
+          "type": "EMAIL",
+          "value": "bob@example.com",
+          "start": 57,
+          "end": 72
+        }
+      ],
+      "expectedNewValues": [],
+      "expectedNewValuesMatch": false
+    }
+  ],
+  "passedCases": 5,
+  "totalCases": 14
+}

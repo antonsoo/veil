@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Known-value audit boundaries
+
+- Keep detected fragments wholly inside exact known original/surrogate
+  occurrences out of new-PII findings. Restored credential URLs no longer invent
+  new mailbox/IP findings; known-original leaks remain reported. Partial overlaps,
+  outside occurrences and candidates spanning multiple known literals remain
+  eligible. Containment includes overlapping occurrences of each literal without
+  changing the leak report's established repetition policy.
+- Honor `detectors=[]` as an empty new-PII selection. Omitted/None still selects
+  defaults, and original-value checks remain active.
+- Retain native public-API/CLI before/after evidence, boundary controls and fresh
+  dependency-free wheel installations in `studies/audit-boundaries/`.
+
 ### Original-value audit responsiveness
 
 - Index long originals by a bounded prefix before checking their complete value.
