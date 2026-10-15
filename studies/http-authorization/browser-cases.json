@@ -1,0 +1,15 @@
+{
+  "provenance": "Synthetic authorization values and literal controls; no issued credentials.",
+  "entityType": "SECRET",
+  "detectorModule": "veil/detectors/_http_auth.py",
+  "cases": [
+    {"id": "basic-short", "prefix": "Authorization: Basic ", "address": "dXNlcjpwYXNz", "suffix": "", "mask": true},
+    {"id": "bearer-short", "prefix": "Authorization: Bearer ", "address": "abc", "suffix": "", "mask": true},
+    {"id": "basic-padding", "prefix": "Proxy-Authorization: Basic ", "address": "cDo=", "suffix": "", "mask": true},
+    {"id": "bearer-punctuation", "prefix": "Authorization: Bearer ", "address": "ab.c_d-ef~g+/==", "suffix": "", "mask": true},
+    {"id": "json", "prefix": "{\"authorization\": \"Bearer ", "address": "aabbccddeeff0011", "suffix": "\"}", "mask": true},
+    {"id": "challenge-control", "prefix": "WWW-Authenticate: Basic ", "address": "realm", "suffix": "=\"private\"", "mask": false},
+    {"id": "header-control", "prefix": "X-Authorization: Bearer ", "address": "xyz", "suffix": "", "mask": false},
+    {"id": "ordinary-word", "prefix": "", "address": "Basic algebra and bearer of good news.", "suffix": "", "mask": false}
+  ]
+}

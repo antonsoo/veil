@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "type": "SECRET",
+      "original": "dXNlcjpwYXNz",
+      "surrogate": "⟨SECRET_1⟩",
+      "detector": "secret:http_authorization"
+    },
+    {
+      "type": "SECRET",
+      "original": "abc",
+      "surrogate": "⟨SECRET_2⟩",
+      "detector": "secret:http_authorization"
+    },
+    {
+      "type": "SECRET",
+      "original": "cDo=",
+      "surrogate": "⟨SECRET_3⟩",
+      "detector": "secret:http_authorization"
+    },
+    {
+      "type": "SECRET",
+      "original": "ab.c_d-ef~g+/==",
+      "surrogate": "⟨SECRET_4⟩",
+      "detector": "secret:http_authorization"
+    },
+    {
+      "type": "SECRET",
+      "original": "aabbccddeeff0011",
+      "surrogate": "⟨SECRET_5⟩",
+      "detector": "secret:http_authorization"
+    }
+  ]
+}

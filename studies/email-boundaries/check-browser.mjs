@@ -15,9 +15,10 @@ const fixture = JSON.parse(await readFile(resolve(process.argv[4] ?? join(here, 
 const cases = fixture.cases;
 const entityType = fixture.entityType ?? "EMAIL";
 const detectorModule = fixture.detectorModule ?? "veil/detectors/email.py";
-const source = cases.map(c => `Contact <${c.address}> today.`).join("\n");
+const formatCase = (c, value, screenshot = false) => `${c.prefix ?? "Contact <"}${value}${c.suffix ?? (screenshot ? ">." : "> today.")}`;
+const source = cases.map(c => formatCase(c, c.address)).join("\n");
 let next = 0;
-const expected = cases.map(c => c.mask ? `Contact <⟨${entityType}_${++next}⟩> today.` : `Contact <${c.address}> today.`).join("\n");
+const expected = cases.map(c => formatCase(c, c.mask ? `⟨${entityType}_${++next}⟩` : c.address)).join("\n");
 const hash = bytes => createHash("sha256").update(bytes).digest("hex");
 const mime = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".woff2": "font/woff2" };
 const served = new Map();
@@ -93,7 +94,7 @@ try {
           await writeFile(join(out, `${engine}-${width}-masked.txt`), maskedFile);
           await writeFile(join(out, `${engine}-${width}-vault.json`), vaultFile);
           const screenshotSource = cases.slice(0, 2).concat(cases.filter(c => ["unicode-local", "quoted-space", "unicode-domain"].includes(c.id)));
-          await page.locator("#prompt").fill(screenshotSource.map(c => `Contact <${c.address}>.`).join("\n"));
+          await page.locator("#prompt").fill(screenshotSource.map(c => formatCase(c, c.address, true)).join("\n"));
           await page.locator("#mask-btn").click();
           await status(page, "Masked this prompt");
           await page.locator("#reveal-btn").click();

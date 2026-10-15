@@ -6,6 +6,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Explicit HTTP authorization credentials
+
+- Mask complete Basic/Bearer token values in `Authorization` and
+  `Proxy-Authorization` fields independently of entropy, length and word
+  heuristics. Preserve padding and token punctuation in the vault; leave field
+  names and schemes readable. Raw, quoted JSON/dict and curl header spellings
+  use the same rule.
+- Preserve an immediate header key's context in structured tool input and
+  JSON-string function arguments, including escaped key names. Raw argument
+  numbers, duplicate keys and unrelated spelling remain unchanged. Source
+  reservations, failed-request rollback and exact restoration still apply.
+- Retain native HTTPX BasicAuth captures, actual SDK transports, installed
+  packages, corpus review and offline browser evidence in
+  `studies/http-authorization/`. Credentials are synthetic; the rule does not
+  authenticate them. No runtime dependency was added.
+
 ### Whole compact JWT masking
 
 - Mask supported compact JWTs as one credential. Generic entropy detection

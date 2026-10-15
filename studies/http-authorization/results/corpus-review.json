@@ -1,0 +1,131 @@
+{
+  "files": 1483,
+  "bytes": 32925796,
+  "words": 2616034,
+  "unchangedFiles": 1478,
+  "beforeDetections": 10372,
+  "afterDetections": 10380,
+  "changed": [
+    {
+      "file": "code/psf-requests/05180dda5cdc530f.py",
+      "sourceSha256": "8e553d75084306fd04a2b3fd8ec3f7f7578ae1c44c48d96790e56046cbdf5fbf",
+      "before": 17,
+      "after": 19,
+      "newContextualDetections": [
+        {
+          "line": 2128,
+          "span": [
+            75192,
+            75204
+          ],
+          "characters": 12,
+          "valueSha256": "0e9d220616f08345a714ee57d8516310770588484b5239844635f952965e34a6",
+          "classification": "Explicit Basic/Bearer header example in public test or documentation; not evidence of an issued credential."
+        },
+        {
+          "line": 2133,
+          "span": [
+            75407,
+            75415
+          ],
+          "characters": 8,
+          "valueSha256": "e9a7e33431867a08e7f3473fce62acf4eff0dfa059f730009155f172fea08e7f",
+          "classification": "Explicit Basic/Bearer header example in public test or documentation; not evidence of an issued credential."
+        }
+      ]
+    },
+    {
+      "file": "code/fastify-fastify/19376432e354901f.md",
+      "sourceSha256": "6ce7667fce6f757d685b128df4a27e2f2ae9edb99d6a04ffcbc3f38fc65a7dc6",
+      "before": 0,
+      "after": 1,
+      "newContextualDetections": [
+        {
+          "line": 115,
+          "span": [
+            3759,
+            3765
+          ],
+          "characters": 6,
+          "valueSha256": "6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090",
+          "classification": "Explicit Basic/Bearer header example in public test or documentation; not evidence of an issued credential."
+        }
+      ]
+    },
+    {
+      "file": "code/fastify-fastify/bd12de7ab50f2168.js",
+      "sourceSha256": "840e3858c7b32ff10490149dfd763e5bd6d39f4987c51a561979dc9e0508cbd7",
+      "before": 0,
+      "after": 1,
+      "newContextualDetections": [
+        {
+          "line": 262,
+          "span": [
+            7789,
+            7794
+          ],
+          "characters": 5,
+          "valueSha256": "36bbe50ed96841d10443bcb670d6554f0a34b761be67ec9c4a8ad2c0c44ca42c",
+          "classification": "Explicit Basic/Bearer header example in public test or documentation; not evidence of an issued credential."
+        }
+      ]
+    },
+    {
+      "file": "code/axios-axios/191e8f23d4b4c129.js",
+      "sourceSha256": "156adf3b151df93e0065d56256f8f1769be0145b386c9660ae59f88921e8ce0e",
+      "before": 0,
+      "after": 1,
+      "newContextualDetections": [
+        {
+          "line": 272,
+          "span": [
+            7313,
+            7317
+          ],
+          "characters": 4,
+          "valueSha256": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+          "classification": "Explicit Basic/Bearer header example in public test or documentation; not evidence of an issued credential."
+        }
+      ]
+    },
+    {
+      "file": "code/axios-axios/44e027b25829495b.js",
+      "sourceSha256": "530f044a58372eb15ac5b05b12535c0842a64772a766c23d52f9c6a9d5a866c7",
+      "before": 7,
+      "after": 10,
+      "newContextualDetections": [
+        {
+          "line": 718,
+          "span": [
+            21767,
+            21771
+          ],
+          "characters": 4,
+          "valueSha256": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+          "classification": "Explicit Basic/Bearer header example in public test or documentation; not evidence of an issued credential."
+        },
+        {
+          "line": 732,
+          "span": [
+            22347,
+            22351
+          ],
+          "characters": 4,
+          "valueSha256": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+          "classification": "Explicit Basic/Bearer header example in public test or documentation; not evidence of an issued credential."
+        },
+        {
+          "line": 1431,
+          "span": [
+            44662,
+            44668
+          ],
+          "characters": 6,
+          "valueSha256": "6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090",
+          "classification": "Explicit Basic/Bearer header example in public test or documentation; not evidence of an issued credential."
+        }
+      ]
+    }
+  ],
+  "scope": "Collateral behavior on the retained public technical corpus. All five changed files were manually reviewed. These examples do not measure production secret recall or false-positive rates."
+}

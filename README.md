@@ -402,6 +402,11 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   encoded identity claims that fragment masking left visible.
   [Native signature oracles and SDK captures](studies/jwt-claims/README.md)
   document recognition boundaries; this change does not authenticate tokens.
+  Explicit HTTP Basic/Bearer authorization values now become one secret even
+  when short, repetitive or padded. Tool-input JSON retains the header key's
+  context while masking its string value. [Native headers, SDK requests and
+  exact restoration](studies/http-authorization/README.md) retain the before/after
+  evidence. This correction is in source and has not been released or deployed.
   This checkout also recognizes signed AWS/GCS, Azure Storage SAS and
   CloudFront URLs, OAuth fragment tokens, and percent-encoded token parameter
   names. [Credential-URL evidence and exact matching rules](studies/credential-urls/README.md)

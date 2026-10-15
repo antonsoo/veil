@@ -1,0 +1,8 @@
+Authorization: Basic ⟨SECRET_1⟩
+Authorization: Bearer ⟨SECRET_2⟩
+Proxy-Authorization: Basic ⟨SECRET_3⟩
+Authorization: Bearer ⟨SECRET_4⟩
+{"authorization": "Bearer ⟨SECRET_5⟩"}
+WWW-Authenticate: Basic realm="private"
+X-Authorization: Bearer xyz
+Basic algebra and bearer of good news.

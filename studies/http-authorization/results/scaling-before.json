@@ -1,0 +1,203 @@
+{
+  "python": "3.12.12",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "warmups": 1,
+  "repeats": 3,
+  "rows": [
+    {
+      "case": "large-opaque-credential",
+      "sizeParameter": 10000,
+      "bytes": 10026,
+      "sourceSha256": "ea1c70d27f0ab843969734a51b985bbe1380ca97ce7d818d5f98d885c7055317",
+      "detections": 0,
+      "medianSeconds": 0.0028430279926396906,
+      "seconds": [
+        0.0028430279926396906,
+        0.0028358240087982267,
+        0.00621782400412485
+      ]
+    },
+    {
+      "case": "ordinary-prose",
+      "sizeParameter": 10000,
+      "bytes": 9750,
+      "sourceSha256": "c995bfd997fd3d4f40e7555829a528978960cc237f11e02013494d8a364b2727",
+      "detections": 0,
+      "medianSeconds": 0.0023822869989089668,
+      "seconds": [
+        0.0023311580007430166,
+        0.002758503978839144,
+        0.0023822869989089668
+      ]
+    },
+    {
+      "case": "repeated-headers",
+      "sizeParameter": 10000,
+      "bytes": 8991,
+      "sourceSha256": "25bca4956642aebe0a4ee17fe95b54cba72c2bae31c723e8484e0adf0130b704",
+      "detections": 0,
+      "medianSeconds": 0.00229008897440508,
+      "seconds": [
+        0.003231139009585604,
+        0.00229008897440508,
+        0.0018918179848697037
+      ]
+    },
+    {
+      "case": "empty-scheme",
+      "sizeParameter": 10000,
+      "bytes": 10015,
+      "sourceSha256": "d862f172daade4e8b1c2bb65761abad44043e8f3178ac6459ac594220f3122ed",
+      "detections": 0,
+      "medianSeconds": 0.002063802006887272,
+      "seconds": [
+        0.0017066099971998483,
+        0.002063802006887272,
+        0.002493993000825867
+      ]
+    },
+    {
+      "case": "glued-unsupported",
+      "sizeParameter": 10000,
+      "bytes": 10031,
+      "sourceSha256": "5ab2013c97336ca83e5a33ce2cce9517cbaf486321cc150cf6dc8b1f1950609f",
+      "detections": 0,
+      "medianSeconds": 0.002310898998985067,
+      "seconds": [
+        0.002237448003143072,
+        0.003951040998799726,
+        0.002310898998985067
+      ]
+    },
+    {
+      "case": "large-opaque-credential",
+      "sizeParameter": 100000,
+      "bytes": 100026,
+      "sourceSha256": "2d89d4ab59152e8fb3b7d6e6621ecbd98c7b1119d592d3acf238f8d2021750bb",
+      "detections": 0,
+      "medianSeconds": 0.026354882982559502,
+      "seconds": [
+        0.03175403899513185,
+        0.025855751999188215,
+        0.026354882982559502
+      ]
+    },
+    {
+      "case": "ordinary-prose",
+      "sizeParameter": 100000,
+      "bytes": 97500,
+      "sourceSha256": "1de609b12a4a62af8db316fb002e1d38ef2fb9b52c408ef223f2d31791fabac2",
+      "detections": 0,
+      "medianSeconds": 0.029320756992092356,
+      "seconds": [
+        0.024679643975105137,
+        0.029320756992092356,
+        0.031278660986572504
+      ]
+    },
+    {
+      "case": "repeated-headers",
+      "sizeParameter": 100000,
+      "bytes": 89991,
+      "sourceSha256": "d16b5c8c72bcbeb53dde002c4d76b390c2f3354c06e9f14bc01e3f8ec5895a76",
+      "detections": 0,
+      "medianSeconds": 0.02459698199527338,
+      "seconds": [
+        0.024548284010961652,
+        0.02459698199527338,
+        0.02491384101449512
+      ]
+    },
+    {
+      "case": "empty-scheme",
+      "sizeParameter": 100000,
+      "bytes": 100015,
+      "sourceSha256": "1ab08b1b6128d598bb0e7ee6d27c7340b256676d3f47f8569e64f8734c6e00b1",
+      "detections": 0,
+      "medianSeconds": 0.019591137010138482,
+      "seconds": [
+        0.01863737401436083,
+        0.020872944995062426,
+        0.019591137010138482
+      ]
+    },
+    {
+      "case": "glued-unsupported",
+      "sizeParameter": 100000,
+      "bytes": 100031,
+      "sourceSha256": "92e2d5cb4dc3ff2358a800c6f314721306c5c7378638de00ac932b51db530880",
+      "detections": 0,
+      "medianSeconds": 0.06278588500572369,
+      "seconds": [
+        0.04900357301812619,
+        0.06278588500572369,
+        0.06308661701041274
+      ]
+    },
+    {
+      "case": "large-opaque-credential",
+      "sizeParameter": 1000000,
+      "bytes": 1000026,
+      "sourceSha256": "e16f79ad5b15e5b40cd316add9b3112ee649c1be59cc60a59798ea82c1d2f510",
+      "detections": 0,
+      "medianSeconds": 0.2903882840182632,
+      "seconds": [
+        0.2567823480057996,
+        0.3601835249864962,
+        0.2903882840182632
+      ]
+    },
+    {
+      "case": "ordinary-prose",
+      "sizeParameter": 1000000,
+      "bytes": 975000,
+      "sourceSha256": "755e96d6e85ebc0a04fd73d53f72e2ff32e2f33a501abcace235170b3500d74a",
+      "detections": 0,
+      "medianSeconds": 0.30651180900167674,
+      "seconds": [
+        0.33436226900084876,
+        0.28011720001813956,
+        0.30651180900167674
+      ]
+    },
+    {
+      "case": "repeated-headers",
+      "sizeParameter": 1000000,
+      "bytes": 899991,
+      "sourceSha256": "07fc418b064aa643bf8e03495f63d1708b6ecb1e2d11b10d0854fd93c597764e",
+      "detections": 0,
+      "medianSeconds": 0.2443910950096324,
+      "seconds": [
+        0.29603911700542085,
+        0.22770712498459034,
+        0.2443910950096324
+      ]
+    },
+    {
+      "case": "empty-scheme",
+      "sizeParameter": 1000000,
+      "bytes": 1000015,
+      "sourceSha256": "698a6968d3dbb6f0bce045846fbf34001f033d058bf743d61fc1c25aab37a39a",
+      "detections": 0,
+      "medianSeconds": 0.20709199301199988,
+      "seconds": [
+        0.22217648901278153,
+        0.20709199301199988,
+        0.1982243880047463
+      ]
+    },
+    {
+      "case": "glued-unsupported",
+      "sizeParameter": 1000000,
+      "bytes": 1000031,
+      "sourceSha256": "655a6cda8c0322712f863969ec1d3e0df4bb4c2681f6e33c9a0e531542c75e4d",
+      "detections": 0,
+      "medianSeconds": 0.24323157398612238,
+      "seconds": [
+        0.20746243902249262,
+        0.2853109500138089,
+        0.24323157398612238
+      ]
+    }
+  ]
+}
