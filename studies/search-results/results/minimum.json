@@ -1,0 +1,1388 @@
+{
+  "label": "installed-minimum",
+  "package_origin": "environment",
+  "package_python_sha256": {
+    "__init__.py": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980",
+    "_files.py": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29",
+    "_spans.py": "e8e2f09a3f7b92535ffaacda6c3c820793465c9c00f16faec50c807147e1e62f",
+    "audit.py": "038bb18f7bc0e81d7cd2f5f2381b01a5fe16c331a84bff081b0f515e35dc8073",
+    "backends/__init__.py": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b",
+    "backends/base.py": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e",
+    "backends/known_entities.py": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55",
+    "backends/spacy_backend.py": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b",
+    "cli.py": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1",
+    "detectors/__init__.py": "4e6e202fe17c7c8d0bd6afea3f1611411eb6fbb5c4acfa3f9eb17eb9184107e6",
+    "detectors/_calling_codes.py": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c",
+    "detectors/_words.py": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887",
+    "detectors/address.py": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec",
+    "detectors/base.py": "ac0e63d0d37d4626f9717a1ccafe4a093ecea9a0e1ef897afa200cfc85fb3ef2",
+    "detectors/card.py": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f",
+    "detectors/dob.py": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f",
+    "detectors/email.py": "72581de8de3a9bc7ed6027563e0d9987b314193d059deeadaf1b3e57b21e0e7d",
+    "detectors/iban.py": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c",
+    "detectors/ip.py": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b",
+    "detectors/phone.py": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd",
+    "detectors/secrets.py": "1b26844666c717b64ad5ec18c9afd4ae5f0016ae6850c08c7b3458ec9cd9b7b2",
+    "detectors/ssn.py": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b",
+    "detectors/url.py": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099",
+    "integrations/__init__.py": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881",
+    "integrations/_common.py": "ded423d9741b9443adc658959487911a11e43cfe9393aa7c548651a3d99e71e7",
+    "integrations/_json_arguments.py": "8189f42f3dcdb74cb4c74346732ba03116ee8e79e1468858f92086fdcb7c8188",
+    "integrations/anthropic.py": "3f27a9955ce49c788bf2d3e97babbe8e197ac15d3c1c939c50a198595411a821",
+    "integrations/openai.py": "830b8cf890680ea4edae8489d55402a9163a0effa210350037434a61a0ccb9d3",
+    "integrations/openai_responses.py": "3650dfc325747ecce45a847de3efb36a6087f28ffd63b0317dee302ee1ce092e",
+    "masker.py": "d1ab3df9739183e7023bb38358f57475c2f605f52da710767431c8fd9d2e15b6",
+    "restore.py": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38",
+    "surrogates.py": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0",
+    "types.py": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8",
+    "vault.py": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+  },
+  "python": "3.10.21",
+  "anthropic": "0.40.0",
+  "workflow_count": 36,
+  "requests_with_raw_contacts": 0,
+  "workflows_with_unchanged_citations": 36,
+  "workflows_with_restored_answers": 36,
+  "workflows_with_failures": 0,
+  "rows": [
+    {
+      "inside_tool_result": false,
+      "shape": "list",
+      "mode": "create",
+      "async": false,
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 128,
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "search_result",
+                  "source": "kb://public/help",
+                  "title": "Public help",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "General guidance."
+                    }
+                  ],
+                  "citations": {
+                    "enabled": true
+                  }
+                },
+                {
+                  "type": "search_result",
+                  "source": "account:⟨EMAIL_1⟩",
+                  "title": "Customer ⟨EMAIL_2⟩",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Account recovery instructions."
+                    },
+                    {
+                      "type": "text",
+                      "text": "Contact ⟨EMAIL_3⟩."
+                    },
+                    {
+                      "type": "text",
+                      "text": "Backup ⟨EMAIL_4⟩."
+                    }
+                  ],
+                  "citations": {
+                    "enabled": true
+                  },
+                  "cache_control": {
+                    "type": "ephemeral"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "7c89d97911c68319e0943f7cba165f5c78b4d432f8780e4559303cce3b5a8593"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "list",
+      "mode": "create",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "7c89d97911c68319e0943f7cba165f5c78b4d432f8780e4559303cce3b5a8593"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "list",
+      "mode": "raw",
+      "async": false,
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 128,
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "search_result",
+                  "source": "kb://public/help",
+                  "title": "Public help",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "General guidance."
+                    }
+                  ],
+                  "citations": {
+                    "enabled": true
+                  }
+                },
+                {
+                  "type": "search_result",
+                  "source": "account:⟨EMAIL_1⟩",
+                  "title": "Customer ⟨EMAIL_2⟩",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Account recovery instructions."
+                    },
+                    {
+                      "type": "text",
+                      "text": "Contact ⟨EMAIL_3⟩."
+                    },
+                    {
+                      "type": "text",
+                      "text": "Backup ⟨EMAIL_4⟩."
+                    }
+                  ],
+                  "citations": {
+                    "enabled": true
+                  },
+                  "cache_control": {
+                    "type": "ephemeral"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "daf551f18b21dd75222dffb924609799e97e4d2e0bb09126e4208169acb2af76"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "list",
+      "mode": "raw",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "daf551f18b21dd75222dffb924609799e97e4d2e0bb09126e4208169acb2af76"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "list",
+      "mode": "helper",
+      "async": false,
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 128,
+          "messages": [
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "search_result",
+                  "source": "kb://public/help",
+                  "title": "Public help",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "General guidance."
+                    }
+                  ],
+                  "citations": {
+                    "enabled": true
+                  }
+                },
+                {
+                  "type": "search_result",
+                  "source": "account:⟨EMAIL_1⟩",
+                  "title": "Customer ⟨EMAIL_2⟩",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Account recovery instructions."
+                    },
+                    {
+                      "type": "text",
+                      "text": "Contact ⟨EMAIL_3⟩."
+                    },
+                    {
+                      "type": "text",
+                      "text": "Backup ⟨EMAIL_4⟩."
+                    }
+                  ],
+                  "citations": {
+                    "enabled": true
+                  },
+                  "cache_control": {
+                    "type": "ephemeral"
+                  }
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "daf551f18b21dd75222dffb924609799e97e4d2e0bb09126e4208169acb2af76"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "list",
+      "mode": "helper",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "daf551f18b21dd75222dffb924609799e97e4d2e0bb09126e4208169acb2af76"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "tuple",
+      "mode": "create",
+      "async": false,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "7c89d97911c68319e0943f7cba165f5c78b4d432f8780e4559303cce3b5a8593"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "tuple",
+      "mode": "create",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "7c89d97911c68319e0943f7cba165f5c78b4d432f8780e4559303cce3b5a8593"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "tuple",
+      "mode": "raw",
+      "async": false,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "daf551f18b21dd75222dffb924609799e97e4d2e0bb09126e4208169acb2af76"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "tuple",
+      "mode": "raw",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "daf551f18b21dd75222dffb924609799e97e4d2e0bb09126e4208169acb2af76"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "tuple",
+      "mode": "helper",
+      "async": false,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "daf551f18b21dd75222dffb924609799e97e4d2e0bb09126e4208169acb2af76"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "tuple",
+      "mode": "helper",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "daf551f18b21dd75222dffb924609799e97e4d2e0bb09126e4208169acb2af76"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "generator",
+      "mode": "create",
+      "async": false,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "7c89d97911c68319e0943f7cba165f5c78b4d432f8780e4559303cce3b5a8593"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "generator",
+      "mode": "create",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "7c89d97911c68319e0943f7cba165f5c78b4d432f8780e4559303cce3b5a8593"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "generator",
+      "mode": "raw",
+      "async": false,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "daf551f18b21dd75222dffb924609799e97e4d2e0bb09126e4208169acb2af76"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "generator",
+      "mode": "raw",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "daf551f18b21dd75222dffb924609799e97e4d2e0bb09126e4208169acb2af76"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "generator",
+      "mode": "helper",
+      "async": false,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "daf551f18b21dd75222dffb924609799e97e4d2e0bb09126e4208169acb2af76"
+    },
+    {
+      "inside_tool_result": false,
+      "shape": "generator",
+      "mode": "helper",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "daf551f18b21dd75222dffb924609799e97e4d2e0bb09126e4208169acb2af76"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "list",
+      "mode": "create",
+      "async": false,
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 128,
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {}
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": [
+                    {
+                      "type": "search_result",
+                      "source": "kb://public/help",
+                      "title": "Public help",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "General guidance."
+                        }
+                      ],
+                      "citations": {
+                        "enabled": true
+                      }
+                    },
+                    {
+                      "type": "search_result",
+                      "source": "account:⟨EMAIL_1⟩",
+                      "title": "Customer ⟨EMAIL_2⟩",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Account recovery instructions."
+                        },
+                        {
+                          "type": "text",
+                          "text": "Contact ⟨EMAIL_3⟩."
+                        },
+                        {
+                          "type": "text",
+                          "text": "Backup ⟨EMAIL_4⟩."
+                        }
+                      ],
+                      "citations": {
+                        "enabled": true
+                      },
+                      "cache_control": {
+                        "type": "ephemeral"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "model": "test-model"
+        }
+      ],
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "b6c63cc624a547b556694e46d30252f0aa77ef385ebc85a3f89f57a7f5c5b354"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "list",
+      "mode": "create",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "b6c63cc624a547b556694e46d30252f0aa77ef385ebc85a3f89f57a7f5c5b354"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "list",
+      "mode": "raw",
+      "async": false,
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 128,
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {}
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": [
+                    {
+                      "type": "search_result",
+                      "source": "kb://public/help",
+                      "title": "Public help",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "General guidance."
+                        }
+                      ],
+                      "citations": {
+                        "enabled": true
+                      }
+                    },
+                    {
+                      "type": "search_result",
+                      "source": "account:⟨EMAIL_1⟩",
+                      "title": "Customer ⟨EMAIL_2⟩",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Account recovery instructions."
+                        },
+                        {
+                          "type": "text",
+                          "text": "Contact ⟨EMAIL_3⟩."
+                        },
+                        {
+                          "type": "text",
+                          "text": "Backup ⟨EMAIL_4⟩."
+                        }
+                      ],
+                      "citations": {
+                        "enabled": true
+                      },
+                      "cache_control": {
+                        "type": "ephemeral"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "632da87c9c1ebd4747087d2c737c1e6c8ef2109dc5b74d518ea558fe0cc79895"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "list",
+      "mode": "raw",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "632da87c9c1ebd4747087d2c737c1e6c8ef2109dc5b74d518ea558fe0cc79895"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "list",
+      "mode": "helper",
+      "async": false,
+      "failure": null,
+      "requests": [
+        {
+          "max_tokens": 128,
+          "messages": [
+            {
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "tool_use",
+                  "id": "toolu_1",
+                  "name": "lookup",
+                  "input": {}
+                }
+              ]
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "tool_result",
+                  "tool_use_id": "toolu_1",
+                  "content": [
+                    {
+                      "type": "search_result",
+                      "source": "kb://public/help",
+                      "title": "Public help",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "General guidance."
+                        }
+                      ],
+                      "citations": {
+                        "enabled": true
+                      }
+                    },
+                    {
+                      "type": "search_result",
+                      "source": "account:⟨EMAIL_1⟩",
+                      "title": "Customer ⟨EMAIL_2⟩",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Account recovery instructions."
+                        },
+                        {
+                          "type": "text",
+                          "text": "Contact ⟨EMAIL_3⟩."
+                        },
+                        {
+                          "type": "text",
+                          "text": "Backup ⟨EMAIL_4⟩."
+                        }
+                      ],
+                      "citations": {
+                        "enabled": true
+                      },
+                      "cache_control": {
+                        "type": "ephemeral"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "model": "test-model",
+          "stream": true
+        }
+      ],
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "632da87c9c1ebd4747087d2c737c1e6c8ef2109dc5b74d518ea558fe0cc79895"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "list",
+      "mode": "helper",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "632da87c9c1ebd4747087d2c737c1e6c8ef2109dc5b74d518ea558fe0cc79895"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "tuple",
+      "mode": "create",
+      "async": false,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "b6c63cc624a547b556694e46d30252f0aa77ef385ebc85a3f89f57a7f5c5b354"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "tuple",
+      "mode": "create",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "b6c63cc624a547b556694e46d30252f0aa77ef385ebc85a3f89f57a7f5c5b354"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "tuple",
+      "mode": "raw",
+      "async": false,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "632da87c9c1ebd4747087d2c737c1e6c8ef2109dc5b74d518ea558fe0cc79895"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "tuple",
+      "mode": "raw",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "632da87c9c1ebd4747087d2c737c1e6c8ef2109dc5b74d518ea558fe0cc79895"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "tuple",
+      "mode": "helper",
+      "async": false,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "632da87c9c1ebd4747087d2c737c1e6c8ef2109dc5b74d518ea558fe0cc79895"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "tuple",
+      "mode": "helper",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "632da87c9c1ebd4747087d2c737c1e6c8ef2109dc5b74d518ea558fe0cc79895"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "generator",
+      "mode": "create",
+      "async": false,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "b6c63cc624a547b556694e46d30252f0aa77ef385ebc85a3f89f57a7f5c5b354"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "generator",
+      "mode": "create",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "b6c63cc624a547b556694e46d30252f0aa77ef385ebc85a3f89f57a7f5c5b354"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "generator",
+      "mode": "raw",
+      "async": false,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "632da87c9c1ebd4747087d2c737c1e6c8ef2109dc5b74d518ea558fe0cc79895"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "generator",
+      "mode": "raw",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "632da87c9c1ebd4747087d2c737c1e6c8ef2109dc5b74d518ea558fe0cc79895"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "generator",
+      "mode": "helper",
+      "async": false,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "632da87c9c1ebd4747087d2c737c1e6c8ef2109dc5b74d518ea558fe0cc79895"
+    },
+    {
+      "inside_tool_result": true,
+      "shape": "generator",
+      "mode": "helper",
+      "async": true,
+      "failure": null,
+      "raw_contacts_sent": [],
+      "restored_text": "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org.",
+      "vault_entries": 4,
+      "input_unchanged": true,
+      "iterator_visited_once": true,
+      "citations_unchanged": true,
+      "citation_snapshot_supported": false,
+      "citation_snapshot_retained": null,
+      "citation": {
+        "type": "search_result_location",
+        "source": "account:⟨EMAIL_1⟩",
+        "title": "Customer ⟨EMAIL_2⟩",
+        "cited_text": "Contact ⟨EMAIL_3⟩.Backup ⟨EMAIL_4⟩.",
+        "search_result_index": 1,
+        "start_block_index": 1,
+        "end_block_index": 3
+      },
+      "assistant_replays_exactly": null,
+      "attribution_restores": true,
+      "request_sha256": "632da87c9c1ebd4747087d2c737c1e6c8ef2109dc5b74d518ea558fe0cc79895"
+    }
+  ]
+}

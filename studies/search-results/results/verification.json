@@ -1,0 +1,83 @@
+{
+  "checked_at_utc": "2026-10-15T04:05:42.763708+00:00",
+  "implementation_commit": "512b1074397315003400e3327f03e7d19719633a",
+  "clean_archive": {
+    "files_compared": 426,
+    "changed_files": [],
+    "python": "3.14.7",
+    "all_extras": true,
+    "tests_passed": 1017,
+    "lint": "passed",
+    "format": "passed",
+    "strict_typecheck": "passed",
+    "sdist_and_wheel": "passed"
+  },
+  "source_python312": {
+    "tests_passed": 1014,
+    "tests_skipped": 1,
+    "skip_reason": "spaCy extra not installed"
+  },
+  "installed_current": {
+    "python": "3.12.12",
+    "anthropic": "1.11.0",
+    "retrieval_workflows": 36,
+    "raw_contacts_sent": 0,
+    "regressions_passed": 65,
+    "runtime_files_identical": 34
+  },
+  "installed_minimum": {
+    "python": "3.10.21",
+    "anthropic": "0.40.0",
+    "retrieval_workflows": 36,
+    "raw_contacts_sent": 0,
+    "regressions_passed": 61,
+    "regressions_skipped": 4,
+    "skip_reason": "SDK predates search-result citation snapshots; helper replay checks unavailable",
+    "runtime_files_identical": 34
+  },
+  "core_only_install": {
+    "python": "3.10.21",
+    "sdk_dependencies_present": false,
+    "library_roundtrip": "passed",
+    "installed_cli_roundtrip": "passed"
+  },
+  "web": {
+    "node": "26.7.0",
+    "commands": [
+      "npm ci",
+      "npm run lint",
+      "npm run build",
+      "npm run test:browser"
+    ],
+    "browser_scenarios_passed": 16,
+    "engines": [
+      "chromium",
+      "firefox"
+    ],
+    "output": "web/dist",
+    "deployed": false
+  },
+  "artifacts": [
+    {
+      "file": ".gitignore",
+      "bytes": 1,
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+    },
+    {
+      "file": "veil_pii-0.4.4-py3-none-any.whl",
+      "bytes": 93936,
+      "sha256": "dc4f6c6957a370d56cb9bbed4b811a4537f673cb4f4db16c8a1dbf1b4d7b8e52"
+    },
+    {
+      "file": "veil_pii-0.4.4.tar.gz",
+      "bytes": 104305,
+      "sha256": "14a2ea9479300474d06e4dc5ce588c9d358ba18f520f1d1d7220b2059bf075db"
+    }
+  ],
+  "published": false,
+  "limits": [
+    "Mock HTTP and synthetic replies only; no provider acceptance or live model behavior measured.",
+    "Anthropic 0.40.0 preserves complete-response extras and raw citation events but has no search-result citation snapshots.",
+    "Clean archive suite predates test-helper compatibility guards; runtime Python files match both final source and installed wheel."
+  ]
+}

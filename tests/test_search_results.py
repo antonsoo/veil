@@ -10,6 +10,7 @@ anthropic = pytest.importorskip("anthropic")
 
 from tests.sdk_search_results import (  # noqa: E402
     EXPECTED_TEXT,
+    HAS_CITATION_SNAPSHOTS,
     MODES,
     SHAPES,
     capture,
@@ -37,6 +38,8 @@ def test_retrieved_content_and_metadata_are_masked_at_transport(
     assert result["iterator_visited_once"]
     assert result["citations_unchanged"]
     assert result["attribution_restores"]
+    if HAS_CITATION_SNAPSHOTS and mode != "raw":
+        assert result["citation_snapshot_retained"]
     sent = sent_results(result["requests"][0], nested)
     assert len(sent) == 2
     assert sent[0]["source"] == "kb://public/help"
@@ -99,6 +102,8 @@ def test_signed_retrieval_locator_is_masked_as_one_url() -> None:
 def test_restored_answers_replay_exact_provider_text_and_citations(
     nested: bool, mode: str, asynchronous: bool
 ) -> None:
+    if mode == "helper" and not HAS_CITATION_SNAPSHOTS:
+        pytest.skip("this SDK predates search-result citation snapshots")
     result = capture(nested, "list", mode, asynchronous, replay_history=True)
     assert result["failure"] is None
     assert result["assistant_replays_exactly"]

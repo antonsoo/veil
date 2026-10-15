@@ -42,6 +42,8 @@ def main() -> None:
             assert row["input_unchanged"] and row["iterator_visited_once"], row
             assert row["citations_unchanged"] and row["vault_entries"] == 4, row
             assert row["attribution_restores"], row
+            if row["citation_snapshot_supported"] and mode != "raw":
+                assert row["citation_snapshot_retained"], row
         # Keep one full request per placement/mode, all other digests and checks.
         if shape != "list" or asynchronous:
             row.pop("requests")

@@ -114,6 +114,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -144,6 +146,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -227,6 +231,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": null,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -257,6 +263,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": null,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -340,6 +348,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -370,6 +380,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -400,6 +412,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -430,6 +444,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -460,6 +476,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": null,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -490,6 +508,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": null,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -520,6 +540,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -550,6 +572,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -580,6 +604,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -610,6 +636,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -640,6 +668,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": null,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -670,6 +700,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": null,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -700,6 +732,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -730,6 +764,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -829,6 +865,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -859,6 +897,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -959,6 +999,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": null,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -989,6 +1031,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": null,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1089,6 +1133,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1119,6 +1165,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1149,6 +1197,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1179,6 +1229,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1209,6 +1261,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": null,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1239,6 +1293,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": null,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1269,6 +1325,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1299,6 +1357,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1329,6 +1389,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1359,6 +1421,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1389,6 +1453,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": null,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1419,6 +1485,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": null,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1449,6 +1517,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",
@@ -1479,6 +1549,8 @@
       "input_unchanged": true,
       "iterator_visited_once": true,
       "citations_unchanged": true,
+      "citation_snapshot_supported": true,
+      "citation_snapshot_retained": true,
       "citation": {
         "type": "search_result_location",
         "source": "account:alice@example.org",

@@ -21,6 +21,7 @@ from veil.integrations.anthropic import AnthropicVeil, AsyncAnthropicVeil
 CONTACTS = ["alice@example.org", "bob@example.net", "carol@example.com", "dan@example.org"]
 MODES = ["create", "raw", "helper"]
 SHAPES = ["list", "tuple", "generator"]
+HAS_CITATION_SNAPSHOTS = hasattr(anthropic.types, "CitationsSearchResultLocation")
 EXPECTED_TEXT = "Customer bob@example.net: Contact carol@example.com. Backup dan@example.org."
 
 
@@ -215,7 +216,7 @@ def capture(
             raise AssertionError("stream deltas differ from the SDK's final message")
     returned_citations = []
     if answer is not None:
-        returned_citations.extend(answer.content[0].citations or [])
+        returned_citations.extend(getattr(answer.content[0], "citations", None) or [])
     returned_citations.extend(
         event.delta.citation
         for event in events
@@ -236,8 +237,18 @@ def capture(
         "iterator_visited_once": shape != "generator" or visits == list(range(len(parts))),
         "citations_unchanged": bool(returned_citations)
         and all(
-            all(getattr(citation, key) == value for key, value in citations[0].items())
+            all(
+                (citation.get(key) if isinstance(citation, dict) else getattr(citation, key))
+                == value
+                for key, value in citations[0].items()
+            )
             for citation in returned_citations
+        ),
+        "citation_snapshot_supported": HAS_CITATION_SNAPSHOTS,
+        "citation_snapshot_retained": (
+            bool(getattr(answer.content[0], "citations", None))
+            if answer is not None and HAS_CITATION_SNAPSHOTS
+            else None
         ),
         "citation": citations[0] if citations else None,
         "assistant_replays_exactly": (

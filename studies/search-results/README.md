@@ -87,3 +87,33 @@ them to original text without an explicit mapping would be misleading.
 
 This is a source correction. It does not publish PyPI, push source or deploy
 the browser demo.
+
+## Clean archive and installed artifacts
+
+The [verification receipt](results/verification.json) records a clean archive
+of implementation commit `512b107`, a locked Python 3.14.7 install with all
+extras, lint/format/strict type checks, **1,017 passing tests**, and an sdist
+with a wheel built from it. Every archived file still matches its git blob
+after checks. The wheel's 33 Python library files match final source and
+both isolated SDK installations exactly.
+
+| Installation | Retrieval captures without raw contacts | Focused regressions |
+|---|---|---|
+| Python 3.12.12, Anthropic 1.11.0 | 36 of 36 | 65 passed |
+| Python 3.10.21, Anthropic 0.40.0 | 36 of 36 | 61 passed, 4 skipped |
+| Python 3.10.21, core wheel without SDKs | Not applicable | Library and installed CLI mask/restore round trips passed |
+
+The [current-SDK receipt](results/installed.json) and
+[minimum-SDK receipt](results/minimum.json) both confirm imports from the
+isolated environment. Anthropic 0.40.0 predates search-result citation models:
+complete-response extras and raw citation events survive, but helper-stream
+citation snapshots are unavailable. Four helper replay checks explicitly skip
+for that SDK. The initial clean suite used the same runtime bytes; subsequent
+changes teach only the test helper to represent this older-SDK limitation.
+
+The clean web checkout also passes install, TypeScript checks, production
+build to `web/dist`, and **16 existing Chromium/Firefox browser scenarios**,
+including 375px literal handling and offline masking/restoration. Those
+scenarios exercise the browser's core Python; SDK integration checks run in
+the separate Python environments. The terminal capture above was visually
+inspected. No hosted assets were changed.
