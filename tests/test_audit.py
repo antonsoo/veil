@@ -1,10 +1,12 @@
+import pytest
 from hypothesis import given
 from hypothesis import strategies as st
 
 from veil.audit import audit, find_leaked_originals, find_new_pii
+from veil.detectors.url import UrlCredentialDetector
 from veil.masker import Masker
 from veil.surrogates import PlaceholderSurrogates
-from veil.types import EntityType
+from veil.types import Entity, EntityType, Span
 from veil.vault import Vault
 
 
@@ -161,3 +163,96 @@ def test_equal_length_originals_share_a_prefix_without_becoming_equal() -> None:
         (f.entity.type.value, f.entity.value, f.entity.span.start)
         for f in find_leaked_originals(text, vault)
     ] == _leaks_by_searching_per_value(text, vault)
+
+
+@pytest.mark.parametrize(
+    "original",
+    [
+        "https://files.example.test/share?token=alice@example.com",
+        "https://203.0.113.42/archive?token=synthetic-private",
+    ],
+)
+def test_restored_whole_url_has_known_pii_instead_of_new_pii(original: str) -> None:
+    masker = Masker()
+    restored = masker.restore(masker.mask(original), tolerant=False)
+    assert restored == original
+    assert len(masker.vault) == 1
+    assert find_new_pii(restored, masker.vault) == []
+    assert [f.kind for f in audit(restored, masker.vault)] == ["leaked_original"]
+    new = find_new_pii(restored + "\nNew contact: bob@example.com", masker.vault)
+    assert [(f.entity.type.value, f.entity.value) for f in new] == [("EMAIL", "bob@example.com")]
+
+
+def test_known_surrogate_does_not_trigger_embedded_pii_or_hide_an_outside_contact() -> None:
+    surrogate = "https://surrogate.example.test/share?token=fake@example.com"
+    vault = Vault.from_dict(
+        {
+            "version": 1,
+            "mappings": [
+                {
+                    "type": "SECRET",
+                    "original": "private-credential",
+                    "surrogate": surrogate,
+                }
+            ],
+        }
+    )
+    assert audit(surrogate, vault) == []
+    new = find_new_pii(surrogate + "\nbob@example.com", vault)
+    assert [f.entity.value for f in new] == ["bob@example.com"]
+
+
+def test_empty_detector_selection_keeps_original_leak_detection() -> None:
+    masker = Masker()
+    masker.mask("alice@example.com")
+    text = "alice@example.com and bob@example.com"
+    assert find_new_pii(text, masker.vault, detectors=[]) == []
+    assert [(f.kind, f.entity.value) for f in audit(text, masker.vault, detectors=[])] == [
+        ("leaked_original", "alice@example.com"),
+    ]
+    assert [f.entity.value for f in find_new_pii(text, masker.vault)] == ["bob@example.com"]
+
+
+def test_known_email_does_not_hide_a_new_enclosing_credential_url() -> None:
+    masker = Masker()
+    masker.mask("alice@example.com")
+    text = "https://files.example.test/share?token=alice@example.com"
+    new = find_new_pii(text, masker.vault, [UrlCredentialDetector()])
+    assert [f.entity.value for f in new] == [text]
+
+
+class _LiteralDetector:
+    name = "controlled_literal"
+
+    def __init__(self, value: str) -> None:
+        self.value = value
+
+    def find(self, text: str) -> list[Entity]:
+        return [
+            Entity(EntityType.PERSON, self.value, Span(start, start + len(self.value)), self.name)
+            for start in range(len(text))
+            if text.startswith(self.value, start)
+        ]
+
+
+@pytest.mark.parametrize(
+    ("originals", "text", "candidate", "expected"),
+    [
+        (["aba"], "ababa", "ba", []),
+        (["secretA", "secretB"], "secretAsecretB", "Asecret", ["Asecret"]),
+        (["secretA"], "secretAoutside", "Aoutside", ["Aoutside"]),
+        (["secretA"], "xxsecretA", "xxsecret", ["xxsecret"]),
+    ],
+)
+def test_new_pii_uses_complete_literal_containment(
+    originals: list[str],
+    text: str,
+    candidate: str,
+    expected: list[str],
+) -> None:
+    vault = Vault()
+    for original in originals:
+        vault.get_or_create(EntityType.SECRET, original, PlaceholderSurrogates())
+    assert [
+        f.entity.value for f in find_new_pii(text, vault, [_LiteralDetector(candidate)])
+    ] == expected

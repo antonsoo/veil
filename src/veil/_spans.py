@@ -6,7 +6,7 @@ span against a list of all the others makes masking quadratic.
 
 from __future__ import annotations
 
-from bisect import bisect_left, insort
+from bisect import bisect_left, bisect_right, insort
 from collections.abc import Iterable
 
 from veil.types import Span
@@ -28,6 +28,11 @@ class SpanIndex:
     def overlaps(self, span: Span) -> bool:
         before = bisect_left(self._starts, span.end)  # spans starting before this one ends
         return before > 0 and self._reach[before - 1] > span.start
+
+    def contains(self, span: Span) -> bool:
+        """Whether one stored span encloses this whole span, without joining neighbors."""
+        before = bisect_right(self._starts, span.start)
+        return before > 0 and self._reach[before - 1] >= span.end
 
 
 class DisjointSpans:
