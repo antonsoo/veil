@@ -85,7 +85,7 @@ opaque binary data, signed thinking and unrelated block types keep their
 existing handling. Citations refer to masked text and attribution; applying
 them to original text without an explicit mapping would be misleading.
 
-This is a source correction. It does not publish PyPI, push source or deploy
+This is a source correction. It does not publish PyPI or manually deploy
 the browser demo.
 
 ## Clean archive and installed artifacts
