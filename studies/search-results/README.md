@@ -94,7 +94,7 @@ The [verification receipt](results/verification.json) records a clean archive
 of implementation commit `512b107`, a locked Python 3.14.7 install with all
 extras, lint/format/strict type checks, **1,017 passing tests**, and an sdist
 with a wheel built from it. Every archived file still matches its git blob
-after checks. The wheel's 33 Python library files match final source and
+after checks. The wheel's 34 Python library files match final source and
 both isolated SDK installations exactly.
 
 | Installation | Retrieval captures without raw contacts | Focused regressions |

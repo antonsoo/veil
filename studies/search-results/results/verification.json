@@ -59,11 +59,6 @@
   },
   "artifacts": [
     {
-      "file": ".gitignore",
-      "bytes": 1,
-      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
-    },
-    {
       "file": "veil_pii-0.4.4-py3-none-any.whl",
       "bytes": 93936,
       "sha256": "dc4f6c6957a370d56cb9bbed4b811a4537f673cb4f4db16c8a1dbf1b4d7b8e52"
