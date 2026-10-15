@@ -53,6 +53,9 @@ retained contact corpus fully masks eight more email tags. Exact restoration,
 actual SDK transport captures and syntax ambiguities are documented in the
 [mailbox study](studies/email-boundaries/README.md). Build this source to use
 the correction; this update does not release PyPI or deploy the live demo.
+The source also consumes [all four IDNA domain separators](studies/idna-mailboxes/README.md):
+an ideographic/fullwidth/halfwidth dot previously left a private domain suffix
+visible or bypassed mailbox detection. Original spellings restore exactly.
 
 **A literal example must not become someone's address.** The source checkout
 also corrects a masking collision: a prompt containing an email and the literal

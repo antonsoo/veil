@@ -24,6 +24,12 @@ _ATEXT = frozenset(string.ascii_letters + string.digits + "!#$%&'*+-/=?^_`{|}~")
 _DNS_LABEL_RE = re.compile(r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?")
 _QUOTED_RE = re.compile(r'"(?:[\x20-\x21\x23-\x5b\x5d-\x7e]|\\[\x20-\x7e]|[^\x00-\x7f]){0,64}"')
 _URI_START_RE = re.compile(r"[A-Za-z][A-Za-z0-9+.-]*://")
+# UTS #46 section 2.3 treats these four characters as domain label separators.
+# Scan them all before validating: stopping at one can expose a domain suffix
+# after an otherwise valid ASCII mailbox. Normalize only the validation copy;
+# the entity, vault and restored text must keep the original spelling.
+_DOMAIN_DOTS = ".\u3002\uff0e\uff61"
+_DOMAIN_DOT_MAP = str.maketrans(dict.fromkeys(_DOMAIN_DOTS[1:], "."))
 
 
 def _atom_char(char: str) -> bool:
@@ -35,7 +41,7 @@ def _domain_char(char: str) -> bool:
     # cannot leave an apparently valid, shorter domain in front of them.
     return (
         char.isalnum()
-        or char in ".-_+"
+        or char in _DOMAIN_DOTS + "-_+"
         or (not char.isascii() and unicodedata.category(char)[0] in "MC")
     )
 
@@ -103,7 +109,7 @@ def _quoted_local_parts(text: str) -> Iterator[tuple[int, int]]:
 
 
 def _valid_domain(domain: str) -> bool:
-    labels = domain.split(".")
+    labels = domain.translate(_DOMAIN_DOT_MAP).split(".")
     if len(labels) < 2 or any(not label for label in labels):
         return False
     encoded = []
@@ -160,7 +166,7 @@ class EmailDetector:
             if end < len(text) and text[end] == "@" and not _URI_START_RE.match(text, end + 1):
                 continue
             # A sentence's trailing full stop is outside the mailbox.
-            end = at + 1 + len(text[at + 1 : end].rstrip("."))
+            end = at + 1 + len(text[at + 1 : end].rstrip(_DOMAIN_DOTS))
             if not _valid_domain(text[at + 1 : end]):
                 continue
             # Single quotes/backticks around an address are prose delimiters;

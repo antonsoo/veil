@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### IDNA mailbox domain boundaries
+
+- Consume all four IDNA label separators before validating a mailbox domain.
+  Ideographic, fullwidth and halfwidth dots previously caused missed addresses
+  or left a private domain suffix visible after a partial replacement.
+- Preserve original Unicode spelling in entities and vaults. Equivalent domain
+  spellings remain distinct reversible values; terminal separators stay prose
+  punctuation. Invalid suffixes cannot turn into shorter mailbox matches.
+- Retain actual SDK request, CLI/vault and offline browser reproductions in
+  `studies/idna-mailboxes/`. This is syntactic recognition, without DNS or
+  deliverability checks; adjacent prose can still be ambiguous.
+
 ### Anthropic retrieved search results
 
 - Mask `search_result` source labels, titles and each inline text block,

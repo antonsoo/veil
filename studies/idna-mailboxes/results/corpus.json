@@ -1,0 +1,57 @@
+{
+  "baseline": "f8a7892217c8296160273a83b7b779b962214cd8",
+  "unchangedEmailManifests": [
+    {
+      "manifest": "manifest-osm.json",
+      "sha256": "2dac2ae4131f0a2a69f9967ffed252b185c994bb75bfa9d0a932728936bb3080",
+      "verifiedFiles": 22,
+      "filesDigest": "199bdc01e0e7e373e9c7ca1f299deb6d1986d437c11b719660bea7d80db24835",
+      "mailboxCoverage": {
+        "found": 5014,
+        "missed": 2,
+        "partly": 3
+      }
+    },
+    {
+      "manifest": "manifest-osm-heldout.json",
+      "sha256": "5dfd1da35899ab417560676b9123ea8b1f77723b26dbfa46c6302fc144e53c7e",
+      "verifiedFiles": 24,
+      "filesDigest": "7d60ecb6d3531ea19c44eea6864c53da589fbc70639ecc314701397f8123416b",
+      "mailboxCoverage": {
+        "found": 5554,
+        "missed": 6,
+        "partly": 1
+      }
+    },
+    {
+      "manifest": "manifest-technical.json",
+      "sha256": "55176de41eaad86b6b6e83eca89555c1d6bb61d5a93540f9ad019687ac5b0da4",
+      "verifiedFiles": 688,
+      "filesDigest": "6b2d86a5e438ea27a14a5a51ffa8bba20fec8f99dc8a1f1c120c1d9b592609c0",
+      "words": 1606104,
+      "count": 560
+    },
+    {
+      "manifest": "manifest-technical-heldout.json",
+      "sha256": "9a7e8ebbefe6a7b563c31b90ff0b9a5e17813d81821ee0ff956b4c0dd68b0202",
+      "verifiedFiles": 795,
+      "filesDigest": "f8d155addf71130eb40dafbaaa29c62738274617572949bfb720b59c02ad1ffd",
+      "words": 1009930,
+      "count": 92
+    }
+  ],
+  "baselineEmailReceipt": {
+    "path": "studies/email-boundaries/results/corpus-after.json",
+    "sha256": "8b766bb3380bd3dff7c181ad5ba3a8fc2e5e4f1630bcd86217a5d5538542af78"
+  },
+  "resolved": {
+    "python": "3.12.12",
+    "files": 1483,
+    "words": 2616034,
+    "bytes": 32925796,
+    "detections": 10372
+  },
+  "resolvedDetectionsUnchanged": true,
+  "resolvedRowsSha256": "c64fecdab4248396b1a64db5ffa45aec6cdf610aafbe9bc3fbcc7f77113f0a5b",
+  "limits": "Retained corpus only; no natural examples of the newly supported separator spellings were established."
+}

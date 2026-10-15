@@ -11,7 +11,7 @@ const here = fileURLToPath(new URL(".", import.meta.url));
 const dist = resolve(process.argv[2] ?? join(here, "../../web/dist"));
 const out = resolve(process.argv[3] ?? join(here, "results/browser"));
 await mkdir(out, { recursive: true });
-const cases = JSON.parse(await readFile(join(here, "cases.json"), "utf8")).cases;
+const cases = JSON.parse(await readFile(resolve(process.argv[4] ?? join(here, "cases.json")), "utf8")).cases;
 const source = cases.map(c => `Contact <${c.address}> today.`).join("\n");
 let next = 0;
 const expected = cases.map(c => c.mask ? `Contact <⟨EMAIL_${++next}⟩> today.` : `Contact <${c.address}> today.`).join("\n");

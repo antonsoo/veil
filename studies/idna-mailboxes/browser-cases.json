@@ -1,0 +1,16 @@
+{
+  "provenance": "Constructed mailbox spellings; no production contacts or privacy incidents.",
+  "cases": [
+    {"id": "ideographic-dot", "address": "alice@example。org", "mask": true},
+    {"id": "exposed-suffix", "address": "alice@example.org。private.example", "mask": true},
+    {"id": "fullwidth-dot", "address": "alice@example．org", "mask": true},
+    {"id": "halfwidth-dot", "address": "alice@example｡org", "mask": true},
+    {"id": "unicode-local", "address": "利用者@例え。テスト", "mask": true},
+    {"id": "quoted-space", "address": "\"private name\"@example．org", "mask": true},
+    {"id": "unicode-domain", "address": "first!last@例え｡example", "mask": true},
+    {"id": "mixed-dots", "address": "alice@one。two．three｡example", "mask": true},
+    {"id": "bad-suffix", "address": "alice@example.org。private_suffix", "mask": false},
+    {"id": "empty-label", "address": "alice@example.org．.private.example", "mask": false},
+    {"id": "numeric-tld", "address": "alice@example.org｡private.123", "mask": false}
+  ]
+}

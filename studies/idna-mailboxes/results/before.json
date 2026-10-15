@@ -1,0 +1,2108 @@
+{
+  "python": "3.12.12",
+  "emailSourceSha256": "72581de8de3a9bc7ed6027563e0d9987b314193d059deeadaf1b3e57b21e0e7d",
+  "syntheticCases": 101,
+  "correctCases": 4,
+  "sdkRequests": 12,
+  "correctSDKRequests": 0,
+  "sdkVersions": {
+    "openai": "3.23.0",
+    "anthropic": "1.11.0"
+  },
+  "cases": [
+    {
+      "id": "separator-0",
+      "address": "alice@example。org",
+      "mask": true,
+      "idnaDomain": "example.org",
+      "masked": "Contact <alice@example。org> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "suffix-0",
+      "address": "alice@example.org。private.example",
+      "mask": true,
+      "idnaDomain": "example.org.private.example",
+      "masked": "Contact <⟨EMAIL_1⟩。private.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "international-0",
+      "address": "利用者@例え。テスト",
+      "mask": true,
+      "idnaDomain": "xn--r8jz45g.xn--zckzah",
+      "masked": "Contact <利用者@例え。テスト> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-0-3",
+      "address": "alice@example.org。private_private",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩。private_private> today.\r\n",
+      "expected": "Contact <alice@example.org。private_private> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-0-4",
+      "address": "alice@example.org。private+private",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩。private+private> today.\r\n",
+      "expected": "Contact <alice@example.org。private+private> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-0-5",
+      "address": "alice@example.org。private-",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩。private-> today.\r\n",
+      "expected": "Contact <alice@example.org。private-> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-0-6",
+      "address": "alice@example.org。private.123",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩。private.123> today.\r\n",
+      "expected": "Contact <alice@example.org。private.123> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-0-7",
+      "address": "alice@example.org。private.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩。private.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa> today.\r\n",
+      "expected": "Contact <alice@example.org。private.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "empty-label-0",
+      "address": "alice@example.org。.private.example",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩。.private.example> today.\r\n",
+      "expected": "Contact <alice@example.org。.private.example> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invisible-0",
+      "address": "alice@example.org。pri​vate.example",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩。pri​vate.example> today.\r\n",
+      "expected": "Contact <alice@example.org。pri​vate.example> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "long-domain-0",
+      "address": "alice@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa。bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb。ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc。ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <alice@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa。bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb。ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc。ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd> today.\r\n",
+      "expected": "Contact <alice@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa。bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb。ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc。ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd> today.\r\n",
+      "entities": [],
+      "correct": true,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "separator-1",
+      "address": "alice@example．org",
+      "mask": true,
+      "idnaDomain": "example.org",
+      "masked": "Contact <alice@example．org> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "suffix-1",
+      "address": "alice@example.org．private.example",
+      "mask": true,
+      "idnaDomain": "example.org.private.example",
+      "masked": "Contact <⟨EMAIL_1⟩．private.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "international-1",
+      "address": "利用者@例え．テスト",
+      "mask": true,
+      "idnaDomain": "xn--r8jz45g.xn--zckzah",
+      "masked": "Contact <利用者@例え．テスト> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-1-14",
+      "address": "alice@example.org．private_private",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩．private_private> today.\r\n",
+      "expected": "Contact <alice@example.org．private_private> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-1-15",
+      "address": "alice@example.org．private+private",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩．private+private> today.\r\n",
+      "expected": "Contact <alice@example.org．private+private> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-1-16",
+      "address": "alice@example.org．private-",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩．private-> today.\r\n",
+      "expected": "Contact <alice@example.org．private-> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-1-17",
+      "address": "alice@example.org．private.123",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩．private.123> today.\r\n",
+      "expected": "Contact <alice@example.org．private.123> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-1-18",
+      "address": "alice@example.org．private.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩．private.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa> today.\r\n",
+      "expected": "Contact <alice@example.org．private.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "empty-label-1",
+      "address": "alice@example.org．.private.example",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩．.private.example> today.\r\n",
+      "expected": "Contact <alice@example.org．.private.example> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invisible-1",
+      "address": "alice@example.org．pri​vate.example",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩．pri​vate.example> today.\r\n",
+      "expected": "Contact <alice@example.org．pri​vate.example> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "long-domain-1",
+      "address": "alice@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa．bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb．ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc．ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <alice@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa．bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb．ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc．ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd> today.\r\n",
+      "expected": "Contact <alice@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa．bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb．ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc．ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd> today.\r\n",
+      "entities": [],
+      "correct": true,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "separator-2",
+      "address": "alice@example｡org",
+      "mask": true,
+      "idnaDomain": "example.org",
+      "masked": "Contact <alice@example｡org> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "suffix-2",
+      "address": "alice@example.org｡private.example",
+      "mask": true,
+      "idnaDomain": "example.org.private.example",
+      "masked": "Contact <⟨EMAIL_1⟩｡private.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "international-2",
+      "address": "利用者@例え｡テスト",
+      "mask": true,
+      "idnaDomain": "xn--r8jz45g.xn--zckzah",
+      "masked": "Contact <利用者@例え｡テスト> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-2-25",
+      "address": "alice@example.org｡private_private",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩｡private_private> today.\r\n",
+      "expected": "Contact <alice@example.org｡private_private> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-2-26",
+      "address": "alice@example.org｡private+private",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩｡private+private> today.\r\n",
+      "expected": "Contact <alice@example.org｡private+private> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-2-27",
+      "address": "alice@example.org｡private-",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩｡private-> today.\r\n",
+      "expected": "Contact <alice@example.org｡private-> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-2-28",
+      "address": "alice@example.org｡private.123",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩｡private.123> today.\r\n",
+      "expected": "Contact <alice@example.org｡private.123> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invalid-2-29",
+      "address": "alice@example.org｡private.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩｡private.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa> today.\r\n",
+      "expected": "Contact <alice@example.org｡private.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "empty-label-2",
+      "address": "alice@example.org｡.private.example",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩｡.private.example> today.\r\n",
+      "expected": "Contact <alice@example.org｡.private.example> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "invisible-2",
+      "address": "alice@example.org｡pri​vate.example",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <⟨EMAIL_1⟩｡pri​vate.example> today.\r\n",
+      "expected": "Contact <alice@example.org｡pri​vate.example> today.\r\n",
+      "entities": [
+        "alice@example.org"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "long-domain-2",
+      "address": "alice@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa｡bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb｡ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc｡ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "mask": false,
+      "idnaDomain": null,
+      "masked": "Contact <alice@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa｡bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb｡ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc｡ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd> today.\r\n",
+      "expected": "Contact <alice@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa｡bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb｡ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc｡ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd> today.\r\n",
+      "entities": [],
+      "correct": true,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-0",
+      "address": "a@one.two.three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two.three.example"
+      ],
+      "correct": true,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-1",
+      "address": "a@one.two.three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two.three"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-2",
+      "address": "a@one.two.three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two.three"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-3",
+      "address": "a@one.two.three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two.three"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-4",
+      "address": "a@one.two。three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩。three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-5",
+      "address": "a@one.two。three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩。three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-6",
+      "address": "a@one.two。three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩。three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-7",
+      "address": "a@one.two。three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩。three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-8",
+      "address": "a@one.two．three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩．three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-9",
+      "address": "a@one.two．three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩．three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-10",
+      "address": "a@one.two．three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩．three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-11",
+      "address": "a@one.two．three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩．three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-12",
+      "address": "a@one.two｡three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩｡three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-13",
+      "address": "a@one.two｡three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩｡three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-14",
+      "address": "a@one.two｡three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩｡three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-15",
+      "address": "a@one.two｡three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <⟨EMAIL_1⟩｡three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [
+        "a@one.two"
+      ],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-16",
+      "address": "a@one。two.three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two.three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-17",
+      "address": "a@one。two.three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two.three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-18",
+      "address": "a@one。two.three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two.three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-19",
+      "address": "a@one。two.three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two.three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-20",
+      "address": "a@one。two。three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two。three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-21",
+      "address": "a@one。two。three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two。three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-22",
+      "address": "a@one。two。three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two。three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-23",
+      "address": "a@one。two。three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two。three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-24",
+      "address": "a@one。two．three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two．three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-25",
+      "address": "a@one。two．three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two．three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-26",
+      "address": "a@one。two．three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two．three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-27",
+      "address": "a@one。two．three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two．three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-28",
+      "address": "a@one。two｡three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two｡three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-29",
+      "address": "a@one。two｡three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two｡three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-30",
+      "address": "a@one。two｡three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two｡three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-31",
+      "address": "a@one。two｡three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one。two｡three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-32",
+      "address": "a@one．two.three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two.three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-33",
+      "address": "a@one．two.three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two.three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-34",
+      "address": "a@one．two.three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two.three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-35",
+      "address": "a@one．two.three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two.three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-36",
+      "address": "a@one．two。three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two。three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-37",
+      "address": "a@one．two。three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two。three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-38",
+      "address": "a@one．two。three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two。three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-39",
+      "address": "a@one．two。three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two。three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-40",
+      "address": "a@one．two．three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two．three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-41",
+      "address": "a@one．two．three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two．three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-42",
+      "address": "a@one．two．three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two．three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-43",
+      "address": "a@one．two．three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two．three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-44",
+      "address": "a@one．two｡three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two｡three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-45",
+      "address": "a@one．two｡three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two｡three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-46",
+      "address": "a@one．two｡three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two｡three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-47",
+      "address": "a@one．two｡three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one．two｡three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-48",
+      "address": "a@one｡two.three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two.three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-49",
+      "address": "a@one｡two.three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two.three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-50",
+      "address": "a@one｡two.three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two.three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-51",
+      "address": "a@one｡two.three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two.three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-52",
+      "address": "a@one｡two。three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two。three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-53",
+      "address": "a@one｡two。three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two。three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-54",
+      "address": "a@one｡two。three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two。three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-55",
+      "address": "a@one｡two。three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two。three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-56",
+      "address": "a@one｡two．three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two．three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-57",
+      "address": "a@one｡two．three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two．three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-58",
+      "address": "a@one｡two．three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two．three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-59",
+      "address": "a@one｡two．three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two．three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-60",
+      "address": "a@one｡two｡three.example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two｡three.example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-61",
+      "address": "a@one｡two｡three。example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two｡three。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-62",
+      "address": "a@one｡two｡three．example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two｡three．example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-63",
+      "address": "a@one｡two｡three｡example",
+      "mask": true,
+      "idnaDomain": "one.two.three.example",
+      "masked": "Contact <a@one｡two｡three｡example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "local-0",
+      "address": "first!last@例え。example",
+      "mask": true,
+      "idnaDomain": "xn--r8jz45g.example",
+      "masked": "Contact <first!last@例え。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "local-1",
+      "address": "o'reilly@例え。example",
+      "mask": true,
+      "idnaDomain": "xn--r8jz45g.example",
+      "masked": "Contact <o'reilly@例え。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "local-2",
+      "address": "\"private name\"@例え。example",
+      "mask": true,
+      "idnaDomain": "xn--r8jz45g.example",
+      "masked": "Contact <\"private name\"@例え。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "local-3",
+      "address": "利用者@例え。example",
+      "mask": true,
+      "idnaDomain": "xn--r8jz45g.example",
+      "masked": "Contact <利用者@例え。example> today.\r\n",
+      "expected": "Contact <⟨EMAIL_1⟩> today.\r\n",
+      "entities": [],
+      "correct": false,
+      "cliMatchesCore": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    }
+  ],
+  "sdk": [
+    {
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>."
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>."
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>."
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>."
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "request": {
+        "input": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+        "model": "test-model"
+      },
+      "outgoing": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "request": {
+        "input": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "request": {
+        "input": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+        "model": "test-model"
+      },
+      "outgoing": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "request": {
+        "input": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>."
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>."
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>."
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+      "restoresExactly": true,
+      "correct": false
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>."
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Contact <alice@example。org>.\nContact <⟨EMAIL_1⟩。private.example>.\nContact <利用者@例え。テスト>.\nContact <alice@example．org>.\nContact <⟨EMAIL_1⟩．private.example>.\nContact <利用者@例え．テスト>.\nContact <alice@example｡org>.\nContact <⟨EMAIL_1⟩｡private.example>.\nContact <利用者@例え｡テスト>.",
+      "restoresExactly": true,
+      "correct": false
+    }
+  ]
+}
