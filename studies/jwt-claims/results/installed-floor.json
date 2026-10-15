@@ -1,0 +1,417 @@
+{
+  "python": "3.10.21",
+  "fixturesSha256": "b78cb2fbce0b0ddd88fe140a6dce563c677a1e3b4b0ea01ca6d2c699f29a9268",
+  "secretSourceSha256": "a0c2de4a9741f0ae25a4b491a3ff25a6dab9cacab2cc21f761c32e44f4368493",
+  "jwtSourceSha256": "24ca1a07c536eb9ce164a58f8bdb207421a3d4f165c3dd997034c39cd9de3c77",
+  "cases": [
+    {
+      "id": "hs256",
+      "algorithm": "HS256",
+      "tokenCharacters": 203,
+      "tokenSha256": "0682c5a1723d3c306c0af458e6d6382c571adea39139381bc71e6ccfc3d96666",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "encodedClaimsStillVisible": false,
+      "wholeTokenInVault": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "hs384",
+      "algorithm": "HS384",
+      "tokenCharacters": 224,
+      "tokenSha256": "06905020a71848df306e35c3aeb92f25f5881b4fd77b972f0d6f29f5efad317a",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "encodedClaimsStillVisible": false,
+      "wholeTokenInVault": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "hs512",
+      "algorithm": "HS512",
+      "tokenCharacters": 246,
+      "tokenSha256": "061281fe4c8a9f3a53f1069d225ac941c83c55619566a75f8b9aba3b99bf5aba",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "encodedClaimsStillVisible": false,
+      "wholeTokenInVault": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "rs256",
+      "algorithm": "RS256",
+      "tokenCharacters": 502,
+      "tokenSha256": "0af89e6f93595a0ec8438eaa283a617804e4afef85ba33f683fa8208c2e1d39a",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "encodedClaimsStillVisible": false,
+      "wholeTokenInVault": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "ps256",
+      "algorithm": "PS256",
+      "tokenCharacters": 502,
+      "tokenSha256": "7aa7c65faab3f136ad370de2e90d3ce6c3bb651b0c88d802184719d2a9257ad6",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "encodedClaimsStillVisible": false,
+      "wholeTokenInVault": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "es256",
+      "algorithm": "ES256",
+      "tokenCharacters": 246,
+      "tokenSha256": "ed20e34e158ff41719bf9ccf223a49a4d6188424b186da519d23543782ce6ec5",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "encodedClaimsStillVisible": false,
+      "wholeTokenInVault": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "eddsa",
+      "algorithm": "EdDSA",
+      "tokenCharacters": 246,
+      "tokenSha256": "9fedeec41b1bf8f7cf0951cd76aff941f82fade00a0e0f5e42df5c3614c3e57c",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "encodedClaimsStillVisible": false,
+      "wholeTokenInVault": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "unsecured",
+      "algorithm": "none",
+      "tokenCharacters": 159,
+      "tokenSha256": "0eaa9643e9d3c997a8355c48c82628488f736e5a2e984040ba7759f964be547a",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "encodedClaimsStillVisible": false,
+      "wholeTokenInVault": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "no-typ",
+      "algorithm": "HS256",
+      "tokenCharacters": 187,
+      "tokenSha256": "b83a5111a027fafbf9da3d16bfa39b5dce449957db117c44425f758b515c1f29",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "encodedClaimsStillVisible": false,
+      "wholeTokenInVault": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "unicode-claims",
+      "algorithm": "HS256",
+      "tokenCharacters": 277,
+      "tokenSha256": "8d0493568fe48bcc929ef49fd741d0457f1780cc6598329a381580b733bef44d",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "encodedClaimsStillVisible": false,
+      "wholeTokenInVault": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "long-claims",
+      "algorithm": "HS256",
+      "tokenCharacters": 4217,
+      "tokenSha256": "b84c78c26aa2bedb91b368b6378c22bb6ebc9d4b24d0c114f9571fee3a9c7535",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "encodedClaimsStillVisible": false,
+      "wholeTokenInVault": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "header-url",
+      "algorithm": "HS256",
+      "tokenCharacters": 286,
+      "tokenSha256": "4ff4e472f44d24d314c1e03620f5fa4578ed0af3ee85cd5c9bf8fce8fec6d660",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "encodedClaimsStillVisible": false,
+      "wholeTokenInVault": true,
+      "exactCRLFRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    }
+  ],
+  "sdk": [
+    {
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "request": {
+        "input": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+        "model": "test-model"
+      },
+      "outgoing": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "request": {
+        "input": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "request": {
+        "input": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+        "model": "test-model"
+      },
+      "outgoing": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "request": {
+        "input": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Authorization: Bearer ⟨SECRET_1⟩\nAuthorization: Bearer ⟨SECRET_2⟩\nAuthorization: Bearer ⟨SECRET_3⟩\nAuthorization: Bearer ⟨SECRET_4⟩\nAuthorization: Bearer ⟨SECRET_5⟩\nAuthorization: Bearer ⟨SECRET_6⟩\nAuthorization: Bearer ⟨SECRET_7⟩",
+      "restoresExactly": true,
+      "correct": true
+    }
+  ],
+  "oracle": {
+    "pyjwt": "2.10.1",
+    "verifiedFixtures": 12,
+    "timeClaimsChecked": false
+  },
+  "sdkVersions": {
+    "openai": "1.66.0",
+    "anthropic": "0.40.0"
+  }
+}

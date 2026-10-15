@@ -32,8 +32,11 @@ const server = createServer(async (request, response) => {
     response.end(bytes);
   } catch { response.writeHead(404); response.end(); }
 });
-await new Promise(done => server.listen(0, "127.0.0.1", done));
-const origin = `http://127.0.0.1:${server.address().port}`;
+// A hosted run checks the same build bytes and workflows against the live site.
+// Example: VEIL_BROWSER_ORIGIN=https://antonsoo.github.io node ...
+const hostedOrigin = process.env.VEIL_BROWSER_ORIGIN;
+if (!hostedOrigin) await new Promise(done => server.listen(0, "127.0.0.1", done));
+const origin = hostedOrigin ? new URL(hostedOrigin).origin : `http://127.0.0.1:${server.address().port}`;
 const status = (page, wanted) => page.waitForFunction(text => document.querySelector("#load-status").textContent.includes(text), wanted, { timeout: 60_000 });
 const download = async (page, selector) => {
   const event = page.waitForEvent("download");
@@ -56,13 +59,13 @@ try {
           page.on("pageerror", error => errors.push(error.message));
           context.on("request", request => requests.push({ url: request.url(), method: request.method(), body: request.postData() }));
           context.on("response", response => {
-            if (response.url().startsWith(origin)) reads.push((async () => {
+            if (new URL(response.url()).origin === origin && new URL(response.url()).pathname.startsWith("/veil/")) reads.push((async () => {
               received.set(new URL(response.url()).pathname, hash(await response.body()));
             })());
           });
           await page.goto(`${origin}/veil/`);
           await page.locator("#known-persons").fill("");
-          // Load Python on a neutral prompt. The first Unicode/quoted mailbox
+          // Load Python on a neutral prompt. The first fixture masking
           // operation and every download/simulation occur after disconnection.
           await page.locator("#prompt").fill("Initialize the local Python runtime.");
           await page.locator("#mask-btn").click();
@@ -98,8 +101,8 @@ try {
           assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true);
           await page.screenshot({ path: join(out, `${engine}-${width}.png`), fullPage: true });
           assert.deepEqual(errors, []);
-          assert.equal(requests.length, requestCount, "offline mailbox actions needed no new assets");
-          const external = requests.filter(request => !request.url.startsWith(origin));
+          assert.equal(requests.length, requestCount, "offline masking actions needed no new assets");
+          const external = requests.filter(request => new URL(request.url).origin !== origin);
           assert.ok(external.every(request => request.url.startsWith("https://cdn.jsdelivr.net/pyodide/v0.26.4/full/") && request.method === "GET" && !request.body));
           rows.push({ engine, width, cases: cases.length, entityType, completeValues: next,
             cannedReplyReferencesOriginal: entityType === "EMAIL",
@@ -112,11 +115,15 @@ try {
     } finally { await browser.close(); }
   }
   await Promise.all(reads);
-  for (const [path, digest] of received) assert.equal(digest, served.get(path), path);
+  for (const [path, digest] of received) {
+    const relative = path.replace(/^\/veil\//, "") || "index.html";
+    assert.equal(digest, hash(await readFile(join(dist, relative))), path);
+    if (!hostedOrigin) assert.equal(digest, served.get(path), path);
+  }
   const manifest = JSON.parse(await readFile(join(dist, "veil-src.json"), "utf8"));
   const detector = await readFile(join(here, "../../src", detectorModule));
   assert.equal(hash(manifest[detectorModule]), hash(detector));
-  await writeFile(join(out, "receipt.json"), JSON.stringify({ rows, sourceModule: detectorModule, sourceSha256: hash(detector),
+  await writeFile(join(out, "receipt.json"), JSON.stringify({ origin, rows, sourceModule: detectorModule, sourceSha256: hash(detector),
     manifestSha256: hash(await readFile(join(dist, "veil-src.json"))),
     receivedAssets: Object.fromEntries(received), servedAssetsMatch: true }, null, 2) + "\n");
-} finally { await new Promise(done => server.close(done)); }
+} finally { if (server.listening) await new Promise(done => server.close(done)); }

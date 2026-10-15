@@ -111,5 +111,39 @@ The shared harness takes the eight native/control cases in this study:
 node studies/email-boundaries/check-browser.mjs web/dist studies/jwt-claims/results/browser studies/jwt-claims/browser-cases.json
 ```
 
-This is an unreleased source correction. Registry publication and hosted
-deployment are separate from this study.
+## Clean artifacts and offline browser verification
+
+A clean archive of `d739ddc` was installed with its locked development and spaCy
+dependencies on Python 3.14.7. Ruff, formatting, mypy, **1,100 tests without
+skips**, sdist and wheel builds passed. A separate `npm ci`, lint, production
+build and all 16 existing browser scenarios passed. The retained
+[logs](results/logs/) include these commands and output; machine-specific paths
+are replaced with `<scratch>/` and `<home>/`.
+
+The built wheel was installed independently in three new environments:
+
+| Environment | Python | SDK / oracle versions | Replay |
+| --- | --- | --- | --- |
+| Current | 3.14.7 | OpenAI 3.31.0, Anthropic 1.14.0, PyJWT 2.15.1 | 12 native cases, 12 SDK requests |
+| Supported SDK floors | 3.10.21 | OpenAI 1.66.0, Anthropic 0.40.0, PyJWT 2.10.1 | 12 native cases, 12 SDK requests |
+| Core only | 3.12.12 | No SDKs or PyJWT | 12 core/CLI cases |
+
+The [artifact receipt](results/verification.json) compares all **36 runtime
+files** in the clean source, sdist, wheel and each installed package. Its replay
+comparison checks actual case results and outgoing SDK bodies against the source
+receipt. The browser manifest contains the same 35 Python files. No runtime
+dependency was added and no package was published to PyPI.
+
+Actual bundled Python/Pyodide passed all eight JWT/control cases in Chromium
+and Firefox at 375 and 1280 pixels. Each fresh context initialized Python on a
+neutral prompt, disconnected, then performed the first fixture masking, masked
+and vault downloads, and exact restoration without further requests. The
+[browser receipt](results/browser/receipt.json) hashes the received production
+assets and both downloads. All four screenshots were inspected, including
+[mobile Chromium](results/browser/chromium-375.png) and
+[desktop Firefox](results/browser/firefox-1280.png); no page errors or horizontal
+overflow occurred. The canned reply mentions names/emails, so it does not
+exercise JWT streaming restoration; the native SDK replay does.
+
+Registry publication and hosted deployment are separate from these local
+artifact checks.
