@@ -1,0 +1,1 @@
+14/14 complete credentials; 12/12 SDK text requests; 12/12 SDK tool requests; exact CLI/stream restoration retained

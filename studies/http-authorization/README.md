@@ -128,5 +128,39 @@ served build assets. All four screenshots were inspected, including
 page errors occurred. The canned reply does not exercise auth restoration;
 the real SDK echo/stream capture does.
 
+## Clean package verification
+
+A clean archive of `75a7f44` was installed on Python 3.14.7 with locked
+development and spaCy dependencies. Ruff, formatting, mypy, **1,168 tests without
+skips**, sdist and wheel builds passed. The
+[command receipt](results/clean-checks.json) links the retained command logs;
+machine paths are replaced with placeholders. Its 14-case/24-request replay
+matches the working-source replay exactly. The working checkout also passed
+all 1,168 tests on Python 3.12.12.
+
+The built wheel was installed separately in three new environments:
+
+| Installation | Python | OpenAI / Anthropic SDK | Result |
+| --- | --- | --- | --- |
+| Current SDKs | 3.14.7 | 3.31.0 / 1.14.0 | 14 cases, 24 SDK requests |
+| Supported SDK floors | 3.10.21 | 1.66.0 / 0.40.0 | 14 cases, 24 SDK requests |
+| Core only | 3.12.12 | Neither installed | 14 core/CLI cases |
+
+The [artifact receipt](results/verification.json) verifies all **37 runtime
+files**, including the typing marker, byte for byte across the clean source,
+sdist, wheel and each installation. The bare core installation has no HTTPX,
+OpenAI, Anthropic or cryptography package. Retained installed replays are
+[current](results/installed-current.json), [floor](results/installed-floor.json)
+and [core](results/installed-core.json).
+
+A separate `npm ci`, typecheck and production build passed all 16 existing
+browser scenarios. The new offline auth checks above were repeated on this
+clean build; its Python manifest matches all 36 Python runtime files. The
+[existing eight JWT browser cases](results/jwt-browser/receipt.json) also pass
+in all four engine/width combinations after the shared study harness change.
+All eight new screenshots were inspected. The build command is
+`cd web && npm run build`, with output in `web/dist/`; the artifact receipt
+retains sizes and hashes for all 27 build files.
+
 This work is a local source correction. No package release or hosted deployment
 is included.

@@ -1,0 +1,937 @@
+{
+  "provenance": "Synthetic credentials only. Native HTTPX BasicAuth and SDK serializers over mock HTTP; no live provider/account requests.",
+  "python": "3.14.7",
+  "versions": {
+    "httpx": "0.28.1",
+    "openai": "3.31.0",
+    "anthropic": "1.14.0"
+  },
+  "nativeHeaderCaptureChecked": true,
+  "sourceSha256": "76890834c2f928f864759a1ae0bee7d3154367ba3e422c50a2e2ef2ccca81505",
+  "authSourceSha256": "d1932bd690b5673c6b70cd0425b2fc7d4b06225e3219b48ac001872dbef23af2",
+  "runtimeFiles": {
+    "__init__.py": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980",
+    "_files.py": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29",
+    "_spans.py": "e8e2f09a3f7b92535ffaacda6c3c820793465c9c00f16faec50c807147e1e62f",
+    "audit.py": "038bb18f7bc0e81d7cd2f5f2381b01a5fe16c331a84bff081b0f515e35dc8073",
+    "backends/__init__.py": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b",
+    "backends/base.py": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e",
+    "backends/known_entities.py": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55",
+    "backends/spacy_backend.py": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b",
+    "cli.py": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1",
+    "detectors/__init__.py": "4e6e202fe17c7c8d0bd6afea3f1611411eb6fbb5c4acfa3f9eb17eb9184107e6",
+    "detectors/_calling_codes.py": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c",
+    "detectors/_http_auth.py": "d1932bd690b5673c6b70cd0425b2fc7d4b06225e3219b48ac001872dbef23af2",
+    "detectors/_jwt.py": "24ca1a07c536eb9ce164a58f8bdb207421a3d4f165c3dd997034c39cd9de3c77",
+    "detectors/_words.py": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887",
+    "detectors/address.py": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec",
+    "detectors/base.py": "ac0e63d0d37d4626f9717a1ccafe4a093ecea9a0e1ef897afa200cfc85fb3ef2",
+    "detectors/card.py": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f",
+    "detectors/dob.py": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f",
+    "detectors/email.py": "6c55c1532b289c0ab791570c24616aacd636929e64319e1badcd2ea69b359e77",
+    "detectors/iban.py": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c",
+    "detectors/ip.py": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b",
+    "detectors/phone.py": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd",
+    "detectors/secrets.py": "76890834c2f928f864759a1ae0bee7d3154367ba3e422c50a2e2ef2ccca81505",
+    "detectors/ssn.py": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b",
+    "detectors/url.py": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099",
+    "integrations/__init__.py": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881",
+    "integrations/_common.py": "aa87f659a6cfd1a242f4ad463b552379034922c5c485d4070907868b8d826164",
+    "integrations/_json_arguments.py": "454f44c460b8a15e409458612959ad5138a6e0c2b053b2bc203ea99b66f7306c",
+    "integrations/anthropic.py": "3f27a9955ce49c788bf2d3e97babbe8e197ac15d3c1c939c50a198595411a821",
+    "integrations/openai.py": "830b8cf890680ea4edae8489d55402a9163a0effa210350037434a61a0ccb9d3",
+    "integrations/openai_responses.py": "3650dfc325747ecce45a847de3efb36a6087f28ffd63b0317dee302ee1ce092e",
+    "masker.py": "d1ab3df9739183e7023bb38358f57475c2f605f52da710767431c8fd9d2e15b6",
+    "py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "restore.py": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38",
+    "surrogates.py": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0",
+    "types.py": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8",
+    "vault.py": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+  },
+  "cases": [
+    {
+      "id": "httpx-short",
+      "source": "Authorization: Basic dXNlcjpwYXNz\r\n",
+      "token": "dXNlcjpwYXNz",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked",
+      "masked": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "httpx-empty-user",
+      "source": "Authorization: Basic OnA=\r\n",
+      "token": "OnA=",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked",
+      "masked": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "httpx-empty-password",
+      "source": "Authorization: Basic c2VydmljZTo=\r\n",
+      "token": "c2VydmljZTo=",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked",
+      "masked": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "httpx-colon-password",
+      "source": "Authorization: Basic d29ya2VyOmZpcnN0OnNlY29uZA==\r\n",
+      "token": "d29ya2VyOmZpcnN0OnNlY29uZA==",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked",
+      "masked": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "httpx-long-password",
+      "source": "Authorization: Basic Y3VzdG9tZXItMTc6Y29ycmVjdCBob3JzZSBiYXR0ZXJ5IHN0YXBsZQ==\r\n",
+      "token": "Y3VzdG9tZXItMTc6Y29ycmVjdCBob3JzZSBiYXR0ZXJ5IHN0YXBsZQ==",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked",
+      "masked": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "httpx-unicode",
+      "source": "Authorization: Basic w7xzZXI6cMOkc3N3w7ZyZA==\r\n",
+      "token": "w7xzZXI6cMOkc3N3w7ZyZA==",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked",
+      "masked": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "httpx-contact",
+      "source": "Authorization: Basic YWxpY2VAZXhhbXBsZS5jb206c2VjcmV0\r\n",
+      "token": "YWxpY2VAZXhhbXBsZS5jb206c2VjcmV0",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked",
+      "masked": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "bearer-short",
+      "source": "Authorization: Bearer abc\r\n",
+      "token": "abc",
+      "expected": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "producer": "Constructed header/log spelling; not an issued credential",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "bearer-hex",
+      "source": "Authorization: Bearer aabbccddeeff0011\n",
+      "token": "aabbccddeeff0011",
+      "expected": "Authorization: Bearer ⟨SECRET_1⟩\n",
+      "producer": "Constructed header/log spelling; not an issued credential",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "bearer-token68",
+      "source": "Authorization: Bearer ab.c_d-ef~g+/==\n",
+      "token": "ab.c_d-ef~g+/==",
+      "expected": "Authorization: Bearer ⟨SECRET_1⟩\n",
+      "producer": "Constructed header/log spelling; not an issued credential",
+      "masked": "Authorization: Bearer ⟨SECRET_1⟩\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "proxy",
+      "source": "Proxy-Authorization: Basic dXNlcjpwYXNz\n",
+      "token": "dXNlcjpwYXNz",
+      "expected": "Proxy-Authorization: Basic ⟨SECRET_1⟩\n",
+      "producer": "Constructed header/log spelling; not an issued credential",
+      "masked": "Proxy-Authorization: Basic ⟨SECRET_1⟩\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "json",
+      "source": "{\"authorization\": \"Bearer abc\"}\n",
+      "token": "abc",
+      "expected": "{\"authorization\": \"Bearer ⟨SECRET_1⟩\"}\n",
+      "producer": "Constructed header/log spelling; not an issued credential",
+      "masked": "{\"authorization\": \"Bearer ⟨SECRET_1⟩\"}\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "curl",
+      "source": "curl -H 'Authorization: Basic dXNlcjpwYXNz' https://example.org/\n",
+      "token": "dXNlcjpwYXNz",
+      "expected": "curl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\n",
+      "producer": "Constructed header/log spelling; not an issued credential",
+      "masked": "curl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    },
+    {
+      "id": "mixed-case",
+      "source": "aUtHoRiZaTiOn:\t bEaReR\txyz\n",
+      "token": "xyz",
+      "expected": "aUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_1⟩\n",
+      "producer": "Constructed header/log spelling; not an issued credential",
+      "masked": "aUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_1⟩\n",
+      "correct": true,
+      "wholeCredentialInVault": true,
+      "credentialStillVisible": false,
+      "exactCLIAndStreamRestore": true,
+      "streamChunkSizes": [
+        1,
+        2,
+        7,
+        31
+      ]
+    }
+  ],
+  "sdk": [
+    {
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "request": {
+        "model": "test-model",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩"
+          }
+        ]
+      },
+      "outgoing": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "request": {
+        "model": "test-model",
+        "stream": true,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩"
+          }
+        ]
+      },
+      "outgoing": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "request": {
+        "model": "test-model",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩"
+          }
+        ]
+      },
+      "outgoing": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "request": {
+        "model": "test-model",
+        "stream": true,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩"
+          }
+        ]
+      },
+      "outgoing": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "request": {
+        "model": "test-model",
+        "input": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩"
+      },
+      "outgoing": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "request": {
+        "model": "test-model",
+        "stream": true,
+        "input": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩"
+      },
+      "outgoing": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "request": {
+        "model": "test-model",
+        "input": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩"
+      },
+      "outgoing": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "request": {
+        "model": "test-model",
+        "stream": true,
+        "input": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩"
+      },
+      "outgoing": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩",
+      "restoresExactly": true,
+      "correct": true
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Authorization: Basic ⟨SECRET_1⟩\nAuthorization: Basic ⟨SECRET_2⟩\nAuthorization: Basic ⟨SECRET_3⟩\nAuthorization: Basic ⟨SECRET_4⟩\nAuthorization: Basic ⟨SECRET_5⟩\nAuthorization: Basic ⟨SECRET_6⟩\nAuthorization: Basic ⟨SECRET_7⟩\nAuthorization: Bearer ⟨SECRET_8⟩\nAuthorization: Bearer ⟨SECRET_9⟩\nAuthorization: Bearer ⟨SECRET_10⟩\nProxy-Authorization: Basic ⟨SECRET_1⟩\n{\"authorization\": \"Bearer ⟨SECRET_8⟩\"}\ncurl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\naUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_11⟩",
+      "restoresExactly": true,
+      "correct": true
+    }
+  ],
+  "sdkTools": [
+    {
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "request": {
+        "model": "test-model",
+        "messages": [
+          {
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_1",
+                "function": {
+                  "name": "request",
+                  "arguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_1",
+            "content": "Done"
+          }
+        ]
+      },
+      "outgoingArguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }",
+      "correct": true,
+      "unrelatedSyntaxPreserved": true,
+      "restoresExactly": true,
+      "callerInputUnchanged": true
+    },
+    {
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "request": {
+        "model": "test-model",
+        "stream": true,
+        "messages": [
+          {
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_1",
+                "function": {
+                  "name": "request",
+                  "arguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_1",
+            "content": "Done"
+          }
+        ]
+      },
+      "outgoingArguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }",
+      "correct": true,
+      "unrelatedSyntaxPreserved": true,
+      "restoresExactly": true,
+      "callerInputUnchanged": true
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "request": {
+        "model": "test-model",
+        "messages": [
+          {
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_1",
+                "function": {
+                  "name": "request",
+                  "arguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_1",
+            "content": "Done"
+          }
+        ]
+      },
+      "outgoingArguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }",
+      "correct": true,
+      "unrelatedSyntaxPreserved": true,
+      "restoresExactly": true,
+      "callerInputUnchanged": true
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "request": {
+        "model": "test-model",
+        "stream": true,
+        "messages": [
+          {
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "type": "function",
+                "id": "call_1",
+                "function": {
+                  "name": "request",
+                  "arguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_1",
+            "content": "Done"
+          }
+        ]
+      },
+      "outgoingArguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }",
+      "correct": true,
+      "unrelatedSyntaxPreserved": true,
+      "restoresExactly": true,
+      "callerInputUnchanged": true
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "request": {
+        "model": "test-model",
+        "input": [
+          {
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "request",
+            "arguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }"
+          },
+          {
+            "type": "function_call_output",
+            "call_id": "call_1",
+            "output": "Done"
+          }
+        ]
+      },
+      "outgoingArguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }",
+      "correct": true,
+      "unrelatedSyntaxPreserved": true,
+      "restoresExactly": true,
+      "callerInputUnchanged": true
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "request": {
+        "model": "test-model",
+        "stream": true,
+        "input": [
+          {
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "request",
+            "arguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }"
+          },
+          {
+            "type": "function_call_output",
+            "call_id": "call_1",
+            "output": "Done"
+          }
+        ]
+      },
+      "outgoingArguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }",
+      "correct": true,
+      "unrelatedSyntaxPreserved": true,
+      "restoresExactly": true,
+      "callerInputUnchanged": true
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "request": {
+        "model": "test-model",
+        "input": [
+          {
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "request",
+            "arguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }"
+          },
+          {
+            "type": "function_call_output",
+            "call_id": "call_1",
+            "output": "Done"
+          }
+        ]
+      },
+      "outgoingArguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }",
+      "correct": true,
+      "unrelatedSyntaxPreserved": true,
+      "restoresExactly": true,
+      "callerInputUnchanged": true
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "request": {
+        "model": "test-model",
+        "stream": true,
+        "input": [
+          {
+            "type": "function_call",
+            "call_id": "call_1",
+            "name": "request",
+            "arguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }"
+          },
+          {
+            "type": "function_call_output",
+            "call_id": "call_1",
+            "output": "Done"
+          }
+        ]
+      },
+      "outgoingArguments": "{ \"headers\":{\"Authoriz\\u0061tion\":\"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\":\"Bearer ⟨SECRET_2⟩\"}, \"count\":9007199254740993, \"count\":1.2300e+40, \"ordinary\":\"Bearer xyz\" }",
+      "correct": true,
+      "unrelatedSyntaxPreserved": true,
+      "restoresExactly": true,
+      "callerInputUnchanged": true
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Review request."
+          },
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "call_1",
+                "name": "request",
+                "input": {
+                  "headers": {
+                    "Authorization": "Basic ⟨SECRET_1⟩",
+                    "Proxy-Authorization": "Bearer ⟨SECRET_2⟩"
+                  },
+                  "count": 1.23e+40,
+                  "ordinary": "Bearer xyz"
+                }
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "tool_result",
+                "tool_use_id": "call_1",
+                "content": "Done"
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoingArguments": "{\"headers\": {\"Authorization\": \"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\": \"Bearer ⟨SECRET_2⟩\"}, \"count\": 1.23e+40, \"ordinary\": \"Bearer xyz\"}",
+      "correct": true,
+      "unrelatedSyntaxPreserved": true,
+      "restoresExactly": true,
+      "callerInputUnchanged": true
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Review request."
+          },
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "call_1",
+                "name": "request",
+                "input": {
+                  "headers": {
+                    "Authorization": "Basic ⟨SECRET_1⟩",
+                    "Proxy-Authorization": "Bearer ⟨SECRET_2⟩"
+                  },
+                  "count": 1.23e+40,
+                  "ordinary": "Bearer xyz"
+                }
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "tool_result",
+                "tool_use_id": "call_1",
+                "content": "Done"
+              }
+            ]
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoingArguments": "{\"headers\": {\"Authorization\": \"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\": \"Bearer ⟨SECRET_2⟩\"}, \"count\": 1.23e+40, \"ordinary\": \"Bearer xyz\"}",
+      "correct": true,
+      "unrelatedSyntaxPreserved": true,
+      "restoresExactly": true,
+      "callerInputUnchanged": true
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Review request."
+          },
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "call_1",
+                "name": "request",
+                "input": {
+                  "headers": {
+                    "Authorization": "Basic ⟨SECRET_1⟩",
+                    "Proxy-Authorization": "Bearer ⟨SECRET_2⟩"
+                  },
+                  "count": 1.23e+40,
+                  "ordinary": "Bearer xyz"
+                }
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "tool_result",
+                "tool_use_id": "call_1",
+                "content": "Done"
+              }
+            ]
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoingArguments": "{\"headers\": {\"Authorization\": \"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\": \"Bearer ⟨SECRET_2⟩\"}, \"count\": 1.23e+40, \"ordinary\": \"Bearer xyz\"}",
+      "correct": true,
+      "unrelatedSyntaxPreserved": true,
+      "restoresExactly": true,
+      "callerInputUnchanged": true
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Review request."
+          },
+          {
+            "role": "assistant",
+            "content": [
+              {
+                "type": "tool_use",
+                "id": "call_1",
+                "name": "request",
+                "input": {
+                  "headers": {
+                    "Authorization": "Basic ⟨SECRET_1⟩",
+                    "Proxy-Authorization": "Bearer ⟨SECRET_2⟩"
+                  },
+                  "count": 1.23e+40,
+                  "ordinary": "Bearer xyz"
+                }
+              }
+            ]
+          },
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "tool_result",
+                "tool_use_id": "call_1",
+                "content": "Done"
+              }
+            ]
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoingArguments": "{\"headers\": {\"Authorization\": \"Basic ⟨SECRET_1⟩\", \"Proxy-Authorization\": \"Bearer ⟨SECRET_2⟩\"}, \"count\": 1.23e+40, \"ordinary\": \"Bearer xyz\"}",
+      "correct": true,
+      "unrelatedSyntaxPreserved": true,
+      "restoresExactly": true,
+      "callerInputUnchanged": true
+    }
+  ]
+}

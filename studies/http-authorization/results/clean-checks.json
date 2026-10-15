@@ -1,0 +1,72 @@
+{
+  "revision": "75a7f4483011aa21727e820df60d72fe53df1045",
+  "commands": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "."
+      ],
+      "exitCode": 0,
+      "seconds": 0.14026064099743962,
+      "log": "clean-lint.txt",
+      "logSha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exitCode": 0,
+      "seconds": 0.10233601400977932,
+      "log": "clean-format.txt",
+      "logSha256": "3accebe6ea89f2c78ec6c12dbcaa6ecf88913ed058c8e2b2909b52889ac7ba20"
+    },
+    {
+      "command": [
+        ".venv/bin/mypy"
+      ],
+      "exitCode": 0,
+      "seconds": 2.9959756110038143,
+      "log": "clean-typecheck.txt",
+      "logSha256": "32c1f154f636757bc9df6843701b18b495673a7cf2e0f68b592d2055d6ae6c07"
+    },
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q"
+      ],
+      "exitCode": 0,
+      "seconds": 36.54150017502252,
+      "log": "clean-tests.txt",
+      "logSha256": "bc95aff5aa283ec79a8d96862665433f4a87268da726bb9a94ca1535de4ef434"
+    },
+    {
+      "command": [
+        "uv",
+        "build"
+      ],
+      "exitCode": 0,
+      "seconds": 1.2372612940089311,
+      "log": "clean-build.txt",
+      "logSha256": "5a4a89251c9a55fcf36e6a46c0793b59ded5ae00c756e3679e32faac4c7a5f42"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "studies/http-authorization/replay.py",
+        "--native",
+        "--sdk",
+        "--require-fixed",
+        "--output",
+        "<repo>/studies/http-authorization/results/clean-source.json"
+      ],
+      "exitCode": 0,
+      "seconds": 6.762987864000024,
+      "log": "clean-replay.txt",
+      "logSha256": "b5e8b62c54bf48741ca564149dd060e6be363c42301d645209fd69b2c2c19398"
+    }
+  ]
+}
