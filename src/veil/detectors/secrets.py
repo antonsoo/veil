@@ -16,6 +16,9 @@ revocation checks:
    :mod:`veil.detectors._words`). This still has false positives (ETags,
    lockfile hashes, anything else that really is random) and false
    negatives (short keys) — it's a backstop, not a guarantee.
+
+Explicit Authorization/Proxy-Authorization Basic and Bearer values supply
+their own context. Mask each complete token without entropy or word heuristics.
 """
 
 from __future__ import annotations
@@ -26,6 +29,7 @@ from bisect import bisect_left
 from collections.abc import Iterator
 
 from veil._spans import DisjointSpans
+from veil.detectors._http_auth import http_authorization_spans
 from veil.detectors._jwt import compact_jwt_spans
 from veil.detectors._words import looks_random
 from veil.types import Entity, EntityType, Span
@@ -146,6 +150,10 @@ class SecretDetector:
 
         for start, end in _private_key_blocks(text):
             known("private_key", start, end)
+        for start, end in http_authorization_spans(text):
+            # Context owns the whole credential, including JWT punctuation and
+            # padding or a card-shaped fragment that another detector could find.
+            known("http_authorization", start, end, confidence=1.0)
         for start, end in compact_jwt_spans(text):
             # A recognized JOSE header identifies the enclosing credential.
             # A card-like signature fragment must not displace its claims.

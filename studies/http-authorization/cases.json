@@ -1,0 +1,103 @@
+{
+  "provenance": "Native HTTPX BasicAuth captures and constructed headers; all credentials synthetic.",
+  "cases": [
+    {
+      "id": "httpx-short",
+      "source": "Authorization: Basic dXNlcjpwYXNz\r\n",
+      "token": "dXNlcjpwYXNz",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked"
+    },
+    {
+      "id": "httpx-empty-user",
+      "source": "Authorization: Basic OnA=\r\n",
+      "token": "OnA=",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked"
+    },
+    {
+      "id": "httpx-empty-password",
+      "source": "Authorization: Basic c2VydmljZTo=\r\n",
+      "token": "c2VydmljZTo=",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked"
+    },
+    {
+      "id": "httpx-colon-password",
+      "source": "Authorization: Basic d29ya2VyOmZpcnN0OnNlY29uZA==\r\n",
+      "token": "d29ya2VyOmZpcnN0OnNlY29uZA==",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked"
+    },
+    {
+      "id": "httpx-long-password",
+      "source": "Authorization: Basic Y3VzdG9tZXItMTc6Y29ycmVjdCBob3JzZSBiYXR0ZXJ5IHN0YXBsZQ==\r\n",
+      "token": "Y3VzdG9tZXItMTc6Y29ycmVjdCBob3JzZSBiYXR0ZXJ5IHN0YXBsZQ==",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked"
+    },
+    {
+      "id": "httpx-unicode",
+      "source": "Authorization: Basic w7xzZXI6cMOkc3N3w7ZyZA==\r\n",
+      "token": "w7xzZXI6cMOkc3N3w7ZyZA==",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked"
+    },
+    {
+      "id": "httpx-contact",
+      "source": "Authorization: Basic YWxpY2VAZXhhbXBsZS5jb206c2VjcmV0\r\n",
+      "token": "YWxpY2VAZXhhbXBsZS5jb206c2VjcmV0",
+      "expected": "Authorization: Basic ⟨SECRET_1⟩\r\n",
+      "producer": "httpx.BasicAuth over MockTransport; stdlib Base64 decoding checked"
+    },
+    {
+      "id": "bearer-short",
+      "source": "Authorization: Bearer abc\r\n",
+      "token": "abc",
+      "expected": "Authorization: Bearer ⟨SECRET_1⟩\r\n",
+      "producer": "Constructed header/log spelling; not an issued credential"
+    },
+    {
+      "id": "bearer-hex",
+      "source": "Authorization: Bearer aabbccddeeff0011\n",
+      "token": "aabbccddeeff0011",
+      "expected": "Authorization: Bearer ⟨SECRET_1⟩\n",
+      "producer": "Constructed header/log spelling; not an issued credential"
+    },
+    {
+      "id": "bearer-token68",
+      "source": "Authorization: Bearer ab.c_d-ef~g+/==\n",
+      "token": "ab.c_d-ef~g+/==",
+      "expected": "Authorization: Bearer ⟨SECRET_1⟩\n",
+      "producer": "Constructed header/log spelling; not an issued credential"
+    },
+    {
+      "id": "proxy",
+      "source": "Proxy-Authorization: Basic dXNlcjpwYXNz\n",
+      "token": "dXNlcjpwYXNz",
+      "expected": "Proxy-Authorization: Basic ⟨SECRET_1⟩\n",
+      "producer": "Constructed header/log spelling; not an issued credential"
+    },
+    {
+      "id": "json",
+      "source": "{\"authorization\": \"Bearer abc\"}\n",
+      "token": "abc",
+      "expected": "{\"authorization\": \"Bearer ⟨SECRET_1⟩\"}\n",
+      "producer": "Constructed header/log spelling; not an issued credential"
+    },
+    {
+      "id": "curl",
+      "source": "curl -H 'Authorization: Basic dXNlcjpwYXNz' https://example.org/\n",
+      "token": "dXNlcjpwYXNz",
+      "expected": "curl -H 'Authorization: Basic ⟨SECRET_1⟩' https://example.org/\n",
+      "producer": "Constructed header/log spelling; not an issued credential"
+    },
+    {
+      "id": "mixed-case",
+      "source": "aUtHoRiZaTiOn:\t bEaReR\txyz\n",
+      "token": "xyz",
+      "expected": "aUtHoRiZaTiOn:\t bEaReR\t⟨SECRET_1⟩\n",
+      "producer": "Constructed header/log spelling; not an issued credential"
+    }
+  ]
+}

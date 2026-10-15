@@ -14,6 +14,7 @@ from copy import copy, deepcopy
 from dataclasses import dataclass
 from typing import Any
 
+from veil.integrations._json_arguments import mask_string_value
 from veil.integrations._json_arguments import restore_arguments as restore_arguments
 from veil.masker import Masker
 from veil.vault import VaultError
@@ -40,7 +41,11 @@ def mask_value(value: Any, masker: Masker) -> Any:
                 raise VaultError(
                     "Tool input contains a sensitive JSON key; use a non-sensitive field name"
                 )
-            masked[key] = mask_value(item, masker)
+            masked[key] = (
+                mask_string_value(item, masker, key=key)
+                if isinstance(item, str)
+                else mask_value(item, masker)
+            )
         return masked
     if isinstance(value, float) and not math.isfinite(value):
         raise VaultError("Tool input JSON numbers must be finite")
