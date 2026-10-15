@@ -90,3 +90,59 @@ def test_find_leaked_originals_matches_a_search_per_value(
     assert [
         (f.entity.type.value, f.entity.value, f.entity.span.start) for f in findings
     ] == _leaks_by_searching_per_value(text, vault)
+
+
+@given(
+    st.lists(
+        st.tuples(
+            _types,
+            st.sampled_from(
+                ["x" * n for n in (1, 31, 32, 33, 64, 65)]
+                + ["💬é" * 20, "x" * 32 + "yes", "x" * 32 + "no"]
+            ),
+        ),
+        max_size=12,
+    ),
+    st.lists(st.sampled_from(["x" * 80, "💬é" * 30, "yes", "no", " "]), max_size=10).map("".join),
+)
+def test_long_prefix_collisions_keep_exact_overlapping_occurrences(
+    entries: list[tuple[EntityType, str]],
+    text: str,
+) -> None:
+    vault = Vault()
+    for entity_type, value in entries:
+        vault.get_or_create(entity_type, value, PlaceholderSurrogates())
+    findings = find_leaked_originals(text, vault)
+    assert [
+        (f.entity.type.value, f.entity.value, f.entity.span.start) for f in findings
+    ] == _leaks_by_searching_per_value(text, vault)
+
+
+def test_long_original_is_never_reported_from_only_its_prefix() -> None:
+    vault = Vault()
+    prefix = "https://files.example.test/" + "shared/" * 20
+    original = prefix + "private?token=synthetic"
+    vault.get_or_create(EntityType.URL_CREDENTIAL, original, PlaceholderSurrogates())
+    assert find_leaked_originals(prefix, vault) == []
+    assert find_leaked_originals(prefix + "public", vault) == []
+    found = find_leaked_originals("💬 " + original + " suffix", vault)
+    assert [(f.entity.value, f.entity.span.start, f.entity.span.end) for f in found] == [
+        (original, 2, 2 + len(original)),
+    ]
+
+
+def test_leak_index_tracks_additions_and_transaction_rollback() -> None:
+    vault = Vault()
+    original = "x" * 40
+    text = original * 3
+    assert find_leaked_originals(text, vault) == []
+    vault.get_or_create(EntityType.PERSON, original, PlaceholderSurrogates())
+    assert len(find_leaked_originals(text, vault)) == 3
+    try:
+        with vault._transaction():
+            vault.get_or_create(EntityType.ORG, original, PlaceholderSurrogates())
+            assert len(find_leaked_originals(text, vault)) == 6
+            raise ValueError("controlled rollback")
+    except ValueError:
+        pass
+    assert len(find_leaked_originals(text, vault)) == 3

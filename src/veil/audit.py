@@ -35,40 +35,48 @@ class LeakFinding:
     entity: Entity
 
 
-def _originals_index(
-    vault: Vault,
-) -> tuple[dict[str, list[tuple[int, Mapping]]], dict[str, list[int]]]:
-    """The vault's originals by value, and the lengths of those starting with each character."""
+# Keep candidate slices bounded even when a vault holds thousands of long,
+# differently sized URLs or documents. A prefix is only a candidate filter;
+# startswith below still verifies the complete original, without copying it.
+_PREFIX_LENGTH = 32
+_Entries = list[tuple[int, Mapping]]
+_Candidates = dict[str, list[tuple[str, _Entries]]]
+
+
+def _originals_index(vault: Vault) -> tuple[_Candidates, dict[str, list[int]]]:
+    """Exact originals grouped by a bounded prefix, plus prefix lengths by first character."""
     index = vault._derived.get("originals")
     if index is None:
-        by_value: dict[str, list[tuple[int, Mapping]]] = {}
+        by_value: dict[str, _Entries] = {}
         for order, mapping in enumerate(vault.mappings()):
             if mapping.original:
                 by_value.setdefault(mapping.original, []).append((order, mapping))
+        candidates: _Candidates = {}
         lengths: dict[str, set[int]] = {}
-        for value in by_value:
-            lengths.setdefault(value[0], set()).add(len(value))
+        for value, entries in by_value.items():
+            prefix = value[:_PREFIX_LENGTH]
+            candidates.setdefault(prefix, []).append((value, entries))
+            lengths.setdefault(value[0], set()).add(len(prefix))
         index = vault._derived["originals"] = (
-            by_value,
+            candidates,
             {first: sorted(found) for first, found in lengths.items()},
         )
     return index
 
 
 def find_leaked_originals(text: str, vault: Vault) -> list[LeakFinding]:
-    # One pass over the text, looking substrings up by value. Searching the whole
-    # text once per vault entry is quadratic for a large vault.
-    by_value, lengths_by_first = _originals_index(vault)
+    # At most 32 candidate lengths per starting character. Shared prefixes can
+    # require several full comparisons; never treat a prefix as proof of a leak.
+    candidates, lengths_by_first = _originals_index(vault)
     found: list[tuple[int, int, Mapping]] = []
     free_from: dict[str, int] = {}  # occurrences of one value are counted without overlap
     for start, ch in enumerate(text):
         for length in lengths_by_first.get(ch, ()):
-            value = text[start : start + length]
-            entries = by_value.get(value)
-            if entries is None or start < free_from.get(value, 0):
-                continue
-            free_from[value] = start + length
-            found.extend((start, order, mapping) for order, mapping in entries)
+            for value, entries in candidates.get(text[start : start + length], ()):
+                if start < free_from.get(value, 0) or not text.startswith(value, start):
+                    continue
+                free_from[value] = start + len(value)
+                found.extend((start, order, mapping) for order, mapping in entries)
     found.sort(key=lambda item: item[:2])
     return [
         LeakFinding(
