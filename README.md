@@ -391,6 +391,9 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   This checkout masks complete project/service-account-shaped token bodies;
   the released package is unchanged. [Synthetic SDK replay and scope](studies/secret-formats/README.md)
   explain the recognition heuristic and its limits.
+  The source also recognizes temporary AWS `ASIA` key IDs independently of
+  entropy/word heuristics. [Seeded coverage and actual SDK requests](studies/sts-key-ids/README.md)
+  retain the previously missed cases; this correction is unreleased.
   This checkout also recognizes signed AWS/GCS, Azure Storage SAS and
   CloudFront URLs, OAuth fragment tokens, and percent-encoded token parameter
   names. [Credential-URL evidence and exact matching rules](studies/credential-urls/README.md)

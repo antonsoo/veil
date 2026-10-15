@@ -74,6 +74,8 @@ print(json.dumps({'python': sys.version.split()[0], 'files': {
     for label, path in pairs(args.replay).items():
         actual = json.loads(path.read_text())
         assert actual["cases"] == reference["cases"], label
+        if "counts" in reference:
+            assert actual["counts"] == reference["counts"], label
         if actual["sdk"]:
             assert actual["sdk"] == reference["sdk"], label
         replays.append(

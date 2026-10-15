@@ -1,0 +1,27 @@
+warning: Using incompatible environment (`.venv`) due to `--no-sync` (The project environment's Python version does not satisfy the request: `Python 3.12`)
+All checks passed!
+warning: Using incompatible environment (`.venv`) due to `--no-sync` (The project environment's Python version does not satisfy the request: `Python 3.12`)
+159 files already formatted
+warning: Using incompatible environment (`.venv`) due to `--no-sync` (The project environment's Python version does not satisfy the request: `Python 3.12`)
+Success: no issues found in 33 source files
+warning: Using incompatible environment (`.venv`) due to `--no-sync` (The project environment's Python version does not satisfy the request: `Python 3.12`)
+........................................................................ [  6%]
+........................................................................ [ 13%]
+........................................................................ [ 20%]
+........................................................................ [ 27%]
+........................................................................ [ 33%]
+........................................................................ [ 40%]
+........................................................................ [ 47%]
+........................................................................ [ 54%]
+........................................................................ [ 60%]
+........................................................................ [ 67%]
+........................................................................ [ 74%]
+........................................................................ [ 81%]
+........................................................................ [ 87%]
+........................................................................ [ 94%]
+........................................................                 [100%]
+1064 passed in 16.83s
+Building source distribution...
+Building wheel from source distribution...
+Successfully built <scratch>/veil-sts-artifacts/veil_pii-0.4.4.tar.gz
+Successfully built <scratch>/veil-sts-artifacts/veil_pii-0.4.4-py3-none-any.whl

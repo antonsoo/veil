@@ -64,3 +64,60 @@ existing browser harness accepts the retained secret fixture:
 ```sh
 node studies/email-boundaries/check-browser.mjs web/dist studies/sts-key-ids/results/browser studies/sts-key-ids/browser-cases.json
 ```
+
+## Clean and installed verification
+
+Implementation commit `3d94646` was exported into a fresh directory. Python
+3.14.7 with locked development dependencies and the spaCy extra passed Ruff,
+formatting, strict mypy and **1,064 tests without skips**. The commands were
+`uv sync --python 3.14 --locked --group dev --extra spacy`. All checks used
+`uv run --no-sync`: `ruff check .`, `ruff format --check .`, `mypy` and
+`pytest -q`; package building used `uv build`.
+The archive's `.python-version` remains the developer default
+3.12; `--no-sync` retained the explicitly installed supported 3.14 interpreter.
+[Check output](results/logs/clean-checks.log) records that warning and the results.
+The clean browser checkout passed type checking, build and all 16 existing
+browser scenarios ([output](results/logs/clean-web-checks.log)).
+
+The wheel was built from its sdist, then separately installed on:
+
+| Environment | Seeded key-shape sample | SDK requests |
+| --- | ---: | ---: |
+| Python 3.14.7, OpenAI 3.31.0, Anthropic 1.14.0 | 2,000/2,000 | 12/12 |
+| Python 3.10.21, OpenAI 1.66.0, Anthropic 0.40.0 | 2,000/2,000 | 12/12 |
+| Python 3.12.12, no optional dependencies | 2,000/2,000 | Not installed |
+
+Seeded detection/provenance hashes, CLI cases and outgoing SDK bodies match
+source. The bare installation also produces the README quickstart's documented
+output. All 35 runtime files match archive, sdist, wheel and installations; all
+34 Python files match the browser manifest. Received browser assets match the
+clean build. [Artifact receipt](results/verification.json). The verifier in
+`../idna-mailboxes/verify-artifacts.py` checks these already-built artifacts
+without installing or making network requests.
+
+The [browser receipt](results/browser/receipt.json) covers six secret/control
+cases in Chromium and Firefox at 375px and 1280px. The Python runtime initialized
+online with a neutral prompt; the first credential mask and all downloads ran
+offline, with zero new requests. The downloaded text and vault reconstruct the
+source exactly. The demo's canned reply refers only to names/emails, so it
+contains no secret surrogate; secret stream restoration is verified by the
+native core and SDK replays, not inferred from that canned greeting.
+
+All four secret screenshots were inspected: the masked values and vault remain
+inside each viewport, and long IDs wrap in the mobile vault.
+
+![Actual clean-build browser; all displayed keys are synthetic](results/browser/chromium-1280.png)
+
+![The same local secret masking and vault at 375px](results/browser/firefox-375.png)
+
+The final combined wheel also replays the earlier IDNA repair: all 101 core/CLI
+cases and 12 SDK workflows pass on both SDK installations; the bare install
+passes core/CLI. The final browser replays all 11 IDNA/control cases in both
+engines and widths. [Combined-artifact cross-check](results/idna-final.json).
+The existing IDNA screenshots were compared by hash and the final captures
+were inspected again. Detailed build/install logs replace local scratch/home
+path prefixes with placeholders; other output is retained.
+
+The build output remains `web/dist/`. Neither PyPI nor the hosted site was
+updated. Suggested repository description and topics remain those of the
+existing reversible PII masking tool.

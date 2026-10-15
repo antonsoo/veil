@@ -1,0 +1,147 @@
+{
+  "cleanCommit": "3d94646",
+  "installations": [
+    {
+      "label": "current",
+      "python": "3.14.7",
+      "allRuntimeFilesMatch": true
+    },
+    {
+      "label": "floor",
+      "python": "3.10.21",
+      "allRuntimeFilesMatch": true
+    },
+    {
+      "label": "core",
+      "python": "3.12.12",
+      "allRuntimeFilesMatch": true
+    }
+  ],
+  "replays": [
+    {
+      "label": "current",
+      "sha256": "357f74bbb48ecbe3e994f786f367abfd7c665e0524e39c15800152beae3f1905",
+      "python": "3.14.7",
+      "casesMatchSource": true,
+      "sdkRequests": 12,
+      "sdkVersions": {
+        "openai": "3.31.0",
+        "anthropic": "1.14.0"
+      }
+    },
+    {
+      "label": "floor",
+      "sha256": "b6e64a8fdf00a7e9d468a4cf647e21f1bde88142f3d60b5cebad09a105a4d111",
+      "python": "3.10.21",
+      "casesMatchSource": true,
+      "sdkRequests": 12,
+      "sdkVersions": {
+        "openai": "1.66.0",
+        "anthropic": "0.40.0"
+      }
+    },
+    {
+      "label": "core",
+      "sha256": "88c35f2dc1a9f74b97e8a8efc1b111de6effdac72f26cb28282a52057ce55969",
+      "python": "3.12.12",
+      "casesMatchSource": true,
+      "sdkRequests": 0,
+      "sdkVersions": {}
+    }
+  ],
+  "browser": {
+    "sha256": "2f3e08c1f167c4a2768c632c1d266aa65edd647a3c9aebed6ef9982e243f4658",
+    "rows": [
+      {
+        "engine": "chromium",
+        "width": 375,
+        "cases": 11,
+        "entityType": "EMAIL",
+        "completeValues": 8,
+        "cannedReplyReferencesOriginal": true,
+        "maskedDownloadSha256": "32c59c98ab72445a52e7d1577740de0b9437e8e75fc1f2dc4f35d011f42761b1",
+        "vaultDownloadSha256": "a3340457d9c23b34cecdc123afbacdb91687fa8e693eecf98a92e621bbec8c31",
+        "exactRestore": true,
+        "offlineRequests": 0,
+        "errors": [],
+        "noOverflow": true,
+        "runtime": "Actual bundled Python via Pyodide; initialized online with a neutral prompt."
+      },
+      {
+        "engine": "chromium",
+        "width": 1280,
+        "cases": 11,
+        "entityType": "EMAIL",
+        "completeValues": 8,
+        "cannedReplyReferencesOriginal": true,
+        "maskedDownloadSha256": "32c59c98ab72445a52e7d1577740de0b9437e8e75fc1f2dc4f35d011f42761b1",
+        "vaultDownloadSha256": "a3340457d9c23b34cecdc123afbacdb91687fa8e693eecf98a92e621bbec8c31",
+        "exactRestore": true,
+        "offlineRequests": 0,
+        "errors": [],
+        "noOverflow": true,
+        "runtime": "Actual bundled Python via Pyodide; initialized online with a neutral prompt."
+      },
+      {
+        "engine": "firefox",
+        "width": 375,
+        "cases": 11,
+        "entityType": "EMAIL",
+        "completeValues": 8,
+        "cannedReplyReferencesOriginal": true,
+        "maskedDownloadSha256": "32c59c98ab72445a52e7d1577740de0b9437e8e75fc1f2dc4f35d011f42761b1",
+        "vaultDownloadSha256": "a3340457d9c23b34cecdc123afbacdb91687fa8e693eecf98a92e621bbec8c31",
+        "exactRestore": true,
+        "offlineRequests": 0,
+        "errors": [],
+        "noOverflow": true,
+        "runtime": "Actual bundled Python via Pyodide; initialized online with a neutral prompt."
+      },
+      {
+        "engine": "firefox",
+        "width": 1280,
+        "cases": 11,
+        "entityType": "EMAIL",
+        "completeValues": 8,
+        "cannedReplyReferencesOriginal": true,
+        "maskedDownloadSha256": "32c59c98ab72445a52e7d1577740de0b9437e8e75fc1f2dc4f35d011f42761b1",
+        "vaultDownloadSha256": "a3340457d9c23b34cecdc123afbacdb91687fa8e693eecf98a92e621bbec8c31",
+        "exactRestore": true,
+        "offlineRequests": 0,
+        "errors": [],
+        "noOverflow": true,
+        "runtime": "Actual bundled Python via Pyodide; initialized online with a neutral prompt."
+      }
+    ],
+    "manifestMatchesCleanSource": true,
+    "servedAssetsMatchCleanBuild": true
+  },
+  "sameArtifactsAndRuntimeAs": "verification.json",
+  "originalStudy": "../idna-mailboxes/results/after.json",
+  "imageComparisonsToOriginalStudy": [
+    {
+      "name": "chromium-375.png",
+      "finalSha256": "7e3fd3c9b20b58cc58c48b528fffd3b713665f8dcf926dc7e8f2327727010ac2",
+      "originalSha256": "7e3fd3c9b20b58cc58c48b528fffd3b713665f8dcf926dc7e8f2327727010ac2",
+      "identical": true
+    },
+    {
+      "name": "chromium-1280.png",
+      "finalSha256": "18e88daa6a18b5d064ee86470cfe19b58e0e56447ef2968eb676cdd1ec6d1c0d",
+      "originalSha256": "18e88daa6a18b5d064ee86470cfe19b58e0e56447ef2968eb676cdd1ec6d1c0d",
+      "identical": true
+    },
+    {
+      "name": "firefox-375.png",
+      "finalSha256": "d15e505d7f3abec3761653e5f29992f734957edcb040d555ef0011d5eaf7ad22",
+      "originalSha256": "d15e505d7f3abec3761653e5f29992f734957edcb040d555ef0011d5eaf7ad22",
+      "identical": true
+    },
+    {
+      "name": "firefox-1280.png",
+      "finalSha256": "24a3101dac784b30332f4d5edaeb36b61457dd4e5f0b4ea6ea936a6534e02459",
+      "originalSha256": "24a3101dac784b30332f4d5edaeb36b61457dd4e5f0b4ea6ea936a6534e02459",
+      "identical": true
+    }
+  ]
+}
