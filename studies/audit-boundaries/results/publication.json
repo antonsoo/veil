@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-15",
+  "baseline": "2157288edbcb7734f5edad80558c5546e02cc79a",
+  "sourceHead": "fc335a969894016528bc49eb435f27e1df24a48d",
+  "remoteHead": "fc335a969894016528bc49eb435f27e1df24a48d",
+  "cleanTreeAtCapture": true,
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/CHANGELOG.md",
+      "httpStatus": 200,
+      "bytes": 32320,
+      "sha256": "04b3a0a5b9a89735a7bf673fad6ba525355e58d86743d8955b0c44a0d837fec4",
+      "matchesCheckout": true
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/README.md",
+      "httpStatus": 200,
+      "bytes": 37958,
+      "sha256": "1c7b3ec1b12b08edaa3da8cf014c7801358a5d230207709fe9adf82f07c89161",
+      "matchesCheckout": true
+    },
+    {
+      "path": "docs/assets/audit-boundaries.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/docs/assets/audit-boundaries.png",
+      "httpStatus": 200,
+      "bytes": 284657,
+      "sha256": "b9b69b254cbc1ebf87c0b762c62a3229a552cd3e504bee3bd9f887a23e124688",
+      "matchesCheckout": true
+    },
+    {
+      "path": "src/veil/_spans.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/src/veil/_spans.py",
+      "httpStatus": 200,
+      "bytes": 1910,
+      "sha256": "62f6cb318147173ebf9cbd5b9c039d865df4b3fa1245c056684d40a2aea7b06d",
+      "matchesCheckout": true
+    },
+    {
+      "path": "src/veil/audit.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/src/veil/audit.py",
+      "httpStatus": 200,
+      "bytes": 7327,
+      "sha256": "026369aec3ef2763bd779f0c51404c31ad7b0a396278434c1225e8a4387deac5",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/audit-boundaries/README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/studies/audit-boundaries/README.md",
+      "httpStatus": 200,
+      "bytes": 5890,
+      "sha256": "72ab088db5ba079ce5856df2c5e57072dc12ef0ad6787cf345dbe110ca84ae52",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/audit-boundaries/replay.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/studies/audit-boundaries/replay.py",
+      "httpStatus": 200,
+      "bytes": 8097,
+      "sha256": "f387b20a5b46958b4c9ea3282ce6928c7601a91e58d6b3c47116160f43ede6a9",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/audit-boundaries/results/after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/studies/audit-boundaries/results/after.json",
+      "httpStatus": 200,
+      "bytes": 16823,
+      "sha256": "3804ab1e86ce81f926dd347aad80cb69e746e245aee309437662a0cfb1193ff6",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/audit-boundaries/results/before-installed.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/studies/audit-boundaries/results/before-installed.json",
+      "httpStatus": 200,
+      "bytes": 21874,
+      "sha256": "e4711d8d488a1081e1b0eb880fde26d6ea02c50646be9b2c65310b147c104c74",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/audit-boundaries/results/before.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/studies/audit-boundaries/results/before.json",
+      "httpStatus": 200,
+      "bytes": 21874,
+      "sha256": "e4711d8d488a1081e1b0eb880fde26d6ea02c50646be9b2c65310b147c104c74",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/audit-boundaries/results/installed-python310.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/studies/audit-boundaries/results/installed-python310.json",
+      "httpStatus": 200,
+      "bytes": 16823,
+      "sha256": "a7552e48a6a0029170ae5cf9419da116548486fede385e7f0c41d9ff8391b83d",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/audit-boundaries/results/installed-python312.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/studies/audit-boundaries/results/installed-python312.json",
+      "httpStatus": 200,
+      "bytes": 16823,
+      "sha256": "3804ab1e86ce81f926dd347aad80cb69e746e245aee309437662a0cfb1193ff6",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/audit-boundaries/results/installed-python314.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/studies/audit-boundaries/results/installed-python314.json",
+      "httpStatus": 200,
+      "bytes": 16822,
+      "sha256": "951d665ecff04da2f139484605f8110b19b3342fde55975e341d3b3f3b6dffc9",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/audit-boundaries/results/performance.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/studies/audit-boundaries/results/performance.json",
+      "httpStatus": 200,
+      "bytes": 35358,
+      "sha256": "531f2d05185de1e5bf64a93e7afd8a06a2504ab9576853fb31e87724235f26c0",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/audit-boundaries/results/summary.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/studies/audit-boundaries/results/summary.txt",
+      "httpStatus": 200,
+      "bytes": 1723,
+      "sha256": "7b6179e020282d1433fd2a4c904f409fef2ecda8c2eb7f8c1b78f96ba8d0e267",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/audit-boundaries/results/verification.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/studies/audit-boundaries/results/verification.json",
+      "httpStatus": 200,
+      "bytes": 12977,
+      "sha256": "ba57f088a28b431d871b5a7da744ab2a481fa07d5eb9380a755e5c5b42484056",
+      "matchesCheckout": true
+    },
+    {
+      "path": "studies/audit-boundaries/summarize.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/studies/audit-boundaries/summarize.py",
+      "httpStatus": 200,
+      "bytes": 1703,
+      "sha256": "f537a3564af041ca9ba23fb086ac77780bb1e9837c1be9e9e0b594f0d6fdcbcf",
+      "matchesCheckout": true
+    },
+    {
+      "path": "tests/test_audit.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/tests/test_audit.py",
+      "httpStatus": 200,
+      "bytes": 10050,
+      "sha256": "2035e60406cbc5f063e72202132cddba53d15047dc4b6758d5aa6e09290e5d9b",
+      "matchesCheckout": true
+    },
+    {
+      "path": "tests/test_spans.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/fc335a969894016528bc49eb435f27e1df24a48d/tests/test_spans.py",
+      "httpStatus": 200,
+      "bytes": 1540,
+      "sha256": "92a841e2423dd2268fce195b6d73cedab6c1d229889aeb466bf82738ebb0eb26",
+      "matchesCheckout": true
+    }
+  ],
+  "allPinnedPublicBytesMatch": true,
+  "scope": "Source verification only. No registry release or hosted deployment is established by this receipt."
+}
