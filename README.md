@@ -422,7 +422,7 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   context without serializing it. [Credential-field replay and collateral review](studies/credential-fields/README.md)
   document the supported labels, syntax and source-code false positives; this
   addition is unreleased.
-  Indented YAML literal/folded credential bodies are also protected in source;
+  Indented YAML literal/folded credential bodies are also protected in source and the live demo;
   masking a `|` marker alone no longer leaves its password visible.
   [Native YAML and request reproduction](studies/yaml-credentials/README.md)
   records the supported block syntax and exact restoration boundaries.

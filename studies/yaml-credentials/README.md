@@ -21,7 +21,11 @@ The header and neighboring configuration remain readable. The vault stores the
 raw body span, including internal newlines and extra indentation. Restoration
 recovers the exact original source. This study uses controlled dummy values;
 it does not establish production detection recall. No runtime dependency was
-added. This is source work, with no registry release or deployment yet.
+added. The corrected source and browser build are now public; no registry
+release is included. [Source verification](results/public-source.json),
+[canonical hosted bytes](results/hosted-bytes.json) and
+[hosted browser checks](results/hosted-browser/receipt.json) establish those
+separate publication boundaries.
 
 ## Reproduced behavior
 
@@ -155,3 +159,21 @@ node studies/email-boundaries/check-browser.mjs web/dist /tmp/yaml-browser studi
 
 These are checks of actual Python in Pyodide, not substitute JavaScript
 recognition. They cover the stated workflows rather than every browser/input.
+
+## Installing and using the public correction
+
+The [actual public Git installation](results/source-install.json) replaces
+registry 0.4.4 on Python 3.10.21 despite the source retaining that version.
+All 38 installed files match the tested source, and all 16 native writer
+workflows restore exactly through the installed CLI and streaming restorer.
+
+```sh
+python -m pip install --force-reinstall "veil-pii @ git+https://github.com/antonsoo/veil.git@1b26a1d8ed62638df60ffee9b8d9efb4fd299484"
+```
+
+The [live browser](https://antonsoo.github.io/veil/) serves all 27 files from
+the clean build with matching bytes. Fresh Chromium/Firefox contexts at
+375/1280 pixels protect both bodies on their first credential operation after
+disconnection, retain both controls and download complete masked/vault data.
+Every download restores exactly; no additional request, page error or overflow
+occurred. This does not imply a PyPI release or comprehensive secret detection.

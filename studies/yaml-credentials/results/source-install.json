@@ -1,0 +1,326 @@
+{
+  "source_revision": "1b26a1d8ed62638df60ffee9b8d9efb4fd299484",
+  "documented_command": [
+    "python",
+    "-m",
+    "pip",
+    "install",
+    "--force-reinstall",
+    "veil-pii @ git+https://github.com/antonsoo/veil.git@1b26a1d8ed62638df60ffee9b8d9efb4fd299484"
+  ],
+  "before": {
+    "version": "0.4.4",
+    "python": "3.10.21",
+    "site_packages": true,
+    "files": {
+      "__init__.py": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980",
+      "_spans.py": "e8e2f09a3f7b92535ffaacda6c3c820793465c9c00f16faec50c807147e1e62f",
+      "audit.py": "038bb18f7bc0e81d7cd2f5f2381b01a5fe16c331a84bff081b0f515e35dc8073",
+      "backends/__init__.py": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b",
+      "backends/base.py": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e",
+      "backends/known_entities.py": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55",
+      "backends/spacy_backend.py": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b",
+      "cli.py": "45784f1ee66f9f8bb164aea0a4461c77398a3f4c580692fbccc4fbeaf114eddb",
+      "detectors/__init__.py": "4e6e202fe17c7c8d0bd6afea3f1611411eb6fbb5c4acfa3f9eb17eb9184107e6",
+      "detectors/address.py": "cddef5feba02dbcf0b45b78efd3001eb122f0eec5c6ee3d032eff5e8bee4eeb4",
+      "detectors/base.py": "ac0e63d0d37d4626f9717a1ccafe4a093ecea9a0e1ef897afa200cfc85fb3ef2",
+      "detectors/card.py": "03d653c2832d8a83bbde0976df214fcd0ecbe05e53a9e9da2ccfbef94c3429f8",
+      "detectors/dob.py": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f",
+      "detectors/email.py": "226c1d9f6dba002e313aef9659eadd107d06f22a7a72549b9b9b07b3a5bb2e62",
+      "detectors/iban.py": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c",
+      "detectors/ip.py": "651c0fe510adac1f751cd2054a4d74cd6cdfc4b54c39aab5302a644acfdfabed",
+      "detectors/phone.py": "4799318c96274bbac75b8005b91b1c9c90419cbc54b1b8cbad855c1f46172fb3",
+      "detectors/secrets.py": "200527aff32426887397ce31adde463c628445844e0c3906f0f55d56e0f2da5c",
+      "detectors/ssn.py": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b",
+      "detectors/url.py": "0ab7982bb836b4b136ccec7fcb6855a885166a609b28f71393d65f228f61e6e3",
+      "integrations/__init__.py": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881",
+      "integrations/_common.py": "f72508fb3f3f856c019ae2a8ff3908d9b120f6d3216dbeb53f8dd34d05c6eeee",
+      "integrations/anthropic.py": "478f4ed1ecd32f91d11f9f755543026703e86132c7c33648318270238411a6d6",
+      "integrations/openai.py": "6b0a6420dd7b9e4526ba9bcf63e3b6979feeb188bedbd328bb38670ca8ba441e",
+      "integrations/openai_responses.py": "ad6edee127cf714af995b6cd4a92fb31605593a6a5c060312c74d6e834cb690d",
+      "masker.py": "6308bed7e9d14e1d08181aca94b17e633f6e1d0378409fad9cee9cf038c9e327",
+      "py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore.py": "b1b0008a3ed4f4de5b82c5a49b811f7b17e3dd335dec279bd7385a81f8182c57",
+      "surrogates.py": "aefbda717a931c08e1579c3b7cf1f10c233795de8d2d53be216305e526231c0c",
+      "types.py": "f8666c2eefad8b1d216cbdb4200aa7e79d24673f5752abd76a3c5f775869b86f",
+      "vault.py": "1a8ebcdd924ba970a9e05253bfd72b3183bd47d76e80190234466967add90b0a"
+    },
+    "direct_url": null
+  },
+  "after": {
+    "version": "0.4.4",
+    "python": "3.10.21",
+    "site_packages": true,
+    "files": {
+      "__init__.py": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980",
+      "_files.py": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29",
+      "_spans.py": "62f6cb318147173ebf9cbd5b9c039d865df4b3fa1245c056684d40a2aea7b06d",
+      "audit.py": "026369aec3ef2763bd779f0c51404c31ad7b0a396278434c1225e8a4387deac5",
+      "backends/__init__.py": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b",
+      "backends/base.py": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e",
+      "backends/known_entities.py": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55",
+      "backends/spacy_backend.py": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b",
+      "cli.py": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1",
+      "detectors/__init__.py": "59777802fc49ac92c5064172a7ccb8d34b5d01639cc472479052d0b4dd63967f",
+      "detectors/_calling_codes.py": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c",
+      "detectors/_credential_fields.py": "efed967a488f2fac2d9ad35ee06187be8b60f30e5f842fbad028161791f0673e",
+      "detectors/_http_auth.py": "d1932bd690b5673c6b70cd0425b2fc7d4b06225e3219b48ac001872dbef23af2",
+      "detectors/_jwt.py": "24ca1a07c536eb9ce164a58f8bdb207421a3d4f165c3dd997034c39cd9de3c77",
+      "detectors/_words.py": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887",
+      "detectors/address.py": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec",
+      "detectors/base.py": "af8b6d45b9b8e9bea176c4545f50ba2d24e32aa9e838aceb586b6b71b7f2ee18",
+      "detectors/card.py": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f",
+      "detectors/dob.py": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f",
+      "detectors/email.py": "6c55c1532b289c0ab791570c24616aacd636929e64319e1badcd2ea69b359e77",
+      "detectors/iban.py": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c",
+      "detectors/ip.py": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b",
+      "detectors/phone.py": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd",
+      "detectors/secrets.py": "35b48bd7dd752fc19b150fa5e2141f622a32f28c966d6005ce0400e84b9deb93",
+      "detectors/ssn.py": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b",
+      "detectors/url.py": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099",
+      "integrations/__init__.py": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881",
+      "integrations/_common.py": "aa87f659a6cfd1a242f4ad463b552379034922c5c485d4070907868b8d826164",
+      "integrations/_json_arguments.py": "180028455ecd83369875cb0f03a867ac1d57651f72710b50588cdc051f74cec9",
+      "integrations/anthropic.py": "3f27a9955ce49c788bf2d3e97babbe8e197ac15d3c1c939c50a198595411a821",
+      "integrations/openai.py": "830b8cf890680ea4edae8489d55402a9163a0effa210350037434a61a0ccb9d3",
+      "integrations/openai_responses.py": "3650dfc325747ecce45a847de3efb36a6087f28ffd63b0317dee302ee1ce092e",
+      "masker.py": "dfe2a14b2a5960c6fa2f28cfb1279d822220640e6f1144064e5beaaebc9684f5",
+      "py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore.py": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38",
+      "surrogates.py": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0",
+      "types.py": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8",
+      "vault.py": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+    },
+    "direct_url": {
+      "url": "https://github.com/antonsoo/veil.git",
+      "vcs_info": {
+        "commit_id": "1b26a1d8ed62638df60ffee9b8d9efb4fd299484",
+        "requested_revision": "1b26a1d8ed62638df60ffee9b8d9efb4fd299484",
+        "vcs": "git"
+      }
+    }
+  },
+  "same_version_replaced": true,
+  "package_files_match": 38,
+  "replay": {
+    "runtime_sha256": "efed967a488f2fac2d9ad35ee06187be8b60f30e5f842fbad028161791f0673e",
+    "synthetic": true,
+    "native_cases": [
+      {
+        "id": "native-literal-ordinary",
+        "input_sha256": "0325ddaa7d87494e32b7ff69a9d49b3da0253c10cdeae239bc98ac44e7337785",
+        "masked": "connection:\n  password: |\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n    stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-literal-strip",
+        "input_sha256": "1ae5b84422757f3375ac3deab96ef5b429a601095b3c031166ec9bb464ca21b2",
+        "masked": "connection:\n  password: |-\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n    stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-literal-keep",
+        "input_sha256": "f6e94814b40c77acb855f1427c2668be1e317c8a09f4b4f4139143548f8ef4b8",
+        "masked": "connection:\n  password: |+\n    \u27e8SECRET_1\u27e9\n\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n    stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-literal-leading",
+        "input_sha256": "0676a0aa33856bece56362358e2f7638b1ceb65af987d5639283c6fd9e1a5863",
+        "masked": "connection:\n  password: |2\n\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n    stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-literal-indent",
+        "input_sha256": "a3e0f5f45ec762f2fcb3a746dd2c2ced53cf0cf60a6729299fefbfc3fc06df5b",
+        "masked": "connection:\n  password: |2\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "  river\n     stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-literal-nested",
+        "input_sha256": "4bad85f5548b07007d65ef12e23827c035cd371343ac29e41aa9d16ccfb753c9",
+        "masked": "connection:\n  password: |\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n    api_key=stone\n    # not a YAML comment",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-literal-pii",
+        "input_sha256": "ba68e82201e5cdb92d3df4675c0d8af8f40ac325c92fd2719c33c9cb4bebd239",
+        "masked": "connection:\n  password: |\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n    help@example.org\n    4111 1111 1111 1111\n    stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-literal-unicode",
+        "input_sha256": "6992c4bd91140324e549b9ae3cd92de95c086c393634cd0244fafbbaf00c99d2",
+        "masked": "connection:\n  password: |\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n    \u77f3\u306e\u4e0a\u306b\u3082\u4e09\u5e74\n    stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-folded-ordinary",
+        "input_sha256": "d81cb15992bd5b10156bb732242143878cd6f2f2d5a92422950bdfef0a543e4e",
+        "masked": "connection:\n  password: >\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n\n    stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-folded-strip",
+        "input_sha256": "f200070a1ec5f94ffa5368cd43d819ee9b381cc68979781595e00026572823bb",
+        "masked": "connection:\n  password: >-\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n\n    stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-folded-keep",
+        "input_sha256": "0c497b0c14f1624fc2ca9b42045d433893a28bb315cc989fc1d06396d84e1544",
+        "masked": "connection:\n  password: >+\n    \u27e8SECRET_1\u27e9\n\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n\n    stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-folded-leading",
+        "input_sha256": "c75ec7deb28d12f4d789c2f45113d9bd6e24bc2a3e0fc07fc010d13d5ee98108",
+        "masked": "connection:\n  password: >2\n\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n\n    stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-folded-indent",
+        "input_sha256": "dbcdd308a04c307a4bc49912a53b067b91a2125db35aa0af7edefa1b21078ef0",
+        "masked": "connection:\n  password: >2\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "  river\n     stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-folded-nested",
+        "input_sha256": "8d6714017246687f340b1b046fb12ba7e32b4999a8df2889c3992b0d46bf4aa1",
+        "masked": "connection:\n  password: >\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n\n    api_key=stone\n\n    # not a YAML comment",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-folded-pii",
+        "input_sha256": "841d5d098b3be16592c2bb346eaf36e8f81d14443d887cfb43653ec4bbb2cf14",
+        "masked": "connection:\n  password: >\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n\n    help@example.org\n\n    4111 1111 1111 1111\n\n    stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      },
+      {
+        "id": "native-folded-unicode",
+        "input_sha256": "b3bccf67f90b3ac124be9c8a28a5970b84ff956ce89b36534cebb6d7b67431d3",
+        "masked": "connection:\n  password: >\n    \u27e8SECRET_1\u27e9\n  mode: read-only\nstatus: failed\n",
+        "protected": true,
+        "exact_cli_and_stream_restore": true,
+        "vault": [
+          {
+            "original": "river\n\n    \u77f3\u306e\u4e0a\u306b\u3082\u4e09\u5e74\n\n    stone",
+            "surrogate": "\u27e8SECRET_1\u27e9"
+          }
+        ]
+      }
+    ],
+    "sdk_requests": [],
+    "versions": {
+      "veil-pii": "0.4.4"
+    },
+    "protected_native": 16,
+    "protected_sdk": 0
+  },
+  "scope": "Actual public HTTPS Git installation, replacing the registry build; no registry publication."
+}
