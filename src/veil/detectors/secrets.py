@@ -44,6 +44,22 @@ _PEM_LABEL = r"((?:[A-Z0-9]+ )*PRIVATE KEY(?: BLOCK)?)"
 _PEM_BEGIN_RE = re.compile(rf"-----BEGIN {_PEM_LABEL}-----")
 _PEM_END_RE = re.compile(rf"-----END {_PEM_LABEL}-----")
 _PEM_BODY_RE = re.compile(r"[A-Za-z0-9+/=:,\s-]*")
+_ARMOR_LINE_END_RE = re.compile(r"[ \t]*(?:\r\n|\r|\n)")
+_ARMOR_HEADER_RE = re.compile(r"[^:\s]+:[^\r\n]*(?:\r\n|\r|\n|$)")
+
+
+def _private_key_body_end(text: str, start: int, label: str) -> int:
+    pos = start
+    if label == "PGP PRIVATE KEY BLOCK" and (line := _ARMOR_LINE_END_RE.match(text, pos)):
+        pos = line.end()
+        # OpenPGP armor headers precede the base64 body and may contain
+        # arbitrary text (especially Comment), not just base64 characters.
+        # Skipping their *syntax* retains them inside the opaque secret span.
+        while (header := _ARMOR_HEADER_RE.match(text, pos)) is not None:
+            pos = header.end()
+    body = _PEM_BODY_RE.match(text, pos)
+    assert body is not None
+    return body.end()
 
 
 def _private_key_blocks(text: str) -> Iterator[tuple[int, int]]:
@@ -64,8 +80,7 @@ def _private_key_blocks(text: str) -> Iterator[tuple[int, int]]:
         if nxt < len(ends):
             pos = ends[nxt][1]
         else:
-            body = _PEM_BODY_RE.match(text, begin.end())
-            pos = body.end() if body is not None else begin.end()
+            pos = _private_key_body_end(text, begin.end(), begin.group(1))
         yield begin.start(), pos
 
 
@@ -171,7 +186,10 @@ class SecretDetector:
             # A field may enclose a whole key, but a label inside an opaque
             # PEM block must never displace the block and expose its body.
             if not fields_index.contains(Span(start, end)):
-                known("private_key", start, end)
+                # Opaque credentials own nested PII, just as JWTs and explicit
+                # auth values do. An email/card match must not displace the
+                # enclosing block and leave its otherwise claimed body exposed.
+                known("private_key", start, end, confidence=1.0)
         for span in fields:
             known("credential_field", span.start, span.end, confidence=1.0)
         for start, end in http_authorization_spans(text):

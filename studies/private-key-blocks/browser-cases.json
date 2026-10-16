@@ -1,0 +1,42 @@
+{
+  "provenance": "Armor-shaped synthetic bodies for the browser, never usable signing keys; native GnuPG evidence is separate.",
+  "entityType": "SECRET",
+  "detectorModule": "veil/detectors/secrets.py",
+  "cases": [
+    {
+      "id": "complete-email",
+      "prefix": "",
+      "address": "-----BEGIN PGP PRIVATE KEY BLOCK-----\nVersion: synthetic\nComment: synthetic-owner@example.org\nX-Note: arbitrary UTF-8 text 🔑\n\nYWFhYQ==\n-----END PGP PRIVATE KEY BLOCK-----",
+      "suffix": "",
+      "mask": true
+    },
+    {
+      "id": "complete-card",
+      "prefix": "",
+      "address": "-----BEGIN PGP PRIVATE KEY BLOCK-----\nVersion: synthetic\nComment: 4111111111111111\nX-Note: arbitrary UTF-8 text 🔑\n\nYWFhYQ==\n-----END PGP PRIVATE KEY BLOCK-----",
+      "suffix": "",
+      "mask": true
+    },
+    {
+      "id": "complete-iban",
+      "prefix": "",
+      "address": "-----BEGIN PGP PRIVATE KEY BLOCK-----\nVersion: synthetic\nComment: GB82 WEST 1234 5698 7654 32\nX-Note: arbitrary UTF-8 text 🔑\n\nYWFhYQ==\n-----END PGP PRIVATE KEY BLOCK-----",
+      "suffix": "",
+      "mask": true
+    },
+    {
+      "id": "public-control",
+      "prefix": "",
+      "address": "-----BEGIN PUBLIC KEY-----\nYWFhYQ==\n-----END PUBLIC KEY-----",
+      "suffix": "",
+      "mask": false
+    },
+    {
+      "id": "truncated-unicode",
+      "prefix": "",
+      "address": "-----BEGIN PGP PRIVATE KEY BLOCK-----\nVersion: synthetic\nComment: 操作员 <second@example.org>\nX-Note: arbitrary UTF-8 text 🔑\n\nYWFhYQ==",
+      "suffix": "",
+      "mask": true
+    }
+  ]
+}

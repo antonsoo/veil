@@ -413,6 +413,11 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   context without serializing it. [Credential-field replay and collateral review](studies/credential-fields/README.md)
   document the supported labels, syntax and source-code false positives; this
   addition is unreleased.
+  Recognized private-key blocks also own nested PII matches, so masking an email
+  in an armor comment cannot leave the key's packet body visible. Truncated
+  OpenPGP exports retain their metadata headers with the body.
+  [Native GnuPG recovery and signing evidence](studies/private-key-blocks/README.md)
+  covers this separate source correction; it is unreleased.
   This checkout also recognizes signed AWS/GCS, Azure Storage SAS and
   CloudFront URLs, OAuth fragment tokens, and percent-encoded token parameter
   names. [Credential-URL evidence and exact matching rules](studies/credential-urls/README.md)

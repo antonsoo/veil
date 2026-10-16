@@ -1,0 +1,13 @@
+{
+  "scope": "Retained hash-checked technical corpus; exact complete resolved-detection ledgers, not a privacy accuracy estimate.",
+  "files": 1483,
+  "bytes": 32925796,
+  "words": 2616034,
+  "detections": 10407,
+  "identicalBeforeAfter": true,
+  "ledger": "studies/credential-fields/results/corpus-after.json",
+  "beforeLedgerSha256": "84d93a592aed1f5c2431aab1af018556f90038d36c090fc803f7980593842a38",
+  "afterLedgerSha256": "84d93a592aed1f5c2431aab1af018556f90038d36c090fc803f7980593842a38",
+  "baselineSecretDetectorSha256": "ed7c34acfd4ddda991dd4a767f2ab968fb9ab7dcd6c698a2bcd0a472b15113bc",
+  "correctedSecretDetectorSha256": "35b48bd7dd752fc19b150fa5e2141f622a32f28c966d6005ce0400e84b9deb93"
+}

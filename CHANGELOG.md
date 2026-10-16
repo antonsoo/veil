@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Opaque private-key blocks
+
+- Give an explicitly recognized private-key block the same enclosing-value
+  priority as JWTs and HTTP credentials. A higher-confidence email/card/IBAN/IP
+  fragment previously displaced the block in the default pipeline while its
+  body remained visible. Native GnuPG could import and sign with one such
+  masked export.
+- Preserve OpenPGP armor metadata before the base64 body of a truncated export.
+  Comments can contain arbitrary text; they no longer stop the body scan at an
+  email's `@`, Unicode or punctuation. Existing non-PGP body handling remains.
+- Retain native key-recovery/signature oracles, actual SDK transport summaries,
+  CLI/restoration and compatibility evidence in `studies/private-key-blocks/`.
+  Generated private keys and baseline request bodies remain local; published
+  receipts contain hashes and outcomes. No runtime dependency was added.
+
 ### Explicit credential fields
 
 - Recognize complete values in supported password, API-key, client-secret and
