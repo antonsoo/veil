@@ -67,7 +67,423 @@
         "gpg (GnuPG) 2.4.4",
         "libgcrypt 1.10.3"
       ]
-    }
+    },
+    "observations": [
+      {
+        "id": "ordinary-complete",
+        "sourceSha256": "f0d0cca13396ba4b0d88549aaa7df1fbcaac760c91f899cdb1b342562e834b93",
+        "maskedSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 7,
+          "importExit": 0,
+          "expectedPrivateKeyImported": true,
+          "signExit": 0,
+          "verifyExit": 0,
+          "usablePrivateKeyRecovered": true
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "ordinary-no-footer",
+        "sourceSha256": "13c14699d4573b655311b0a4eb0b99a6e3f0975b3e93c9359eda9e11732a9e75",
+        "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 7,
+          "importExit": 0,
+          "expectedPrivateKeyImported": true,
+          "signExit": 0,
+          "verifyExit": 0,
+          "usablePrivateKeyRecovered": true
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "ordinary-partial-body",
+        "sourceSha256": "436bc230b575733f9431814c35b2d0b08c9176695386a231a315ec919eb2b30e",
+        "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 3,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "email-complete",
+        "sourceSha256": "7491c6b7642a03573311ec29e55f4b3712072fb55b1a4fcce2e526615c975ddd",
+        "maskedSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 7,
+          "importExit": 0,
+          "expectedPrivateKeyImported": true,
+          "signExit": 0,
+          "verifyExit": 0,
+          "usablePrivateKeyRecovered": true
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "email-no-footer",
+        "sourceSha256": "8f6ea8d795e207454b37e847a1d57c7b6aa3fe1ceee49b139686cc3baaf98dbe",
+        "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 7,
+          "importExit": 0,
+          "expectedPrivateKeyImported": true,
+          "signExit": 0,
+          "verifyExit": 0,
+          "usablePrivateKeyRecovered": true
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "email-partial-body",
+        "sourceSha256": "2e735b480a35925b0e59d068775e3f3c33edb1ec369cffdc1e8bea7af3b6aa18",
+        "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 3,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "ipv4-complete",
+        "sourceSha256": "3d01a71772d9459308838f31bf93576d92a060818b50faa4c843c3abe987c4e6",
+        "maskedSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 7,
+          "importExit": 0,
+          "expectedPrivateKeyImported": true,
+          "signExit": 0,
+          "verifyExit": 0,
+          "usablePrivateKeyRecovered": true
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "ipv4-no-footer",
+        "sourceSha256": "ffc531f819d70b26d86888cd28ac8a51b1764145f66349b524699ab5075221d1",
+        "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 7,
+          "importExit": 0,
+          "expectedPrivateKeyImported": true,
+          "signExit": 0,
+          "verifyExit": 0,
+          "usablePrivateKeyRecovered": true
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "ipv4-partial-body",
+        "sourceSha256": "7404b28dfbbf9b1e222d305cfe56f01d1ae5d98d11d54dca7cbcef4a914cf444",
+        "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 3,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "card-complete",
+        "sourceSha256": "813423dd33ff6e0d753a52d7a2480cb5b4c9c602d04293e189d9e217ab7f1f14",
+        "maskedSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 7,
+          "importExit": 0,
+          "expectedPrivateKeyImported": true,
+          "signExit": 0,
+          "verifyExit": 0,
+          "usablePrivateKeyRecovered": true
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "card-no-footer",
+        "sourceSha256": "9342edba99481a3641a006704b4e048ecba610fdd22bc07771bafb82d5e33841",
+        "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 7,
+          "importExit": 0,
+          "expectedPrivateKeyImported": true,
+          "signExit": 0,
+          "verifyExit": 0,
+          "usablePrivateKeyRecovered": true
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "card-partial-body",
+        "sourceSha256": "799b6b62759f58817822303fc009eae92f7b1b00dbf5cf5cabd458fb2b66ec33",
+        "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 3,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "iban-complete",
+        "sourceSha256": "ea5e7ceb5ad67d509e2ab0bb9e6c1cb0f2e792644d99293a34339eb422687ae3",
+        "maskedSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 7,
+          "importExit": 0,
+          "expectedPrivateKeyImported": true,
+          "signExit": 0,
+          "verifyExit": 0,
+          "usablePrivateKeyRecovered": true
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "iban-no-footer",
+        "sourceSha256": "f37373763091981b187c090348e9c52d19e9d9e5d408346e580e1c4be3a82764",
+        "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 7,
+          "importExit": 0,
+          "expectedPrivateKeyImported": true,
+          "signExit": 0,
+          "verifyExit": 0,
+          "usablePrivateKeyRecovered": true
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "iban-partial-body",
+        "sourceSha256": "d83e1d83bd8d09ff182f610efec3a54582a246f5251053fbab7d9fc51abc1640",
+        "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 3,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "credential-field-complete",
+        "sourceSha256": "9ac897c6ae80c4f03b182cbc40546821707c7d139b7b71ca8d6b73550bf5325a",
+        "maskedSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 7,
+          "importExit": 0,
+          "expectedPrivateKeyImported": true,
+          "signExit": 0,
+          "verifyExit": 0,
+          "usablePrivateKeyRecovered": true
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "credential-field-no-footer",
+        "sourceSha256": "bc88fb85d6e65b4746e47de5d86c54ffa8443d6f975e1ca5894ef3c24391e17a",
+        "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 7,
+          "importExit": 0,
+          "expectedPrivateKeyImported": true,
+          "signExit": 0,
+          "verifyExit": 0,
+          "usablePrivateKeyRecovered": true
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      },
+      {
+        "id": "credential-field-partial-body",
+        "sourceSha256": "4bb3f45fb0a42cccca3f1c8258a32b72f4256bfc79ee0042329dd19d3c8bbf9d",
+        "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+        "wholeBlockMasked": true,
+        "exactCLIAndStreamRestoration": true,
+        "sourceRecovery": {
+          "retainedBase64Lines": 3,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        },
+        "maskedRecovery": {
+          "retainedBase64Lines": 0,
+          "importExit": 2,
+          "expectedPrivateKeyImported": false,
+          "signExit": null,
+          "verifyExit": null,
+          "usablePrivateKeyRecovered": false
+        }
+      }
+    ]
   },
   "nativeCases": 18,
   "command": "python -m pip install --force-reinstall \"veil-pii @ git+https://github.com/antonsoo/veil.git@f62bf202c9d53c0746f70da67e6eb098f7628471\""
