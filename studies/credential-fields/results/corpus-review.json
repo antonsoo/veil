@@ -1,0 +1,371 @@
+{
+  "scope": "Replay and review every changed resolved detection in the pinned corpus.\n\nThe fixed location sets record a manual reading of all 27 added matches.\nValues stay out of the receipt; pinned URLs, offsets and hashes locate them.\n",
+  "files": 1483,
+  "bytes": 32925796,
+  "words": 2616034,
+  "changedFiles": 16,
+  "unchangedFiles": 1467,
+  "added": 27,
+  "removedOrChangedExisting": 0,
+  "classification": {
+    "source-variable-reference": 7,
+    "dummy-credential-literal": 20
+  },
+  "manifests": {
+    "manifest-technical.json": "55176de41eaad86b6b6e83eca89555c1d6bb61d5a93540f9ad019687ac5b0da4",
+    "manifest-technical-heldout.json": "9a7e8ebbefe6a7b563c31b90ff0b9a5e17813d81821ee0ff956b4c0dd68b0202"
+  },
+  "rows": [
+    {
+      "file": "code/psf-requests/a4598bf8444e0fec.py",
+      "url": "https://codeload.github.com/psf/requests/tar.gz/refs/tags/v2.32.3",
+      "sourceSha256": "28871e72c72a6a6eab78e097465e03c0fe235fc25c97cb1de7b7edd7b291d9c4",
+      "line": 285,
+      "span": [
+        9661,
+        9669
+      ],
+      "valueSha256": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "classification": "source-variable-reference",
+      "interpretation": "Collateral false positive; raw assignment syntax does not prove a literal."
+    },
+    {
+      "file": "code/psf-requests/33c13e0b177bacd2.py",
+      "url": "https://codeload.github.com/psf/requests/tar.gz/refs/tags/v2.32.3",
+      "sourceSha256": "6d76461599944810c00b059c4c75acca1e034c3c96701a190b8115f87b5442af",
+      "line": 411,
+      "span": [
+        11786,
+        11806
+      ],
+      "valueSha256": "86c8f2693d64d76a80aa8fa68eff2637a008eab1626e006d00952749a48836c3",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/pallets-flask/d570ff9d63b49b50.rst",
+      "url": "https://codeload.github.com/pallets/flask/tar.gz/refs/tags/3.0.3",
+      "sourceSha256": "2fd6e84543d49346d504d87e17e99e0969b5848e9932f6f2118445cfdb08a374",
+      "line": 233,
+      "span": [
+        7292,
+        7296
+      ],
+      "valueSha256": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/pallets-flask/d570ff9d63b49b50.rst",
+      "url": "https://codeload.github.com/pallets/flask/tar.gz/refs/tags/3.0.3",
+      "sourceSha256": "2fd6e84543d49346d504d87e17e99e0969b5848e9932f6f2118445cfdb08a374",
+      "line": 236,
+      "span": [
+        7425,
+        7433
+      ],
+      "valueSha256": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "classification": "source-variable-reference",
+      "interpretation": "Collateral false positive; raw assignment syntax does not prove a literal."
+    },
+    {
+      "file": "code/pallets-flask/d570ff9d63b49b50.rst",
+      "url": "https://codeload.github.com/pallets/flask/tar.gz/refs/tags/3.0.3",
+      "sourceSha256": "2fd6e84543d49346d504d87e17e99e0969b5848e9932f6f2118445cfdb08a374",
+      "line": 267,
+      "span": [
+        8343,
+        8344
+      ],
+      "valueSha256": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/pallets-flask/d570ff9d63b49b50.rst",
+      "url": "https://codeload.github.com/pallets/flask/tar.gz/refs/tags/3.0.3",
+      "sourceSha256": "2fd6e84543d49346d504d87e17e99e0969b5848e9932f6f2118445cfdb08a374",
+      "line": 285,
+      "span": [
+        8988,
+        8996
+      ],
+      "valueSha256": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "classification": "source-variable-reference",
+      "interpretation": "Collateral false positive; raw assignment syntax does not prove a literal."
+    },
+    {
+      "file": "code/pallets-flask/0922d3b6872a3921.py",
+      "url": "https://codeload.github.com/pallets/flask/tar.gz/refs/tags/3.0.3",
+      "sourceSha256": "2778b7c035d917bb0909ec6ee2f9d61ccba030ff8ae635ff65a52c133ec5afca",
+      "line": 51,
+      "span": [
+        1187,
+        1191
+      ],
+      "valueSha256": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/pallets-flask/0922d3b6872a3921.py",
+      "url": "https://codeload.github.com/pallets/flask/tar.gz/refs/tags/3.0.3",
+      "sourceSha256": "2778b7c035d917bb0909ec6ee2f9d61ccba030ff8ae635ff65a52c133ec5afca",
+      "line": 53,
+      "span": [
+        1296,
+        1304
+      ],
+      "valueSha256": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "classification": "source-variable-reference",
+      "interpretation": "Collateral false positive; raw assignment syntax does not prove a literal."
+    },
+    {
+      "file": "code/pallets-flask/b84251b854d4b71a.py",
+      "url": "https://codeload.github.com/pallets/flask/tar.gz/refs/tags/3.0.3",
+      "sourceSha256": "cbbe178c9980d8499561d8eae72f01b8abeead2fa10c9d5f71427da4af38a938",
+      "line": 13,
+      "span": [
+        398,
+        399
+      ],
+      "valueSha256": "ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/pallets-flask/b84251b854d4b71a.py",
+      "url": "https://codeload.github.com/pallets/flask/tar.gz/refs/tags/3.0.3",
+      "sourceSha256": "cbbe178c9980d8499561d8eae72f01b8abeead2fa10c9d5f71427da4af38a938",
+      "line": 34,
+      "span": [
+        1066,
+        1074
+      ],
+      "valueSha256": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "classification": "source-variable-reference",
+      "interpretation": "Collateral false positive; raw assignment syntax does not prove a literal."
+    },
+    {
+      "file": "code/expressjs-express/7c376d97e1d98665.js",
+      "url": "https://codeload.github.com/expressjs/express/tar.gz/refs/tags/4.21.0",
+      "sourceSha256": "bd9221c7fadc99335b5c2e1e590ea4ffd3720f5e47d463142884047c6336c961",
+      "line": 50,
+      "span": [
+        1126,
+        1132
+      ],
+      "valueSha256": "c3ab8ff13720e8ad9047dd39466b3c8974e592c2fa383d4a3960714caef0c4f2",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/expressjs-express/7c376d97e1d98665.js",
+      "url": "https://codeload.github.com/expressjs/express/tar.gz/refs/tags/4.21.0",
+      "sourceSha256": "bd9221c7fadc99335b5c2e1e590ea4ffd3720f5e47d463142884047c6336c961",
+      "line": 68,
+      "span": [
+        1722,
+        1726
+      ],
+      "valueSha256": "d74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1",
+      "classification": "source-variable-reference",
+      "interpretation": "Collateral false positive; raw assignment syntax does not prove a literal."
+    },
+    {
+      "file": "code/expressjs-express/c03f99ad1a5cf68a.js",
+      "url": "https://codeload.github.com/expressjs/express/tar.gz/refs/tags/4.21.0",
+      "sourceSha256": "4b5c338cb66eb53b07ef900bacf4cd520f057ae53996402286f4334e02806d56",
+      "line": 766,
+      "span": [
+        19307,
+        19311
+      ],
+      "valueSha256": "cd6f33ab869d39460147064d5c5a72f182f7bb9502ed73f8e239a5a62ff69d42",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/gin-gonic-gin/8e0465b1fc47504e.md",
+      "url": "https://codeload.github.com/gin-gonic/gin/tar.gz/refs/tags/v1.10.0",
+      "sourceSha256": "340bc082f1c9bf49343a2b82fddccf24cce8fd50910a1fe396652935625dc662",
+      "line": 623,
+      "span": [
+        18739,
+        18742
+      ],
+      "valueSha256": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/fastify-fastify/ea8c7ac46bf4b207.md",
+      "url": "https://codeload.github.com/fastify/fastify/tar.gz/refs/tags/v4.28.1",
+      "sourceSha256": "e75eef53a961c630839599ce0f8c0dbb2780fbef08e5d750abb2f07c49978423",
+      "line": 286,
+      "span": [
+        7779,
+        7786
+      ],
+      "valueSha256": "50d858e0985ecc7f60418aaf0cc5ab587f42c2570a884095a9e8ccacd0f6545c",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/axios-axios/b335630551682c19.md",
+      "url": "https://codeload.github.com/axios/axios/tar.gz/refs/tags/v1.7.7",
+      "sourceSha256": "de5c10e8939a1234136ee3f9035c520e789547a3bade817da6654dbb723d8a3e",
+      "line": 450,
+      "span": [
+        19539,
+        19551
+      ],
+      "valueSha256": "1df4fc63d18754fcdb0bacea44654a43e0b2412f2278f5554d6b7f880ba60c89",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/axios-axios/b335630551682c19.md",
+      "url": "https://codeload.github.com/axios/axios/tar.gz/refs/tags/v1.7.7",
+      "sourceSha256": "de5c10e8939a1234136ee3f9035c520e789547a3bade817da6654dbb723d8a3e",
+      "line": 548,
+      "span": [
+        24462,
+        24470
+      ],
+      "valueSha256": "14283a01315cd9ec75988f8a39d71f61dabbc17fbc719de43015f83e3861674b",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/axios-axios/586c04c24608b86a.js",
+      "url": "https://codeload.github.com/axios/axios/tar.gz/refs/tags/v1.7.7",
+      "sourceSha256": "60a69d6083d4982bd12d428095ed12bc16c58fac42f3060a9440d5ed289bc5c6",
+      "line": 379,
+      "span": [
+        12048,
+        12068
+      ],
+      "valueSha256": "21a41f8f7e42e352957b0b22b820504def5313a6b1f3eee0792edb804a7cc6ad",
+      "classification": "source-variable-reference",
+      "interpretation": "Collateral false positive; raw assignment syntax does not prove a literal."
+    },
+    {
+      "file": "code/axios-axios/08038680ba612928.ts",
+      "url": "https://codeload.github.com/axios/axios/tar.gz/refs/tags/v1.7.7",
+      "sourceSha256": "bd9f06aab1b694c476659834197240b564e4a5179ca15df6df66125add4f9255",
+      "line": 23,
+      "span": [
+        621,
+        633
+      ],
+      "valueSha256": "1df4fc63d18754fcdb0bacea44654a43e0b2412f2278f5554d6b7f880ba60c89",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/axios-axios/4759040bf102cb47.ts",
+      "url": "https://codeload.github.com/axios/axios/tar.gz/refs/tags/v1.7.7",
+      "sourceSha256": "91ba31a4c06906a1ec45b3d92d02932e891065b9a87b4da02323bf14a1d68bc9",
+      "line": 46,
+      "span": [
+        1006,
+        1018
+      ],
+      "valueSha256": "1df4fc63d18754fcdb0bacea44654a43e0b2412f2278f5554d6b7f880ba60c89",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/axios-axios/5bf12f55a72f043e.js",
+      "url": "https://codeload.github.com/axios/axios/tar.gz/refs/tags/v1.7.7",
+      "sourceSha256": "b99b7c35823363d54a7ae18eb804e9f6ef52a996bc1ffd78cc994bf5c70b4975",
+      "line": 21,
+      "span": [
+        507,
+        518
+      ],
+      "valueSha256": "41ef4bb0b23661e66301aac36066912dac037827b4ae63a7b1165a5aa93ed4eb",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/axios-axios/5bf12f55a72f043e.js",
+      "url": "https://codeload.github.com/axios/axios/tar.gz/refs/tags/v1.7.7",
+      "sourceSha256": "b99b7c35823363d54a7ae18eb804e9f6ef52a996bc1ffd78cc994bf5c70b4975",
+      "line": 52,
+      "span": [
+        1334,
+        1349
+      ],
+      "valueSha256": "1eedc39300055f8f8b8ffbe69d525b99e6e680e176da4fe093fde5cf2ff33b6e",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/axios-axios/5bf12f55a72f043e.js",
+      "url": "https://codeload.github.com/axios/axios/tar.gz/refs/tags/v1.7.7",
+      "sourceSha256": "b99b7c35823363d54a7ae18eb804e9f6ef52a996bc1ffd78cc994bf5c70b4975",
+      "line": 68,
+      "span": [
+        1804,
+        1815
+      ],
+      "valueSha256": "41ef4bb0b23661e66301aac36066912dac037827b4ae63a7b1165a5aa93ed4eb",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/axios-axios/44e027b25829495b.js",
+      "url": "https://codeload.github.com/axios/axios/tar.gz/refs/tags/v1.7.7",
+      "sourceSha256": "530f044a58372eb15ac5b05b12535c0842a64772a766c23d52f9c6a9d5a866c7",
+      "line": 731,
+      "span": [
+        22294,
+        22297
+      ],
+      "valueSha256": "fcde2b2edba56bf408601fb721fe9b5c338d10ee429ea04fae5511b68fbf8fb9",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/axios-axios/44e027b25829495b.js",
+      "url": "https://codeload.github.com/axios/axios/tar.gz/refs/tags/v1.7.7",
+      "sourceSha256": "530f044a58372eb15ac5b05b12535c0842a64772a766c23d52f9c6a9d5a866c7",
+      "line": 1348,
+      "span": [
+        42027,
+        42031
+      ],
+      "valueSha256": "d74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/axios-axios/44e027b25829495b.js",
+      "url": "https://codeload.github.com/axios/axios/tar.gz/refs/tags/v1.7.7",
+      "sourceSha256": "530f044a58372eb15ac5b05b12535c0842a64772a766c23d52f9c6a9d5a866c7",
+      "line": 1427,
+      "span": [
+        44566,
+        44570
+      ],
+      "valueSha256": "d74ff0ee8da3b9806b18c877dbf29bbde50b5bd8e4dad7a3a725000feb82e8f1",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    },
+    {
+      "file": "code/axios-axios/796a99f96e36625e.js",
+      "url": "https://codeload.github.com/axios/axios/tar.gz/refs/tags/v1.7.7",
+      "sourceSha256": "62d5bebe23a34145bb05b4db05d464cc82369e59d43b75cc305ae5b7c0bbdfd7",
+      "line": 51,
+      "span": [
+        1329,
+        1337
+      ],
+      "valueSha256": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "classification": "dummy-credential-literal",
+      "interpretation": "Explicit test/documentation credential example; not a live secret."
+    }
+  ]
+}

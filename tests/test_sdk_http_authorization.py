@@ -28,12 +28,12 @@ def test_auth_headers_in_tool_history_are_wholly_masked_before_transport(
 
 @pytest.mark.parametrize("api", ["chat", "responses", "anthropic"])
 @pytest.mark.parametrize("asynchronous", [False, True])
+@pytest.mark.parametrize("source", ["Authorization: Basic dXNlcjpwYXNz", 'password="river stone"'])
 def test_header_credential_collision_rolls_back_before_sdk_transport(
-    api: str, asynchronous: bool
+    api: str, asynchronous: bool, source: str
 ) -> None:
     wrapped, wire = client_for(api, asynchronous)
     kwargs = {"model": MODEL}
-    source = "Authorization: Basic dXNlcjpwYXNz"
     if api == "responses":
         kwargs.update(input=source, instructions="Literal \u27e8SECRET_1\u27e9")
     else:

@@ -122,7 +122,7 @@ try {
     if (!hostedOrigin) assert.equal(digest, served.get(path), path);
   }
   const manifest = JSON.parse(await readFile(join(dist, "veil-src.json"), "utf8"));
-  const detector = await readFile(join(here, "../../src", detectorModule));
+  const detector = await readFile(join(process.env.VEIL_BROWSER_SOURCE_ROOT ?? join(here, "../../src"), detectorModule));
   assert.equal(hash(manifest[detectorModule]), hash(detector));
   await writeFile(join(out, "receipt.json"), JSON.stringify({ origin, rows, sourceModule: detectorModule, sourceSha256: hash(detector),
     manifestSha256: hash(await readFile(join(dist, "veil-src.json"))),

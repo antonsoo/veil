@@ -407,6 +407,12 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   context while masking its string value. [Native headers, SDK requests and
   exact restoration](studies/http-authorization/README.md) retain the before/after
   evidence. This correction is in source and has not been released or deployed.
+  Explicit password, API-key, client-secret and OAuth-token assignments also
+  protect short or word-like values, including immediate string fields in tool
+  histories. `masker.mask(value, field_name="password")` retains a decoded field's
+  context without serializing it. [Credential-field replay and collateral review](studies/credential-fields/README.md)
+  document the supported labels, syntax and source-code false positives; this
+  addition is unreleased.
   This checkout also recognizes signed AWS/GCS, Azure Storage SAS and
   CloudFront URLs, OAuth fragment tokens, and percent-encoded token parameter
   names. [Credential-URL evidence and exact matching rules](studies/credential-urls/README.md)
@@ -673,6 +679,10 @@ over-masking fix that followed it.
 - **Random is not the same as secret.** The token heuristic masks lockfile
   hashes, ETags and other generated ids at low confidence, because nothing
   in the token says which it is.
+  Explicit credential labels help with short values, but raw assignment syntax
+  can also mask variable references in pasted source code. Unrecognized labels,
+  malformed/multiline raw values and non-string tool fields remain outside
+  that contextual rule. Detection does not authenticate a credential.
 
 ## Development
 

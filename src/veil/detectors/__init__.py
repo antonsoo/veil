@@ -9,7 +9,7 @@ weakest/heuristic one (see its docstring) and shouldn't run unasked.
 from __future__ import annotations
 
 from veil.detectors.address import AddressDetector
-from veil.detectors.base import Detector
+from veil.detectors.base import Detector, FieldDetector
 from veil.detectors.card import CardDetector
 from veil.detectors.dob import DobDetector
 from veil.detectors.email import EmailDetector
@@ -24,6 +24,7 @@ __all__ = [
     "AddressDetector",
     "CardDetector",
     "Detector",
+    "FieldDetector",
     "DobDetector",
     "EmailDetector",
     "IbanDetector",

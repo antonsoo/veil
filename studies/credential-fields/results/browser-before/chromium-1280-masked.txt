@@ -1,0 +1,12 @@
+{"password":"river stone"}
+API_KEY=local-key
+X-Api-Key: header-token
+{"access_token":"session-token"}
+client_secret="密钥🔑"
+DATABASE_PASSWORD=local-pass
+passwd='another phrase'
+apiKey: deadbeef
+password: str
+{"password":{"type":"string"}}
+{"api_key":["ordinary"]}
+A password reset can resolve the problem.

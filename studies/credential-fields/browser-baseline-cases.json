@@ -1,0 +1,91 @@
+{
+  "provenance": "Synthetic credential assignments and syntax controls; no issued secrets.",
+  "entityType": "SECRET",
+  "detectorModule": "veil/detectors/secrets.py",
+  "cases": [
+    {
+      "id": "json-password",
+      "prefix": "{\"password\":\"",
+      "address": "river stone",
+      "suffix": "\"}",
+      "mask": false
+    },
+    {
+      "id": "env-api",
+      "prefix": "API_KEY=",
+      "address": "local-key",
+      "suffix": "",
+      "mask": false
+    },
+    {
+      "id": "header",
+      "prefix": "X-Api-Key: ",
+      "address": "header-token",
+      "suffix": "",
+      "mask": false
+    },
+    {
+      "id": "oauth",
+      "prefix": "{\"access_token\":\"",
+      "address": "session-token",
+      "suffix": "\"}",
+      "mask": false
+    },
+    {
+      "id": "unicode",
+      "prefix": "client_secret=\"",
+      "address": "密钥🔑",
+      "suffix": "\"",
+      "mask": false
+    },
+    {
+      "id": "prefixed",
+      "prefix": "DATABASE_PASSWORD=",
+      "address": "local-pass",
+      "suffix": "",
+      "mask": false
+    },
+    {
+      "id": "quoted",
+      "prefix": "passwd='",
+      "address": "another phrase",
+      "suffix": "'",
+      "mask": false
+    },
+    {
+      "id": "hex",
+      "prefix": "apiKey: ",
+      "address": "deadbeef",
+      "suffix": "",
+      "mask": false
+    },
+    {
+      "id": "annotation",
+      "prefix": "password: ",
+      "address": "str",
+      "suffix": "",
+      "mask": false
+    },
+    {
+      "id": "schema",
+      "prefix": "{\"password\":{\"type\":\"",
+      "address": "string",
+      "suffix": "\"}}",
+      "mask": false
+    },
+    {
+      "id": "array",
+      "prefix": "{\"api_key\":[\"",
+      "address": "ordinary",
+      "suffix": "\"]}",
+      "mask": false
+    },
+    {
+      "id": "plain",
+      "prefix": "",
+      "address": "A password reset can resolve the problem.",
+      "suffix": "",
+      "mask": false
+    }
+  ]
+}

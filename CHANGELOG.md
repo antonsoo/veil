@@ -6,6 +6,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Explicit credential fields
+
+- Recognize complete values in supported password, API-key, client-secret and
+  OAuth-token assignments without entropy or provider-prefix requirements.
+  Quoted values preserve raw escapes and phrases; bounded unquoted values
+  preserve field names and delimiters. Explicit Authorization handling and
+  enclosing private-key blocks retain their previous coverage.
+- Add an optional `field_name` hint to `Masker.mask` and `find_entities`, and a
+  `FieldDetector` protocol for opt-in contextual candidates. SDK tool histories
+  retain immediate decoded string keys, without changing numeric values,
+  duplicate JSON fields or unrelated argument spelling. Configured detectors,
+  source reservations, vault rollback and restoration checks still apply.
+- Retain synthetic before/after SDK, CLI and browser evidence, scaling costs
+  and a complete collateral review in `studies/credential-fields/`. Raw source
+  variable assignments remain ambiguous; the study records seven such false
+  positives rather than presenting all new detections as secrets.
+
 ### Known-value audit boundaries
 
 - Keep detected fragments wholly inside exact known original/surrogate

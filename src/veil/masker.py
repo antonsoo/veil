@@ -15,7 +15,7 @@ from dataclasses import dataclass, field
 from veil._spans import DisjointSpans
 from veil.backends.base import NameBackend
 from veil.detectors import default_detectors
-from veil.detectors.base import Detector
+from veil.detectors.base import Detector, FieldDetector
 from veil.restore import restore_exact, restore_tolerant
 from veil.surrogates import PlaceholderSurrogates, SurrogateGenerator
 from veil.types import Entity
@@ -133,22 +133,40 @@ class Masker:
                 batch.reserve(text)
             return [self._mask(text, batch) for text in texts]
 
-    def find_entities(self, text: str) -> list[Entity]:
+    def find_entities(self, text: str, *, field_name: str | None = None) -> list[Entity]:
+        """Resolve text candidates, optionally retaining its immediate field name.
+
+        Only detectors implementing FieldDetector interpret the hint. The name
+        does not become part of the text or propagate to nested values.
+        """
         found: list[Entity] = []
+        if field_name is not None:
+            for detector in self.detectors:
+                if isinstance(detector, FieldDetector):
+                    found.extend(detector.find_in_field(field_name, text))
         for detector in self.detectors:
             found.extend(detector.find(text))
         for backend in self.name_backends:
             found.extend(backend.find(text))
         return _resolve_overlaps(found)
 
-    def mask(self, text: str) -> str:
-        """Mask one raw text; reject ambiguous restoration without changing the vault."""
-        return self.mask_many([text])[0]
+    def mask(self, text: str, *, field_name: str | None = None) -> str:
+        """Mask one text, optionally retaining its immediate string field's name.
 
-    def _mask(self, text: str, batch: _MaskingBatch) -> str:
+        ``field_name`` lets supporting detectors recognize a short credential
+        without inventing a serialized prefix. It does not mask the key itself.
+        Ambiguous restoration rejects without changing the vault.
+        """
+        if field_name is None:
+            return self.mask_many([text])[0]
+        with self._masking_batch() as batch:
+            batch.reserve(text)
+            return self._mask(text, batch, field_name=field_name)
+
+    def _mask(self, text: str, batch: _MaskingBatch, *, field_name: str | None = None) -> str:
         parts: list[str] = []
         pos = 0
-        for entity in self.find_entities(text):
+        for entity in self.find_entities(text, field_name=field_name):
             batch.originals.add(_spelling(entity.value))
             surrogate = self.vault.get_or_create(
                 entity.type,

@@ -1,6 +1,6 @@
 """API key and secret token detector.
 
-Two strategies, both regex/arithmetic — no network calls, no key
+Recognition uses regex/arithmetic — no network calls, no key
 revocation checks:
 
 1. **Known prefixes.** Providers stamp a recognizable prefix on issued
@@ -19,6 +19,8 @@ revocation checks:
 
 Explicit Authorization/Proxy-Authorization Basic and Bearer values supply
 their own context. Mask each complete token without entropy or word heuristics.
+Explicit credential assignments supply context too; short labelled passwords,
+API keys, client secrets and OAuth token values become complete secrets.
 """
 
 from __future__ import annotations
@@ -28,7 +30,8 @@ import re
 from bisect import bisect_left
 from collections.abc import Iterator
 
-from veil._spans import DisjointSpans
+from veil._spans import DisjointSpans, SpanIndex
+from veil.detectors._credential_fields import credential_field_spans, is_credential_field
 from veil.detectors._http_auth import http_authorization_spans
 from veil.detectors._jwt import compact_jwt_spans
 from veil.detectors._words import looks_random
@@ -129,6 +132,20 @@ def _looks_like_id_or_hash(s: str) -> bool:
 class SecretDetector:
     name = "secret"
 
+    def find_in_field(self, name: str, text: str) -> list[Entity]:
+        """A supported key identifies its complete decoded string value."""
+        if not text or not is_credential_field(name):
+            return []
+        return [
+            Entity(
+                type=EntityType.SECRET,
+                value=text,
+                span=Span(0, len(text)),
+                detector=f"{self.name}:credential_field",
+                confidence=1.0,
+            )
+        ]
+
     def find(self, text: str) -> list[Entity]:
         out: list[Entity] = []
         claimed = DisjointSpans()
@@ -148,8 +165,15 @@ class SecretDetector:
                 )
             )
 
+        fields = [Span(start, end) for start, end in credential_field_spans(text)]
+        fields_index = SpanIndex(fields)
         for start, end in _private_key_blocks(text):
-            known("private_key", start, end)
+            # A field may enclose a whole key, but a label inside an opaque
+            # PEM block must never displace the block and expose its body.
+            if not fields_index.contains(Span(start, end)):
+                known("private_key", start, end)
+        for span in fields:
+            known("credential_field", span.start, span.end, confidence=1.0)
         for start, end in http_authorization_spans(text):
             # Context owns the whole credential, including JWT punctuation and
             # padding or a card-shaped fragment that another detector could find.

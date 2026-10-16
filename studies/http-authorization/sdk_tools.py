@@ -21,6 +21,7 @@ from tests.sdk_wire import (  # noqa: E402
     choice_delta,
     response_object,
     responses_stream,
+    tool_delta,
 )
 
 RAW = r'{ "headers":{"Authoriz\u0061tion":"Basic dXNlcjpwYXNz", "Proxy-Authorization":"Bearer ab.c_d-ef~g+/=="}, "count":9007199254740993, "count":1.2300e+40, "ordinary":"Bearer xyz" }'
@@ -29,7 +30,15 @@ EXPECTED = RAW.replace("dXNlcjpwYXNz", "\u27e8SECRET_1\u27e9").replace(
 )
 
 
-def sdk_tool_capture(api: str, asynchronous: bool, streaming: bool) -> dict[str, Any]:
+def sdk_tool_capture(
+    api: str,
+    asynchronous: bool,
+    streaming: bool,
+    *,
+    source: str = RAW,
+    expected: str = EXPECTED,
+    tool_reply: bool = False,
+) -> dict[str, Any]:
     import anthropic
     import openai
 
@@ -47,6 +56,35 @@ def sdk_tool_capture(api: str, asynchronous: bool, streaming: bool) -> dict[str,
 
     def echo(body: dict[str, Any]) -> Any:
         text = arguments(body)
+        if tool_reply:
+            if streaming:
+                if api == "responses":
+                    return responses_stream([], list(text))
+                if api == "anthropic":
+                    return anthropic_stream([("tool_use", list(text))])
+                return [
+                    *[
+                        chat_chunk(choice_delta(tool_calls=[tool_delta(0, c, first=i == 0)]))
+                        for i, c in enumerate(text)
+                    ],
+                    chat_chunk(choice_delta(finish="tool_calls")),
+                    "[DONE]",
+                ]
+            if api == "responses":
+                return response_object("completed", arguments=text)
+            if api == "anthropic":
+                return anthropic_message(
+                    [
+                        {
+                            "type": "tool_use",
+                            "id": "call_2",
+                            "name": "request",
+                            "input": json.loads(text),
+                        }
+                    ],
+                    "tool_use",
+                )
+            return chat_completion(None, tool_arguments=text)
         if streaming:
             if api == "responses":
                 return responses_stream(list(text), [])
@@ -77,7 +115,7 @@ def sdk_tool_capture(api: str, asynchronous: bool, streaming: bool) -> dict[str,
                             "type": "tool_use",
                             "id": "call_1",
                             "name": "request",
-                            "input": json.loads(RAW),
+                            "input": json.loads(source),
                         }
                     ],
                 },
@@ -97,7 +135,7 @@ def sdk_tool_capture(api: str, asynchronous: bool, streaming: bool) -> dict[str,
                     {
                         "type": "function",
                         "id": "call_1",
-                        "function": {"name": "request", "arguments": RAW},
+                        "function": {"name": "request", "arguments": source},
                     }
                 ],
             },
@@ -105,7 +143,7 @@ def sdk_tool_capture(api: str, asynchronous: bool, streaming: bool) -> dict[str,
         ]
     else:
         kwargs["input"] = [
-            {"type": "function_call", "call_id": "call_1", "name": "request", "arguments": RAW},
+            {"type": "function_call", "call_id": "call_1", "name": "request", "arguments": source},
             {"type": "function_call_output", "call_id": "call_1", "output": "Done"},
         ]
     original = copy.deepcopy(kwargs)
@@ -113,6 +151,12 @@ def sdk_tool_capture(api: str, asynchronous: bool, streaming: bool) -> dict[str,
         kwargs["stream"] = True
 
     def buffered(reply: Any) -> str:
+        if tool_reply:
+            if api == "responses":
+                return str(reply.output[0].arguments)
+            if api == "anthropic":
+                return json.dumps(reply.content[0].input, ensure_ascii=False)
+            return str(reply.choices[0].message.tool_calls[0].function.arguments)
         if api == "responses":
             return str(reply.output[0].content[0].text)
         if api == "anthropic":
@@ -120,6 +164,24 @@ def sdk_tool_capture(api: str, asynchronous: bool, streaming: bool) -> dict[str,
         return str(reply.choices[0].message.content)
 
     def pieces(events: list[Any]) -> str:
+        if tool_reply:
+            if api == "responses":
+                return "".join(
+                    e.delta for e in events if e.type == "response.function_call_arguments.delta"
+                )
+            if api == "anthropic":
+                return "".join(
+                    e.delta.partial_json
+                    for e in events
+                    if e.type == "content_block_delta" and e.delta.type == "input_json_delta"
+                )
+            return "".join(
+                t.function.arguments or ""
+                for e in events
+                for c in e.choices
+                for t in c.delta.tool_calls or []
+                if t.function is not None
+            )
         if api == "responses":
             return "".join(e.delta for e in events if e.type == "response.output_text.delta")
         if api == "anthropic":
@@ -154,17 +216,17 @@ def sdk_tool_capture(api: str, asynchronous: bool, streaming: bool) -> dict[str,
     assert {k: v for k, v in kwargs.items() if k != "stream"} == original
     assert len(wire.requests) == 1
     outgoing = arguments(wire.requests[0])
-    assert json.loads(reply_text) == json.loads(RAW)
+    assert json.loads(reply_text) == json.loads(source)
     if api != "anthropic":
-        assert reply_text == RAW
+        assert reply_text == source
     return {
         "api": api,
         "async": asynchronous,
         "stream": streaming,
         "request": wire.requests[0],
         "outgoingArguments": outgoing,
-        "correct": json.loads(outgoing) == json.loads(EXPECTED),
-        "unrelatedSyntaxPreserved": api == "anthropic" or outgoing in {RAW, EXPECTED},
+        "correct": json.loads(outgoing) == json.loads(expected),
+        "unrelatedSyntaxPreserved": api == "anthropic" or outgoing in {source, expected},
         "restoresExactly": True,
         "callerInputUnchanged": True,
     }

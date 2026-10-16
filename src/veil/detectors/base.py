@@ -22,3 +22,15 @@ class Detector(Protocol):
     def find(self, text: str) -> list[Entity]:
         """Return non-overlapping entities found in ``text``, in span order."""
         ...
+
+
+@runtime_checkable
+class FieldDetector(Protocol):
+    """Optional additional candidates for a decoded string's immediate key.
+
+    Spans refer to ``text``, not a fabricated serialization. Ordinary ``find``
+    still runs; field candidates compete through the same overlap policy.
+    A detector that does not implement this protocol needs no changes.
+    """
+
+    def find_in_field(self, name: str, text: str) -> list[Entity]: ...

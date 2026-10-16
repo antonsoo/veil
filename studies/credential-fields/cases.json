@@ -1,0 +1,323 @@
+{
+  "provenance": "Synthetic credential assignments, produced locally; never issued secrets.",
+  "cases": [
+    {
+      "id": "json-password",
+      "source": "{\"password\": \"correct-horse\"}\n",
+      "value": "correct-horse",
+      "expected": "{\"password\": \"⟨SECRET_1⟩\"}\n",
+      "producer": "stdlib json.dumps"
+    },
+    {
+      "id": "json-passwd",
+      "source": "{\"passwd\": \"a\"}\n",
+      "value": "a",
+      "expected": "{\"passwd\": \"⟨SECRET_1⟩\"}\n",
+      "producer": "stdlib json.dumps"
+    },
+    {
+      "id": "json-api_key",
+      "source": "{\"api_key\": \"short-token\"}\n",
+      "value": "short-token",
+      "expected": "{\"api_key\": \"⟨SECRET_1⟩\"}\n",
+      "producer": "stdlib json.dumps"
+    },
+    {
+      "id": "json-apiKey",
+      "source": "{\"apiKey\": \"deadbeef\"}\n",
+      "value": "deadbeef",
+      "expected": "{\"apiKey\": \"⟨SECRET_1⟩\"}\n",
+      "producer": "stdlib json.dumps"
+    },
+    {
+      "id": "json-client_secret",
+      "source": "{\"client_secret\": \"river stone\"}\n",
+      "value": "river stone",
+      "expected": "{\"client_secret\": \"⟨SECRET_1⟩\"}\n",
+      "producer": "stdlib json.dumps"
+    },
+    {
+      "id": "json-clientSecret",
+      "source": "{\"clientSecret\": \"密钥🔑\"}\n",
+      "value": "密钥🔑",
+      "expected": "{\"clientSecret\": \"⟨SECRET_1⟩\"}\n",
+      "producer": "stdlib json.dumps"
+    },
+    {
+      "id": "json-access_token",
+      "source": "{\"access_token\": \"session-token\"}\n",
+      "value": "session-token",
+      "expected": "{\"access_token\": \"⟨SECRET_1⟩\"}\n",
+      "producer": "stdlib json.dumps"
+    },
+    {
+      "id": "json-refresh_token",
+      "source": "{\"refresh_token\": \"next-session\"}\n",
+      "value": "next-session",
+      "expected": "{\"refresh_token\": \"⟨SECRET_1⟩\"}\n",
+      "producer": "stdlib json.dumps"
+    },
+    {
+      "id": "json-refreshToken",
+      "source": "{\"refreshToken\": \"short/+=token\"}\n",
+      "value": "short/+=token",
+      "expected": "{\"refreshToken\": \"⟨SECRET_1⟩\"}\n",
+      "producer": "stdlib json.dumps"
+    },
+    {
+      "id": "env",
+      "source": "API_KEY=local-key\n",
+      "value": "local-key",
+      "expected": "API_KEY=⟨SECRET_1⟩\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "env-password",
+      "source": "PASSWORD=\"river stone\"\n",
+      "value": "river stone",
+      "expected": "PASSWORD=\"⟨SECRET_1⟩\"\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "env-prefixed",
+      "source": "DATABASE_PASSWORD=local-pass\n",
+      "value": "local-pass",
+      "expected": "DATABASE_PASSWORD=⟨SECRET_1⟩\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "env-prefixed-key",
+      "source": "SERVICE_API_KEY=local-key\n",
+      "value": "local-key",
+      "expected": "SERVICE_API_KEY=⟨SECRET_1⟩\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "env-export",
+      "source": "export SERVICE_CLIENT_SECRET='small secret'\n",
+      "value": "small secret",
+      "expected": "export SERVICE_CLIENT_SECRET='⟨SECRET_1⟩'\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "env-comment",
+      "source": "PASSWORD=local-pass # keep this comment\n",
+      "value": "local-pass",
+      "expected": "PASSWORD=⟨SECRET_1⟩ # keep this comment\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "http",
+      "source": "x-api-key: short-token\r\nAccept: text/plain\n",
+      "value": "short-token",
+      "expected": "x-api-key: ⟨SECRET_1⟩\r\nAccept: text/plain\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "curl",
+      "source": "curl -H 'X-Api-Key: short-token' https://example.org/\n",
+      "value": "short-token",
+      "expected": "curl -H 'X-Api-Key: ⟨SECRET_1⟩' https://example.org/\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "dict",
+      "source": "{'password': 'river stone'}\n",
+      "value": "river stone",
+      "expected": "{'password': '⟨SECRET_1⟩'}\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "logfmt",
+      "source": "level=debug password=\"river stone\" user=guest\n",
+      "value": "river stone",
+      "expected": "level=debug password=\"⟨SECRET_1⟩\" user=guest\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "log-scalar",
+      "source": "client_secret: short-secret, status=error\n",
+      "value": "short-secret",
+      "expected": "client_secret: ⟨SECRET_1⟩, status=error\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "punctuation",
+      "source": "password=\"say \\\"hi\\\" \\ and goodbye\"\n",
+      "value": "say \\\"hi\\\" \\ and goodbye",
+      "expected": "password=\"⟨SECRET_1⟩\"\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "json-escaped",
+      "source": "{\"password\":\"r\\u0069ver\\nstone\"}\n",
+      "value": "r\\u0069ver\\nstone",
+      "expected": "{\"password\":\"⟨SECRET_1⟩\"}\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "nested-key",
+      "source": "{\"credentials\":{\"password\":\"small secret\"}}\n",
+      "value": "small secret",
+      "expected": "{\"credentials\":{\"password\":\"⟨SECRET_1⟩\"}}\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "card-fragment",
+      "source": "api_key=prefix.4111111111111111\n",
+      "value": "prefix.4111111111111111",
+      "expected": "api_key=⟨SECRET_1⟩\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "empty",
+      "source": "password=\"\"\n",
+      "value": null,
+      "expected": "password=\"\"\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "null",
+      "source": "{\"password\":null}\n",
+      "value": null,
+      "expected": "{\"password\":null}\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "boolean",
+      "source": "password=false\n",
+      "value": null,
+      "expected": "password=false\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "missing",
+      "source": "password: \nordinary line\n",
+      "value": null,
+      "expected": "password: \nordinary line\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "unterminated",
+      "source": "password=\"river stone\nnext line\n",
+      "value": null,
+      "expected": "password=\"river stone\nnext line\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "prose",
+      "source": "A password reset can resolve the problem.\n",
+      "value": null,
+      "expected": "A password reset can resolve the problem.\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "generic",
+      "source": "token=parser-token secret=state-key pwd=current-directory\n",
+      "value": null,
+      "expected": "token=parser-token secret=state-key pwd=current-directory\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "schema",
+      "source": "{\"password\":{\"type\":\"string\",\"format\":\"password\"}}\n",
+      "value": null,
+      "expected": "{\"password\":{\"type\":\"string\",\"format\":\"password\"}}\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "suffix-control",
+      "source": "password_format=plain password_hash=abcdef\n",
+      "value": null,
+      "expected": "password_format=plain password_hash=abcdef\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "prefix-control",
+      "source": "notpassword=river passwordless=stone\n",
+      "value": null,
+      "expected": "notpassword=river passwordless=stone\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "expression",
+      "source": "password=get_password()\n",
+      "value": null,
+      "expected": "password=get_password()\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "env-reference",
+      "source": "PASSWORD=${DATABASE_PASSWORD}\n",
+      "value": null,
+      "expected": "PASSWORD=${DATABASE_PASSWORD}\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "key-only",
+      "source": "{\"required\":[\"password\",\"api_key\"]}\n",
+      "value": null,
+      "expected": "{\"required\":[\"password\",\"api_key\"]}\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "array",
+      "source": "{\"password\":[\"river stone\"]}\n",
+      "value": null,
+      "expected": "{\"password\":[\"river stone\"]}\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "python-annotation",
+      "source": "def encrypt(password: str) -> None:\n",
+      "value": null,
+      "expected": "def encrypt(password: str) -> None:\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "typescript-type",
+      "source": "interface Credentials { password: string; }\n",
+      "value": null,
+      "expected": "interface Credentials { password: string; }\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "go-declaration",
+      "source": "password := \"local-pass\"\n",
+      "value": null,
+      "expected": "password := \"local-pass\"\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "go-loop",
+      "source": "for user, password := range accounts {\n",
+      "value": null,
+      "expected": "for user, password := range accounts {\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "comparison",
+      "source": "password == \"local-pass\"\n",
+      "value": null,
+      "expected": "password == \"local-pass\"\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "url-path",
+      "source": "https://example.org/access_token=path-label\n",
+      "value": null,
+      "expected": "https://example.org/access_token=path-label\n",
+      "producer": "constructed spelling"
+    },
+    {
+      "id": "configparser",
+      "source": "[credentials]\npassword = local-pass\nclient_secret = another-secret\n\n",
+      "value": [
+        "local-pass",
+        "another-secret"
+      ],
+      "expected": "[credentials]\npassword = ⟨SECRET_1⟩\nclient_secret = ⟨SECRET_2⟩\n\n",
+      "producer": "stdlib ConfigParser.write"
+    }
+  ]
+}

@@ -23,7 +23,7 @@ class _StringToken:
 
 
 def mask_string_value(value: str, masker: Masker, *, key: str | None = None) -> str:
-    """Retain an explicit auth field's context when visiting its string value.
+    """Retain an explicit credential field's context for its string value.
 
     The prefix is only a detector hint, never a changed key or output field.
     Masker's ordinary request transaction, reservations and exact restoration
@@ -32,7 +32,7 @@ def mask_string_value(value: str, masker: Masker, *, key: str | None = None) -> 
     if key is not None and key.lower() in {"authorization", "proxy-authorization"}:
         prefix = "Authorization: "
         return masker.mask(prefix + value)[len(prefix) :]
-    return masker.mask(value)
+    return masker.mask(value, field_name=key)
 
 
 def _string_tokens(arguments: str) -> list[_StringToken]:
