@@ -20,6 +20,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("scratch", type=Path)
     parser.add_argument("--source-revision", required=True)
+    parser.add_argument("--study", type=Path, default=HERE)
     args = parser.parse_args()
     scratch = args.scratch
     root = scratch / "clean/src/veil"
@@ -58,7 +59,7 @@ def main() -> None:
             }
         )
     assert len(artifacts) == 2
-    expected = json.loads((HERE / "results/after.json").read_text())
+    expected = json.loads((args.study / "results/after.json").read_text())
     assert expected["runtimeFiles"] == hashes
     installed = []
     for name in ("clean-replay", "installed-current", "installed-floor", "installed-core"):
@@ -67,14 +68,15 @@ def main() -> None:
         assert report["cases"] == expected["cases"]
         if name != "installed-core":
             assert report["sdk"] == expected["sdk"]
-            assert report["sdkTools"] == expected["sdkTools"]
+            if "sdkTools" in expected:
+                assert report["sdkTools"] == expected["sdkTools"]
         installed.append(
             {
                 "label": name,
                 "python": report["python"],
                 "versions": report["versions"],
                 "coreCases": len(report["cases"]),
-                "sdkRequests": len(report["sdk"]) + len(report["sdkTools"]),
+                "sdkRequests": len(report["sdk"]) + len(report.get("sdkTools", [])),
                 "runtimeFilesMatch": len(runtime),
                 "replayMatches": True,
             }
@@ -102,7 +104,7 @@ def main() -> None:
             if p.is_file()
         ],
     }
-    (HERE / "results/verification.json").write_text(json.dumps(report, indent=2) + "\n")
+    (args.study / "results/verification.json").write_text(json.dumps(report, indent=2) + "\n")
     print(
         f"{len(runtime)} runtime files match source, sdist, wheel and all installations; {len(manifest)} Python modules match browser manifest"
     )

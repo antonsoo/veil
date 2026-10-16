@@ -106,3 +106,39 @@ every type, span, value, provenance and confidence. This does not establish a
 general privacy accuracy rate.
 
 The source correction is not a package release or a verified hosted deployment.
+
+## Installed and offline verification
+
+A fresh archive of `0f719f0` passed locked Python 3.14.7 installation with
+development/spaCy dependencies, Ruff, formatting, mypy, **1,337 tests with no
+skips**, wheel/sdist builds, web installation/typechecking/build and all 16
+existing browser scenarios. [Commands, exit codes and log hashes](results/clean-checks.json)
+retain the check boundaries.
+
+Three fresh wheel environments replay the same native inputs. Current SDKs
+(OpenAI 3.31.0, Anthropic 1.15.0) on Python 3.14.7 and the supported SDK floors
+(1.66.0, 0.40.0) on Python 3.10.21 both pass all 18 cases and 24 SDK workflows.
+The core-only Python 3.12.12 environment passes all 18 core/CLI/native recovery
+cases with no Python SDK or crypto dependency installed. Every verdict,
+restoration/recovery outcome and SDK request hash matches the source replay.
+[Artifact verification](results/verification.json) compares all 38 runtime files
+across source, sdist, wheel and installations, and all 37 Python modules against
+the browser manifest. It also hashes the 27-file production build.
+
+The [offline browser replay](results/browser/receipt.json) uses **synthetic
+armor-shaped bodies that are not signing keys**, separately from native GnuPG
+evidence. All four complete/truncated PII-bearing cases become whole secrets;
+a public-key marker control retains its existing behavior. Chromium and Firefox
+at 375/1280 pixels initialize on neutral text, disconnect, then perform their
+first key masking and complete masked/vault downloads. Exact restoration,
+zero additional requests, zero page errors and no document overflow pass.
+All four screenshots were inspected, including
+[mobile Chromium](results/browser/chromium-375.png).
+
+```sh
+cd web && npm ci && npm run lint && npm run build
+cd ..
+node studies/email-boundaries/check-browser.mjs web/dist /tmp/private-key-browser studies/private-key-blocks/browser-cases.json
+```
+
+The build output is `web/dist/`. No app UI was changed.

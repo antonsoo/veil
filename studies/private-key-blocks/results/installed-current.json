@@ -1,0 +1,1068 @@
+{
+  "scope": "Native key-recovery oracle and real masking workflows; no key bytes in receipts.",
+  "python": "3.14.7",
+  "versions": {
+    "openai": "3.31.0",
+    "anthropic": "1.15.0"
+  },
+  "generator": {
+    "provenance": "Generate unused synthetic GnuPG signing keys into an explicit local directory.\n\nNever points GnuPG at the user's keyring and never contacts a keyserver.\nThe private inputs stay in that directory, outside committed study evidence.\n",
+    "generator": "GnuPG --quick-generate-key ed25519 sign 0; --armor --comment --export-secret-keys",
+    "gpgVersion": [
+      "gpg (GnuPG) 2.4.4",
+      "libgcrypt 1.10.3"
+    ]
+  },
+  "runtimeFiles": {
+    "__init__.py": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980",
+    "_files.py": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29",
+    "_spans.py": "62f6cb318147173ebf9cbd5b9c039d865df4b3fa1245c056684d40a2aea7b06d",
+    "audit.py": "026369aec3ef2763bd779f0c51404c31ad7b0a396278434c1225e8a4387deac5",
+    "backends/__init__.py": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b",
+    "backends/base.py": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e",
+    "backends/known_entities.py": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55",
+    "backends/spacy_backend.py": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b",
+    "cli.py": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1",
+    "detectors/__init__.py": "59777802fc49ac92c5064172a7ccb8d34b5d01639cc472479052d0b4dd63967f",
+    "detectors/_calling_codes.py": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c",
+    "detectors/_credential_fields.py": "cd0937a2be19664508f58e9396169177bcb85bac7e8d31b544e529d6a4b0823b",
+    "detectors/_http_auth.py": "d1932bd690b5673c6b70cd0425b2fc7d4b06225e3219b48ac001872dbef23af2",
+    "detectors/_jwt.py": "24ca1a07c536eb9ce164a58f8bdb207421a3d4f165c3dd997034c39cd9de3c77",
+    "detectors/_words.py": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887",
+    "detectors/address.py": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec",
+    "detectors/base.py": "af8b6d45b9b8e9bea176c4545f50ba2d24e32aa9e838aceb586b6b71b7f2ee18",
+    "detectors/card.py": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f",
+    "detectors/dob.py": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f",
+    "detectors/email.py": "6c55c1532b289c0ab791570c24616aacd636929e64319e1badcd2ea69b359e77",
+    "detectors/iban.py": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c",
+    "detectors/ip.py": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b",
+    "detectors/phone.py": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd",
+    "detectors/secrets.py": "35b48bd7dd752fc19b150fa5e2141f622a32f28c966d6005ce0400e84b9deb93",
+    "detectors/ssn.py": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b",
+    "detectors/url.py": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099",
+    "integrations/__init__.py": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881",
+    "integrations/_common.py": "aa87f659a6cfd1a242f4ad463b552379034922c5c485d4070907868b8d826164",
+    "integrations/_json_arguments.py": "180028455ecd83369875cb0f03a867ac1d57651f72710b50588cdc051f74cec9",
+    "integrations/anthropic.py": "3f27a9955ce49c788bf2d3e97babbe8e197ac15d3c1c939c50a198595411a821",
+    "integrations/openai.py": "830b8cf890680ea4edae8489d55402a9163a0effa210350037434a61a0ccb9d3",
+    "integrations/openai_responses.py": "3650dfc325747ecce45a847de3efb36a6087f28ffd63b0317dee302ee1ce092e",
+    "masker.py": "dfe2a14b2a5960c6fa2f28cfb1279d822220640e6f1144064e5beaaebc9684f5",
+    "py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "restore.py": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38",
+    "surrogates.py": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0",
+    "types.py": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8",
+    "vault.py": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+  },
+  "cases": [
+    {
+      "id": "ordinary-complete",
+      "file": "ordinary-complete.txt",
+      "comment": "synthetic recovery study",
+      "shape": "complete",
+      "sourceSha256": "f0d0cca13396ba4b0d88549aaa7df1fbcaac760c91f899cdb1b342562e834b93",
+      "bytes": 548,
+      "privateEnd": 504,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "maskedBytes": 58,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            504
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 7,
+        "importExit": 0,
+        "expectedPrivateKeyImported": true,
+        "signExit": 0,
+        "verifyExit": 0,
+        "usablePrivateKeyRecovered": true
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "ordinary-no-footer",
+      "file": "ordinary-no-footer.txt",
+      "comment": "synthetic recovery study",
+      "shape": "no-footer",
+      "sourceSha256": "13c14699d4573b655311b0a4eb0b99a6e3f0975b3e93c9359eda9e11732a9e75",
+      "bytes": 512,
+      "privateEnd": 469,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+      "maskedBytes": 57,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            469
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 7,
+        "importExit": 0,
+        "expectedPrivateKeyImported": true,
+        "signExit": 0,
+        "verifyExit": 0,
+        "usablePrivateKeyRecovered": true
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "ordinary-partial-body",
+      "file": "ordinary-partial-body.txt",
+      "comment": "synthetic recovery study",
+      "shape": "partial-body",
+      "sourceSha256": "436bc230b575733f9431814c35b2d0b08c9176695386a231a315ec919eb2b30e",
+      "bytes": 311,
+      "privateEnd": 268,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+      "maskedBytes": 57,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            268
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 3,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "email-complete",
+      "file": "email-complete.txt",
+      "comment": "synthetic-owner@example.org",
+      "shape": "complete",
+      "sourceSha256": "7491c6b7642a03573311ec29e55f4b3712072fb55b1a4fcce2e526615c975ddd",
+      "bytes": 551,
+      "privateEnd": 507,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "maskedBytes": 58,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            507
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 7,
+        "importExit": 0,
+        "expectedPrivateKeyImported": true,
+        "signExit": 0,
+        "verifyExit": 0,
+        "usablePrivateKeyRecovered": true
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "email-no-footer",
+      "file": "email-no-footer.txt",
+      "comment": "synthetic-owner@example.org",
+      "shape": "no-footer",
+      "sourceSha256": "8f6ea8d795e207454b37e847a1d57c7b6aa3fe1ceee49b139686cc3baaf98dbe",
+      "bytes": 515,
+      "privateEnd": 472,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+      "maskedBytes": 57,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            472
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 7,
+        "importExit": 0,
+        "expectedPrivateKeyImported": true,
+        "signExit": 0,
+        "verifyExit": 0,
+        "usablePrivateKeyRecovered": true
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "email-partial-body",
+      "file": "email-partial-body.txt",
+      "comment": "synthetic-owner@example.org",
+      "shape": "partial-body",
+      "sourceSha256": "2e735b480a35925b0e59d068775e3f3c33edb1ec369cffdc1e8bea7af3b6aa18",
+      "bytes": 314,
+      "privateEnd": 271,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+      "maskedBytes": 57,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            271
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 3,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "ipv4-complete",
+      "file": "ipv4-complete.txt",
+      "comment": "10.23.45.67",
+      "shape": "complete",
+      "sourceSha256": "3d01a71772d9459308838f31bf93576d92a060818b50faa4c843c3abe987c4e6",
+      "bytes": 535,
+      "privateEnd": 491,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "maskedBytes": 58,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            491
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 7,
+        "importExit": 0,
+        "expectedPrivateKeyImported": true,
+        "signExit": 0,
+        "verifyExit": 0,
+        "usablePrivateKeyRecovered": true
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "ipv4-no-footer",
+      "file": "ipv4-no-footer.txt",
+      "comment": "10.23.45.67",
+      "shape": "no-footer",
+      "sourceSha256": "ffc531f819d70b26d86888cd28ac8a51b1764145f66349b524699ab5075221d1",
+      "bytes": 499,
+      "privateEnd": 456,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+      "maskedBytes": 57,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            456
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 7,
+        "importExit": 0,
+        "expectedPrivateKeyImported": true,
+        "signExit": 0,
+        "verifyExit": 0,
+        "usablePrivateKeyRecovered": true
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "ipv4-partial-body",
+      "file": "ipv4-partial-body.txt",
+      "comment": "10.23.45.67",
+      "shape": "partial-body",
+      "sourceSha256": "7404b28dfbbf9b1e222d305cfe56f01d1ae5d98d11d54dca7cbcef4a914cf444",
+      "bytes": 298,
+      "privateEnd": 255,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+      "maskedBytes": 57,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            255
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 3,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "card-complete",
+      "file": "card-complete.txt",
+      "comment": "4111111111111111",
+      "shape": "complete",
+      "sourceSha256": "813423dd33ff6e0d753a52d7a2480cb5b4c9c602d04293e189d9e217ab7f1f14",
+      "bytes": 540,
+      "privateEnd": 496,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "maskedBytes": 58,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            496
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 7,
+        "importExit": 0,
+        "expectedPrivateKeyImported": true,
+        "signExit": 0,
+        "verifyExit": 0,
+        "usablePrivateKeyRecovered": true
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "card-no-footer",
+      "file": "card-no-footer.txt",
+      "comment": "4111111111111111",
+      "shape": "no-footer",
+      "sourceSha256": "9342edba99481a3641a006704b4e048ecba610fdd22bc07771bafb82d5e33841",
+      "bytes": 504,
+      "privateEnd": 461,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+      "maskedBytes": 57,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            461
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 7,
+        "importExit": 0,
+        "expectedPrivateKeyImported": true,
+        "signExit": 0,
+        "verifyExit": 0,
+        "usablePrivateKeyRecovered": true
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "card-partial-body",
+      "file": "card-partial-body.txt",
+      "comment": "4111111111111111",
+      "shape": "partial-body",
+      "sourceSha256": "799b6b62759f58817822303fc009eae92f7b1b00dbf5cf5cabd458fb2b66ec33",
+      "bytes": 303,
+      "privateEnd": 260,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+      "maskedBytes": 57,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            260
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 3,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "iban-complete",
+      "file": "iban-complete.txt",
+      "comment": "GB82 WEST 1234 5698 7654 32",
+      "shape": "complete",
+      "sourceSha256": "ea5e7ceb5ad67d509e2ab0bb9e6c1cb0f2e792644d99293a34339eb422687ae3",
+      "bytes": 551,
+      "privateEnd": 507,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "maskedBytes": 58,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            507
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 7,
+        "importExit": 0,
+        "expectedPrivateKeyImported": true,
+        "signExit": 0,
+        "verifyExit": 0,
+        "usablePrivateKeyRecovered": true
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "iban-no-footer",
+      "file": "iban-no-footer.txt",
+      "comment": "GB82 WEST 1234 5698 7654 32",
+      "shape": "no-footer",
+      "sourceSha256": "f37373763091981b187c090348e9c52d19e9d9e5d408346e580e1c4be3a82764",
+      "bytes": 515,
+      "privateEnd": 472,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+      "maskedBytes": 57,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            472
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 7,
+        "importExit": 0,
+        "expectedPrivateKeyImported": true,
+        "signExit": 0,
+        "verifyExit": 0,
+        "usablePrivateKeyRecovered": true
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "iban-partial-body",
+      "file": "iban-partial-body.txt",
+      "comment": "GB82 WEST 1234 5698 7654 32",
+      "shape": "partial-body",
+      "sourceSha256": "d83e1d83bd8d09ff182f610efec3a54582a246f5251053fbab7d9fc51abc1640",
+      "bytes": 314,
+      "privateEnd": 271,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+      "maskedBytes": 57,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            271
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 3,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "credential-field-complete",
+      "file": "credential-field-complete.txt",
+      "comment": "password=short-value",
+      "shape": "complete",
+      "sourceSha256": "9ac897c6ae80c4f03b182cbc40546821707c7d139b7b71ca8d6b73550bf5325a",
+      "bytes": 544,
+      "privateEnd": 500,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "maskedBytes": 58,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            500
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 7,
+        "importExit": 0,
+        "expectedPrivateKeyImported": true,
+        "signExit": 0,
+        "verifyExit": 0,
+        "usablePrivateKeyRecovered": true
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "credential-field-no-footer",
+      "file": "credential-field-no-footer.txt",
+      "comment": "password=short-value",
+      "shape": "no-footer",
+      "sourceSha256": "bc88fb85d6e65b4746e47de5d86c54ffa8443d6f975e1ca5894ef3c24391e17a",
+      "bytes": 508,
+      "privateEnd": 465,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+      "maskedBytes": 57,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            465
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 7,
+        "importExit": 0,
+        "expectedPrivateKeyImported": true,
+        "signExit": 0,
+        "verifyExit": 0,
+        "usablePrivateKeyRecovered": true
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    },
+    {
+      "id": "credential-field-partial-body",
+      "file": "credential-field-partial-body.txt",
+      "comment": "password=short-value",
+      "shape": "partial-body",
+      "sourceSha256": "4bb3f45fb0a42cccca3f1c8258a32b72f4256bfc79ee0042329dd19d3c8bbf9d",
+      "bytes": 307,
+      "privateEnd": 264,
+      "fingerprint": "567C4F6C87AABBAB595418DF15A9A429691F5B45",
+      "completePayloadSha256": "b9cc3ee9d2546992b55ff8187f632143d45c99b4c992408b2a120c2495725f15",
+      "maskedSha256": "f6cbe37b41577a8aa8686ffcea83f6efd08b5e813fd7fd450985c435821c3228",
+      "maskedBytes": 57,
+      "wholeBlockMasked": true,
+      "entities": [
+        {
+          "type": "SECRET",
+          "detector": "secret:private_key",
+          "span": [
+            0,
+            264
+          ],
+          "confidence": 1.0
+        }
+      ],
+      "exactCLIAndStreamRestoration": true,
+      "sourceRecovery": {
+        "retainedBase64Lines": 3,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      },
+      "maskedRecovery": {
+        "retainedBase64Lines": 0,
+        "importExit": 2,
+        "expectedPrivateKeyImported": false,
+        "signExit": null,
+        "verifyExit": null,
+        "usablePrivateKeyRecovered": false
+      }
+    }
+  ],
+  "sdk": [
+    {
+      "kind": "text",
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "requestSha256": "ac05ab26ff2a27e5f3041caadcf1cb9f8f786dfc252022447862293041aad4f9",
+      "exactRestoration": true
+    },
+    {
+      "kind": "tool",
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "b172a429cc76f6867a5f94b43ea06da006d96a144fd1e7640d80a229fa50e1c6",
+      "requestSha256": "860e4870e3d25ddb88b231f170bd0d7fa70d558e299288f820ba161a2f39ed9b",
+      "exactRestoration": true,
+      "unrelatedSyntaxPreserved": true
+    },
+    {
+      "kind": "text",
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "requestSha256": "8138c5d8feea4672e3075dda42ecd28de3af9ab48e46f9195032f9b227baf216",
+      "exactRestoration": true
+    },
+    {
+      "kind": "tool",
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "b172a429cc76f6867a5f94b43ea06da006d96a144fd1e7640d80a229fa50e1c6",
+      "requestSha256": "66986ef1c296121116c34ed9de372f629e27d78a00c6b49f08d5e9b447cdfb32",
+      "exactRestoration": true,
+      "unrelatedSyntaxPreserved": true
+    },
+    {
+      "kind": "text",
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "requestSha256": "ac05ab26ff2a27e5f3041caadcf1cb9f8f786dfc252022447862293041aad4f9",
+      "exactRestoration": true
+    },
+    {
+      "kind": "tool",
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "b172a429cc76f6867a5f94b43ea06da006d96a144fd1e7640d80a229fa50e1c6",
+      "requestSha256": "860e4870e3d25ddb88b231f170bd0d7fa70d558e299288f820ba161a2f39ed9b",
+      "exactRestoration": true,
+      "unrelatedSyntaxPreserved": true
+    },
+    {
+      "kind": "text",
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "requestSha256": "8138c5d8feea4672e3075dda42ecd28de3af9ab48e46f9195032f9b227baf216",
+      "exactRestoration": true
+    },
+    {
+      "kind": "tool",
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "b172a429cc76f6867a5f94b43ea06da006d96a144fd1e7640d80a229fa50e1c6",
+      "requestSha256": "66986ef1c296121116c34ed9de372f629e27d78a00c6b49f08d5e9b447cdfb32",
+      "exactRestoration": true,
+      "unrelatedSyntaxPreserved": true
+    },
+    {
+      "kind": "text",
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "requestSha256": "e2bc17f4900a0a231c4339d34cd2ce0877e6193eb5c5d1622e7ac7eec3ae36c3",
+      "exactRestoration": true
+    },
+    {
+      "kind": "tool",
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "b172a429cc76f6867a5f94b43ea06da006d96a144fd1e7640d80a229fa50e1c6",
+      "requestSha256": "8284b56685e0e70bc01e890266876a0c3bbb19040a9d73df677040784545c29a",
+      "exactRestoration": true,
+      "unrelatedSyntaxPreserved": true
+    },
+    {
+      "kind": "text",
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "requestSha256": "256828c422af6e68fe5723ab6804415371da509a89e25275dbc2a09f659e355e",
+      "exactRestoration": true
+    },
+    {
+      "kind": "tool",
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "b172a429cc76f6867a5f94b43ea06da006d96a144fd1e7640d80a229fa50e1c6",
+      "requestSha256": "eb8687229b22f119ea1abfabc4dcc743b46c064e38ee1015a0ebca76d7347736",
+      "exactRestoration": true,
+      "unrelatedSyntaxPreserved": true
+    },
+    {
+      "kind": "text",
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "requestSha256": "e2bc17f4900a0a231c4339d34cd2ce0877e6193eb5c5d1622e7ac7eec3ae36c3",
+      "exactRestoration": true
+    },
+    {
+      "kind": "tool",
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "b172a429cc76f6867a5f94b43ea06da006d96a144fd1e7640d80a229fa50e1c6",
+      "requestSha256": "8284b56685e0e70bc01e890266876a0c3bbb19040a9d73df677040784545c29a",
+      "exactRestoration": true,
+      "unrelatedSyntaxPreserved": true
+    },
+    {
+      "kind": "text",
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "requestSha256": "256828c422af6e68fe5723ab6804415371da509a89e25275dbc2a09f659e355e",
+      "exactRestoration": true
+    },
+    {
+      "kind": "tool",
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "b172a429cc76f6867a5f94b43ea06da006d96a144fd1e7640d80a229fa50e1c6",
+      "requestSha256": "eb8687229b22f119ea1abfabc4dcc743b46c064e38ee1015a0ebca76d7347736",
+      "exactRestoration": true,
+      "unrelatedSyntaxPreserved": true
+    },
+    {
+      "kind": "text",
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "requestSha256": "d69045a47d4c8645ee2babe7a2b027b9edd566167d9aa825068bd948e7f58327",
+      "exactRestoration": true
+    },
+    {
+      "kind": "tool",
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "b172a429cc76f6867a5f94b43ea06da006d96a144fd1e7640d80a229fa50e1c6",
+      "requestSha256": "44e21e639040283265fbf4d2ef8d76e55192133afd1a3d04242780ae23dd8625",
+      "exactRestoration": true,
+      "unrelatedSyntaxPreserved": true
+    },
+    {
+      "kind": "text",
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "requestSha256": "49c0fac94adb80d2e9bce51a2854eb46d67e47b1c2d9777d8c05e008f09310b8",
+      "exactRestoration": true
+    },
+    {
+      "kind": "tool",
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "b172a429cc76f6867a5f94b43ea06da006d96a144fd1e7640d80a229fa50e1c6",
+      "requestSha256": "d2c7ec344cf2446ba343c41d6a18c3feea789aa5b5942f7cf6a53d5e2c20e9a1",
+      "exactRestoration": true,
+      "unrelatedSyntaxPreserved": true
+    },
+    {
+      "kind": "text",
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "requestSha256": "d69045a47d4c8645ee2babe7a2b027b9edd566167d9aa825068bd948e7f58327",
+      "exactRestoration": true
+    },
+    {
+      "kind": "tool",
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "b172a429cc76f6867a5f94b43ea06da006d96a144fd1e7640d80a229fa50e1c6",
+      "requestSha256": "44e21e639040283265fbf4d2ef8d76e55192133afd1a3d04242780ae23dd8625",
+      "exactRestoration": true,
+      "unrelatedSyntaxPreserved": true
+    },
+    {
+      "kind": "text",
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "97406431ccd9ce3e740def5f70a5af30660029b69b94b5ebdd3771f9986aeb7f",
+      "requestSha256": "49c0fac94adb80d2e9bce51a2854eb46d67e47b1c2d9777d8c05e008f09310b8",
+      "exactRestoration": true
+    },
+    {
+      "kind": "tool",
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "wholeBlockMasked": true,
+      "outgoingSha256": "b172a429cc76f6867a5f94b43ea06da006d96a144fd1e7640d80a229fa50e1c6",
+      "requestSha256": "d2c7ec344cf2446ba343c41d6a18c3feea789aa5b5942f7cf6a53d5e2c20e9a1",
+      "exactRestoration": true,
+      "unrelatedSyntaxPreserved": true
+    }
+  ]
+}
