@@ -18,5 +18,6 @@
       "sha256": "9a7e8ebbefe6a7b563c31b90ff0b9a5e17813d81821ee0ff956b4c0dd68b0202"
     }
   ],
-  "replay_driver": "studies/secret-formats/corpus.py"
+  "replay_driver": "studies/secret-formats/corpus.py",
+  "final_runtime_sha256": "efed967a488f2fac2d9ad35ee06187be8b60f30e5f842fbad028161791f0673e"
 }

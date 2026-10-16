@@ -1,0 +1,205 @@
+{
+  "scope": "Bounded raw detector measurements; includes repeated header comments.",
+  "python": "3.12.12",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "runtime_sha256": "cd0937a2be19664508f58e9396169177bcb85bac7e8d31b544e529d6a4b0823b",
+  "warmups": 1,
+  "repeats": 3,
+  "rows": [
+    {
+      "case": "literal-blocks",
+      "repetitions": 100,
+      "bytes": 4500,
+      "source_sha256": "688fd1be25ee769ca1b4140003c5761cf8547cbb88cfce637ecf186c6ac4c989",
+      "detections": 100,
+      "seconds": [
+        0.012136075994931161,
+        0.006656869954895228,
+        0.003374882973730564
+      ],
+      "median_seconds": 0.006656869954895228
+    },
+    {
+      "case": "folded-blocks",
+      "repetitions": 100,
+      "bytes": 5100,
+      "source_sha256": "d877baa47c0091a1833be2e0bf23bfeb9ca08d628b2fa3bd73407b1a5ad03a19",
+      "detections": 0,
+      "seconds": [
+        0.006094530050177127,
+        0.010649862990248948,
+        0.00609025196172297
+      ],
+      "median_seconds": 0.006094530050177127
+    },
+    {
+      "case": "empty-blocks",
+      "repetitions": 100,
+      "bytes": 2700,
+      "source_sha256": "73f2585be9dd3a8e1738996b6fc965a7260209cc13afed4e1f46005452a1b5db",
+      "detections": 100,
+      "seconds": [
+        0.0015715130139142275,
+        0.0010177630465477705,
+        0.0018747929716482759
+      ],
+      "median_seconds": 0.0015715130139142275
+    },
+    {
+      "case": "assignment-comments",
+      "repetitions": 100,
+      "bytes": 1444,
+      "source_sha256": "7674874650d70c7c9aeaebc5cfd639a905eb994d44e616b1ac1227415b4e3175",
+      "detections": 102,
+      "seconds": [
+        0.0008872509934008121,
+        0.0007693640072830021,
+        0.0006897749844938517
+      ],
+      "median_seconds": 0.0007693640072830021
+    },
+    {
+      "case": "bare-pipes",
+      "repetitions": 100,
+      "bytes": 2100,
+      "source_sha256": "53365f57bece55fb05aaf445193be4b833c03ee8af6bab3f57bab385f63a3066",
+      "detections": 100,
+      "seconds": [
+        0.0007859170436859131,
+        0.0007636219961568713,
+        0.002147979976143688
+      ],
+      "median_seconds": 0.0007859170436859131
+    },
+    {
+      "case": "literal-blocks",
+      "repetitions": 1000,
+      "bytes": 45000,
+      "source_sha256": "1b278ff263c1700bb7e59d7dfccbd050102ed53265a7e76a01e1bdd1c9bea605",
+      "detections": 1000,
+      "seconds": [
+        0.04261863703140989,
+        0.026523238979279995,
+        0.02283325098687783
+      ],
+      "median_seconds": 0.026523238979279995
+    },
+    {
+      "case": "folded-blocks",
+      "repetitions": 1000,
+      "bytes": 51000,
+      "source_sha256": "ca50d3e05f77e7157ec71aae55b6ae11ff40cc3b51264e5d07d56f62f1e397ff",
+      "detections": 0,
+      "seconds": [
+        0.023810443992260844,
+        0.019282513996586204,
+        0.04226629302138463
+      ],
+      "median_seconds": 0.023810443992260844
+    },
+    {
+      "case": "empty-blocks",
+      "repetitions": 1000,
+      "bytes": 27000,
+      "source_sha256": "b693efc2edc7db3127a71e018d41f5be5bd7060a0bbf877eda1a0f6a56bef4fd",
+      "detections": 1000,
+      "seconds": [
+        0.025245602999348193,
+        0.018435728969052434,
+        0.018928981968201697
+      ],
+      "median_seconds": 0.018928981968201697
+    },
+    {
+      "case": "assignment-comments",
+      "repetitions": 1000,
+      "bytes": 14044,
+      "source_sha256": "ece7c2e283a544f1069bf9ecb98b8de6ac0c87e8c463b1a50b97c1300f1cc7ba",
+      "detections": 1002,
+      "seconds": [
+        0.025757816969417036,
+        0.013296336983330548,
+        0.009029926965013146
+      ],
+      "median_seconds": 0.013296336983330548
+    },
+    {
+      "case": "bare-pipes",
+      "repetitions": 1000,
+      "bytes": 21000,
+      "source_sha256": "64a80034d10078132cf26ff3d8bcdefc59452078255c448f93c7b8abcc4b43d4",
+      "detections": 1000,
+      "seconds": [
+        0.012348859978374094,
+        0.03291337098926306,
+        0.017260508029721677
+      ],
+      "median_seconds": 0.017260508029721677
+    },
+    {
+      "case": "literal-blocks",
+      "repetitions": 10000,
+      "bytes": 450000,
+      "source_sha256": "07a92249715cc0497a1059d69ea3d09132a3e174aae03517d2c22a3469297d15",
+      "detections": 10000,
+      "seconds": [
+        0.4126566199702211,
+        0.42157229798613116,
+        0.41185692901490256
+      ],
+      "median_seconds": 0.4126566199702211
+    },
+    {
+      "case": "folded-blocks",
+      "repetitions": 10000,
+      "bytes": 510000,
+      "source_sha256": "2bf8cb9211006e7d5f78d1954b775b246ee95bb9196aa80947c6a2558e2de1a4",
+      "detections": 0,
+      "seconds": [
+        0.39270488399779424,
+        0.40666153299389407,
+        0.40184227999998257
+      ],
+      "median_seconds": 0.40184227999998257
+    },
+    {
+      "case": "empty-blocks",
+      "repetitions": 10000,
+      "bytes": 270000,
+      "source_sha256": "ffe26c99900f1d42fb65494703b65c840814a4a8294e1f8896deab3bc7d0d681",
+      "detections": 10000,
+      "seconds": [
+        0.40942798799369484,
+        0.1780827299808152,
+        0.20507692196406424
+      ],
+      "median_seconds": 0.20507692196406424
+    },
+    {
+      "case": "assignment-comments",
+      "repetitions": 10000,
+      "bytes": 140044,
+      "source_sha256": "3fa2abf3362b60f42511075880a5c0075e4311db2f8b41a1589cc131ac0235b2",
+      "detections": 10002,
+      "seconds": [
+        0.15565050300210714,
+        0.30644679203396663,
+        0.14184689900139347
+      ],
+      "median_seconds": 0.15565050300210714
+    },
+    {
+      "case": "bare-pipes",
+      "repetitions": 10000,
+      "bytes": 210000,
+      "source_sha256": "52a2cd0f04ffea9e69c36273801884341c7b30e95673dfde78a6b59b405c4dd6",
+      "detections": 10000,
+      "seconds": [
+        0.3657687660306692,
+        0.31151863100240007,
+        0.21269739099079743
+      ],
+      "median_seconds": 0.31151863100240007
+    }
+  ]
+}

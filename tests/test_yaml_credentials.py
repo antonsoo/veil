@@ -86,8 +86,6 @@ def test_multiple_blocks_and_plain_values_keep_source_order_and_reservations() -
         "password: >-\n\nstatus: failed\n",
         "# password: |\n  river\n  stone\n",
         "note: |\n  river\n  stone\n",
-        "password: |0\n  river\n",
-        "password=|\n  river\n",
         "prose password: |\n  river\n",
         "password: |\n\triver\n",
     ],
@@ -101,3 +99,24 @@ def test_bom_explicit_extra_indentation_and_no_final_newline() -> None:
     masker = Masker()
     assert masker.mask(source) == "\ufeffpassword: |2-\n  ⟨SECRET_1⟩"
     assert masker.restore("\ufeffpassword: |2-\n  ⟨SECRET_1⟩", tolerant=False) == source
+
+
+@pytest.mark.parametrize("value", ["river|stone", "|river", "|", "|-", "|0"])
+@pytest.mark.parametrize("separator", ["=", ":"])
+def test_bare_pipes_keep_their_previous_credential_meaning(value: str, separator: str) -> None:
+    source = f"password{separator}{value}\nmode: read-only\n"
+    masker = Masker()
+    if separator == ":" and value in {"|", "|-"}:
+        # A recognized empty YAML block is syntax, not a masked credential.
+        assert masker.mask(source) == source
+    else:
+        assert masker.mask(source) == f"password{separator}⟨SECRET_1⟩\nmode: read-only\n"
+    assert masker.restore(masker.mask(source), tolerant=False) == source
+
+
+def test_a_block_header_does_not_hide_a_separate_credential_in_its_comment() -> None:
+    source = "password: | # api_key=short\n  river\n  stone\nmode: read-only\n"
+    masker = Masker()
+    masked = "password: | # api_key=⟨SECRET_1⟩\n  ⟨SECRET_2⟩\nmode: read-only\n"
+    assert masker.mask(source) == masked
+    assert masker.restore(masked, tolerant=False) == source

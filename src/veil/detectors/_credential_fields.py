@@ -22,18 +22,22 @@ _LABEL = (
 _FIELD_NAME = re.compile(rf"(?:{_LABEL})\Z")
 _ASSIGNMENT = re.compile(
     rf"(?<![\w./?&%#:-])(?:(?P<quote>[\"'])(?:{_LABEL})(?P=quote)|(?:{_LABEL}))(?![\w-])"
-    r"[ \t]*[:=](?!=)[ \t]*"
+    r"[ \t]*(?P<separator>[:=])(?!=)[ \t]*"
 )
-_BARE_VALUE = re.compile(r"[^\s\"'`,;{}\[\]()<>|\\]+")
+_BARE_VALUE = re.compile(r"[^\s\"'`,;{}\[\]()<>\\]+")
 # A block header must begin a mapping entry, optionally in a compact sequence.
 # The digit is relative to the key's column; no YAML dependency or decoding is
 # needed to keep the source body opaque. Tags, anchors and explicit keys are
 # outside this deliberately bounded recognizer.
+_BLOCK_INDICATOR = r"[|>](?P<indicators>(?:[1-9][+-]?|[+-][1-9]?)?)[ \t]*"
+# Only peek at a following comment marker. Consuming its whole line for every
+# assignment-looking substring in the comment would rescan the suffix.
+_BLOCK_VALUE = re.compile(_BLOCK_INDICATOR + r"(?=#|\r|\n|\Z)")
 _BLOCK_FIELD = re.compile(
     rf"(?:\A\ufeff?|(?<=[\r\n]))(?P<prefix> *(?:- +)*)"
     rf"(?:(?P<quote>[\"'])(?:{_LABEL})(?P=quote)|(?:{_LABEL}))[ \t]*:[ \t]*"
-    r"[|>](?P<indicators>(?:[1-9][+-]?|[+-][1-9]?)?)[ \t]*"
-    r"(?:#[^\r\n]*)?(?:\r\n|\r|\n|\Z)"
+    + _BLOCK_INDICATOR
+    + r"(?:#[^\r\n]*)?(?:\r\n|\r|\n|\Z)"
 )
 _LINE = re.compile(r"[^\r\n]*(?:\r\n|\r|\n|\Z)")
 _NON_STRING = frozenset(
@@ -132,6 +136,10 @@ def credential_field_spans(text: str) -> Iterator[tuple[int, int]]:
             continue
         start = pos = match.end()
         if start >= len(text) or text[start] in "\r\n":
+            continue
+        if match["separator"] == ":" and text[start] == "|" and _BLOCK_VALUE.match(text, start):
+            # A complete block indicator is syntax, including an empty block.
+            # A pipe inside a bare credential (or after '=') remains value data.
             continue
         if text[start] in "\"'":
             end = _quoted_end(text, start)

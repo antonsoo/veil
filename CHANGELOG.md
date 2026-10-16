@@ -15,8 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   neighboring configuration readable. Internal text, extra indentation and
   nested PII are one opaque raw span, with exact restoration.
 - Support automatic or explicit indentation, either chomping-indicator order,
-  compact sequences, BOM-prefixed input and LF/CRLF/CR. Empty/unsupported block
-  markers no longer masquerade as protected values. Native emitter, parser,
+  compact sequences, BOM-prefixed input and LF/CRLF/CR. Recognized empty block
+  headers no longer masquerade as protected values. Native emitter, parser,
   transport and collateral evidence is retained in `studies/yaml-credentials/`.
   No runtime dependency was added; this remains a bounded recognizer.
 

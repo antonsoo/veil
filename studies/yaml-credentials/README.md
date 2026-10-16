@@ -72,6 +72,10 @@ beginning with a tab is parser-dependent and outside the shared-valid matrix;
 its tab cases use explicit indentation or a tab after ordinary content. The
 rule does not decode/fold values or equate different YAML spellings. Existing
 unlabelled short-secret and source-variable ambiguity still apply.
+Bare pipes retain their prior meaning: `password=river|stone` and
+`password=|river` are complete values, not truncated at the pipe. The YAML
+exception applies only to a standalone block marker after `:`. A separate
+credential assignment in a header comment still receives its own protection.
 
 ```sh
 uv run --locked --with PyYAML==6.0.3 python studies/yaml-credentials/capture.py
@@ -83,3 +87,25 @@ Omit `--sdk` to replay the native fixtures with a core-only installation. To
 compare baseline, archive `b00ff73`, set `PYTHONPATH` to that archive's `src/`,
 and omit `--require-fixed`. Native generation is a study-only dependency;
 neither YAML library enters the installed core.
+
+## Collateral review and bounded cost
+
+The [retained technical corpus replay](results/corpus.json) hash-checks all
+1,483 files against the earlier public-source manifests: 32,925,796 bytes and
+2,616,034 whitespace-separated words. All 10,407 resolved detections retain
+their complete type, span, value, provenance and confidence; every file's
+detection hash is unchanged. This corpus adds no in-the-wild block leak case.
+It is a replay of retained sources, not a fresh collection or precision estimate.
+The native writer inputs above establish the failure.
+
+[`scaling.py`](scaling.py) measures literal/folded blocks, empty blocks,
+assignment-looking header comments and bare pipe values at 100, 1,000 and
+10,000 repetitions. [Before](results/blocks-scaling-before.json) and
+[after](results/blocks-scaling-after.json) retain input/module hashes, sizes,
+detection counts, one warmup and three measurements. Maximum detector medians
+were 0.413 and 0.669 seconds respectively. This adds recognition work; it is
+not a speedup or a worst-case latency bound. The shared host was also running
+browser verification. Machine: 14 vCPU WSL2 Linux, 48 GB RAM; Python 3.12.12.
+The earlier 24-case assignment timings in `results/scaling-*.json` describe
+the intermediate source `425dd6b`, before the bare-pipe review correction;
+the block-specific measurements identify the final runtime hash.
