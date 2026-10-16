@@ -1,0 +1,161 @@
+{
+  "sourceRevision": "56a2cd2c051ae8c288818bd7b7e92990936289a9",
+  "rows": [
+    {
+      "label": "sync",
+      "cwd": ".",
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--group",
+        "dev",
+        "--extra",
+        "spacy",
+        "--python",
+        "3.14"
+      ],
+      "exitCode": 0,
+      "seconds": 0.959,
+      "logSha256": "aaed636662fee2fdfa1244cb2a67bf4e66c2c4c2345e378028b16cf64d0d4928"
+    },
+    {
+      "label": "lint",
+      "cwd": ".",
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exitCode": 0,
+      "seconds": 0.085,
+      "logSha256": "44f338f1e0f25678eb2443b45b61f13f9af4a855fe9ef7873117b807458df4ee"
+    },
+    {
+      "label": "format",
+      "cwd": ".",
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exitCode": 0,
+      "seconds": 0.035,
+      "logSha256": "46efbd3f1a48c72758daa04acfb0b748591639c2d26fa2e8452c2ec6b556e0c2"
+    },
+    {
+      "label": "types",
+      "cwd": ".",
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "mypy"
+      ],
+      "exitCode": 0,
+      "seconds": 1.373,
+      "logSha256": "29b1ce4b3f668d3461bd2109f3e51ed0ab4a21f27d2bbfdf1fb7140479e7c2be"
+    },
+    {
+      "label": "tests",
+      "cwd": ".",
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "-q"
+      ],
+      "exitCode": 0,
+      "seconds": 19.824,
+      "logSha256": "01408eff1fdfde8818bfacd6bfce5b46c0a2d566d0d9256c6f64caf83043510b"
+    },
+    {
+      "label": "artifacts",
+      "cwd": ".",
+      "command": [
+        "uv",
+        "build",
+        "--out-dir",
+        "<scratch>/artifacts"
+      ],
+      "exitCode": 0,
+      "seconds": 0.623,
+      "logSha256": "45b4ce99bf460977d55fb5c8b0b0d36471c8b2812ccaebeb5764d2d51a692f7e"
+    },
+    {
+      "label": "replay",
+      "cwd": ".",
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "python",
+        "studies/credential-fields/replay.py",
+        "--sdk",
+        "--require-fixed",
+        "--output",
+        "<scratch>/clean-replay.json"
+      ],
+      "exitCode": 0,
+      "seconds": 6.943,
+      "logSha256": "acc4afdffdb9c3d735de83b11ea6d5ae85d829aa6afcd1a2f717774f771c859c"
+    },
+    {
+      "label": "web-install",
+      "cwd": "web",
+      "command": [
+        "npm",
+        "ci"
+      ],
+      "exitCode": 0,
+      "seconds": 0.958,
+      "logSha256": "6a776b8307035bbd1f9467d8098dcac272bc19ff14788f445644a871c005c2e7"
+    },
+    {
+      "label": "web-lint",
+      "cwd": "web",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exitCode": 0,
+      "seconds": 0.702,
+      "logSha256": "61cdb9d7137c591ce171ff8c340ba2e6f24f1d219d383a866a0e284d3715c996"
+    },
+    {
+      "label": "web-build",
+      "cwd": "web",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "seconds": 1.275,
+      "logSha256": "b6bc351a4454f02af7cf805ef932442571c6dab70739c16abc3c460092a1ca76"
+    },
+    {
+      "label": "web-tests",
+      "cwd": "web",
+      "command": [
+        "npm",
+        "run",
+        "test:browser"
+      ],
+      "exitCode": 0,
+      "seconds": 77.1,
+      "logSha256": "e57dd0434eadc19df2d362292d680490baf1ba07e0d71352de18159873b593e9"
+    }
+  ],
+  "testResult": "1264 passed, no skips",
+  "browserResult": "16 scenarios passed"
+}

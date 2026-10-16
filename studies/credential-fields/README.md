@@ -125,7 +125,7 @@ maximum detector median in these local runs rose from 0.215 to 0.650 seconds.
 This adds recognition work; it is not a speedup or a worst-case latency claim.
 Machine: 14 vCPU WSL2 Linux, 48 GB RAM; Python 3.12.12.
 
-## Browser baseline
+## Offline browser
 
 The actual baseline Python/Pyodide build leaves all eight supported credential
 examples visible. Four syntax/prose controls also remain unchanged. Each fresh
@@ -135,4 +135,45 @@ additional requests. [Baseline receipt](results/browser-before/receipt.json)
 and four inspected screenshots retain that behavior, including
 [mobile Chromium](results/browser-before/chromium-375.png).
 
-The source addition is not a package release or a hosted deployment.
+The [corrected clean build](results/browser-after/receipt.json) masks all eight
+credentials and retains all four controls in every engine/width combination.
+Complete masked/vault downloads restore exactly; the first credential action
+occurs after disconnection. No additional request, page error or horizontal
+overflow occurred. All eight before/after screenshots were inspected, including
+[corrected mobile Chromium](results/browser-after/chromium-375.png). The canned
+reply does not reference these secrets; actual SDK tool/text echoes above
+exercise their restoration.
+
+```sh
+cd web && npm ci && npm run lint && npm run build
+cd ..
+node studies/email-boundaries/check-browser.mjs web/dist /tmp/credential-browser studies/credential-fields/browser-cases.json
+```
+
+## Clean packages
+
+A fresh archive of `56a2cd2` passed locked Python 3.14.7 installation with the
+development and spaCy dependencies, Ruff, formatting, mypy, **1,264 tests with
+no skips**, wheel/sdist builds, `npm ci`, web typechecking/build and all 16
+existing browser scenarios. The [command receipt](results/clean-checks.json)
+retains commands, exit codes and log hashes. No app UI was changed.
+
+Separate wheel installations replayed the public API, real CLI/vault and actual
+SDKs. Every case, request body and restored value equals the working-source
+replay, including different SDK generations:
+
+| Installation | Python | OpenAI / Anthropic | Replay |
+| --- | --- | --- | --- |
+| Locked clean source | 3.14.7 | 3.23.0 / 1.11.0 | 45 cases + 24 SDK requests |
+| Current SDK wheel | 3.14.7 | 3.31.0 / 1.15.0 | 45 cases + 24 SDK requests |
+| Supported SDK floors | 3.10.21 | 1.66.0 / 0.40.0 | 45 cases + 24 SDK requests |
+| Core-only wheel | 3.12.12 | Neither installed | 45 core/CLI cases |
+
+Cryptography's declared floor, 50.0.0, is installed in the floor environment;
+the core-only environment contains only `veil-pii`. [Artifact verification](results/verification.json)
+compares all **38 runtime files** across source, sdist, wheel and installations.
+The browser manifest matches all 37 Python modules, and the receipt hashes all
+27 static build files. The build command is `cd web && npm run build`; output
+is `web/dist/`. Retained installed replays accompany the receipt.
+
+The source addition is not a package release or a verified hosted deployment.
