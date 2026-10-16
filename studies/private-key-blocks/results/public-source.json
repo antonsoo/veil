@@ -1,0 +1,196 @@
+{
+  "scope": "Pinned public source bytes only; no registry release or hosted deployment established.",
+  "repository": "https://github.com/antonsoo/veil",
+  "baseRevision": "0e3052c995ef0efe127ed7b50949c420ce918b78",
+  "sourceRevision": "49e950c8d646f23b42858858b0812ee41c156bd9",
+  "cleanTree": true,
+  "remoteMainMatchesBeforeAndAfter": true,
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/CHANGELOG.md",
+      "bytes": 34302,
+      "sha256": "57fcdb10556ee1722681de971d651825c96b63378869cc2e9fb00e738be25577"
+    },
+    {
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/README.md",
+      "bytes": 39089,
+      "sha256": "54a531303d4d45abf5068bd4c67510b87b0323d947e06a064f00b08b9a2c2273"
+    },
+    {
+      "file": "src/veil/detectors/secrets.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/src/veil/detectors/secrets.py",
+      "bytes": 10718,
+      "sha256": "35b48bd7dd752fc19b150fa5e2141f622a32f28c966d6005ce0400e84b9deb93"
+    },
+    {
+      "file": "studies/credential-fields/verify-artifacts.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/credential-fields/verify-artifacts.py",
+      "bytes": 4192,
+      "sha256": "9d66377ad8d36c8e6309d97f8213a4ab277cf254d1d13e36e2cd1f8b4b7eaf39"
+    },
+    {
+      "file": "studies/private-key-blocks/README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/README.md",
+      "bytes": 8122,
+      "sha256": "0c650062ef21c045ad970ec951babe4c71ebe50a22574c174db7384f42158258"
+    },
+    {
+      "file": "studies/private-key-blocks/browser-cases.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/browser-cases.json",
+      "bytes": 1573,
+      "sha256": "91630f7fbc989ddf4938e2c81be9dae86611941fa3b6169e20537f5f2c245cc0"
+    },
+    {
+      "file": "studies/private-key-blocks/generate.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/generate.py",
+      "bytes": 4952,
+      "sha256": "2342f826d82cc85d54668647999bc36c5da03e291939a42965ca7b6ab1913ce4"
+    },
+    {
+      "file": "studies/private-key-blocks/replay.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/replay.py",
+      "bytes": 11073,
+      "sha256": "75e03fa4bb172f1a3ec68636427555ba7d314f066feac1a1f205df699c4f1e53"
+    },
+    {
+      "file": "studies/private-key-blocks/results/after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/after.json",
+      "bytes": 36982,
+      "sha256": "a2c8654655808de4abd1fa7f9685b057ded2664ac0556ca617f58541748a6430"
+    },
+    {
+      "file": "studies/private-key-blocks/results/before.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/before.json",
+      "bytes": 40220,
+      "sha256": "d55ca6bbb3469a58a2c6d87bdb5bab10c4e586f8439b768b1024c068a25bef5c"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/chromium-1280-masked.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/chromium-1280-masked.txt",
+      "bytes": 120,
+      "sha256": "ca3463768ae3f0b11767b087a48e459366d5d53c2f0e39a54d45eb41351369a6"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/chromium-1280-vault.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/chromium-1280-vault.json",
+      "bytes": 1249,
+      "sha256": "04ae493f325cf8aecd9e3526791755280e230bb3fe29ba54ed6a69965ce2ab1f"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/chromium-1280.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/chromium-1280.png",
+      "bytes": 141232,
+      "sha256": "b0b9ebd27efb922b573942b7b88c9785d09bd294bb47ce134cc85f2ca9e77460"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/chromium-375-masked.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/chromium-375-masked.txt",
+      "bytes": 120,
+      "sha256": "ca3463768ae3f0b11767b087a48e459366d5d53c2f0e39a54d45eb41351369a6"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/chromium-375-vault.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/chromium-375-vault.json",
+      "bytes": 1249,
+      "sha256": "04ae493f325cf8aecd9e3526791755280e230bb3fe29ba54ed6a69965ce2ab1f"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/chromium-375.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/chromium-375.png",
+      "bytes": 124261,
+      "sha256": "c7854c7ce977b651102b6a0a935a442c04bdca39a2da7d149c8b96712a29cc03"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/firefox-1280-masked.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/firefox-1280-masked.txt",
+      "bytes": 120,
+      "sha256": "ca3463768ae3f0b11767b087a48e459366d5d53c2f0e39a54d45eb41351369a6"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/firefox-1280-vault.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/firefox-1280-vault.json",
+      "bytes": 1249,
+      "sha256": "04ae493f325cf8aecd9e3526791755280e230bb3fe29ba54ed6a69965ce2ab1f"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/firefox-1280.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/firefox-1280.png",
+      "bytes": 216319,
+      "sha256": "be20bc41cd2815f42348921e20f37f5b4e9a66105df5281d6275a9be4f28d110"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/firefox-375-masked.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/firefox-375-masked.txt",
+      "bytes": 120,
+      "sha256": "ca3463768ae3f0b11767b087a48e459366d5d53c2f0e39a54d45eb41351369a6"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/firefox-375-vault.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/firefox-375-vault.json",
+      "bytes": 1249,
+      "sha256": "04ae493f325cf8aecd9e3526791755280e230bb3fe29ba54ed6a69965ce2ab1f"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/firefox-375.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/firefox-375.png",
+      "bytes": 180682,
+      "sha256": "102eefd517fd6687e8366ae0fe25167f3da84a8d8b2c78124344ac03f08abb5a"
+    },
+    {
+      "file": "studies/private-key-blocks/results/browser/receipt.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/browser/receipt.json",
+      "bytes": 3757,
+      "sha256": "75b062d8fc9f4e9369fb0b8961556eda07aa6cda381cdbfbd982b9b30e751ce9"
+    },
+    {
+      "file": "studies/private-key-blocks/results/clean-checks.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/clean-checks.json",
+      "bytes": 3600,
+      "sha256": "44d5ed59696924005e213cff55df24083e0de74d04d64590915c4b2e10d76129"
+    },
+    {
+      "file": "studies/private-key-blocks/results/clean-replay.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/clean-replay.json",
+      "bytes": 36981,
+      "sha256": "83d1d28894889b7e2bfec0f683e65125271b10a110fec76ac7c49b256339c76f"
+    },
+    {
+      "file": "studies/private-key-blocks/results/corpus-compatibility.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/corpus-compatibility.json",
+      "bytes": 701,
+      "sha256": "c37cb17873c02a12c0f18b18a0fc1972d7bb7cee595a130b2578a7f0b2dd2f0d"
+    },
+    {
+      "file": "studies/private-key-blocks/results/installed-core.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/installed-core.json",
+      "bytes": 28063,
+      "sha256": "471b52166baa020b10f0a1102533d699a71017cdb88ee715f1203277a48c6181"
+    },
+    {
+      "file": "studies/private-key-blocks/results/installed-current.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/installed-current.json",
+      "bytes": 36981,
+      "sha256": "6224a0baf69b6430901e645f11ff9c4201b40ec11a63b72b61dde394768aff5a"
+    },
+    {
+      "file": "studies/private-key-blocks/results/installed-floor.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/installed-floor.json",
+      "bytes": 36982,
+      "sha256": "e0fe2821baca36ec198fef60d7ce6df44842d1a906e45a58da225a7b3de4ed48"
+    },
+    {
+      "file": "studies/private-key-blocks/results/verification.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/studies/private-key-blocks/results/verification.json",
+      "bytes": 10006,
+      "sha256": "338cf5839100ca24f314fd598a1f3ac7182b440684dd8d534359809b1fe270f0"
+    },
+    {
+      "file": "tests/test_private_key_blocks.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/49e950c8d646f23b42858858b0812ee41c156bd9/tests/test_private_key_blocks.py",
+      "bytes": 5243,
+      "sha256": "526b71e7ae46223b70319b0a25aa7c18f18b90d4cc1e177a73a7cfadb937880c"
+    }
+  ]
+}

@@ -142,3 +142,12 @@ node studies/email-boundaries/check-browser.mjs web/dist /tmp/private-key-browse
 ```
 
 The build output is `web/dist/`. No app UI was changed.
+
+## Public source
+
+Revision `49e950c8d646f23b42858858b0812ee41c156bd9` was pushed to `main`.
+The [public-source receipt](results/public-source.json) compares all changed
+source/evidence files against their immutable GitHub raw bytes, with sizes and
+SHA-256 hashes. The clean local revision matched remote `main` before and after
+capture. This establishes source publication; no package release or hosted-demo
+update was verified.
