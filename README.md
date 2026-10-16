@@ -77,13 +77,11 @@ numbers, account IDs, and API keys. The usual answer is "redact it" —
 replace the value with `[REDACTED]`. That breaks the response: the model
 can't say "Dear [REDACTED], your order [REDACTED] ships tomorrow."
 
-Reversible pseudonymization fixes that instead: replace each sensitive
-value with a consistent surrogate, let the model reason over the
-surrogates, and map them back in the response. The model never sees the
-real data; the human on the other end never sees a redaction. The part
-almost nobody handles is doing that restoration on a *stream* of tokens,
-where a surrogate can be split across chunk boundaries — that's most of
-what this repository is about.
+Veil replaces detected values with consistent surrogates and keeps their
+originals in a local vault. Its SDK adapters send the masked prompt and restore
+surrogates in the response, including those split across streamed chunks.
+Detection has limits: values it misses still reach the model. The linked studies
+measure those limits and retain examples of both misses and false positives.
 
 ## How it works
 
@@ -139,6 +137,17 @@ into chunks produces output identical to restoring it unsplit
 ```bash
 pip install veil-pii
 ```
+
+The registry version is **0.4.4**. To use the unreleased corrections documented
+in this repository, install this tested source revision (requires Git):
+
+```bash
+python -m pip install --force-reinstall "veil-pii @ git+https://github.com/antonsoo/veil.git@f62bf202c9d53c0746f70da67e6eb098f7628471"
+```
+
+`--force-reinstall` also replaces an existing 0.4.4 installation: the source
+revision still declares that version. The [source-install receipt](studies/private-key-blocks/README.md#installing-the-tested-source)
+records an actual registry-to-source upgrade and runtime byte comparisons.
 
 ```python
 from veil import Masker

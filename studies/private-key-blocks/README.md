@@ -151,3 +151,21 @@ source/evidence files against their immutable GitHub raw bytes, with sizes and
 SHA-256 hashes. The clean local revision matched remote `main` before and after
 capture. This establishes source publication; no package release or hosted-demo
 update was verified.
+
+## Installing the tested source
+
+The registry package is still 0.4.4. A fresh Python 3.12 environment first
+installed that PyPI artifact, where `password="river stone"` was unchanged.
+It then ran the exact pinned command now shown in the main quickstart:
+
+```sh
+python -m pip install --force-reinstall "veil-pii @ git+https://github.com/antonsoo/veil.git@f62bf202c9d53c0746f70da67e6eb098f7628471"
+```
+
+The installed distribution still reports 0.4.4, but its `direct_url.json` records
+that immutable Git commit. All 38 runtime files match the tested source. The
+password becomes `password="⟨SECRET_1⟩"`; all 18 native private-key cases are fully
+masked and none of their masked outputs yields a usable signing key through the
+retained recovery procedure. [Receipt](results/source-install.json).
+This verifies a source installation, not a new registry release. SDK and browser
+verification for the same runtime bytes is recorded above.
