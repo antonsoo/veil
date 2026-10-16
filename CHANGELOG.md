@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### YAML block credentials
+
+- Recognize indented literal/folded bodies for supported credential mapping
+  keys. Literal indicators such as `|` were previously masked as passwords
+  while their body stayed visible; folded bodies were left unchanged.
+- Keep block headers, required indentation, line breaks at the boundary and
+  neighboring configuration readable. Internal text, extra indentation and
+  nested PII are one opaque raw span, with exact restoration.
+- Support automatic or explicit indentation, either chomping-indicator order,
+  compact sequences, BOM-prefixed input and LF/CRLF/CR. Empty/unsupported block
+  markers no longer masquerade as protected values. Native emitter, parser,
+  transport and collateral evidence is retained in `studies/yaml-credentials/`.
+  No runtime dependency was added; this remains a bounded recognizer.
+
 ### Opaque private-key blocks
 
 - Give an explicitly recognized private-key block the same enclosing-value

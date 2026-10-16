@@ -1,0 +1,417 @@
+{
+  "runtime_sha256": "702419d8c529b7069483131c22e8fee28b35dc9cbc5abe8df2b7458946b4ba2d",
+  "synthetic": true,
+  "native_cases": [
+    {
+      "id": "native-literal-ordinary",
+      "input_sha256": "0325ddaa7d87494e32b7ff69a9d49b3da0253c10cdeae239bc98ac44e7337785",
+      "masked": "connection:\n  password: |\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n    stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-literal-strip",
+      "input_sha256": "1ae5b84422757f3375ac3deab96ef5b429a601095b3c031166ec9bb464ca21b2",
+      "masked": "connection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n    stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-literal-keep",
+      "input_sha256": "f6e94814b40c77acb855f1427c2668be1e317c8a09f4b4f4139143548f8ef4b8",
+      "masked": "connection:\n  password: |+\n    ⟨SECRET_1⟩\n\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n    stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-literal-leading",
+      "input_sha256": "0676a0aa33856bece56362358e2f7638b1ceb65af987d5639283c6fd9e1a5863",
+      "masked": "connection:\n  password: |2\n\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n    stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-literal-indent",
+      "input_sha256": "a3e0f5f45ec762f2fcb3a746dd2c2ced53cf0cf60a6729299fefbfc3fc06df5b",
+      "masked": "connection:\n  password: |2\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "  river\n     stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-literal-nested",
+      "input_sha256": "4bad85f5548b07007d65ef12e23827c035cd371343ac29e41aa9d16ccfb753c9",
+      "masked": "connection:\n  password: |\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n    api_key=stone\n    # not a YAML comment",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-literal-pii",
+      "input_sha256": "ba68e82201e5cdb92d3df4675c0d8af8f40ac325c92fd2719c33c9cb4bebd239",
+      "masked": "connection:\n  password: |\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n    help@example.org\n    4111 1111 1111 1111\n    stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-literal-unicode",
+      "input_sha256": "6992c4bd91140324e549b9ae3cd92de95c086c393634cd0244fafbbaf00c99d2",
+      "masked": "connection:\n  password: |\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n    石の上にも三年\n    stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-folded-ordinary",
+      "input_sha256": "d81cb15992bd5b10156bb732242143878cd6f2f2d5a92422950bdfef0a543e4e",
+      "masked": "connection:\n  password: >\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n\n    stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-folded-strip",
+      "input_sha256": "f200070a1ec5f94ffa5368cd43d819ee9b381cc68979781595e00026572823bb",
+      "masked": "connection:\n  password: >-\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n\n    stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-folded-keep",
+      "input_sha256": "0c497b0c14f1624fc2ca9b42045d433893a28bb315cc989fc1d06396d84e1544",
+      "masked": "connection:\n  password: >+\n    ⟨SECRET_1⟩\n\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n\n    stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-folded-leading",
+      "input_sha256": "c75ec7deb28d12f4d789c2f45113d9bd6e24bc2a3e0fc07fc010d13d5ee98108",
+      "masked": "connection:\n  password: >2\n\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n\n    stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-folded-indent",
+      "input_sha256": "dbcdd308a04c307a4bc49912a53b067b91a2125db35aa0af7edefa1b21078ef0",
+      "masked": "connection:\n  password: >2\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "  river\n     stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-folded-nested",
+      "input_sha256": "8d6714017246687f340b1b046fb12ba7e32b4999a8df2889c3992b0d46bf4aa1",
+      "masked": "connection:\n  password: >\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n\n    api_key=stone\n\n    # not a YAML comment",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-folded-pii",
+      "input_sha256": "841d5d098b3be16592c2bb346eaf36e8f81d14443d887cfb43653ec4bbb2cf14",
+      "masked": "connection:\n  password: >\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n\n    help@example.org\n\n    4111 1111 1111 1111\n\n    stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    },
+    {
+      "id": "native-folded-unicode",
+      "input_sha256": "b3bccf67f90b3ac124be9c8a28a5970b84ff956ce89b36534cebb6d7b67431d3",
+      "masked": "connection:\n  password: >\n    ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "protected": true,
+      "exact_cli_and_stream_restore": true,
+      "vault": [
+        {
+          "original": "river\n\n    石の上にも三年\n\n    stone",
+          "surrogate": "⟨SECRET_1⟩"
+        }
+      ]
+    }
+  ],
+  "sdk_requests": [
+    {
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+      "restoresExactly": true,
+      "protected": true
+    },
+    {
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+      "restoresExactly": true,
+      "protected": true
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+      "restoresExactly": true,
+      "protected": true
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+      "restoresExactly": true,
+      "protected": true
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "request": {
+        "input": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+        "model": "test-model"
+      },
+      "outgoing": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+      "restoresExactly": true,
+      "protected": true
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "request": {
+        "input": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+      "restoresExactly": true,
+      "protected": true
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "request": {
+        "input": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+        "model": "test-model"
+      },
+      "outgoing": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+      "restoresExactly": true,
+      "protected": true
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "request": {
+        "input": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+      "restoresExactly": true,
+      "protected": true
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+      "restoresExactly": true,
+      "protected": true
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+      "restoresExactly": true,
+      "protected": true
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+      "restoresExactly": true,
+      "protected": true
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "Local integration failure. Keep mode and status for diagnosis.\nconnection:\n  password: |-\n    ⟨SECRET_1⟩\n  mode: read-only\nclient_secret: >-\n  ⟨SECRET_2⟩\nstatus: failed\n",
+      "restoresExactly": true,
+      "protected": true
+    }
+  ],
+  "versions": {
+    "veil-pii": "0.4.4",
+    "openai": "3.23.0",
+    "anthropic": "1.11.0"
+  },
+  "protected_native": 16,
+  "protected_sdk": 12
+}

@@ -1,0 +1,22 @@
+{
+  "scope": "Replay of the retained public technical corpus, not newly collected data or a recall/precision measurement. Every input was checked against its retained manifest SHA-256.",
+  "files": 1483,
+  "bytes": 32925796,
+  "words": 2616034,
+  "before_detections": 10407,
+  "after_detections": 10407,
+  "before_ledger_sha256": "4ebc86775409545616bb74fb52f9c22560a8bb7d5c5336ab0ee9eaf762d506c2",
+  "after_ledger_sha256": "4ebc86775409545616bb74fb52f9c22560a8bb7d5c5336ab0ee9eaf762d506c2",
+  "changed_files": [],
+  "manifests": [
+    {
+      "file": "real-text/manifest-technical.json",
+      "sha256": "55176de41eaad86b6b6e83eca89555c1d6bb61d5a93540f9ad019687ac5b0da4"
+    },
+    {
+      "file": "real-text/manifest-technical-heldout.json",
+      "sha256": "9a7e8ebbefe6a7b563c31b90ff0b9a5e17813d81821ee0ff956b4c0dd68b0202"
+    }
+  ],
+  "replay_driver": "studies/secret-formats/corpus.py"
+}

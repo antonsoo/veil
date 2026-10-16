@@ -1,0 +1,35 @@
+{
+  "entityType": "SECRET",
+  "detectorModule": "veil/detectors/_credential_fields.py",
+  "synthetic": true,
+  "cases": [
+    {
+      "id": "literal",
+      "prefix": "Literal credential:\n```yaml\npassword: |- # keep header\n  ",
+      "address": "river\n  stone",
+      "suffix": "\nmode: read-only\n```",
+      "mask": true
+    },
+    {
+      "id": "folded",
+      "prefix": "Folded credential:\n```yaml\nclient_secret: >-\n  ",
+      "address": "quiet\n  meadow",
+      "suffix": "\nstatus: failed\n```",
+      "mask": true
+    },
+    {
+      "id": "ordinary",
+      "prefix": "Ordinary block:\n```yaml\nnote: |\n  ",
+      "address": "ordinary directions\n  keep these words",
+      "suffix": "\nmode: read-only\n```",
+      "mask": false
+    },
+    {
+      "id": "empty",
+      "prefix": "Empty credential:\n```yaml\npassword: ",
+      "address": "|",
+      "suffix": "\nmode: read-only\n```",
+      "mask": false
+    }
+  ]
+}

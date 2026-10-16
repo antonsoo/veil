@@ -1,0 +1,124 @@
+{
+  "inputs_sha256": "336500d90336702009c543235c5d435410025cf26f2bfc31292fd29d47577a1a",
+  "runtime_sha256": "702419d8c529b7069483131c22e8fee28b35dc9cbc5abe8df2b7458946b4ba2d",
+  "parsers": {
+    "PyYAML": "6.0.3",
+    "ruamel.yaml": "0.18.16"
+  },
+  "synthetic": true,
+  "counts": {
+    "cases": 6912,
+    "protected": 6912,
+    "two_parsers_agree_on_both_documents": 6912,
+    "exact_restore": 6912,
+    "only_credential_value_changed": 6912
+  },
+  "breakdown": {
+    "style": {
+      "|": {
+        "cases": 3456,
+        "protected": 3456
+      },
+      ">": {
+        "cases": 3456,
+        "protected": 3456
+      }
+    },
+    "context": {
+      "root": {
+        "cases": 1728,
+        "protected": 1728
+      },
+      "mapping": {
+        "cases": 1728,
+        "protected": 1728
+      },
+      "sequence": {
+        "cases": 1728,
+        "protected": 1728
+      },
+      "compact": {
+        "cases": 1728,
+        "protected": 1728
+      }
+    },
+    "body": {
+      "ordinary": {
+        "cases": 1152,
+        "protected": 1152
+      },
+      "blank": {
+        "cases": 1152,
+        "protected": 1152
+      },
+      "comment": {
+        "cases": 1152,
+        "protected": 1152
+      },
+      "indented": {
+        "cases": 1152,
+        "protected": 1152
+      },
+      "tab": {
+        "cases": 1152,
+        "protected": 1152
+      },
+      "unicode": {
+        "cases": 1152,
+        "protected": 1152
+      }
+    },
+    "line_break": {
+      "'\\n'": {
+        "cases": 2304,
+        "protected": 2304
+      },
+      "'\\r\\n'": {
+        "cases": 2304,
+        "protected": 2304
+      },
+      "'\\r'": {
+        "cases": 2304,
+        "protected": 2304
+      }
+    }
+  },
+  "examples": [
+    {
+      "id": "|:root:ordinary:'\\n'",
+      "source": "password: | # diagnostic header\n  river\n  stone\nmode: read-only\nstatus: failed\n",
+      "masked": "password: | # diagnostic header\n  ⟨SECRET_1⟩\nmode: read-only\nstatus: failed\n",
+      "protected": true
+    },
+    {
+      "id": "|:root:ordinary:'\\r\\n'",
+      "source": "password: | # diagnostic header\r\n  river\r\n  stone\r\nmode: read-only\r\nstatus: failed\r\n",
+      "masked": "password: | # diagnostic header\r\n  ⟨SECRET_1⟩\r\nmode: read-only\r\nstatus: failed\r\n",
+      "protected": true
+    },
+    {
+      "id": "|:root:ordinary:'\\r'",
+      "source": "password: | # diagnostic header\r  river\r  stone\rmode: read-only\rstatus: failed\r",
+      "masked": "password: | # diagnostic header\r  ⟨SECRET_1⟩\rmode: read-only\rstatus: failed\r",
+      "protected": true
+    },
+    {
+      "id": "|:root:blank:'\\n'",
+      "source": "password: | # diagnostic header\n\n  river\n\n  stone\n\nmode: read-only\nstatus: failed\n",
+      "masked": "password: | # diagnostic header\n\n  ⟨SECRET_1⟩\n\nmode: read-only\nstatus: failed\n",
+      "protected": true
+    },
+    {
+      "id": "|:root:blank:'\\r\\n'",
+      "source": "password: | # diagnostic header\r\n\r\n  river\r\n\r\n  stone\r\n\r\nmode: read-only\r\nstatus: failed\r\n",
+      "masked": "password: | # diagnostic header\r\n\r\n  ⟨SECRET_1⟩\r\n\r\nmode: read-only\r\nstatus: failed\r\n",
+      "protected": true
+    },
+    {
+      "id": "|:root:blank:'\\r'",
+      "source": "password: | # diagnostic header\r\r  river\r\r  stone\r\rmode: read-only\rstatus: failed\r",
+      "masked": "password: | # diagnostic header\r\r  ⟨SECRET_1⟩\r\rmode: read-only\rstatus: failed\r",
+      "protected": true
+    }
+  ]
+}

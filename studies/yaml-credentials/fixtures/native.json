@@ -1,0 +1,406 @@
+{
+  "writer": "PyYAML 6.0.3",
+  "synthetic": true,
+  "cases": [
+    {
+      "id": "native-literal-ordinary",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: |\n    river\n    stone\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "0325ddaa7d87494e32b7ff69a9d49b3da0253c10cdeae239bc98ac44e7337785",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "river\nstone\n",
+      "native_scalar_span": [
+        24,
+        46
+      ],
+      "header": "|",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-literal-strip",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: |-\n    river\n    stone\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "1ae5b84422757f3375ac3deab96ef5b429a601095b3c031166ec9bb464ca21b2",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "river\nstone",
+      "native_scalar_span": [
+        24,
+        47
+      ],
+      "header": "|-",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-literal-keep",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: |+\n    river\n    stone\n\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "f6e94814b40c77acb855f1427c2668be1e317c8a09f4b4f4139143548f8ef4b8",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "river\nstone\n\n",
+      "native_scalar_span": [
+        24,
+        48
+      ],
+      "header": "|+",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-literal-leading",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: |2\n\n    river\n    stone\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "0676a0aa33856bece56362358e2f7638b1ceb65af987d5639283c6fd9e1a5863",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "\nriver\nstone\n",
+      "native_scalar_span": [
+        24,
+        48
+      ],
+      "header": "|2",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-literal-indent",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: |2\n      river\n     stone\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "a3e0f5f45ec762f2fcb3a746dd2c2ced53cf0cf60a6729299fefbfc3fc06df5b",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "  river\n stone\n",
+      "native_scalar_span": [
+        24,
+        50
+      ],
+      "header": "|2",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-literal-nested",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: |\n    river\n    api_key=stone\n    # not a YAML comment\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "4bad85f5548b07007d65ef12e23827c035cd371343ac29e41aa9d16ccfb753c9",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "river\napi_key=stone\n# not a YAML comment\n",
+      "native_scalar_span": [
+        24,
+        79
+      ],
+      "header": "|",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-literal-pii",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: |\n    river\n    help@example.org\n    4111 1111 1111 1111\n    stone\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "ba68e82201e5cdb92d3df4675c0d8af8f40ac325c92fd2719c33c9cb4bebd239",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "river\nhelp@example.org\n4111 1111 1111 1111\nstone\n",
+      "native_scalar_span": [
+        24,
+        91
+      ],
+      "header": "|",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-literal-unicode",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: |\n    river\n    石の上にも三年\n    stone\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "6992c4bd91140324e549b9ae3cd92de95c086c393634cd0244fafbbaf00c99d2",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "river\n石の上にも三年\nstone\n",
+      "native_scalar_span": [
+        24,
+        58
+      ],
+      "header": "|",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-folded-ordinary",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: >\n    river\n\n    stone\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "d81cb15992bd5b10156bb732242143878cd6f2f2d5a92422950bdfef0a543e4e",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "river\nstone\n",
+      "native_scalar_span": [
+        24,
+        47
+      ],
+      "header": ">",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-folded-strip",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: >-\n    river\n\n    stone\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "f200070a1ec5f94ffa5368cd43d819ee9b381cc68979781595e00026572823bb",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "river\nstone",
+      "native_scalar_span": [
+        24,
+        48
+      ],
+      "header": ">-",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-folded-keep",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: >+\n    river\n\n    stone\n\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "0c497b0c14f1624fc2ca9b42045d433893a28bb315cc989fc1d06396d84e1544",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "river\nstone\n\n",
+      "native_scalar_span": [
+        24,
+        49
+      ],
+      "header": ">+",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-folded-leading",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: >2\n\n    river\n\n    stone\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "c75ec7deb28d12f4d789c2f45113d9bd6e24bc2a3e0fc07fc010d13d5ee98108",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "\nriver\nstone\n",
+      "native_scalar_span": [
+        24,
+        49
+      ],
+      "header": ">2",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-folded-indent",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: >2\n      river\n     stone\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "dbcdd308a04c307a4bc49912a53b067b91a2125db35aa0af7edefa1b21078ef0",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "  river\n stone\n",
+      "native_scalar_span": [
+        24,
+        50
+      ],
+      "header": ">2",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-folded-nested",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: >\n    river\n\n    api_key=stone\n\n    # not a YAML comment\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "8d6714017246687f340b1b046fb12ba7e32b4999a8df2889c3992b0d46bf4aa1",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "river\napi_key=stone\n# not a YAML comment\n",
+      "native_scalar_span": [
+        24,
+        81
+      ],
+      "header": ">",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-folded-pii",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: >\n    river\n\n    help@example.org\n\n    4111 1111 1111 1111\n\n    stone\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "841d5d098b3be16592c2bb346eaf36e8f81d14443d887cfb43653ec4bbb2cf14",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "river\nhelp@example.org\n4111 1111 1111 1111\nstone\n",
+      "native_scalar_span": [
+        24,
+        94
+      ],
+      "header": ">",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    },
+    {
+      "id": "native-folded-unicode",
+      "kind": "native-pyyaml-emission",
+      "source": "connection:\n  password: >\n    river\n\n    石の上にも三年\n\n    stone\n  mode: read-only\nstatus: failed\n",
+      "source_sha256": "b3bccf67f90b3ac124be9c8a28a5970b84ff956ce89b36534cebb6d7b67431d3",
+      "credential_path": [
+        "connection",
+        "password"
+      ],
+      "decoded_original": "river\n石の上にも三年\nstone\n",
+      "native_scalar_span": [
+        24,
+        60
+      ],
+      "header": ">",
+      "sensitive_fragments": [
+        "river",
+        "stone"
+      ],
+      "retained_fragments": [
+        "connection:",
+        "  mode: read-only\n",
+        "status: failed\n"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "scope": "Bounded local detector timings, including malformed input; no latency guarantee.",
+  "python": "3.12.12",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "warmups": 1,
+  "repeats": 3,
+  "rows": [
+    {
+      "case": "quoted",
+      "sizeParameter": 10000,
+      "bytes": 10008,
+      "sourceSha256": "98a473c45c455ff8ea692288d7668a349946ed2c20e5fd0f41dd26ea96086ad6",
+      "detections": 1,
+      "medianSeconds": 0.0076731229783035815,
+      "seconds": [
+        0.0076731229783035815,
+        0.025463985977694392,
+        0.003979477973189205
+      ]
+    },
+    {
+      "case": "escaped-quotes",
+      "sizeParameter": 10000,
+      "bytes": 10011,
+      "sourceSha256": "523f10050fbec1626eea31aed2aead67a3fb34fe52384ec77eed45afc570a056",
+      "detections": 1,
+      "medianSeconds": 0.019188815029338002,
+      "seconds": [
+        0.0035714629921130836,
+        0.04856690496671945,
+        0.019188815029338002
+      ]
+    },
+    {
+      "case": "unclosed-quoted",
+      "sizeParameter": 10000,
+      "bytes": 10011,
+      "sourceSha256": "a545c83bbfbdf2edc8e4b0e4b52df5a30b98038784472865557bd36ae6594cef",
+      "detections": 0,
+      "medianSeconds": 0.01523504703072831,
+      "seconds": [
+        0.01523504703072831,
+        0.0047750279773026705,
+        0.01700770203024149
+      ]
+    },
+    {
+      "case": "bare",
+      "sizeParameter": 10000,
+      "bytes": 10009,
+      "sourceSha256": "9719a05071d7149cd05cf843326bbb4f1bd331dcffd54a056edcd93a05c8ae4d",
+      "detections": 1,
+      "medianSeconds": 0.0050123080145567656,
+      "seconds": [
+        0.0034654440241865814,
+        0.0050123080145567656,
+        0.011452531034592539
+      ]
+    },
+    {
+      "case": "repeated",
+      "sizeParameter": 10000,
+      "bytes": 9990,
+      "sourceSha256": "204b0f51135e162a990560d4e630a55f64fb8261baf663a362900408e7966e6f",
+      "detections": 666,
+      "medianSeconds": 0.014515296032186598,
+      "seconds": [
+        0.012444870022591203,
+        0.018861025979276747,
+        0.014515296032186598
+      ]
+    },
+    {
+      "case": "missing",
+      "sizeParameter": 10000,
+      "bytes": 10000,
+      "sourceSha256": "fe7349053757ede2ccebc389a6f3d9780827956a1bee06226486926809ed3a7a",
+      "detections": 0,
+      "medianSeconds": 0.0039355100016109645,
+      "seconds": [
+        0.0052636960172094405,
+        0.0036251620040275156,
+        0.0039355100016109645
+      ]
+    },
+    {
+      "case": "uppercase-prefix",
+      "sizeParameter": 10000,
+      "bytes": 10024,
+      "sourceSha256": "9cd3954b5b1b950a1a66f842cb4d490ff4cfda4143c29bbdc2eec861582188a7",
+      "detections": 0,
+      "medianSeconds": 0.0031576759647578,
+      "seconds": [
+        0.005849590990692377,
+        0.0031576759647578,
+        0.0030862520216032863
+      ]
+    },
+    {
+      "case": "ordinary-prose",
+      "sizeParameter": 10000,
+      "bytes": 10240,
+      "sourceSha256": "5757cadde0e759beae82ed0ff96ae2c7dc69195aa2f1aa72755a24babc2eaf08",
+      "detections": 0,
+      "medianSeconds": 0.004104331019334495,
+      "seconds": [
+        0.003927532990928739,
+        0.00725014298222959,
+        0.004104331019334495
+      ]
+    },
+    {
+      "case": "quoted",
+      "sizeParameter": 100000,
+      "bytes": 100008,
+      "sourceSha256": "463565ae3a4cd3bec62e2b32d57390c863e0e25fcd02e3b9885095cde3248b4d",
+      "detections": 1,
+      "medianSeconds": 0.08002921199658886,
+      "seconds": [
+        0.08002921199658886,
+        0.0880539909703657,
+        0.07944097701692954
+      ]
+    },
+    {
+      "case": "escaped-quotes",
+      "sizeParameter": 100000,
+      "bytes": 100011,
+      "sourceSha256": "9fa40d732659ecc526613684e7fbf7d3353ac69a86d5cbc5ea95fb9701f400a3",
+      "detections": 1,
+      "medianSeconds": 0.1034331860137172,
+      "seconds": [
+        0.06602916301926598,
+        0.1077760590123944,
+        0.1034331860137172
+      ]
+    },
+    {
+      "case": "unclosed-quoted",
+      "sizeParameter": 100000,
+      "bytes": 100011,
+      "sourceSha256": "7812a97579dc3606bda4c807b4f5f924e81812cd2d2a3fca01ae7db9dd44985d",
+      "detections": 0,
+      "medianSeconds": 0.06043173000216484,
+      "seconds": [
+        0.05981858097948134,
+        0.06043173000216484,
+        0.06112522498006001
+      ]
+    },
+    {
+      "case": "bare",
+      "sizeParameter": 100000,
+      "bytes": 100009,
+      "sourceSha256": "53ecf6eb44df4026edcf0cfad2dd59573a1296ba1c62d9b6c4a628e2a34b2b3e",
+      "detections": 1,
+      "medianSeconds": 0.04695348296081647,
+      "seconds": [
+        0.04695348296081647,
+        0.04939541104249656,
+        0.042046658985782415
+      ]
+    },
+    {
+      "case": "repeated",
+      "sizeParameter": 100000,
+      "bytes": 99990,
+      "sourceSha256": "3fd252b99a7941d801d9843a00234b3f338878a874e80f39c9eb11f7edb4e25a",
+      "detections": 6666,
+      "medianSeconds": 0.12421887798700482,
+      "seconds": [
+        0.08024245797423646,
+        0.13327597599709406,
+        0.12421887798700482
+      ]
+    },
+    {
+      "case": "missing",
+      "sizeParameter": 100000,
+      "bytes": 100000,
+      "sourceSha256": "dd2115f14d123c82857ebd1b647d0d509fa6780754f981517770464c7b01ca85",
+      "detections": 0,
+      "medianSeconds": 0.05004646599991247,
+      "seconds": [
+        0.042669047019444406,
+        0.05004646599991247,
+        0.059923082997556776
+      ]
+    },
+    {
+      "case": "uppercase-prefix",
+      "sizeParameter": 100000,
+      "bytes": 100024,
+      "sourceSha256": "c4ed41bdca48a5983f263e808581c8cc315bf94ca6eae90a8cfd4eae99d9dd3f",
+      "detections": 0,
+      "medianSeconds": 0.05133093101903796,
+      "seconds": [
+        0.03700492699863389,
+        0.05133093101903796,
+        0.08889887505210936
+      ]
+    },
+    {
+      "case": "ordinary-prose",
+      "sizeParameter": 100000,
+      "bytes": 102560,
+      "sourceSha256": "c205ab694cf5d085942a938747f6989582350c2144351afa1e384ce30173989a",
+      "detections": 0,
+      "medianSeconds": 0.057675591961015016,
+      "seconds": [
+        0.06123573798686266,
+        0.057675591961015016,
+        0.05430200498085469
+      ]
+    },
+    {
+      "case": "quoted",
+      "sizeParameter": 1000000,
+      "bytes": 1000008,
+      "sourceSha256": "1728aa38c259a0686f6d25d117862adb655a95a400a644511d0c4d7587593dbd",
+      "detections": 1,
+      "medianSeconds": 0.7964646079926752,
+      "seconds": [
+        0.7203592270379886,
+        0.7964646079926752,
+        0.8125441640149802
+      ]
+    },
+    {
+      "case": "escaped-quotes",
+      "sizeParameter": 1000000,
+      "bytes": 1000011,
+      "sourceSha256": "e8cbd23655bdc3bdeafd801636fe3c1935cd421444cec88bd56b92452b2d69e3",
+      "detections": 1,
+      "medianSeconds": 0.7700789640075527,
+      "seconds": [
+        0.624934055027552,
+        0.7839719369658269,
+        0.7700789640075527
+      ]
+    },
+    {
+      "case": "unclosed-quoted",
+      "sizeParameter": 1000000,
+      "bytes": 1000011,
+      "sourceSha256": "6713161201d19b42ff1ba2f810454381712063e391e57b04b2439f37bbc7b81c",
+      "detections": 0,
+      "medianSeconds": 0.7340806640568189,
+      "seconds": [
+        0.6538492770050652,
+        0.7795408259844407,
+        0.7340806640568189
+      ]
+    },
+    {
+      "case": "bare",
+      "sizeParameter": 1000000,
+      "bytes": 1000009,
+      "sourceSha256": "f26fe3245cfb7a42ffd027a5706d76ae7df3a2e8c4df8916a619fd2ec1651d70",
+      "detections": 1,
+      "medianSeconds": 0.5066508110030554,
+      "seconds": [
+        0.5066508110030554,
+        0.6435319749871269,
+        0.4697140140342526
+      ]
+    },
+    {
+      "case": "repeated",
+      "sizeParameter": 1000000,
+      "bytes": 999990,
+      "sourceSha256": "644256e8c031e42d6016b6c584f30b8c4f7d16b988b93aa8ede1effe63a5ba47",
+      "detections": 66666,
+      "medianSeconds": 1.4295370019972324,
+      "seconds": [
+        1.2921919299988076,
+        1.4295370019972324,
+        1.8933040400152095
+      ]
+    },
+    {
+      "case": "missing",
+      "sizeParameter": 1000000,
+      "bytes": 1000000,
+      "sourceSha256": "4a89f700cedff2fe183aae00ab81576b2f679f902d9a46b20fc29d26440ad393",
+      "detections": 0,
+      "medianSeconds": 0.8388774420018308,
+      "seconds": [
+        0.7789085900294594,
+        0.8388774420018308,
+        0.9667339670122601
+      ]
+    },
+    {
+      "case": "uppercase-prefix",
+      "sizeParameter": 1000000,
+      "bytes": 1000024,
+      "sourceSha256": "edb3539ae26c703f4d610f9aae3ead9a5369048ff10c5f21d057637e2786f497",
+      "detections": 0,
+      "medianSeconds": 0.7134813810116611,
+      "seconds": [
+        0.7134813810116611,
+        0.8439678950235248,
+        0.6634966009878553
+      ]
+    },
+    {
+      "case": "ordinary-prose",
+      "sizeParameter": 1000000,
+      "bytes": 1025640,
+      "sourceSha256": "fad1c4a4e822076da0b1b8bcfb6a0efba31fbbf76215ccd2032a73f11c861d17",
+      "detections": 0,
+      "medianSeconds": 0.94511806598166,
+      "seconds": [
+        0.9131545430282131,
+        0.94511806598166,
+        0.9509995609987527
+      ]
+    }
+  ]
+}

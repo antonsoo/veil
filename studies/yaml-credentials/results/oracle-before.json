@@ -1,0 +1,160 @@
+{
+  "inputs_sha256": "336500d90336702009c543235c5d435410025cf26f2bfc31292fd29d47577a1a",
+  "runtime_sha256": "cd0937a2be19664508f58e9396169177bcb85bac7e8d31b544e529d6a4b0823b",
+  "parsers": {
+    "PyYAML": "6.0.3",
+    "ruamel.yaml": "0.18.16"
+  },
+  "synthetic": true,
+  "counts": {
+    "cases": 6912,
+    "protected": 0,
+    "masked_parse_errors": 3456,
+    "exact_restore": 6912,
+    "two_parsers_agree_on_both_documents": 3456
+  },
+  "breakdown": {
+    "style": {
+      "|": {
+        "cases": 3456,
+        "protected": 0
+      },
+      ">": {
+        "cases": 3456,
+        "protected": 0
+      }
+    },
+    "context": {
+      "root": {
+        "cases": 1728,
+        "protected": 0
+      },
+      "mapping": {
+        "cases": 1728,
+        "protected": 0
+      },
+      "sequence": {
+        "cases": 1728,
+        "protected": 0
+      },
+      "compact": {
+        "cases": 1728,
+        "protected": 0
+      }
+    },
+    "body": {
+      "ordinary": {
+        "cases": 1152,
+        "protected": 0
+      },
+      "blank": {
+        "cases": 1152,
+        "protected": 0
+      },
+      "comment": {
+        "cases": 1152,
+        "protected": 0
+      },
+      "indented": {
+        "cases": 1152,
+        "protected": 0
+      },
+      "tab": {
+        "cases": 1152,
+        "protected": 0
+      },
+      "unicode": {
+        "cases": 1152,
+        "protected": 0
+      }
+    },
+    "line_break": {
+      "'\\n'": {
+        "cases": 2304,
+        "protected": 0
+      },
+      "'\\r\\n'": {
+        "cases": 2304,
+        "protected": 0
+      },
+      "'\\r'": {
+        "cases": 2304,
+        "protected": 0
+      }
+    }
+  },
+  "examples": [
+    {
+      "id": "|:root:ordinary:'\\n'",
+      "source": "password: | # diagnostic header\n  river\n  stone\nmode: read-only\nstatus: failed\n",
+      "masked": "password: ⟨SECRET_1⟩ # diagnostic header\n  river\n  stone\nmode: read-only\nstatus: failed\n",
+      "protected": false
+    },
+    {
+      "id": "|:root:ordinary:'\\r\\n'",
+      "source": "password: | # diagnostic header\r\n  river\r\n  stone\r\nmode: read-only\r\nstatus: failed\r\n",
+      "masked": "password: ⟨SECRET_1⟩ # diagnostic header\r\n  river\r\n  stone\r\nmode: read-only\r\nstatus: failed\r\n",
+      "protected": false
+    },
+    {
+      "id": "|:root:ordinary:'\\r'",
+      "source": "password: | # diagnostic header\r  river\r  stone\rmode: read-only\rstatus: failed\r",
+      "masked": "password: ⟨SECRET_1⟩ # diagnostic header\r  river\r  stone\rmode: read-only\rstatus: failed\r",
+      "protected": false
+    },
+    {
+      "id": "|:root:blank:'\\n'",
+      "source": "password: | # diagnostic header\n\n  river\n\n  stone\n\nmode: read-only\nstatus: failed\n",
+      "masked": "password: ⟨SECRET_1⟩ # diagnostic header\n\n  river\n\n  stone\n\nmode: read-only\nstatus: failed\n",
+      "protected": false
+    },
+    {
+      "id": "|:root:blank:'\\r\\n'",
+      "source": "password: | # diagnostic header\r\n\r\n  river\r\n\r\n  stone\r\n\r\nmode: read-only\r\nstatus: failed\r\n",
+      "masked": "password: ⟨SECRET_1⟩ # diagnostic header\r\n\r\n  river\r\n\r\n  stone\r\n\r\nmode: read-only\r\nstatus: failed\r\n",
+      "protected": false
+    },
+    {
+      "id": "|:root:blank:'\\r'",
+      "source": "password: | # diagnostic header\r\r  river\r\r  stone\r\rmode: read-only\rstatus: failed\r",
+      "masked": "password: ⟨SECRET_1⟩ # diagnostic header\r\r  river\r\r  stone\r\rmode: read-only\rstatus: failed\r",
+      "protected": false
+    },
+    {
+      "id": "|:root:comment:'\\n'",
+      "source": "password: | # diagnostic header\n  # river\n  api_key=stone\nmode: read-only\nstatus: failed\n",
+      "masked": "password: ⟨SECRET_1⟩ # diagnostic header\n  # river\n  api_key=⟨SECRET_2⟩\nmode: read-only\nstatus: failed\n",
+      "protected": false
+    },
+    {
+      "id": "|:root:comment:'\\r\\n'",
+      "source": "password: | # diagnostic header\r\n  # river\r\n  api_key=stone\r\nmode: read-only\r\nstatus: failed\r\n",
+      "masked": "password: ⟨SECRET_1⟩ # diagnostic header\r\n  # river\r\n  api_key=⟨SECRET_2⟩\r\nmode: read-only\r\nstatus: failed\r\n",
+      "protected": false
+    },
+    {
+      "id": "|:root:comment:'\\r'",
+      "source": "password: | # diagnostic header\r  # river\r  api_key=stone\rmode: read-only\rstatus: failed\r",
+      "masked": "password: ⟨SECRET_1⟩ # diagnostic header\r  # river\r  api_key=⟨SECRET_2⟩\rmode: read-only\rstatus: failed\r",
+      "protected": false
+    },
+    {
+      "id": "|:root:indented:'\\n'",
+      "source": "password: | # diagnostic header\n  river\n     stone\nmode: read-only\nstatus: failed\n",
+      "masked": "password: ⟨SECRET_1⟩ # diagnostic header\n  river\n     stone\nmode: read-only\nstatus: failed\n",
+      "protected": false
+    },
+    {
+      "id": "|:root:indented:'\\r\\n'",
+      "source": "password: | # diagnostic header\r\n  river\r\n     stone\r\nmode: read-only\r\nstatus: failed\r\n",
+      "masked": "password: ⟨SECRET_1⟩ # diagnostic header\r\n  river\r\n     stone\r\nmode: read-only\r\nstatus: failed\r\n",
+      "protected": false
+    },
+    {
+      "id": "|:root:indented:'\\r'",
+      "source": "password: | # diagnostic header\r  river\r     stone\rmode: read-only\rstatus: failed\r",
+      "masked": "password: ⟨SECRET_1⟩ # diagnostic header\r  river\r     stone\rmode: read-only\rstatus: failed\r",
+      "protected": false
+    }
+  ]
+}
