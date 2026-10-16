@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "type": "SECRET",
+      "original": "river\n  stone",
+      "surrogate": "⟨SECRET_1⟩",
+      "detector": "secret:credential_field"
+    },
+    {
+      "type": "SECRET",
+      "original": "quiet\n  meadow",
+      "surrogate": "⟨SECRET_2⟩",
+      "detector": "secret:credential_field"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+Literal credential:
+```yaml
+password: ⟨SECRET_1⟩ # keep header
+  river
+  stone
+mode: read-only
+```
+Folded credential:
+```yaml
+client_secret: >-
+  quiet
+  meadow
+status: failed
+```
+Ordinary block:
+```yaml
+note: |
+  ordinary directions
+  keep these words
+mode: read-only
+```
+Empty credential:
+```yaml
+password: ⟨SECRET_2⟩
+mode: read-only
+```

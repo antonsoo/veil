@@ -1,0 +1,192 @@
+{
+  "source_revision": "1b26a1d",
+  "rows": [
+    {
+      "id": "install",
+      "command": [
+        "uv",
+        "sync",
+        "--locked",
+        "--python",
+        "3.14",
+        "--group",
+        "dev",
+        "--extra",
+        "spacy"
+      ],
+      "cwd": ".",
+      "exit": 0,
+      "seconds": 6.208597154007293,
+      "log_sha256": "025360deb01eb85b77d9c3414874faf78b51e91d2bb6187ded01b2d43eb89646",
+      "tail": [
+        " + urllib3==2.8.0",
+        " + veil-pii==0.4.4 (from file://<clean>)",
+        " + wasabi==1.1.3",
+        " + weasel==1.0.0"
+      ]
+    },
+    {
+      "id": "lint",
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "ruff",
+        "check",
+        "."
+      ],
+      "cwd": ".",
+      "exit": 0,
+      "seconds": 0.7146827569813468,
+      "log_sha256": "44f338f1e0f25678eb2443b45b61f13f9af4a855fe9ef7873117b807458df4ee",
+      "tail": [
+        "warning: Using incompatible environment (`.venv`) due to `--no-sync` (The project environment's Python version does not satisfy the request: `Python 3.12`)",
+        "All checks passed!"
+      ]
+    },
+    {
+      "id": "format",
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "cwd": ".",
+      "exit": 0,
+      "seconds": 0.2535989109892398,
+      "log_sha256": "a342c20d73163f822053d19dd4158033c74ee675b61e0fb5a70f5f0a674c937e",
+      "tail": [
+        "warning: Using incompatible environment (`.venv`) due to `--no-sync` (The project environment's Python version does not satisfy the request: `Python 3.12`)",
+        "197 files already formatted"
+      ]
+    },
+    {
+      "id": "types",
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "mypy"
+      ],
+      "cwd": ".",
+      "exit": 0,
+      "seconds": 4.669064512010664,
+      "log_sha256": "29b1ce4b3f668d3461bd2109f3e51ed0ab4a21f27d2bbfdf1fb7140479e7c2be",
+      "tail": [
+        "warning: Using incompatible environment (`.venv`) due to `--no-sync` (The project environment's Python version does not satisfy the request: `Python 3.12`)",
+        "Success: no issues found in 36 source files"
+      ]
+    },
+    {
+      "id": "tests",
+      "command": [
+        "uv",
+        "run",
+        "--no-sync",
+        "pytest",
+        "-q"
+      ],
+      "cwd": ".",
+      "exit": 0,
+      "seconds": 46.46138452598825,
+      "log_sha256": "187401eaef88ec8db3c3d6c9cf86816fd2e45f5aea96c92760c0bd3f2df44c5a",
+      "tail": [
+        "........................................................................ [ 91%]",
+        "........................................................................ [ 96%]",
+        "....................................................                     [100%]",
+        "1420 passed in 42.76s"
+      ]
+    },
+    {
+      "id": "build",
+      "command": [
+        "uv",
+        "build"
+      ],
+      "cwd": ".",
+      "exit": 0,
+      "seconds": 1.163639510050416,
+      "log_sha256": "5a4a89251c9a55fcf36e6a46c0793b59ded5ae00c756e3679e32faac4c7a5f42",
+      "tail": [
+        "Building source distribution...",
+        "Building wheel from source distribution...",
+        "Successfully built dist/veil_pii-0.4.4.tar.gz",
+        "Successfully built dist/veil_pii-0.4.4-py3-none-any.whl"
+      ]
+    },
+    {
+      "id": "web-install",
+      "command": [
+        "npm",
+        "ci"
+      ],
+      "cwd": "web",
+      "exit": 0,
+      "seconds": 3.3411738440045156,
+      "log_sha256": "377d688b62efed2128eee1ed6fc605e5a139a808bc0da499c232e5d1d011dd58",
+      "tail": [
+        "npm warn install-scripts 1 package had install scripts blocked because they are not covered by allowScripts:",
+        "npm warn install-scripts   esbuild@0.25.12 (postinstall: node install.js)",
+        "npm warn install-scripts",
+        "npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow."
+      ]
+    },
+    {
+      "id": "web-types",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "cwd": "web",
+      "exit": 0,
+      "seconds": 1.5886981259682216,
+      "log_sha256": "61cdb9d7137c591ce171ff8c340ba2e6f24f1d219d383a866a0e284d3715c996",
+      "tail": [
+        "npm notice run veil-demo@0.1.0 lint",
+        "npm notice run tsc --noEmit"
+      ]
+    },
+    {
+      "id": "web-build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "cwd": "web",
+      "exit": 0,
+      "seconds": 2.7215596720343456,
+      "log_sha256": "c4d1cdfd9847f0692c34dfb16bfa7f18735b761827becf0c56f05c445f5effaf",
+      "tail": [
+        "dist/assets/fraunces-latin-DihXLNYH.woff2                  67.30 kB",
+        "dist/assets/index-yPXPXXYm.css                             19.96 kB \u2502 gzip: 3.31 kB",
+        "dist/assets/index-CpvUtn8x.js                              11.12 kB \u2502 gzip: 4.52 kB",
+        "\u2713 built in 548ms"
+      ]
+    },
+    {
+      "id": "web-browser",
+      "command": [
+        "npm",
+        "run",
+        "test:browser"
+      ],
+      "cwd": "web",
+      "exit": 0,
+      "seconds": 192.99010580702452,
+      "log_sha256": "e57dd0434eadc19df2d362292d680490baf1ba07e0d71352de18159873b593e9",
+      "tail": [
+        "PASS firefox 1280px literal surrogate",
+        "PASS firefox recovery and limits",
+        "PASS firefox load failure and cancellation",
+        "16 browser scenarios passed."
+      ]
+    }
+  ],
+  "log_excerpt_paths": "Scratch path abbreviated as <clean>; log hashes refer to the original unmodified command output."
+}

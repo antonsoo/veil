@@ -55,6 +55,9 @@ masked parse failures. [Baseline matrix](results/oracle-before.json),
 
 ## Recognition boundary
 
+The [YAML 1.2.2 block-scalar rules](https://yaml.org/spec/1.2.2/#81-block-scalar-styles)
+define the indentation and indicator syntax; the narrower scope here is explicit.
+
 The existing explicit credential labels apply, including supported quoted keys
 and uppercase environment-style prefixes. A block header must start a mapping
 entry, optionally in compact sequences. `|` and `>` accept automatic indentation
@@ -109,3 +112,46 @@ browser verification. Machine: 14 vCPU WSL2 Linux, 48 GB RAM; Python 3.12.12.
 The earlier 24-case assignment timings in `results/scaling-*.json` describe
 the intermediate source `425dd6b`, before the bare-pipe review correction;
 the block-specific measurements identify the final runtime hash.
+
+## Clean packages and browser behavior
+
+A clean archive of `1b26a1d` passed locked Python 3.14.7 installation with
+the development/spaCy dependencies, Ruff, formatting, strict mypy (36 source
+files), all **1,420 tests with no skips**, wheel/sdist builds, clean `npm ci`,
+web typechecking/build and all **16 existing browser scenarios**.
+[Command receipt](results/clean-checks.json).
+
+The wheel and sdist each contain the same 38 package files as that source.
+Fresh installed wheels on Python **3.10.21** and **3.14.7** retain those bytes;
+the former has no installed dependency. Both replay all 16 native writer inputs
+through the actual CLI/vault and four restoration chunk sizes. The latter also
+passes all 12 mock-transport workflows with OpenAI 3.32.0 and Anthropic 1.15.0.
+Imports come from `site-packages`. Both installations pass the documented CLI
+mask/restore/audit and `mask_many` workflows, including an intentional audit
+failure for the original unmasked ticket.
+[Package, command and browser-manifest receipt](results/verification.json),
+[core-only replay](results/wheel310.json), [current SDK replay](results/wheel314.json).
+
+The [baseline browser receipt](results/browser-before/receipt.json) and
+[corrected browser receipt](results/browser-after/receipt.json) each exercise
+four snippets offline in Chromium and Firefox at 375/1280 pixels. Initialization
+uses neutral text; the first credential operation happens after disconnection.
+The baseline protects neither body and falsely masks the empty literal marker.
+The correction protects both bodies and retains the two controls. Complete
+masked/vault downloads restore exactly, with no additional request, page error
+or horizontal overflow. All eight captures were inspected: the output keeps
+both YAML headers and diagnostic neighbors readable, and multiline vault
+originals fit the existing narrow table. The canned reply does not mention
+these credentials; the separate native SDK echoes establish their restoration.
+
+| Actual build | Mobile Chromium | Desktop Firefox |
+|---|---|---|
+| Baseline | [Capture](results/browser-before/chromium-375.png) | [Capture](results/browser-before/firefox-1280.png) |
+| Corrected | [Capture](results/browser-after/chromium-375.png) | [Capture](results/browser-after/firefox-1280.png) |
+
+```sh
+node studies/email-boundaries/check-browser.mjs web/dist /tmp/yaml-browser studies/yaml-credentials/browser-cases.json
+```
+
+These are checks of actual Python in Pyodide, not substitute JavaScript
+recognition. They cover the stated workflows rather than every browser/input.

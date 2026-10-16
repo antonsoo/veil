@@ -1,0 +1,24 @@
+Literal credential:
+```yaml
+password: |- # keep header
+  ⟨SECRET_1⟩
+mode: read-only
+```
+Folded credential:
+```yaml
+client_secret: >-
+  ⟨SECRET_2⟩
+status: failed
+```
+Ordinary block:
+```yaml
+note: |
+  ordinary directions
+  keep these words
+mode: read-only
+```
+Empty credential:
+```yaml
+password: |
+mode: read-only
+```

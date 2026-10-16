@@ -142,11 +142,11 @@ The registry version is **0.4.4**. To use the unreleased corrections documented
 in this repository, install this tested source revision (requires Git):
 
 ```bash
-python -m pip install --force-reinstall "veil-pii @ git+https://github.com/antonsoo/veil.git@f62bf202c9d53c0746f70da67e6eb098f7628471"
+python -m pip install --force-reinstall "veil-pii @ git+https://github.com/antonsoo/veil.git@1b26a1d8ed62638df60ffee9b8d9efb4fd299484"
 ```
 
 `--force-reinstall` also replaces an existing 0.4.4 installation: the source
-revision still declares that version. The [source-install receipt](studies/private-key-blocks/README.md#installing-the-tested-source)
+revision still declares that version. The [clean package and runtime receipt](studies/yaml-credentials/results/verification.json)
 records an actual registry-to-source upgrade and runtime byte comparisons.
 
 ```python
