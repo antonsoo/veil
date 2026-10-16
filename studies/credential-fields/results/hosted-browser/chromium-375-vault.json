@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "type": "SECRET",
+      "original": "river stone",
+      "surrogate": "⟨SECRET_1⟩",
+      "detector": "secret:credential_field"
+    },
+    {
+      "type": "SECRET",
+      "original": "local-key",
+      "surrogate": "⟨SECRET_2⟩",
+      "detector": "secret:credential_field"
+    },
+    {
+      "type": "SECRET",
+      "original": "header-token",
+      "surrogate": "⟨SECRET_3⟩",
+      "detector": "secret:credential_field"
+    },
+    {
+      "type": "SECRET",
+      "original": "session-token",
+      "surrogate": "⟨SECRET_4⟩",
+      "detector": "secret:credential_field"
+    },
+    {
+      "type": "SECRET",
+      "original": "密钥🔑",
+      "surrogate": "⟨SECRET_5⟩",
+      "detector": "secret:credential_field"
+    },
+    {
+      "type": "SECRET",
+      "original": "local-pass",
+      "surrogate": "⟨SECRET_6⟩",
+      "detector": "secret:credential_field"
+    },
+    {
+      "type": "SECRET",
+      "original": "another phrase",
+      "surrogate": "⟨SECRET_7⟩",
+      "detector": "secret:credential_field"
+    },
+    {
+      "type": "SECRET",
+      "original": "deadbeef",
+      "surrogate": "⟨SECRET_8⟩",
+      "detector": "secret:credential_field"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "type": "SECRET",
+      "original": "-----BEGIN PGP PRIVATE KEY BLOCK-----\nVersion: synthetic\nComment: synthetic-owner@example.org\nX-Note: arbitrary UTF-8 text 🔑\n\nYWFhYQ==\n-----END PGP PRIVATE KEY BLOCK-----",
+      "surrogate": "⟨SECRET_1⟩",
+      "detector": "secret:private_key"
+    },
+    {
+      "type": "SECRET",
+      "original": "-----BEGIN PGP PRIVATE KEY BLOCK-----\nVersion: synthetic\nComment: 4111111111111111\nX-Note: arbitrary UTF-8 text 🔑\n\nYWFhYQ==\n-----END PGP PRIVATE KEY BLOCK-----",
+      "surrogate": "⟨SECRET_2⟩",
+      "detector": "secret:private_key"
+    },
+    {
+      "type": "SECRET",
+      "original": "-----BEGIN PGP PRIVATE KEY BLOCK-----\nVersion: synthetic\nComment: GB82 WEST 1234 5698 7654 32\nX-Note: arbitrary UTF-8 text 🔑\n\nYWFhYQ==\n-----END PGP PRIVATE KEY BLOCK-----",
+      "surrogate": "⟨SECRET_3⟩",
+      "detector": "secret:private_key"
+    },
+    {
+      "type": "SECRET",
+      "original": "-----BEGIN PGP PRIVATE KEY BLOCK-----\nVersion: synthetic\nComment: 操作员 <second@example.org>\nX-Note: arbitrary UTF-8 text 🔑\n\nYWFhYQ==",
+      "surrogate": "⟨SECRET_4⟩",
+      "detector": "secret:private_key"
+    }
+  ]
+}

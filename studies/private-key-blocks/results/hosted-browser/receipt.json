@@ -1,0 +1,81 @@
+{
+  "origin": "https://antonsoo.github.io",
+  "rows": [
+    {
+      "engine": "chromium",
+      "width": 375,
+      "cases": 5,
+      "entityType": "SECRET",
+      "completeValues": 4,
+      "cannedReplyReferencesOriginal": false,
+      "maskedDownloadSha256": "ca3463768ae3f0b11767b087a48e459366d5d53c2f0e39a54d45eb41351369a6",
+      "vaultDownloadSha256": "04ae493f325cf8aecd9e3526791755280e230bb3fe29ba54ed6a69965ce2ab1f",
+      "exactRestore": true,
+      "offlineRequests": 0,
+      "errors": [],
+      "noOverflow": true,
+      "runtime": "Actual bundled Python via Pyodide; initialized online with a neutral prompt."
+    },
+    {
+      "engine": "chromium",
+      "width": 1280,
+      "cases": 5,
+      "entityType": "SECRET",
+      "completeValues": 4,
+      "cannedReplyReferencesOriginal": false,
+      "maskedDownloadSha256": "ca3463768ae3f0b11767b087a48e459366d5d53c2f0e39a54d45eb41351369a6",
+      "vaultDownloadSha256": "04ae493f325cf8aecd9e3526791755280e230bb3fe29ba54ed6a69965ce2ab1f",
+      "exactRestore": true,
+      "offlineRequests": 0,
+      "errors": [],
+      "noOverflow": true,
+      "runtime": "Actual bundled Python via Pyodide; initialized online with a neutral prompt."
+    },
+    {
+      "engine": "firefox",
+      "width": 375,
+      "cases": 5,
+      "entityType": "SECRET",
+      "completeValues": 4,
+      "cannedReplyReferencesOriginal": false,
+      "maskedDownloadSha256": "ca3463768ae3f0b11767b087a48e459366d5d53c2f0e39a54d45eb41351369a6",
+      "vaultDownloadSha256": "04ae493f325cf8aecd9e3526791755280e230bb3fe29ba54ed6a69965ce2ab1f",
+      "exactRestore": true,
+      "offlineRequests": 0,
+      "errors": [],
+      "noOverflow": true,
+      "runtime": "Actual bundled Python via Pyodide; initialized online with a neutral prompt."
+    },
+    {
+      "engine": "firefox",
+      "width": 1280,
+      "cases": 5,
+      "entityType": "SECRET",
+      "completeValues": 4,
+      "cannedReplyReferencesOriginal": false,
+      "maskedDownloadSha256": "ca3463768ae3f0b11767b087a48e459366d5d53c2f0e39a54d45eb41351369a6",
+      "vaultDownloadSha256": "04ae493f325cf8aecd9e3526791755280e230bb3fe29ba54ed6a69965ce2ab1f",
+      "exactRestore": true,
+      "offlineRequests": 0,
+      "errors": [],
+      "noOverflow": true,
+      "runtime": "Actual bundled Python via Pyodide; initialized online with a neutral prompt."
+    }
+  ],
+  "sourceModule": "veil/detectors/secrets.py",
+  "sourceSha256": "35b48bd7dd752fc19b150fa5e2141f622a32f28c966d6005ce0400e84b9deb93",
+  "manifestSha256": "529c161f1b4443185d9f0f4f074850ec9d22405accef1c1b14703f304cdd9471",
+  "receivedAssets": {
+    "/veil/": "0d30cac121231eef5832d64fd2a3d3c90d21de2db3907d69814306d70c45e945",
+    "/veil/assets/index-CpvUtn8x.js": "bbf5a223bfad0be3882b52c0d2b840e90e6b2dc12cd83fa618ce6d746ab2c8ba",
+    "/veil/assets/index-yPXPXXYm.css": "a4df36cc56f870f5a610ca4f425c6dacd2cf5518f5f22ba7de0bc57faff2d290",
+    "/veil/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+    "/veil/assets/fraunces-italic-latin-BEbM7Mn6.woff2": "13cd664e0f8bff7116e6aa798e59720e31ef389b682c76f4e813f4e7c7413bc3",
+    "/veil/assets/fraunces-latin-DihXLNYH.woff2": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783",
+    "/veil/assets/ibm-plex-sans-latin-IvpUvPa2.woff2": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+    "/veil/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+    "/veil/assets/python.worker-BbGwCqMj.js": "bd92defdec879973cdf706316d6f353c072e956597a403eb1f628599ccd70776",
+    "/veil/veil-src.json": "529c161f1b4443185d9f0f4f074850ec9d22405accef1c1b14703f304cdd9471"
+  },
+  "servedAssetsMatch": true
+}

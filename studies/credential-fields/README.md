@@ -176,7 +176,8 @@ The browser manifest matches all 37 Python modules, and the receipt hashes all
 27 static build files. The build command is `cd web && npm run build`; output
 is `web/dist/`. Retained installed replays accompany the receipt.
 
-The source addition is not a package release or a verified hosted deployment.
+The initial source verification did not publish a package or verify a hosted deployment.
+The later hosted verification is recorded below.
 
 ## Public source
 
@@ -184,5 +185,22 @@ Revision `7dc606053d3de4a63d1f7e6a82960164a24fa4fe` was pushed to `main`.
 The [public-source receipt](results/public-source.json) compares every one of
 the 61 changed files to its immutable GitHub raw URL, with exact bytes, sizes
 and SHA-256 hashes. Remote `main` matched the clean local revision before and
-after capture. This establishes source publication, not a registry release or
-hosted-demo update.
+after capture. That receipt establishes source publication; the later hosted check is recorded below.
+
+
+## Hosted verification, 2026-10-16
+
+The existing demo branch was updated to `6f6688d` with a normal fast-forward
+push. Only `veil-src.json` changed: it contains the same 37 Python modules as
+the tested build from source `0f719f0`. All [27 public files](../private-key-blocks/results/hosted-bytes.json)
+match that build byte for byte. The registry release remains 0.4.4.
+
+The [hosted browser receipt](results/hosted-browser/receipt.json) repeats the
+study's browser cases against `https://antonsoo.github.io/veil/` in Chromium and
+Firefox at 375 and 1280 pixels. Each fresh context initializes the real Python
+runtime with a neutral prompt, disconnects before the first study input, and
+checks exact masked-prompt/vault downloads, no further network requests, no
+page errors or CSP violations, and no horizontal overflow. The eight hosted
+screenshots across both studies were inspected. Browser key bodies are
+explicitly synthetic armor shapes; the native signing/recovery proof remains
+the separate GnuPG study above.

@@ -105,7 +105,8 @@ bytes, 2,616,034 words and 10,407 detections. Before and after are identical in
 every type, span, value, provenance and confidence. This does not establish a
 general privacy accuracy rate.
 
-The source correction is not a package release or a verified hosted deployment.
+The initial source verification did not publish a package or verify a hosted deployment.
+The later hosted verification is recorded below.
 
 ## Installed and offline verification
 
@@ -169,3 +170,21 @@ masked and none of their masked outputs yields a usable signing key through the
 retained recovery procedure. [Receipt](results/source-install.json).
 This verifies a source installation, not a new registry release. SDK and browser
 verification for the same runtime bytes is recorded above.
+
+
+## Hosted verification, 2026-10-16
+
+The existing demo branch was updated to `6f6688d` with a normal fast-forward
+push. Only `veil-src.json` changed: it contains the same 37 Python modules as
+the tested build from source `0f719f0`. All [27 public files](../private-key-blocks/results/hosted-bytes.json)
+match that build byte for byte. The registry release remains 0.4.4.
+
+The [hosted browser receipt](results/hosted-browser/receipt.json) repeats the
+study's browser cases against `https://antonsoo.github.io/veil/` in Chromium and
+Firefox at 375 and 1280 pixels. Each fresh context initializes the real Python
+runtime with a neutral prompt, disconnects before the first study input, and
+checks exact masked-prompt/vault downloads, no further network requests, no
+page errors or CSP violations, and no horizontal overflow. The eight hosted
+screenshots across both studies were inspected. Browser key bodies are
+explicitly synthetic armor shapes; the native signing/recovery proof remains
+the separate GnuPG study above.
