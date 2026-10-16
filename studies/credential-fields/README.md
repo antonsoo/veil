@@ -177,3 +177,12 @@ The browser manifest matches all 37 Python modules, and the receipt hashes all
 is `web/dist/`. Retained installed replays accompany the receipt.
 
 The source addition is not a package release or a verified hosted deployment.
+
+## Public source
+
+Revision `7dc606053d3de4a63d1f7e6a82960164a24fa4fe` was pushed to `main`.
+The [public-source receipt](results/public-source.json) compares every one of
+the 61 changed files to its immutable GitHub raw URL, with exact bytes, sizes
+and SHA-256 hashes. Remote `main` matched the clean local revision before and
+after capture. This establishes source publication, not a registry release or
+hosted-demo update.

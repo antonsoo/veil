@@ -1,0 +1,376 @@
+{
+  "scope": "Pinned public source bytes only; no registry release or hosted deployment established.",
+  "repository": "https://github.com/antonsoo/veil",
+  "baseRevision": "151b86afb3f51f680774af5df6fccceb61fc61ae",
+  "sourceRevision": "7dc606053d3de4a63d1f7e6a82960164a24fa4fe",
+  "cleanTree": true,
+  "remoteMainMatchesBeforeAndAfter": true,
+  "files": [
+    {
+      "file": "CHANGELOG.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/CHANGELOG.md",
+      "bytes": 33401,
+      "sha256": "6a0b08041ea4b80952a4c3a0ffc2e698b3e3bbf07aaf3b206d51a504a9638102"
+    },
+    {
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/README.md",
+      "bytes": 38724,
+      "sha256": "c75b402279b2da517847a2b8047bfbf3304800cd4816178e0606c3cb9243fe7a"
+    },
+    {
+      "file": "src/veil/detectors/__init__.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/src/veil/detectors/__init__.py",
+      "bytes": 1878,
+      "sha256": "59777802fc49ac92c5064172a7ccb8d34b5d01639cc472479052d0b4dd63967f"
+    },
+    {
+      "file": "src/veil/detectors/_credential_fields.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/src/veil/detectors/_credential_fields.py",
+      "bytes": 3587,
+      "sha256": "cd0937a2be19664508f58e9396169177bcb85bac7e8d31b544e529d6a4b0823b"
+    },
+    {
+      "file": "src/veil/detectors/base.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/src/veil/detectors/base.py",
+      "bytes": 1201,
+      "sha256": "af8b6d45b9b8e9bea176c4545f50ba2d24e32aa9e838aceb586b6b71b7f2ee18"
+    },
+    {
+      "file": "src/veil/detectors/secrets.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/src/veil/detectors/secrets.py",
+      "bytes": 9768,
+      "sha256": "ed7c34acfd4ddda991dd4a767f2ab968fb9ab7dcd6c698a2bcd0a472b15113bc"
+    },
+    {
+      "file": "src/veil/integrations/_json_arguments.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/src/veil/integrations/_json_arguments.py",
+      "bytes": 4942,
+      "sha256": "180028455ecd83369875cb0f03a867ac1d57651f72710b50588cdc051f74cec9"
+    },
+    {
+      "file": "src/veil/masker.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/src/veil/masker.py",
+      "bytes": 8352,
+      "sha256": "dfe2a14b2a5960c6fa2f28cfb1279d822220640e6f1144064e5beaaebc9684f5"
+    },
+    {
+      "file": "studies/credential-fields/README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/README.md",
+      "bytes": 10057,
+      "sha256": "e6546f2141ff1246c7b77964c3d8325b1ac0c4f60b07466f686b8b1e4799199f"
+    },
+    {
+      "file": "studies/credential-fields/browser-baseline-cases.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/browser-baseline-cases.json",
+      "bytes": 1907,
+      "sha256": "afd1c675fd1a139528d0ae9c46d3d1780b254be699a51d9a13ea1e7398cec56d"
+    },
+    {
+      "file": "studies/credential-fields/browser-cases.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/browser-cases.json",
+      "bytes": 1899,
+      "sha256": "714129bbf071a4a582632a2d66392e7b6a0c98a1e8b480f6fd7cf83cc23c86cb"
+    },
+    {
+      "file": "studies/credential-fields/cases.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/cases.json",
+      "bytes": 10238,
+      "sha256": "e02c3df8bb2f87b3b6e8c6b481d70289ccaabeb0429756977fd0341aab08542f"
+    },
+    {
+      "file": "studies/credential-fields/fixtures.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/fixtures.py",
+      "bytes": 4802,
+      "sha256": "353ba7b3be00aa37cc1a3634953440e3d7673db1ea87f4a381f8d384b28982a4"
+    },
+    {
+      "file": "studies/credential-fields/replay.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/replay.py",
+      "bytes": 5781,
+      "sha256": "11e9cb296db7f24ed9a89db459d74186bbeec7949718579d8ccfb8b466e1d4c8"
+    },
+    {
+      "file": "studies/credential-fields/results/after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/after.json",
+      "bytes": 51931,
+      "sha256": "3da54a1d2f5c79f0f5ba79c444ab2a81105a9d2a9bae3ffa77d26f75cf7f7e8f"
+    },
+    {
+      "file": "studies/credential-fields/results/before.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/before.json",
+      "bytes": 47243,
+      "sha256": "fd15c142c4b2a010f309e2e7708289e6121d0675278060a309cfd5929e8c0d6c"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/chromium-1280-masked.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/chromium-1280-masked.txt",
+      "bytes": 335,
+      "sha256": "5a26f3ffcfd82687b77a06e6eb03a3de5a11550a48eec659c430e5d5bcdaa2f9"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/chromium-1280-vault.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/chromium-1280-vault.json",
+      "bytes": 1245,
+      "sha256": "1d6f8ec7324f10dc60bce3de155dfc057d46279488dcd8bf9c33605a0b9bbe70"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/chromium-1280.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/chromium-1280.png",
+      "bytes": 117372,
+      "sha256": "82303505ed197ce191d310bfe7ad0206e1e9e070bfa016ad22dbf2250780f5ca"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/chromium-375-masked.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/chromium-375-masked.txt",
+      "bytes": 335,
+      "sha256": "5a26f3ffcfd82687b77a06e6eb03a3de5a11550a48eec659c430e5d5bcdaa2f9"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/chromium-375-vault.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/chromium-375-vault.json",
+      "bytes": 1245,
+      "sha256": "1d6f8ec7324f10dc60bce3de155dfc057d46279488dcd8bf9c33605a0b9bbe70"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/chromium-375.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/chromium-375.png",
+      "bytes": 107605,
+      "sha256": "e970f9f5d14fccd3259293272f7bd0e91ad10d183832bed10ef7bc27740610d1"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/firefox-1280-masked.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/firefox-1280-masked.txt",
+      "bytes": 335,
+      "sha256": "5a26f3ffcfd82687b77a06e6eb03a3de5a11550a48eec659c430e5d5bcdaa2f9"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/firefox-1280-vault.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/firefox-1280-vault.json",
+      "bytes": 1245,
+      "sha256": "1d6f8ec7324f10dc60bce3de155dfc057d46279488dcd8bf9c33605a0b9bbe70"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/firefox-1280.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/firefox-1280.png",
+      "bytes": 174852,
+      "sha256": "d20c73a24ea6c0f7c1b3699b035a6192dc8066494b1ef145e7aa3ea9a884ef10"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/firefox-375-masked.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/firefox-375-masked.txt",
+      "bytes": 335,
+      "sha256": "5a26f3ffcfd82687b77a06e6eb03a3de5a11550a48eec659c430e5d5bcdaa2f9"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/firefox-375-vault.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/firefox-375-vault.json",
+      "bytes": 1245,
+      "sha256": "1d6f8ec7324f10dc60bce3de155dfc057d46279488dcd8bf9c33605a0b9bbe70"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/firefox-375.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/firefox-375.png",
+      "bytes": 153301,
+      "sha256": "66a15d2d3847961b9940f62189bffeff9b5c016d98572c7d4f7ce97ab0b12c05"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-after/receipt.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-after/receipt.json",
+      "bytes": 3761,
+      "sha256": "95d960fde4024d1ab11845c6563e8b998f085bb273f4949fb1809f60508febe9"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/chromium-1280-masked.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/chromium-1280-masked.txt",
+      "bytes": 310,
+      "sha256": "3e4072b1539f69a62722d0b9c7301bcfce6e394467012b792abee0b5f793ad09"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/chromium-1280-vault.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/chromium-1280-vault.json",
+      "bytes": 36,
+      "sha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/chromium-1280.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/chromium-1280.png",
+      "bytes": 110696,
+      "sha256": "f2815cd6736e6514ce1f74a6ec6b316febe12b9dabfc463b13908cde400cce8c"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/chromium-375-masked.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/chromium-375-masked.txt",
+      "bytes": 310,
+      "sha256": "3e4072b1539f69a62722d0b9c7301bcfce6e394467012b792abee0b5f793ad09"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/chromium-375-vault.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/chromium-375-vault.json",
+      "bytes": 36,
+      "sha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/chromium-375.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/chromium-375.png",
+      "bytes": 102303,
+      "sha256": "1f518a308e61dc93b6fb758ba738c5f4cc16ef736942543e6865c75abde1f3dd"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/firefox-1280-masked.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/firefox-1280-masked.txt",
+      "bytes": 310,
+      "sha256": "3e4072b1539f69a62722d0b9c7301bcfce6e394467012b792abee0b5f793ad09"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/firefox-1280-vault.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/firefox-1280-vault.json",
+      "bytes": 36,
+      "sha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/firefox-1280.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/firefox-1280.png",
+      "bytes": 167255,
+      "sha256": "bfa9d451ccbc4f2fd5fe4f8fa5702821729be67d38129f99591a9c7954e8013a"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/firefox-375-masked.txt",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/firefox-375-masked.txt",
+      "bytes": 310,
+      "sha256": "3e4072b1539f69a62722d0b9c7301bcfce6e394467012b792abee0b5f793ad09"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/firefox-375-vault.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/firefox-375-vault.json",
+      "bytes": 36,
+      "sha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/firefox-375.png",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/firefox-375.png",
+      "bytes": 146603,
+      "sha256": "9a8ae8cbcc7931cbc1449e4ef443187da3f4dccd882b544cc8d56cab3ba266e3"
+    },
+    {
+      "file": "studies/credential-fields/results/browser-before/receipt.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/browser-before/receipt.json",
+      "bytes": 3761,
+      "sha256": "39fa445adaaf9cfadeba1cbe46234d571fad9aef1254f3a358ae3162081f5fe7"
+    },
+    {
+      "file": "studies/credential-fields/results/clean-checks.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/clean-checks.json",
+      "bytes": 3531,
+      "sha256": "02125cb14f96ccbac3d386776050c82e8de208b5ad37e714382c90c0f897f5f3"
+    },
+    {
+      "file": "studies/credential-fields/results/clean-replay.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/clean-replay.json",
+      "bytes": 51930,
+      "sha256": "bc04a926fcc4ac0ed4cef94907e2d3ef5375f8225e8877e9cb4d4ae48e99234d"
+    },
+    {
+      "file": "studies/credential-fields/results/corpus-after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/corpus-after.json",
+      "bytes": 544829,
+      "sha256": "84d93a592aed1f5c2431aab1af018556f90038d36c090fc803f7980593842a38"
+    },
+    {
+      "file": "studies/credential-fields/results/corpus-before.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/corpus-before.json",
+      "bytes": 544829,
+      "sha256": "057f0d9aebcb25d378ad11f230ed14855ac3006982b4ebf7d9ed65fad8b40d7c"
+    },
+    {
+      "file": "studies/credential-fields/results/corpus-review.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/corpus-review.json",
+      "bytes": 15524,
+      "sha256": "7f902bd7da4a90ef851269709ae4215d2a6fdc9a6095a5afda5a96b4587ee239"
+    },
+    {
+      "file": "studies/credential-fields/results/installed-core.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/installed-core.json",
+      "bytes": 24346,
+      "sha256": "b32e99ed7d6bb59264b0bd68b6f3269113847d30724905a503cad63633460a87"
+    },
+    {
+      "file": "studies/credential-fields/results/installed-current.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/installed-current.json",
+      "bytes": 51930,
+      "sha256": "053c368de41641632806e08184dbcb85f42da218217fb4b72de697c12788157b"
+    },
+    {
+      "file": "studies/credential-fields/results/installed-floor.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/installed-floor.json",
+      "bytes": 51931,
+      "sha256": "a0ed7b219eef47ade70d9ced245ee06307d39ad3368445eb344ec4226379e0a8"
+    },
+    {
+      "file": "studies/credential-fields/results/scaling-after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/scaling-after.json",
+      "bytes": 9070,
+      "sha256": "3cbcd3e3daabf2619eec690087f8303895bf9568653e795563a4cba30ded1996"
+    },
+    {
+      "file": "studies/credential-fields/results/scaling-before.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/scaling-before.json",
+      "bytes": 9077,
+      "sha256": "5c289313be86db87e4345f6602e5dd0a2aa645cce3eba4bdb47ab0bb9b744ec6"
+    },
+    {
+      "file": "studies/credential-fields/results/verification.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/results/verification.json",
+      "bytes": 10006,
+      "sha256": "7bd0ccbc7d34e545874c54996ef8d8cee264b590311e806e7c9f17cce828f2c3"
+    },
+    {
+      "file": "studies/credential-fields/review-corpus.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/review-corpus.py",
+      "bytes": 6337,
+      "sha256": "fab83062346777fb3006338e2052bb2d2e4ec386ae9c77bdc29e53fcb94db96c"
+    },
+    {
+      "file": "studies/credential-fields/scaling.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/scaling.py",
+      "bytes": 1999,
+      "sha256": "4823c900d16016e80d2b77f36e92166ae997a2dcc6aa34e61178f97f4588db85"
+    },
+    {
+      "file": "studies/credential-fields/verify-artifacts.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/credential-fields/verify-artifacts.py",
+      "bytes": 4069,
+      "sha256": "016ba883656a67c68df3bb38f97f1d530655a2249ad058d13ac7935a9015b9c0"
+    },
+    {
+      "file": "studies/email-boundaries/check-browser.mjs",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/email-boundaries/check-browser.mjs",
+      "bytes": 8505,
+      "sha256": "963e8c6b9fd29582f175400e4585b1dda2c4f498e1a501a94f4d18ebb6b91bea"
+    },
+    {
+      "file": "studies/http-authorization/sdk_tools.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/studies/http-authorization/sdk_tools.py",
+      "bytes": 8661,
+      "sha256": "0388dacea28387a00ca2f3733db00e032a36d4d5cc5eeaacd9870a101cadbdc1"
+    },
+    {
+      "file": "tests/test_credential_fields.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/tests/test_credential_fields.py",
+      "bytes": 5561,
+      "sha256": "dbb711286e73033709b0c76b8171d5b3be5813e783a0349fc3c5d132ef41d6a8"
+    },
+    {
+      "file": "tests/test_sdk_credential_fields.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/tests/test_sdk_credential_fields.py",
+      "bytes": 904,
+      "sha256": "bfe8f2fcf1bf397ccab0bd22d03f6080cc2917dd11d0e35991f28a5006fabd15"
+    },
+    {
+      "file": "tests/test_sdk_http_authorization.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/7dc606053d3de4a63d1f7e6a82960164a24fa4fe/tests/test_sdk_http_authorization.py",
+      "bytes": 2258,
+      "sha256": "863684c7f1aefcb0fcd4ac4971117691321858239db8b3c3c71121414b16ff77"
+    }
+  ]
+}
