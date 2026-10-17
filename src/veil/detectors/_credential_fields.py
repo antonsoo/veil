@@ -40,6 +40,13 @@ _BLOCK_FIELD = re.compile(
     + r"(?:#[^\r\n]*)?(?:\r\n|\r|\n|\Z)"
 )
 _LINE = re.compile(r"[^\r\n]*(?:\r\n|\r|\n|\Z)")
+_YAML_FIELD = re.compile(
+    rf"(?:\A\ufeff?|(?<=[\r\n]))(?P<prefix> *(?:- +)*)"
+    rf"(?:(?P<quote>[\"'])(?:{_LABEL})(?P=quote)|(?:{_LABEL}))[ \t]*:"
+    r"(?:[ \t]+|(?=[\r\n]|\Z))"
+)
+_PLAIN_SPECIAL = re.compile(r"[ \t]+#|:(?=[ \t\r\n]|\Z)")
+_LOG_TAIL = re.compile(r"[,;](?=[ \t]+[\w.-]+[ \t]*[:=])")
 _NON_STRING = frozenset(
     {
         "null",
@@ -64,16 +71,46 @@ def is_credential_field(name: str) -> bool:
     return _FIELD_NAME.fullmatch(name) is not None
 
 
-def _quoted_end(text: str, start: int) -> int:
+def _quoted_end(text: str, start: int, yaml_indent: int | None = None) -> int:
+    """Closing quote, or the complemented stopping position on failure.
+
+    YAML single quotes escape an apostrophe by doubling it; backslashes are
+    literal. Mapping values may wrap onto indented continuation lines. The
+    indentation boundary deliberately leaves a malformed paste's next mapping
+    available to the assignment scanner. Unindented YAML flow continuations
+    and flow collections are outside this bounded source recognizer.
+    """
     quote = text[start]
     pos = start + 1
-    while pos < len(text) and text[pos] not in "\r\n":
-        if text[pos] == quote:
-            return pos
-        if text[pos] == "\\":
-            pos += 1
-            if pos >= len(text) or text[pos] in "\r\n":
+    while pos < len(text):
+        if text[pos] in "\r\n":
+            if yaml_indent is None:
                 break
+            line_start = pos + (2 if text.startswith("\r\n", pos) else 1)
+            content = line_start
+            while content < len(text) and text[content] == " ":
+                content += 1
+            if (
+                content < len(text)
+                and text[content] not in "\r\n"
+                and content - line_start <= yaml_indent
+            ):
+                return -line_start - 1
+            pos = content
+            continue
+        if text[pos] == quote:
+            if yaml_indent is not None and quote == "'" and text.startswith("''", pos):
+                pos += 2
+                continue
+            return pos
+        if text[pos] == "\\" and not (yaml_indent is not None and quote == "'"):
+            pos += 1
+            if pos >= len(text):
+                break
+            if text[pos] in "\r\n":
+                if yaml_indent is None:
+                    break
+                continue
         pos += 1
     # Return the stopping position as well on failure: the caller skips the
     # malformed value instead of repeatedly scanning the same suffix.
@@ -114,17 +151,73 @@ def _yaml_block_spans(text: str) -> Iterator[tuple[int, int]]:
             yield start, end
 
 
+def _next_yaml_scalar(text: str, start: int, indent: int) -> int | None:
+    """An indented scalar after an empty header, without crossing a sibling."""
+    pos = start
+    while pos < len(text):
+        if text[pos] in "\r\n":
+            pos += 2 if text.startswith("\r\n", pos) else 1
+        line_start = pos
+        while pos < len(text) and text[pos] == " ":
+            pos += 1
+        if pos == len(text):
+            return None
+        if text[pos] not in "\r\n":
+            return pos if pos - line_start > indent and text[pos] != "#" else None
+    return None
+
+
+def _plain_end(text: str, start: int, indent: int) -> int | None:
+    """End of a plain YAML mapping scalar, keeping comments and neighbors.
+
+    Collections, node properties and references are outside this recognizer.
+    A colon followed by whitespace belongs to
+    mapping syntax, never to a plain scalar's contents. Do not absorb such a
+    later line from a damaged paste into the preceding credential.
+    """
+    if text[start] in "[{]},!&*|>'\"%@`#$" or (
+        text[start] in "-?:" and (start + 1 == len(text) or text[start + 1].isspace())
+    ):
+        return None
+    pos = start
+    end = None
+    while pos < len(text):
+        line = _LINE.match(text, pos)
+        assert line is not None
+        content = line.group().rstrip("\r\n")
+        if pos != start:
+            spaces = len(content) - len(content.lstrip(" "))
+            if content.strip(" ") and (spaces <= indent or content[spaces] == "#"):
+                break
+        special = _PLAIN_SPECIAL.search(content)
+        if special is not None and content[special.start()] == ":":
+            break
+        tail = _LOG_TAIL.search(content)
+        if tail is not None and (special is None or tail.start() < special.start()):
+            special = tail
+        data = content[: special.start()] if special is not None else content
+        data = data.rstrip(" \t")
+        if data.strip(" "):
+            end = pos + len(data)
+        if special is not None:
+            break
+        pos = line.end()
+    return end
+
+
 def credential_field_spans(text: str) -> Iterator[tuple[int, int]]:
     """Complete nonempty quoted or bounded unquoted assignment values.
 
     Horizontal spacing cannot join an empty field to the next log line.
-    Literal/folded YAML bodies use indentation boundaries. Arrays, objects,
+    YAML mapping bodies use indentation boundaries. Arrays, objects,
     shell references and obvious function-call expressions are not treated as
     string credentials. This does not evaluate shell, Python or interpolation,
     or parse arbitrary YAML; malformed/unsupported syntax can be missed.
     """
     blocks = iter(_yaml_block_spans(text))
     block = next(blocks, None)
+    yaml_fields = iter(_YAML_FIELD.finditer(text))
+    yaml_field = next(yaml_fields, None)
     pos = 0
     while (match := _ASSIGNMENT.search(text, pos)) is not None:
         if block is not None and match.start() >= block[0]:
@@ -135,22 +228,56 @@ def credential_field_spans(text: str) -> Iterator[tuple[int, int]]:
             block = next(blocks, None)
             continue
         start = pos = match.end()
-        if start >= len(text) or text[start] in "\r\n":
+        if start >= len(text):
             continue
+        # A forward-only header iterator avoids rescanning a long line
+        # backwards for every assignment in it.
+        while yaml_field is not None and yaml_field.end() < start:
+            yaml_field = next(yaml_fields, None)
+        yaml_indent = (
+            len(yaml_field["prefix"])
+            if yaml_field is not None and yaml_field.end() == start
+            else None
+        )
+        if text[start] in "\r\n":
+            following = (
+                _next_yaml_scalar(text, start, yaml_indent) if yaml_indent is not None else None
+            )
+            if following is None:
+                continue
+            start = pos = following
         if match["separator"] == ":" and text[start] == "|" and _BLOCK_VALUE.match(text, start):
             # A complete block indicator is syntax, including an empty block.
             # A pipe inside a bare credential (or after '=') remains value data.
             continue
         if text[start] in "\"'":
-            end = _quoted_end(text, start)
+            end = _quoted_end(text, start, yaml_indent)
             if end < 0:
                 pos = -end - 1
                 continue
             pos = end + 1
-            if pos < len(text) and not (text[pos].isspace() or text[pos] in "\"',;)}]"):
+            if pos < len(text) and not (
+                text[pos].isspace()
+                or text[pos] in ",;)}]"
+                or (yaml_indent is not None and text[pos] == "#")
+            ):
                 continue
             if end > start + 1:
                 yield start + 1, end
+            # Block-looking text inside a quoted scalar is credential data,
+            # not an independent YAML body to publish on a later iteration.
+            while block is not None and block[0] < pos:
+                block = next(blocks, None)
+        elif yaml_indent is not None:
+            plain_end = _plain_end(text, start, yaml_indent)
+            if plain_end is not None:
+                pos = plain_end
+                # Raw text may be a type annotation rather than YAML. Retain
+                # the existing type-word exclusion with its statement terminator.
+                if text[start:plain_end].casefold().removesuffix(";") not in _NON_STRING:
+                    yield start, plain_end
+                while block is not None and block[0] < pos:
+                    block = next(blocks, None)
         elif text[start] not in "$#":
             value = _BARE_VALUE.match(text, start)
             if value is None:

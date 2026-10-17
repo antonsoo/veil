@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Complete YAML flow scalars
+
+- Protect complete quoted and plain credential values at supported YAML mapping
+  keys. Doubled apostrophes, literal backslashes, plain phrases and wrapped
+  continuations previously exposed suffixes or passed through unchanged.
+- Keep raw value spelling and source line breaks in one vault entry. Comments,
+  neighboring mappings and empty/structured values retain their boundaries;
+  malformed quotes stop before a sibling field. No YAML runtime dependency
+  was added. This remains a bounded text recognizer with documented ambiguity.
+- Retain native PyYAML/ruamel.yaml emissions, independent loader checks, actual
+  SDK requests and offline browser downloads in `studies/yaml-flow-credentials/`.
+  These are local source changes, separate from the hosted demo and PyPI.
+
 ### YAML block credentials
 
 - Recognize indented literal/folded bodies for supported credential mapping
