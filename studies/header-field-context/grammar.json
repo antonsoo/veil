@@ -1,0 +1,8 @@
+{
+  "scope": "Raw-header pattern identity on the measured interpreter; decoded values reuse its same credential grammar. No authentication/validity assertion.",
+  "raw_header_pattern_identical": true,
+  "pattern_sha256": "34283f79868a50f007d85a972b66c6870823f99705d9162603950701ea2b603b",
+  "new_decoded_value_is_anchored": true,
+  "before_source_sha256": "d1932bd690b5673c6b70cd0425b2fc7d4b06225e3219b48ac001872dbef23af2",
+  "after_source_sha256": "fb26c0f2f04cb1a2b3c13ff1edb3c50bdbb7ad904b105caa0e63a517c6ea7775"
+}

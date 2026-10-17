@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Header context without synthesized source
+
+- Supply Authorization/Proxy-Authorization names through field context instead
+  of prepending and trimming a label. A configured name backend could consume
+  that synthetic prefix, drop Basic/Bearer schemes and create an invented vault
+  entry. Detector spans now refer to the original value. Preserve existing
+  credential grammar, sensitive-key rejection and raw-header behavior.
+- Retain six direct/native controls and 24 real SDK serialization/restoration
+  paths, including asynchronous, streamed and tool replies, under
+  `studies/header-field-context`. No provider calls or PyPI release are included.
+
 ### Complete YAML flow scalars
 
 - Protect complete quoted and plain credential values at supported YAML mapping

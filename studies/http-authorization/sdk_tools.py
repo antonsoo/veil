@@ -7,7 +7,10 @@ import copy
 import json
 import sys
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    from veil import Masker
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
@@ -38,6 +41,8 @@ def sdk_tool_capture(
     source: str = RAW,
     expected: str = EXPECTED,
     tool_reply: bool = False,
+    masker: Masker | None = None,
+    assert_roundtrip: bool = True,
 ) -> dict[str, Any]:
     import anthropic
     import openai
@@ -198,7 +203,7 @@ def sdk_tool_capture(
         async with client_type(
             api_key="test", http_client=wire.async_client(), max_retries=0
         ) as client:
-            wrapped = wrapper(client)
+            wrapped = wrapper(client, masker=masker) if masker is not None else wrapper(client)
             call = wrapped.create_response if api == "responses" else wrapped.create
             reply = await call(**kwargs)
             return pieces([event async for event in reply]) if streaming else buffered(reply)
@@ -209,16 +214,18 @@ def sdk_tool_capture(
         client_type = sdk.Anthropic if api == "anthropic" else sdk.OpenAI
         wrapper = AnthropicVeil if api == "anthropic" else OpenAIVeil
         with client_type(api_key="test", http_client=wire.client(), max_retries=0) as client:
-            wrapped = wrapper(client)
+            wrapped = wrapper(client, masker=masker) if masker is not None else wrapper(client)
             call = wrapped.create_response if api == "responses" else wrapped.create
             reply = call(**kwargs)
             reply_text = pieces(list(reply)) if streaming else buffered(reply)
     assert {k: v for k, v in kwargs.items() if k != "stream"} == original
     assert len(wire.requests) == 1
     outgoing = arguments(wire.requests[0])
-    assert json.loads(reply_text) == json.loads(source)
+    restores = json.loads(reply_text) == json.loads(source)
     if api != "anthropic":
-        assert reply_text == source
+        restores = restores and reply_text == source
+    if assert_roundtrip:
+        assert restores
     return {
         "api": api,
         "async": asynchronous,
@@ -227,6 +234,7 @@ def sdk_tool_capture(
         "outgoingArguments": outgoing,
         "correct": json.loads(outgoing) == json.loads(expected),
         "unrelatedSyntaxPreserved": api == "anthropic" or outgoing in {source, expected},
-        "restoresExactly": True,
+        "restoresExactly": restores,
+        "reply": reply_text,
         "callerInputUnchanged": True,
     }

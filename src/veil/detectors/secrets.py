@@ -32,7 +32,7 @@ from collections.abc import Iterator
 
 from veil._spans import DisjointSpans, SpanIndex
 from veil.detectors._credential_fields import credential_field_spans, is_credential_field
-from veil.detectors._http_auth import http_authorization_spans
+from veil.detectors._http_auth import http_authorization_spans, http_authorization_value_spans
 from veil.detectors._jwt import compact_jwt_spans
 from veil.detectors._words import looks_random
 from veil.types import Entity, EntityType, Span
@@ -148,17 +148,26 @@ class SecretDetector:
     name = "secret"
 
     def find_in_field(self, name: str, text: str) -> list[Entity]:
-        """A supported key identifies its complete decoded string value."""
-        if not text or not is_credential_field(name):
+        """Interpret a supported key without adding its spelling to the value."""
+        if not text:
+            return []
+        if name.lower() in {"authorization", "proxy-authorization"}:
+            spans = list(http_authorization_value_spans(text))
+            kind = "http_authorization"
+        elif is_credential_field(name):
+            spans = [(0, len(text))]
+            kind = "credential_field"
+        else:
             return []
         return [
             Entity(
                 type=EntityType.SECRET,
-                value=text,
-                span=Span(0, len(text)),
-                detector=f"{self.name}:credential_field",
+                value=text[start:end],
+                span=Span(start, end),
+                detector=f"{self.name}:{kind}",
                 confidence=1.0,
             )
+            for start, end in spans
         ]
 
     def find(self, text: str) -> list[Entity]:

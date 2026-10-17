@@ -416,6 +416,10 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   context while masking its string value. [Native headers, SDK requests and
   exact restoration](studies/http-authorization/README.md) retain the before/after
   evidence. This correction is in source and has not been released or deployed.
+  Header names now travel separately as field context. A configured name backend
+  could previously mask an invented header label and make `Bearer abc` restore
+  as `abc`. [Original-value and actual SDK replay](studies/header-field-context/README.md)
+  retains the correction, including streamed tool replies and vault provenance.
   Explicit password, API-key, client-secret and OAuth-token assignments also
   protect short or word-like values, including immediate string fields in tool
   histories. `masker.mask(value, field_name="password")` retains a decoded field's
