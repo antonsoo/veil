@@ -426,7 +426,7 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   masking a `|` marker alone no longer leaves its password visible.
   [Native YAML and request reproduction](studies/yaml-credentials/README.md)
   records the supported block syntax and exact restoration boundaries.
-  The source checkout additionally protects [complete quoted and plain YAML
+  The source and live demo additionally protect [complete quoted and plain YAML
   scalars](studies/yaml-flow-credentials/README.md), including native serializer
   wraps and doubled apostrophes that previously exposed password suffixes.
   This extension remains separate from PyPI 0.4.4. Its raw-text format ambiguities

@@ -160,3 +160,24 @@ All eight before/after captures were inspected. The existing layout keeps
 neighboring fields readable and the complete raw originals inside the vault,
 including narrow displays. These checks establish local browser behavior;
 they do not establish the current hosted demo's bytes or a registry release.
+
+## Public source and live demo
+
+The correction is now available from the public source and the
+[live browser](https://antonsoo.github.io/veil/). The
+[public-source receipt](results/public-source.json) checks the remote revision,
+clean tree and pinned raw bytes for the implementation, regression coverage,
+study and verification artifacts. The
+[actual public Git installation](results/source-install.json) replaces registry
+0.4.4 on Python 3.10.21 and matches all 38 runtime files. Its 120 native inputs
+are completely protected and restore exactly through the CLI and four stream
+chunk sizes.
+
+The [canonical HTTP check](results/hosted-bytes.json) verifies all 27 tested
+build files, the entry URL and explicit index without cache-busting parameters.
+The [hosted browser record](results/hosted-browser/receipt.json) verifies the
+same six snippets in fresh Chromium/Firefox contexts at 375/1280 pixels. Their
+first credential operation happens after disconnection; complete masked/vault
+downloads restore exactly, with no added request, page error or overflow.
+Source, installed runtime and hosted Python bytes agree. The observed PyPI
+version is still 0.4.4; no package release is part of this publication.

@@ -1,0 +1,58 @@
+{
+  "checked_at_utc": "2026-10-17T06:21:51.175046+00:00",
+  "source_revision": "f4ddda0d9bd4261da9f6d719bd5e2d69ab7d7c62",
+  "remote_main": "f4ddda0d9bd4261da9f6d719bd5e2d69ab7d7c62",
+  "clean_tree_at_verification": true,
+  "files": [
+    {
+      "file": "src/veil/detectors/_credential_fields.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/f4ddda0d9bd4261da9f6d719bd5e2d69ab7d7c62/src/veil/detectors/_credential_fields.py",
+      "bytes": 12158,
+      "sha256": "bcfb645b9f0fc4c9ac1f7a7b9e6014ebf478c5a5a96a05ebe1b5943dcea098c8",
+      "matches_committed_source": true
+    },
+    {
+      "file": "tests/test_yaml_flow_credentials.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/f4ddda0d9bd4261da9f6d719bd5e2d69ab7d7c62/tests/test_yaml_flow_credentials.py",
+      "bytes": 5557,
+      "sha256": "7bf0ed8d1033f1215701e46b8627ac458fa33455cbb55c60719cf70f88caed0e",
+      "matches_committed_source": true
+    },
+    {
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/f4ddda0d9bd4261da9f6d719bd5e2d69ab7d7c62/README.md",
+      "bytes": 40298,
+      "sha256": "0c6d461b91009d1893837b09fc23864111acdc40026d2d4cbfae1f54c4c779e5",
+      "matches_committed_source": true
+    },
+    {
+      "file": "studies/yaml-flow-credentials/README.md",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/f4ddda0d9bd4261da9f6d719bd5e2d69ab7d7c62/studies/yaml-flow-credentials/README.md",
+      "bytes": 9207,
+      "sha256": "cc36642652da19a3a51e9e24d26fdc093b1a54a3f9665990742fc180bd10bf1f",
+      "matches_committed_source": true
+    },
+    {
+      "file": "studies/yaml-flow-credentials/results/verification.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/f4ddda0d9bd4261da9f6d719bd5e2d69ab7d7c62/studies/yaml-flow-credentials/results/verification.json",
+      "bytes": 10656,
+      "sha256": "4675a00b850d587de30643559a967be0037876d1340e57805fe49d7c732aef2a",
+      "matches_committed_source": true
+    },
+    {
+      "file": "studies/yaml-flow-credentials/results/after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/f4ddda0d9bd4261da9f6d719bd5e2d69ab7d7c62/studies/yaml-flow-credentials/results/after.json",
+      "bytes": 57195,
+      "sha256": "71bcbda55203529455e703a17ac9923178053582b44dd67b9f5506b3cb809c9c",
+      "matches_committed_source": true
+    },
+    {
+      "file": "studies/yaml-flow-credentials/results/oracle-after.json",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/f4ddda0d9bd4261da9f6d719bd5e2d69ab7d7c62/studies/yaml-flow-credentials/results/oracle-after.json",
+      "bytes": 509,
+      "sha256": "9d953c509aebc7da0d09645b2fce48cbe5862251af387537c9682f664bfc75f4",
+      "matches_committed_source": true
+    }
+  ],
+  "scope": "Source publication only; hosted and registry state require separate evidence."
+}

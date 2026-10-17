@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "node": "v26.7.0",
+  "requestTimeoutMs": 10000,
+  "retryWindowMs": 180000,
+  "pollIntervalMs": 5000,
+  "concurrency": 6,
+  "baseURL": "https://antonsoo.github.io/veil/",
+  "state": "verified",
+  "attempts": 1,
+  "startedAtUtc": "2026-10-17T06:22:27.506Z",
+  "checkedAtUtc": "2026-10-17T06:22:28.508Z",
+  "buildManifestSha256": "c255468d94f7f453901be58fe9ae79d1e0bc464cf3e8677acf99785b3cd9f819",
+  "expectedFileCount": 27,
+  "checkedFileCount": 27,
+  "verifiedFileCount": 27,
+  "rootBefore": {
+    "path": "index.html",
+    "bytes": 2099,
+    "sha256": "0d30cac121231eef5832d64fd2a3d3c90d21de2db3907d69814306d70c45e945",
+    "url": "https://antonsoo.github.io/veil/",
+    "httpStatus": 200,
+    "observedBytes": 2099,
+    "observedSha256": "0d30cac121231eef5832d64fd2a3d3c90d21de2db3907d69814306d70c45e945",
+    "state": "verified"
+  },
+  "rootAfter": {
+    "path": "index.html",
+    "bytes": 2099,
+    "sha256": "0d30cac121231eef5832d64fd2a3d3c90d21de2db3907d69814306d70c45e945",
+    "url": "https://antonsoo.github.io/veil/",
+    "httpStatus": 200,
+    "observedBytes": 2099,
+    "observedSha256": "0d30cac121231eef5832d64fd2a3d3c90d21de2db3907d69814306d70c45e945",
+    "state": "verified"
+  },
+  "files": [
+    {
+      "path": "assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+      "bytes": 42372,
+      "sha256": "13cd664e0f8bff7116e6aa798e59720e31ef389b682c76f4e813f4e7c7413bc3",
+      "url": "https://antonsoo.github.io/veil/assets/fraunces-italic-latin-BEbM7Mn6.woff2",
+      "httpStatus": 200,
+      "observedBytes": 42372,
+      "observedSha256": "13cd664e0f8bff7116e6aa798e59720e31ef389b682c76f4e813f4e7c7413bc3",
+      "state": "verified"
+    },
+    {
+      "path": "assets/fraunces-italic-latin-ext-C5JMU4hr.woff2",
+      "bytes": 37620,
+      "sha256": "bbf614d45de67a99e638b753611329b2cb8b5b6d8da53b2aee0267fe75cfc5c8",
+      "url": "https://antonsoo.github.io/veil/assets/fraunces-italic-latin-ext-C5JMU4hr.woff2",
+      "httpStatus": 200,
+      "observedBytes": 37620,
+      "observedSha256": "bbf614d45de67a99e638b753611329b2cb8b5b6d8da53b2aee0267fe75cfc5c8",
+      "state": "verified"
+    },
+    {
+      "path": "assets/fraunces-italic-vietnamese-B7PmIdA3.woff2",
+      "bytes": 12048,
+      "sha256": "b2383049df5de759100887e80450ef360e502d5b0454954fab2dcd6b322944f5",
+      "url": "https://antonsoo.github.io/veil/assets/fraunces-italic-vietnamese-B7PmIdA3.woff2",
+      "httpStatus": 200,
+      "observedBytes": 12048,
+      "observedSha256": "b2383049df5de759100887e80450ef360e502d5b0454954fab2dcd6b322944f5",
+      "state": "verified"
+    },
+    {
+      "path": "assets/fraunces-latin-DihXLNYH.woff2",
+      "bytes": 67304,
+      "sha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783",
+      "url": "https://antonsoo.github.io/veil/assets/fraunces-latin-DihXLNYH.woff2",
+      "httpStatus": 200,
+      "observedBytes": 67304,
+      "observedSha256": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783",
+      "state": "verified"
+    },
+    {
+      "path": "assets/fraunces-latin-ext-CJcjJNj7.woff2",
+      "bytes": 59388,
+      "sha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e",
+      "url": "https://antonsoo.github.io/veil/assets/fraunces-latin-ext-CJcjJNj7.woff2",
+      "httpStatus": 200,
+      "observedBytes": 59388,
+      "observedSha256": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e",
+      "state": "verified"
+    },
+    {
+      "path": "assets/fraunces-vietnamese-Czevyj-6.woff2",
+      "bytes": 19700,
+      "sha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4",
+      "url": "https://antonsoo.github.io/veil/assets/fraunces-vietnamese-Czevyj-6.woff2",
+      "httpStatus": 200,
+      "observedBytes": 19700,
+      "observedSha256": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "bytes": 8356,
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2",
+      "httpStatus": 200,
+      "observedBytes": 8356,
+      "observedSha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "bytes": 6912,
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2",
+      "httpStatus": 200,
+      "observedBytes": 6912,
+      "observedSha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "bytes": 14708,
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2",
+      "httpStatus": 200,
+      "observedBytes": 14708,
+      "observedSha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "bytes": 13348,
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2",
+      "httpStatus": 200,
+      "observedBytes": 13348,
+      "observedSha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "bytes": 5868,
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2",
+      "httpStatus": 200,
+      "observedBytes": 5868,
+      "observedSha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "bytes": 8460,
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2",
+      "httpStatus": 200,
+      "observedBytes": 8460,
+      "observedSha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "bytes": 6972,
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2",
+      "httpStatus": 200,
+      "observedBytes": 6972,
+      "observedSha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "bytes": 14888,
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2",
+      "httpStatus": 200,
+      "observedBytes": 14888,
+      "observedSha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "bytes": 13432,
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2",
+      "httpStatus": 200,
+      "observedBytes": 13432,
+      "observedSha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "bytes": 6040,
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2",
+      "httpStatus": 200,
+      "observedBytes": 6040,
+      "observedSha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-sans-cyrillic-BAAhND-U.woff2",
+      "bytes": 29512,
+      "sha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-sans-cyrillic-BAAhND-U.woff2",
+      "httpStatus": 200,
+      "observedBytes": 29512,
+      "observedSha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-sans-cyrillic-ext-d45eAU9y.woff2",
+      "bytes": 23568,
+      "sha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-sans-cyrillic-ext-d45eAU9y.woff2",
+      "httpStatus": 200,
+      "observedBytes": 23568,
+      "observedSha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-sans-greek-CmyJS8uq.woff2",
+      "bytes": 19500,
+      "sha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-sans-greek-CmyJS8uq.woff2",
+      "httpStatus": 200,
+      "observedBytes": 19500,
+      "observedSha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-sans-latin-IvpUvPa2.woff2",
+      "bytes": 45712,
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-sans-latin-IvpUvPa2.woff2",
+      "httpStatus": 200,
+      "observedBytes": 45712,
+      "observedSha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-sans-latin-ext-CIII54If.woff2",
+      "bytes": 30964,
+      "sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-sans-latin-ext-CIII54If.woff2",
+      "httpStatus": 200,
+      "observedBytes": 30964,
+      "observedSha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81",
+      "state": "verified"
+    },
+    {
+      "path": "assets/ibm-plex-sans-vietnamese-Dg1JeJN0.woff2",
+      "bytes": 13160,
+      "sha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+      "url": "https://antonsoo.github.io/veil/assets/ibm-plex-sans-vietnamese-Dg1JeJN0.woff2",
+      "httpStatus": 200,
+      "observedBytes": 13160,
+      "observedSha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+      "state": "verified"
+    },
+    {
+      "path": "assets/index-CpvUtn8x.js",
+      "bytes": 11118,
+      "sha256": "bbf5a223bfad0be3882b52c0d2b840e90e6b2dc12cd83fa618ce6d746ab2c8ba",
+      "url": "https://antonsoo.github.io/veil/assets/index-CpvUtn8x.js",
+      "httpStatus": 200,
+      "observedBytes": 11118,
+      "observedSha256": "bbf5a223bfad0be3882b52c0d2b840e90e6b2dc12cd83fa618ce6d746ab2c8ba",
+      "state": "verified"
+    },
+    {
+      "path": "assets/index-yPXPXXYm.css",
+      "bytes": 19964,
+      "sha256": "a4df36cc56f870f5a610ca4f425c6dacd2cf5518f5f22ba7de0bc57faff2d290",
+      "url": "https://antonsoo.github.io/veil/assets/index-yPXPXXYm.css",
+      "httpStatus": 200,
+      "observedBytes": 19964,
+      "observedSha256": "a4df36cc56f870f5a610ca4f425c6dacd2cf5518f5f22ba7de0bc57faff2d290",
+      "state": "verified"
+    },
+    {
+      "path": "assets/python.worker-BbGwCqMj.js",
+      "bytes": 2248,
+      "sha256": "bd92defdec879973cdf706316d6f353c072e956597a403eb1f628599ccd70776",
+      "url": "https://antonsoo.github.io/veil/assets/python.worker-BbGwCqMj.js",
+      "httpStatus": 200,
+      "observedBytes": 2248,
+      "observedSha256": "bd92defdec879973cdf706316d6f353c072e956597a403eb1f628599ccd70776",
+      "state": "verified"
+    },
+    {
+      "path": "index.html",
+      "bytes": 2099,
+      "sha256": "0d30cac121231eef5832d64fd2a3d3c90d21de2db3907d69814306d70c45e945",
+      "url": "https://antonsoo.github.io/veil/index.html",
+      "httpStatus": 200,
+      "observedBytes": 2099,
+      "observedSha256": "0d30cac121231eef5832d64fd2a3d3c90d21de2db3907d69814306d70c45e945",
+      "state": "verified"
+    },
+    {
+      "path": "veil-src.json",
+      "bytes": 241267,
+      "sha256": "b45741f0d3fea8528a2137b7759abd7b817bfad0645dcb5dad1665742e079a1e",
+      "url": "https://antonsoo.github.io/veil/veil-src.json",
+      "httpStatus": 200,
+      "observedBytes": 241267,
+      "observedSha256": "b45741f0d3fea8528a2137b7759abd7b817bfad0645dcb5dad1665742e079a1e",
+      "state": "verified"
+    }
+  ],
+  "scope": "Compares canonical responses with this captured build inventory during the recorded pass. Extra hosted files, browser behavior, public source, registry releases and deployment provenance are not established."
+}

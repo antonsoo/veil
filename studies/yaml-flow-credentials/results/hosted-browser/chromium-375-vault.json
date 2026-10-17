@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "type": "SECRET",
+      "original": "sun''rise",
+      "surrogate": "⟨SECRET_1⟩",
+      "detector": "secret:credential_field"
+    },
+    {
+      "type": "SECRET",
+      "original": "quiet\n  meadow",
+      "surrogate": "⟨SECRET_2⟩",
+      "detector": "secret:credential_field"
+    },
+    {
+      "type": "SECRET",
+      "original": "river\n  stone",
+      "surrogate": "⟨SECRET_3⟩",
+      "detector": "secret:credential_field"
+    },
+    {
+      "type": "SECRET",
+      "original": "quiet\\",
+      "surrogate": "⟨SECRET_4⟩",
+      "detector": "secret:credential_field"
+    }
+  ]
+}
