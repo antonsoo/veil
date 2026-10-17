@@ -455,6 +455,12 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
 - **Restore**: exact (byte-for-byte) and tolerant (case changes,
   possessives, a surrogate split across a line wrap) — see
   `veil/restore.py` for exactly what "tolerant" does and doesn't cover.
+  Fuzzy matches in this checkout keep combining accents attached to adjoining
+  words, preventing a recased decomposed spelling such as `avery castilló`
+  from restoring the unaccented `Avery Castillo` prefix.
+  [Native CLI, SDK and Unicode boundary controls](studies/restore-marks/README.md)
+  retain the correction. Exact substring and streaming behavior are unchanged;
+  this source correction remains separate from PyPI 0.4.4.
 - **Streaming restore**: `Restorer.feed(chunk) -> str` / `.flush() -> str`,
   proven equal to non-streamed restore under arbitrary chunking.
 - **Leak audit** (`veil.audit`): checks outgoing text for original values

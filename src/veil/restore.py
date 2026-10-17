@@ -34,6 +34,7 @@ completes or definitively rules out the match.
 from __future__ import annotations
 
 import json
+import unicodedata
 from dataclasses import dataclass, field
 
 from veil.vault import Vault
@@ -57,7 +58,8 @@ def restore_tolerant(text: str, vault: Vault) -> str:
     whitespace or a line break (e.g. a name wrapped mid-token by the model's
     own line width). A rewritten surrogate has to stand as a word of its own
     to count (``avery alderman`` is left alone); an exact one is restored
-    wherever it appears.
+    wherever it appears. Combining marks stay attached to adjacent letters
+    at fuzzy boundaries; this does not normalize or strip accents.
 
     One pass over ``text``: a restored value is never scanned again, so an
     original that happens to read like another value's surrogate stays as it
@@ -83,7 +85,9 @@ def restore_tolerant(text: str, vault: Vault) -> str:
 
 
 def _is_word(ch: str) -> bool:
-    return ch.isalnum() or ch == "_"
+    # An NFD accent is a separate code point, but not a word separator:
+    # recased "avery castillo\u0301" is not the surrogate "Avery Castillo".
+    return ch.isalnum() or ch == "_" or unicodedata.category(ch).startswith("M")
 
 
 def _mid_word(text: str, pos: int) -> bool:

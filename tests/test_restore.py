@@ -1,3 +1,7 @@
+import unicodedata
+
+import pytest
+
 from veil.masker import Masker
 from veil.restore import restore_exact, restore_tolerant
 from veil.surrogates import PlaceholderSurrogates, RealisticSurrogates
@@ -60,6 +64,41 @@ def test_restore_tolerant_is_superset_of_exact() -> None:
     text = "Contact alice@example.com or +1 202-555-0143."
     masked = m.mask(text)
     assert restore_tolerant(masked, m.vault) == restore_exact(masked, m.vault) == text
+
+
+def _castillo_vault() -> Vault:
+    return Vault.from_dict(
+        {
+            "version": 1,
+            "mappings": [
+                {"type": "PERSON", "original": "Jordan Alvarez", "surrogate": "Avery Castillo"}
+            ],
+        }
+    )
+
+
+@pytest.mark.parametrize("normalization", ["NFC", "NFD"])
+def test_recased_accented_surname_is_not_a_fuzzy_surrogate(normalization: str) -> None:
+    # In NFD the final ó is o + U+0301. Restoring the unaccented prefix
+    # would insert a private identity into a different person's name.
+    reply = unicodedata.normalize(normalization, "Ask avery castilló about the booking.")
+    assert restore_tolerant(reply, _castillo_vault()) == reply
+
+
+@pytest.mark.parametrize("mark", ["\u0301", "\u093e", "\u20dd"])
+@pytest.mark.parametrize("at_start", [False, True])
+def test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark(mark: str, at_start: bool) -> None:
+    # Nonspacing, spacing and enclosing marks are boundary controls, not
+    # claims that these mixed-script strings are ordinary personal names.
+    reply = f"x{mark}avery castillo" if at_start else f"avery castillo{mark}x"
+    assert restore_tolerant(reply, _castillo_vault()) == reply
+
+
+def test_exact_substring_contract_is_unchanged_beside_a_combining_mark() -> None:
+    reply = "prefixAvery Castillo\u0301suffix"
+    expected = "prefixJordan Alvarez\u0301suffix"
+    vault = _castillo_vault()
+    assert restore_exact(reply, vault) == restore_tolerant(reply, vault) == expected
 
 
 def test_restore_tolerant_never_rescans_a_restored_value() -> None:

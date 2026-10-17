@@ -1,0 +1,129 @@
+........FFFFFFF....                                                      [100%]
+=================================== FAILURES ===================================
+_________ test_recased_accented_surname_is_not_a_fuzzy_surrogate[NFD] __________
+
+normalization = 'NFD'
+
+    @pytest.mark.parametrize("normalization", ["NFC", "NFD"])
+    def test_recased_accented_surname_is_not_a_fuzzy_surrogate(normalization: str) -> None:
+        # In NFD the final ó is o + U+0301. Restoring the unaccented prefix
+        # would insert a private identity into a different person's name.
+        reply = unicodedata.normalize(normalization, "Ask avery castilló about the booking.")
+>       assert restore_tolerant(reply, _castillo_vault()) == reply
+E       AssertionError: assert 'Ask Jordan A... the booking.' == 'Ask avery ca... the booking.'
+E         
+E         - Ask avery castilló about the booking.
+E         + Ask Jordan Alvareź about the booking.
+
+tests/test_restore.py:85: AssertionError
+__ test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark[False-\u0301] __
+
+mark = '́', at_start = False
+
+    @pytest.mark.parametrize("mark", ["\u0301", "\u093e", "\u20dd"])
+    @pytest.mark.parametrize("at_start", [False, True])
+    def test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark(mark: str, at_start: bool) -> None:
+        # Nonspacing, spacing and enclosing marks are boundary controls, not
+        # claims that these mixed-script strings are ordinary personal names.
+        reply = f"x{mark}avery castillo" if at_start else f"avery castillo{mark}x"
+>       assert restore_tolerant(reply, _castillo_vault()) == reply
+E       AssertionError: assert 'Jordan Alvareźx' == 'avery castillóx'
+E         
+E         - avery castillóx
+E         + Jordan Alvareźx
+
+tests/test_restore.py:94: AssertionError
+__ test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark[False-\u093e] __
+
+mark = 'ा', at_start = False
+
+    @pytest.mark.parametrize("mark", ["\u0301", "\u093e", "\u20dd"])
+    @pytest.mark.parametrize("at_start", [False, True])
+    def test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark(mark: str, at_start: bool) -> None:
+        # Nonspacing, spacing and enclosing marks are boundary controls, not
+        # claims that these mixed-script strings are ordinary personal names.
+        reply = f"x{mark}avery castillo" if at_start else f"avery castillo{mark}x"
+>       assert restore_tolerant(reply, _castillo_vault()) == reply
+E       AssertionError: assert 'Jordan Alvarezाx' == 'avery castilloाx'
+E         
+E         - avery castilloाx
+E         + Jordan Alvarezाx
+
+tests/test_restore.py:94: AssertionError
+__ test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark[False-\u20dd] __
+
+mark = '⃝', at_start = False
+
+    @pytest.mark.parametrize("mark", ["\u0301", "\u093e", "\u20dd"])
+    @pytest.mark.parametrize("at_start", [False, True])
+    def test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark(mark: str, at_start: bool) -> None:
+        # Nonspacing, spacing and enclosing marks are boundary controls, not
+        # claims that these mixed-script strings are ordinary personal names.
+        reply = f"x{mark}avery castillo" if at_start else f"avery castillo{mark}x"
+>       assert restore_tolerant(reply, _castillo_vault()) == reply
+E       AssertionError: assert 'Jordan Alvarez⃝x' == 'avery castillo⃝x'
+E         
+E         - avery castillo⃝x
+E         + Jordan Alvarez⃝x
+
+tests/test_restore.py:94: AssertionError
+__ test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark[True-\u0301] ___
+
+mark = '́', at_start = True
+
+    @pytest.mark.parametrize("mark", ["\u0301", "\u093e", "\u20dd"])
+    @pytest.mark.parametrize("at_start", [False, True])
+    def test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark(mark: str, at_start: bool) -> None:
+        # Nonspacing, spacing and enclosing marks are boundary controls, not
+        # claims that these mixed-script strings are ordinary personal names.
+        reply = f"x{mark}avery castillo" if at_start else f"avery castillo{mark}x"
+>       assert restore_tolerant(reply, _castillo_vault()) == reply
+E       AssertionError: assert 'x́Jordan Alvarez' == 'x́avery castillo'
+E         
+E         - x́avery castillo
+E         + x́Jordan Alvarez
+
+tests/test_restore.py:94: AssertionError
+__ test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark[True-\u093e] ___
+
+mark = 'ा', at_start = True
+
+    @pytest.mark.parametrize("mark", ["\u0301", "\u093e", "\u20dd"])
+    @pytest.mark.parametrize("at_start", [False, True])
+    def test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark(mark: str, at_start: bool) -> None:
+        # Nonspacing, spacing and enclosing marks are boundary controls, not
+        # claims that these mixed-script strings are ordinary personal names.
+        reply = f"x{mark}avery castillo" if at_start else f"avery castillo{mark}x"
+>       assert restore_tolerant(reply, _castillo_vault()) == reply
+E       AssertionError: assert 'xाJordan Alvarez' == 'xाavery castillo'
+E         
+E         - xाavery castillo
+E         + xाJordan Alvarez
+
+tests/test_restore.py:94: AssertionError
+__ test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark[True-\u20dd] ___
+
+mark = '⃝', at_start = True
+
+    @pytest.mark.parametrize("mark", ["\u0301", "\u093e", "\u20dd"])
+    @pytest.mark.parametrize("at_start", [False, True])
+    def test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark(mark: str, at_start: bool) -> None:
+        # Nonspacing, spacing and enclosing marks are boundary controls, not
+        # claims that these mixed-script strings are ordinary personal names.
+        reply = f"x{mark}avery castillo" if at_start else f"avery castillo{mark}x"
+>       assert restore_tolerant(reply, _castillo_vault()) == reply
+E       AssertionError: assert 'x⃝Jordan Alvarez' == 'x⃝avery castillo'
+E         
+E         - x⃝avery castillo
+E         + x⃝Jordan Alvarez
+
+tests/test_restore.py:94: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_restore.py::test_recased_accented_surname_is_not_a_fuzzy_surrogate[NFD]
+FAILED tests/test_restore.py::test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark[False-\u0301]
+FAILED tests/test_restore.py::test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark[False-\u093e]
+FAILED tests/test_restore.py::test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark[False-\u20dd]
+FAILED tests/test_restore.py::test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark[True-\u0301]
+FAILED tests/test_restore.py::test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark[True-\u093e]
+FAILED tests/test_restore.py::test_fuzzy_match_cannot_cut_through_an_attached_unicode_mark[True-\u20dd]
+7 failed, 12 passed in 0.17s

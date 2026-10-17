@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Combining marks at fuzzy restoration boundaries
+
+- Keep Unicode nonspacing, spacing and enclosing marks attached to adjoining
+  words in tolerant matching. A recased NFD accented name could previously
+  restore its unaccented surrogate prefix and attach the remaining accent to
+  a private original. Preserve input spelling without accent normalization.
+- Keep exact substring restoration and exact streaming unchanged. This is a
+  conservative boundary correction, not full Unicode word segmentation.
+  Retain authored native CLI and real SDK transport controls under
+  `studies/restore-marks`; no live provider call or registry release is included.
+
 ### Header context without synthesized source
 
 - Supply Authorization/Proxy-Authorization names through field context instead
