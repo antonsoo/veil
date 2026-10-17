@@ -77,6 +77,10 @@ for style, context, key, newline, body_name, final, delayed in itertools.product
             "masked_loaders_agree": parse_ok,
         }
     )
+failures = [r for r in rows if not r["protected"] or not r["masked_loaders_agree"]]
+examples = {}
+for failure in failures:
+    examples.setdefault(tuple(failure["id"][:2]), failure)
 result = {
     "synthetic": True,
     "cases": len(rows),
@@ -88,7 +92,9 @@ result = {
         "PyYAML": yaml.__version__,
         "ruamel.yaml": ruamel_version,
     },
-    "failures": [r for r in rows if not r["protected"] or not r["masked_loaders_agree"]],
+    "failure_count": len(failures),
+    "failure_ledger_sha256": hashlib.sha256(json.dumps(failures).encode()).hexdigest(),
+    "failure_examples_by_style_and_context": list(examples.values()),
 }
 args.output.parent.mkdir(parents=True, exist_ok=True)
 args.output.write_text(json.dumps(result, indent=2) + "\n")

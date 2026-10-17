@@ -50,8 +50,11 @@ three line-ending styles, five bodies, an optional final newline and a scalar
 starting on the key's line or the following indented line. Exact masked source
 must match the independently constructed single replacement. Both loaders
 also parse the corrected result. [Before](results/oracle-before.json) and
-[after](results/oracle-after.json) retain matching input-ledger hashes and
-explicit failure counts. This is a syntax check, not a production recall study.
+[after](results/oracle-after.json) retain matching input-ledger hashes, complete
+failure-ledger hashes, explicit counts and representative failures by style and
+context. The deterministic runner regenerates the full matrix; repetitive
+failure rows are omitted from the receipts. This is a syntax check, not a
+production recall study.
 
 ```sh
 uv run --locked --with PyYAML==6.0.3 --with ruamel.yaml==0.18.16 python studies/yaml-flow-credentials/capture.py
