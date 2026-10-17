@@ -17,9 +17,9 @@ password: ⟨SECRET_1⟩
 The remainder of the plain password was still visible. Source `e5e2363` keeps
 each supported scalar body in one opaque raw span. It preserves outer quotes,
 comments, neighboring fields and exact source spelling on restoration. The
-core still has no runtime dependencies. This is a local correction: no push,
-hosted deployment, package version change or registry release is part of this
-work.
+core still has no runtime dependencies. Source and hosted publication receive
+separate verification records; no package version change or registry release
+is part of this work.
 
 ## Native writers and outgoing requests
 
