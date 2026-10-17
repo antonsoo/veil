@@ -79,3 +79,11 @@ credential grammar; this is a routing/restoration correction.
 The browser demo does not exercise SDK tool histories, so these results make
 no new hosted-browser claim. They do not update the PyPI release or a hosted
 workbench.
+
+The correction is `70ed41486d2270c4221fc85ace9d04c5d7e02436`.
+[Public source verification](public-source.json) checks GitHub's unauthenticated
+main ref and seven pinned files. A separate installation from that exact public
+Git commit, with both SDK extras, repeats all 30 outcomes with all 37 modules
+identical to source: [replay](public-install.json),
+[installation provenance](public-install-provenance.json). This verifies source
+publication independently of the local wheel, without a PyPI or hosted release.

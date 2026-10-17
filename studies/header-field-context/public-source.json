@@ -1,0 +1,49 @@
+{
+  "scope": "Unauthenticated public main ref and seven pinned raw files; no registry release or hosted deployment.",
+  "source_commit": "70ed41486d2270c4221fc85ace9d04c5d7e02436",
+  "observed_main": "70ed41486d2270c4221fc85ace9d04c5d7e02436",
+  "files": [
+    {
+      "path": "src/veil/detectors/_http_auth.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/70ed41486d2270c4221fc85ace9d04c5d7e02436/src/veil/detectors/_http_auth.py",
+      "bytes": 1680,
+      "sha256": "fb26c0f2f04cb1a2b3c13ff1edb3c50bdbb7ad904b105caa0e63a517c6ea7775"
+    },
+    {
+      "path": "src/veil/detectors/secrets.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/70ed41486d2270c4221fc85ace9d04c5d7e02436/src/veil/detectors/secrets.py",
+      "bytes": 11081,
+      "sha256": "60100f763298f5819f818625fd760f0fdcc1accb5a339f31c7c677c65b2c71b6"
+    },
+    {
+      "path": "src/veil/integrations/_json_arguments.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/70ed41486d2270c4221fc85ace9d04c5d7e02436/src/veil/integrations/_json_arguments.py",
+      "bytes": 4780,
+      "sha256": "629a96730e3279f1ab3c6662c71a3b6e0439c0e45ca51a1dd6aa3e3d3cbf7a1d"
+    },
+    {
+      "path": "tests/test_http_authorization_context.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/70ed41486d2270c4221fc85ace9d04c5d7e02436/tests/test_http_authorization_context.py",
+      "bytes": 2752,
+      "sha256": "97a8caaaace30eaae3e4e15dfbed9a98c174fd744913674d43b845197eae937a"
+    },
+    {
+      "path": "tests/test_sdk_http_authorization.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/70ed41486d2270c4221fc85ace9d04c5d7e02436/tests/test_sdk_http_authorization.py",
+      "bytes": 3304,
+      "sha256": "4d5513b4c36bbbf8989e74ccbc47964c39b51b96dcf01fb486a9f26a8f25d829"
+    },
+    {
+      "path": "studies/header-field-context/replay.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/70ed41486d2270c4221fc85ace9d04c5d7e02436/studies/header-field-context/replay.py",
+      "bytes": 4753,
+      "sha256": "040609db37f5b85bf9c61f4d640ad9a301f11bb7a761f6273201f7015473b856"
+    },
+    {
+      "path": "studies/http-authorization/sdk_tools.py",
+      "url": "https://raw.githubusercontent.com/antonsoo/veil/70ed41486d2270c4221fc85ace9d04c5d7e02436/studies/http-authorization/sdk_tools.py",
+      "bytes": 9011,
+      "sha256": "34526016da1767710ae295e2ea539de7514b6eabef03448a8623ec99954ed7e2"
+    }
+  ]
+}

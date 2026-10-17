@@ -1,0 +1,16 @@
+{
+  "scope": "Fresh public Git installation with SDK extras; all 37 modules and all 30 replay outcomes match source. No registry release or hosted deployment.",
+  "direct_url": {
+    "url": "https://github.com/antonsoo/veil.git",
+    "vcs_info": {
+      "vcs": "git",
+      "commit_id": "70ed41486d2270c4221fc85ace9d04c5d7e02436",
+      "requested_revision": "70ed41486d2270c4221fc85ace9d04c5d7e02436"
+    }
+  },
+  "modules": 37,
+  "direct_controls": 6,
+  "sdk_paths": 24,
+  "all_outcomes_correct": true,
+  "source_matches": true
+}
