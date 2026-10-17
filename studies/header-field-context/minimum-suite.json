@@ -1,0 +1,38 @@
+{
+  "scope": "Full source suite in Python 3.10 with each declared runtime/dev/crypto/SDK direct requirement supplied to --resolution lowest-direct; installed wheel remains non-editable.",
+  "python": "3.10.21",
+  "packages": {
+    "veil-pii": "0.4.4",
+    "openai": "1.66.0",
+    "anthropic": "0.40.0",
+    "cryptography": "50.0.0",
+    "pytest": "9.1.1",
+    "pytest-cov": "6.0.0",
+    "hypothesis": "6.115.0",
+    "ruff": "0.7.0",
+    "mypy": "1.13.0",
+    "pyjwt": "2.10.1"
+  },
+  "passed": 1601,
+  "skipped": 12,
+  "skip_reasons": [
+    "SKIPPED [1] tests/test_backends_spacy.py:14: install the spacy extra to test the real backend",
+    "SKIPPED [1] tests/test_anthropic_documents.py:160: this Anthropic SDK predates structured citation stream events",
+    "SKIPPED [4] tests/test_integration_history.py:77: this anthropic SDK's Message model predates thinking blocks",
+    "SKIPPED [1] tests/test_integration_openai_responses.py:145: this openai SDK's Response model predates the reasoning item's summary",
+    "SKIPPED [1] tests/test_sdk_anthropic.py:186: this anthropic SDK predates thinking blocks",
+    "SKIPPED [4] tests/test_search_results.py:106: this SDK predates search-result citation snapshots"
+  ],
+  "all_37_installed_modules_identical": true,
+  "source_current_checks": {
+    "ruff_check_all": true,
+    "ruff_format_files": 206,
+    "mypy_files": 36,
+    "pytest_passed": 1615,
+    "coverage_command_passed": true
+  },
+  "optional_spacy_receipts": [
+    "spacy-before.json",
+    "spacy-after.json"
+  ]
+}

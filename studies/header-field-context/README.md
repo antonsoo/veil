@@ -87,3 +87,22 @@ Git commit, with both SDK extras, repeats all 30 outcomes with all 37 modules
 identical to source: [replay](public-install.json),
 [installation provenance](public-install-provenance.json). This verifies source
 publication independently of the local wheel, without a PyPI or hosted release.
+
+The full suite at all declared direct dependency floors also passes on Python
+3.10: 1,601 passed and 12 explicit skips. The skip list distinguishes the
+uninstalled optional spaCy package and SDK models that predate newer
+thinking/reasoning/citation features; the header controls all run and pass.
+[Minimum environment and complete skip reasons](minimum-suite.json) retain
+those boundaries. Whole-repository Ruff/format checks and the configured mypy
+and coverage test commands also pass at the current dependencies.
+
+The real optional spaCy backend independently reproduces the same boundary:
+one direct control and three actual SDK tool-reply paths fail before and pass
+after. It loads a temporary `spacy.blank("en")` pipeline with an entity ruler
+matching the synthetic label. No downloaded language model or NER accuracy
+claim is involved. [Before](spacy-before.json), [after](spacy-after.json).
+Replay with the spaCy extra installed:
+
+```sh
+uv run python studies/header-field-context/optional_backend.py --src src --out /tmp/header-spacy.json
+```
