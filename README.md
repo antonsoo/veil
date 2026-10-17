@@ -426,6 +426,11 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   masking a `|` marker alone no longer leaves its password visible.
   [Native YAML and request reproduction](studies/yaml-credentials/README.md)
   records the supported block syntax and exact restoration boundaries.
+  The local checkout additionally protects [complete quoted and plain YAML
+  scalars](studies/yaml-flow-credentials/README.md), including native serializer
+  wraps and doubled apostrophes that previously exposed password suffixes.
+  This extension has not been published or deployed; install this checkout with
+  `python -m pip install --force-reinstall .` to use it. Its raw-text format ambiguities are documented.
   Recognized private-key blocks also own nested PII matches, so masking an email
   in an armor comment cannot leave the key's packet body visible. Truncated
   OpenPGP exports retain their metadata headers with the body.

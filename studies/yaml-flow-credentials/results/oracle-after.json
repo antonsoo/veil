@@ -1,0 +1,13 @@
+{
+  "synthetic": true,
+  "cases": 2160,
+  "protected": 2160,
+  "masked_parse_failures": 0,
+  "input_ledger_sha256": "d3972dfe44ffa157c2ea2d88889728a8451e3d83e11185ce1db64bedebacf499",
+  "runtime_sha256": "bcfb645b9f0fc4c9ac1f7a7b9e6014ebf478c5a5a96a05ebe1b5943dcea098c8",
+  "loaders": {
+    "PyYAML": "6.0.3",
+    "ruamel.yaml": "0.18.16"
+  },
+  "failures": []
+}

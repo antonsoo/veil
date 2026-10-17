@@ -1,0 +1,16 @@
+{
+  "python": "3.12.12",
+  "files": 1483,
+  "bytes": 32925796,
+  "words": 2616034,
+  "detections": 10407,
+  "all_source_hashes_matched": true,
+  "changed_files": 0,
+  "before_receipt_sha256": "84d93a592aed1f5c2431aab1af018556f90038d36c090fc803f7980593842a38",
+  "after_receipt_sha256": "84d93a592aed1f5c2431aab1af018556f90038d36c090fc803f7980593842a38",
+  "runtime_sha256": "bcfb645b9f0fc4c9ac1f7a7b9e6014ebf478c5a5a96a05ebe1b5943dcea098c8",
+  "manifests": {
+    "manifest-technical-heldout.json": "9a7e8ebbefe6a7b563c31b90ff0b9a5e17813d81821ee0ff956b4c0dd68b0202",
+    "manifest-technical.json": "55176de41eaad86b6b6e83eca89555c1d6bb61d5a93540f9ad019687ac5b0da4"
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "scope": "Measure repeated quoted values and malformed tails; no worst-case guarantee.",
+  "python": "3.12.12",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "runtime_sha256": "bcfb645b9f0fc4c9ac1f7a7b9e6014ebf478c5a5a96a05ebe1b5943dcea098c8",
+  "warmups": 1,
+  "repeats": 3,
+  "rows": [
+    {
+      "case": "apostrophes",
+      "repetitions": 100,
+      "bytes": 3800,
+      "input_sha256": "123cfb369f528c7c344febea8dc95017258241eb7fa836c0918f4da01edfba9e",
+      "detections": 100,
+      "seconds": [
+        0.0013399659655988216,
+        0.0015233790036290884,
+        0.0021270510042086244
+      ],
+      "median_seconds": 0.0015233790036290884
+    },
+    {
+      "case": "wrapped",
+      "repetitions": 100,
+      "bytes": 4800,
+      "input_sha256": "18fca2c29fe3ae85ed31029a0056ed8191559b11eb63712f1fc87f7c7b875fd1",
+      "detections": 100,
+      "seconds": [
+        0.0027284640236757696,
+        0.002598176011815667,
+        0.0018845099839381874
+      ],
+      "median_seconds": 0.002598176011815667
+    },
+    {
+      "case": "plain",
+      "repetitions": 100,
+      "bytes": 5300,
+      "input_sha256": "7beca52dab005fbed699c9877186baf26907a35cece18a2410bf5dfb5b0f2be1",
+      "detections": 100,
+      "seconds": [
+        0.002369717985857278,
+        0.0021183250355534256,
+        0.0030498540145345032
+      ],
+      "median_seconds": 0.002369717985857278
+    },
+    {
+      "case": "plain-delayed",
+      "repetitions": 100,
+      "bytes": 5500,
+      "input_sha256": "0631edc6f93372d4ad2bb33c12cd3fd5a8d9403287a478bdbf5ec5159697a1a8",
+      "detections": 100,
+      "seconds": [
+        0.0024418190005235374,
+        0.0027932580560445786,
+        0.0025186099810525775
+      ],
+      "median_seconds": 0.0025186099810525775
+    },
+    {
+      "case": "block-looking",
+      "repetitions": 100,
+      "bytes": 5700,
+      "input_sha256": "a9ce6ecc9d3a34f39a2d047d345660d2751003518e53ed48509211ee6c3d63e4",
+      "detections": 100,
+      "seconds": [
+        0.00428034202195704,
+        0.0035186599707230926,
+        0.0031428909860551357
+      ],
+      "median_seconds": 0.0035186599707230926
+    },
+    {
+      "case": "malformed",
+      "repetitions": 100,
+      "bytes": 6000,
+      "input_sha256": "a4d821bef8e423d0abc266bdca401dcaad237be0fd68029f3424a64e297637eb",
+      "detections": 100,
+      "seconds": [
+        0.0033239200129173696,
+        0.0030826309812255204,
+        0.003083486983086914
+      ],
+      "median_seconds": 0.003083486983086914
+    },
+    {
+      "case": "one-line",
+      "repetitions": 100,
+      "bytes": 2100,
+      "input_sha256": "37a0909bbe00471f9ee505d039f1caa26522708c5dc8133bd50283d77191e769",
+      "detections": 0,
+      "seconds": [
+        0.0009051800007000566,
+        0.0008752429857850075,
+        0.0008667269721627235
+      ],
+      "median_seconds": 0.0008752429857850075
+    },
+    {
+      "case": "apostrophes",
+      "repetitions": 1000,
+      "bytes": 38000,
+      "input_sha256": "ab123d12d64457443ba53e11b3f9411a46b00062b1ee38a15e2eac2c955a8f89",
+      "detections": 1000,
+      "seconds": [
+        0.019155959016643465,
+        0.02295215497724712,
+        0.01680072897579521
+      ],
+      "median_seconds": 0.019155959016643465
+    },
+    {
+      "case": "wrapped",
+      "repetitions": 1000,
+      "bytes": 48000,
+      "input_sha256": "263b46e0ce42f394c729f4d3bb5e20947a1a92ad60a8395a42145ee10ba1a7de",
+      "detections": 1000,
+      "seconds": [
+        0.022423100017476827,
+        0.0332981760147959,
+        0.026540838996879756
+      ],
+      "median_seconds": 0.026540838996879756
+    },
+    {
+      "case": "plain",
+      "repetitions": 1000,
+      "bytes": 53000,
+      "input_sha256": "7a803508fa15999e9a16241718cb9087201521300c263a32df1e133a24cb2fd5",
+      "detections": 1000,
+      "seconds": [
+        0.02995012904284522,
+        0.028668585990089923,
+        0.027582233014982194
+      ],
+      "median_seconds": 0.028668585990089923
+    },
+    {
+      "case": "plain-delayed",
+      "repetitions": 1000,
+      "bytes": 55000,
+      "input_sha256": "f88925e66958e5250de455d20589c4deaad0d2b85d7f9aaca964d99aeab4f9ff",
+      "detections": 1000,
+      "seconds": [
+        0.02967770298710093,
+        0.03083589405287057,
+        0.03211087000090629
+      ],
+      "median_seconds": 0.03083589405287057
+    },
+    {
+      "case": "block-looking",
+      "repetitions": 1000,
+      "bytes": 57000,
+      "input_sha256": "85bc7cbf0b42786ee286a07a16228d7106c7d364ba7c04eb1e3f3bc07259116d",
+      "detections": 1000,
+      "seconds": [
+        0.060941399016883224,
+        0.04467551602283493,
+        0.037944489042274654
+      ],
+      "median_seconds": 0.04467551602283493
+    },
+    {
+      "case": "malformed",
+      "repetitions": 1000,
+      "bytes": 60000,
+      "input_sha256": "f1f76d77bf27ab1fafa5ac313dfbeb9a28600b2892c74349cb28c0a71737961a",
+      "detections": 1000,
+      "seconds": [
+        0.031055109982844442,
+        0.03919397701974958,
+        0.03311211400432512
+      ],
+      "median_seconds": 0.03311211400432512
+    },
+    {
+      "case": "one-line",
+      "repetitions": 1000,
+      "bytes": 21000,
+      "input_sha256": "4ae2205f0562c5fa4716cb4dc26445a74ccb56965ce608d6448ea604d751fa23",
+      "detections": 0,
+      "seconds": [
+        0.009132003993727267,
+        0.010706336004659534,
+        0.008891551988199353
+      ],
+      "median_seconds": 0.009132003993727267
+    },
+    {
+      "case": "apostrophes",
+      "repetitions": 10000,
+      "bytes": 380000,
+      "input_sha256": "bd5d723db7860dde0ea40d14f8c7bea084cad9adc375941ba2c5d6fb53651622",
+      "detections": 10000,
+      "seconds": [
+        0.2350320040131919,
+        0.2130716840038076,
+        0.213027089019306
+      ],
+      "median_seconds": 0.2130716840038076
+    },
+    {
+      "case": "wrapped",
+      "repetitions": 10000,
+      "bytes": 480000,
+      "input_sha256": "392b401e124354ae0548ef2b72fdcc76bf2771b2458d3cf47222e7ec219a6e8f",
+      "detections": 10000,
+      "seconds": [
+        0.26967722101835534,
+        0.2741414370248094,
+        0.25567458296427503
+      ],
+      "median_seconds": 0.26967722101835534
+    },
+    {
+      "case": "plain",
+      "repetitions": 10000,
+      "bytes": 530000,
+      "input_sha256": "eef9f1328ee556d9e0554ac2448678b9702e98d1e5638cbdd431b9d4b41d1028",
+      "detections": 10000,
+      "seconds": [
+        0.28059774899156764,
+        0.2902869359822944,
+        0.33575929602375254
+      ],
+      "median_seconds": 0.2902869359822944
+    },
+    {
+      "case": "plain-delayed",
+      "repetitions": 10000,
+      "bytes": 550000,
+      "input_sha256": "4e891d79f4cac72c085bfa36a4e6f9b11a99f5159833a1d9ebb2135d10b9dac1",
+      "detections": 10000,
+      "seconds": [
+        0.2808594589587301,
+        0.2912559999967925,
+        0.31285847403341904
+      ],
+      "median_seconds": 0.2912559999967925
+    },
+    {
+      "case": "block-looking",
+      "repetitions": 10000,
+      "bytes": 570000,
+      "input_sha256": "c7abb276248c2124a555cfafeace0456b1871c779347826fc5c31115a63fee38",
+      "detections": 10000,
+      "seconds": [
+        0.3196353900129907,
+        0.33411041798535734,
+        0.34857917798217386
+      ],
+      "median_seconds": 0.33411041798535734
+    },
+    {
+      "case": "malformed",
+      "repetitions": 10000,
+      "bytes": 600000,
+      "input_sha256": "bbf3e77ba3c87bef6f217c7bb4da36e0a87434470c75fd9290ded0c7c19e9cbc",
+      "detections": 10000,
+      "seconds": [
+        0.39209468598710373,
+        0.34221210301620886,
+        0.36563640198437497
+      ],
+      "median_seconds": 0.36563640198437497
+    },
+    {
+      "case": "one-line",
+      "repetitions": 10000,
+      "bytes": 210000,
+      "input_sha256": "e517c485898d036d9f7277d547fa70fcf79b43c7d0ccaaca95a226a059cf0f59",
+      "detections": 0,
+      "seconds": [
+        0.1016181159648113,
+        0.1335620140307583,
+        0.08798241801559925
+      ],
+      "median_seconds": 0.1016181159648113
+    }
+  ]
+}

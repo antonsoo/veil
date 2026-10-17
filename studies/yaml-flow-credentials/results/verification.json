@@ -1,0 +1,218 @@
+{
+  "source_revision": "e5e2363",
+  "runtime_files": {
+    "veil/_spans.py": "62f6cb318147173ebf9cbd5b9c039d865df4b3fa1245c056684d40a2aea7b06d",
+    "veil/__init__.py": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980",
+    "veil/surrogates.py": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0",
+    "veil/types.py": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8",
+    "veil/restore.py": "778ab9d7bf81cd60f48d7529f49c54ee1719222148ddbcefe1d671a54d340e38",
+    "veil/cli.py": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1",
+    "veil/vault.py": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62",
+    "veil/masker.py": "dfe2a14b2a5960c6fa2f28cfb1279d822220640e6f1144064e5beaaebc9684f5",
+    "veil/_files.py": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29",
+    "veil/audit.py": "026369aec3ef2763bd779f0c51404c31ad7b0a396278434c1225e8a4387deac5",
+    "veil/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "veil/integrations/openai.py": "830b8cf890680ea4edae8489d55402a9163a0effa210350037434a61a0ccb9d3",
+    "veil/integrations/__init__.py": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881",
+    "veil/integrations/openai_responses.py": "3650dfc325747ecce45a847de3efb36a6087f28ffd63b0317dee302ee1ce092e",
+    "veil/integrations/_json_arguments.py": "180028455ecd83369875cb0f03a867ac1d57651f72710b50588cdc051f74cec9",
+    "veil/integrations/anthropic.py": "3f27a9955ce49c788bf2d3e97babbe8e197ac15d3c1c939c50a198595411a821",
+    "veil/integrations/_common.py": "aa87f659a6cfd1a242f4ad463b552379034922c5c485d4070907868b8d826164",
+    "veil/backends/known_entities.py": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55",
+    "veil/backends/__init__.py": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b",
+    "veil/backends/spacy_backend.py": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b",
+    "veil/backends/base.py": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e",
+    "veil/detectors/secrets.py": "35b48bd7dd752fc19b150fa5e2141f622a32f28c966d6005ce0400e84b9deb93",
+    "veil/detectors/_jwt.py": "24ca1a07c536eb9ce164a58f8bdb207421a3d4f165c3dd997034c39cd9de3c77",
+    "veil/detectors/email.py": "6c55c1532b289c0ab791570c24616aacd636929e64319e1badcd2ea69b359e77",
+    "veil/detectors/dob.py": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f",
+    "veil/detectors/_credential_fields.py": "bcfb645b9f0fc4c9ac1f7a7b9e6014ebf478c5a5a96a05ebe1b5943dcea098c8",
+    "veil/detectors/phone.py": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd",
+    "veil/detectors/_calling_codes.py": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c",
+    "veil/detectors/_http_auth.py": "d1932bd690b5673c6b70cd0425b2fc7d4b06225e3219b48ac001872dbef23af2",
+    "veil/detectors/ssn.py": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b",
+    "veil/detectors/__init__.py": "59777802fc49ac92c5064172a7ccb8d34b5d01639cc472479052d0b4dd63967f",
+    "veil/detectors/base.py": "af8b6d45b9b8e9bea176c4545f50ba2d24e32aa9e838aceb586b6b71b7f2ee18",
+    "veil/detectors/address.py": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec",
+    "veil/detectors/_words.py": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887",
+    "veil/detectors/ip.py": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b",
+    "veil/detectors/card.py": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f",
+    "veil/detectors/url.py": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099",
+    "veil/detectors/iban.py": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c"
+  },
+  "artifacts": [
+    {
+      "file": "veil_pii-0.4.4-py3-none-any.whl",
+      "bytes": 104894,
+      "sha256": "76120ae6efecf835be76427682f1724bda518abdc8a8a6bcb381c71e023021dd",
+      "runtime_files_match": 38
+    },
+    {
+      "file": "veil_pii-0.4.4.tar.gz",
+      "bytes": 117799,
+      "sha256": "05bcec34d64fd879c62a745ef5f4fe78878f59e5a233068863ffaa1a7782ba11",
+      "runtime_files_match": 38
+    }
+  ],
+  "installations": [
+    {
+      "artifact": "veil_pii-0.4.4-py3-none-any.whl",
+      "python": "3.10.21",
+      "import_location": "site-packages",
+      "runtime_files_match": 38,
+      "core_only": true,
+      "installed_distributions": [
+        {
+          "name": "veil-pii",
+          "version": "0.4.4"
+        }
+      ],
+      "protected_native": 120,
+      "protected_sdk": 0,
+      "documented_ticket_cli_round_trip": true
+    },
+    {
+      "artifact": "veil_pii-0.4.4-py3-none-any.whl",
+      "python": "3.14.7",
+      "import_location": "site-packages",
+      "runtime_files_match": 38,
+      "core_only": false,
+      "installed_distributions": [
+        {
+          "name": "annotated-types",
+          "version": "0.8.0"
+        },
+        {
+          "name": "anthropic",
+          "version": "1.11.0"
+        },
+        {
+          "name": "anyio",
+          "version": "4.15.1"
+        },
+        {
+          "name": "docstring-parser",
+          "version": "0.18.0"
+        },
+        {
+          "name": "h11",
+          "version": "0.16.0"
+        },
+        {
+          "name": "httpcore2",
+          "version": "2.13.1"
+        },
+        {
+          "name": "httpx2",
+          "version": "2.13.1"
+        },
+        {
+          "name": "idna",
+          "version": "3.20"
+        },
+        {
+          "name": "jiter",
+          "version": "0.17.0"
+        },
+        {
+          "name": "openai",
+          "version": "3.23.0"
+        },
+        {
+          "name": "pydantic",
+          "version": "2.14.1"
+        },
+        {
+          "name": "pydantic-core",
+          "version": "2.50.1"
+        },
+        {
+          "name": "sniffio",
+          "version": "1.3.1"
+        },
+        {
+          "name": "truststore",
+          "version": "0.10.5"
+        },
+        {
+          "name": "typing-extensions",
+          "version": "4.16.0"
+        },
+        {
+          "name": "typing-inspection",
+          "version": "0.4.4"
+        },
+        {
+          "name": "veil-pii",
+          "version": "0.4.4"
+        }
+      ],
+      "protected_native": 120,
+      "protected_sdk": 12,
+      "documented_ticket_cli_round_trip": true
+    },
+    {
+      "artifact": "veil_pii-0.4.4.tar.gz",
+      "python": "3.14.7",
+      "import_location": "site-packages",
+      "runtime_files_match": 38,
+      "core_only": true,
+      "installed_distributions": [
+        {
+          "name": "veil-pii",
+          "version": "0.4.4"
+        }
+      ],
+      "protected_native": 120,
+      "protected_sdk": 0,
+      "documented_ticket_cli_round_trip": true
+    }
+  ],
+  "clean_checks": "clean-checks.json",
+  "web_build_command": "cd web && npm ci && npm run build",
+  "web_output": "web/dist/",
+  "web_build_matches_tested_files": {
+    "veil-src.json": "b45741f0d3fea8528a2137b7759abd7b817bfad0645dcb5dad1665742e079a1e",
+    "index.html": "0d30cac121231eef5832d64fd2a3d3c90d21de2db3907d69814306d70c45e945",
+    "assets/fraunces-latin-DihXLNYH.woff2": "7234ed860a9cc83045413c4faee63c960a8f2d1917adcf728119307d56e0d783",
+    "assets/fraunces-vietnamese-Czevyj-6.woff2": "f18853f63a870ebef013e30e789d8d544f102e4acd94988e57c223d9c796ddf4",
+    "assets/ibm-plex-mono-500-cyrillic-Bq9vWWag.woff2": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+    "assets/ibm-plex-mono-500-vietnamese-DZ4AoWbu.woff2": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+    "assets/fraunces-italic-latin-ext-C5JMU4hr.woff2": "bbf614d45de67a99e638b753611329b2cb8b5b6d8da53b2aee0267fe75cfc5c8",
+    "assets/index-yPXPXXYm.css": "a4df36cc56f870f5a610ca4f425c6dacd2cf5518f5f22ba7de0bc57faff2d290",
+    "assets/fraunces-italic-latin-BEbM7Mn6.woff2": "13cd664e0f8bff7116e6aa798e59720e31ef389b682c76f4e813f4e7c7413bc3",
+    "assets/ibm-plex-sans-cyrillic-ext-d45eAU9y.woff2": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+    "assets/ibm-plex-sans-greek-CmyJS8uq.woff2": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+    "assets/ibm-plex-mono-400-latin-DMJ8VG8y.woff2": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+    "assets/ibm-plex-sans-vietnamese-Dg1JeJN0.woff2": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+    "assets/ibm-plex-sans-cyrillic-BAAhND-U.woff2": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+    "assets/ibm-plex-mono-400-latin-ext-BmRBH3aV.woff2": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+    "assets/ibm-plex-mono-500-latin-ext-CAhNIIs5.woff2": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+    "assets/fraunces-latin-ext-CJcjJNj7.woff2": "a2930b27d13a228bd9ab6a49269b5f800237892ad560cb9dd7fab01b1620f88e",
+    "assets/ibm-plex-mono-400-vietnamese-BulugwFq.woff2": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+    "assets/fraunces-italic-vietnamese-B7PmIdA3.woff2": "b2383049df5de759100887e80450ef360e502d5b0454954fab2dcd6b322944f5",
+    "assets/ibm-plex-mono-500-latin-DSY6xOcd.woff2": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+    "assets/index-CpvUtn8x.js": "bbf5a223bfad0be3882b52c0d2b840e90e6b2dc12cd83fa618ce6d746ab2c8ba",
+    "assets/ibm-plex-mono-400-cyrillic-ext-xuaO2J-f.woff2": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+    "assets/ibm-plex-sans-latin-IvpUvPa2.woff2": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+    "assets/ibm-plex-mono-500-cyrillic-ext-BqneJy0T.woff2": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+    "assets/ibm-plex-mono-400-cyrillic-BSMlKf0J.woff2": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+    "assets/python.worker-BbGwCqMj.js": "bd92defdec879973cdf706316d6f353c072e956597a403eb1f628599ccd70776",
+    "assets/ibm-plex-sans-latin-ext-CIII54If.woff2": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81"
+  },
+  "bundled_python_matches_source_files": 37,
+  "local_browser_receipt": "browser-after/receipt.json",
+  "publication": {
+    "source_pushed": false,
+    "hosted_deployed": false,
+    "registry_released": false
+  },
+  "documented_local_install": {
+    "initial_distribution": "registry veil-pii 0.4.4",
+    "command": "python -m pip install --force-reinstall .",
+    "source_revision": "e5e2363",
+    "runtime_files_match": 38,
+    "import_location": "site-packages",
+    "native_replay": "pip-upgrade.json"
+  }
+}

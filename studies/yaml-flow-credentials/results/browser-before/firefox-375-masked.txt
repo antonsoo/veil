@@ -1,0 +1,33 @@
+Quoted password:
+```yaml
+password: '⟨SECRET_1⟩''rise'
+mode: read-only
+```
+Default YAML password:
+```yaml
+SERVICE_PASSWORD: ⟨SECRET_2⟩
+  meadow
+mode: read-only
+```
+Quoted continuation:
+```yaml
+client_secret: "river
+  stone"
+status: failed
+```
+Literal backslash:
+```yaml
+SERVICE_PASSWORD: 'quiet\'
+mode: read-only
+```
+Ordinary text:
+```yaml
+note: "ordinary
+  directions"
+status: failed
+```
+Empty password:
+```yaml
+password: ''
+mode: read-only
+```

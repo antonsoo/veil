@@ -1,0 +1,49 @@
+{
+  "entityType": "SECRET",
+  "detectorModule": "veil/detectors/_credential_fields.py",
+  "synthetic": true,
+  "cases": [
+    {
+      "id": "apostrophe",
+      "prefix": "Quoted password:\n```yaml\npassword: '",
+      "address": "sun",
+      "suffix": "''rise'\nmode: read-only\n```",
+      "mask": true
+    },
+    {
+      "id": "plain",
+      "prefix": "Default YAML password:\n```yaml\nSERVICE_PASSWORD: ",
+      "address": "quiet",
+      "suffix": "\n  meadow\nmode: read-only\n```",
+      "mask": true
+    },
+    {
+      "id": "multiline",
+      "prefix": "Quoted continuation:\n```yaml\nclient_secret: \"",
+      "address": "river\n  stone",
+      "suffix": "\"\nstatus: failed\n```",
+      "mask": false
+    },
+    {
+      "id": "backslash",
+      "prefix": "Literal backslash:\n```yaml\nSERVICE_PASSWORD: '",
+      "address": "quiet\\",
+      "suffix": "'\nmode: read-only\n```",
+      "mask": false
+    },
+    {
+      "id": "ordinary",
+      "prefix": "Ordinary text:\n```yaml\nnote: \"",
+      "address": "ordinary\n  directions",
+      "suffix": "\"\nstatus: failed\n```",
+      "mask": false
+    },
+    {
+      "id": "empty",
+      "prefix": "Empty password:\n```yaml\npassword: '",
+      "address": "",
+      "suffix": "'\nmode: read-only\n```",
+      "mask": false
+    }
+  ]
+}

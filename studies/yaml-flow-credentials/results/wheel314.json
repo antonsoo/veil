@@ -1,0 +1,1411 @@
+{
+  "synthetic": true,
+  "runtime_sha256": "bcfb645b9f0fc4c9ac1f7a7b9e6014ebf478c5a5a96a05ebe1b5943dcea098c8",
+  "import_location": "site-packages",
+  "input_ledger_sha256": "7fd46e7fa3a64c8a5f0269aa72c6aabe41fb7459a3f84bec23a14da95c466901",
+  "versions": {
+    "veil-pii": "0.4.4",
+    "openai": "3.23.0",
+    "anthropic": "1.11.0"
+  },
+  "native_cases": [
+    {
+      "id": "pyyaml-default-mapping-apostrophe",
+      "input_sha256": "a849ae16d49ac16d9b011f37eaaf500a35b8ecad54305e58fcf51b9870c0fa63",
+      "masked": "connection:\n  password: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun'rise"
+      ]
+    },
+    {
+      "id": "pyyaml-default-mapping-two-apostrophes",
+      "input_sha256": "b5a31256a5ab367eb48f5e203802d56e6838d6a4e4b6a4aa0c984db34de4be9b",
+      "masked": "connection:\n  password: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''rise"
+      ]
+    },
+    {
+      "id": "pyyaml-default-mapping-backslash",
+      "input_sha256": "1e8b67cf42084b394224a2e54297926f9aa23287588893f7f3044b21a2484f77",
+      "masked": "connection:\n  password: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\"
+      ]
+    },
+    {
+      "id": "pyyaml-default-mapping-wrapped",
+      "input_sha256": "0814c279160bd94a3083d55df05d4a3193c961a77c475bc9312fe0449af78b00",
+      "masked": "connection:\n  password: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    stone quiet meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-default-mapping-line-break",
+      "input_sha256": "556c5fffb536e4dfdd5309c7cfbe6dce4204cc4a8c7fe63fdb6b2ba61971a285",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n\n    stone"
+      ]
+    },
+    {
+      "id": "pyyaml-default-mapping-blank-line",
+      "input_sha256": "e227e7f1388cbe366c895328dffcc09e6308c1c1d83bb1f769808d4f5ad43a4f",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n\n\n    stone"
+      ]
+    },
+    {
+      "id": "pyyaml-default-mapping-assignment",
+      "input_sha256": "f631381b8acf3a0ce199b9eff9239e9d2dbc7883810a3b65f6ae710973528e7e",
+      "masked": "connection:\n  password: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    api_key=stone\n    quiet meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-default-mapping-nested-pii",
+      "input_sha256": "d58b72255101e6a570f47eca0adf2bfb2f9ab3f131fa9dc848a58211a3396494",
+      "masked": "connection:\n  password: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    help@example.org\n    4111 1111 1111\n    1111 stone"
+      ]
+    },
+    {
+      "id": "pyyaml-default-mapping-unicode",
+      "input_sha256": "8e0a3c8b57908e2590e4c42ee4232ac11041077d255e0a5f4cd126617abdca74",
+      "masked": "connection:\n  password: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    石の上にも三年 stone"
+      ]
+    },
+    {
+      "id": "pyyaml-default-mapping-quotes",
+      "input_sha256": "6ee4921640a57e64086e9e24db9008422edbb1cdef69466a976178e7b5a3d446",
+      "masked": "connection:\n  password: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    'quiet' \"stone\"\n    meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-default-sequence-apostrophe",
+      "input_sha256": "0b21a8c7b2174a0f0d9e79018aa8d25628cac1bd5676c2a1f242ee553fede43a",
+      "masked": "connections:\n- client_secret: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun'rise"
+      ]
+    },
+    {
+      "id": "pyyaml-default-sequence-two-apostrophes",
+      "input_sha256": "817875f52cdacd90cc250040be17dbf4762f91b106c2f1eea3f5bf6a1853a53b",
+      "masked": "connections:\n- client_secret: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''rise"
+      ]
+    },
+    {
+      "id": "pyyaml-default-sequence-backslash",
+      "input_sha256": "a8fc09f7d45d29adef0bb59a6642b210ae7793b841b9baafc4d1658c7e02225a",
+      "masked": "connections:\n- client_secret: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\"
+      ]
+    },
+    {
+      "id": "pyyaml-default-sequence-wrapped",
+      "input_sha256": "5148f9f45f26a7cbd629e76a05884a7b5909a7cef04ef8c4c36038f20b0bf11f",
+      "masked": "connections:\n- client_secret: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    stone quiet meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-default-sequence-line-break",
+      "input_sha256": "577fbd646e39187602b863ede2d48575f2b8a6fa788aded4e853d038e695163d",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n\n    stone"
+      ]
+    },
+    {
+      "id": "pyyaml-default-sequence-blank-line",
+      "input_sha256": "40a4a343e5e1e674788d0501d6bcd30e84596d824de8f28dbb3570fc32e4d14e",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n\n\n    stone"
+      ]
+    },
+    {
+      "id": "pyyaml-default-sequence-assignment",
+      "input_sha256": "8f7641a6753944884c283c8b0ecfd501fd062be37e5355816827d1b6c3682262",
+      "masked": "connections:\n- client_secret: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    api_key=stone\n    quiet meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-default-sequence-nested-pii",
+      "input_sha256": "bb474503b8a683e3f783a2edc0ce50a1409e5d8e0716b42df77021825be0c0a7",
+      "masked": "connections:\n- client_secret: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    help@example.org\n    4111 1111 1111\n    1111 stone"
+      ]
+    },
+    {
+      "id": "pyyaml-default-sequence-unicode",
+      "input_sha256": "4aa2fd96bd628ed74e3c7bed294f78cda3b4c348159202d9c9df013139e7f7ca",
+      "masked": "connections:\n- client_secret: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    石の上にも三年 stone"
+      ]
+    },
+    {
+      "id": "pyyaml-default-sequence-quotes",
+      "input_sha256": "6e6ec38f85b91b712e0cd38a369ceb1114c6374d6773f1e05e6d11b3a2f2631f",
+      "masked": "connections:\n- client_secret: ⟨SECRET_1⟩\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    'quiet' \"stone\"\n    meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-single-mapping-apostrophe",
+      "input_sha256": "9ffef999da43ebb9ee226f5eb26fee07c3e61df39cbb6f1a6b2c55326708c9c1",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''rise"
+      ]
+    },
+    {
+      "id": "pyyaml-single-mapping-two-apostrophes",
+      "input_sha256": "c14254017f754e1bf741a9b1721253ae14d31a26d398f65f28dbe4fc91e640e9",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''''rise"
+      ]
+    },
+    {
+      "id": "pyyaml-single-mapping-backslash",
+      "input_sha256": "ea8ed216a1290b1683be24a173edbc837af7c46581ab7d2553dcf26ab329abba",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\"
+      ]
+    },
+    {
+      "id": "pyyaml-single-mapping-wrapped",
+      "input_sha256": "76aacb346563f290b655fc8618c4155e49670af01046c6748dff53829c700d6d",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    stone quiet meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-single-mapping-line-break",
+      "input_sha256": "556c5fffb536e4dfdd5309c7cfbe6dce4204cc4a8c7fe63fdb6b2ba61971a285",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n\n    stone"
+      ]
+    },
+    {
+      "id": "pyyaml-single-mapping-blank-line",
+      "input_sha256": "e227e7f1388cbe366c895328dffcc09e6308c1c1d83bb1f769808d4f5ad43a4f",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n\n\n    stone"
+      ]
+    },
+    {
+      "id": "pyyaml-single-mapping-assignment",
+      "input_sha256": "876eef5ab98253edce7885c4cc85a277a2cfa689a3e0a9fcf5f0958c36237aa6",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    api_key=stone\n    quiet meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-single-mapping-nested-pii",
+      "input_sha256": "f7c18e47f193cc0d49697fc15d8fbdd6aa9794f822c6a2ea9bb6566bb7e9309b",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    help@example.org\n    4111 1111 1111\n    1111 stone"
+      ]
+    },
+    {
+      "id": "pyyaml-single-mapping-unicode",
+      "input_sha256": "c30adce2526c3932a6a55dec42f1cd09120a1143e18eb1615012559147e71967",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    石の上にも三年 stone"
+      ]
+    },
+    {
+      "id": "pyyaml-single-mapping-quotes",
+      "input_sha256": "af2023dc496c40a053bcf158598741fd3a5b6d02c0a0b2edd35708d3a86cb15b",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    ''quiet'' \"stone\"\n    meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-single-sequence-apostrophe",
+      "input_sha256": "273412bee3addf49154423107b9027028ccc600c1da6fd7ee534b0970d42ec5d",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''rise"
+      ]
+    },
+    {
+      "id": "pyyaml-single-sequence-two-apostrophes",
+      "input_sha256": "0eb0bd66f6de0f74ea4bbfdf8d59e59defed59c97465db75763138285105bca8",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''''rise"
+      ]
+    },
+    {
+      "id": "pyyaml-single-sequence-backslash",
+      "input_sha256": "d95701bd258ce4ed1b667c8bdfb77f9f00eba4dc15f71935b921769c6b52f775",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\"
+      ]
+    },
+    {
+      "id": "pyyaml-single-sequence-wrapped",
+      "input_sha256": "0a893a4e485ab7c0287ccaa1665c7a82b945b4eec3d7a81fa595f16a6e616a4c",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    stone quiet meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-single-sequence-line-break",
+      "input_sha256": "577fbd646e39187602b863ede2d48575f2b8a6fa788aded4e853d038e695163d",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n\n    stone"
+      ]
+    },
+    {
+      "id": "pyyaml-single-sequence-blank-line",
+      "input_sha256": "40a4a343e5e1e674788d0501d6bcd30e84596d824de8f28dbb3570fc32e4d14e",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n\n\n    stone"
+      ]
+    },
+    {
+      "id": "pyyaml-single-sequence-assignment",
+      "input_sha256": "615958ee1b4bf60b36726b67f2234f15d640f23be5e9e16981996217229512f0",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    api_key=stone\n    quiet meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-single-sequence-nested-pii",
+      "input_sha256": "746250230cd4f029c998ae442bc91165cdedf1635277a097c63b273b302d88bd",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    help@example.org\n    4111 1111 1111\n    1111 stone"
+      ]
+    },
+    {
+      "id": "pyyaml-single-sequence-unicode",
+      "input_sha256": "896e4a1ae02424dc067e5b28ceda63c43d21687b5cb04e384f380a004ddbf952",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    石の上にも三年 stone"
+      ]
+    },
+    {
+      "id": "pyyaml-single-sequence-quotes",
+      "input_sha256": "9c56013500a56ed6b8af211887e02116f8c5d239de075de0eefef41cff1d4dda",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    ''quiet'' \"stone\"\n    meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-double-mapping-apostrophe",
+      "input_sha256": "cb441b7ebbc320327af62ea80f85bdf2e3af55da6cb81f910c22daab1faab020",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun'rise"
+      ]
+    },
+    {
+      "id": "pyyaml-double-mapping-two-apostrophes",
+      "input_sha256": "03324dd669d7101dd166bb619b6a13869327fceac8ce1e0c43efd3890a54fb4d",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''rise"
+      ]
+    },
+    {
+      "id": "pyyaml-double-mapping-backslash",
+      "input_sha256": "a72dbec6d2377e4e9a05acd02b1f561402e72255cc27ba5f3a9d8e7c5d3cb36e",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\\"
+      ]
+    },
+    {
+      "id": "pyyaml-double-mapping-wrapped",
+      "input_sha256": "d66e82c7ab3fd77e7065239f9801e417ebb7bd9e8ad911c46f83e836fb5c8a91",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\n    \\ stone quiet\\\n    \\ meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-double-mapping-line-break",
+      "input_sha256": "a1bb926607640aafdbc3e64adca0749a0f22473d3c7947cc48b466051f218cb3",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\n\\\n    stone"
+      ]
+    },
+    {
+      "id": "pyyaml-double-mapping-blank-line",
+      "input_sha256": "91c88a1b9be38ee1d1ba677978d479cbba3a4a2b2c354ba6b65d9e042637a8c5",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\n\\\n    \\nstone"
+      ]
+    },
+    {
+      "id": "pyyaml-double-mapping-assignment",
+      "input_sha256": "5375ad989aa91bd41c2db7e5c25854f124849d48f87204f9dfffe473017fe9b9",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\n    \\ api_key=stone\\\n    \\ quiet meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-double-mapping-nested-pii",
+      "input_sha256": "20a522c6dfc6be38301aa6a65e21af1eef1e2a9354a7e484c866c15c11027525",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\n    \\ help@example.org\\\n    \\ 4111 1111 1111\\\n    \\ 1111 stone"
+      ]
+    },
+    {
+      "id": "pyyaml-double-mapping-unicode",
+      "input_sha256": "4b05cf45e9333da4a2a8b52002e7d60fb13c0d2e1b8f2350813a8f880cbe99b1",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\n    \\ 石の上にも三年 stone"
+      ]
+    },
+    {
+      "id": "pyyaml-double-mapping-quotes",
+      "input_sha256": "77423a2d1c1df146f130ce0c3d117650f631975f27044efaaf51d4eef1a0db29",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\n    \\ 'quiet' \\\"stone\\\"\\\n    \\ meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-double-sequence-apostrophe",
+      "input_sha256": "8f23afc961c8d770f364b94dc7b4a333829f7ecaba4c4a6dca1acb4d587b133f",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun'rise"
+      ]
+    },
+    {
+      "id": "pyyaml-double-sequence-two-apostrophes",
+      "input_sha256": "4c8bdb6b45ce150828eacf750155f04b23a9b6cddd27d2ef2589719b35ae3f58",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''rise"
+      ]
+    },
+    {
+      "id": "pyyaml-double-sequence-backslash",
+      "input_sha256": "ff80c326ff0ae72523135c864d770443018e7e9c28952bc4a3ef9c097a3a59de",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\\"
+      ]
+    },
+    {
+      "id": "pyyaml-double-sequence-wrapped",
+      "input_sha256": "d6460b9cda4a5442678b136c4f5d9bbbc4c9c9597c843fa305379e3f9840c680",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\n    \\ stone quiet\\\n    \\ meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-double-sequence-line-break",
+      "input_sha256": "2c3193cb409e7a351985edcffe3664fdad2bdd0fc21eaa078c64387561f302d4",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\n\\\n    stone"
+      ]
+    },
+    {
+      "id": "pyyaml-double-sequence-blank-line",
+      "input_sha256": "1309bc32c7b738b3e4d7f3770ab878b4cc9f57339b916750be7273c88d918a69",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\n\\\n    \\nstone"
+      ]
+    },
+    {
+      "id": "pyyaml-double-sequence-assignment",
+      "input_sha256": "9f3eb6db482c584a488c7b956f939e666364ce659242f93bd1d1a1c996837209",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\n    \\ api_key=stone\\\n    \\ quiet meadow"
+      ]
+    },
+    {
+      "id": "pyyaml-double-sequence-nested-pii",
+      "input_sha256": "9e3cc8401dfb03069ce85727caefd0244e00f8aea3b1058b2feb08a87dab6c6a",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\n    \\ help@example.org\\\n    \\ 4111 1111 1111\\\n    \\ 1111 stone"
+      ]
+    },
+    {
+      "id": "pyyaml-double-sequence-unicode",
+      "input_sha256": "9fa7fcb62f70163be0bd04dcb2b1fca32fc70436ab99a31f09e53e2f82bb756a",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\n    \\ 石の上にも三年 stone"
+      ]
+    },
+    {
+      "id": "pyyaml-double-sequence-quotes",
+      "input_sha256": "f9fe2eb9794020d68d14cdbb5211f841c19a31ed85a8291bae8759b8521b3723",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\n    \\ 'quiet' \\\"stone\\\"\\\n    \\ meadow"
+      ]
+    },
+    {
+      "id": "ruamel-default-mapping-apostrophe",
+      "input_sha256": "562261e44a5b3d5e409b68ffcb2d5229213e87a9c72719c5070299334ff0beba",
+      "masked": "connection:\n  password: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun'rise"
+      ]
+    },
+    {
+      "id": "ruamel-default-mapping-two-apostrophes",
+      "input_sha256": "524a8f7c06acea0ba4c78efad34e60db57ac36a5715d75854712faf52907f14a",
+      "masked": "connection:\n  password: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''rise"
+      ]
+    },
+    {
+      "id": "ruamel-default-mapping-backslash",
+      "input_sha256": "0888bbe476167756c696187a97afc85bc1f2f8b7c5ca7f3f1b0c53d5b6cb9d83",
+      "masked": "connection:\n  password: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\"
+      ]
+    },
+    {
+      "id": "ruamel-default-mapping-wrapped",
+      "input_sha256": "34763cce15b46a65492cd695edb7febbf5a23aaef9029d7dd2e83717a7e96c92",
+      "masked": "connection:\n  password: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river stone \n    quiet meadow"
+      ]
+    },
+    {
+      "id": "ruamel-default-mapping-line-break",
+      "input_sha256": "cf32c463c59bd3a0caf22a6b938da74ded254c0cbad082aba9ccd3a235d8321c",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\n\\\n    stone"
+      ]
+    },
+    {
+      "id": "ruamel-default-mapping-blank-line",
+      "input_sha256": "48a701831d48f77bcb104282ab0b33cc427c530e995f62abc9a342f6c8016b75",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\n\\\n    \\nstone"
+      ]
+    },
+    {
+      "id": "ruamel-default-mapping-assignment",
+      "input_sha256": "4247466e7cb85d97e0afdbadd25b692bd232d4cee8f2c2574f13cef31ed3afbb",
+      "masked": "connection:\n  password: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river \n    api_key=stone\n    quiet meadow"
+      ]
+    },
+    {
+      "id": "ruamel-default-mapping-nested-pii",
+      "input_sha256": "1013033af827661405d96f1cc310f3b813aa6b95cca1104dbe77e84cf1748cd2",
+      "masked": "connection:\n  password: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river \n    help@example.org\n    4111 1111 \n    1111 1111 \n    stone"
+      ]
+    },
+    {
+      "id": "ruamel-default-mapping-unicode",
+      "input_sha256": "cb1907f639a359a76123f0770e4e29b40fefde159370c7bd68a83df7f641e007",
+      "masked": "connection:\n  password: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river \n    石の上にも三年 \n    stone"
+      ]
+    },
+    {
+      "id": "ruamel-default-mapping-quotes",
+      "input_sha256": "9bd8b1619af71ab072bf67e976930bfeaa712933dff883ce8d87a5fa8c8bb546",
+      "masked": "connection:\n  password: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river \n    'quiet' \n    \"stone\" \n    meadow"
+      ]
+    },
+    {
+      "id": "ruamel-default-sequence-apostrophe",
+      "input_sha256": "57fc3c5292e5d154f7babced138805aea497cc23f5861049b5131cf63f03e658",
+      "masked": "connections:\n- client_secret: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun'rise"
+      ]
+    },
+    {
+      "id": "ruamel-default-sequence-two-apostrophes",
+      "input_sha256": "1e635cf923d959065dc064697e52363ad4c873aba9ae79b10634d9cbc8cb1fe0",
+      "masked": "connections:\n- client_secret: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''rise"
+      ]
+    },
+    {
+      "id": "ruamel-default-sequence-backslash",
+      "input_sha256": "1391764abe19bf47af4073898ded6cc81ceb174fdfa293a77a53ed5cec8b3fdd",
+      "masked": "connections:\n- client_secret: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\"
+      ]
+    },
+    {
+      "id": "ruamel-default-sequence-wrapped",
+      "input_sha256": "331638abfadedb63980e03a140614efee3948990a53e2cd5592e887dbd1d0d98",
+      "masked": "connections:\n- client_secret: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river stone \n    quiet meadow"
+      ]
+    },
+    {
+      "id": "ruamel-default-sequence-line-break",
+      "input_sha256": "09284b6211cc7323d65dc44fc6fc00ee165d3f659819370f88e955f3048abcee",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\n\\\n    stone"
+      ]
+    },
+    {
+      "id": "ruamel-default-sequence-blank-line",
+      "input_sha256": "84d0029164f46d003b59e45c5cd7fb7fbacc29e77d4402655f59a54302486e77",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\n\\\n    \\nstone"
+      ]
+    },
+    {
+      "id": "ruamel-default-sequence-assignment",
+      "input_sha256": "e5a7b0b1df832608440c765005dc46c6e7ce2bb6d5b91d647f54abd53100dba8",
+      "masked": "connections:\n- client_secret: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river \n    api_key=stone\n    quiet meadow"
+      ]
+    },
+    {
+      "id": "ruamel-default-sequence-nested-pii",
+      "input_sha256": "3f5b1ef13cdfbed8fdd2b1e183335d58f74f9486b81114e14c1c3915dad776a4",
+      "masked": "connections:\n- client_secret: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river \n    help@example.org\n    4111 1111 \n    1111 1111 \n    stone"
+      ]
+    },
+    {
+      "id": "ruamel-default-sequence-unicode",
+      "input_sha256": "b0b38d4b3a2e052db3a6c9f138213ee51a0576bb5efa310237a3678bbce21b6d",
+      "masked": "connections:\n- client_secret: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river \n    石の上にも三年 \n    stone"
+      ]
+    },
+    {
+      "id": "ruamel-default-sequence-quotes",
+      "input_sha256": "f9e7d4df8af0f271078cee13586378851de0443420125bd46fe0d5bc8a1e93cd",
+      "masked": "connections:\n- client_secret: \n    ⟨SECRET_1⟩\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river \n    'quiet' \n    \"stone\" \n    meadow"
+      ]
+    },
+    {
+      "id": "ruamel-single-mapping-apostrophe",
+      "input_sha256": "f59ccc1c50fdf1d7ff38a1a8a04168b13037a51683189d1c1bf4dee8f516b47a",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''rise"
+      ]
+    },
+    {
+      "id": "ruamel-single-mapping-two-apostrophes",
+      "input_sha256": "a5fe11704f4fd9c46643be5f060849790f2fa6a278b538cd09ce02ec0ec484c3",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''''rise"
+      ]
+    },
+    {
+      "id": "ruamel-single-mapping-backslash",
+      "input_sha256": "14fc35383163fc856a7ad5bab2973a4270ef44a75c2217f6f5aa258fd548c928",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\"
+      ]
+    },
+    {
+      "id": "ruamel-single-mapping-wrapped",
+      "input_sha256": "1209a202d021ec4742a7f29973d8a63aa9873ba01300ed15a1f1fd5164e32ee2",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    stone quiet meadow"
+      ]
+    },
+    {
+      "id": "ruamel-single-mapping-line-break",
+      "input_sha256": "c4bf346b4682e18bbd959ab91d66d65720c9348af78d6319a403a858b636a5a1",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n\n    stone"
+      ]
+    },
+    {
+      "id": "ruamel-single-mapping-blank-line",
+      "input_sha256": "7e88cf964247bb7d3fbaddf8292bce04c93255bc438580fdea7120f7059bd4aa",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n\n\n    stone"
+      ]
+    },
+    {
+      "id": "ruamel-single-mapping-assignment",
+      "input_sha256": "c9c21defd0eb3c2793661785b1e46e1769beefcc830f191f63ab3a67f4c353cf",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    api_key=stone\n    quiet meadow"
+      ]
+    },
+    {
+      "id": "ruamel-single-mapping-nested-pii",
+      "input_sha256": "eeda22de403ebecaf37be3d61b68571484316390f13ed3be58741a556d42727d",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    help@example.org\n    4111 1111 1111\n    1111 stone"
+      ]
+    },
+    {
+      "id": "ruamel-single-mapping-unicode",
+      "input_sha256": "6d243f97b0c4372c1e85912d048863ce8242aa0d683ff075557873f387bfe83d",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    石の上にも三年 stone"
+      ]
+    },
+    {
+      "id": "ruamel-single-mapping-quotes",
+      "input_sha256": "4857a38da02439e78465cd51a55858419ad90a2fb8081a2cd315aff54c6c4857",
+      "masked": "connection:\n  password: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    ''quiet'' \"stone\"\n    meadow"
+      ]
+    },
+    {
+      "id": "ruamel-single-sequence-apostrophe",
+      "input_sha256": "f5f1f3fb372d8bf57145ad2ca4349f7277415f177cffc3204824966616b715e9",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''rise"
+      ]
+    },
+    {
+      "id": "ruamel-single-sequence-two-apostrophes",
+      "input_sha256": "f8cf0237d9dfa57fb167ac30e7c440dd73ad31511855108e486c987303c97bc3",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''''rise"
+      ]
+    },
+    {
+      "id": "ruamel-single-sequence-backslash",
+      "input_sha256": "5e83d460dee807403254f1c6d03213b6747399168fe3a6650db5c69f23c21775",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\"
+      ]
+    },
+    {
+      "id": "ruamel-single-sequence-wrapped",
+      "input_sha256": "95fdc02a6b9549b97d2730763b40156b4844dc6173eab5ed0495a04e8ba791c3",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    stone quiet meadow"
+      ]
+    },
+    {
+      "id": "ruamel-single-sequence-line-break",
+      "input_sha256": "5b99d631fcfc4296f15c81d8e8586f19595e4ffee24baad976bdd779e0537199",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n\n    stone"
+      ]
+    },
+    {
+      "id": "ruamel-single-sequence-blank-line",
+      "input_sha256": "d684ae5a0c0ecce68c6782b34bbcf730d3253cd14aca07850b150923ab96cbc3",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n\n\n    stone"
+      ]
+    },
+    {
+      "id": "ruamel-single-sequence-assignment",
+      "input_sha256": "605bb7b2a546bfcc244254fac1be9df575d68542211bef064bad5743812e45a1",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    api_key=stone\n    quiet meadow"
+      ]
+    },
+    {
+      "id": "ruamel-single-sequence-nested-pii",
+      "input_sha256": "b9ad2798a772981be209de00d0406c3cd0efc6db33fa10f32eb3f9694d8c6266",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    help@example.org\n    4111 1111 1111\n    1111 stone"
+      ]
+    },
+    {
+      "id": "ruamel-single-sequence-unicode",
+      "input_sha256": "a22586734062dd11f01299de5498cb8ad2f35c785d068e985c901645b605644e",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    石の上にも三年 stone"
+      ]
+    },
+    {
+      "id": "ruamel-single-sequence-quotes",
+      "input_sha256": "5c6da62c3521b4c5ed39e9cdb224371ceff2c977f2924a717663f6d097147099",
+      "masked": "connections:\n- client_secret: '⟨SECRET_1⟩'\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    ''quiet'' \"stone\"\n    meadow"
+      ]
+    },
+    {
+      "id": "ruamel-double-mapping-apostrophe",
+      "input_sha256": "f9d02769181a0e7a95bf56aba741099907766993ede3a4e5e9f505bd712f2b49",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun'rise"
+      ]
+    },
+    {
+      "id": "ruamel-double-mapping-two-apostrophes",
+      "input_sha256": "75135ea3249d9c6bd48fc0204988b4da06cba7b220c3eb6454edaa7e6b7010bf",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''rise"
+      ]
+    },
+    {
+      "id": "ruamel-double-mapping-backslash",
+      "input_sha256": "cc8343a980929a6fd53de14f59496786ea6dcbead43f32fd79047e917754912a",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\\"
+      ]
+    },
+    {
+      "id": "ruamel-double-mapping-wrapped",
+      "input_sha256": "85d45eedfd8e75d04908172f3635840e1ef391ce17277e4deb67645b269980e0",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    stone quiet meadow"
+      ]
+    },
+    {
+      "id": "ruamel-double-mapping-line-break",
+      "input_sha256": "cf32c463c59bd3a0caf22a6b938da74ded254c0cbad082aba9ccd3a235d8321c",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\n\\\n    stone"
+      ]
+    },
+    {
+      "id": "ruamel-double-mapping-blank-line",
+      "input_sha256": "48a701831d48f77bcb104282ab0b33cc427c530e995f62abc9a342f6c8016b75",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\n\\\n    \\nstone"
+      ]
+    },
+    {
+      "id": "ruamel-double-mapping-assignment",
+      "input_sha256": "b2ddd10d5eacd335301d56b60384e5ea66ff7c412cd29b66ed06d3d966298e85",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    api_key=stone\n    quiet meadow"
+      ]
+    },
+    {
+      "id": "ruamel-double-mapping-nested-pii",
+      "input_sha256": "e19c9e9f26ac4934e43e2d745db96ffd82361fd84da9864893f910fca0d6dc4c",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    help@example.org\n    4111 1111 1111\n    1111 stone"
+      ]
+    },
+    {
+      "id": "ruamel-double-mapping-unicode",
+      "input_sha256": "c9645587c9cd8db75d27df5bc5706b7bd34cf7c213d62c38adc7f85f83df1761",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    石の上にも三年 stone"
+      ]
+    },
+    {
+      "id": "ruamel-double-mapping-quotes",
+      "input_sha256": "4b489c141730814b9b5a070ea800653682b0e2049ad822a8e4b4f8303212b9a1",
+      "masked": "connection:\n  password: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    'quiet' \\\"stone\\\"\\\n    \\ meadow"
+      ]
+    },
+    {
+      "id": "ruamel-double-sequence-apostrophe",
+      "input_sha256": "6097174bb8f806fb1d70685ce98e51987ba315b47630bc6f4606ce541a3caa9f",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun'rise"
+      ]
+    },
+    {
+      "id": "ruamel-double-sequence-two-apostrophes",
+      "input_sha256": "c59672954fe36ec0b14c2d9639bcf71510413a98466d7a3ba8f28a082523a80b",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "sun''rise"
+      ]
+    },
+    {
+      "id": "ruamel-double-sequence-backslash",
+      "input_sha256": "55ae2537d089ffcd615579650aa8abb8a1cd0b2c06d1dbd077832e43624c9e4b",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\\\"
+      ]
+    },
+    {
+      "id": "ruamel-double-sequence-wrapped",
+      "input_sha256": "346e298f0813ee4debd8339b9974068e408474cd76ca1d39c6c2e373cb8f3e4e",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    stone quiet meadow"
+      ]
+    },
+    {
+      "id": "ruamel-double-sequence-line-break",
+      "input_sha256": "09284b6211cc7323d65dc44fc6fc00ee165d3f659819370f88e955f3048abcee",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\n\\\n    stone"
+      ]
+    },
+    {
+      "id": "ruamel-double-sequence-blank-line",
+      "input_sha256": "84d0029164f46d003b59e45c5cd7fb7fbacc29e77d4402655f59a54302486e77",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\\n\\\n    \\nstone"
+      ]
+    },
+    {
+      "id": "ruamel-double-sequence-assignment",
+      "input_sha256": "d6df23116ac36c3d6ac052775ec908f03debdab62db2b049c9e7e562ee8361af",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    api_key=stone\n    quiet meadow"
+      ]
+    },
+    {
+      "id": "ruamel-double-sequence-nested-pii",
+      "input_sha256": "4449b670f7894142d9a52583dbed740a7688c237e97a3619e7d71a44a1d32136",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    help@example.org\n    4111 1111 1111\n    1111 stone"
+      ]
+    },
+    {
+      "id": "ruamel-double-sequence-unicode",
+      "input_sha256": "77c79ab20586be5139fc871627fbc4e4110fbc59cf0eb4977826b728160dc64f",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    石の上にも三年 stone"
+      ]
+    },
+    {
+      "id": "ruamel-double-sequence-quotes",
+      "input_sha256": "ae25e774dc7d6d7c5fe8282a4680f8b741857c88c887ab8773f2a0f20b498f5b",
+      "masked": "connections:\n- client_secret: \"⟨SECRET_1⟩\"\n  mode: \n    read-only\nstatus: failed\n",
+      "complete_protection": true,
+      "exact_cli_and_stream_restore": true,
+      "vault_originals": [
+        "river\n    'quiet' \\\"stone\\\"\\\n    \\ meadow"
+      ]
+    }
+  ],
+  "sdk_requests": [
+    {
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+      "restoresExactly": true,
+      "complete_protection": true
+    },
+    {
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+      "restoresExactly": true,
+      "complete_protection": true
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+      "restoresExactly": true,
+      "complete_protection": true
+    },
+    {
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "request": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+      "restoresExactly": true,
+      "complete_protection": true
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "request": {
+        "input": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+        "model": "test-model"
+      },
+      "outgoing": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+      "restoresExactly": true,
+      "complete_protection": true
+    },
+    {
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "request": {
+        "input": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+      "restoresExactly": true,
+      "complete_protection": true
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "request": {
+        "input": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+        "model": "test-model"
+      },
+      "outgoing": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+      "restoresExactly": true,
+      "complete_protection": true
+    },
+    {
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "request": {
+        "input": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+      "restoresExactly": true,
+      "complete_protection": true
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+      "restoresExactly": true,
+      "complete_protection": true
+    },
+    {
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+      "restoresExactly": true,
+      "complete_protection": true
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model"
+      },
+      "outgoing": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+      "restoresExactly": true,
+      "complete_protection": true
+    },
+    {
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "request": {
+        "max_tokens": 64,
+        "messages": [
+          {
+            "role": "user",
+            "content": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n"
+          }
+        ],
+        "model": "test-model",
+        "stream": true
+      },
+      "outgoing": "connection:\n  password: '⟨SECRET_1⟩'\n  client_secret: \"⟨SECRET_2⟩\"\n  access_token: ⟨SECRET_3⟩\n  mode: read-only\nstatus: failed\n",
+      "restoresExactly": true,
+      "complete_protection": true
+    }
+  ],
+  "protected_native": 120,
+  "protected_sdk": 12
+}

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "type": "SECRET",
+      "original": "sun",
+      "surrogate": "⟨SECRET_1⟩",
+      "detector": "secret:credential_field"
+    },
+    {
+      "type": "SECRET",
+      "original": "quiet",
+      "surrogate": "⟨SECRET_2⟩",
+      "detector": "secret:credential_field"
+    }
+  ]
+}
