@@ -1,0 +1,6 @@
+Accept-Encoding: identity
+Host: 127.0.0.1:46299
+User-Agent: Python-urllib/3.12
+Cookie: sid=c2acee2f92a12c2f718b24e5d52d7ecb; theme=dark
+Connection: close
+

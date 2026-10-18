@@ -19,6 +19,7 @@ revocation checks:
 
 Explicit Authorization/Proxy-Authorization Basic and Bearer values supply
 their own context. Mask each complete token without entropy or word heuristics.
+Explicit Cookie and Set-Cookie fields protect their complete values.
 Explicit credential assignments supply context too; short labelled passwords,
 API keys, client secrets and OAuth token values become complete secrets.
 """
@@ -33,6 +34,7 @@ from collections.abc import Iterator
 from veil._spans import DisjointSpans, SpanIndex
 from veil.detectors._credential_fields import credential_field_spans, is_credential_field
 from veil.detectors._http_auth import http_authorization_spans, http_authorization_value_spans
+from veil.detectors._http_cookies import http_cookie_spans, is_cookie_field
 from veil.detectors._jwt import compact_jwt_spans
 from veil.detectors._words import looks_random
 from veil.types import Entity, EntityType, Span
@@ -154,6 +156,9 @@ class SecretDetector:
         if name.lower() in {"authorization", "proxy-authorization"}:
             spans = list(http_authorization_value_spans(text))
             kind = "http_authorization"
+        elif is_cookie_field(name):
+            spans = [(0, len(text))]
+            kind = "http_cookie"
         elif is_credential_field(name):
             spans = [(0, len(text))]
             kind = "credential_field"
@@ -189,8 +194,15 @@ class SecretDetector:
                 )
             )
 
-        fields = [Span(start, end) for start, end in credential_field_spans(text)]
-        fields_index = SpanIndex(fields)
+        fields = [
+            (Span(start, end), kind)
+            for kind, spans in (
+                ("credential_field", credential_field_spans(text)),
+                ("http_cookie", http_cookie_spans(text)),
+            )
+            for start, end in spans
+        ]
+        fields_index = SpanIndex([span for span, _ in fields])
         for start, end in _private_key_blocks(text):
             # A field may enclose a whole key, but a label inside an opaque
             # PEM block must never displace the block and expose its body.
@@ -199,8 +211,10 @@ class SecretDetector:
                 # auth values do. An email/card match must not displace the
                 # enclosing block and leave its otherwise claimed body exposed.
                 known("private_key", start, end, confidence=1.0)
-        for span in fields:
-            known("credential_field", span.start, span.end, confidence=1.0)
+        # An enclosing labelled secret owns nested labels too: a password
+        # spelling inside a cookie must not expose the rest of the header.
+        for span, kind in sorted(fields, key=lambda item: (-len(item[0]), item[0].start)):
+            known(kind, span.start, span.end, confidence=1.0)
         for start, end in http_authorization_spans(text):
             # Context owns the whole credential, including JWT punctuation and
             # padding or a card-shaped fragment that another detector could find.

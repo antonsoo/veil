@@ -422,6 +422,13 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   could previously mask an invented header label and make `Bearer abc` restore
   as `abc`. [Original-value and actual SDK replay](studies/header-field-context/README.md)
   retains the correction, including streamed tool replies and vault provenance.
+  Explicit `Cookie` and `Set-Cookie` header values are now masked as whole
+  secrets in source, including short sessions, hex-only tokens, preferences and
+  expiry attributes. Raw header lines, quoted header mappings/curl arguments
+  and decoded immediate header fields are supported. Cookie names do not
+  establish which member grants access. [Native cookie-jar exchange, loopback
+  replay and SDK transport](studies/http-cookies/README.md). This is not a HAR
+  record interpreter or a cookie validity check; the PyPI release is unchanged.
   Explicit password, API-key, client-secret and OAuth-token assignments also
   protect short or word-like values, including immediate string fields in tool
   histories. `masker.mask(value, field_name="password")` retains a decoded field's

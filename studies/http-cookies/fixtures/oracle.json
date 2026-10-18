@@ -1,0 +1,29 @@
+{
+  "scope": "Real stdlib HTTP response and CookieJar request on loopback; local synthetic session, server closed after capture.",
+  "python": "3.12.12",
+  "captureSha256": "6a7a8fc37855e4fb5f094564d06929b4d00b913f79083402add9793f52ded78b",
+  "session": "c2acee2f92a12c2f718b24e5d52d7ecb",
+  "cookie": "sid=c2acee2f92a12c2f718b24e5d52d7ecb; theme=dark",
+  "setCookies": [
+    "sid=c2acee2f92a12c2f718b24e5d52d7ecb; HttpOnly; Path=/; SameSite=Lax",
+    "theme=dark; Path=/"
+  ],
+  "authenticated": {
+    "status": 200,
+    "body": "local private document"
+  },
+  "files": [
+    {
+      "file": "request-headers.txt",
+      "sha256": "73f433eece4d9b0a77e0b85c56446a8a5b786f3c21f8892d5749c75ef10e68b0"
+    },
+    {
+      "file": "response-headers.txt",
+      "sha256": "935ceab68d2f661bdbe3cbf455d11e3633db83632776e4e37428e240cf618643"
+    },
+    {
+      "file": "request-headers.json",
+      "sha256": "3070138c8883d361a88e39fed5de7371d2505cb0de0880583f039d9cc1afa36d"
+    }
+  ]
+}

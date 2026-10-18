@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Complete explicit HTTP cookie values
+
+- Mask complete Cookie and Set-Cookie values without entropy or cookie-name
+  assumptions. Keep expiry commas and adjacent members inside the secret;
+  preserve header labels and source boundaries for exact restoration.
+- Apply the existing original-value field context to decoded header mappings
+  in SDK tool data. An enclosing cookie or credential owns nested labels and
+  PII, preventing a shorter candidate from exposing the rest of the value.
+- Retain a native stdlib cookie-jar exchange and controlled loopback replay,
+  plus real SDK serialization over mock transports. No external session,
+  provider call or registry release is included.
+
 ### Combining marks at fuzzy restoration boundaries
 
 - Keep Unicode nonspacing, spacing and enclosing marks attached to adjoining

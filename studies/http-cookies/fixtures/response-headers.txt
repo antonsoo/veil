@@ -1,0 +1,5 @@
+Server: BaseHTTP/0.6 Python/3.12.12
+Date: Sun, 18 Oct 2026 09:50:32 GMT
+Set-Cookie: sid=c2acee2f92a12c2f718b24e5d52d7ecb; HttpOnly; Path=/; SameSite=Lax
+Set-Cookie: theme=dark; Path=/
+
