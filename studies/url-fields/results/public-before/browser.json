@@ -1,0 +1,177 @@
+{
+  "url": "https://antonsoo.github.io/veil/",
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1280,
+      "phase": "before",
+      "rows": [
+        {
+          "field": "client_secret",
+          "sourceSha256": "a91e544131c18826a8edc5c8380e9819237f0bad0102bc801934ff8da36a9b43",
+          "maskedSha256": "a91e544131c18826a8edc5c8380e9819237f0bad0102bc801934ff8da36a9b43",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        },
+        {
+          "field": "refresh_token",
+          "sourceSha256": "bcb08101d49f3202bf378b64f355cfb4ae4a4f0fe9d8a15b6677ad59b21e474d",
+          "maskedSha256": "bcb08101d49f3202bf378b64f355cfb4ae4a4f0fe9d8a15b6677ad59b21e474d",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        },
+        {
+          "field": "passwd",
+          "sourceSha256": "da932a460c25e4bacddc0cd17c2a9aa320eac672c1b4b83221c7c953076d3e11",
+          "maskedSha256": "da932a460c25e4bacddc0cd17c2a9aa320eac672c1b4b83221c7c953076d3e11",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        },
+        {
+          "field": "SERVICE_PASSWORD",
+          "sourceSha256": "6e32461106373820d27b99b28f189774b1de81dbeeef01700b61f2eeedfd688b",
+          "maskedSha256": "6e32461106373820d27b99b28f189774b1de81dbeeef01700b61f2eeedfd688b",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "errors": [],
+      "requests": []
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "phase": "before",
+      "rows": [
+        {
+          "field": "client_secret",
+          "sourceSha256": "a91e544131c18826a8edc5c8380e9819237f0bad0102bc801934ff8da36a9b43",
+          "maskedSha256": "a91e544131c18826a8edc5c8380e9819237f0bad0102bc801934ff8da36a9b43",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        },
+        {
+          "field": "refresh_token",
+          "sourceSha256": "bcb08101d49f3202bf378b64f355cfb4ae4a4f0fe9d8a15b6677ad59b21e474d",
+          "maskedSha256": "bcb08101d49f3202bf378b64f355cfb4ae4a4f0fe9d8a15b6677ad59b21e474d",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        },
+        {
+          "field": "passwd",
+          "sourceSha256": "da932a460c25e4bacddc0cd17c2a9aa320eac672c1b4b83221c7c953076d3e11",
+          "maskedSha256": "da932a460c25e4bacddc0cd17c2a9aa320eac672c1b4b83221c7c953076d3e11",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        },
+        {
+          "field": "SERVICE_PASSWORD",
+          "sourceSha256": "6e32461106373820d27b99b28f189774b1de81dbeeef01700b61f2eeedfd688b",
+          "maskedSha256": "6e32461106373820d27b99b28f189774b1de81dbeeef01700b61f2eeedfd688b",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "errors": [],
+      "requests": []
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1280,
+      "phase": "before",
+      "rows": [
+        {
+          "field": "client_secret",
+          "sourceSha256": "a91e544131c18826a8edc5c8380e9819237f0bad0102bc801934ff8da36a9b43",
+          "maskedSha256": "a91e544131c18826a8edc5c8380e9819237f0bad0102bc801934ff8da36a9b43",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        },
+        {
+          "field": "refresh_token",
+          "sourceSha256": "bcb08101d49f3202bf378b64f355cfb4ae4a4f0fe9d8a15b6677ad59b21e474d",
+          "maskedSha256": "bcb08101d49f3202bf378b64f355cfb4ae4a4f0fe9d8a15b6677ad59b21e474d",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        },
+        {
+          "field": "passwd",
+          "sourceSha256": "da932a460c25e4bacddc0cd17c2a9aa320eac672c1b4b83221c7c953076d3e11",
+          "maskedSha256": "da932a460c25e4bacddc0cd17c2a9aa320eac672c1b4b83221c7c953076d3e11",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        },
+        {
+          "field": "SERVICE_PASSWORD",
+          "sourceSha256": "6e32461106373820d27b99b28f189774b1de81dbeeef01700b61f2eeedfd688b",
+          "maskedSha256": "6e32461106373820d27b99b28f189774b1de81dbeeef01700b61f2eeedfd688b",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "errors": [],
+      "requests": []
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "phase": "before",
+      "rows": [
+        {
+          "field": "client_secret",
+          "sourceSha256": "a91e544131c18826a8edc5c8380e9819237f0bad0102bc801934ff8da36a9b43",
+          "maskedSha256": "a91e544131c18826a8edc5c8380e9819237f0bad0102bc801934ff8da36a9b43",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        },
+        {
+          "field": "refresh_token",
+          "sourceSha256": "bcb08101d49f3202bf378b64f355cfb4ae4a4f0fe9d8a15b6677ad59b21e474d",
+          "maskedSha256": "bcb08101d49f3202bf378b64f355cfb4ae4a4f0fe9d8a15b6677ad59b21e474d",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        },
+        {
+          "field": "passwd",
+          "sourceSha256": "da932a460c25e4bacddc0cd17c2a9aa320eac672c1b4b83221c7c953076d3e11",
+          "maskedSha256": "da932a460c25e4bacddc0cd17c2a9aa320eac672c1b4b83221c7c953076d3e11",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        },
+        {
+          "field": "SERVICE_PASSWORD",
+          "sourceSha256": "6e32461106373820d27b99b28f189774b1de81dbeeef01700b61f2eeedfd688b",
+          "maskedSha256": "6e32461106373820d27b99b28f189774b1de81dbeeef01700b61f2eeedfd688b",
+          "vaultSha256": "060e3086af4deea12127302335b4b034637180b54e4a1e22139bea223b38f666",
+          "protectedWholeUrl": false,
+          "exactDownloadRestoration": true
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "errors": [],
+      "requests": []
+    }
+  ]
+}

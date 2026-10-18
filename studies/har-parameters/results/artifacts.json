@@ -1,0 +1,102 @@
+{
+  "scope": "Compare reviewed source, built archives, installed runtime bytes and replays.",
+  "sourceRevision": "d03e14b4b764e5809f3f84667e58bc842c2e98f0",
+  "runtimeFiles": {
+    "__init__.py": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980",
+    "_files.py": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29",
+    "_json_fields.py": "949ceba5b724271a9451ed68d0a82126ea8950100ce67eb3d8c0441ea6e36a56",
+    "_spans.py": "62f6cb318147173ebf9cbd5b9c039d865df4b3fa1245c056684d40a2aea7b06d",
+    "audit.py": "026369aec3ef2763bd779f0c51404c31ad7b0a396278434c1225e8a4387deac5",
+    "backends/__init__.py": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b",
+    "backends/base.py": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e",
+    "backends/known_entities.py": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55",
+    "backends/spacy_backend.py": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b",
+    "cli.py": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1",
+    "detectors/__init__.py": "59777802fc49ac92c5064172a7ccb8d34b5d01639cc472479052d0b4dd63967f",
+    "detectors/_calling_codes.py": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c",
+    "detectors/_credential_fields.py": "bcfb645b9f0fc4c9ac1f7a7b9e6014ebf478c5a5a96a05ebe1b5943dcea098c8",
+    "detectors/_http_auth.py": "fb26c0f2f04cb1a2b3c13ff1edb3c50bdbb7ad904b105caa0e63a517c6ea7775",
+    "detectors/_http_cookies.py": "83748779e32b538ea450b6e46db7b1e982b9ab90694aa6da03ba94cf3b7cc068",
+    "detectors/_jwt.py": "24ca1a07c536eb9ce164a58f8bdb207421a3d4f165c3dd997034c39cd9de3c77",
+    "detectors/_words.py": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887",
+    "detectors/address.py": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec",
+    "detectors/base.py": "af8b6d45b9b8e9bea176c4545f50ba2d24e32aa9e838aceb586b6b71b7f2ee18",
+    "detectors/card.py": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f",
+    "detectors/dob.py": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f",
+    "detectors/email.py": "6c55c1532b289c0ab791570c24616aacd636929e64319e1badcd2ea69b359e77",
+    "detectors/iban.py": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c",
+    "detectors/ip.py": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b",
+    "detectors/phone.py": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd",
+    "detectors/secrets.py": "d10d1f78f8329c5c30a737aa0aaea0a83cf787f911141ee2944114949db029ef",
+    "detectors/ssn.py": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b",
+    "detectors/url.py": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099",
+    "integrations/__init__.py": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881",
+    "integrations/_common.py": "0d7714c4bcdd48457e28f18d2de3c7d6fe59d0d4f7a7a6ea8662c0148d509c8b",
+    "integrations/_json_arguments.py": "f55db6195403a3c628c248484bdbc5ddd42e4d50dfa4a25c675297bc21328ab8",
+    "integrations/anthropic.py": "3f27a9955ce49c788bf2d3e97babbe8e197ac15d3c1c939c50a198595411a821",
+    "integrations/openai.py": "830b8cf890680ea4edae8489d55402a9163a0effa210350037434a61a0ccb9d3",
+    "integrations/openai_responses.py": "3650dfc325747ecce45a847de3efb36a6087f28ffd63b0317dee302ee1ce092e",
+    "masker.py": "90c2523d9154ec9b99d78d4ae9208f8544d28a298db60ca2887c2871eff5b80a",
+    "py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "restore.py": "1ef82fbceb230f0aed216bf7b46fe3f8c9db2bbd219e4807c8a2864f6282c908",
+    "surrogates.py": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0",
+    "types.py": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8",
+    "vault.py": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+  },
+  "artifacts": [
+    {
+      "file": "veil_pii-0.4.4-py3-none-any.whl",
+      "sha256": "31bda1384004ee8cd7ac4055cf494a22f664ffc8eef1fbbd4e792a9d81998b8f",
+      "runtimeFilesMatch": 40
+    },
+    {
+      "file": "veil_pii-0.4.4.tar.gz",
+      "sha256": "728d3f0d90a44befabc3cb2dfe4e69071e8efce9c4d023fa8de854931a0efd37",
+      "runtimeFilesMatch": 40
+    }
+  ],
+  "installed": [
+    {
+      "environment": "current",
+      "runtimeFilesMatch": 40,
+      "sourceWheelSha256": "31bda1384004ee8cd7ac4055cf494a22f664ffc8eef1fbbd4e792a9d81998b8f",
+      "versions": {
+        "veil-pii": "0.4.4",
+        "openai": "3.35.1",
+        "anthropic": "1.15.0"
+      }
+    },
+    {
+      "environment": "floor",
+      "runtimeFilesMatch": 40,
+      "sourceWheelSha256": "31bda1384004ee8cd7ac4055cf494a22f664ffc8eef1fbbd4e792a9d81998b8f",
+      "versions": {
+        "veil-pii": "0.4.4",
+        "openai": "1.66.0",
+        "anthropic": "0.40.0"
+      }
+    }
+  ],
+  "replays": [
+    {
+      "file": "clean-replay.json",
+      "python": "3.12.12",
+      "directCases": 9,
+      "sdkCases": 36
+    },
+    {
+      "file": "installed-current.json",
+      "python": "3.14.7",
+      "directCases": 9,
+      "sdkCases": 36
+    },
+    {
+      "file": "installed-floor.json",
+      "python": "3.10.21",
+      "directCases": 9,
+      "sdkCases": 36
+    }
+  ],
+  "browserSourceModulesMatch": 39,
+  "published": false
+}

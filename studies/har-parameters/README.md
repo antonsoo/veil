@@ -123,3 +123,36 @@ node studies/har-parameters/browser.mjs URL /tmp/har-browser /tmp/har-after afte
 
 Source, installed package and public delivery are separate claims. This study
 does not create a PyPI release or tag.
+
+## Clean artifact and delivery evidence
+
+Core source `d03e14b4b764e5809f3f84667e58bc842c2e98f0` was verified from a
+fresh Git archive: lint, formatting, types, 1,712 unit checks (one optional
+spaCy module skipped), and all 16 existing browser scenarios passed. The
+[artifact receipt](results/artifacts.json) matches all 40 runtime files across
+wheel, sdist and two installed environments, and all 39 Python modules in the
+browser manifest. Python 3.10 with Anthropic 0.40.0/OpenAI 1.66.0 and Python
+3.14 with Anthropic 1.15.0/OpenAI 3.35.1 each replay nine direct and 36 actual
+SDK tool workflows with zero failures. Provider responses are authored locally.
+
+Pages commit `2bd509a` deployed this HAR correction. All 27 canonical served
+files match the [captured build inventory](results/hosted-bytes.json). Browser
+behavior and the subsequent ordinary-URL alias update are verified separately.
+The later URL detector revision does not change this historical artifact.
+
+[`transaction_views.py`](transaction_views.py) derives 16 complete, compact
+single-entry HAR views for a workbench's 12,000-character source limit. It
+preserves every selected JSON value and records parent hashes and entry
+indices. These are derived transactions, not producer-byte-identical files or
+16 independent HTTP requests: the eight actual requests were observed by two
+producers. The original three HAR files remain the native-input evidence.
+
+The combined URL/HAR engine is subsequently served at Pages `4011db5`.
+[Public browser replay](results/public-after/browser.json) opens all three
+native files in Chromium and Firefox at desktop and 375 pixels: 12 imports
+and 24 actual masked/vault downloads. Every masked byte matches the final
+CLI, all 34 credential-bearing fields/containers are opaque, and each vault
+restores the complete source. It runs offline after bootstrap with no page
+errors or subsequent requests. The complete 53 KB proxy file remains in the
+download even when its preview is bounded. All eight retained viewport/vault
+screenshots were inspected. This does not create a package-registry release.

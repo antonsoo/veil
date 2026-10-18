@@ -42,3 +42,32 @@ uv run python studies/url-fields/replay.py --src /path/to/baseline/src --out /tm
 Replay uses the retained capture without networking. Source, installed wheel,
 served browser runtime and registry release are separate claims. No PyPI
 release or tag is created by this work.
+
+## Installed and public results
+
+Source `ce74b2f1c84b124d703d0f2d9123517963732c27` passes lint, formatting,
+types and 1,728 checks in a clean archive; one optional spaCy module is skipped.
+The [artifact receipt](results/artifacts.json) compares all 40 runtime files
+in the wheel, sdist and two fresh wheel installations. Python 3.10.21 with
+Anthropic 0.40.0/OpenAI 1.66.0 and Python 3.14.7 with Anthropic 1.15.0/OpenAI
+3.35.1 each protect all 48 native URL workflows. All 39 browser Python modules
+match the same source. The [documented Git installation](results/git-origin.json)
+was actually forced over an existing same-version installation and reproduces
+all runtime bytes and URL results.
+
+The previous HAR correction is also replayed against this final source and
+both installed environments: nine direct workflows and 36 real SDK tool
+serialization/restoration workflows each retain zero failures. See
+[clean](results/har-clean.json), [floor](results/har-installed-floor.json) and
+[current](results/har-installed-current.json) receipts. No provider is called.
+
+Pages commit `4011db5` deploys the combined engine. All 27 canonical responses
+match the [clean-build bytes](results/hosted-bytes.json), with no cache-busting
+URLs. [`browser.mjs`](browser.mjs) exercises four actual client URLs in both
+browser engines at desktop and 375 pixels, before and after publication:
+16 inputs and 32 actual masked/vault downloads per phase. Each downloaded
+vault restores the exact URL. All corrected masks contain one complete URL
+surrogate, with zero post-bootstrap requests and zero page errors. Retained
+screenshots were inspected. [Before](results/public-before/browser.json) and
+[after](results/public-after/browser.json) establish browser behavior separately
+from file delivery. The registry version remains unchanged.

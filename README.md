@@ -147,13 +147,13 @@ The registry version is **0.4.4**. To use the unreleased corrections documented
 in this repository, install this tested source revision (requires Git):
 
 ```bash
-python -m pip install --force-reinstall "veil-pii @ git+https://github.com/antonsoo/veil.git@a8411d6eff1a24c5cfcccfc744945de22e9aae4a"
+python -m pip install --force-reinstall "veil-pii @ git+https://github.com/antonsoo/veil.git@ce74b2f1c84b124d703d0f2d9123517963732c27"
 ```
 
 `--force-reinstall` also replaces an existing 0.4.4 installation: the source
-revision still declares that version. The [clean package and runtime receipt](studies/restore-marks/results/artifacts.json)
-compares all 37 source modules with wheel, sdist, installed packages and the
-browser manifest. [Restoration checks](studies/restore-marks/README.md) separate
+revision still declares that version. The [clean package and runtime receipt](studies/url-fields/results/artifacts.json)
+compares all 40 runtime files with wheel, sdist and installed packages, plus
+the 39 Python modules in the browser manifest. [Native URL and restoration checks](studies/url-fields/README.md) separate
 the source correction from the unchanged registry package.
 
 ```python
