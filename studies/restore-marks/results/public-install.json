@@ -1,0 +1,9 @@
+{
+  "sourceCommit": "a8411d6eff1a24c5cfcccfc744945de22e9aae4a",
+  "registryInstalledFirst": "0.4.4",
+  "literalReadmePipCommandCompleted": true,
+  "forceReinstall": true,
+  "all37ModulesIdentical": true,
+  "processExit": 0,
+  "scope": "Real public Git source pip installation after registry install, then native core/CLI and SDK replay. No registry release."
+}

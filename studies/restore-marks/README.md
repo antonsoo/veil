@@ -27,7 +27,9 @@ transliteration or runtime dependency is added. The
 provides context for keeping combining characters with text, but this bounded
 letter/number/underscore/mark check is **not** the full Unicode word-boundary
 algorithm or a locale-specific name matcher. Other format characters and
-language-specific segmentation keep their existing behavior.
+language-specific segmentation keep their existing behavior. Classification
+uses the running Python's Unicode database; its version is retained in each
+replay. Marks introduced after that database remain outside this guarantee.
 
 **Exact restoration still replaces every exact surrogate substring wherever
 it appears.** Tolerant restoration retains that exact pass first; streaming
@@ -118,3 +120,24 @@ replays those two boundaries. The optional engine argument permits short
 independent runs. Only static runtime GETs go to Pyodide's configured CDN;
 processing and file downloads after initialization run offline. Four actual
 local UI screenshots were visually reviewed under `docs/assets/restore-marks`.
+
+## Public source and hosted Python
+
+Source `ec4fda1` and Pages `b16e4a1` publish the clean `a8411d6` runtime.
+All 27 build files and the canonical root match HTTP bytes:
+[canonical comparison](results/hosted-bytes.json). The pinned README command
+was executed with real pip after installing registry 0.4.4. All 37 installed
+modules match source, and native CLI/current SDK controls pass:
+[install provenance](results/public-install.json),
+[core replay](results/public-source-core.json),
+[SDK replay](results/public-source-sdk.json).
+
+Four actual public Chromium/Firefox desktop/mobile contexts repeat the offline
+UI downloads and explicit served-Python diagnostic:
+[public browser receipt](results/browser-hosted/browser.json).
+All eight real masked/vault downloads, all 37 manifest module hashes and all
+four screenshots match the reviewed local captures byte-for-byte. The diagnostic
+keeps all 19 library cases correct in both browser runtimes. This does not add
+a tolerant-response editor to the UI or establish a provider/model outcome.
+[Publication boundaries](results/publication.json) retain those distinctions.
+The Hugging Face workbench and PyPI release were not updated by this work.

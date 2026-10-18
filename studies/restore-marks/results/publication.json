@@ -1,0 +1,39 @@
+{
+  "source": "ec4fda1",
+  "builtSource": "a8411d6eff1a24c5cfcccfc744945de22e9aae4a",
+  "pages": "b16e4a1ca1c6be7a19415a4e80d74cff1f9ff077",
+  "canonicalFilesAndRoot": 28,
+  "allExactServedBytes": true,
+  "offlineBrowserContexts": 4,
+  "actualUiDownloads": 8,
+  "servedManifestModules": 37,
+  "diagnosticLibraryControlsPerContext": 19,
+  "publicUiExposesTolerantRestore": false,
+  "actualMaskedAndVaultBytesMatchLocal": true,
+  "screenshots": [
+    {
+      "file": "chromium-1280.png",
+      "identicalToReviewedLocal": true,
+      "sha256": "867f8c7b4c1ba257a9494d2ce62c6e538e9b54b6dc0527b50cf336b5c5ddf436"
+    },
+    {
+      "file": "chromium-375.png",
+      "identicalToReviewedLocal": true,
+      "sha256": "8376006f3f7551ff69a2434d7350e6902d53fb5a90054636fe6966f7a2153ad6"
+    },
+    {
+      "file": "firefox-1280.png",
+      "identicalToReviewedLocal": true,
+      "sha256": "cfd507140b366d8fb559529731a250db715055e6175a2aaa79300d1eccb721a9"
+    },
+    {
+      "file": "firefox-375.png",
+      "identicalToReviewedLocal": true,
+      "sha256": "6d2ab870cae23b4d0f59f9ed4f19ff409936926498950d7a646547cb03741f51"
+    }
+  ],
+  "publicSourcePipUpgradeVerified": true,
+  "registryVersionUnchanged": "0.4.4",
+  "workbenchUpdated": false,
+  "scope": "Actual public UI offline downloads and exact-stream simulation, plus explicit diagnostic execution of the unmodified served Python. No provider call or registry release."
+}
