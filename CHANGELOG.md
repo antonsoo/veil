@@ -16,7 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   and ordinary name/value records keep their boundaries.
 - Retain authenticated Chromium/Firefox loopback captures, CLI restoration,
   actual SDK serialization and offline browser-download evidence in
-  `studies/har-authorization/`. This correction is local and unreleased.
+  `studies/har-authorization/`. Source and live demo are verified separately;
+  no PyPI release is included.
 
 ### Repeated surrogate availability checks
 

@@ -433,7 +433,7 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   credentials survived because their header names lived in sibling fields.
   [Authenticated native HAR replay](studies/har-authorization/README.md)
   checks the CLI, SDK wire data and browser downloads. This correction is
-  local; it has not been published to PyPI or the live demo.
+  now verified in the live demo; the PyPI release remains unchanged.
   Explicit password, API-key, client-secret and OAuth-token assignments also
   protect short or word-like values, including immediate string fields in tool
   histories. `masker.mask(value, field_name="password")` retains a decoded field's

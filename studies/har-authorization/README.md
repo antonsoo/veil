@@ -130,6 +130,22 @@ query fields and multiple serialization layers retain their existing coverage.
 The synthetic local server proves the captured credentials were accepted by
 that server; it does not authenticate external source data or real accounts.
 
-The correction is local. No push, tag, registry publication or hosted deployment
-is included. Package metadata remains 0.4.4. The web build command is
+The original correction and checks above were local; public delivery is recorded
+separately below. No tag or registry publication is included. Package metadata
+remains 0.4.4. The web build command is
 `cd web && npm ci && npm run build`, producing `web/dist/`.
+
+## Public delivery
+
+Source `39489ed` contains the implementation and clean-install verification.
+Deployment `5c162cf` updates only the Python source bundle and preserves earlier
+hashed assets. The [canonical HTTP receipt](results/hosted-bytes.json) verifies
+all 27 current build files against the exact public URL responses, without
+query-string cache bypasses.
+
+The [public browser replay](results/hosted-browser.json) repeats both native
+HARs in Chromium and Firefox at desktop and phone widths. All eight actual
+masked downloads contain no retained credentials; their downloaded vaults
+reconstruct the exact source. All work after bootstrap occurs offline with
+zero subsequent requests or page errors. This establishes those public
+workflows, separately from the unchanged PyPI release.
