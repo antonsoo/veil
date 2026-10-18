@@ -104,3 +104,18 @@ local font GET; it contains no prompt data and is recorded separately.
 and inspected, along with the other two engine/width combinations. All four
 accessibility audits pass without horizontal page overflow. These local checks
 do not alone establish a hosted deployment or PyPI release.
+
+## Public delivery
+
+Source `389052b` and verification `cffb96e` were pushed to main. Deployment
+`f73cd67` updates only the served Python manifest; all existing static assets
+remain available. The [canonical byte receipt](results/hosted-bytes.json)
+checks the complete clean web build, and the [public browser replay](results/hosted-browser.json)
+repeats all four cookie prompts and eight actual downloads in each engine/width
+context against `https://antonsoo.github.io/veil/`. The corrected Python runs
+in the actual worker, with no subsequent prompt/download requests and no
+accessibility violations or page overflow. Initial runtime downloads and the
+separate audit font attempt remain explicitly recorded.
+
+The source, local package and public demo are verified separately. No PyPI
+release, provider call or production account session is included.

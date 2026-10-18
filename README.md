@@ -423,7 +423,7 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   as `abc`. [Original-value and actual SDK replay](studies/header-field-context/README.md)
   retains the correction, including streamed tool replies and vault provenance.
   Explicit `Cookie` and `Set-Cookie` header values are now masked as whole
-  secrets in source, including short sessions, hex-only tokens, preferences and
+  secrets in source and the live demo, including short sessions, hex-only tokens, preferences and
   expiry attributes. Raw header lines, quoted header mappings/curl arguments
   and decoded immediate header fields are supported. Cookie names do not
   establish which member grants access. [Native cookie-jar exchange, loopback

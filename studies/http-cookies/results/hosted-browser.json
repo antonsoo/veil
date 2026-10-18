@@ -1,0 +1,198 @@
+{
+  "url": "https://antonsoo.github.io/veil/",
+  "scope": "Actual Python worker in the demo UI; retained native header values, explicit short/expiry control, offline masked-prompt and vault downloads. Vault substitution is an explicit local diagnostic; the canned reply does not echo cookies.",
+  "rows": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1280,
+      "cases": [
+        {
+          "name": "request-headers.txt",
+          "maskedSha256": "ae1c31c71f0d2cd3a92884f538de74c4909027e46cedf177ec1297639aaa1c7a",
+          "vaultSha256": "02be95385c4b823fe756e7a54a7f0398181d233d5cbda310b9f3ed2cc5296483",
+          "completeValues": 1,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        },
+        {
+          "name": "response-headers.txt",
+          "maskedSha256": "00cfacc049505d7ce695f7f85205a13783034a28e22384e95d27b8844d46b225",
+          "vaultSha256": "0f996341f80970f52a8539643eaf7a1d9ab77923cbc8018d502346dd6b8f8378",
+          "completeValues": 2,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        },
+        {
+          "name": "request-headers.json",
+          "maskedSha256": "da0302e0b2d49459973f0ac633b6a52ae205026d99289dd41a06f1aff232f465",
+          "vaultSha256": "02be95385c4b823fe756e7a54a7f0398181d233d5cbda310b9f3ed2cc5296483",
+          "completeValues": 1,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        },
+        {
+          "name": "short-and-expiry-control",
+          "maskedSha256": "ae2e20448d902992c6c8c163ca950f12c98a0f06b7b33f9bc8cb0c352a9ff3f7",
+          "vaultSha256": "be7900b099dfc432ae88dd356882fc6110e90d4b5301925cb6bf55683ac81cd9",
+          "completeValues": 2,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "auditFontRequests": [],
+      "errors": [],
+      "accessibilityViolations": [],
+      "horizontalOverflow": false
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "cases": [
+        {
+          "name": "request-headers.txt",
+          "maskedSha256": "ae1c31c71f0d2cd3a92884f538de74c4909027e46cedf177ec1297639aaa1c7a",
+          "vaultSha256": "02be95385c4b823fe756e7a54a7f0398181d233d5cbda310b9f3ed2cc5296483",
+          "completeValues": 1,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        },
+        {
+          "name": "response-headers.txt",
+          "maskedSha256": "00cfacc049505d7ce695f7f85205a13783034a28e22384e95d27b8844d46b225",
+          "vaultSha256": "0f996341f80970f52a8539643eaf7a1d9ab77923cbc8018d502346dd6b8f8378",
+          "completeValues": 2,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        },
+        {
+          "name": "request-headers.json",
+          "maskedSha256": "da0302e0b2d49459973f0ac633b6a52ae205026d99289dd41a06f1aff232f465",
+          "vaultSha256": "02be95385c4b823fe756e7a54a7f0398181d233d5cbda310b9f3ed2cc5296483",
+          "completeValues": 1,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        },
+        {
+          "name": "short-and-expiry-control",
+          "maskedSha256": "ae2e20448d902992c6c8c163ca950f12c98a0f06b7b33f9bc8cb0c352a9ff3f7",
+          "vaultSha256": "be7900b099dfc432ae88dd356882fc6110e90d4b5301925cb6bf55683ac81cd9",
+          "completeValues": 2,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "auditFontRequests": [],
+      "errors": [],
+      "accessibilityViolations": [],
+      "horizontalOverflow": false
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1280,
+      "cases": [
+        {
+          "name": "request-headers.txt",
+          "maskedSha256": "ae1c31c71f0d2cd3a92884f538de74c4909027e46cedf177ec1297639aaa1c7a",
+          "vaultSha256": "02be95385c4b823fe756e7a54a7f0398181d233d5cbda310b9f3ed2cc5296483",
+          "completeValues": 1,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        },
+        {
+          "name": "response-headers.txt",
+          "maskedSha256": "00cfacc049505d7ce695f7f85205a13783034a28e22384e95d27b8844d46b225",
+          "vaultSha256": "0f996341f80970f52a8539643eaf7a1d9ab77923cbc8018d502346dd6b8f8378",
+          "completeValues": 2,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        },
+        {
+          "name": "request-headers.json",
+          "maskedSha256": "da0302e0b2d49459973f0ac633b6a52ae205026d99289dd41a06f1aff232f465",
+          "vaultSha256": "02be95385c4b823fe756e7a54a7f0398181d233d5cbda310b9f3ed2cc5296483",
+          "completeValues": 1,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        },
+        {
+          "name": "short-and-expiry-control",
+          "maskedSha256": "ae2e20448d902992c6c8c163ca950f12c98a0f06b7b33f9bc8cb0c352a9ff3f7",
+          "vaultSha256": "be7900b099dfc432ae88dd356882fc6110e90d4b5301925cb6bf55683ac81cd9",
+          "completeValues": 2,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "auditFontRequests": [
+        {
+          "url": "https://antonsoo.github.io/veil/assets/fraunces-latin-DihXLNYH.woff2",
+          "method": "GET",
+          "body": null
+        }
+      ],
+      "errors": [],
+      "accessibilityViolations": [],
+      "horizontalOverflow": false
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "cases": [
+        {
+          "name": "request-headers.txt",
+          "maskedSha256": "ae1c31c71f0d2cd3a92884f538de74c4909027e46cedf177ec1297639aaa1c7a",
+          "vaultSha256": "02be95385c4b823fe756e7a54a7f0398181d233d5cbda310b9f3ed2cc5296483",
+          "completeValues": 1,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        },
+        {
+          "name": "response-headers.txt",
+          "maskedSha256": "00cfacc049505d7ce695f7f85205a13783034a28e22384e95d27b8844d46b225",
+          "vaultSha256": "0f996341f80970f52a8539643eaf7a1d9ab77923cbc8018d502346dd6b8f8378",
+          "completeValues": 2,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        },
+        {
+          "name": "request-headers.json",
+          "maskedSha256": "da0302e0b2d49459973f0ac633b6a52ae205026d99289dd41a06f1aff232f465",
+          "vaultSha256": "02be95385c4b823fe756e7a54a7f0398181d233d5cbda310b9f3ed2cc5296483",
+          "completeValues": 1,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        },
+        {
+          "name": "short-and-expiry-control",
+          "maskedSha256": "ae2e20448d902992c6c8c163ca950f12c98a0f06b7b33f9bc8cb0c352a9ff3f7",
+          "vaultSha256": "be7900b099dfc432ae88dd356882fc6110e90d4b5301925cb6bf55683ac81cd9",
+          "completeValues": 2,
+          "sessionAbsent": true,
+          "downloadRestoresExactly": true
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "auditFontRequests": [
+        {
+          "url": "https://antonsoo.github.io/veil/assets/fraunces-latin-DihXLNYH.woff2",
+          "method": "GET",
+          "body": null
+        }
+      ],
+      "errors": [],
+      "accessibilityViolations": [],
+      "horizontalOverflow": false
+    }
+  ]
+}
