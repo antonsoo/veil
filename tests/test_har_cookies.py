@@ -88,7 +88,6 @@ def test_ambiguous_har_routing_refuses_without_vault_changes(source: str) -> Non
         '{"Cookie":{"public":"short"}}',
         '{"Cookie":17,"Set-Cookie":true}',
         '{"Cookie":null,"public":"short"}',
-        'type Headers = { "set-cookie": string[]; };',
     ],
 )
 def test_no_cookie_context_is_inferred_outside_declared_shapes(source: str) -> None:
@@ -101,6 +100,13 @@ def test_complete_json_cookie_keys_are_decoded_without_invented_source_text() ->
     masker = Masker()
     assert masker.mask(source) == r'{"Co\u006fkie":"⟨SECRET_1⟩"}'
     assert masker.restore(r'{"Co\u006fkie":"⟨SECRET_1⟩"}') == source
+
+
+def test_typescript_header_declaration_is_not_a_cookie_value() -> None:
+    source = 'type Headers = { "set-cookie": string[]; };'
+    assert Masker().mask(source) == source
+    with pytest.raises(VaultError, match="valid JSON"):
+        mask_arguments(source, Masker())
 
 
 def test_restore_does_not_require_a_model_reply_to_be_valid_har() -> None:

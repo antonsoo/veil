@@ -1,0 +1,99 @@
+{
+  "scope": "Constructed scaling control derived from a retained native HAR.\n\nRepeats native entries, optionally adding one literal placeholder example.\nTimes masking only, checks complete restoration and records output hashes.\nThis is not a naturally captured large session or a general speed guarantee.\n",
+  "python": "3.12.12",
+  "repetitions": 3,
+  "maskerSha256": "dfe2a14b2a5960c6fa2f28cfb1279d822220640e6f1144064e5beaaebc9684f5",
+  "driverSha256": "901ec7af3d83b0dffc1dfff6c373eb4727eb31fe5d05b7d099e52db6cc25d816",
+  "rows": [
+    {
+      "entries": 100,
+      "bytes": 211554,
+      "literalPlaceholder": false,
+      "sourceSha256": "5372c92795993cf5d64ddf093b8fd8851ac52e31d6ceabec376b0c984b83ea81",
+      "seconds": [
+        0.2248646980151534,
+        0.23815364198526368,
+        0.24222770100459456
+      ],
+      "medianSeconds": 0.23815364198526368,
+      "outputAndVaultSha256": "71c4aeeac9d34f573d9be1020f4de19364aa8108bd4a8f9656f5d5a8ad605d0a",
+      "mappings": 5,
+      "exactAndTolerantRoundTrip": true
+    },
+    {
+      "entries": 100,
+      "bytes": 211611,
+      "literalPlaceholder": true,
+      "sourceSha256": "899ef74b71c43ffdf6683fbdbff68018431880ebe41b9c9a97a01444a84bb010",
+      "seconds": [
+        0.2696444040047936,
+        0.31475252500968054,
+        0.3003927950048819
+      ],
+      "medianSeconds": 0.3003927950048819,
+      "outputAndVaultSha256": "d3179850094a9d720b4ee842a19f30ddafeb524d9303dafeb925eb7d04475748",
+      "mappings": 5,
+      "exactAndTolerantRoundTrip": true
+    },
+    {
+      "entries": 500,
+      "bytes": 1056554,
+      "literalPlaceholder": false,
+      "sourceSha256": "298b4308777bcd167b545946e63971246091a5bc2b6db75a94d346ed9b8b15f6",
+      "seconds": [
+        1.2069208130124025,
+        1.2797577840392478,
+        1.4329512440017425
+      ],
+      "medianSeconds": 1.2797577840392478,
+      "outputAndVaultSha256": "5b009211ef696135a1064ed3a9f494d0d13c26f8a43ca98111f42e08bf5a25f8",
+      "mappings": 5,
+      "exactAndTolerantRoundTrip": true
+    },
+    {
+      "entries": 500,
+      "bytes": 1056611,
+      "literalPlaceholder": true,
+      "sourceSha256": "ad2ae26c762d20f977b6076340b4796b3cc1873f5d87449bd8d189855ed53cec",
+      "seconds": [
+        1.9745039289700799,
+        1.8789568870561197,
+        1.9047155909938738
+      ],
+      "medianSeconds": 1.9047155909938738,
+      "outputAndVaultSha256": "cfa7029d25d732620d2dfd2ef348cb59b7634885500f0fb1b6e856ce560c0c10",
+      "mappings": 5,
+      "exactAndTolerantRoundTrip": true
+    },
+    {
+      "entries": 2000,
+      "bytes": 4225304,
+      "literalPlaceholder": false,
+      "sourceSha256": "4043bc86b37a7ae3529022925e497aeb34d31ca66479eb675b46afd3f7dc33a1",
+      "seconds": [
+        5.33270052599255,
+        5.291655002976768,
+        5.350864510983229
+      ],
+      "medianSeconds": 5.33270052599255,
+      "outputAndVaultSha256": "da2836f5f7264a0b86884274311bbc65ee8ac03a633931a73cae267780a19c34",
+      "mappings": 5,
+      "exactAndTolerantRoundTrip": true
+    },
+    {
+      "entries": 2000,
+      "bytes": 4225361,
+      "literalPlaceholder": true,
+      "sourceSha256": "10dd0e070d59b0a31ed18a0d82326b280d2bea2d66c901fab8f34648a68478b0",
+      "seconds": [
+        15.796210537024308,
+        15.408254629001021,
+        15.589871950971428
+      ],
+      "medianSeconds": 15.589871950971428,
+      "outputAndVaultSha256": "3a186a3b0454073cc7f64d5e7ee79761650abcc30fcfc5bd5d53ed45b7f7665d",
+      "mappings": 5,
+      "exactAndTolerantRoundTrip": true
+    }
+  ]
+}

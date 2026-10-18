@@ -116,3 +116,24 @@ and native browser metadata vary.
 - Source and local verification do not alone identify an installed PyPI release
   or hosted deployment. Package metadata remains 0.4.4; publication checks follow
   separately.
+
+## Avoid repeated scans of a large source
+
+A scaling control repeats retained native entries and optionally adds one
+literal placeholder example. Profiling the 1 MB case found 1,756 availability
+checks, repeatedly searching the same reserved source. Source absence is now
+cached for each surrogate and invalidated whenever new normalized source text
+is reserved. Private-original checks still run on every lookup, and later
+source collisions still reject the whole request. Duplicate normalized
+reservations keep their original per-input restoration checks.
+
+The [complete three-sample comparison](results/performance-comparison.json)
+retains all six cases, including smaller cases that vary in either direction.
+For the 4.2 MB / 2,000-entry control with a literal example, median masking time
+changes from 15.59 s to 6.27 s. Without the literal, the same-size control is
+5.33 s before and 6.78 s after in this run. These wall-clock measurements share
+a host with other work; they are not an isolated throughput or universal
+speed claim. Every output/vault hash and exact/tolerant restoration agrees.
+The [baseline](results/performance-before.json), [corrected samples](results/performance-after.json)
+and [`benchmark.py`](benchmark.py) preserve the method and boundaries. Native
+SDK outcomes also remain byte-for-byte identical after caching.

@@ -31,12 +31,18 @@ def _spelling(text: str) -> str:
 @dataclass
 class _MaskingBatch:
     sources: dict[str, list[str]] = field(default_factory=dict)
+    reserved: set[str] = field(default_factory=set)
+    source_available: dict[str, bool] = field(default_factory=dict)
     pairs: list[tuple[str, str]] = field(default_factory=list)
     used: set[str] = field(default_factory=set)
     originals: set[str] = field(default_factory=set)
 
     def reserve(self, text: str) -> None:
         normalized = _spelling(text)
+        if normalized in self.reserved:
+            return
+        self.reserved.add(normalized)
+        self.source_available.clear()
         # Index once per source, not once per candidate surrogate. The usual
         # placeholder delimiter is absent from most texts in a large batch.
         # Add later nested inputs too: the final check must see every source.
@@ -45,11 +51,15 @@ class _MaskingBatch:
 
     def available(self, surrogate: str) -> bool:
         normalized = _spelling(surrogate)
-        return (
-            bool(normalized)
-            and normalized not in self.originals
-            and not any(normalized in source for source in self.sources.get(normalized[0], ()))
-        )
+        # Originals can grow while entities are visited. Only source absence
+        # is cached, and reserve() invalidates it when new source text arrives.
+        if not normalized or normalized in self.originals:
+            return False
+        absent = self.source_available.get(normalized)
+        if absent is None:
+            absent = not any(normalized in source for source in self.sources.get(normalized[0], ()))
+            self.source_available[normalized] = absent
+        return absent
 
 
 def _resolve_overlaps(entities: list[Entity]) -> list[Entity]:

@@ -42,7 +42,7 @@
     "integrations/anthropic.py": "3f27a9955ce49c788bf2d3e97babbe8e197ac15d3c1c939c50a198595411a821",
     "integrations/openai.py": "830b8cf890680ea4edae8489d55402a9163a0effa210350037434a61a0ccb9d3",
     "integrations/openai_responses.py": "3650dfc325747ecce45a847de3efb36a6087f28ffd63b0317dee302ee1ce092e",
-    "masker.py": "dfe2a14b2a5960c6fa2f28cfb1279d822220640e6f1144064e5beaaebc9684f5",
+    "masker.py": "90c2523d9154ec9b99d78d4ae9208f8544d28a298db60ca2887c2871eff5b80a",
     "restore.py": "1ef82fbceb230f0aed216bf7b46fe3f8c9db2bbd219e4807c8a2864f6282c908",
     "surrogates.py": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0",
     "types.py": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8",

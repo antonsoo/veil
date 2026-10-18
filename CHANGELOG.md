@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Repeated surrogate availability checks
+
+- Cache source-absence checks within a masking request; invalidate when new
+  normalized source arrives and always recheck private originals. Deduplicate
+  equivalent reservations without dropping per-input restoration validation.
+- Retain before/after native-HAR-derived scaling controls, output/vault hashes
+  and late-source collision checks. This removes repeated large-source scans;
+  measured wall-clock results and shared-host limitations are recorded.
+
 ### Cookie context in native HAR exports
 
 - Protect Cookie/Set-Cookie header records and cookie-value records inside

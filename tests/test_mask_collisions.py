@@ -102,6 +102,24 @@ def test_batch_failure_preserves_counters_and_all_earlier_mappings() -> None:
     assert masker.mask("new@example.org") == "⟨EMAIL_2⟩"
 
 
+def test_later_nested_source_invalidates_prior_surrogate_availability() -> None:
+    masker = Masker()
+    before = masker.vault.to_json()
+    with pytest.raises(VaultError, match="conflicts|restoration"), masker._masking_batch():
+        assert masker.mask("alice@example.org") == "⟨EMAIL_1⟩"
+        assert masker.mask("alice@example.org") == "⟨EMAIL_1⟩"
+        masker.mask("A later literal ⟨EMAIL_1⟩")
+    assert masker.vault.to_json() == before
+
+
+def test_duplicate_normalized_reservations_keep_each_original_spelling() -> None:
+    texts = ["Contact alice@example.org", "Literal ⟨EMAIL_1⟩", "literal ⟨email_1⟩"]
+    masker = Masker()
+    masked = masker.mask_many(texts)
+    assert masked == ["Contact ⟨EMAIL_2⟩", texts[1], texts[2]]
+    assert [masker.restore(value) for value in masked] == texts
+
+
 def test_bounded_unusable_generator_does_not_consume_the_vault() -> None:
     masker = Masker(surrogate_generator=PlaceholderSurrogates(template="literal"))
     with pytest.raises(VaultError, match="1024 attempts"):

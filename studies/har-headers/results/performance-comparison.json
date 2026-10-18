@@ -1,0 +1,60 @@
+{
+  "scope": "Constructed scaling controls from native HAR entries; three wall-clock samples per case on a shared host, without an isolated hardware or universal-speed claim. Both implementations include HAR support.",
+  "cases": [
+    {
+      "entries": 100,
+      "bytes": 211554,
+      "literalPlaceholder": false,
+      "beforeMedianSeconds": 0.23815364198526368,
+      "afterMedianSeconds": 0.26730254205176607,
+      "ratio": 0.8909516540966625,
+      "identicalOutputAndVault": true
+    },
+    {
+      "entries": 100,
+      "bytes": 211611,
+      "literalPlaceholder": true,
+      "beforeMedianSeconds": 0.3003927950048819,
+      "afterMedianSeconds": 0.27640909200999886,
+      "ratio": 1.0867688642963143,
+      "identicalOutputAndVault": true
+    },
+    {
+      "entries": 500,
+      "bytes": 1056554,
+      "literalPlaceholder": false,
+      "beforeMedianSeconds": 1.2797577840392478,
+      "afterMedianSeconds": 1.254999194003176,
+      "ratio": 1.0197279728579725,
+      "identicalOutputAndVault": true
+    },
+    {
+      "entries": 500,
+      "bytes": 1056611,
+      "literalPlaceholder": true,
+      "beforeMedianSeconds": 1.9047155909938738,
+      "afterMedianSeconds": 1.836123396991752,
+      "ratio": 1.0373570720325775,
+      "identicalOutputAndVault": true
+    },
+    {
+      "entries": 2000,
+      "bytes": 4225304,
+      "literalPlaceholder": false,
+      "beforeMedianSeconds": 5.33270052599255,
+      "afterMedianSeconds": 6.776377500034869,
+      "ratio": 0.7869544643823503,
+      "identicalOutputAndVault": true
+    },
+    {
+      "entries": 2000,
+      "bytes": 4225361,
+      "literalPlaceholder": true,
+      "beforeMedianSeconds": 15.589871950971428,
+      "afterMedianSeconds": 6.27279879595153,
+      "ratio": 2.485313567052899,
+      "identicalOutputAndVault": true
+    }
+  ],
+  "allOutputAndVaultHashesIdentical": true
+}
