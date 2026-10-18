@@ -1,0 +1,112 @@
+{
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1440,
+      "app": "veil",
+      "site": "https://antonsoloviev-veil.static.hf.space/",
+      "expectation": "after",
+      "offlineDuringProcessing": true,
+      "cases": [
+        {
+          "name": "chromium",
+          "credentialsRetained": [],
+          "exactHeaderReply": true,
+          "chunkSize": 1
+        },
+        {
+          "name": "firefox",
+          "credentialsRetained": [],
+          "exactHeaderReply": true,
+          "chunkSize": 1
+        }
+      ],
+      "downloads": [],
+      "errors": [],
+      "requests": [],
+      "screenshot": "chromium-1440-veil.png"
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "app": "veil",
+      "site": "https://antonsoloviev-veil.static.hf.space/",
+      "expectation": "after",
+      "offlineDuringProcessing": true,
+      "cases": [
+        {
+          "name": "chromium",
+          "credentialsRetained": [],
+          "exactHeaderReply": true,
+          "chunkSize": 1
+        },
+        {
+          "name": "firefox",
+          "credentialsRetained": [],
+          "exactHeaderReply": true,
+          "chunkSize": 1
+        }
+      ],
+      "downloads": [],
+      "errors": [],
+      "requests": [],
+      "screenshot": "chromium-375-veil.png"
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1440,
+      "app": "veil",
+      "site": "https://antonsoloviev-veil.static.hf.space/",
+      "expectation": "after",
+      "offlineDuringProcessing": true,
+      "cases": [
+        {
+          "name": "chromium",
+          "credentialsRetained": [],
+          "exactHeaderReply": true,
+          "chunkSize": 1
+        },
+        {
+          "name": "firefox",
+          "credentialsRetained": [],
+          "exactHeaderReply": true,
+          "chunkSize": 1
+        }
+      ],
+      "downloads": [],
+      "errors": [],
+      "requests": [],
+      "screenshot": "firefox-1440-veil.png"
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "app": "veil",
+      "site": "https://antonsoloviev-veil.static.hf.space/",
+      "expectation": "after",
+      "offlineDuringProcessing": true,
+      "cases": [
+        {
+          "name": "chromium",
+          "credentialsRetained": [],
+          "exactHeaderReply": true,
+          "chunkSize": 1
+        },
+        {
+          "name": "firefox",
+          "credentialsRetained": [],
+          "exactHeaderReply": true,
+          "chunkSize": 1
+        }
+      ],
+      "downloads": [],
+      "errors": [],
+      "requests": [],
+      "screenshot": "firefox-375-veil.png"
+    }
+  ]
+}

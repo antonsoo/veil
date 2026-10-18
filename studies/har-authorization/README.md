@@ -149,3 +149,21 @@ masked downloads contain no retained credentials; their downloaded vaults
 reconstruct the exact source. All work after bootstrap occurs offline with
 zero subsequent requests or page errors. This establishes those public
 workflows, separately from the unchanged PyPI release.
+
+The [Veil workbench](https://huggingface.co/spaces/antonsoloviev/veil/tree/9acc09228b88f5e24ded0c88233179489d0a250c)
+also now pins source `ac1fb24f461f913347d8127026f9ba8679db8f98`.
+Its previous public engine retained both working capture credentials in both
+native HARs. Fresh Chromium and Firefox contexts at 1440 and 375 pixels now
+mask both credentials and restore the header-only simulated reply exactly
+with one-character chunks. Processing runs offline after bootstrap, with
+zero page errors or HTTP requests. The complete source round trip is checked
+by the native adapter too; the shorter reply respects the workbench's existing
+reply-length limit.
+
+All 40 engine runtime files in the browser archive match source provenance
+and both clean native installs. The separate public byte audit verified all
+27 published files before and after ordinary workflows, including the manifest,
+immutable Hub card bytes and the host's known data-only entrypoint change.
+The release manifest SHA-256 is
+`31f6c6d1125fb32ff6df705544a7840e6d18ffae69d3d0d8a153086ee1aa45bc`.
+The public before/after and publication receipts are retained in `results/workbench-*`.
