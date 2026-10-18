@@ -145,3 +145,34 @@ process CPU time is 5.58 s and 5.62 s. All source, output and vault hashes agree
 This reduces the uncertainty from the first single-order sequence. Use
 `benchmark.py --entries 2000 --literal no --repeat 2` for that focused case.
 The original six-case driver and samples are retained at `253639c`.
+
+## Clean installed and browser checks
+
+A fresh archive of `253639c` passes locked installation, Ruff, format, strict
+mypy and the complete coverage command: 1,675 passed and one explicit optional
+spaCy skip. The development environment runs that optional backend too and
+passes all 1,678 checks. The clean Node 24.21.0 web install passes types, build
+and all sixteen existing browser scenarios.
+
+The [artifact receipt](results/artifacts.json) checks all 39 Python modules
+against the wheel, sdist and two separate non-editable installations. Both
+[Python 3.14.7 with current SDKs](results/installed-current.json) and
+[Python 3.10.21 with OpenAI 1.66.0 / Anthropic 0.40.0](results/installed-minimum.json)
+repeat all four native forms and 48 SDK paths without an incorrect outcome.
+The minimum environment also passes 92 focused cookie, HAR, collision and
+SDK-boundary checks.
+
+The [canonical pre-change Python](results/hosted-before-source.json) matches
+the baseline. The [actual public UI before change](results/hosted-before.json)
+retains all four session copies and breaks the authored array control in both
+engines and both widths. The [corrected local UI](results/browser-after.json)
+removes every copy, downloads complete masked text and vaults, restores the
+native source exactly in an explicit local diagnostic, and preserves the
+array-valued control. No HAR prompt or download initiates a network request
+after bootstrap. The later accessibility audit's font GET is recorded separately.
+
+All four [desktop/phone screenshots](../../docs/assets/har-headers/firefox-375.png)
+were opened and inspected; real HAR text is long and wraps without horizontal
+page overflow. Each accessibility audit passes. The app's canned simulated
+reply does not echo HAR data, so that feature is not used as a restoration
+claim. Local/source/package results do not alone establish public delivery.

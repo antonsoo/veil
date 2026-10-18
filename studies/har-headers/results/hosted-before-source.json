@@ -1,0 +1,198 @@
+{
+  "url": "https://antonsoo.github.io/veil/veil-src.json",
+  "scope": "Canonical served Python manifest matches the exact pre-HAR baseline modules. The separate browser receipt observes its real runtime behavior.",
+  "manifestSha256": "836f02aa589d8fdae770812a334c1b854cf1b70f6e5e070b4322f5d96d33038b",
+  "modules": 38,
+  "files": [
+    {
+      "file": "veil/__init__.py",
+      "sha256": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/_files.py",
+      "sha256": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/_spans.py",
+      "sha256": "62f6cb318147173ebf9cbd5b9c039d865df4b3fa1245c056684d40a2aea7b06d",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/audit.py",
+      "sha256": "026369aec3ef2763bd779f0c51404c31ad7b0a396278434c1225e8a4387deac5",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/backends/__init__.py",
+      "sha256": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/backends/base.py",
+      "sha256": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/backends/known_entities.py",
+      "sha256": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/backends/spacy_backend.py",
+      "sha256": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/cli.py",
+      "sha256": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/__init__.py",
+      "sha256": "59777802fc49ac92c5064172a7ccb8d34b5d01639cc472479052d0b4dd63967f",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/_calling_codes.py",
+      "sha256": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/_credential_fields.py",
+      "sha256": "bcfb645b9f0fc4c9ac1f7a7b9e6014ebf478c5a5a96a05ebe1b5943dcea098c8",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/_http_auth.py",
+      "sha256": "fb26c0f2f04cb1a2b3c13ff1edb3c50bdbb7ad904b105caa0e63a517c6ea7775",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/_http_cookies.py",
+      "sha256": "7152896c45e06e1efe4949edc2ec0d3a8a5ee226c0f3ad2e84635e366d7971dc",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/_jwt.py",
+      "sha256": "24ca1a07c536eb9ce164a58f8bdb207421a3d4f165c3dd997034c39cd9de3c77",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/_words.py",
+      "sha256": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/address.py",
+      "sha256": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/base.py",
+      "sha256": "af8b6d45b9b8e9bea176c4545f50ba2d24e32aa9e838aceb586b6b71b7f2ee18",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/card.py",
+      "sha256": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/dob.py",
+      "sha256": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/email.py",
+      "sha256": "6c55c1532b289c0ab791570c24616aacd636929e64319e1badcd2ea69b359e77",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/iban.py",
+      "sha256": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/ip.py",
+      "sha256": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/phone.py",
+      "sha256": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/secrets.py",
+      "sha256": "33f6ead2dc5ff142ce0bfdc4597d8d6dd56291b8a4afbfc436fdf0b9b8ba71a8",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/ssn.py",
+      "sha256": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/detectors/url.py",
+      "sha256": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/integrations/__init__.py",
+      "sha256": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/integrations/_common.py",
+      "sha256": "aa87f659a6cfd1a242f4ad463b552379034922c5c485d4070907868b8d826164",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/integrations/_json_arguments.py",
+      "sha256": "629a96730e3279f1ab3c6662c71a3b6e0439c0e45ca51a1dd6aa3e3d3cbf7a1d",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/integrations/anthropic.py",
+      "sha256": "3f27a9955ce49c788bf2d3e97babbe8e197ac15d3c1c939c50a198595411a821",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/integrations/openai.py",
+      "sha256": "830b8cf890680ea4edae8489d55402a9163a0effa210350037434a61a0ccb9d3",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/integrations/openai_responses.py",
+      "sha256": "3650dfc325747ecce45a847de3efb36a6087f28ffd63b0317dee302ee1ce092e",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/masker.py",
+      "sha256": "dfe2a14b2a5960c6fa2f28cfb1279d822220640e6f1144064e5beaaebc9684f5",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/restore.py",
+      "sha256": "1ef82fbceb230f0aed216bf7b46fe3f8c9db2bbd219e4807c8a2864f6282c908",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/surrogates.py",
+      "sha256": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/types.py",
+      "sha256": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8",
+      "matchesBaseline": true
+    },
+    {
+      "file": "veil/vault.py",
+      "sha256": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62",
+      "matchesBaseline": true
+    }
+  ]
+}
