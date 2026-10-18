@@ -1,0 +1,1334 @@
+{
+  "label": "installed-minimum-310",
+  "python": "3.10.21",
+  "unicodeDatabase": "13.0.0",
+  "scope": "Authored inputs, realistic surrogate index 48, native CLI and optional real Anthropic SDK over local mock HTTP. No observed model behavior or provider call.",
+  "original": "Jordan Alvarez",
+  "generatedSurrogate": "Avery Castillo",
+  "direct": {
+    "cases": 19,
+    "disagreements": 0,
+    "results": [
+      {
+        "name": "NFC-accented-name",
+        "text": "Ask avery castilló about the booking.",
+        "expected": "Ask avery castilló about the booking.",
+        "exactExpected": "Ask avery castilló about the booking.",
+        "restored": "Ask avery castilló about the booking.",
+        "exact": "Ask avery castilló about the booking.",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 38,
+        "agrees": true
+      },
+      {
+        "name": "NFD-accented-name",
+        "text": "Ask avery castilló about the booking.",
+        "expected": "Ask avery castilló about the booking.",
+        "exactExpected": "Ask avery castilló about the booking.",
+        "restored": "Ask avery castilló about the booking.",
+        "exact": "Ask avery castilló about the booking.",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 39,
+        "agrees": true
+      },
+      {
+        "name": "NFD-accented-possessive",
+        "text": "avery castilló's booking",
+        "expected": "avery castilló's booking",
+        "exactExpected": "avery castilló's booking",
+        "restored": "avery castilló's booking",
+        "exact": "avery castilló's booking",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 26,
+        "agrees": true
+      },
+      {
+        "name": "nonspacing-right-authored-boundary",
+        "text": "avery castillóx",
+        "expected": "avery castillóx",
+        "exactExpected": "avery castillóx",
+        "restored": "avery castillóx",
+        "exact": "avery castillóx",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 17,
+        "agrees": true
+      },
+      {
+        "name": "nonspacing-left-authored-boundary",
+        "text": "x́avery castillo",
+        "expected": "x́avery castillo",
+        "exactExpected": "x́avery castillo",
+        "restored": "x́avery castillo",
+        "exact": "x́avery castillo",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 17,
+        "agrees": true
+      },
+      {
+        "name": "spacing-right-authored-boundary",
+        "text": "avery castilloाx",
+        "expected": "avery castilloाx",
+        "exactExpected": "avery castilloाx",
+        "restored": "avery castilloाx",
+        "exact": "avery castilloाx",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 17,
+        "agrees": true
+      },
+      {
+        "name": "spacing-left-authored-boundary",
+        "text": "xाavery castillo",
+        "expected": "xाavery castillo",
+        "exactExpected": "xाavery castillo",
+        "restored": "xाavery castillo",
+        "exact": "xाavery castillo",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 17,
+        "agrees": true
+      },
+      {
+        "name": "enclosing-right-authored-boundary",
+        "text": "avery castillo⃝x",
+        "expected": "avery castillo⃝x",
+        "exactExpected": "avery castillo⃝x",
+        "restored": "avery castillo⃝x",
+        "exact": "avery castillo⃝x",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 17,
+        "agrees": true
+      },
+      {
+        "name": "enclosing-left-authored-boundary",
+        "text": "x⃝avery castillo",
+        "expected": "x⃝avery castillo",
+        "exactExpected": "x⃝avery castillo",
+        "restored": "x⃝avery castillo",
+        "exact": "x⃝avery castillo",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 17,
+        "agrees": true
+      },
+      {
+        "name": "recased-name",
+        "text": "avery castillo",
+        "expected": "Jordan Alvarez",
+        "exactExpected": "avery castillo",
+        "restored": "Jordan Alvarez",
+        "exact": "avery castillo",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 15,
+        "agrees": true
+      },
+      {
+        "name": "recased-possessive",
+        "text": "avery castillo's",
+        "expected": "Jordan Alvarez's",
+        "exactExpected": "avery castillo's",
+        "restored": "Jordan Alvarez's",
+        "exact": "avery castillo's",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 17,
+        "agrees": true
+      },
+      {
+        "name": "curly-possessive",
+        "text": "AVERY CASTILLO’s",
+        "expected": "Jordan Alvarez’s",
+        "exactExpected": "AVERY CASTILLO’s",
+        "restored": "Jordan Alvarez’s",
+        "exact": "AVERY CASTILLO’s",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 17,
+        "agrees": true
+      },
+      {
+        "name": "wrapped-name",
+        "text": "AVERY\n\tCASTILLO",
+        "expected": "Jordan Alvarez",
+        "exactExpected": "AVERY\n\tCASTILLO",
+        "restored": "Jordan Alvarez",
+        "exact": "AVERY\n\tCASTILLO",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 16,
+        "agrees": true
+      },
+      {
+        "name": "punctuation",
+        "text": "(avery castillo), yes.",
+        "expected": "(Jordan Alvarez), yes.",
+        "exactExpected": "(avery castillo), yes.",
+        "restored": "(Jordan Alvarez), yes.",
+        "exact": "(avery castillo), yes.",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 23,
+        "agrees": true
+      },
+      {
+        "name": "existing-longer-word-prefixavery castillo",
+        "text": "prefixavery castillo",
+        "expected": "prefixavery castillo",
+        "exactExpected": "prefixavery castillo",
+        "restored": "prefixavery castillo",
+        "exact": "prefixavery castillo",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 21,
+        "agrees": true
+      },
+      {
+        "name": "existing-longer-word-avery castillox",
+        "text": "avery castillox",
+        "expected": "avery castillox",
+        "exactExpected": "avery castillox",
+        "restored": "avery castillox",
+        "exact": "avery castillox",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 16,
+        "agrees": true
+      },
+      {
+        "name": "existing-longer-word-avery castillo_2",
+        "text": "avery castillo_2",
+        "expected": "avery castillo_2",
+        "exactExpected": "avery castillo_2",
+        "restored": "avery castillo_2",
+        "exact": "avery castillo_2",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 17,
+        "agrees": true
+      },
+      {
+        "name": "existing-longer-word-avery castillo7",
+        "text": "avery castillo7",
+        "expected": "avery castillo7",
+        "exactExpected": "avery castillo7",
+        "restored": "avery castillo7",
+        "exact": "avery castillo7",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 16,
+        "agrees": true
+      },
+      {
+        "name": "exact-substring-contract",
+        "text": "prefixAvery Castillósuffix",
+        "expected": "prefixJordan Alvareźsuffix",
+        "exactExpected": "prefixJordan Alvareźsuffix",
+        "restored": "prefixJordan Alvareźsuffix",
+        "exact": "prefixJordan Alvareźsuffix",
+        "allSingleCutStreamsAgree": true,
+        "streamPartitions": 28,
+        "agrees": true
+      }
+    ]
+  },
+  "cli": {
+    "cases": 38,
+    "disagreements": 0,
+    "results": [
+      {
+        "name": "NFC-accented-name",
+        "exact": false,
+        "stdout": "Ask avery castilló about the booking.\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "NFC-accented-name",
+        "exact": true,
+        "stdout": "Ask avery castilló about the booking.\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "NFD-accented-name",
+        "exact": false,
+        "stdout": "Ask avery castilló about the booking.\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "NFD-accented-name",
+        "exact": true,
+        "stdout": "Ask avery castilló about the booking.\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "NFD-accented-possessive",
+        "exact": false,
+        "stdout": "avery castilló's booking\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "NFD-accented-possessive",
+        "exact": true,
+        "stdout": "avery castilló's booking\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "nonspacing-right-authored-boundary",
+        "exact": false,
+        "stdout": "avery castillóx\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "nonspacing-right-authored-boundary",
+        "exact": true,
+        "stdout": "avery castillóx\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "nonspacing-left-authored-boundary",
+        "exact": false,
+        "stdout": "x́avery castillo\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "nonspacing-left-authored-boundary",
+        "exact": true,
+        "stdout": "x́avery castillo\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "spacing-right-authored-boundary",
+        "exact": false,
+        "stdout": "avery castilloाx\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "spacing-right-authored-boundary",
+        "exact": true,
+        "stdout": "avery castilloाx\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "spacing-left-authored-boundary",
+        "exact": false,
+        "stdout": "xाavery castillo\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "spacing-left-authored-boundary",
+        "exact": true,
+        "stdout": "xाavery castillo\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "enclosing-right-authored-boundary",
+        "exact": false,
+        "stdout": "avery castillo⃝x\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "enclosing-right-authored-boundary",
+        "exact": true,
+        "stdout": "avery castillo⃝x\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "enclosing-left-authored-boundary",
+        "exact": false,
+        "stdout": "x⃝avery castillo\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "enclosing-left-authored-boundary",
+        "exact": true,
+        "stdout": "x⃝avery castillo\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "recased-name",
+        "exact": false,
+        "stdout": "Jordan Alvarez\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "recased-name",
+        "exact": true,
+        "stdout": "avery castillo\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "recased-possessive",
+        "exact": false,
+        "stdout": "Jordan Alvarez's\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "recased-possessive",
+        "exact": true,
+        "stdout": "avery castillo's\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "curly-possessive",
+        "exact": false,
+        "stdout": "Jordan Alvarez’s\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "curly-possessive",
+        "exact": true,
+        "stdout": "AVERY CASTILLO’s\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "wrapped-name",
+        "exact": false,
+        "stdout": "Jordan Alvarez\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "wrapped-name",
+        "exact": true,
+        "stdout": "AVERY\n\tCASTILLO\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "punctuation",
+        "exact": false,
+        "stdout": "(Jordan Alvarez), yes.\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "punctuation",
+        "exact": true,
+        "stdout": "(avery castillo), yes.\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "existing-longer-word-prefixavery castillo",
+        "exact": false,
+        "stdout": "prefixavery castillo\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "existing-longer-word-prefixavery castillo",
+        "exact": true,
+        "stdout": "prefixavery castillo\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "existing-longer-word-avery castillox",
+        "exact": false,
+        "stdout": "avery castillox\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "existing-longer-word-avery castillox",
+        "exact": true,
+        "stdout": "avery castillox\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "existing-longer-word-avery castillo_2",
+        "exact": false,
+        "stdout": "avery castillo_2\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "existing-longer-word-avery castillo_2",
+        "exact": true,
+        "stdout": "avery castillo_2\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "existing-longer-word-avery castillo7",
+        "exact": false,
+        "stdout": "avery castillo7\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "existing-longer-word-avery castillo7",
+        "exact": true,
+        "stdout": "avery castillo7\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "exact-substring-contract",
+        "exact": false,
+        "stdout": "prefixJordan Alvareźsuffix\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      },
+      {
+        "name": "exact-substring-contract",
+        "exact": true,
+        "stdout": "prefixJordan Alvareźsuffix\n",
+        "stderr": "",
+        "exit": 0,
+        "agrees": true
+      }
+    ]
+  },
+  "sdk": {
+    "versions": {
+      "anthropic": "0.40.0"
+    },
+    "cases": 16,
+    "disagreements": 0,
+    "results": [
+      {
+        "name": "NFC-accented-name",
+        "async": false,
+        "stream": false,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model"
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "Ask avery castilló about the booking."
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "Ask avery castilló about the booking.",
+              "nested": [
+                "Ask avery castilló about the booking."
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "Ask avery castilló about the booking.",
+        "restoredTool": {
+          "person": "Ask avery castilló about the booking.",
+          "nested": [
+            "Ask avery castilló about the booking."
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "NFC-accented-name",
+        "async": false,
+        "stream": true,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "Ask avery castilló about the booking."
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "Ask avery castilló about the booking.",
+              "nested": [
+                "Ask avery castilló about the booking."
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "Ask avery castilló about the booking.",
+        "restoredTool": {
+          "person": "Ask avery castilló about the booking.",
+          "nested": [
+            "Ask avery castilló about the booking."
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "NFC-accented-name",
+        "async": true,
+        "stream": false,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model"
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "Ask avery castilló about the booking."
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "Ask avery castilló about the booking.",
+              "nested": [
+                "Ask avery castilló about the booking."
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "Ask avery castilló about the booking.",
+        "restoredTool": {
+          "person": "Ask avery castilló about the booking.",
+          "nested": [
+            "Ask avery castilló about the booking."
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "NFC-accented-name",
+        "async": true,
+        "stream": true,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "Ask avery castilló about the booking."
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "Ask avery castilló about the booking.",
+              "nested": [
+                "Ask avery castilló about the booking."
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "Ask avery castilló about the booking.",
+        "restoredTool": {
+          "person": "Ask avery castilló about the booking.",
+          "nested": [
+            "Ask avery castilló about the booking."
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "NFD-accented-name",
+        "async": false,
+        "stream": false,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model"
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "Ask avery castilló about the booking."
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "Ask avery castilló about the booking.",
+              "nested": [
+                "Ask avery castilló about the booking."
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "Ask avery castilló about the booking.",
+        "restoredTool": {
+          "person": "Ask avery castilló about the booking.",
+          "nested": [
+            "Ask avery castilló about the booking."
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "NFD-accented-name",
+        "async": false,
+        "stream": true,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "Ask avery castilló about the booking."
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "Ask avery castilló about the booking.",
+              "nested": [
+                "Ask avery castilló about the booking."
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "Ask avery castilló about the booking.",
+        "restoredTool": {
+          "person": "Ask avery castilló about the booking.",
+          "nested": [
+            "Ask avery castilló about the booking."
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "NFD-accented-name",
+        "async": true,
+        "stream": false,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model"
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "Ask avery castilló about the booking."
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "Ask avery castilló about the booking.",
+              "nested": [
+                "Ask avery castilló about the booking."
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "Ask avery castilló about the booking.",
+        "restoredTool": {
+          "person": "Ask avery castilló about the booking.",
+          "nested": [
+            "Ask avery castilló about the booking."
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "NFD-accented-name",
+        "async": true,
+        "stream": true,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "Ask avery castilló about the booking."
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "Ask avery castilló about the booking.",
+              "nested": [
+                "Ask avery castilló about the booking."
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "Ask avery castilló about the booking.",
+        "restoredTool": {
+          "person": "Ask avery castilló about the booking.",
+          "nested": [
+            "Ask avery castilló about the booking."
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "recased-name",
+        "async": false,
+        "stream": false,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model"
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "avery castillo"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "avery castillo",
+              "nested": [
+                "avery castillo"
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "Jordan Alvarez",
+        "restoredTool": {
+          "person": "Jordan Alvarez",
+          "nested": [
+            "Jordan Alvarez"
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "recased-name",
+        "async": false,
+        "stream": true,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "avery castillo"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "avery castillo",
+              "nested": [
+                "avery castillo"
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "avery castillo",
+        "restoredTool": {
+          "person": "avery castillo",
+          "nested": [
+            "avery castillo"
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "recased-name",
+        "async": true,
+        "stream": false,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model"
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "avery castillo"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "avery castillo",
+              "nested": [
+                "avery castillo"
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "Jordan Alvarez",
+        "restoredTool": {
+          "person": "Jordan Alvarez",
+          "nested": [
+            "Jordan Alvarez"
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "recased-name",
+        "async": true,
+        "stream": true,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "avery castillo"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "avery castillo",
+              "nested": [
+                "avery castillo"
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "avery castillo",
+        "restoredTool": {
+          "person": "avery castillo",
+          "nested": [
+            "avery castillo"
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "exact-substring-contract",
+        "async": false,
+        "stream": false,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model"
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "prefixAvery Castillósuffix"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "prefixAvery Castillósuffix",
+              "nested": [
+                "prefixAvery Castillósuffix"
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "prefixJordan Alvareźsuffix",
+        "restoredTool": {
+          "person": "prefixJordan Alvareźsuffix",
+          "nested": [
+            "prefixJordan Alvareźsuffix"
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "exact-substring-contract",
+        "async": false,
+        "stream": true,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "prefixAvery Castillósuffix"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "prefixAvery Castillósuffix",
+              "nested": [
+                "prefixAvery Castillósuffix"
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "prefixJordan Alvareźsuffix",
+        "restoredTool": {
+          "person": "prefixJordan Alvareźsuffix",
+          "nested": [
+            "prefixJordan Alvareźsuffix"
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "exact-substring-contract",
+        "async": true,
+        "stream": false,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model"
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "prefixAvery Castillósuffix"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "prefixAvery Castillósuffix",
+              "nested": [
+                "prefixAvery Castillósuffix"
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "prefixJordan Alvareźsuffix",
+        "restoredTool": {
+          "person": "prefixJordan Alvareźsuffix",
+          "nested": [
+            "prefixJordan Alvareźsuffix"
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      },
+      {
+        "name": "exact-substring-contract",
+        "async": true,
+        "stream": true,
+        "requests": [
+          {
+            "max_tokens": 64,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Avery Castillo"
+              }
+            ],
+            "model": "test-model",
+            "stream": true
+          }
+        ],
+        "providerReply": [
+          {
+            "type": "text",
+            "text": "prefixAvery Castillósuffix"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_marks",
+            "name": "send_email",
+            "input": {
+              "person": "prefixAvery Castillósuffix",
+              "nested": [
+                "prefixAvery Castillósuffix"
+              ],
+              "unchanged": 17
+            }
+          }
+        ],
+        "restoredText": "prefixJordan Alvareźsuffix",
+        "restoredTool": {
+          "person": "prefixJordan Alvareźsuffix",
+          "nested": [
+            "prefixJordan Alvareźsuffix"
+          ],
+          "unchanged": 17
+        },
+        "checks": {
+          "maskedRequest": true,
+          "reply": true,
+          "toolValues": true
+        },
+        "agrees": true
+      }
+    ]
+  }
+}

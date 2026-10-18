@@ -1,0 +1,77 @@
+{
+  "sourceArchive": "a8411d6eff1a24c5cfcccfc744945de22e9aae4a",
+  "processExit": 0,
+  "primary": {
+    "python": "3.12.12",
+    "lint": true,
+    "format": true,
+    "typecheckSourceFiles": 36,
+    "unitPassed": 1624,
+    "optionalSpacyInstalled": true
+  },
+  "clean": {
+    "python": "3.14.7",
+    "uvSyncFrozen": true,
+    "lint": true,
+    "format": true,
+    "typecheckSourceFiles": 36,
+    "unitPassed": 1621,
+    "skipped": [
+      "Optional spaCy extra is not installed"
+    ],
+    "wheelAndSdistBuilt": true,
+    "node": "24.21.0",
+    "npmCi": true,
+    "webTypecheck": true,
+    "webBuild": true,
+    "browserScenarios": 16,
+    "browserProcessExit": 0,
+    "packages": {
+      "anthropic": "1.11.0",
+      "openai": "3.23.0",
+      "cryptography": "50.0.1",
+      "pytest": "9.1.1",
+      "pytest-cov": "7.1.0",
+      "hypothesis": "6.168.1",
+      "ruff": "0.16.8",
+      "mypy": "2.3.1"
+    }
+  },
+  "minimum": {
+    "python": "3.10.21",
+    "lowestDirectDependencies": true,
+    "unitPassed": 1610,
+    "unitSkipped": 12,
+    "skipReasons": [
+      "SKIPPED [1] tests/test_backends_spacy.py:14: install the spacy extra to test the real backend",
+      "SKIPPED [1] tests/test_anthropic_documents.py:160: this Anthropic SDK predates structured citation stream events",
+      "SKIPPED [4] tests/test_integration_history.py:77: this anthropic SDK's Message model predates thinking blocks",
+      "SKIPPED [1] tests/test_integration_openai_responses.py:145: this openai SDK's Response model predates the reasoning item's summary",
+      "SKIPPED [1] tests/test_sdk_anthropic.py:186: this anthropic SDK predates thinking blocks",
+      "SKIPPED [4] tests/test_search_results.py:106: this SDK predates search-result citation snapshots"
+    ],
+    "packages": {
+      "anthropic": "0.40.0",
+      "openai": "1.66.0",
+      "cryptography": "50.0.0",
+      "pytest": "9.0.3",
+      "pytest-cov": "6.0.0",
+      "hypothesis": "6.115.0",
+      "ruff": "0.7.0",
+      "mypy": "1.13.0"
+    }
+  },
+  "directSdkEvidence": [
+    "before.json",
+    "after.json",
+    "installed-core.json",
+    "installed-sdk.json",
+    "installed-minimum.json"
+  ],
+  "corpusFiles": 1483,
+  "corpusOutputLedgerUnchanged": true,
+  "localBrowserContexts": 4,
+  "actualLocalUiDownloads": 8,
+  "explicitDiagnosticCasesPerContext": 19,
+  "publicUiExposesTolerantRestore": false
+}

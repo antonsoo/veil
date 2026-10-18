@@ -1,0 +1,39 @@
+{
+  "archive": "a8411d6eff1a24c5cfcccfc744945de22e9aae4a",
+  "wheel": {
+    "filename": "veil_pii-0.4.4-py3-none-any.whl",
+    "sha256": "5eb1700315132cd29314aab2adaa65ebe99ff1d8b0a6587bd2ed1facfb61f1f4"
+  },
+  "sdist": {
+    "filename": "veil_pii-0.4.4.tar.gz",
+    "sha256": "243d9ce250059c24009b903a13863a5460822f4c4cd9eba4ae6a3479fb38f3ca"
+  },
+  "sourceModules": 37,
+  "wheelModulesIdentical": true,
+  "sdistModulesIdentical": true,
+  "browserManifestModulesIdentical": true,
+  "installed": {
+    "current": {
+      "python": "3.14.7",
+      "modulesIdentical": true,
+      "dependencies": {
+        "anthropic": "1.11.0"
+      }
+    },
+    "minimum": {
+      "python": "3.10.21",
+      "modulesIdentical": true,
+      "dependencies": {
+        "anthropic": "0.40.0"
+      }
+    }
+  },
+  "registry": {
+    "project": "veil-pii",
+    "version": "0.4.4",
+    "wheelSha256": "c7dd5139f9f112c11ed52d36c8ca76fbee495d2f4397f99e28acaadf9cda1842",
+    "differsFromBuiltSource": true,
+    "combiningMarkBoundaryGuardPresent": false,
+    "releasedByThisWork": false
+  }
+}

@@ -142,12 +142,14 @@ The registry version is **0.4.4**. To use the unreleased corrections documented
 in this repository, install this tested source revision (requires Git):
 
 ```bash
-python -m pip install --force-reinstall "veil-pii @ git+https://github.com/antonsoo/veil.git@eb47b8e4159dc14b87e6b952684906a9cf27d487"
+python -m pip install --force-reinstall "veil-pii @ git+https://github.com/antonsoo/veil.git@a8411d6eff1a24c5cfcccfc744945de22e9aae4a"
 ```
 
 `--force-reinstall` also replaces an existing 0.4.4 installation: the source
-revision still declares that version. The [clean package and runtime receipt](studies/yaml-flow-credentials/results/verification.json)
-records an actual registry-to-source upgrade and runtime byte comparisons.
+revision still declares that version. The [clean package and runtime receipt](studies/restore-marks/results/artifacts.json)
+compares all 37 source modules with wheel, sdist, installed packages and the
+browser manifest. [Restoration checks](studies/restore-marks/README.md) separate
+the source correction from the unchanged registry package.
 
 ```python
 from veil import Masker

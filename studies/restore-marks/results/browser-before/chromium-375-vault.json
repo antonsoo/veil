@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "type": "PERSON",
+      "original": "Jordan Alvarez",
+      "surrogate": "⟨PERSON_1⟩",
+      "detector": "known_entities"
+    },
+    {
+      "type": "EMAIL",
+      "original": "jordan@example.org",
+      "surrogate": "⟨EMAIL_1⟩",
+      "detector": "email"
+    }
+  ]
+}

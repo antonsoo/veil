@@ -81,3 +81,40 @@ uv run python studies/surrogate-collisions/corpus.py --source . --label current
 
 Source, installed artifact, browser-served Python and registry release are
 separate verification boundaries. PyPI 0.4.4 is not changed by this study.
+
+## Clean installation and browser boundaries
+
+The correction begins at `a8411d6`. [Clean archive verification](results/verification.json)
+records fresh locked Python 3.14.7 and Node 24.21.0 installations, whole-repo
+lint/format and configured type checks, 1,621 passing source tests (the
+uninstalled optional spaCy module is explicitly skipped), wheel/sdist build,
+web build and all 16 actual browser scenarios. The existing Python 3.12
+environment also runs the optional spaCy backend: 1,624 checks pass.
+At the declared direct dependency floors, Python 3.10.21 passes 1,610 checks;
+12 explicit skips distinguish unavailable spaCy and older SDK model features.
+These counts are verification scope, rather than the evidence for the defect.
+
+The [installed dependency-free core](results/installed-core.json),
+[installed current SDK](results/installed-sdk.json) and
+[installed oldest SDK](results/installed-minimum.json) repeat the direct/CLI
+controls, with all 16 native SDK paths repeated wherever that extra is installed.
+All 37 Python modules match the source in the wheel, sdist, installed current
+and minimum packages, and browser manifest: [artifact hashes](results/artifacts.json).
+The independently downloaded registry wheel is still 0.4.4 and lacks this guard.
+
+The visible web demo uses default placeholders and **exact streaming**. It
+does not expose a tolerant-response editor. The
+[actual public before capture](results/browser-before/browser.json) and
+[local production after capture](results/browser-local/browser.json) therefore
+keep two claims separate: real UI masking, offline file downloads and streaming
+simulation; and a diagnostic Pyodide runtime executing the **unmodified served
+Python manifest** through the library API. Each has four Chromium/Firefox
+desktop/mobile contexts. The diagnostic reproduces all eight former failures
+and verifies all 19 corrected controls. The real masked/vault downloads retain
+the unconfigured public accented note and roundtrip the configured identities.
+
+`node studies/restore-marks/browser.mjs URL OUTPUT before|after [chromium|firefox]`
+replays those two boundaries. The optional engine argument permits short
+independent runs. Only static runtime GETs go to Pyodide's configured CDN;
+processing and file downloads after initialization run offline. Four actual
+local UI screenshots were visually reviewed under `docs/assets/restore-marks`.

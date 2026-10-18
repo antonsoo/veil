@@ -1,0 +1,535 @@
+{
+  "phase": "after",
+  "scope": "Unmodified served Python in an explicit Pyodide diagnostic; actual UI uses exact streaming, default placeholders, offline masked/vault downloads.",
+  "contexts": 4,
+  "rows": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1280,
+      "diagnostic": {
+        "python": "3.12.1 (main, Nov 15 2024, 14:17:00) [Clang 19.0.0git (https:/github.com/llvm/llvm-project 0a8cd1ed1f4f35905df318015b",
+        "unicodeDatabase": "15.0.0",
+        "rows": [
+          {
+            "name": "NFC-accented-name",
+            "restored": "Ask avery castilló about the booking.",
+            "exact": "Ask avery castilló about the booking.",
+            "streamed": "Ask avery castilló about the booking."
+          },
+          {
+            "name": "NFD-accented-name",
+            "restored": "Ask avery castilló about the booking.",
+            "exact": "Ask avery castilló about the booking.",
+            "streamed": "Ask avery castilló about the booking."
+          },
+          {
+            "name": "NFD-accented-possessive",
+            "restored": "avery castilló's booking",
+            "exact": "avery castilló's booking",
+            "streamed": "avery castilló's booking"
+          },
+          {
+            "name": "nonspacing-right-authored-boundary",
+            "restored": "avery castillóx",
+            "exact": "avery castillóx",
+            "streamed": "avery castillóx"
+          },
+          {
+            "name": "nonspacing-left-authored-boundary",
+            "restored": "x́avery castillo",
+            "exact": "x́avery castillo",
+            "streamed": "x́avery castillo"
+          },
+          {
+            "name": "spacing-right-authored-boundary",
+            "restored": "avery castilloाx",
+            "exact": "avery castilloाx",
+            "streamed": "avery castilloाx"
+          },
+          {
+            "name": "spacing-left-authored-boundary",
+            "restored": "xाavery castillo",
+            "exact": "xाavery castillo",
+            "streamed": "xाavery castillo"
+          },
+          {
+            "name": "enclosing-right-authored-boundary",
+            "restored": "avery castillo⃝x",
+            "exact": "avery castillo⃝x",
+            "streamed": "avery castillo⃝x"
+          },
+          {
+            "name": "enclosing-left-authored-boundary",
+            "restored": "x⃝avery castillo",
+            "exact": "x⃝avery castillo",
+            "streamed": "x⃝avery castillo"
+          },
+          {
+            "name": "recased-name",
+            "restored": "Jordan Alvarez",
+            "exact": "avery castillo",
+            "streamed": "avery castillo"
+          },
+          {
+            "name": "recased-possessive",
+            "restored": "Jordan Alvarez's",
+            "exact": "avery castillo's",
+            "streamed": "avery castillo's"
+          },
+          {
+            "name": "curly-possessive",
+            "restored": "Jordan Alvarez’s",
+            "exact": "AVERY CASTILLO’s",
+            "streamed": "AVERY CASTILLO’s"
+          },
+          {
+            "name": "wrapped-name",
+            "restored": "Jordan Alvarez",
+            "exact": "AVERY\n\tCASTILLO",
+            "streamed": "AVERY\n\tCASTILLO"
+          },
+          {
+            "name": "punctuation",
+            "restored": "(Jordan Alvarez), yes.",
+            "exact": "(avery castillo), yes.",
+            "streamed": "(avery castillo), yes."
+          },
+          {
+            "name": "existing-longer-word-prefixavery castillo",
+            "restored": "prefixavery castillo",
+            "exact": "prefixavery castillo",
+            "streamed": "prefixavery castillo"
+          },
+          {
+            "name": "existing-longer-word-avery castillox",
+            "restored": "avery castillox",
+            "exact": "avery castillox",
+            "streamed": "avery castillox"
+          },
+          {
+            "name": "existing-longer-word-avery castillo_2",
+            "restored": "avery castillo_2",
+            "exact": "avery castillo_2",
+            "streamed": "avery castillo_2"
+          },
+          {
+            "name": "existing-longer-word-avery castillo7",
+            "restored": "avery castillo7",
+            "exact": "avery castillo7",
+            "streamed": "avery castillo7"
+          },
+          {
+            "name": "exact-substring-contract",
+            "restored": "prefixJordan Alvareźsuffix",
+            "exact": "prefixJordan Alvareźsuffix",
+            "streamed": "prefixJordan Alvareźsuffix"
+          }
+        ],
+        "modules": 37
+      },
+      "manifestSha256": "7a6b25781ab1f32978c3a951b2c1a3df1ce1aca72f43b7dac09bc7ecbf69d78f",
+      "offlineDownloads": 2,
+      "originalPrompt": "Jordan Alvarez wrote to jordan@example.org; public note: avery castilló.",
+      "reply": "Hi Jordan Alvarez. The contact email in your message is jordan@example.org.",
+      "offlineRequests": 0,
+      "errors": []
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "diagnostic": {
+        "python": "3.12.1 (main, Nov 15 2024, 14:17:00) [Clang 19.0.0git (https:/github.com/llvm/llvm-project 0a8cd1ed1f4f35905df318015b",
+        "unicodeDatabase": "15.0.0",
+        "rows": [
+          {
+            "name": "NFC-accented-name",
+            "restored": "Ask avery castilló about the booking.",
+            "exact": "Ask avery castilló about the booking.",
+            "streamed": "Ask avery castilló about the booking."
+          },
+          {
+            "name": "NFD-accented-name",
+            "restored": "Ask avery castilló about the booking.",
+            "exact": "Ask avery castilló about the booking.",
+            "streamed": "Ask avery castilló about the booking."
+          },
+          {
+            "name": "NFD-accented-possessive",
+            "restored": "avery castilló's booking",
+            "exact": "avery castilló's booking",
+            "streamed": "avery castilló's booking"
+          },
+          {
+            "name": "nonspacing-right-authored-boundary",
+            "restored": "avery castillóx",
+            "exact": "avery castillóx",
+            "streamed": "avery castillóx"
+          },
+          {
+            "name": "nonspacing-left-authored-boundary",
+            "restored": "x́avery castillo",
+            "exact": "x́avery castillo",
+            "streamed": "x́avery castillo"
+          },
+          {
+            "name": "spacing-right-authored-boundary",
+            "restored": "avery castilloाx",
+            "exact": "avery castilloाx",
+            "streamed": "avery castilloाx"
+          },
+          {
+            "name": "spacing-left-authored-boundary",
+            "restored": "xाavery castillo",
+            "exact": "xाavery castillo",
+            "streamed": "xाavery castillo"
+          },
+          {
+            "name": "enclosing-right-authored-boundary",
+            "restored": "avery castillo⃝x",
+            "exact": "avery castillo⃝x",
+            "streamed": "avery castillo⃝x"
+          },
+          {
+            "name": "enclosing-left-authored-boundary",
+            "restored": "x⃝avery castillo",
+            "exact": "x⃝avery castillo",
+            "streamed": "x⃝avery castillo"
+          },
+          {
+            "name": "recased-name",
+            "restored": "Jordan Alvarez",
+            "exact": "avery castillo",
+            "streamed": "avery castillo"
+          },
+          {
+            "name": "recased-possessive",
+            "restored": "Jordan Alvarez's",
+            "exact": "avery castillo's",
+            "streamed": "avery castillo's"
+          },
+          {
+            "name": "curly-possessive",
+            "restored": "Jordan Alvarez’s",
+            "exact": "AVERY CASTILLO’s",
+            "streamed": "AVERY CASTILLO’s"
+          },
+          {
+            "name": "wrapped-name",
+            "restored": "Jordan Alvarez",
+            "exact": "AVERY\n\tCASTILLO",
+            "streamed": "AVERY\n\tCASTILLO"
+          },
+          {
+            "name": "punctuation",
+            "restored": "(Jordan Alvarez), yes.",
+            "exact": "(avery castillo), yes.",
+            "streamed": "(avery castillo), yes."
+          },
+          {
+            "name": "existing-longer-word-prefixavery castillo",
+            "restored": "prefixavery castillo",
+            "exact": "prefixavery castillo",
+            "streamed": "prefixavery castillo"
+          },
+          {
+            "name": "existing-longer-word-avery castillox",
+            "restored": "avery castillox",
+            "exact": "avery castillox",
+            "streamed": "avery castillox"
+          },
+          {
+            "name": "existing-longer-word-avery castillo_2",
+            "restored": "avery castillo_2",
+            "exact": "avery castillo_2",
+            "streamed": "avery castillo_2"
+          },
+          {
+            "name": "existing-longer-word-avery castillo7",
+            "restored": "avery castillo7",
+            "exact": "avery castillo7",
+            "streamed": "avery castillo7"
+          },
+          {
+            "name": "exact-substring-contract",
+            "restored": "prefixJordan Alvareźsuffix",
+            "exact": "prefixJordan Alvareźsuffix",
+            "streamed": "prefixJordan Alvareźsuffix"
+          }
+        ],
+        "modules": 37
+      },
+      "manifestSha256": "7a6b25781ab1f32978c3a951b2c1a3df1ce1aca72f43b7dac09bc7ecbf69d78f",
+      "offlineDownloads": 2,
+      "originalPrompt": "Jordan Alvarez wrote to jordan@example.org; public note: avery castilló.",
+      "reply": "Hi Jordan Alvarez. The contact email in your message is jordan@example.org.",
+      "offlineRequests": 0,
+      "errors": []
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1280,
+      "diagnostic": {
+        "python": "3.12.1 (main, Nov 15 2024, 14:17:00) [Clang 19.0.0git (https:/github.com/llvm/llvm-project 0a8cd1ed1f4f35905df318015b",
+        "unicodeDatabase": "15.0.0",
+        "rows": [
+          {
+            "name": "NFC-accented-name",
+            "restored": "Ask avery castilló about the booking.",
+            "exact": "Ask avery castilló about the booking.",
+            "streamed": "Ask avery castilló about the booking."
+          },
+          {
+            "name": "NFD-accented-name",
+            "restored": "Ask avery castilló about the booking.",
+            "exact": "Ask avery castilló about the booking.",
+            "streamed": "Ask avery castilló about the booking."
+          },
+          {
+            "name": "NFD-accented-possessive",
+            "restored": "avery castilló's booking",
+            "exact": "avery castilló's booking",
+            "streamed": "avery castilló's booking"
+          },
+          {
+            "name": "nonspacing-right-authored-boundary",
+            "restored": "avery castillóx",
+            "exact": "avery castillóx",
+            "streamed": "avery castillóx"
+          },
+          {
+            "name": "nonspacing-left-authored-boundary",
+            "restored": "x́avery castillo",
+            "exact": "x́avery castillo",
+            "streamed": "x́avery castillo"
+          },
+          {
+            "name": "spacing-right-authored-boundary",
+            "restored": "avery castilloाx",
+            "exact": "avery castilloाx",
+            "streamed": "avery castilloाx"
+          },
+          {
+            "name": "spacing-left-authored-boundary",
+            "restored": "xाavery castillo",
+            "exact": "xाavery castillo",
+            "streamed": "xाavery castillo"
+          },
+          {
+            "name": "enclosing-right-authored-boundary",
+            "restored": "avery castillo⃝x",
+            "exact": "avery castillo⃝x",
+            "streamed": "avery castillo⃝x"
+          },
+          {
+            "name": "enclosing-left-authored-boundary",
+            "restored": "x⃝avery castillo",
+            "exact": "x⃝avery castillo",
+            "streamed": "x⃝avery castillo"
+          },
+          {
+            "name": "recased-name",
+            "restored": "Jordan Alvarez",
+            "exact": "avery castillo",
+            "streamed": "avery castillo"
+          },
+          {
+            "name": "recased-possessive",
+            "restored": "Jordan Alvarez's",
+            "exact": "avery castillo's",
+            "streamed": "avery castillo's"
+          },
+          {
+            "name": "curly-possessive",
+            "restored": "Jordan Alvarez’s",
+            "exact": "AVERY CASTILLO’s",
+            "streamed": "AVERY CASTILLO’s"
+          },
+          {
+            "name": "wrapped-name",
+            "restored": "Jordan Alvarez",
+            "exact": "AVERY\n\tCASTILLO",
+            "streamed": "AVERY\n\tCASTILLO"
+          },
+          {
+            "name": "punctuation",
+            "restored": "(Jordan Alvarez), yes.",
+            "exact": "(avery castillo), yes.",
+            "streamed": "(avery castillo), yes."
+          },
+          {
+            "name": "existing-longer-word-prefixavery castillo",
+            "restored": "prefixavery castillo",
+            "exact": "prefixavery castillo",
+            "streamed": "prefixavery castillo"
+          },
+          {
+            "name": "existing-longer-word-avery castillox",
+            "restored": "avery castillox",
+            "exact": "avery castillox",
+            "streamed": "avery castillox"
+          },
+          {
+            "name": "existing-longer-word-avery castillo_2",
+            "restored": "avery castillo_2",
+            "exact": "avery castillo_2",
+            "streamed": "avery castillo_2"
+          },
+          {
+            "name": "existing-longer-word-avery castillo7",
+            "restored": "avery castillo7",
+            "exact": "avery castillo7",
+            "streamed": "avery castillo7"
+          },
+          {
+            "name": "exact-substring-contract",
+            "restored": "prefixJordan Alvareźsuffix",
+            "exact": "prefixJordan Alvareźsuffix",
+            "streamed": "prefixJordan Alvareźsuffix"
+          }
+        ],
+        "modules": 37
+      },
+      "manifestSha256": "7a6b25781ab1f32978c3a951b2c1a3df1ce1aca72f43b7dac09bc7ecbf69d78f",
+      "offlineDownloads": 2,
+      "originalPrompt": "Jordan Alvarez wrote to jordan@example.org; public note: avery castilló.",
+      "reply": "Hi Jordan Alvarez. The contact email in your message is jordan@example.org.",
+      "offlineRequests": 0,
+      "errors": []
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "diagnostic": {
+        "python": "3.12.1 (main, Nov 15 2024, 14:17:00) [Clang 19.0.0git (https:/github.com/llvm/llvm-project 0a8cd1ed1f4f35905df318015b",
+        "unicodeDatabase": "15.0.0",
+        "rows": [
+          {
+            "name": "NFC-accented-name",
+            "restored": "Ask avery castilló about the booking.",
+            "exact": "Ask avery castilló about the booking.",
+            "streamed": "Ask avery castilló about the booking."
+          },
+          {
+            "name": "NFD-accented-name",
+            "restored": "Ask avery castilló about the booking.",
+            "exact": "Ask avery castilló about the booking.",
+            "streamed": "Ask avery castilló about the booking."
+          },
+          {
+            "name": "NFD-accented-possessive",
+            "restored": "avery castilló's booking",
+            "exact": "avery castilló's booking",
+            "streamed": "avery castilló's booking"
+          },
+          {
+            "name": "nonspacing-right-authored-boundary",
+            "restored": "avery castillóx",
+            "exact": "avery castillóx",
+            "streamed": "avery castillóx"
+          },
+          {
+            "name": "nonspacing-left-authored-boundary",
+            "restored": "x́avery castillo",
+            "exact": "x́avery castillo",
+            "streamed": "x́avery castillo"
+          },
+          {
+            "name": "spacing-right-authored-boundary",
+            "restored": "avery castilloाx",
+            "exact": "avery castilloाx",
+            "streamed": "avery castilloाx"
+          },
+          {
+            "name": "spacing-left-authored-boundary",
+            "restored": "xाavery castillo",
+            "exact": "xाavery castillo",
+            "streamed": "xाavery castillo"
+          },
+          {
+            "name": "enclosing-right-authored-boundary",
+            "restored": "avery castillo⃝x",
+            "exact": "avery castillo⃝x",
+            "streamed": "avery castillo⃝x"
+          },
+          {
+            "name": "enclosing-left-authored-boundary",
+            "restored": "x⃝avery castillo",
+            "exact": "x⃝avery castillo",
+            "streamed": "x⃝avery castillo"
+          },
+          {
+            "name": "recased-name",
+            "restored": "Jordan Alvarez",
+            "exact": "avery castillo",
+            "streamed": "avery castillo"
+          },
+          {
+            "name": "recased-possessive",
+            "restored": "Jordan Alvarez's",
+            "exact": "avery castillo's",
+            "streamed": "avery castillo's"
+          },
+          {
+            "name": "curly-possessive",
+            "restored": "Jordan Alvarez’s",
+            "exact": "AVERY CASTILLO’s",
+            "streamed": "AVERY CASTILLO’s"
+          },
+          {
+            "name": "wrapped-name",
+            "restored": "Jordan Alvarez",
+            "exact": "AVERY\n\tCASTILLO",
+            "streamed": "AVERY\n\tCASTILLO"
+          },
+          {
+            "name": "punctuation",
+            "restored": "(Jordan Alvarez), yes.",
+            "exact": "(avery castillo), yes.",
+            "streamed": "(avery castillo), yes."
+          },
+          {
+            "name": "existing-longer-word-prefixavery castillo",
+            "restored": "prefixavery castillo",
+            "exact": "prefixavery castillo",
+            "streamed": "prefixavery castillo"
+          },
+          {
+            "name": "existing-longer-word-avery castillox",
+            "restored": "avery castillox",
+            "exact": "avery castillox",
+            "streamed": "avery castillox"
+          },
+          {
+            "name": "existing-longer-word-avery castillo_2",
+            "restored": "avery castillo_2",
+            "exact": "avery castillo_2",
+            "streamed": "avery castillo_2"
+          },
+          {
+            "name": "existing-longer-word-avery castillo7",
+            "restored": "avery castillo7",
+            "exact": "avery castillo7",
+            "streamed": "avery castillo7"
+          },
+          {
+            "name": "exact-substring-contract",
+            "restored": "prefixJordan Alvareźsuffix",
+            "exact": "prefixJordan Alvareźsuffix",
+            "streamed": "prefixJordan Alvareźsuffix"
+          }
+        ],
+        "modules": 37
+      },
+      "manifestSha256": "7a6b25781ab1f32978c3a951b2c1a3df1ce1aca72f43b7dac09bc7ecbf69d78f",
+      "offlineDownloads": 2,
+      "originalPrompt": "Jordan Alvarez wrote to jordan@example.org; public note: avery castilló.",
+      "reply": "Hi Jordan Alvarez. The contact email in your message is jordan@example.org.",
+      "offlineRequests": 0,
+      "errors": []
+    }
+  ]
+}
