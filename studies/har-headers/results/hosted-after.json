@@ -1,0 +1,167 @@
+{
+  "url": "https://antonsoo.github.io/veil/",
+  "phase": "after",
+  "scope": "Actual UI Python worker, two unmodified native HAR prompts, real masked/vault downloads and an explicit array-valued control. Exact restoration is an explicit local diagnostic from downloaded vaults; the canned reply does not echo HAR data.",
+  "rows": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1280,
+      "phase": "after",
+      "nativeCases": [
+        {
+          "nativeEngine": "chromium",
+          "sourceSha256": "d653a59a7acb17990038b0829594ea5dbe1f75077d36d759195cb103a933c109",
+          "maskedSha256": "8edba0973d347a045b946d2ede12ee1b0731583271f616a5cbdbe8ada6bf141a",
+          "vaultSha256": "2111b69895cb4c8df3383e223384872b5cb3f383d158d7d848081c68281f9bb5",
+          "sessionOccurrences": 0,
+          "mappings": 5,
+          "originalTextRestoredFromDownloads": true
+        },
+        {
+          "nativeEngine": "firefox",
+          "sourceSha256": "96333914c48e52c13ee51049e235252db2f5a8193a275e8bee8397f85d47210d",
+          "maskedSha256": "049639c20a4f51d9fc36b72d72da3f2925f5e9b4bf19dc56b36dba99ca3e610d",
+          "vaultSha256": "b09823dce6aa2f48a00a08d14118333b955d5b272f0426e0a0588070f17b31d8",
+          "sessionOccurrences": 0,
+          "mappings": 5,
+          "originalTextRestoredFromDownloads": true
+        }
+      ],
+      "arrayControl": {
+        "source": "{\"Cookie\":[\"plain\"],\"count\":17}",
+        "masked": "{\"Cookie\":[\"plain\"],\"count\":17}",
+        "structurePreserved": true
+      },
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "auditFontRequests": [],
+      "errors": [],
+      "accessibilityViolations": [],
+      "horizontalOverflow": false
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "phase": "after",
+      "nativeCases": [
+        {
+          "nativeEngine": "chromium",
+          "sourceSha256": "d653a59a7acb17990038b0829594ea5dbe1f75077d36d759195cb103a933c109",
+          "maskedSha256": "8edba0973d347a045b946d2ede12ee1b0731583271f616a5cbdbe8ada6bf141a",
+          "vaultSha256": "2111b69895cb4c8df3383e223384872b5cb3f383d158d7d848081c68281f9bb5",
+          "sessionOccurrences": 0,
+          "mappings": 5,
+          "originalTextRestoredFromDownloads": true
+        },
+        {
+          "nativeEngine": "firefox",
+          "sourceSha256": "96333914c48e52c13ee51049e235252db2f5a8193a275e8bee8397f85d47210d",
+          "maskedSha256": "049639c20a4f51d9fc36b72d72da3f2925f5e9b4bf19dc56b36dba99ca3e610d",
+          "vaultSha256": "b09823dce6aa2f48a00a08d14118333b955d5b272f0426e0a0588070f17b31d8",
+          "sessionOccurrences": 0,
+          "mappings": 5,
+          "originalTextRestoredFromDownloads": true
+        }
+      ],
+      "arrayControl": {
+        "source": "{\"Cookie\":[\"plain\"],\"count\":17}",
+        "masked": "{\"Cookie\":[\"plain\"],\"count\":17}",
+        "structurePreserved": true
+      },
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "auditFontRequests": [],
+      "errors": [],
+      "accessibilityViolations": [],
+      "horizontalOverflow": false
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1280,
+      "phase": "after",
+      "nativeCases": [
+        {
+          "nativeEngine": "chromium",
+          "sourceSha256": "d653a59a7acb17990038b0829594ea5dbe1f75077d36d759195cb103a933c109",
+          "maskedSha256": "8edba0973d347a045b946d2ede12ee1b0731583271f616a5cbdbe8ada6bf141a",
+          "vaultSha256": "2111b69895cb4c8df3383e223384872b5cb3f383d158d7d848081c68281f9bb5",
+          "sessionOccurrences": 0,
+          "mappings": 5,
+          "originalTextRestoredFromDownloads": true
+        },
+        {
+          "nativeEngine": "firefox",
+          "sourceSha256": "96333914c48e52c13ee51049e235252db2f5a8193a275e8bee8397f85d47210d",
+          "maskedSha256": "049639c20a4f51d9fc36b72d72da3f2925f5e9b4bf19dc56b36dba99ca3e610d",
+          "vaultSha256": "b09823dce6aa2f48a00a08d14118333b955d5b272f0426e0a0588070f17b31d8",
+          "sessionOccurrences": 0,
+          "mappings": 5,
+          "originalTextRestoredFromDownloads": true
+        }
+      ],
+      "arrayControl": {
+        "source": "{\"Cookie\":[\"plain\"],\"count\":17}",
+        "masked": "{\"Cookie\":[\"plain\"],\"count\":17}",
+        "structurePreserved": true
+      },
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "auditFontRequests": [
+        {
+          "url": "https://antonsoo.github.io/veil/assets/fraunces-latin-DihXLNYH.woff2",
+          "method": "GET",
+          "body": null
+        }
+      ],
+      "errors": [],
+      "accessibilityViolations": [],
+      "horizontalOverflow": false
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "phase": "after",
+      "nativeCases": [
+        {
+          "nativeEngine": "chromium",
+          "sourceSha256": "d653a59a7acb17990038b0829594ea5dbe1f75077d36d759195cb103a933c109",
+          "maskedSha256": "8edba0973d347a045b946d2ede12ee1b0731583271f616a5cbdbe8ada6bf141a",
+          "vaultSha256": "2111b69895cb4c8df3383e223384872b5cb3f383d158d7d848081c68281f9bb5",
+          "sessionOccurrences": 0,
+          "mappings": 5,
+          "originalTextRestoredFromDownloads": true
+        },
+        {
+          "nativeEngine": "firefox",
+          "sourceSha256": "96333914c48e52c13ee51049e235252db2f5a8193a275e8bee8397f85d47210d",
+          "maskedSha256": "049639c20a4f51d9fc36b72d72da3f2925f5e9b4bf19dc56b36dba99ca3e610d",
+          "vaultSha256": "b09823dce6aa2f48a00a08d14118333b955d5b272f0426e0a0588070f17b31d8",
+          "sessionOccurrences": 0,
+          "mappings": 5,
+          "originalTextRestoredFromDownloads": true
+        }
+      ],
+      "arrayControl": {
+        "source": "{\"Cookie\":[\"plain\"],\"count\":17}",
+        "masked": "{\"Cookie\":[\"plain\"],\"count\":17}",
+        "structurePreserved": true
+      },
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "auditFontRequests": [
+        {
+          "url": "https://antonsoo.github.io/veil/assets/fraunces-latin-DihXLNYH.woff2",
+          "method": "GET",
+          "body": null
+        }
+      ],
+      "errors": [],
+      "accessibilityViolations": [],
+      "horizontalOverflow": false
+    }
+  ]
+}

@@ -176,3 +176,19 @@ were opened and inspected; real HAR text is long and wraps without horizontal
 page overflow. Each accessibility audit passes. The app's canned simulated
 reply does not echo HAR data, so that feature is not used as a restoration
 claim. Local/source/package results do not alone establish public delivery.
+
+
+## Public delivery
+
+Source `8251209` includes the HAR masking and source-availability corrections.
+The static deployment `9b41a5a` retains prior hashed assets and updates the
+Python source bundle. The [canonical byte receipt](results/hosted-bytes.json)
+verifies all 27 current build files against their public responses.
+
+The [public after-change replay](results/hosted-after.json) repeats both native
+HAR prompts in Chromium and Firefox at 1280 and 375 pixels. All eight actual
+masked downloads contain zero retained session copies, all eight downloaded
+vaults reconstruct the exact source in the explicit local diagnostic, and all
+four array controls preserve their structure. No prompt or download initiates
+a request after bootstrap; the separate accessibility audit's font activity
+is recorded. This establishes the observed public workflow, not a PyPI release.
