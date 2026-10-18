@@ -428,6 +428,12 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   [Native HTTP exchange](studies/http-cookies/README.md) and
   [native browser HARs, SDK transport and scope](studies/har-headers/README.md)
   retain the evidence. These additions are not in the PyPI release.
+  This source checkout also retains Basic/Bearer context for HAR
+  `Authorization` and `Proxy-Authorization` records. Previously, short
+  credentials survived because their header names lived in sibling fields.
+  [Authenticated native HAR replay](studies/har-authorization/README.md)
+  checks the CLI, SDK wire data and browser downloads. This correction is
+  local; it has not been published to PyPI or the live demo.
   Explicit password, API-key, client-secret and OAuth-token assignments also
   protect short or word-like values, including immediate string fields in tool
   histories. `masker.mask(value, field_name="password")` retains a decoded field's

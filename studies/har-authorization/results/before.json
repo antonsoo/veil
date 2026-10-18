@@ -1,0 +1,670 @@
+{
+  "scope": "Replay native authenticated HARs through the CLI and real SDK serialization.",
+  "python": "3.12.12",
+  "sourceHashes": {
+    "__init__.py": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980",
+    "_files.py": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29",
+    "_json_fields.py": "f9039f83038b6c63b50595df640f16f11b3ce540ea315f14ffacfa7ee93fbe92",
+    "_spans.py": "62f6cb318147173ebf9cbd5b9c039d865df4b3fa1245c056684d40a2aea7b06d",
+    "audit.py": "026369aec3ef2763bd779f0c51404c31ad7b0a396278434c1225e8a4387deac5",
+    "backends/__init__.py": "327c899c25a8360bb26d0069b7d03fe1765f1648fcc0a89d85c0139e1d72f73b",
+    "backends/base.py": "c925b33051ef5cc80711c3eeab5c3ed06bb2eb5044f0a789da8f0b03e333200e",
+    "backends/known_entities.py": "bea0909e82afe5556099769eae7f403689e90b9cb952a207426920f9ad9d1b55",
+    "backends/spacy_backend.py": "2ee298c160a2982d8a5130582d2d5693bb7446f7b7c4e8a865714ad9b4e70c2b",
+    "cli.py": "689ef1092e5441db62a6b7b5c01860706197b83d9e51fe70c18e418c561416e1",
+    "detectors/__init__.py": "59777802fc49ac92c5064172a7ccb8d34b5d01639cc472479052d0b4dd63967f",
+    "detectors/_calling_codes.py": "64ec8bd4c0008fbc83833802b9a018be77263e91e041c8c7da795f74e4718e4c",
+    "detectors/_credential_fields.py": "bcfb645b9f0fc4c9ac1f7a7b9e6014ebf478c5a5a96a05ebe1b5943dcea098c8",
+    "detectors/_http_auth.py": "fb26c0f2f04cb1a2b3c13ff1edb3c50bdbb7ad904b105caa0e63a517c6ea7775",
+    "detectors/_http_cookies.py": "e4e69b7b334ba9336560d43cf8652de0f164803357ca5324d1d8627e26596746",
+    "detectors/_jwt.py": "24ca1a07c536eb9ce164a58f8bdb207421a3d4f165c3dd997034c39cd9de3c77",
+    "detectors/_words.py": "c0a21bcec0eb4efe302bf4409c2790007ed9974d381f9b15d7465e59904f3887",
+    "detectors/address.py": "86d727ea9fddc51532e516c4413c6522a941f88aa7cdb7bd762eeff469e665ec",
+    "detectors/base.py": "af8b6d45b9b8e9bea176c4545f50ba2d24e32aa9e838aceb586b6b71b7f2ee18",
+    "detectors/card.py": "6cdd29024e6aa824783c8809dba09fca5ea317942b42ab9773b5694ba52e5d7f",
+    "detectors/dob.py": "da19bdf1509b5a30a1af44aa08ba96957700ed05648802a64a9aff99d533d39f",
+    "detectors/email.py": "6c55c1532b289c0ab791570c24616aacd636929e64319e1badcd2ea69b359e77",
+    "detectors/iban.py": "3bb8cfba1f66c309a4d2f3d48ac7822c53910f623444f4ef4d41082cce900f7c",
+    "detectors/ip.py": "9ff388066ad7125a2c5f8c801fd6944c0ea2eaddcc357c07cb43c0d161ce542b",
+    "detectors/phone.py": "a2e2cd63e2f2f146bfc63ab8668ee441a88492010f4db8d6fcd7d5a3419c12dd",
+    "detectors/secrets.py": "4722ca6a45455d4a66ec5278c775711ab87f76f3a8fb5d2c4f44af34892c9cb2",
+    "detectors/ssn.py": "3366136af2c03afdffa7157d86ef4df8c05f93200e79a5c83a8d26291532c00b",
+    "detectors/url.py": "fd3d590d7a1c0cfa3a0b659f2bfd762bfbcf9cc14510384fbe85f098be299099",
+    "integrations/__init__.py": "fb3265da351c5ea59af52ca960a917b1f4d2428d9147e498a0816b378b482881",
+    "integrations/_common.py": "4f2d6716339fd7a483e76edf0e9669fa4dc23bd4db6cee2efe826c3bb7ad2f9a",
+    "integrations/_json_arguments.py": "f55db6195403a3c628c248484bdbc5ddd42e4d50dfa4a25c675297bc21328ab8",
+    "integrations/anthropic.py": "3f27a9955ce49c788bf2d3e97babbe8e197ac15d3c1c939c50a198595411a821",
+    "integrations/openai.py": "830b8cf890680ea4edae8489d55402a9163a0effa210350037434a61a0ccb9d3",
+    "integrations/openai_responses.py": "3650dfc325747ecce45a847de3efb36a6087f28ffd63b0317dee302ee1ce092e",
+    "masker.py": "90c2523d9154ec9b99d78d4ae9208f8544d28a298db60ca2887c2871eff5b80a",
+    "restore.py": "1ef82fbceb230f0aed216bf7b46fe3f8c9db2bbd219e4807c8a2864f6282c908",
+    "surrogates.py": "875d2e37c977daae3bbdceae534067ffdac5be8b17895f1f28a55faf02ef5ed0",
+    "types.py": "081f82023d527f6e9b2f38f96ebd05215be2ae39fde65d3cbbf965eae9f418a8",
+    "vault.py": "7146317cb794b33722e9463a4e1a7dca3763f72dcfcecc2a59a06482bb333a62"
+  },
+  "oracleSha256": "b0bec8533bde1d91b8f51cfa7a6f9cab1dd18fd805a1c9a2676c0ce195dd1438",
+  "directFailures": 6,
+  "sdkFailures": 48,
+  "rows": [
+    {
+      "engine": "chromium",
+      "mode": "text",
+      "correct": false,
+      "remainingCredentials": {
+        "bearer": 1,
+        "basic": 1
+      },
+      "restoresOriginalData": true,
+      "masked": "{\"log\":{\"version\":\"1.2\",\"creator\":{\"name\":\"Playwright\",\"version\":\"1.63.0\"},\"browser\":{\"name\":\"chromium\",\"version\":\"153.0.8010.12\"},\"pages\":[{\"startedDateTime\":\"2026-10-18T19:22:12.519Z\",\"id\":\"page@fd09a7b1bb7d272b9150083ed3046945\",\"title\":\"\",\"pageTimings\":{\"onContentLoad\":113,\"onLoad\":113}}],\"entries\":[{\"pageref\":\"page@fd09a7b1bb7d272b9150083ed3046945\",\"startedDateTime\":\"2026-10-18T19:22:12.527Z\",\"time\":22.079,\"request\":{\"method\":\"GET\",\"url\":\"http://127.0.0.1:46277/bearer\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Accept\",\"value\":\"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7\"},{\"name\":\"Accept-Encoding\",\"value\":\"gzip, deflate, br, zstd\"},{\"name\":\"Authorization\",\"value\":\"Bearer local-session-42\"},{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Host\",\"value\":\"127.0.0.1:46277\"},{\"name\":\"Sec-Fetch-Dest\",\"value\":\"document\"},{\"name\":\"Sec-Fetch-Mode\",\"value\":\"navigate\"},{\"name\":\"Sec-Fetch-Site\",\"value\":\"none\"},{\"name\":\"Sec-Fetch-User\",\"value\":\"?1\"},{\"name\":\"Upgrade-Insecure-Requests\",\"value\":\"1\"},{\"name\":\"User-Agent\",\"value\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36\"},{\"name\":\"sec-ch-ua\",\"value\":\"\\\"HeadlessChrome\\\";v=\\\"153\\\", \\\"Not_A Brand\\\";v=\\\"8\\\", \\\"Chromium\\\";v=\\\"153\\\"\"},{\"name\":\"sec-ch-ua-mobile\",\"value\":\"?0\"},{\"name\":\"sec-ch-ua-platform\",\"value\":\"\\\"Linux\\\"\"}],\"queryString\":[],\"headersSize\":676,\"bodySize\":0},\"response\":{\"status\":200,\"statusText\":\"OK\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Content-Type\",\"value\":\"text/plain\"},{\"name\":\"Date\",\"value\":\"Sun, 18 Oct 2026 19:22:12 GMT\"},{\"name\":\"Keep-Alive\",\"value\":\"timeout=5\"},{\"name\":\"Transfer-Encoding\",\"value\":\"chunked\"}],\"content\":{\"size\":28,\"mimeType\":\"text/plain\",\"compression\":0},\"headersSize\":157,\"bodySize\":39,\"redirectURL\":\"\",\"_transferSize\":196},\"cache\":{},\"timings\":{\"dns\":0.491,\"connect\":1.105,\"ssl\":5.995,\"send\":0,\"wait\":5.821,\"receive\":8.667},\"_frameref\":\"frame@a437dc6a293b4182ef8bcf27b94e597f\",\"_monotonicTime\":1008.141,\"_resourceType\":\"document\",\"serverIPAddress\":\"127.0.0.1\",\"_serverPort\":46277,\"_securityDetails\":{}},{\"pageref\":\"page@fd09a7b1bb7d272b9150083ed3046945\",\"startedDateTime\":\"2026-10-18T19:22:12.612Z\",\"time\":3.458,\"request\":{\"method\":\"GET\",\"url\":\"http://127.0.0.1:46277/basic\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Accept\",\"value\":\"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7\"},{\"name\":\"Accept-Encoding\",\"value\":\"gzip, deflate, br, zstd\"},{\"name\":\"Authorization\",\"value\":\"Basic bG9jYWw6cGFzcw==\"},{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Host\",\"value\":\"127.0.0.1:46277\"},{\"name\":\"Sec-Fetch-Dest\",\"value\":\"document\"},{\"name\":\"Sec-Fetch-Mode\",\"value\":\"navigate\"},{\"name\":\"Sec-Fetch-Site\",\"value\":\"none\"},{\"name\":\"Sec-Fetch-User\",\"value\":\"?1\"},{\"name\":\"Upgrade-Insecure-Requests\",\"value\":\"1\"},{\"name\":\"User-Agent\",\"value\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36\"},{\"name\":\"sec-ch-ua\",\"value\":\"\\\"HeadlessChrome\\\";v=\\\"153\\\", \\\"Not_A Brand\\\";v=\\\"8\\\", \\\"Chromium\\\";v=\\\"153\\\"\"},{\"name\":\"sec-ch-ua-mobile\",\"value\":\"?0\"},{\"name\":\"sec-ch-ua-platform\",\"value\":\"\\\"Linux\\\"\"}],\"queryString\":[],\"headersSize\":674,\"bodySize\":0},\"response\":{\"status\":200,\"statusText\":\"OK\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Content-Type\",\"value\":\"text/plain\"},{\"name\":\"Date\",\"value\":\"Sun, 18 Oct 2026 19:22:12 GMT\"},{\"name\":\"Keep-Alive\",\"value\":\"timeout=5\"},{\"name\":\"Transfer-Encoding\",\"value\":\"chunked\"}],\"content\":{\"size\":28,\"mimeType\":\"text/plain\",\"compression\":0},\"headersSize\":157,\"bodySize\":39,\"redirectURL\":\"\",\"_transferSize\":196},\"cache\":{},\"timings\":{\"dns\":-1,\"connect\":-1,\"ssl\":-1,\"send\":0,\"wait\":1.085,\"receive\":2.373},\"_frameref\":\"frame@a437dc6a293b4182ef8bcf27b94e597f\",\"_monotonicTime\":1091.112,\"_resourceType\":\"document\",\"serverIPAddress\":\"127.0.0.1\",\"_serverPort\":46277,\"_securityDetails\":{}}]}}",
+      "vault": {
+        "version": 1,
+        "mappings": []
+      }
+    },
+    {
+      "engine": "chromium",
+      "mode": "arguments",
+      "correct": false,
+      "remainingCredentials": {
+        "bearer": 1,
+        "basic": 1
+      },
+      "restoresOriginalData": true,
+      "masked": "{\"log\":{\"version\":\"1.2\",\"creator\":{\"name\":\"Playwright\",\"version\":\"1.63.0\"},\"browser\":{\"name\":\"chromium\",\"version\":\"153.0.8010.12\"},\"pages\":[{\"startedDateTime\":\"2026-10-18T19:22:12.519Z\",\"id\":\"page@fd09a7b1bb7d272b9150083ed3046945\",\"title\":\"\",\"pageTimings\":{\"onContentLoad\":113,\"onLoad\":113}}],\"entries\":[{\"pageref\":\"page@fd09a7b1bb7d272b9150083ed3046945\",\"startedDateTime\":\"2026-10-18T19:22:12.527Z\",\"time\":22.079,\"request\":{\"method\":\"GET\",\"url\":\"http://127.0.0.1:46277/bearer\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Accept\",\"value\":\"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7\"},{\"name\":\"Accept-Encoding\",\"value\":\"gzip, deflate, br, zstd\"},{\"name\":\"Authorization\",\"value\":\"Bearer local-session-42\"},{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Host\",\"value\":\"127.0.0.1:46277\"},{\"name\":\"Sec-Fetch-Dest\",\"value\":\"document\"},{\"name\":\"Sec-Fetch-Mode\",\"value\":\"navigate\"},{\"name\":\"Sec-Fetch-Site\",\"value\":\"none\"},{\"name\":\"Sec-Fetch-User\",\"value\":\"?1\"},{\"name\":\"Upgrade-Insecure-Requests\",\"value\":\"1\"},{\"name\":\"User-Agent\",\"value\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36\"},{\"name\":\"sec-ch-ua\",\"value\":\"\\\"HeadlessChrome\\\";v=\\\"153\\\", \\\"Not_A Brand\\\";v=\\\"8\\\", \\\"Chromium\\\";v=\\\"153\\\"\"},{\"name\":\"sec-ch-ua-mobile\",\"value\":\"?0\"},{\"name\":\"sec-ch-ua-platform\",\"value\":\"\\\"Linux\\\"\"}],\"queryString\":[],\"headersSize\":676,\"bodySize\":0},\"response\":{\"status\":200,\"statusText\":\"OK\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Content-Type\",\"value\":\"text/plain\"},{\"name\":\"Date\",\"value\":\"Sun, 18 Oct 2026 19:22:12 GMT\"},{\"name\":\"Keep-Alive\",\"value\":\"timeout=5\"},{\"name\":\"Transfer-Encoding\",\"value\":\"chunked\"}],\"content\":{\"size\":28,\"mimeType\":\"text/plain\",\"compression\":0},\"headersSize\":157,\"bodySize\":39,\"redirectURL\":\"\",\"_transferSize\":196},\"cache\":{},\"timings\":{\"dns\":0.491,\"connect\":1.105,\"ssl\":5.995,\"send\":0,\"wait\":5.821,\"receive\":8.667},\"_frameref\":\"frame@a437dc6a293b4182ef8bcf27b94e597f\",\"_monotonicTime\":1008.141,\"_resourceType\":\"document\",\"serverIPAddress\":\"127.0.0.1\",\"_serverPort\":46277,\"_securityDetails\":{}},{\"pageref\":\"page@fd09a7b1bb7d272b9150083ed3046945\",\"startedDateTime\":\"2026-10-18T19:22:12.612Z\",\"time\":3.458,\"request\":{\"method\":\"GET\",\"url\":\"http://127.0.0.1:46277/basic\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Accept\",\"value\":\"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7\"},{\"name\":\"Accept-Encoding\",\"value\":\"gzip, deflate, br, zstd\"},{\"name\":\"Authorization\",\"value\":\"Basic bG9jYWw6cGFzcw==\"},{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Host\",\"value\":\"127.0.0.1:46277\"},{\"name\":\"Sec-Fetch-Dest\",\"value\":\"document\"},{\"name\":\"Sec-Fetch-Mode\",\"value\":\"navigate\"},{\"name\":\"Sec-Fetch-Site\",\"value\":\"none\"},{\"name\":\"Sec-Fetch-User\",\"value\":\"?1\"},{\"name\":\"Upgrade-Insecure-Requests\",\"value\":\"1\"},{\"name\":\"User-Agent\",\"value\":\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36\"},{\"name\":\"sec-ch-ua\",\"value\":\"\\\"HeadlessChrome\\\";v=\\\"153\\\", \\\"Not_A Brand\\\";v=\\\"8\\\", \\\"Chromium\\\";v=\\\"153\\\"\"},{\"name\":\"sec-ch-ua-mobile\",\"value\":\"?0\"},{\"name\":\"sec-ch-ua-platform\",\"value\":\"\\\"Linux\\\"\"}],\"queryString\":[],\"headersSize\":674,\"bodySize\":0},\"response\":{\"status\":200,\"statusText\":\"OK\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Content-Type\",\"value\":\"text/plain\"},{\"name\":\"Date\",\"value\":\"Sun, 18 Oct 2026 19:22:12 GMT\"},{\"name\":\"Keep-Alive\",\"value\":\"timeout=5\"},{\"name\":\"Transfer-Encoding\",\"value\":\"chunked\"}],\"content\":{\"size\":28,\"mimeType\":\"text/plain\",\"compression\":0},\"headersSize\":157,\"bodySize\":39,\"redirectURL\":\"\",\"_transferSize\":196},\"cache\":{},\"timings\":{\"dns\":-1,\"connect\":-1,\"ssl\":-1,\"send\":0,\"wait\":1.085,\"receive\":2.373},\"_frameref\":\"frame@a437dc6a293b4182ef8bcf27b94e597f\",\"_monotonicTime\":1091.112,\"_resourceType\":\"document\",\"serverIPAddress\":\"127.0.0.1\",\"_serverPort\":46277,\"_securityDetails\":{}}]}}",
+      "vault": {
+        "version": 1,
+        "mappings": []
+      }
+    },
+    {
+      "engine": "chromium",
+      "mode": "typed",
+      "correct": false,
+      "remainingCredentials": {
+        "bearer": 1,
+        "basic": 1
+      },
+      "restoresOriginalData": true,
+      "masked": "{\"log\": {\"version\": \"1.2\", \"creator\": {\"name\": \"Playwright\", \"version\": \"1.63.0\"}, \"browser\": {\"name\": \"chromium\", \"version\": \"153.0.8010.12\"}, \"pages\": [{\"startedDateTime\": \"2026-10-18T19:22:12.519Z\", \"id\": \"page@fd09a7b1bb7d272b9150083ed3046945\", \"title\": \"\", \"pageTimings\": {\"onContentLoad\": 113, \"onLoad\": 113}}], \"entries\": [{\"pageref\": \"page@fd09a7b1bb7d272b9150083ed3046945\", \"startedDateTime\": \"2026-10-18T19:22:12.527Z\", \"time\": 22.079, \"request\": {\"method\": \"GET\", \"url\": \"http://127.0.0.1:46277/bearer\", \"httpVersion\": \"HTTP/1.1\", \"cookies\": [], \"headers\": [{\"name\": \"Accept\", \"value\": \"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7\"}, {\"name\": \"Accept-Encoding\", \"value\": \"gzip, deflate, br, zstd\"}, {\"name\": \"Authorization\", \"value\": \"Bearer local-session-42\"}, {\"name\": \"Connection\", \"value\": \"keep-alive\"}, {\"name\": \"Host\", \"value\": \"127.0.0.1:46277\"}, {\"name\": \"Sec-Fetch-Dest\", \"value\": \"document\"}, {\"name\": \"Sec-Fetch-Mode\", \"value\": \"navigate\"}, {\"name\": \"Sec-Fetch-Site\", \"value\": \"none\"}, {\"name\": \"Sec-Fetch-User\", \"value\": \"?1\"}, {\"name\": \"Upgrade-Insecure-Requests\", \"value\": \"1\"}, {\"name\": \"User-Agent\", \"value\": \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36\"}, {\"name\": \"sec-ch-ua\", \"value\": \"\\\"HeadlessChrome\\\";v=\\\"153\\\", \\\"Not_A Brand\\\";v=\\\"8\\\", \\\"Chromium\\\";v=\\\"153\\\"\"}, {\"name\": \"sec-ch-ua-mobile\", \"value\": \"?0\"}, {\"name\": \"sec-ch-ua-platform\", \"value\": \"\\\"Linux\\\"\"}], \"queryString\": [], \"headersSize\": 676, \"bodySize\": 0}, \"response\": {\"status\": 200, \"statusText\": \"OK\", \"httpVersion\": \"HTTP/1.1\", \"cookies\": [], \"headers\": [{\"name\": \"Connection\", \"value\": \"keep-alive\"}, {\"name\": \"Content-Type\", \"value\": \"text/plain\"}, {\"name\": \"Date\", \"value\": \"Sun, 18 Oct 2026 19:22:12 GMT\"}, {\"name\": \"Keep-Alive\", \"value\": \"timeout=5\"}, {\"name\": \"Transfer-Encoding\", \"value\": \"chunked\"}], \"content\": {\"size\": 28, \"mimeType\": \"text/plain\", \"compression\": 0}, \"headersSize\": 157, \"bodySize\": 39, \"redirectURL\": \"\", \"_transferSize\": 196}, \"cache\": {}, \"timings\": {\"dns\": 0.491, \"connect\": 1.105, \"ssl\": 5.995, \"send\": 0, \"wait\": 5.821, \"receive\": 8.667}, \"_frameref\": \"frame@a437dc6a293b4182ef8bcf27b94e597f\", \"_monotonicTime\": 1008.141, \"_resourceType\": \"document\", \"serverIPAddress\": \"127.0.0.1\", \"_serverPort\": 46277, \"_securityDetails\": {}}, {\"pageref\": \"page@fd09a7b1bb7d272b9150083ed3046945\", \"startedDateTime\": \"2026-10-18T19:22:12.612Z\", \"time\": 3.458, \"request\": {\"method\": \"GET\", \"url\": \"http://127.0.0.1:46277/basic\", \"httpVersion\": \"HTTP/1.1\", \"cookies\": [], \"headers\": [{\"name\": \"Accept\", \"value\": \"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7\"}, {\"name\": \"Accept-Encoding\", \"value\": \"gzip, deflate, br, zstd\"}, {\"name\": \"Authorization\", \"value\": \"Basic bG9jYWw6cGFzcw==\"}, {\"name\": \"Connection\", \"value\": \"keep-alive\"}, {\"name\": \"Host\", \"value\": \"127.0.0.1:46277\"}, {\"name\": \"Sec-Fetch-Dest\", \"value\": \"document\"}, {\"name\": \"Sec-Fetch-Mode\", \"value\": \"navigate\"}, {\"name\": \"Sec-Fetch-Site\", \"value\": \"none\"}, {\"name\": \"Sec-Fetch-User\", \"value\": \"?1\"}, {\"name\": \"Upgrade-Insecure-Requests\", \"value\": \"1\"}, {\"name\": \"User-Agent\", \"value\": \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36\"}, {\"name\": \"sec-ch-ua\", \"value\": \"\\\"HeadlessChrome\\\";v=\\\"153\\\", \\\"Not_A Brand\\\";v=\\\"8\\\", \\\"Chromium\\\";v=\\\"153\\\"\"}, {\"name\": \"sec-ch-ua-mobile\", \"value\": \"?0\"}, {\"name\": \"sec-ch-ua-platform\", \"value\": \"\\\"Linux\\\"\"}], \"queryString\": [], \"headersSize\": 674, \"bodySize\": 0}, \"response\": {\"status\": 200, \"statusText\": \"OK\", \"httpVersion\": \"HTTP/1.1\", \"cookies\": [], \"headers\": [{\"name\": \"Connection\", \"value\": \"keep-alive\"}, {\"name\": \"Content-Type\", \"value\": \"text/plain\"}, {\"name\": \"Date\", \"value\": \"Sun, 18 Oct 2026 19:22:12 GMT\"}, {\"name\": \"Keep-Alive\", \"value\": \"timeout=5\"}, {\"name\": \"Transfer-Encoding\", \"value\": \"chunked\"}], \"content\": {\"size\": 28, \"mimeType\": \"text/plain\", \"compression\": 0}, \"headersSize\": 157, \"bodySize\": 39, \"redirectURL\": \"\", \"_transferSize\": 196}, \"cache\": {}, \"timings\": {\"dns\": -1, \"connect\": -1, \"ssl\": -1, \"send\": 0, \"wait\": 1.085, \"receive\": 2.373}, \"_frameref\": \"frame@a437dc6a293b4182ef8bcf27b94e597f\", \"_monotonicTime\": 1091.112, \"_resourceType\": \"document\", \"serverIPAddress\": \"127.0.0.1\", \"_serverPort\": 46277, \"_securityDetails\": {}}]}}",
+      "vault": {
+        "version": 1,
+        "mappings": []
+      }
+    },
+    {
+      "engine": "firefox",
+      "mode": "text",
+      "correct": false,
+      "remainingCredentials": {
+        "bearer": 1,
+        "basic": 1
+      },
+      "restoresOriginalData": true,
+      "masked": "{\"log\":{\"version\":\"1.2\",\"creator\":{\"name\":\"Playwright\",\"version\":\"1.63.0\"},\"browser\":{\"name\":\"firefox\",\"version\":\"155.0\"},\"pages\":[{\"startedDateTime\":\"2026-10-18T19:22:15.855Z\",\"id\":\"page@5212abb9d2d4fd9c789cb98dcc9ca947\",\"title\":\"\",\"pageTimings\":{\"onContentLoad\":380,\"onLoad\":380}}],\"entries\":[{\"pageref\":\"page@5212abb9d2d4fd9c789cb98dcc9ca947\",\"startedDateTime\":\"2026-10-18T19:22:15.887Z\",\"time\":1.838,\"request\":{\"method\":\"GET\",\"url\":\"http://127.0.0.1:46277/bearer\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Host\",\"value\":\"127.0.0.1:46277\"},{\"name\":\"User-Agent\",\"value\":\"Mozilla/5.0 (X11; Linux x86_64; rv:155.0) Gecko/20100101 Firefox/155.0\"},{\"name\":\"Accept\",\"value\":\"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\"},{\"name\":\"Accept-Language\",\"value\":\"en-US,en;q=0.9\"},{\"name\":\"Accept-Encoding\",\"value\":\"gzip, deflate, br, zstd\"},{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Authorization\",\"value\":\"Bearer local-session-42\"},{\"name\":\"Upgrade-Insecure-Requests\",\"value\":\"1\"},{\"name\":\"Sec-Fetch-Dest\",\"value\":\"document\"},{\"name\":\"Sec-Fetch-Mode\",\"value\":\"navigate\"},{\"name\":\"Sec-Fetch-Site\",\"value\":\"none\"},{\"name\":\"Sec-Fetch-User\",\"value\":\"?1\"}],\"queryString\":[],\"headersSize\":465,\"bodySize\":0},\"response\":{\"status\":200,\"statusText\":\"OK\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Content-Type\",\"value\":\"text/plain\"},{\"name\":\"Date\",\"value\":\"Sun\"},{\"name\":\"Date\",\"value\":\"18 Oct 2026 19:22:15 GMT\"},{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Keep-Alive\",\"value\":\"timeout=5\"},{\"name\":\"Transfer-Encoding\",\"value\":\"chunked\"}],\"content\":{\"size\":28,\"mimeType\":\"text/plain\",\"compression\":0},\"headersSize\":163,\"bodySize\":28,\"redirectURL\":\"\",\"_transferSize\":196},\"cache\":{},\"timings\":{\"dns\":-1,\"connect\":-1,\"ssl\":-1,\"send\":0,\"wait\":1.53,\"receive\":0.308},\"_frameref\":\"frame@1f1a548d3142aafdda6c24ddb0159ce1\",\"_monotonicTime\":4390.56,\"_resourceType\":\"document\",\"serverIPAddress\":\"127.0.0.1\",\"_serverPort\":46277,\"_securityDetails\":{}},{\"pageref\":\"page@5212abb9d2d4fd9c789cb98dcc9ca947\",\"startedDateTime\":\"2026-10-18T19:22:16.218Z\",\"time\":0.78,\"request\":{\"method\":\"GET\",\"url\":\"http://127.0.0.1:46277/basic\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Host\",\"value\":\"127.0.0.1:46277\"},{\"name\":\"User-Agent\",\"value\":\"Mozilla/5.0 (X11; Linux x86_64; rv:155.0) Gecko/20100101 Firefox/155.0\"},{\"name\":\"Accept\",\"value\":\"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\"},{\"name\":\"Accept-Language\",\"value\":\"en-US,en;q=0.9\"},{\"name\":\"Accept-Encoding\",\"value\":\"gzip, deflate, br, zstd\"},{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Authorization\",\"value\":\"Basic bG9jYWw6cGFzcw==\"},{\"name\":\"Upgrade-Insecure-Requests\",\"value\":\"1\"},{\"name\":\"Sec-Fetch-Dest\",\"value\":\"document\"},{\"name\":\"Sec-Fetch-Mode\",\"value\":\"navigate\"},{\"name\":\"Sec-Fetch-Site\",\"value\":\"none\"},{\"name\":\"Sec-Fetch-User\",\"value\":\"?1\"}],\"queryString\":[],\"headersSize\":463,\"bodySize\":0},\"response\":{\"status\":200,\"statusText\":\"OK\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Content-Type\",\"value\":\"text/plain\"},{\"name\":\"Date\",\"value\":\"Sun\"},{\"name\":\"Date\",\"value\":\"18 Oct 2026 19:22:16 GMT\"},{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Keep-Alive\",\"value\":\"timeout=5\"},{\"name\":\"Transfer-Encoding\",\"value\":\"chunked\"}],\"content\":{\"size\":28,\"mimeType\":\"text/plain\",\"compression\":0},\"headersSize\":163,\"bodySize\":28,\"redirectURL\":\"\",\"_transferSize\":196},\"cache\":{},\"timings\":{\"dns\":-1,\"connect\":-1,\"ssl\":-1,\"send\":0,\"wait\":0.75,\"receive\":0.03},\"_frameref\":\"frame@1f1a548d3142aafdda6c24ddb0159ce1\",\"_monotonicTime\":4698.846,\"_resourceType\":\"document\",\"serverIPAddress\":\"127.0.0.1\",\"_serverPort\":46277,\"_securityDetails\":{}}]}}",
+      "vault": {
+        "version": 1,
+        "mappings": []
+      }
+    },
+    {
+      "engine": "firefox",
+      "mode": "arguments",
+      "correct": false,
+      "remainingCredentials": {
+        "bearer": 1,
+        "basic": 1
+      },
+      "restoresOriginalData": true,
+      "masked": "{\"log\":{\"version\":\"1.2\",\"creator\":{\"name\":\"Playwright\",\"version\":\"1.63.0\"},\"browser\":{\"name\":\"firefox\",\"version\":\"155.0\"},\"pages\":[{\"startedDateTime\":\"2026-10-18T19:22:15.855Z\",\"id\":\"page@5212abb9d2d4fd9c789cb98dcc9ca947\",\"title\":\"\",\"pageTimings\":{\"onContentLoad\":380,\"onLoad\":380}}],\"entries\":[{\"pageref\":\"page@5212abb9d2d4fd9c789cb98dcc9ca947\",\"startedDateTime\":\"2026-10-18T19:22:15.887Z\",\"time\":1.838,\"request\":{\"method\":\"GET\",\"url\":\"http://127.0.0.1:46277/bearer\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Host\",\"value\":\"127.0.0.1:46277\"},{\"name\":\"User-Agent\",\"value\":\"Mozilla/5.0 (X11; Linux x86_64; rv:155.0) Gecko/20100101 Firefox/155.0\"},{\"name\":\"Accept\",\"value\":\"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\"},{\"name\":\"Accept-Language\",\"value\":\"en-US,en;q=0.9\"},{\"name\":\"Accept-Encoding\",\"value\":\"gzip, deflate, br, zstd\"},{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Authorization\",\"value\":\"Bearer local-session-42\"},{\"name\":\"Upgrade-Insecure-Requests\",\"value\":\"1\"},{\"name\":\"Sec-Fetch-Dest\",\"value\":\"document\"},{\"name\":\"Sec-Fetch-Mode\",\"value\":\"navigate\"},{\"name\":\"Sec-Fetch-Site\",\"value\":\"none\"},{\"name\":\"Sec-Fetch-User\",\"value\":\"?1\"}],\"queryString\":[],\"headersSize\":465,\"bodySize\":0},\"response\":{\"status\":200,\"statusText\":\"OK\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Content-Type\",\"value\":\"text/plain\"},{\"name\":\"Date\",\"value\":\"Sun\"},{\"name\":\"Date\",\"value\":\"18 Oct 2026 19:22:15 GMT\"},{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Keep-Alive\",\"value\":\"timeout=5\"},{\"name\":\"Transfer-Encoding\",\"value\":\"chunked\"}],\"content\":{\"size\":28,\"mimeType\":\"text/plain\",\"compression\":0},\"headersSize\":163,\"bodySize\":28,\"redirectURL\":\"\",\"_transferSize\":196},\"cache\":{},\"timings\":{\"dns\":-1,\"connect\":-1,\"ssl\":-1,\"send\":0,\"wait\":1.53,\"receive\":0.308},\"_frameref\":\"frame@1f1a548d3142aafdda6c24ddb0159ce1\",\"_monotonicTime\":4390.56,\"_resourceType\":\"document\",\"serverIPAddress\":\"127.0.0.1\",\"_serverPort\":46277,\"_securityDetails\":{}},{\"pageref\":\"page@5212abb9d2d4fd9c789cb98dcc9ca947\",\"startedDateTime\":\"2026-10-18T19:22:16.218Z\",\"time\":0.78,\"request\":{\"method\":\"GET\",\"url\":\"http://127.0.0.1:46277/basic\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Host\",\"value\":\"127.0.0.1:46277\"},{\"name\":\"User-Agent\",\"value\":\"Mozilla/5.0 (X11; Linux x86_64; rv:155.0) Gecko/20100101 Firefox/155.0\"},{\"name\":\"Accept\",\"value\":\"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\"},{\"name\":\"Accept-Language\",\"value\":\"en-US,en;q=0.9\"},{\"name\":\"Accept-Encoding\",\"value\":\"gzip, deflate, br, zstd\"},{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Authorization\",\"value\":\"Basic bG9jYWw6cGFzcw==\"},{\"name\":\"Upgrade-Insecure-Requests\",\"value\":\"1\"},{\"name\":\"Sec-Fetch-Dest\",\"value\":\"document\"},{\"name\":\"Sec-Fetch-Mode\",\"value\":\"navigate\"},{\"name\":\"Sec-Fetch-Site\",\"value\":\"none\"},{\"name\":\"Sec-Fetch-User\",\"value\":\"?1\"}],\"queryString\":[],\"headersSize\":463,\"bodySize\":0},\"response\":{\"status\":200,\"statusText\":\"OK\",\"httpVersion\":\"HTTP/1.1\",\"cookies\":[],\"headers\":[{\"name\":\"Content-Type\",\"value\":\"text/plain\"},{\"name\":\"Date\",\"value\":\"Sun\"},{\"name\":\"Date\",\"value\":\"18 Oct 2026 19:22:16 GMT\"},{\"name\":\"Connection\",\"value\":\"keep-alive\"},{\"name\":\"Keep-Alive\",\"value\":\"timeout=5\"},{\"name\":\"Transfer-Encoding\",\"value\":\"chunked\"}],\"content\":{\"size\":28,\"mimeType\":\"text/plain\",\"compression\":0},\"headersSize\":163,\"bodySize\":28,\"redirectURL\":\"\",\"_transferSize\":196},\"cache\":{},\"timings\":{\"dns\":-1,\"connect\":-1,\"ssl\":-1,\"send\":0,\"wait\":0.75,\"receive\":0.03},\"_frameref\":\"frame@1f1a548d3142aafdda6c24ddb0159ce1\",\"_monotonicTime\":4698.846,\"_resourceType\":\"document\",\"serverIPAddress\":\"127.0.0.1\",\"_serverPort\":46277,\"_securityDetails\":{}}]}}",
+      "vault": {
+        "version": 1,
+        "mappings": []
+      }
+    },
+    {
+      "engine": "firefox",
+      "mode": "typed",
+      "correct": false,
+      "remainingCredentials": {
+        "bearer": 1,
+        "basic": 1
+      },
+      "restoresOriginalData": true,
+      "masked": "{\"log\": {\"version\": \"1.2\", \"creator\": {\"name\": \"Playwright\", \"version\": \"1.63.0\"}, \"browser\": {\"name\": \"firefox\", \"version\": \"155.0\"}, \"pages\": [{\"startedDateTime\": \"2026-10-18T19:22:15.855Z\", \"id\": \"page@5212abb9d2d4fd9c789cb98dcc9ca947\", \"title\": \"\", \"pageTimings\": {\"onContentLoad\": 380, \"onLoad\": 380}}], \"entries\": [{\"pageref\": \"page@5212abb9d2d4fd9c789cb98dcc9ca947\", \"startedDateTime\": \"2026-10-18T19:22:15.887Z\", \"time\": 1.838, \"request\": {\"method\": \"GET\", \"url\": \"http://127.0.0.1:46277/bearer\", \"httpVersion\": \"HTTP/1.1\", \"cookies\": [], \"headers\": [{\"name\": \"Host\", \"value\": \"127.0.0.1:46277\"}, {\"name\": \"User-Agent\", \"value\": \"Mozilla/5.0 (X11; Linux x86_64; rv:155.0) Gecko/20100101 Firefox/155.0\"}, {\"name\": \"Accept\", \"value\": \"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\"}, {\"name\": \"Accept-Language\", \"value\": \"en-US,en;q=0.9\"}, {\"name\": \"Accept-Encoding\", \"value\": \"gzip, deflate, br, zstd\"}, {\"name\": \"Connection\", \"value\": \"keep-alive\"}, {\"name\": \"Authorization\", \"value\": \"Bearer local-session-42\"}, {\"name\": \"Upgrade-Insecure-Requests\", \"value\": \"1\"}, {\"name\": \"Sec-Fetch-Dest\", \"value\": \"document\"}, {\"name\": \"Sec-Fetch-Mode\", \"value\": \"navigate\"}, {\"name\": \"Sec-Fetch-Site\", \"value\": \"none\"}, {\"name\": \"Sec-Fetch-User\", \"value\": \"?1\"}], \"queryString\": [], \"headersSize\": 465, \"bodySize\": 0}, \"response\": {\"status\": 200, \"statusText\": \"OK\", \"httpVersion\": \"HTTP/1.1\", \"cookies\": [], \"headers\": [{\"name\": \"Content-Type\", \"value\": \"text/plain\"}, {\"name\": \"Date\", \"value\": \"Sun\"}, {\"name\": \"Date\", \"value\": \"18 Oct 2026 19:22:15 GMT\"}, {\"name\": \"Connection\", \"value\": \"keep-alive\"}, {\"name\": \"Keep-Alive\", \"value\": \"timeout=5\"}, {\"name\": \"Transfer-Encoding\", \"value\": \"chunked\"}], \"content\": {\"size\": 28, \"mimeType\": \"text/plain\", \"compression\": 0}, \"headersSize\": 163, \"bodySize\": 28, \"redirectURL\": \"\", \"_transferSize\": 196}, \"cache\": {}, \"timings\": {\"dns\": -1, \"connect\": -1, \"ssl\": -1, \"send\": 0, \"wait\": 1.53, \"receive\": 0.308}, \"_frameref\": \"frame@1f1a548d3142aafdda6c24ddb0159ce1\", \"_monotonicTime\": 4390.56, \"_resourceType\": \"document\", \"serverIPAddress\": \"127.0.0.1\", \"_serverPort\": 46277, \"_securityDetails\": {}}, {\"pageref\": \"page@5212abb9d2d4fd9c789cb98dcc9ca947\", \"startedDateTime\": \"2026-10-18T19:22:16.218Z\", \"time\": 0.78, \"request\": {\"method\": \"GET\", \"url\": \"http://127.0.0.1:46277/basic\", \"httpVersion\": \"HTTP/1.1\", \"cookies\": [], \"headers\": [{\"name\": \"Host\", \"value\": \"127.0.0.1:46277\"}, {\"name\": \"User-Agent\", \"value\": \"Mozilla/5.0 (X11; Linux x86_64; rv:155.0) Gecko/20100101 Firefox/155.0\"}, {\"name\": \"Accept\", \"value\": \"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\"}, {\"name\": \"Accept-Language\", \"value\": \"en-US,en;q=0.9\"}, {\"name\": \"Accept-Encoding\", \"value\": \"gzip, deflate, br, zstd\"}, {\"name\": \"Connection\", \"value\": \"keep-alive\"}, {\"name\": \"Authorization\", \"value\": \"Basic bG9jYWw6cGFzcw==\"}, {\"name\": \"Upgrade-Insecure-Requests\", \"value\": \"1\"}, {\"name\": \"Sec-Fetch-Dest\", \"value\": \"document\"}, {\"name\": \"Sec-Fetch-Mode\", \"value\": \"navigate\"}, {\"name\": \"Sec-Fetch-Site\", \"value\": \"none\"}, {\"name\": \"Sec-Fetch-User\", \"value\": \"?1\"}], \"queryString\": [], \"headersSize\": 463, \"bodySize\": 0}, \"response\": {\"status\": 200, \"statusText\": \"OK\", \"httpVersion\": \"HTTP/1.1\", \"cookies\": [], \"headers\": [{\"name\": \"Content-Type\", \"value\": \"text/plain\"}, {\"name\": \"Date\", \"value\": \"Sun\"}, {\"name\": \"Date\", \"value\": \"18 Oct 2026 19:22:16 GMT\"}, {\"name\": \"Connection\", \"value\": \"keep-alive\"}, {\"name\": \"Keep-Alive\", \"value\": \"timeout=5\"}, {\"name\": \"Transfer-Encoding\", \"value\": \"chunked\"}], \"content\": {\"size\": 28, \"mimeType\": \"text/plain\", \"compression\": 0}, \"headersSize\": 163, \"bodySize\": 28, \"redirectURL\": \"\", \"_transferSize\": 196}, \"cache\": {}, \"timings\": {\"dns\": -1, \"connect\": -1, \"ssl\": -1, \"send\": 0, \"wait\": 0.75, \"receive\": 0.03}, \"_frameref\": \"frame@1f1a548d3142aafdda6c24ddb0159ce1\", \"_monotonicTime\": 4698.846, \"_resourceType\": \"document\", \"serverIPAddress\": \"127.0.0.1\", \"_serverPort\": 46277, \"_securityDetails\": {}}]}}",
+      "vault": {
+        "version": 1,
+        "mappings": []
+      }
+    }
+  ],
+  "sdk": [
+    {
+      "engine": "chromium",
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e"
+    },
+    {
+      "engine": "chromium",
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "77d9b775339d1184a12422cdd4fa0451befd77b6d8f1f3774e15d9955a35d87b"
+    },
+    {
+      "engine": "chromium",
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "77d9b775339d1184a12422cdd4fa0451befd77b6d8f1f3774e15d9955a35d87b"
+    },
+    {
+      "engine": "chromium",
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "77d9b775339d1184a12422cdd4fa0451befd77b6d8f1f3774e15d9955a35d87b"
+    },
+    {
+      "engine": "chromium",
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "77d9b775339d1184a12422cdd4fa0451befd77b6d8f1f3774e15d9955a35d87b"
+    },
+    {
+      "engine": "chromium",
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "77d9b775339d1184a12422cdd4fa0451befd77b6d8f1f3774e15d9955a35d87b"
+    },
+    {
+      "engine": "chromium",
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "77d9b775339d1184a12422cdd4fa0451befd77b6d8f1f3774e15d9955a35d87b"
+    },
+    {
+      "engine": "chromium",
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "77d9b775339d1184a12422cdd4fa0451befd77b6d8f1f3774e15d9955a35d87b"
+    },
+    {
+      "engine": "chromium",
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "77d9b775339d1184a12422cdd4fa0451befd77b6d8f1f3774e15d9955a35d87b"
+    },
+    {
+      "engine": "firefox",
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "chat",
+      "async": false,
+      "stream": false,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "chat",
+      "async": false,
+      "stream": true,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "chat",
+      "async": true,
+      "stream": false,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "chat",
+      "async": true,
+      "stream": true,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "responses",
+      "async": false,
+      "stream": false,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "responses",
+      "async": false,
+      "stream": true,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "responses",
+      "async": true,
+      "stream": false,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "responses",
+      "async": true,
+      "stream": true,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181"
+    },
+    {
+      "engine": "firefox",
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "3da7ca92eb4fd735d04a9b956a5499d9d0060284d7ae3d5b3752029f25045f68"
+    },
+    {
+      "engine": "firefox",
+      "api": "anthropic",
+      "async": false,
+      "stream": false,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "3da7ca92eb4fd735d04a9b956a5499d9d0060284d7ae3d5b3752029f25045f68"
+    },
+    {
+      "engine": "firefox",
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "3da7ca92eb4fd735d04a9b956a5499d9d0060284d7ae3d5b3752029f25045f68"
+    },
+    {
+      "engine": "firefox",
+      "api": "anthropic",
+      "async": false,
+      "stream": true,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "3da7ca92eb4fd735d04a9b956a5499d9d0060284d7ae3d5b3752029f25045f68"
+    },
+    {
+      "engine": "firefox",
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "3da7ca92eb4fd735d04a9b956a5499d9d0060284d7ae3d5b3752029f25045f68"
+    },
+    {
+      "engine": "firefox",
+      "api": "anthropic",
+      "async": true,
+      "stream": false,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "3da7ca92eb4fd735d04a9b956a5499d9d0060284d7ae3d5b3752029f25045f68"
+    },
+    {
+      "engine": "firefox",
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "toolReply": false,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "3da7ca92eb4fd735d04a9b956a5499d9d0060284d7ae3d5b3752029f25045f68"
+    },
+    {
+      "engine": "firefox",
+      "api": "anthropic",
+      "async": true,
+      "stream": true,
+      "toolReply": true,
+      "correct": false,
+      "restoresOriginalData": true,
+      "callerInputUnchanged": true,
+      "outgoingSha256": "3da7ca92eb4fd735d04a9b956a5499d9d0060284d7ae3d5b3752029f25045f68"
+    }
+  ]
+}

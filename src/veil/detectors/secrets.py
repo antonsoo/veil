@@ -34,7 +34,7 @@ from collections.abc import Iterator
 from veil._spans import DisjointSpans, SpanIndex
 from veil.detectors._credential_fields import credential_field_spans, is_credential_field
 from veil.detectors._http_auth import http_authorization_spans, http_authorization_value_spans
-from veil.detectors._http_cookies import http_cookie_spans, is_cookie_field, json_cookie_spans
+from veil.detectors._http_cookies import http_cookie_spans, is_cookie_field, json_http_secret_spans
 from veil.detectors._jwt import compact_jwt_spans
 from veil.detectors._words import looks_random
 from veil.types import Entity, EntityType, Span
@@ -199,10 +199,10 @@ class SecretDetector:
             for kind, spans in (
                 ("credential_field", credential_field_spans(text)),
                 ("http_cookie", http_cookie_spans(text)),
-                ("http_cookie", json_cookie_spans(text)),
             )
             for start, end in spans
         ]
+        fields.extend((Span(start, end), kind) for kind, start, end in json_http_secret_spans(text))
         fields_index = SpanIndex([span for span, _ in fields])
         for start, end in _private_key_blocks(text):
             # A field may enclose a whole key, but a label inside an opaque

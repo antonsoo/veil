@@ -1,0 +1,73 @@
+{
+  "scope": "Unmodified full Playwright HARs from actual Chromium/Firefox requests to a synthetic local authenticated server. Credentials are deliberately short and never valid outside this capture.",
+  "credentials": {
+    "bearer": "local-session-42",
+    "basic": "bG9jYWw6cGFzcw=="
+  },
+  "requests": [
+    {
+      "path": "/bearer",
+      "authorization": "Bearer local-session-42",
+      "authenticated": true
+    },
+    {
+      "path": "/basic",
+      "authorization": "Basic bG9jYWw6cGFzcw==",
+      "authenticated": true
+    },
+    {
+      "path": "/bearer",
+      "authorization": "Bearer local-session-42",
+      "authenticated": true
+    },
+    {
+      "path": "/favicon.ico",
+      "authorization": "Basic bG9jYWw6cGFzcw==",
+      "authenticated": false
+    },
+    {
+      "path": "/basic",
+      "authorization": "Basic bG9jYWw6cGFzcw==",
+      "authenticated": true
+    },
+    {
+      "path": "/favicon.ico",
+      "authorization": "Basic bG9jYWw6cGFzcw==",
+      "authenticated": false
+    }
+  ],
+  "rows": [
+    {
+      "engine": "chromium",
+      "browserVersion": "153.0.8010.12",
+      "file": "chromium.har",
+      "sha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e",
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/headers/2/value",
+          "value": "Bearer local-session-42"
+        },
+        {
+          "path": "/log/entries/1/request/headers/2/value",
+          "value": "Basic bG9jYWw6cGFzcw=="
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "browserVersion": "155.0",
+      "file": "firefox.har",
+      "sha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181",
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/headers/6/value",
+          "value": "Bearer local-session-42"
+        },
+        {
+          "path": "/log/entries/1/request/headers/6/value",
+          "value": "Basic bG9jYWw6cGFzcw=="
+        }
+      ]
+    }
+  ]
+}

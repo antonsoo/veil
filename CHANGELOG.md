@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Authorization context in native HAR exports
+
+- Protect Basic/Bearer credentials in HAR 1.2 Authorization and
+  Proxy-Authorization header records. Preserve schemes and original JSON
+  spelling around the credential, including escaped names and values.
+- Share header context with typed SDK inputs and decoded JSON arguments.
+  Ambiguous routing still refuses before transport. Existing cookie coverage
+  and ordinary name/value records keep their boundaries.
+- Retain authenticated Chromium/Firefox loopback captures, CLI restoration,
+  actual SDK serialization and offline browser-download evidence in
+  `studies/har-authorization/`. This correction is local and unreleased.
+
 ### Repeated surrogate availability checks
 
 - Cache source-absence checks within a masking request; invalidate when new

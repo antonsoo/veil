@@ -1,0 +1,99 @@
+# Authorization credentials in native HAR records
+
+Baseline `bed8288` leaves both of these header values readable in a native HAR:
+
+```json
+{"name":"Authorization","value":"Bearer local-session-42"}
+{"name":"Authorization","value":"Basic bG9jYWw6cGFzcw=="}
+```
+
+These are synthetic credentials. [`capture.mjs`](capture.mjs) starts a loopback
+server that accepts exactly those values, then drives actual Chromium and
+Firefox navigations. All four requests receive HTTP 200. Closing each browser
+context writes its unmodified full Playwright HAR, with response bodies omitted.
+The [capture oracle](fixtures/oracle.json) records the server observations,
+browser versions, file hashes and credential-bearing source paths.
+
+HAR's [header records](https://w3c.github.io/web-performance/specs/HAR/Overview.html)
+separate the name and value. The existing cookie-specific context recognized
+that representation, while Authorization kept only ordinary text detection.
+Short credentials have no provider prefix or entropy signal to rescue them.
+
+```text
+authenticated browser request -> native HAR name/value record
+                                           |
+                             original header context
+                                           |
+                          Basic/Bearer credential span
+                                           |
+                             placeholder + local vault
+```
+
+| Observed workflow | Before: incorrect masking | After: incorrect masking |
+| --- | ---: | ---: |
+| Text, JSON arguments and typed trees, both native files | 6 / 6 | 0 / 6 |
+| Real SDK serialization over mock transports | 48 / 48 | 0 / 48 |
+| Browser masked downloads, two engines and two widths | 8 / 8 | 0 / 8 |
+
+The corrected text output keeps `Bearer` / `Basic` and masks the credential.
+It retains the existing [token grammar](https://www.rfc-editor.org/rfc/rfc6750#section-2.1)
+and also handles Proxy-Authorization. Context applies only at recognized HAR
+1.2 request/response header paths or explicit immediate JSON field names.
+Unrelated `name`/`value` pairs and other schemes do not acquire this context.
+
+Raw text maps decoded credential spans back to their original JSON spelling;
+it does not rewrite the document. Auth schemes, escapes outside the selected
+span, duplicate unrelated keys and numeric lexemes remain intact. The typed
+SDK path shares structural context without a JSON serialization round trip.
+Conflicting routing keys still refuse and roll back vault changes.
+
+## Reproduce the before/after result
+
+```sh
+uv sync --locked
+uv run --locked python studies/har-authorization/replay.py --src src --out /tmp/har-auth.json --sdk
+uv run --locked veil mask studies/har-authorization/fixtures/chromium.har --vault /tmp/har-auth-vault.json
+```
+
+Use `--src BASELINE/src --observe-only` for the baseline. Omit `--src` in a
+separate non-editable installation. Recapture with
+`node studies/har-authorization/capture.mjs NEW_DIRECTORY`; native clocks,
+ports and browser metadata will differ. The fixed synthetic credentials make
+the authentication contract inspectable and are never valid on a remote service.
+
+[`replay.py`](replay.py) derives expected output from the independent capture
+paths, without importing the detector or tokenizer. It checks CLI mask/restore,
+exact and tolerant library restoration, one-character streaming restoration,
+decoded arguments and caller-owned typed data. The CLI's existing final newline
+is allowed explicitly. SDK coverage includes Chat Completions, Responses and
+Anthropic Messages, sync/async, buffered/streamed and text/tool replies. Their
+real serializers use mock HTTP transports; no provider request is made.
+
+The [before](results/before.json) and [after](results/after.json) receipts retain
+the actual masked documents, local vaults, runtime hashes and every SDK outcome.
+Separate wheel installs repeat the replay on
+[Python 3.14 with current SDKs](results/installed-current.json) and
+[Python 3.10 with minimum supported SDKs](results/installed-floor.json).
+
+[`browser.mjs`](browser.mjs) checks the actual Pyodide worker in Chromium and
+Firefox at 1280 and 375 pixels. Both native files are pasted and their complete
+masked-text and vault downloads inspected. Each downloaded vault reconstructs
+the exact original HAR in an explicit diagnostic. The canned reply does not
+echo this data and is not a restoration oracle. Before/after browser receipts
+are [retained](results/browser-after.json); all prompt/download work occurs
+offline after bootstrap, with zero subsequent requests or page errors.
+All four [screenshots](../../docs/assets/har-authorization/chromium-1280.png)
+were opened and inspected: long HAR output wraps, controls remain accessible,
+and neither phone layout has horizontal page overflow.
+
+## Limits and publication
+
+This is an addition to existing credential detection, not a complete HAR
+sanitizer. Other auth schemes, unsupported HAR versions, arbitrary bodies,
+query fields and multiple serialization layers retain their existing coverage.
+The synthetic local server proves the captured credentials were accepted by
+that server; it does not authenticate external source data or real accounts.
+
+The correction is local. No push, tag, registry publication or hosted deployment
+is included. Package metadata remains 0.4.4. The web build command is
+`cd web && npm ci && npm run build`, producing `web/dist/`.

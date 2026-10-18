@@ -10,7 +10,8 @@ from __future__ import annotations
 import re
 from collections.abc import Iterator
 
-from veil._json_fields import json_string_tokens
+from veil._json_fields import json_string_tokens, string_source_span
+from veil.detectors._http_auth import http_authorization_value_spans
 
 _HEADER = re.compile(
     r"(?<![\w.-])(?P<keyquote>[\"']?)(?ai:Set-Cookie|Cookie)(?P=keyquote)"
@@ -22,8 +23,12 @@ def is_cookie_field(name: str) -> bool:
     return name.lower() in {"cookie", "set-cookie"}
 
 
-def json_cookie_spans(text: str) -> Iterator[tuple[int, int]]:
-    """Original source spans in complete JSON; includes HAR 1.2 cookie records."""
+def json_http_secret_spans(text: str) -> Iterator[tuple[str, int, int]]:
+    """Cookie/auth source spans in complete JSON, including HAR 1.2 records.
+
+    Share one parse across both header types. HAR record names supply the same
+    field context as explicit JSON keys; unrelated name/value pairs supply none.
+    """
     if not text.lstrip().startswith(("{", "[")):
         return
     try:
@@ -31,8 +36,14 @@ def json_cookie_spans(text: str) -> Iterator[tuple[int, int]]:
     except (ValueError, RecursionError):
         return  # Free-form or malformed JSON retains ordinary text detection.
     for token in tokens:
-        if token.cookie_context and token.end > token.start + 2:
-            yield token.start + 1, token.end - 1
+        if token.is_key or token.field_name is None or not token.value:
+            continue
+        if is_cookie_field(token.field_name):
+            yield "http_cookie", token.start + 1, token.end - 1
+        elif token.field_name.lower() in {"authorization", "proxy-authorization"}:
+            for start, end in http_authorization_value_spans(token.value):
+                source_start, source_end = string_source_span(text, token, start, end)
+                yield "http_authorization", source_start, source_end
 
 
 def _quoted_end(text: str, start: int, quote: str) -> int:

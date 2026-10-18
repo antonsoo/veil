@@ -1,0 +1,151 @@
+{
+  "url": "http://127.0.0.1:4661/veil/",
+  "phase": "after",
+  "scope": "Actual UI Python worker, two unmodified native authenticated HAR prompts, and real masked/vault downloads. Restoration is an explicit local diagnostic from downloaded vaults; the canned reply is not used as evidence.",
+  "rows": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1280,
+      "phase": "after",
+      "nativeCases": [
+        {
+          "nativeEngine": "chromium",
+          "sourceSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e",
+          "maskedSha256": "23650e0a02f28101eca89c5318d30c24db2ba74acede6104ea8540707da42c8e",
+          "vaultSha256": "31203c9a3363ddb4c7bd99ae69f49ba0b1a14e0111fe8b5554b97ab5d7fc81e4",
+          "remainingCredentials": {
+            "bearer": 0,
+            "basic": 0
+          },
+          "mappings": 2,
+          "originalTextRestoredFromDownloads": true
+        },
+        {
+          "nativeEngine": "firefox",
+          "sourceSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181",
+          "maskedSha256": "a06eb88b00f4c11257962d5a0e2a72266fb6c4b754cf7ae771748d05d8d536ee",
+          "vaultSha256": "31203c9a3363ddb4c7bd99ae69f49ba0b1a14e0111fe8b5554b97ab5d7fc81e4",
+          "remainingCredentials": {
+            "bearer": 0,
+            "basic": 0
+          },
+          "mappings": 2,
+          "originalTextRestoredFromDownloads": true
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "phase": "after",
+      "nativeCases": [
+        {
+          "nativeEngine": "chromium",
+          "sourceSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e",
+          "maskedSha256": "23650e0a02f28101eca89c5318d30c24db2ba74acede6104ea8540707da42c8e",
+          "vaultSha256": "31203c9a3363ddb4c7bd99ae69f49ba0b1a14e0111fe8b5554b97ab5d7fc81e4",
+          "remainingCredentials": {
+            "bearer": 0,
+            "basic": 0
+          },
+          "mappings": 2,
+          "originalTextRestoredFromDownloads": true
+        },
+        {
+          "nativeEngine": "firefox",
+          "sourceSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181",
+          "maskedSha256": "a06eb88b00f4c11257962d5a0e2a72266fb6c4b754cf7ae771748d05d8d536ee",
+          "vaultSha256": "31203c9a3363ddb4c7bd99ae69f49ba0b1a14e0111fe8b5554b97ab5d7fc81e4",
+          "remainingCredentials": {
+            "bearer": 0,
+            "basic": 0
+          },
+          "mappings": 2,
+          "originalTextRestoredFromDownloads": true
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1280,
+      "phase": "after",
+      "nativeCases": [
+        {
+          "nativeEngine": "chromium",
+          "sourceSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e",
+          "maskedSha256": "23650e0a02f28101eca89c5318d30c24db2ba74acede6104ea8540707da42c8e",
+          "vaultSha256": "31203c9a3363ddb4c7bd99ae69f49ba0b1a14e0111fe8b5554b97ab5d7fc81e4",
+          "remainingCredentials": {
+            "bearer": 0,
+            "basic": 0
+          },
+          "mappings": 2,
+          "originalTextRestoredFromDownloads": true
+        },
+        {
+          "nativeEngine": "firefox",
+          "sourceSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181",
+          "maskedSha256": "a06eb88b00f4c11257962d5a0e2a72266fb6c4b754cf7ae771748d05d8d536ee",
+          "vaultSha256": "31203c9a3363ddb4c7bd99ae69f49ba0b1a14e0111fe8b5554b97ab5d7fc81e4",
+          "remainingCredentials": {
+            "bearer": 0,
+            "basic": 0
+          },
+          "mappings": 2,
+          "originalTextRestoredFromDownloads": true
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "phase": "after",
+      "nativeCases": [
+        {
+          "nativeEngine": "chromium",
+          "sourceSha256": "6ce33d35ca3976bf286c3297dd05c6ca3dd8eaf1aac29810a8dab413454bb10e",
+          "maskedSha256": "23650e0a02f28101eca89c5318d30c24db2ba74acede6104ea8540707da42c8e",
+          "vaultSha256": "31203c9a3363ddb4c7bd99ae69f49ba0b1a14e0111fe8b5554b97ab5d7fc81e4",
+          "remainingCredentials": {
+            "bearer": 0,
+            "basic": 0
+          },
+          "mappings": 2,
+          "originalTextRestoredFromDownloads": true
+        },
+        {
+          "nativeEngine": "firefox",
+          "sourceSha256": "406291c32d927b6f4b1be512f4edad0625e0c0b7f12fa7b4c5d8fa3faef30181",
+          "maskedSha256": "a06eb88b00f4c11257962d5a0e2a72266fb6c4b754cf7ae771748d05d8d536ee",
+          "vaultSha256": "31203c9a3363ddb4c7bd99ae69f49ba0b1a14e0111fe8b5554b97ab5d7fc81e4",
+          "remainingCredentials": {
+            "bearer": 0,
+            "basic": 0
+          },
+          "mappings": 2,
+          "originalTextRestoredFromDownloads": true
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "errors": [],
+      "horizontalOverflow": false
+    }
+  ]
+}

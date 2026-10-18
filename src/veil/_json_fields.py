@@ -1,7 +1,7 @@
 """String positions and original field context in complete JSON documents.
 
 Numbers are validated without conversion. Object pairs retain duplicates; only
-the HAR fields used to establish cookie context must be unambiguous. No parsed
+the HAR fields used to establish HTTP header context must be unambiguous. No parsed
 tree is serialized back over the caller's source text.
 """
 
@@ -20,7 +20,6 @@ class StringToken:
     value: str
     is_key: bool
     field_name: str | None = None
-    cookie_context: bool = False
 
 
 @dataclass
@@ -40,7 +39,7 @@ def _one(node: _Object | dict[str, object], key: str) -> tuple[int, object]:
     if len(matches) > 1:
         # Keys and values can be private; don't quote either in diagnostics.
         raise VaultError(
-            "HAR cookie context contains a duplicate routing field; use unambiguous header/cookie records"
+            "HAR HTTP context contains a duplicate routing field; use unambiguous header/cookie records"
         )
     return matches[0] if matches else (-1, _MISSING)
 
@@ -49,7 +48,7 @@ def _reject_constant(_value: str) -> None:
     raise ValueError("Non-JSON numeric constant")
 
 
-def har_cookie_fields(root: object) -> dict[tuple[int, ...], str]:
+def har_header_fields(root: object) -> dict[tuple[int, ...], str]:
     objects: list[tuple[_Object | dict[str, object], tuple[int, ...]]] = []
     fields: dict[tuple[int, ...], str] = {}
     active: set[int] = set()
@@ -78,9 +77,7 @@ def har_cookie_fields(root: object) -> dict[tuple[int, ...], str]:
         if values is _MISSING:
             return
         if not isinstance(values, (list, tuple)):
-            raise VaultError(
-                "HAR headers/cookies must be arrays before cookie context can be masked"
-            )
+            raise VaultError("HAR headers/cookies must be arrays before HTTP context can be masked")
         for item_index, item in enumerate(values):
             if not isinstance(item, (_Object, dict)):
                 raise VaultError("HAR header/cookie records must be objects before masking")
@@ -90,7 +87,12 @@ def har_cookie_fields(root: object) -> dict[tuple[int, ...], str]:
                 raise VaultError(
                     "HAR header/cookie records need unambiguous string names and values"
                 )
-            if kind == "cookies" or name.lower() in {"cookie", "set-cookie"}:
+            if kind == "cookies" or name.lower() in {
+                "cookie",
+                "set-cookie",
+                "authorization",
+                "proxy-authorization",
+            }:
                 fields[(*path, kind_index, item_index, value_index)] = (
                     name if kind == "headers" else "Cookie"
                 )
@@ -106,7 +108,7 @@ def har_cookie_fields(root: object) -> dict[tuple[int, ...], str]:
             entries_index, entries = _one(log, "entries")
             if not isinstance(entries, (list, tuple)):
                 raise VaultError(
-                    "HAR 1.2 entries must be an array before cookie context can be masked"
+                    "HAR 1.2 entries must be an array before HTTP context can be masked"
                 )
             for entry_index, entry in enumerate(entries):
                 if not isinstance(entry, (_Object, dict)):
@@ -117,7 +119,7 @@ def har_cookie_fields(root: object) -> dict[tuple[int, ...], str]:
                         continue
                     if not isinstance(message, (_Object, dict)):
                         raise VaultError(
-                            "HAR requests/responses must be objects before cookie context can be masked"
+                            "HAR requests/responses must be objects before HTTP context can be masked"
                         )
                     path = (*candidate_path, log_index, entries_index, entry_index, side_index)
                     records(message, path, "headers")
@@ -151,8 +153,7 @@ def json_string_tokens(text: str, *, har_context: bool = True) -> list[StringTok
         nonlocal cursor
         token = tokens[cursor]
         assert token.value == value and token.is_key == key
-        cookie = not key and field is not None and field.lower() in {"cookie", "set-cookie"}
-        tokens[cursor] = replace(token, field_name=field, cookie_context=cookie)
+        tokens[cursor] = replace(token, field_name=field)
         cursor += 1
 
     def walk(value: object, path: tuple[int, ...], field: str | None = None) -> None:
@@ -172,7 +173,36 @@ def json_string_tokens(text: str, *, har_context: bool = True) -> list[StringTok
     if not har_context:
         return tokens
 
-    for path, field_name in har_cookie_fields(root).items():
+    for path, field_name in har_header_fields(root).items():
         index = positions[path]
-        tokens[index] = replace(tokens[index], field_name=field_name, cookie_context=True)
+        tokens[index] = replace(tokens[index], field_name=field_name)
     return tokens
+
+
+def string_source_span(text: str, token: StringToken, start: int, end: int) -> tuple[int, int]:
+    """Map a decoded substring back to its spelling in a validated JSON string.
+
+    Only walk as far as the selected end. Escape pairs representing one Unicode
+    scalar occupy one decoded position, just as Python's JSON decoder reports.
+    The caller can then replace source bytes without re-encoding adjacent text.
+    """
+    pos = token.start + 1
+    source_start = pos
+    for index in range(end):
+        if index == start:
+            source_start = pos
+        if text[pos] == "\\":
+            if text[pos + 1] == "u":
+                unit = int(text[pos + 2 : pos + 6], 16)
+                pos += 6
+                if (
+                    0xD800 <= unit <= 0xDBFF
+                    and text[pos : pos + 2] == r"\u"
+                    and 0xDC00 <= int(text[pos + 2 : pos + 6], 16) <= 0xDFFF
+                ):
+                    pos += 6
+            else:
+                pos += 2
+        else:
+            pos += 1
+    return source_start, pos
