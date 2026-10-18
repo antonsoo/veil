@@ -1,6 +1,11 @@
 {
   "scope": "Replay native authenticated HARs through the CLI and real SDK serialization.",
   "python": "3.14.7",
+  "packages": {
+    "veil-pii": "0.4.4",
+    "openai": "3.35.1",
+    "anthropic": "1.15.0"
+  },
   "sourceHashes": {
     "__init__.py": "c036a506f9aa74df3a819114fe2bfcf2f96e1cb73a348fe48e9909fd1e917980",
     "_files.py": "f5d534553bec465040fc19576d3147ca724a43eed0389a499283c6f683475e29",

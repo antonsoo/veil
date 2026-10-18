@@ -86,6 +86,42 @@ All four [screenshots](../../docs/assets/har-authorization/chromium-1280.png)
 were opened and inspected: long HAR output wraps, controls remain accessible,
 and neither phone layout has horizontal page overflow.
 
+## Clean checkout and compatibility evidence
+
+A fresh archive of implementation `89fd8d3` passes locked installation with
+the optional spaCy backend, Ruff, format checks, strict mypy and the complete
+coverage run: **1,695 passed**. Its clean web install passes type checks,
+production build and all **16** existing browser scenarios. The additional
+native HAR download replay above uses that same clean build. The host runs
+WSL2 Linux; Python 3.12.12 and Node 26.7.0 were used for the clean checks.
+
+```sh
+uv sync --locked --extra spacy --python 3.12
+uv run --no-sync ruff check .
+uv run --no-sync ruff format --check .
+uv run --no-sync mypy
+uv run --no-sync pytest --cov=veil --cov-report=term-missing
+uv build
+cd web && npm ci && npm run lint && npm run build && npm run test:browser
+```
+
+The [artifact receipt](results/artifacts.json) compares all 40 runtime files
+against the clean wheel, sdist and two non-editable installations, plus all 39
+Python modules in the browser source manifest. The installed environments point
+to the checked wheel and repeat all six direct and 48 SDK cases without an
+incorrect outcome. [`verify_artifacts.py`](verify_artifacts.py) retains those
+checks; [clean-replay.json](results/clean-replay.json) retains the clean-source
+workflow results.
+
+The existing hash-checked public technical corpus contains 1,483 files and
+32,925,796 bytes. Its complete output-and-vault ledger hash is identical
+[before](results/corpus-before.json) and [after](results/corpus-after.json),
+with no refusals or changed source on exact/tolerant restoration. The replay
+uses `studies/surrogate-collisions/corpus.py --source SOURCE --label LABEL`.
+This is a compatibility result, not a claim about detection accuracy or all
+possible HAR files. Its cached sources and license information are described
+in [the original corpus](../real-text/README.md).
+
 ## Limits and publication
 
 This is an addition to existing credential detection, not a complete HAR
