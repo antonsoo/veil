@@ -1,0 +1,363 @@
+{
+  "scope": "Unmodified Playwright and mitmproxy 12.2.3 HARs of actual Chromium/Firefox API-header, query, URL-encoded POST and multipart POST requests. Credentials and acceptance logic are authored local controls, never real accounts.",
+  "credentials": {
+    "password": "cat",
+    "access_token": "loopback-session",
+    "client_secret": "local&proof+pass",
+    "api_key": "local-api"
+  },
+  "requests": [
+    {
+      "path": "/api",
+      "method": "GET",
+      "accepted": true,
+      "contentType": null
+    },
+    {
+      "path": "/query",
+      "method": "GET",
+      "accepted": true,
+      "contentType": null
+    },
+    {
+      "path": "/form",
+      "method": "POST",
+      "accepted": true,
+      "contentType": "application/x-www-form-urlencoded;charset=UTF-8"
+    },
+    {
+      "path": "/multipart",
+      "method": "POST",
+      "accepted": true,
+      "contentType": "multipart/form-data; boundary=----WebKitFormBoundaryr2QBBnkbwHb5KGIT"
+    },
+    {
+      "path": "/api",
+      "method": "GET",
+      "accepted": true,
+      "contentType": null
+    },
+    {
+      "path": "/query",
+      "method": "GET",
+      "accepted": true,
+      "contentType": null
+    },
+    {
+      "path": "/form",
+      "method": "POST",
+      "accepted": true,
+      "contentType": "application/x-www-form-urlencoded;charset=UTF-8"
+    },
+    {
+      "path": "/multipart",
+      "method": "POST",
+      "accepted": true,
+      "contentType": "multipart/form-data; boundary=----geckoformboundaryba6f847ff965065e17cbb8161f0b9144"
+    }
+  ],
+  "rows": [
+    {
+      "engine": "chromium",
+      "browserVersion": "153.0.8010.12",
+      "creator": {
+        "name": "Playwright",
+        "version": "1.63.0"
+      },
+      "file": "chromium.har",
+      "bytes": 10778,
+      "sha256": "9b05d713814f3e33aafbd3fa08e8f3c4eed7c8639546e2bda76d852e5c6d2aa1",
+      "surfaces": [
+        {
+          "path": "/log/entries/1/request/headers/9/value",
+          "source": "local-api",
+          "values": [
+            "local-api"
+          ]
+        },
+        {
+          "path": "/log/entries/2/request/url",
+          "source": "http://127.0.0.1:46093/query?password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/2/request/queryString/0/value",
+          "source": "cat",
+          "values": [
+            "cat"
+          ]
+        },
+        {
+          "path": "/log/entries/2/request/queryString/1/value",
+          "source": "loopback-session",
+          "values": [
+            "loopback-session"
+          ]
+        },
+        {
+          "path": "/log/entries/2/request/queryString/2/value",
+          "source": "local&proof+pass",
+          "values": [
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/3/request/postData/text",
+          "source": "password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/4/request/postData/text",
+          "source": "------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\ncat\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"access_token\"\r\n\r\nloopback-session\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"client_secret\"\r\n\r\nlocal&proof+pass\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"format\"\r\n\r\njson\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT--\r\n",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "engine": "firefox",
+      "browserVersion": "155.0",
+      "creator": {
+        "name": "Playwright",
+        "version": "1.63.0"
+      },
+      "file": "firefox.har",
+      "bytes": 9945,
+      "sha256": "5764ed2c7f6af9c4a8f1a9446b511698c13898374cd7b56482bcb660f03839d8",
+      "surfaces": [
+        {
+          "path": "/log/entries/1/request/headers/6/value",
+          "source": "local-api",
+          "values": [
+            "local-api"
+          ]
+        },
+        {
+          "path": "/log/entries/2/request/url",
+          "source": "http://127.0.0.1:46093/query?password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/2/request/queryString/0/value",
+          "source": "cat",
+          "values": [
+            "cat"
+          ]
+        },
+        {
+          "path": "/log/entries/2/request/queryString/1/value",
+          "source": "loopback-session",
+          "values": [
+            "loopback-session"
+          ]
+        },
+        {
+          "path": "/log/entries/2/request/queryString/2/value",
+          "source": "local&proof+pass",
+          "values": [
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/3/request/postData/text",
+          "source": "password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/4/request/postData/text",
+          "source": "------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\ncat\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"access_token\"\r\n\r\nloopback-session\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"client_secret\"\r\n\r\nlocal&proof+pass\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"format\"\r\n\r\njson\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144--\r\n",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "engine": "mitmproxy",
+      "browserVersion": null,
+      "creator": {
+        "name": "mitmproxy",
+        "version": "12.2.3",
+        "comment": ""
+      },
+      "file": "mitmproxy.har",
+      "bytes": 53614,
+      "sha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+      "surfaces": [
+        {
+          "path": "/log/entries/1/request/headers/5/value",
+          "source": "local-api",
+          "values": [
+            "local-api"
+          ]
+        },
+        {
+          "path": "/log/entries/2/request/url",
+          "source": "http://127.0.0.1:46093/query?password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/2/request/queryString/0/value",
+          "source": "cat",
+          "values": [
+            "cat"
+          ]
+        },
+        {
+          "path": "/log/entries/2/request/queryString/1/value",
+          "source": "loopback-session",
+          "values": [
+            "loopback-session"
+          ]
+        },
+        {
+          "path": "/log/entries/2/request/queryString/2/value",
+          "source": "local&proof+pass",
+          "values": [
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/3/request/postData/params/0/value",
+          "source": "cat",
+          "values": [
+            "cat"
+          ]
+        },
+        {
+          "path": "/log/entries/3/request/postData/params/1/value",
+          "source": "loopback-session",
+          "values": [
+            "loopback-session"
+          ]
+        },
+        {
+          "path": "/log/entries/3/request/postData/params/2/value",
+          "source": "local&proof+pass",
+          "values": [
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/3/request/postData/text",
+          "source": "password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/4/request/postData/text",
+          "source": "------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\ncat\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"access_token\"\r\n\r\nloopback-session\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"client_secret\"\r\n\r\nlocal&proof+pass\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"format\"\r\n\r\njson\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT--\r\n",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/7/request/headers/6/value",
+          "source": "local-api",
+          "values": [
+            "local-api"
+          ]
+        },
+        {
+          "path": "/log/entries/8/request/url",
+          "source": "http://127.0.0.1:46093/query?password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/8/request/queryString/0/value",
+          "source": "cat",
+          "values": [
+            "cat"
+          ]
+        },
+        {
+          "path": "/log/entries/8/request/queryString/1/value",
+          "source": "loopback-session",
+          "values": [
+            "loopback-session"
+          ]
+        },
+        {
+          "path": "/log/entries/8/request/queryString/2/value",
+          "source": "local&proof+pass",
+          "values": [
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/9/request/postData/params/0/value",
+          "source": "cat",
+          "values": [
+            "cat"
+          ]
+        },
+        {
+          "path": "/log/entries/9/request/postData/params/1/value",
+          "source": "loopback-session",
+          "values": [
+            "loopback-session"
+          ]
+        },
+        {
+          "path": "/log/entries/9/request/postData/params/2/value",
+          "source": "local&proof+pass",
+          "values": [
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/9/request/postData/text",
+          "source": "password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/10/request/postData/text",
+          "source": "------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\ncat\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"access_token\"\r\n\r\nloopback-session\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"client_secret\"\r\n\r\nlocal&proof+pass\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"format\"\r\n\r\njson\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144--\r\n",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        }
+      ]
+    }
+  ]
+}

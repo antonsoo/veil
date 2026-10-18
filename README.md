@@ -380,6 +380,11 @@ numbers remain unchanged. Feed `Restorer(vault, json_string=True)` from the
 beginning of the JSON document. It transforms string values incrementally;
 it does not validate or repair malformed JSON.
 
+Ordinary assistant text restores literal values. Applications returning JSON
+through a text channel must select JSON restoration explicitly; tool arguments
+already receive it. This matters when an original value contains quotes or
+MIME line breaks.
+
 **Complete IPv6 literals (source checkout).** Mixed addresses such as
 `2001:db8::192.0.2.33` and scoped addresses such as `fe80::1%en0` now become
 one surrogate. Previously, the mixed address left `.0.2.33` visible and the
@@ -434,6 +439,12 @@ cover reserved-space exceptions, malformed-input controls and SDK transport.
   [Authenticated native HAR replay](studies/har-authorization/README.md)
   checks the CLI, SDK wire data and browser downloads. This correction is
   now verified in the live demo; the PyPI release remains unchanged.
+  The source checkout also keeps credential context in HAR API-key headers,
+  query records and form parameters. Credential-bearing serialized URLs and
+  URL-encoded/multipart bodies stay opaque; public parameter records remain
+  readable. [Native browser/proxy captures and SDK replay](studies/har-parameters/README.md)
+  reproduce the exposed copies and complete restoration. This addition is
+  separate from the registry release.
   Explicit password, API-key, client-secret and OAuth-token assignments also
   protect short or word-like values, including immediate string fields in tool
   histories. `masker.mask(value, field_name="password")` retains a decoded field's

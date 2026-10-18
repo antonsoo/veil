@@ -1,0 +1,175 @@
+{
+  "url": "https://antonsoo.github.io/veil/",
+  "phase": "before",
+  "scope": "Actual Pyodide worker and three unchanged native browser/proxy HARs. Masked/vault downloads are real; restoration is an explicit local diagnostic, independent of the canned reply.",
+  "rows": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1280,
+      "phase": "before",
+      "outcomes": [
+        {
+          "nativeProducer": "chromium",
+          "sourceSha256": "9b05d713814f3e33aafbd3fa08e8f3c4eed7c8639546e2bda76d852e5c6d2aa1",
+          "maskedSha256": "bcf509e082bdf5a7433b21744aa9da8dd676f9709005b0f9f2c718b6ea4cfbc9",
+          "vaultSha256": "e319d0b92659a94a2bd0551b138b22e94361164e8883a69df1329c546e94c196",
+          "exactCliOutput": true,
+          "originalTextRestoredFromDownloads": true,
+          "credentialSurfaces": 7,
+          "allCredentialSurfacesOpaque": false
+        },
+        {
+          "nativeProducer": "firefox",
+          "sourceSha256": "5764ed2c7f6af9c4a8f1a9446b511698c13898374cd7b56482bcb660f03839d8",
+          "maskedSha256": "a8a87e20cc92294ce6306401b388d26bb9d84d3f5833973f2b79e24f1f45116e",
+          "vaultSha256": "e319d0b92659a94a2bd0551b138b22e94361164e8883a69df1329c546e94c196",
+          "exactCliOutput": true,
+          "originalTextRestoredFromDownloads": true,
+          "credentialSurfaces": 7,
+          "allCredentialSurfacesOpaque": false
+        },
+        {
+          "nativeProducer": "mitmproxy",
+          "sourceSha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+          "maskedSha256": "26709aea66cad02013108e59a0b7a36fa15b9c05c6b7bf881a9bd37477982011",
+          "vaultSha256": "766ed0192bc2a43c54763cf5d6007affea33cfaee988852c6e91ed210e51a691",
+          "exactCliOutput": true,
+          "originalTextRestoredFromDownloads": true,
+          "credentialSurfaces": 20,
+          "allCredentialSurfacesOpaque": false
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "phase": "before",
+      "outcomes": [
+        {
+          "nativeProducer": "chromium",
+          "sourceSha256": "9b05d713814f3e33aafbd3fa08e8f3c4eed7c8639546e2bda76d852e5c6d2aa1",
+          "maskedSha256": "bcf509e082bdf5a7433b21744aa9da8dd676f9709005b0f9f2c718b6ea4cfbc9",
+          "vaultSha256": "e319d0b92659a94a2bd0551b138b22e94361164e8883a69df1329c546e94c196",
+          "exactCliOutput": true,
+          "originalTextRestoredFromDownloads": true,
+          "credentialSurfaces": 7,
+          "allCredentialSurfacesOpaque": false
+        },
+        {
+          "nativeProducer": "firefox",
+          "sourceSha256": "5764ed2c7f6af9c4a8f1a9446b511698c13898374cd7b56482bcb660f03839d8",
+          "maskedSha256": "a8a87e20cc92294ce6306401b388d26bb9d84d3f5833973f2b79e24f1f45116e",
+          "vaultSha256": "e319d0b92659a94a2bd0551b138b22e94361164e8883a69df1329c546e94c196",
+          "exactCliOutput": true,
+          "originalTextRestoredFromDownloads": true,
+          "credentialSurfaces": 7,
+          "allCredentialSurfacesOpaque": false
+        },
+        {
+          "nativeProducer": "mitmproxy",
+          "sourceSha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+          "maskedSha256": "26709aea66cad02013108e59a0b7a36fa15b9c05c6b7bf881a9bd37477982011",
+          "vaultSha256": "766ed0192bc2a43c54763cf5d6007affea33cfaee988852c6e91ed210e51a691",
+          "exactCliOutput": true,
+          "originalTextRestoredFromDownloads": true,
+          "credentialSurfaces": 20,
+          "allCredentialSurfacesOpaque": false
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1280,
+      "phase": "before",
+      "outcomes": [
+        {
+          "nativeProducer": "chromium",
+          "sourceSha256": "9b05d713814f3e33aafbd3fa08e8f3c4eed7c8639546e2bda76d852e5c6d2aa1",
+          "maskedSha256": "bcf509e082bdf5a7433b21744aa9da8dd676f9709005b0f9f2c718b6ea4cfbc9",
+          "vaultSha256": "e319d0b92659a94a2bd0551b138b22e94361164e8883a69df1329c546e94c196",
+          "exactCliOutput": true,
+          "originalTextRestoredFromDownloads": true,
+          "credentialSurfaces": 7,
+          "allCredentialSurfacesOpaque": false
+        },
+        {
+          "nativeProducer": "firefox",
+          "sourceSha256": "5764ed2c7f6af9c4a8f1a9446b511698c13898374cd7b56482bcb660f03839d8",
+          "maskedSha256": "a8a87e20cc92294ce6306401b388d26bb9d84d3f5833973f2b79e24f1f45116e",
+          "vaultSha256": "e319d0b92659a94a2bd0551b138b22e94361164e8883a69df1329c546e94c196",
+          "exactCliOutput": true,
+          "originalTextRestoredFromDownloads": true,
+          "credentialSurfaces": 7,
+          "allCredentialSurfacesOpaque": false
+        },
+        {
+          "nativeProducer": "mitmproxy",
+          "sourceSha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+          "maskedSha256": "26709aea66cad02013108e59a0b7a36fa15b9c05c6b7bf881a9bd37477982011",
+          "vaultSha256": "766ed0192bc2a43c54763cf5d6007affea33cfaee988852c6e91ed210e51a691",
+          "exactCliOutput": true,
+          "originalTextRestoredFromDownloads": true,
+          "credentialSurfaces": 20,
+          "allCredentialSurfacesOpaque": false
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "errors": [],
+      "horizontalOverflow": false
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "phase": "before",
+      "outcomes": [
+        {
+          "nativeProducer": "chromium",
+          "sourceSha256": "9b05d713814f3e33aafbd3fa08e8f3c4eed7c8639546e2bda76d852e5c6d2aa1",
+          "maskedSha256": "bcf509e082bdf5a7433b21744aa9da8dd676f9709005b0f9f2c718b6ea4cfbc9",
+          "vaultSha256": "e319d0b92659a94a2bd0551b138b22e94361164e8883a69df1329c546e94c196",
+          "exactCliOutput": true,
+          "originalTextRestoredFromDownloads": true,
+          "credentialSurfaces": 7,
+          "allCredentialSurfacesOpaque": false
+        },
+        {
+          "nativeProducer": "firefox",
+          "sourceSha256": "5764ed2c7f6af9c4a8f1a9446b511698c13898374cd7b56482bcb660f03839d8",
+          "maskedSha256": "a8a87e20cc92294ce6306401b388d26bb9d84d3f5833973f2b79e24f1f45116e",
+          "vaultSha256": "e319d0b92659a94a2bd0551b138b22e94361164e8883a69df1329c546e94c196",
+          "exactCliOutput": true,
+          "originalTextRestoredFromDownloads": true,
+          "credentialSurfaces": 7,
+          "allCredentialSurfacesOpaque": false
+        },
+        {
+          "nativeProducer": "mitmproxy",
+          "sourceSha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+          "maskedSha256": "26709aea66cad02013108e59a0b7a36fa15b9c05c6b7bf881a9bd37477982011",
+          "vaultSha256": "766ed0192bc2a43c54763cf5d6007affea33cfaee988852c6e91ed210e51a691",
+          "exactCliOutput": true,
+          "originalTextRestoredFromDownloads": true,
+          "credentialSurfaces": 20,
+          "allCredentialSurfacesOpaque": false
+        }
+      ],
+      "offlineAfterBootstrap": true,
+      "subsequentPromptRequests": 0,
+      "errors": [],
+      "horizontalOverflow": false
+    }
+  ]
+}

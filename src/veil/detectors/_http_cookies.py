@@ -24,9 +24,9 @@ def is_cookie_field(name: str) -> bool:
 
 
 def json_http_secret_spans(text: str) -> Iterator[tuple[str, int, int]]:
-    """Cookie/auth source spans in complete JSON, including HAR 1.2 records.
+    """HTTP secret spans in complete JSON, including HAR 1.2 field context.
 
-    Share one parse across both header types. HAR record names supply the same
+    Share one parse across the supported fields. HAR record names supply the same
     field context as explicit JSON keys; unrelated name/value pairs supply none.
     """
     if not text.lstrip().startswith(("{", "[")):
@@ -44,6 +44,8 @@ def json_http_secret_spans(text: str) -> Iterator[tuple[str, int, int]]:
             for start, end in http_authorization_value_spans(token.value):
                 source_start, source_end = string_source_span(text, token, start, end)
                 yield "http_authorization", source_start, source_end
+        elif token.har_credential:
+            yield "credential_field", token.start + 1, token.end - 1
 
 
 def _quoted_end(text: str, start: int, quote: str) -> int:

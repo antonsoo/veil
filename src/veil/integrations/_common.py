@@ -14,7 +14,7 @@ from copy import copy, deepcopy
 from dataclasses import dataclass
 from typing import Any
 
-from veil._json_fields import har_header_fields
+from veil._json_fields import har_field_contexts
 from veil.detectors.base import FieldDetector
 from veil.integrations._json_arguments import mask_string_value
 from veil.integrations._json_arguments import restore_arguments as restore_arguments
@@ -31,7 +31,7 @@ def mask_value(value: Any, masker: Masker) -> Any:
     a detected sensitive key rejects rather than leaking or being renamed.
     """
     hints = (
-        har_header_fields(value)
+        har_field_contexts(value)
         if any(isinstance(d, FieldDetector) for d in masker.detectors)
         else {}
     )

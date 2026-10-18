@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Credential parameters and form bodies in native HAR exports
+
+- Preserve explicit credential-name context in HAR headers, query records and
+  POST parameter records across raw text, decoded arguments and typed SDK data.
+  Protect credential-bearing URLs and serialized URL-encoded/multipart bodies
+  as opaque containers while retaining separate public parameter records.
+- Inspect MIME names through the standard parser without rewriting payloads.
+  Bound form/query fields and MIME message allocations; refuse incomplete or
+  ambiguous framing before vault changes. Unrelated name/value records retain
+  their existing meaning.
+- Retain actual Chromium/Firefox requests and unchanged Playwright/mitmproxy
+  HARs, native CLI/vault round trips, actual SDK tool serialization and browser
+  downloads. See [the reproduction and scope](studies/har-parameters/README.md).
+
 ### Authorization context in native HAR exports
 
 - Protect Basic/Bearer credentials in HAR 1.2 Authorization and
