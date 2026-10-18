@@ -132,6 +132,11 @@ Hypothesis property tests prove that *any* way you split a given text
 into chunks produces output identical to restoring it unsplit
 (`tests/test_restore_streaming.py`).
 
+Short credentials in ordinary URLs now follow the same explicit field policy:
+`client_secret`, `refresh_token`, `passwd` and uppercase environment labels
+protect the whole URL. [Actual client requests and exact restoration](studies/url-fields/README.md)
+show the before/after behavior, including incorrect credentials.
+
 ## Quickstart
 
 ```bash
@@ -380,10 +385,11 @@ numbers remain unchanged. Feed `Restorer(vault, json_string=True)` from the
 beginning of the JSON document. It transforms string values incrementally;
 it does not validate or repair malformed JSON.
 
-Ordinary assistant text restores literal values. Applications returning JSON
-through a text channel must select JSON restoration explicitly; tool arguments
-already receive it. This matters when an original value contains quotes or
-MIME line breaks.
+Ordinary assistant text restores literal values. For JSON returned through a
+text channel, use the low-level `Masker` with `Restorer(vault, json_string=True)`
+from the beginning of the document. SDK wrappers select this mode for tool
+arguments; their ordinary assistant-text channel uses literal restoration.
+This matters when an original value contains quotes or MIME line breaks.
 
 **Complete IPv6 literals (source checkout).** Mixed addresses such as
 `2001:db8::192.0.2.33` and scoped addresses such as `fe80::1%en0` now become

@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Explicit credential labels in ordinary URLs
+
+- Reuse the existing field policy for URL query and fragment names, including
+  short client secrets, refresh tokens, passwd and uppercase environment labels.
+  Hide the complete original URL and restore its exact spelling.
+- Retain actual HTTPX2/urllib requests, accepted/incorrect loopback controls and
+  before/after text, argument and typed-tree replays in `studies/url-fields/`.
+
 ### Credential parameters and form bodies in native HAR exports
 
 - Preserve explicit credential-name context in HAR headers, query records and

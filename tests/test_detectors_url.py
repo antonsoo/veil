@@ -1,6 +1,34 @@
+import pytest
+
+from veil import Masker
 from veil.detectors.url import UrlCredentialDetector
 
 d = UrlCredentialDetector()
+
+
+@pytest.mark.parametrize(
+    "name", ["client_secret", "refresh_token", "passwd", "x-api-key", "SERVICE_PASSWORD"]
+)
+@pytest.mark.parametrize("component", ["?", "#", "#/callback?"])
+def test_explicit_credential_fields_protect_whole_urls_with_wordlike_values(
+    name: str, component: str
+) -> None:
+    source = "https://example.invalid/callback" + component + name + "=wordlike"
+    masker = Masker()
+    assert masker.mask(source) == "⟨URL_CREDENTIAL_1⟩"
+    assert masker.restore("⟨URL_CREDENTIAL_1⟩") == source
+
+
+def test_new_url_field_aliases_decode_names_once_without_inventing_fields_from_values() -> None:
+    source = "https://example.invalid/?client%5fsecret=wordlike"
+    assert [item.value for item in d.find(source)] == [source]
+    for source in [
+        "https://example.invalid/?client_secret=",
+        "https://example.invalid/?client%255fsecret=wordlike",
+        "https://example.invalid/?format=client_secret%3Dwordlike",
+        "https://example.invalid/?service_password=wordlike",
+    ]:
+        assert d.find(source) == []
 
 
 def test_finds_userinfo_credentials() -> None:

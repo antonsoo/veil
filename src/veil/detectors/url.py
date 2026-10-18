@@ -20,6 +20,7 @@ import string
 from collections.abc import Iterator
 from urllib.parse import unquote_plus
 
+from veil.detectors._credential_fields import is_credential_field
 from veil.types import Entity, EntityType, Span
 
 _SCHEME_START = frozenset(string.ascii_letters)
@@ -41,7 +42,12 @@ def _sensitive_parameters(component: str) -> bool:
     for field in component.split("&"):
         name, separator, value = field.partition("=")
         if separator and value:
-            names.add(unquote_plus(name).lower())
+            decoded = unquote_plus(name)
+            # Preserve the explicit field policy's uppercase environment-style
+            # labels before the legacy signing/URL aliases are case-folded.
+            if is_credential_field(decoded):
+                return True
+            names.add(decoded.lower())
     if any(_SENSITIVE_NAME_RE.fullmatch(name) for name in names):
         return True
     if names & {"x-amz-signature", "x-goog-signature"}:

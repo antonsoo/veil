@@ -74,7 +74,7 @@ def test_encoded_names_and_multiline_mime_values_keep_the_whole_original_contain
     masker = Masker()
     masked = masker.mask(source)
     request = json.loads(masked)["log"]["entries"][0]["request"]
-    assert request["url"] == "⟨SECRET_1⟩" and request["postData"]["text"] == "⟨SECRET_2⟩"
+    assert request["url"] == "⟨URL_CREDENTIAL_1⟩" and request["postData"]["text"] == "⟨SECRET_1⟩"
     assert masker.restore(masked) == source
 
 

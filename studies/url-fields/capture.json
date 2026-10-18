@@ -1,0 +1,186 @@
+{
+  "scope": "Capture actual HTTPX2/urllib URLs against an authored loopback credential check.",
+  "python": "3.12.12",
+  "httpx2": "2.13.1",
+  "credentials": "Authored controls valid only for the temporary loopback server. No external account or provider is involved.",
+  "cases": [
+    {
+      "producer": "httpx2",
+      "field": "client_secret",
+      "url": "http://127.0.0.1:45049/request?client_secret=short%26local%3Dproof",
+      "accepted": true,
+      "status": 200
+    },
+    {
+      "producer": "httpx2",
+      "field": "client_secret",
+      "url": "http://127.0.0.1:45049/request?client_secret=incorrect",
+      "accepted": false,
+      "status": 401
+    },
+    {
+      "producer": "httpx2",
+      "field": "refresh_token",
+      "url": "http://127.0.0.1:45049/request?refresh_token=retry-word",
+      "accepted": true,
+      "status": 200
+    },
+    {
+      "producer": "httpx2",
+      "field": "refresh_token",
+      "url": "http://127.0.0.1:45049/request?refresh_token=incorrect",
+      "accepted": false,
+      "status": 401
+    },
+    {
+      "producer": "httpx2",
+      "field": "passwd",
+      "url": "http://127.0.0.1:45049/request?passwd=wordlike",
+      "accepted": true,
+      "status": 200
+    },
+    {
+      "producer": "httpx2",
+      "field": "passwd",
+      "url": "http://127.0.0.1:45049/request?passwd=incorrect",
+      "accepted": false,
+      "status": 401
+    },
+    {
+      "producer": "httpx2",
+      "field": "SERVICE_PASSWORD",
+      "url": "http://127.0.0.1:45049/request?SERVICE_PASSWORD=localpass",
+      "accepted": true,
+      "status": 200
+    },
+    {
+      "producer": "httpx2",
+      "field": "SERVICE_PASSWORD",
+      "url": "http://127.0.0.1:45049/request?SERVICE_PASSWORD=incorrect",
+      "accepted": false,
+      "status": 401
+    },
+    {
+      "producer": "urllib",
+      "field": "client_secret",
+      "url": "http://127.0.0.1:45049/request?client_secret=short%26local%3Dproof",
+      "accepted": true,
+      "status": 200
+    },
+    {
+      "producer": "urllib",
+      "field": "client_secret",
+      "url": "http://127.0.0.1:45049/request?client_secret=incorrect",
+      "accepted": false,
+      "status": 401
+    },
+    {
+      "producer": "urllib",
+      "field": "refresh_token",
+      "url": "http://127.0.0.1:45049/request?refresh_token=retry-word",
+      "accepted": true,
+      "status": 200
+    },
+    {
+      "producer": "urllib",
+      "field": "refresh_token",
+      "url": "http://127.0.0.1:45049/request?refresh_token=incorrect",
+      "accepted": false,
+      "status": 401
+    },
+    {
+      "producer": "urllib",
+      "field": "passwd",
+      "url": "http://127.0.0.1:45049/request?passwd=wordlike",
+      "accepted": true,
+      "status": 200
+    },
+    {
+      "producer": "urllib",
+      "field": "passwd",
+      "url": "http://127.0.0.1:45049/request?passwd=incorrect",
+      "accepted": false,
+      "status": 401
+    },
+    {
+      "producer": "urllib",
+      "field": "SERVICE_PASSWORD",
+      "url": "http://127.0.0.1:45049/request?SERVICE_PASSWORD=localpass",
+      "accepted": true,
+      "status": 200
+    },
+    {
+      "producer": "urllib",
+      "field": "SERVICE_PASSWORD",
+      "url": "http://127.0.0.1:45049/request?SERVICE_PASSWORD=incorrect",
+      "accepted": false,
+      "status": 401
+    }
+  ],
+  "received": [
+    {
+      "target": "/request?client_secret=short%26local%3Dproof",
+      "accepted": true
+    },
+    {
+      "target": "/request?client_secret=incorrect",
+      "accepted": false
+    },
+    {
+      "target": "/request?refresh_token=retry-word",
+      "accepted": true
+    },
+    {
+      "target": "/request?refresh_token=incorrect",
+      "accepted": false
+    },
+    {
+      "target": "/request?passwd=wordlike",
+      "accepted": true
+    },
+    {
+      "target": "/request?passwd=incorrect",
+      "accepted": false
+    },
+    {
+      "target": "/request?SERVICE_PASSWORD=localpass",
+      "accepted": true
+    },
+    {
+      "target": "/request?SERVICE_PASSWORD=incorrect",
+      "accepted": false
+    },
+    {
+      "target": "/request?client_secret=short%26local%3Dproof",
+      "accepted": true
+    },
+    {
+      "target": "/request?client_secret=incorrect",
+      "accepted": false
+    },
+    {
+      "target": "/request?refresh_token=retry-word",
+      "accepted": true
+    },
+    {
+      "target": "/request?refresh_token=incorrect",
+      "accepted": false
+    },
+    {
+      "target": "/request?passwd=wordlike",
+      "accepted": true
+    },
+    {
+      "target": "/request?passwd=incorrect",
+      "accepted": false
+    },
+    {
+      "target": "/request?SERVICE_PASSWORD=localpass",
+      "accepted": true
+    },
+    {
+      "target": "/request?SERVICE_PASSWORD=incorrect",
+      "accepted": false
+    }
+  ]
+}

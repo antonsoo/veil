@@ -1,0 +1,27 @@
+{
+  "label": "url-fields-before",
+  "python": "3.12.12",
+  "scope": "Existing public technical corpus, default detectors/placeholders, fresh vault per file. Not a detection-accuracy measurement.",
+  "groups": [
+    {
+      "manifest": "manifest-technical.json",
+      "files": 688,
+      "bytes": 22739933,
+      "mappings": 1297,
+      "refused": 0,
+      "changedOnRestore": 0,
+      "exceptions": []
+    },
+    {
+      "manifest": "manifest-technical-heldout.json",
+      "files": 795,
+      "bytes": 10185863,
+      "mappings": 303,
+      "refused": 0,
+      "changedOnRestore": 0,
+      "exceptions": []
+    }
+  ],
+  "elapsedSeconds": 36.684,
+  "outputLedgerSha256": "e34ff91d00680fa18a57966327929cd528a7401e4b417f50af2d4903cd8244a8"
+}
