@@ -1,0 +1,277 @@
+{
+  "url": "https://antonsoloviev-veil.static.hf.space/",
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 1440,
+      "phase": "after",
+      "cases": [
+        {
+          "name": "chromium-1-api",
+          "sourceSha256": "e00bbd3072de9ac2426336da25a7fde0e10f7c8ae20117d92d44a77f340b011b",
+          "maskedSha256": "550f554f5d57c91349f557dc56facb2b60be94c32f5aeb3e05ba1e1ca72a320d",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "firefox-2-query",
+          "sourceSha256": "1932b29fb7ea2588176264dabc608367dc89ffd8c2e8d425abcc400326c122bd",
+          "maskedSha256": "55c3bbc4a8783d5a683854173734281a82ceb1a46f17d7fec67f65f95fe7080a",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "mitmproxy-3-form",
+          "sourceSha256": "4b0b4eb4bf361cfafa94741ab5aefa817e62b1cf1ad853daa408a66d47f5a662",
+          "maskedSha256": "35d5b11b5d90f180adf4ad5c12620ec5541ee5a70c12b12679430067699ee0ac",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "chromium-4-multipart",
+          "sourceSha256": "39f02f2e72dbb6e432165fd3bfa856767a1b8b7a6cc26cb3f52ce281fcbf58f4",
+          "maskedSha256": "92536ed9302757f1dca599fa661534bc1e1d93b4c987396c6d4a3ccf0a83a7d4",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "httpx2-client_secret",
+          "sourceSha256": "a91e544131c18826a8edc5c8380e9819237f0bad0102bc801934ff8da36a9b43",
+          "maskedSha256": "3c06d18036b9efe395f58b896ad0c556b928861538e94b92fc846e22fbaa89d3",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        }
+      ],
+      "malformedCaptureError": "Use a complete HAR capture with unambiguous header, parameter and form records. This capture's HTTP fields could not be inspected safely.",
+      "editedSourceClearsPriorResult": true,
+      "offlineAfterBootstrap": true,
+      "errors": [],
+      "requests": []
+    },
+    {
+      "engine": "chromium",
+      "version": "153.0.8010.12",
+      "width": 375,
+      "phase": "after",
+      "cases": [
+        {
+          "name": "chromium-1-api",
+          "sourceSha256": "e00bbd3072de9ac2426336da25a7fde0e10f7c8ae20117d92d44a77f340b011b",
+          "maskedSha256": "550f554f5d57c91349f557dc56facb2b60be94c32f5aeb3e05ba1e1ca72a320d",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "firefox-2-query",
+          "sourceSha256": "1932b29fb7ea2588176264dabc608367dc89ffd8c2e8d425abcc400326c122bd",
+          "maskedSha256": "55c3bbc4a8783d5a683854173734281a82ceb1a46f17d7fec67f65f95fe7080a",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "mitmproxy-3-form",
+          "sourceSha256": "4b0b4eb4bf361cfafa94741ab5aefa817e62b1cf1ad853daa408a66d47f5a662",
+          "maskedSha256": "35d5b11b5d90f180adf4ad5c12620ec5541ee5a70c12b12679430067699ee0ac",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "chromium-4-multipart",
+          "sourceSha256": "39f02f2e72dbb6e432165fd3bfa856767a1b8b7a6cc26cb3f52ce281fcbf58f4",
+          "maskedSha256": "92536ed9302757f1dca599fa661534bc1e1d93b4c987396c6d4a3ccf0a83a7d4",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "httpx2-client_secret",
+          "sourceSha256": "a91e544131c18826a8edc5c8380e9819237f0bad0102bc801934ff8da36a9b43",
+          "maskedSha256": "3c06d18036b9efe395f58b896ad0c556b928861538e94b92fc846e22fbaa89d3",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        }
+      ],
+      "malformedCaptureError": "Use a complete HAR capture with unambiguous header, parameter and form records. This capture's HTTP fields could not be inspected safely.",
+      "editedSourceClearsPriorResult": true,
+      "offlineAfterBootstrap": true,
+      "errors": [],
+      "requests": []
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 1440,
+      "phase": "after",
+      "cases": [
+        {
+          "name": "chromium-1-api",
+          "sourceSha256": "e00bbd3072de9ac2426336da25a7fde0e10f7c8ae20117d92d44a77f340b011b",
+          "maskedSha256": "550f554f5d57c91349f557dc56facb2b60be94c32f5aeb3e05ba1e1ca72a320d",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "firefox-2-query",
+          "sourceSha256": "1932b29fb7ea2588176264dabc608367dc89ffd8c2e8d425abcc400326c122bd",
+          "maskedSha256": "55c3bbc4a8783d5a683854173734281a82ceb1a46f17d7fec67f65f95fe7080a",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "mitmproxy-3-form",
+          "sourceSha256": "4b0b4eb4bf361cfafa94741ab5aefa817e62b1cf1ad853daa408a66d47f5a662",
+          "maskedSha256": "35d5b11b5d90f180adf4ad5c12620ec5541ee5a70c12b12679430067699ee0ac",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "chromium-4-multipart",
+          "sourceSha256": "39f02f2e72dbb6e432165fd3bfa856767a1b8b7a6cc26cb3f52ce281fcbf58f4",
+          "maskedSha256": "92536ed9302757f1dca599fa661534bc1e1d93b4c987396c6d4a3ccf0a83a7d4",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "httpx2-client_secret",
+          "sourceSha256": "a91e544131c18826a8edc5c8380e9819237f0bad0102bc801934ff8da36a9b43",
+          "maskedSha256": "3c06d18036b9efe395f58b896ad0c556b928861538e94b92fc846e22fbaa89d3",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        }
+      ],
+      "malformedCaptureError": "Use a complete HAR capture with unambiguous header, parameter and form records. This capture's HTTP fields could not be inspected safely.",
+      "editedSourceClearsPriorResult": true,
+      "offlineAfterBootstrap": true,
+      "errors": [],
+      "requests": []
+    },
+    {
+      "engine": "firefox",
+      "version": "155.0",
+      "width": 375,
+      "phase": "after",
+      "cases": [
+        {
+          "name": "chromium-1-api",
+          "sourceSha256": "e00bbd3072de9ac2426336da25a7fde0e10f7c8ae20117d92d44a77f340b011b",
+          "maskedSha256": "550f554f5d57c91349f557dc56facb2b60be94c32f5aeb3e05ba1e1ca72a320d",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "firefox-2-query",
+          "sourceSha256": "1932b29fb7ea2588176264dabc608367dc89ffd8c2e8d425abcc400326c122bd",
+          "maskedSha256": "55c3bbc4a8783d5a683854173734281a82ceb1a46f17d7fec67f65f95fe7080a",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "mitmproxy-3-form",
+          "sourceSha256": "4b0b4eb4bf361cfafa94741ab5aefa817e62b1cf1ad853daa408a66d47f5a662",
+          "maskedSha256": "35d5b11b5d90f180adf4ad5c12620ec5541ee5a70c12b12679430067699ee0ac",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "chromium-4-multipart",
+          "sourceSha256": "39f02f2e72dbb6e432165fd3bfa856767a1b8b7a6cc26cb3f52ce281fcbf58f4",
+          "maskedSha256": "92536ed9302757f1dca599fa661534bc1e1d93b4c987396c6d4a3ccf0a83a7d4",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        },
+        {
+          "name": "httpx2-client_secret",
+          "sourceSha256": "a91e544131c18826a8edc5c8380e9819237f0bad0102bc801934ff8da36a9b43",
+          "maskedSha256": "3c06d18036b9efe395f58b896ad0c556b928861538e94b92fc846e22fbaa89d3",
+          "exactNativeMask": true,
+          "exactWholeTransaction": true,
+          "wholeReplyChunkSize": 4,
+          "exactFragment": true,
+          "fragmentChunkSize": 1,
+          "exposedFields": 0
+        }
+      ],
+      "malformedCaptureError": "Use a complete HAR capture with unambiguous header, parameter and form records. This capture's HTTP fields could not be inspected safely.",
+      "editedSourceClearsPriorResult": true,
+      "offlineAfterBootstrap": true,
+      "errors": [],
+      "requests": []
+    }
+  ]
+}

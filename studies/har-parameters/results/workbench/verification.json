@@ -1,0 +1,30 @@
+{
+  "sourceRevision": "329112dfdd8d6ce25566fa3f351c7803aa11cba2",
+  "commands": [
+    "bash scripts/verify_static.sh",
+    "node scripts/static_audit.mjs veil"
+  ],
+  "nativeChecks": {
+    "workspacePythonPassed": 249,
+    "browserBridgeNodePassed": 3,
+    "mypySourceFiles": 23,
+    "standalonePassed": {
+      "errorbars": 51,
+      "trainspotter": 105,
+      "veil": 57,
+      "flakemap": 42
+    }
+  },
+  "logSha256": "ac8453b1eba0c93e5b27e2d5c4be4bf4d0d0ec3d3c40beaea58f3fced067b6c0",
+  "staticManifestSha256": {
+    "errorbars": "2a37046b7ea0be690fb4b59aa86b0a52630696c0ef670c7f938df7da54468902",
+    "trainspotter": "779e1365d26681e6b229e1932deb93f2c15c1cb3461e253354b2e8090f5c7add",
+    "veil": "5590026850b849d1818cbf37184b7361dc7f4a7b5616474aae688b96080696cc",
+    "flakemap": "2464d1880fd3f187cbf65a8b92d9dd5c65b59c5f0574d74205aa698c16679413"
+  },
+  "publicationSelected": [
+    "veil"
+  ],
+  "otherThreeBundles": "byte-identical to the prior canonical output",
+  "registryReleasesCreated": false
+}

@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-10-18T22:50:15.100Z",
+  "results": [
+    {
+      "name": "veil",
+      "url": "https://antonsoloviev-veil.static.hf.space/",
+      "startup_ms": 20375,
+      "desktop": "1440x1050",
+      "mobile": {
+        "width": 375,
+        "scroll": 375
+      },
+      "workflow": "passed",
+      "served_files_verified": true,
+      "lifecycle_regressions": "passed",
+      "network_requests_during_analysis": 0
+    }
+  ],
+  "errors": [],
+  "worker_failure_recovery": "passed",
+  "bundle_digests": {
+    "veil": "5590026850b849d1818cbf37184b7361dc7f4a7b5616474aae688b96080696cc"
+  }
+}

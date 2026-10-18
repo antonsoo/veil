@@ -1,0 +1,477 @@
+{
+  "scope": "Derive complete single-transaction HAR views within a consumer's input limit.\n\nThis selects and compactly serializes native JSON values; outputs are derived\nviews, never claimed to be unchanged producer files or independent requests.\n",
+  "parentOracleSha256": "3e7b6534c2b5bad1abac995aeb7f52514e64a5c03af99084c4eb0552d6a91402",
+  "maxCharacters": 12000,
+  "cases": [
+    {
+      "name": "chromium-1-api",
+      "file": "chromium-1-api.har",
+      "path": "api",
+      "producer": "chromium",
+      "parentFile": "chromium.har",
+      "parentSha256": "9b05d713814f3e33aafbd3fa08e8f3c4eed7c8639546e2bda76d852e5c6d2aa1",
+      "originalEntryIndex": 1,
+      "sha256": "e00bbd3072de9ac2426336da25a7fde0e10f7c8ae20117d92d44a77f340b011b",
+      "characters": 2088,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/headers/9/value",
+          "source": "local-api",
+          "values": [
+            "local-api"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chromium-2-query",
+      "file": "chromium-2-query.har",
+      "path": "query",
+      "producer": "chromium",
+      "parentFile": "chromium.har",
+      "parentSha256": "9b05d713814f3e33aafbd3fa08e8f3c4eed7c8639546e2bda76d852e5c6d2aa1",
+      "originalEntryIndex": 2,
+      "sha256": "b6b4914345222d69eb41e7b6db79095e9234f33d267b7587c77f94f6a44c4eea",
+      "characters": 2327,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/url",
+          "source": "http://127.0.0.1:46093/query?password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/queryString/0/value",
+          "source": "cat",
+          "values": [
+            "cat"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/queryString/1/value",
+          "source": "loopback-session",
+          "values": [
+            "loopback-session"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/queryString/2/value",
+          "source": "local&proof+pass",
+          "values": [
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chromium-3-form",
+      "file": "chromium-3-form.har",
+      "path": "form",
+      "producer": "chromium",
+      "parentFile": "chromium.har",
+      "parentSha256": "9b05d713814f3e33aafbd3fa08e8f3c4eed7c8639546e2bda76d852e5c6d2aa1",
+      "originalEntryIndex": 3,
+      "sha256": "5971e0408c76f32554a017e26722428684c31f18d40fe1b8d781c17af42ac6a4",
+      "characters": 2427,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/postData/text",
+          "source": "password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chromium-4-multipart",
+      "file": "chromium-4-multipart.har",
+      "path": "multipart",
+      "producer": "chromium",
+      "parentFile": "chromium.har",
+      "parentSha256": "9b05d713814f3e33aafbd3fa08e8f3c4eed7c8639546e2bda76d852e5c6d2aa1",
+      "originalEntryIndex": 4,
+      "sha256": "39f02f2e72dbb6e432165fd3bfa856767a1b8b7a6cc26cb3f52ce281fcbf58f4",
+      "characters": 2911,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/postData/text",
+          "source": "------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\ncat\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"access_token\"\r\n\r\nloopback-session\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"client_secret\"\r\n\r\nlocal&proof+pass\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"format\"\r\n\r\njson\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT--\r\n",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "firefox-1-api",
+      "file": "firefox-1-api.har",
+      "path": "api",
+      "producer": "firefox",
+      "parentFile": "firefox.har",
+      "parentSha256": "5764ed2c7f6af9c4a8f1a9446b511698c13898374cd7b56482bcb660f03839d8",
+      "originalEntryIndex": 1,
+      "sha256": "c3970fb010b024f3c63f4a2d217d946b5905735b7f6e0dade49788395f2d325b",
+      "characters": 1907,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/headers/6/value",
+          "source": "local-api",
+          "values": [
+            "local-api"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "firefox-2-query",
+      "file": "firefox-2-query.har",
+      "path": "query",
+      "producer": "firefox",
+      "parentFile": "firefox.har",
+      "parentSha256": "5764ed2c7f6af9c4a8f1a9446b511698c13898374cd7b56482bcb660f03839d8",
+      "originalEntryIndex": 2,
+      "sha256": "1932b29fb7ea2588176264dabc608367dc89ffd8c2e8d425abcc400326c122bd",
+      "characters": 2147,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/url",
+          "source": "http://127.0.0.1:46093/query?password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/queryString/0/value",
+          "source": "cat",
+          "values": [
+            "cat"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/queryString/1/value",
+          "source": "loopback-session",
+          "values": [
+            "loopback-session"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/queryString/2/value",
+          "source": "local&proof+pass",
+          "values": [
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "firefox-3-form",
+      "file": "firefox-3-form.har",
+      "path": "form",
+      "producer": "firefox",
+      "parentFile": "firefox.har",
+      "parentSha256": "5764ed2c7f6af9c4a8f1a9446b511698c13898374cd7b56482bcb660f03839d8",
+      "originalEntryIndex": 3,
+      "sha256": "89d260242c958a48b70c750940b7caa26c7120e824deacf6b2aa0cc8f964984f",
+      "characters": 2246,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/postData/text",
+          "source": "password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "firefox-4-multipart",
+      "file": "firefox-4-multipart.har",
+      "path": "multipart",
+      "producer": "firefox",
+      "parentFile": "firefox.har",
+      "parentSha256": "5764ed2c7f6af9c4a8f1a9446b511698c13898374cd7b56482bcb660f03839d8",
+      "originalEntryIndex": 4,
+      "sha256": "236413085d799994fa1fcf44139e0edf3d81a3398cad7fcbe0fb9f5e704b93b8",
+      "characters": 2834,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/postData/text",
+          "source": "------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\ncat\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"access_token\"\r\n\r\nloopback-session\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"client_secret\"\r\n\r\nlocal&proof+pass\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"format\"\r\n\r\njson\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144--\r\n",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mitmproxy-1-api",
+      "file": "mitmproxy-1-api.har",
+      "path": "api",
+      "producer": "mitmproxy",
+      "parentFile": "mitmproxy.har",
+      "parentSha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+      "originalEntryIndex": 1,
+      "sha256": "8b9b0accc02de26cf4fa5732d7c00c7782647c9859a1298db30a686f2e724169",
+      "characters": 1681,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/headers/5/value",
+          "source": "local-api",
+          "values": [
+            "local-api"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mitmproxy-2-query",
+      "file": "mitmproxy-2-query.har",
+      "path": "query",
+      "producer": "mitmproxy",
+      "parentFile": "mitmproxy.har",
+      "parentSha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+      "originalEntryIndex": 2,
+      "sha256": "29cbab0ca6caf69fc65bc67e5bb6e96731cdd2ef170bf3541fc0106831bc91bc",
+      "characters": 1956,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/url",
+          "source": "http://127.0.0.1:46093/query?password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/queryString/0/value",
+          "source": "cat",
+          "values": [
+            "cat"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/queryString/1/value",
+          "source": "loopback-session",
+          "values": [
+            "loopback-session"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/queryString/2/value",
+          "source": "local&proof+pass",
+          "values": [
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mitmproxy-3-form",
+      "file": "mitmproxy-3-form.har",
+      "path": "form",
+      "producer": "mitmproxy",
+      "parentFile": "mitmproxy.har",
+      "parentSha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+      "originalEntryIndex": 3,
+      "sha256": "4b0b4eb4bf361cfafa94741ab5aefa817e62b1cf1ad853daa408a66d47f5a662",
+      "characters": 2223,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/postData/params/0/value",
+          "source": "cat",
+          "values": [
+            "cat"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/postData/params/1/value",
+          "source": "loopback-session",
+          "values": [
+            "loopback-session"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/postData/params/2/value",
+          "source": "local&proof+pass",
+          "values": [
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/postData/text",
+          "source": "password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mitmproxy-4-multipart",
+      "file": "mitmproxy-4-multipart.har",
+      "path": "multipart",
+      "producer": "mitmproxy",
+      "parentFile": "mitmproxy.har",
+      "parentSha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+      "originalEntryIndex": 4,
+      "sha256": "03f43cb32310b123098525b2c750b4a69f15da7f9abe2fa41b87a347f24e9fb0",
+      "characters": 2528,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/postData/text",
+          "source": "------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\ncat\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"access_token\"\r\n\r\nloopback-session\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"client_secret\"\r\n\r\nlocal&proof+pass\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT\r\nContent-Disposition: form-data; name=\"format\"\r\n\r\njson\r\n------WebKitFormBoundaryr2QBBnkbwHb5KGIT--\r\n",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mitmproxy-7-api",
+      "file": "mitmproxy-7-api.har",
+      "path": "api",
+      "producer": "mitmproxy",
+      "parentFile": "mitmproxy.har",
+      "parentSha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+      "originalEntryIndex": 7,
+      "sha256": "33e92e8ff24f1b6c16d3a783ee3ba368abd95f256e337357e07c5088237a0d23",
+      "characters": 1516,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/headers/6/value",
+          "source": "local-api",
+          "values": [
+            "local-api"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mitmproxy-8-query",
+      "file": "mitmproxy-8-query.har",
+      "path": "query",
+      "producer": "mitmproxy",
+      "parentFile": "mitmproxy.har",
+      "parentSha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+      "originalEntryIndex": 8,
+      "sha256": "dda090dcc0ef2a53764b6e47a71217e531acc71d8d88e528ec23afbfbf2c269d",
+      "characters": 1791,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/url",
+          "source": "http://127.0.0.1:46093/query?password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/queryString/0/value",
+          "source": "cat",
+          "values": [
+            "cat"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/queryString/1/value",
+          "source": "loopback-session",
+          "values": [
+            "loopback-session"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/queryString/2/value",
+          "source": "local&proof+pass",
+          "values": [
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mitmproxy-9-form",
+      "file": "mitmproxy-9-form.har",
+      "path": "form",
+      "producer": "mitmproxy",
+      "parentFile": "mitmproxy.har",
+      "parentSha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+      "originalEntryIndex": 9,
+      "sha256": "7f80890ad5b1b5db44408a8dc4ecaf3192f123266691a79f5c074753586c2d7a",
+      "characters": 2060,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/postData/params/0/value",
+          "source": "cat",
+          "values": [
+            "cat"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/postData/params/1/value",
+          "source": "loopback-session",
+          "values": [
+            "loopback-session"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/postData/params/2/value",
+          "source": "local&proof+pass",
+          "values": [
+            "local&proof+pass"
+          ]
+        },
+        {
+          "path": "/log/entries/0/request/postData/text",
+          "source": "password=cat&access_token=loopback-session&client_secret=local%26proof%2Bpass&format=json",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mitmproxy-10-multipart",
+      "file": "mitmproxy-10-multipart.har",
+      "path": "multipart",
+      "producer": "mitmproxy",
+      "parentFile": "mitmproxy.har",
+      "parentSha256": "1cbefee7b796568981b45d163215fd8febae1caa8eec45569245a8bcfa493751",
+      "originalEntryIndex": 10,
+      "sha256": "6818af57f5c5545e7ff5db1ff21ee2730644261b5745f8cfb694635e0ced8862",
+      "characters": 2464,
+      "surfaces": [
+        {
+          "path": "/log/entries/0/request/postData/text",
+          "source": "------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\ncat\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"access_token\"\r\n\r\nloopback-session\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"client_secret\"\r\n\r\nlocal&proof+pass\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144\r\nContent-Disposition: form-data; name=\"format\"\r\n\r\njson\r\n------geckoformboundaryba6f847ff965065e17cbb8161f0b9144--\r\n",
+          "values": [
+            "cat",
+            "loopback-session",
+            "local&proof+pass"
+          ]
+        }
+      ]
+    }
+  ]
+}

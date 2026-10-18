@@ -71,3 +71,8 @@ surrogate, with zero post-bootstrap requests and zero page errors. Retained
 screenshots were inspected. [Before](results/public-before/browser.json) and
 [after](results/public-after/browser.json) establish browser behavior separately
 from file delivery. The registry version remains unchanged.
+
+The same engine is also published in the bounded Hugging Face workbench.
+[Native adapter and public-browser evidence](../har-parameters/README.md#public-bounded-workbench)
+checks all 16 URLs natively and an actual browser URI workflow in both engines
+and layouts, with exact one-character and four-character restoration.

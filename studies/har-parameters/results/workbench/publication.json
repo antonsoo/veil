@@ -1,0 +1,9 @@
+{
+  "veil": {
+    "repo_id": "antonsoloviev/veil",
+    "commit": "214befe59ece3ed690f7ebecfdce038af0f6a6d0",
+    "manifest_sha256": "5590026850b849d1818cbf37184b7361dc7f4a7b5616474aae688b96080696cc",
+    "published_at": "2026-10-18T22:48:30.121304+00:00",
+    "host": "https://antonsoloviev-veil.static.hf.space"
+  }
+}

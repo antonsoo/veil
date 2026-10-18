@@ -156,3 +156,29 @@ restores the complete source. It runs offline after bootstrap with no page
 errors or subsequent requests. The complete 53 KB proxy file remains in the
 download even when its preview is bounded. All eight retained viewport/vault
 screenshots were inspected. This does not create a package-registry release.
+
+## Public bounded workbench
+
+The [Hugging Face workbench](https://antonsoloviev-veil.static.hf.space/) now
+pins the combined source `ce74b2f`. Its public Hub commit is
+[`214befe59ece3ed690f7ebecfdce038af0f6a6d0`](https://huggingface.co/spaces/antonsoloviev/veil/tree/214befe59ece3ed690f7ebecfdce038af0f6a6d0).
+The source ZIP's 40 runtime files match the reviewed source and installed wheel.
+Its 12,000-character source limit remains bounded: the 16 complete derived
+transaction views fit, while original large native HARs use the standalone demo.
+
+Adapter replay changes 26 exposed fields across the 16 views to zero. The same
+pin changes all 16 ordinary credential URLs from exposed to completely masked.
+Both phases retain exact restoration. The [compressed before/after receipts](results/workbench/)
+include fictional input, masks, vaults, parent/view hashes, engine bytes and
+publication data. Inputs are derived from the eight actual browser requests;
+this does not claim 16 independent native transactions.
+
+The [public browser replay](results/workbench/public-browser.json) checks API
+headers, queries, URL-encoded forms, multipart forms and an ordinary URL in both
+engines at desktop and 375 pixels: 20 inputs and 40 exact restorations, offline
+after bootstrap. The [public audit](results/workbench/public-audit.json) verifies
+all 27 listed files plus the canonical manifest. README bytes are verified from
+the immutable Hub revision because the static host renders Markdown; only its
+known creator-ID data assignment is allowed in the served entrypoint. Ambiguous
+HAR routing now gets capture-specific guidance. No vault downloads or provider
+calls are offered by that workbench. The other three apps are unchanged.
