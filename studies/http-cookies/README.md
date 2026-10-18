@@ -63,9 +63,10 @@ Recognition is deliberately bounded:
 - Unquoted raw values end at the physical line. Obsolete folded headers,
   shell concatenation and multi-layer serialized strings are outside this
   grammar. A missing closing quote stops at its first line.
-- HAR arrays of `{name, value}` records and arbitrary cookie-jar object trees
-  do not supply immediate header-key context. Extract the actual header value
-  and pass `field_name="Cookie"` when that schema is known to the caller.
+- At the original capture, HAR arrays of `{name, value}` records did not supply
+  immediate header-key context. The subsequent [HAR 1.2 correction](../har-headers/README.md)
+  recognizes qualified header/cookie records. Arbitrary record trees outside
+  that declared format still require the caller's explicit field context.
 - This conservative policy also masks non-authentication preferences and
   Set-Cookie metadata. It does not validate cookies, identify which member
   authorizes access, or provide complete DLP coverage.

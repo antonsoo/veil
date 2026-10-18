@@ -14,6 +14,8 @@ from copy import copy, deepcopy
 from dataclasses import dataclass
 from typing import Any
 
+from veil._json_fields import har_cookie_fields
+from veil.detectors.base import FieldDetector
 from veil.integrations._json_arguments import mask_string_value
 from veil.integrations._json_arguments import restore_arguments as restore_arguments
 from veil.masker import Masker
@@ -28,33 +30,38 @@ def mask_value(value: Any, masker: Masker) -> Any:
     must convert those objects to plain JSON first. Keys retain their meaning;
     a detected sensitive key rejects rather than leaking or being renamed.
     """
-    if isinstance(value, str):
-        return masker.mask(value)
-    if isinstance(value, list | tuple):
-        return [mask_value(v, masker) for v in value]
-    if isinstance(value, dict):
-        masked: dict[str, Any] = {}
-        for key, item in value.items():
-            if not isinstance(key, str):
-                raise VaultError("Tool input JSON objects require string keys")
-            if masker.find_entities(key):
-                raise VaultError(
-                    "Tool input contains a sensitive JSON key; use a non-sensitive field name"
-                )
-            masked[key] = (
-                mask_string_value(item, masker, key=key)
-                if isinstance(item, str)
-                else mask_value(item, masker)
-            )
-        return masked
-    if isinstance(value, float) and not math.isfinite(value):
-        raise VaultError("Tool input JSON numbers must be finite")
-    if value is None or isinstance(value, int | float | bool):
-        return value
-    raise VaultError(
-        "Tool input contains a value outside plain JSON types; "
-        "serialize custom objects to plain JSON before masking"
+    hints = (
+        har_cookie_fields(value)
+        if any(isinstance(d, FieldDetector) for d in masker.detectors)
+        else {}
     )
+
+    def visit(node: Any, path: tuple[int, ...], key: str | None = None) -> Any:
+        if isinstance(node, str):
+            return mask_string_value(node, masker, key=hints.get(path, key))
+        if isinstance(node, list | tuple):
+            return [visit(child, (*path, i)) for i, child in enumerate(node)]
+        if isinstance(node, dict):
+            masked: dict[str, Any] = {}
+            for index, (name, item) in enumerate(node.items()):
+                if not isinstance(name, str):
+                    raise VaultError("Tool input JSON objects require string keys")
+                if masker.find_entities(name):
+                    raise VaultError(
+                        "Tool input contains a sensitive JSON key; use a non-sensitive field name"
+                    )
+                masked[name] = visit(item, (*path, index), name)
+            return masked
+        if isinstance(node, float) and not math.isfinite(node):
+            raise VaultError("Tool input JSON numbers must be finite")
+        if node is None or isinstance(node, int | float | bool):
+            return node
+        raise VaultError(
+            "Tool input contains a value outside plain JSON types; "
+            "serialize custom objects to plain JSON before masking"
+        )
+
+    return visit(value, ())
 
 
 def restore_value(value: Any, masker: Masker, *, tolerant: bool = True) -> Any:

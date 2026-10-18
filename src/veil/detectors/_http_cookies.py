@@ -10,6 +10,8 @@ from __future__ import annotations
 import re
 from collections.abc import Iterator
 
+from veil._json_fields import json_string_tokens
+
 _HEADER = re.compile(
     r"(?<![\w.-])(?P<keyquote>[\"']?)(?ai:Set-Cookie|Cookie)(?P=keyquote)"
     r"[ \t]*:[ \t]*"
@@ -18,6 +20,19 @@ _HEADER = re.compile(
 
 def is_cookie_field(name: str) -> bool:
     return name.lower() in {"cookie", "set-cookie"}
+
+
+def json_cookie_spans(text: str) -> Iterator[tuple[int, int]]:
+    """Original source spans in complete JSON; includes HAR 1.2 cookie records."""
+    if not text.lstrip().startswith(("{", "[")):
+        return
+    try:
+        tokens = json_string_tokens(text)
+    except (ValueError, RecursionError):
+        return  # Free-form or malformed JSON retains ordinary text detection.
+    for token in tokens:
+        if token.cookie_context and token.end > token.start + 2:
+            yield token.start + 1, token.end - 1
 
 
 def _quoted_end(text: str, start: int, quote: str) -> int:
@@ -41,6 +56,12 @@ def http_cookie_spans(text: str) -> Iterator[tuple[int, int]]:
     pos = 0
     while (match := _HEADER.search(text, pos)) is not None:
         start = match.end()
+        if match["keyquote"] and (start >= len(text) or text[start] not in {"'", '"'}):
+            # A quoted mapping key supplies context only to its immediate
+            # string value. Consuming a JSON array/object as a bare header
+            # would replace structural syntax with an unquoted surrogate.
+            pos = match.end()
+            continue
         # A curl quote starts before the field name, whereas a mapping's
         # closing key quote is already part of the header match.
         outer = text[match.start() - 1] if match.start() else ""

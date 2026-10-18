@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+### Cookie context in native HAR exports
+
+- Protect Cookie/Set-Cookie header records and cookie-value records inside
+  declared HAR 1.2 exports, including nested SDK tool inputs. Share structural
+  context between JSON argument strings and typed Anthropic inputs without
+  rewriting numeric values, keys or unrelated source spelling.
+- Refuse ambiguous HAR routing fields before SDK transport and roll back the
+  request's vault changes. Restoration does not enforce HAR schema on replies.
+- Preserve non-string Cookie mapping values and TypeScript header declarations;
+  the earlier raw recognizer could consume an array or type annotation.
+- Retain actual Chromium/Firefox HARs from local authenticated sessions, an
+  independent schema reference and real SDK serialization over mock transports.
+
 ### Complete explicit HTTP cookie values
 
 - Mask complete Cookie and Set-Cookie values without entropy or cookie-name

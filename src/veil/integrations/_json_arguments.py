@@ -3,23 +3,13 @@
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass
 
+from veil._json_fields import StringToken as _StringToken
+from veil._json_fields import json_string_tokens as _string_tokens
+from veil.detectors.base import FieldDetector
 from veil.masker import Masker
 from veil.restore import restore_json_text
 from veil.vault import VaultError
-
-
-def _reject_constant(value: str) -> None:
-    raise ValueError("Non-JSON numeric constant")
-
-
-@dataclass(frozen=True)
-class _StringToken:
-    start: int
-    end: int
-    value: str
-    is_key: bool
 
 
 def mask_string_value(value: str, masker: Masker, *, key: str | None = None) -> str:
@@ -30,24 +20,6 @@ def mask_string_value(value: str, masker: Masker, *, key: str | None = None) -> 
     checks apply to the original value, with no synthetic prefix to remove.
     """
     return masker.mask(value, field_name=key)
-
-
-def _string_tokens(arguments: str) -> list[_StringToken]:
-    # Numbers are only validated, never converted to bounded ints or floats.
-    json.loads(arguments, parse_int=str, parse_float=str, parse_constant=_reject_constant)
-    decoder = json.JSONDecoder()
-    tokens: list[_StringToken] = []
-    pos = 0
-    while (start := arguments.find('"', pos)) != -1:
-        value, end = decoder.raw_decode(arguments, start)
-        assert isinstance(value, str)
-        pos = end
-        while pos < len(arguments) and arguments[pos] in " \t\r\n":
-            pos += 1
-        tokens.append(
-            _StringToken(start, end, value, pos < len(arguments) and arguments[pos] == ":")
-        )
-    return tokens
 
 
 def _replace_values(arguments: str, tokens: list[_StringToken], replacements: list[str]) -> str:
@@ -72,7 +44,10 @@ def mask_arguments(arguments: str, masker: Masker) -> str:
     Non-string values retain their types and are outside string-masking coverage.
     """
     try:
-        tokens = _string_tokens(arguments)
+        tokens = _string_tokens(
+            arguments,
+            har_context=any(isinstance(detector, FieldDetector) for detector in masker.detectors),
+        )
     except (ValueError, RecursionError):
         raise VaultError("Tool arguments must be complete, valid JSON before masking") from None
     for token in tokens:
@@ -81,20 +56,10 @@ def mask_arguments(arguments: str, masker: Masker) -> str:
                 "Tool arguments contain a sensitive JSON key; use a non-sensitive field name"
             )
     values: list[tuple[_StringToken, str | None]] = []
-    for index, token in enumerate(tokens):
+    for token in tokens:
         if token.is_key:
             continue
-        previous = tokens[index - 1] if index else None
-        # A key supplies context only to its immediate string value. Arrays
-        # and nested objects must not inherit a header name from an ancestor.
-        key = (
-            previous.value
-            if previous is not None
-            and previous.is_key
-            and arguments[previous.end : token.start].strip() == ":"
-            else None
-        )
-        values.append((token, key))
+        values.append((token, token.field_name))
     # Reserve all decoded literal text together, including escaped placeholder
     # examples, so one value cannot acquire another value's existing literal token.
     with masker._masking_batch() as batch:
@@ -112,7 +77,9 @@ def restore_arguments(arguments: str, masker: Masker) -> str:
     inventing syntax. Neither path renames keys or converts numeric tokens.
     """
     try:
-        values = [token for token in _string_tokens(arguments) if not token.is_key]
+        values = [
+            token for token in _string_tokens(arguments, har_context=False) if not token.is_key
+        ]
     except (ValueError, RecursionError):
         return restore_json_text(arguments, masker.vault)
     return _replace_values(arguments, values, [masker.restore(token.value) for token in values])

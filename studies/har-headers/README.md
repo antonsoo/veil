@@ -1,0 +1,118 @@
+# Protect every cookie copy in a native HAR
+
+The baseline `eb3242f` protects explicit cookie header strings but misses the
+same credentials inside a native browser HAR. Header and cookie collections
+store their names and values in separate JSON members. A short or hex-only
+session remains readable in four places, even though masking reports success.
+
+[`capture.mjs`](capture.mjs) runs actual Chromium and Firefox contexts with
+[Playwright's full HAR recording](https://playwright.dev/docs/api/class-browser#browser-new-context-option-record-har).
+A loopback server issues a fresh random 128-bit hex session. Each browser's
+cookie jar sends it to retrieve a private document with HTTP 200. Closing the
+context flushes the unmodified HAR; the local server is then closed. All
+sessions are synthetic, response bodies are omitted and no remote site is used.
+This is a native Playwright HAR, rather than a browser GUI sanitized export.
+
+```text
+loopback Set-Cookie -> browser cookie jar -> authenticated navigation
+                                |
+                                v
+                              HAR 1.2
+                                |
+                                +-- response.headers[].value
+                                +-- response.cookies[].value
+                                +-- request.headers[].value
+                                +-- request.cookies[].value
+```
+
+The [capture oracle](fixtures/oracle.json) independently records the jar,
+actual request cookies, authentication status, exact HAR hashes and each
+credential-bearing JSON path.
+
+| Native file | Session copies before | Copies after text masking | Copies after SDK argument masking |
+| --- | --- | --- | --- |
+| Chromium HAR | 4 | 0 | 0 |
+| Firefox HAR | 4 | 0 | 0 |
+
+The masker now recognizes `log.version: "1.2"` and the declared entry,
+request/response, header and cookie collections. Every cookie record's value,
+including preferences, becomes a complete secret. Cookie/Set-Cookie header
+values remain whole opaque fields. Names, other metadata and JSON structure
+stay readable. Header/cookie records outside that declared structure do not
+inherit context merely because their keys are named `name` and `value`.
+
+## Text and typed SDK inputs need the same context
+
+JSON argument strings retain original string-token positions and object pairs.
+Only changed string values are re-encoded; numeric spelling, unsafe integer
+tokens and unrelated duplicate members are preserved. Escaped keys and names
+are interpreted once. No fabricated header prefix becomes source text.
+
+Anthropic receives an already typed tool-input tree. It uses the same semantic
+path discovery directly, without serializing the tree through JSON or rounding
+large integers. Tuples retain the existing JSON-array policy. Structural paths
+keep context local to the actual occurrence rather than to object identity.
+The caller's data stays unchanged.
+
+The expected output in [`replay.py`](replay.py) comes from an independent walk
+of the native HAR schema and its cookie fields, not Veil's tokenizer or
+detectors. [Before](results/before.json) disagrees on all four text/argument
+forms and all 48 real SDK paths. [After](results/after.json) has no disagreement:
+Chat Completions, Responses and Anthropic Messages; sync/async; buffered and
+one-character streaming; text and tool replies; both native HARs. The SDKs use
+their actual serialization over mock HTTP transports, with no provider call.
+
+Text-library restoration reproduces each native HAR exactly, including its
+missing final newline. The CLI retains its existing contract of appending a
+final newline; mask/restore checks allow that one known formatting addition.
+SDK checks restore the original data, with exact argument text for the two
+string-argument APIs on these native files. Anthropic serializes typed data.
+
+Ambiguous routing members, wrong record types and missing string names/values
+refuse with `VaultError`. Six actual SDK boundary checks confirm no HTTP request,
+unchanged caller input and request-vault rollback. Unrelated duplicate JSON
+members remain supported. Model reply restoration does not require the reply
+to conform to HAR.
+
+## Keep source syntax intact
+
+This work also corrects an overreach in the initial cookie recognizer: a quoted
+Cookie key followed by an array or a TypeScript type could be consumed as a bare
+header value. A JSON array could become invalid JSON. Context now stays on an
+immediate string value, without propagating into collections.
+
+The [public technical-corpus review](results/corpus-review.json) compares all
+resolved detections on 1,483 hash-checked files, 32.9 MB and 2.6 million words.
+Exactly 1,482 outcomes are identical. The one change removes a false secret
+from [Axios's pinned type declaration](https://github.com/axios/axios/blob/v1.7.7/index.d.ts):
+`"set-cookie": string[];` is preserved. No new detections or refusals appear.
+The [complete masking/restoration replay](results/corpus-after.json) agrees
+with that review and restores every file exactly and tolerantly. This does
+not establish detection accuracy for the remaining findings.
+
+```sh
+uv sync --locked
+uv run --locked python studies/har-headers/replay.py --src src --out /tmp/har-after.json --sdk
+uv run --locked veil mask studies/har-headers/fixtures/chromium.har --vault /tmp/har-vault.json > /tmp/masked.har
+```
+
+Use `--src BASELINE/src --observe-only` to capture the old behavior. Omit
+`--src` in a separate installed environment. Recapture into a new directory
+with `node studies/har-headers/capture.mjs DIRECTORY`; sessions, clocks, ports
+and native browser metadata vary.
+
+## Boundaries
+
+- Complete JSON HAR 1.2 objects are recognized, including nested tool inputs.
+  This is cookie-field protection, not a complete HAR sanitizer. Other headers,
+  query parameters, bodies and custom extensions retain ordinary detector rules.
+- Truncated/malformed JSON, prose-wrapped HARs, unsupported versions and multiple
+  serialization layers do not establish this schema context. Arbitrary header
+  record lists outside HAR still need explicit caller-supplied field context.
+- Cookie names do not establish which value authorizes a session. Preferences
+  and cookie metadata inside opaque header values are conservatively protected.
+- Default placeholders and detectors are checked here. Name recognition,
+  source authenticity, real production sessions and complete DLP are not inferred.
+- Source and local verification do not alone identify an installed PyPI release
+  or hosted deployment. Package metadata remains 0.4.4; publication checks follow
+  separately.

@@ -1,0 +1,41 @@
+{
+  "scope": "All resolved detection records on 1483 hash-checked public technical files. Not a detection-accuracy claim for the remaining findings.",
+  "files": 1483,
+  "bytes": 32925796,
+  "words": 2616034,
+  "unchangedFiles": 1482,
+  "changes": [
+    {
+      "before": {
+        "manifest": "manifest-technical-heldout.json",
+        "file": "code/axios-axios/7aa4473ede4abd9e.ts",
+        "sourceSha256": "01ba761ce6d75a4142858a053f45d64d255e057049ab1cc4d9a93e76b8b5c444",
+        "bytes": 18000,
+        "words": 1847,
+        "detections": 1,
+        "detectionsSha256": "e20b4e2886a955a8c748815d6508b212632af7e4134c3fa94ed8770dced173bc"
+      },
+      "after": {
+        "manifest": "manifest-technical-heldout.json",
+        "file": "code/axios-axios/7aa4473ede4abd9e.ts",
+        "sourceSha256": "01ba761ce6d75a4142858a053f45d64d255e057049ab1cc4d9a93e76b8b5c444",
+        "bytes": 18000,
+        "words": 1847,
+        "detections": 0,
+        "detectionsSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    }
+  ],
+  "review": {
+    "source": "https://github.com/axios/axios/blob/v1.7.7/index.d.ts",
+    "sourceSha256": "01ba761ce6d75a4142858a053f45d64d255e057049ab1cc4d9a93e76b8b5c444",
+    "beforeValue": "string[];",
+    "beforeSpan": {
+      "start": 4129,
+      "end": 4138
+    },
+    "beforeDetector": "secret:http_cookie",
+    "afterDetections": 0,
+    "conclusion": "A quoted Set-Cookie type declaration is not a string header value; preserve the TypeScript annotation."
+  }
+}

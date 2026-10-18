@@ -1,0 +1,151 @@
+{
+  "scope": "Native Playwright full HAR recording of loopback login and authenticated navigation. Cookies are local synthetic sessions, the server is closed after capture, and response bodies are omitted. This is not a claim about a browser GUI sanitized-HAR export.",
+  "playwright": "1.63.0",
+  "captureSha256": "4a94a2eafad6e52adc57e2f3fcad9709ae89c4eabe1ab77c3e0f891827ff3b06",
+  "rows": [
+    {
+      "engine": "chromium",
+      "browserVersion": {
+        "name": "chromium",
+        "version": "153.0.8010.12"
+      },
+      "file": "chromium.har",
+      "sha256": "d653a59a7acb17990038b0829594ea5dbe1f75077d36d759195cb103a933c109",
+      "session": "010a9d216616084045ab350c5fe2a5d1",
+      "authenticatedStatus": 200,
+      "cookieJar": [
+        {
+          "name": "sid",
+          "value": "010a9d216616084045ab350c5fe2a5d1",
+          "domain": "127.0.0.1",
+          "path": "/",
+          "expires": -1,
+          "httpOnly": true,
+          "secure": false,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "theme",
+          "value": "dark",
+          "domain": "127.0.0.1",
+          "path": "/",
+          "expires": -1,
+          "httpOnly": false,
+          "secure": false,
+          "sameSite": "Lax"
+        }
+      ],
+      "requests": [
+        {
+          "path": "/login",
+          "cookie": ""
+        },
+        {
+          "path": "/private",
+          "cookie": "sid=010a9d216616084045ab350c5fe2a5d1; theme=dark"
+        }
+      ],
+      "secretSurfaces": [
+        {
+          "path": "/log/entries/0/response/headers/4/value",
+          "kind": "header",
+          "name": "Set-Cookie",
+          "value": "sid=010a9d216616084045ab350c5fe2a5d1; HttpOnly; Path=/; SameSite=Lax"
+        },
+        {
+          "path": "/log/entries/0/response/cookies/0/value",
+          "kind": "cookie",
+          "name": "sid",
+          "value": "010a9d216616084045ab350c5fe2a5d1"
+        },
+        {
+          "path": "/log/entries/1/request/headers/3/value",
+          "kind": "header",
+          "name": "Cookie",
+          "value": "sid=010a9d216616084045ab350c5fe2a5d1; theme=dark"
+        },
+        {
+          "path": "/log/entries/1/request/cookies/0/value",
+          "kind": "cookie",
+          "name": "sid",
+          "value": "010a9d216616084045ab350c5fe2a5d1"
+        }
+      ],
+      "occurrences": 4
+    },
+    {
+      "engine": "firefox",
+      "browserVersion": {
+        "name": "firefox",
+        "version": "155.0"
+      },
+      "file": "firefox.har",
+      "sha256": "96333914c48e52c13ee51049e235252db2f5a8193a275e8bee8397f85d47210d",
+      "session": "f76d5874bc60b7fb6a05c81063effe7d",
+      "authenticatedStatus": 200,
+      "cookieJar": [
+        {
+          "name": "sid",
+          "value": "f76d5874bc60b7fb6a05c81063effe7d",
+          "domain": "127.0.0.1",
+          "path": "/",
+          "expires": -1,
+          "httpOnly": true,
+          "secure": false,
+          "sameSite": "Lax"
+        },
+        {
+          "name": "theme",
+          "value": "dark",
+          "domain": "127.0.0.1",
+          "path": "/",
+          "expires": -1,
+          "httpOnly": false,
+          "secure": false,
+          "sameSite": "None"
+        }
+      ],
+      "requests": [
+        {
+          "path": "/login",
+          "cookie": ""
+        },
+        {
+          "path": "/private",
+          "cookie": "sid=f76d5874bc60b7fb6a05c81063effe7d; theme=dark"
+        },
+        {
+          "path": "/favicon.ico",
+          "cookie": "sid=f76d5874bc60b7fb6a05c81063effe7d; theme=dark"
+        }
+      ],
+      "secretSurfaces": [
+        {
+          "path": "/log/entries/0/response/headers/1/value",
+          "kind": "header",
+          "name": "Set-Cookie",
+          "value": "sid=f76d5874bc60b7fb6a05c81063effe7d; HttpOnly; Path=/; SameSite=Lax"
+        },
+        {
+          "path": "/log/entries/0/response/cookies/0/value",
+          "kind": "cookie",
+          "name": "sid",
+          "value": "f76d5874bc60b7fb6a05c81063effe7d"
+        },
+        {
+          "path": "/log/entries/1/request/headers/6/value",
+          "kind": "header",
+          "name": "Cookie",
+          "value": "sid=f76d5874bc60b7fb6a05c81063effe7d; theme=dark"
+        },
+        {
+          "path": "/log/entries/1/request/cookies/0/value",
+          "kind": "cookie",
+          "name": "sid",
+          "value": "f76d5874bc60b7fb6a05c81063effe7d"
+        }
+      ],
+      "occurrences": 4
+    }
+  ]
+}
