@@ -73,3 +73,34 @@ Recognition is deliberately bounded:
 The source suite passes 1,645 checks, Ruff and strict mypy. Package and public
 demo verification are recorded separately when available; package metadata
 0.4.4 is unchanged and does not identify a PyPI release of this correction.
+
+## Clean package and browser verification
+
+The clean archive `389052b` passes Ruff, format, strict mypy and the full
+coverage command: 1,642 passed and one explicit optional spaCy skip. The original
+development environment also runs that backend and passes 1,645 checks.
+The clean web install passes types, production build and all 16 existing browser
+scenarios.
+
+The [artifact receipt](results/artifacts.json) checks all 38 Python modules
+against the wheel, sdist and two separate non-editable wheel installations.
+Both [Python 3.14.7 with current SDKs](results/installed-current.json) and
+[Python 3.10.21 with OpenAI 1.66.0 / Anthropic 0.40.0](results/installed-minimum.json)
+repeat the native forms, CLI round trips, controlled authentication outcome and
+all 24 SDK paths without failures. The minimum environment also passes 207
+relevant HTTP, credential-field and private-key checks.
+
+The [real browser receipt](results/browser.json) records four prompts and eight
+actual downloads in each Chromium/Firefox desktop/375px context. It executes
+the real Python worker, disconnects after bootstrap, then checks exact masked
+prompt bytes, complete vault originals and explicit local restoration from
+those downloads. Its canned simulated reply does not echo cookie data, so no
+UI feature is invented for that check. No request is made by the subsequent
+prompts or downloads. Firefox's later accessibility diagnostic attempts one
+local font GET; it contains no prompt data and is recorded separately.
+
+[Desktop screenshot](../../docs/assets/http-cookies/chromium-1280.png) and
+[phone screenshot](../../docs/assets/http-cookies/firefox-375.png) were opened
+and inspected, along with the other two engine/width combinations. All four
+accessibility audits pass without horizontal page overflow. These local checks
+do not alone establish a hosted deployment or PyPI release.
