@@ -1,0 +1,94 @@
+{
+  "scope": "Focused follow-up on the 4.2 MB control without a literal, in before/after/after/before order, two samples per process. CPU time supplements shared-host wall time; output and vault hashes must agree.",
+  "driverSha256": "008634a1a9e724ff301e8a5e21a9a546899026f21799390731e64d2a3328c2f6",
+  "rows": [
+    {
+      "label": "before",
+      "row": {
+        "entries": 2000,
+        "bytes": 4225304,
+        "literalPlaceholder": false,
+        "sourceSha256": "4043bc86b37a7ae3529022925e497aeb34d31ca66479eb675b46afd3f7dc33a1",
+        "seconds": [
+          5.431298422976397,
+          5.730303994030692
+        ],
+        "cpuSeconds": [
+          5.4300662420000005,
+          5.729227790999999
+        ],
+        "medianSeconds": 5.580801208503544,
+        "outputAndVaultSha256": "da2836f5f7264a0b86884274311bbc65ee8ac03a633931a73cae267780a19c34",
+        "mappings": 5,
+        "exactAndTolerantRoundTrip": true
+      },
+      "maskerSha256": "dfe2a14b2a5960c6fa2f28cfb1279d822220640e6f1144064e5beaaebc9684f5"
+    },
+    {
+      "label": "after",
+      "row": {
+        "entries": 2000,
+        "bytes": 4225304,
+        "literalPlaceholder": false,
+        "sourceSha256": "4043bc86b37a7ae3529022925e497aeb34d31ca66479eb675b46afd3f7dc33a1",
+        "seconds": [
+          5.661176429013722,
+          5.947280120046344
+        ],
+        "cpuSeconds": [
+          5.660534513,
+          5.946259371000001
+        ],
+        "medianSeconds": 5.804228274530033,
+        "outputAndVaultSha256": "da2836f5f7264a0b86884274311bbc65ee8ac03a633931a73cae267780a19c34",
+        "mappings": 5,
+        "exactAndTolerantRoundTrip": true
+      },
+      "maskerSha256": "90c2523d9154ec9b99d78d4ae9208f8544d28a298db60ca2887c2871eff5b80a"
+    },
+    {
+      "label": "after",
+      "row": {
+        "entries": 2000,
+        "bytes": 4225304,
+        "literalPlaceholder": false,
+        "sourceSha256": "4043bc86b37a7ae3529022925e497aeb34d31ca66479eb675b46afd3f7dc33a1",
+        "seconds": [
+          5.3712347479886375,
+          5.590221804974135
+        ],
+        "cpuSeconds": [
+          5.370420751,
+          5.588553311
+        ],
+        "medianSeconds": 5.480728276481386,
+        "outputAndVaultSha256": "da2836f5f7264a0b86884274311bbc65ee8ac03a633931a73cae267780a19c34",
+        "mappings": 5,
+        "exactAndTolerantRoundTrip": true
+      },
+      "maskerSha256": "90c2523d9154ec9b99d78d4ae9208f8544d28a298db60ca2887c2871eff5b80a"
+    },
+    {
+      "label": "before",
+      "row": {
+        "entries": 2000,
+        "bytes": 4225304,
+        "literalPlaceholder": false,
+        "sourceSha256": "4043bc86b37a7ae3529022925e497aeb34d31ca66479eb675b46afd3f7dc33a1",
+        "seconds": [
+          5.304759607010055,
+          5.811069028975908
+        ],
+        "cpuSeconds": [
+          5.304349509000001,
+          5.810559236999999
+        ],
+        "medianSeconds": 5.5579143179929815,
+        "outputAndVaultSha256": "da2836f5f7264a0b86884274311bbc65ee8ac03a633931a73cae267780a19c34",
+        "mappings": 5,
+        "exactAndTolerantRoundTrip": true
+      },
+      "maskerSha256": "dfe2a14b2a5960c6fa2f28cfb1279d822220640e6f1144064e5beaaebc9684f5"
+    }
+  ]
+}

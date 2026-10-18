@@ -137,3 +137,11 @@ speed claim. Every output/vault hash and exact/tolerant restoration agrees.
 The [baseline](results/performance-before.json), [corrected samples](results/performance-after.json)
 and [`benchmark.py`](benchmark.py) preserve the method and boundaries. Native
 SDK outcomes also remain byte-for-byte identical after caching.
+
+A [focused alternating follow-up](results/performance-paired.json) repeats
+the 4.2 MB control without a literal in before/after/after/before order, two
+samples per process. Median wall time is 5.58 s before and 5.63 s after;
+process CPU time is 5.58 s and 5.62 s. All source, output and vault hashes agree.
+This reduces the uncertainty from the first single-order sequence. Use
+`benchmark.py --entries 2000 --literal no --repeat 2` for that focused case.
+The original six-case driver and samples are retained at `253639c`.

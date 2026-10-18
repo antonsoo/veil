@@ -24,6 +24,8 @@ def main() -> None:
     parser.add_argument("--src", type=Path)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--repeat", type=int, default=3)
+    parser.add_argument("--entries", type=int, nargs="+", default=[100, 500, 2000])
+    parser.add_argument("--literal", choices=["both", "yes", "no"], default="both")
     args = parser.parse_args()
     if args.src:
         sys.path.insert(0, str(args.src.resolve()))
@@ -32,18 +34,20 @@ def main() -> None:
 
     native = json.loads((HERE / "fixtures/chromium.har").read_text())
     rows = []
-    for entries in [100, 500, 2000]:
-        for literal in [False, True]:
+    for entries in args.entries:
+        for literal in [False, True] if args.literal == "both" else [args.literal == "yes"]:
             doc = {"log": {**native["log"], "entries": native["log"]["entries"] * (entries // 2)}}
             if literal:
                 doc["log"]["_maskingExample"] = "literal ⟨SECRET_1⟩ stays literal"
             source = json.dumps(doc, ensure_ascii=False, separators=(",", ":"))
-            samples, hashes = [], set()
+            samples, cpu_samples, hashes = [], [], set()
             for _ in range(args.repeat):
                 masker = Masker()
                 start = time.perf_counter()
+                cpu_start = time.process_time()
                 masked = masker.mask(source)
                 samples.append(time.perf_counter() - start)
+                cpu_samples.append(time.process_time() - cpu_start)
                 assert masker.restore(masked) == masker.restore(masked, tolerant=False) == source
                 assert len(masker.vault) == 5
                 hashes.add(hashlib.sha256((masked + masker.vault.to_json()).encode()).hexdigest())
@@ -55,6 +59,7 @@ def main() -> None:
                     "literalPlaceholder": literal,
                     "sourceSha256": hashlib.sha256(source.encode()).hexdigest(),
                     "seconds": samples,
+                    "cpuSeconds": cpu_samples,
                     "medianSeconds": statistics.median(samples),
                     "outputAndVaultSha256": hashes.pop(),
                     "mappings": 5,
