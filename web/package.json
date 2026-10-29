@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "description": "Browser demo of veil (reversible PII masking), running the real Python package via Pyodide.",
-  "author": "Anton Soloviev",
+  "author": "Anthony Mercer",
   "license": "MIT",
   "repository": "github:antonsoo/veil",
   "homepage": "https://antonsoo.github.io/veil/",

@@ -5,7 +5,7 @@ description = "Reversible PII masking for LLM calls: mask before the prompt leav
 dynamic = ["readme"]
 requires-python = ">=3.10"
 license = "MIT"
-authors = [{ name = "Anton Soloviev", email = "anton@praviel.com" }]
+authors = [{ name = "Anthony Mercer", email = "anthony@praviel.com" }]
 keywords = [
     "pii",
     "privacy",
