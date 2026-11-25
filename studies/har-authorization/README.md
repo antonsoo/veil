@@ -150,7 +150,7 @@ reconstruct the exact source. All work after bootstrap occurs offline with
 zero subsequent requests or page errors. This establishes those public
 workflows, separately from the unchanged PyPI release.
 
-The [Veil workbench](https://huggingface.co/spaces/antonsoloviev/veil/tree/9acc09228b88f5e24ded0c88233179489d0a250c)
+The [Veil workbench](https://huggingface.co/spaces/tonymerx/veil/tree/9acc09228b88f5e24ded0c88233179489d0a250c)
 also now pins source `ac1fb24f461f913347d8127026f9ba8679db8f98`.
 Its previous public engine retained both working capture credentials in both
 native HARs. Fresh Chromium and Firefox contexts at 1440 and 375 pixels now

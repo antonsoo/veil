@@ -159,9 +159,9 @@ screenshots were inspected. This does not create a package-registry release.
 
 ## Public bounded workbench
 
-The [Hugging Face workbench](https://antonsoloviev-veil.static.hf.space/) now
+The [Hugging Face workbench](https://tonymerx-veil.static.hf.space/) now
 pins the combined source `ce74b2f`. Its public Hub commit is
-[`214befe59ece3ed690f7ebecfdce038af0f6a6d0`](https://huggingface.co/spaces/antonsoloviev/veil/tree/214befe59ece3ed690f7ebecfdce038af0f6a6d0).
+[`214befe59ece3ed690f7ebecfdce038af0f6a6d0`](https://huggingface.co/spaces/tonymerx/veil/tree/214befe59ece3ed690f7ebecfdce038af0f6a6d0).
 The source ZIP's 40 runtime files match the reviewed source and installed wheel.
 Its 12,000-character source limit remains bounded: the 16 complete derived
 transaction views fit, while original large native HARs use the standalone demo.

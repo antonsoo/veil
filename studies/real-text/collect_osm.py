@@ -30,7 +30,7 @@ HERE = Path(__file__).parent
 ENDPOINT = "https://overpass-api.de/api/interpreter"
 MIRROR = "https://maps.mail.ru/osm/tools/overpass/api/interpreter"
 SNAPSHOT = "2026-10-01T00:00:00Z"
-USER_AGENT = "veil-study/1.0 (https://github.com/antonsoo/veil; anton@praviel.com)"
+USER_AGENT = "veil-study/1.0 (https://github.com/antonsoo/veil; anthony@praviel.com)"
 
 # (ISO country, city, south, west, north, east): a few square kilometres of the centre.
 CITIES = (
