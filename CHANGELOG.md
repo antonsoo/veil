@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Unreleased
 
+## [0.5.0] - 2026-11-26
+
+- Package metadata names Anthony Mercer (anthony@praviel.com) as the author.
+
 ### Explicit credential labels in ordinary URLs
 
 - Reuse the existing field policy for URL query and fragment names, including
